@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.report_location_point import ReportLocationPoint
+from mosquito_alert.models.report_location_point import ReportLocationPoint
 
 class TestReportLocationPoint(unittest.TestCase):
     """ReportLocationPoint unit test stubs"""

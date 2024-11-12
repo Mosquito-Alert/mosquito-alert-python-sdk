@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.countries_api import CountriesApi
+from mosquito_alert.api.countries_api import CountriesApi
 
 
 class TestCountriesApi(unittest.TestCase):

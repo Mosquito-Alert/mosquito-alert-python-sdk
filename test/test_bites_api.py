@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.bites_api import BitesApi
+from mosquito_alert.api.bites_api import BitesApi
 
 
 class TestBitesApi(unittest.TestCase):

@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.prediction_score import PredictionScore
+from mosquito_alert.models.prediction_score import PredictionScore
 
 class TestPredictionScore(unittest.TestCase):
     """PredictionScore unit test stubs"""

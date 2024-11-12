@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.meta_notification_request import MetaNotificationRequest
+from mosquito_alert.models.meta_notification_request import MetaNotificationRequest
 
 class TestMetaNotificationRequest(unittest.TestCase):
     """MetaNotificationRequest unit test stubs"""

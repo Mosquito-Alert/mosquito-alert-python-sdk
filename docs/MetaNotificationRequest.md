@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.meta_notification_request import MetaNotificationRequest
+from mosquito_alert.models.meta_notification_request import MetaNotificationRequest
 
 # TODO update the JSON string below
 json = "{}"

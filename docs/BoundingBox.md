@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.bounding_box import BoundingBox
+from mosquito_alert.models.bounding_box import BoundingBox
 
 # TODO update the JSON string below
 json = "{}"

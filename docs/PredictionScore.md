@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.prediction_score import PredictionScore
+from mosquito_alert.models.prediction_score import PredictionScore
 
 # TODO update the JSON string below
 json = "{}"

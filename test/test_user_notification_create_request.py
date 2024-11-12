@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.user_notification_create_request import UserNotificationCreateRequest
+from mosquito_alert.models.user_notification_create_request import UserNotificationCreateRequest
 
 class TestUserNotificationCreateRequest(unittest.TestCase):
     """UserNotificationCreateRequest unit test stubs"""

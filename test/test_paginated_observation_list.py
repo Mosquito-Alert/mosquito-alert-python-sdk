@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.paginated_observation_list import PaginatedObservationList
+from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
 
 class TestPaginatedObservationList(unittest.TestCase):
     """PaginatedObservationList unit test stubs"""
@@ -40,7 +40,7 @@ class TestPaginatedObservationList(unittest.TestCase):
                 next = '',
                 previous = '',
                 results = [
-                    mosquito_alert_api.models.observation.Observation(
+                    mosquito_alert.models.observation.Observation(
                         uuid = '', 
                         short_id = '', 
                         user_uuid = '', 
@@ -49,9 +49,9 @@ class TestPaginatedObservationList(unittest.TestCase):
                         sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        location = mosquito_alert_api.models.report_location.ReportLocation(
+                        location = mosquito_alert.models.report_location.ReportLocation(
                             type = 'current', 
-                            point = mosquito_alert_api.models.report_location_point.ReportLocation_point(
+                            point = mosquito_alert.models.report_location_point.ReportLocation_point(
                                 latitude = 1.337, 
                                 longitude = 1.337, ), 
                             timezone = 'Africa/Abidjan', 
@@ -64,7 +64,7 @@ class TestPaginatedObservationList(unittest.TestCase):
                             ], 
                         published = True, 
                         photos = [
-                            mosquito_alert_api.models.report_photo.ReportPhoto(
+                            mosquito_alert.models.report_photo.ReportPhoto(
                                 uuid = '', 
                                 url = '', )
                             ], 

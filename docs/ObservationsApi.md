@@ -1,4 +1,4 @@
-# mosquito_alert_api.ObservationsApi
+# mosquito_alert.ObservationsApi
 
 All URIs are relative to *https://api.mosquitoalert.com/v1*
 
@@ -25,15 +25,15 @@ Method | HTTP request | Description
 * Bearer (JWT) Authentication (jwtAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.observation import Observation
-from mosquito_alert_api.models.observation_request import ObservationRequest
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.observation import Observation
+from mosquito_alert.models.observation_request import ObservationRequest
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -55,15 +55,15 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.ObservationsApi(api_client)
-    observation_request = mosquito_alert_api.ObservationRequest() # ObservationRequest | 
+    api_instance = mosquito_alert.ObservationsApi(api_client)
+    observation_request = mosquito_alert.ObservationRequest() # ObservationRequest | 
 
     try:
         api_response = api_instance.observations_create(observation_request)
@@ -115,13 +115,13 @@ Name | Type | Description  | Notes
 * Bearer (JWT) Authentication (jwtAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -143,14 +143,14 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.ObservationsApi(api_client)
+    api_instance = mosquito_alert.ObservationsApi(api_client)
     uuid = 'uuid_example' # str | 
 
     try:
@@ -201,14 +201,14 @@ void (empty response body)
 * Bearer (JWT) Authentication (jwtAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.paginated_observation_list import PaginatedObservationList
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -230,14 +230,14 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.ObservationsApi(api_client)
+    api_instance = mosquito_alert.ObservationsApi(api_client)
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     has_photos = True # bool | Has any photo (optional)
@@ -321,15 +321,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (tokenAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.observation_prediction import ObservationPrediction
-from mosquito_alert_api.models.observation_prediction_request import ObservationPredictionRequest
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.observation_prediction import ObservationPrediction
+from mosquito_alert.models.observation_prediction_request import ObservationPredictionRequest
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -351,11 +351,11 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.ObservationsApi(api_client)
+    api_instance = mosquito_alert.ObservationsApi(api_client)
     uuid = 'uuid_example' # str | 
-    observation_prediction_request = mosquito_alert_api.ObservationPredictionRequest() # ObservationPredictionRequest | 
+    observation_prediction_request = mosquito_alert.ObservationPredictionRequest() # ObservationPredictionRequest | 
 
     try:
         api_response = api_instance.observations_prediction_create(uuid, observation_prediction_request)
@@ -407,13 +407,13 @@ Name | Type | Description  | Notes
 * Api Key Authentication (tokenAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -435,9 +435,9 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.ObservationsApi(api_client)
+    api_instance = mosquito_alert.ObservationsApi(api_client)
     uuid = 'uuid_example' # str | 
 
     try:
@@ -487,14 +487,14 @@ void (empty response body)
 * Api Key Authentication (tokenAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.observation_prediction import ObservationPrediction
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.observation_prediction import ObservationPrediction
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -516,9 +516,9 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.ObservationsApi(api_client)
+    api_instance = mosquito_alert.ObservationsApi(api_client)
     uuid = 'uuid_example' # str | 
 
     try:
@@ -571,14 +571,14 @@ Name | Type | Description  | Notes
 * Bearer (JWT) Authentication (jwtAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.observation import Observation
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.observation import Observation
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -600,14 +600,14 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.ObservationsApi(api_client)
+    api_instance = mosquito_alert.ObservationsApi(api_client)
     uuid = 'uuid_example' # str | 
 
     try:

@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.bounding_box_request import BoundingBoxRequest
+from mosquito_alert.models.bounding_box_request import BoundingBoxRequest
 
 class TestBoundingBoxRequest(unittest.TestCase):
     """BoundingBoxRequest unit test stubs"""

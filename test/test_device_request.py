@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.device_request import DeviceRequest
+from mosquito_alert.models.device_request import DeviceRequest
 
 class TestDeviceRequest(unittest.TestCase):
     """DeviceRequest unit test stubs"""

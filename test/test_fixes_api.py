@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.fixes_api import FixesApi
+from mosquito_alert.api.fixes_api import FixesApi
 
 
 class TestFixesApi(unittest.TestCase):

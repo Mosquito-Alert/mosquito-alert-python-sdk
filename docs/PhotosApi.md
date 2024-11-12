@@ -1,4 +1,4 @@
-# mosquito_alert_api.PhotosApi
+# mosquito_alert.PhotosApi
 
 All URIs are relative to *https://api.mosquitoalert.com/v1*
 
@@ -21,15 +21,15 @@ Method | HTTP request | Description
 * Api Key Authentication (tokenAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.photo_prediction import PhotoPrediction
-from mosquito_alert_api.models.photo_prediction_request import PhotoPredictionRequest
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.photo_prediction import PhotoPrediction
+from mosquito_alert.models.photo_prediction_request import PhotoPredictionRequest
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -51,11 +51,11 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.PhotosApi(api_client)
+    api_instance = mosquito_alert.PhotosApi(api_client)
     uuid = 'uuid_example' # str | 
-    photo_prediction_request = mosquito_alert_api.PhotoPredictionRequest() # PhotoPredictionRequest | 
+    photo_prediction_request = mosquito_alert.PhotoPredictionRequest() # PhotoPredictionRequest | 
 
     try:
         api_response = api_instance.photos_prediction_create(uuid, photo_prediction_request)
@@ -107,13 +107,13 @@ Name | Type | Description  | Notes
 * Api Key Authentication (tokenAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -135,9 +135,9 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.PhotosApi(api_client)
+    api_instance = mosquito_alert.PhotosApi(api_client)
     uuid = 'uuid_example' # str | 
 
     try:
@@ -187,14 +187,14 @@ void (empty response body)
 * Api Key Authentication (tokenAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.photo_prediction import PhotoPrediction
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.photo_prediction import PhotoPrediction
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -216,9 +216,9 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.PhotosApi(api_client)
+    api_instance = mosquito_alert.PhotosApi(api_client)
     uuid = 'uuid_example' # str | 
 
     try:
@@ -270,14 +270,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (tokenAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.photo import Photo
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.photo import Photo
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -299,9 +299,9 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.PhotosApi(api_client)
+    api_instance = mosquito_alert.PhotosApi(api_client)
     uuid = 'uuid_example' # str | 
 
     try:

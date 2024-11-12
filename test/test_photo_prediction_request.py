@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.photo_prediction_request import PhotoPredictionRequest
+from mosquito_alert.models.photo_prediction_request import PhotoPredictionRequest
 
 class TestPhotoPredictionRequest(unittest.TestCase):
     """PhotoPredictionRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestPhotoPredictionRequest(unittest.TestCase):
         model = PhotoPredictionRequest()
         if include_optional:
             return PhotoPredictionRequest(
-                bbox = mosquito_alert_api.models.bounding_box_request.BoundingBoxRequest(
+                bbox = mosquito_alert.models.bounding_box_request.BoundingBoxRequest(
                     x_min = 0, 
                     y_min = 0, 
                     x_max = 0, 
@@ -44,7 +44,7 @@ class TestPhotoPredictionRequest(unittest.TestCase):
                 insect_confidence = 0.0,
                 predicted_class = 'ae_albopictus',
                 threshold_deviation = -1.0,
-                scores = mosquito_alert_api.models.prediction_score_request.PredictionScoreRequest(
+                scores = mosquito_alert.models.prediction_score_request.PredictionScoreRequest(
                     ae_albopictus = 0.0, 
                     ae_aegypti = 0.0, 
                     ae_japonicus = 0.0, 
@@ -58,14 +58,14 @@ class TestPhotoPredictionRequest(unittest.TestCase):
             )
         else:
             return PhotoPredictionRequest(
-                bbox = mosquito_alert_api.models.bounding_box_request.BoundingBoxRequest(
+                bbox = mosquito_alert.models.bounding_box_request.BoundingBoxRequest(
                     x_min = 0, 
                     y_min = 0, 
                     x_max = 0, 
                     y_max = 0, ),
                 insect_confidence = 0.0,
                 threshold_deviation = -1.0,
-                scores = mosquito_alert_api.models.prediction_score_request.PredictionScoreRequest(
+                scores = mosquito_alert.models.prediction_score_request.PredictionScoreRequest(
                     ae_albopictus = 0.0, 
                     ae_aegypti = 0.0, 
                     ae_japonicus = 0.0, 

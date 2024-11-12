@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.photos_api import PhotosApi
+from mosquito_alert.api.photos_api import PhotosApi
 
 
 class TestPhotosApi(unittest.TestCase):

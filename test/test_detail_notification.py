@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.detail_notification import DetailNotification
+from mosquito_alert.models.detail_notification import DetailNotification
 
 class TestDetailNotification(unittest.TestCase):
     """DetailNotification unit test stubs"""

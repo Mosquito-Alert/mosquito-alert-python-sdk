@@ -1,4 +1,4 @@
-# mosquito_alert_api.TokenApi
+# mosquito_alert.TokenApi
 
 All URIs are relative to *https://api.mosquitoalert.com/v1*
 
@@ -19,24 +19,24 @@ Takes a set of user credentials and returns an access and refresh JSON web token
 
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.app_user_token_obtain_pair import AppUserTokenObtainPair
-from mosquito_alert_api.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair
+from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.TokenApi(api_client)
-    app_user_token_obtain_pair_request = mosquito_alert_api.AppUserTokenObtainPairRequest() # AppUserTokenObtainPairRequest | 
+    api_instance = mosquito_alert.TokenApi(api_client)
+    app_user_token_obtain_pair_request = mosquito_alert.AppUserTokenObtainPairRequest() # AppUserTokenObtainPairRequest | 
 
     try:
         api_response = api_instance.token_create(app_user_token_obtain_pair_request)
@@ -87,24 +87,24 @@ Takes a refresh type JSON web token and returns an access type JSON web token if
 
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.token_refresh import TokenRefresh
-from mosquito_alert_api.models.token_refresh_request import TokenRefreshRequest
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.token_refresh import TokenRefresh
+from mosquito_alert.models.token_refresh_request import TokenRefreshRequest
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.TokenApi(api_client)
-    token_refresh_request = mosquito_alert_api.TokenRefreshRequest() # TokenRefreshRequest | 
+    api_instance = mosquito_alert.TokenApi(api_client)
+    token_refresh_request = mosquito_alert.TokenRefreshRequest() # TokenRefreshRequest | 
 
     try:
         api_response = api_instance.token_refresh_create(token_refresh_request)

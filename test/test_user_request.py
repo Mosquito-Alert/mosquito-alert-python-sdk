@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.user_request import UserRequest
+from mosquito_alert.models.user_request import UserRequest
 
 class TestUserRequest(unittest.TestCase):
     """UserRequest unit test stubs"""

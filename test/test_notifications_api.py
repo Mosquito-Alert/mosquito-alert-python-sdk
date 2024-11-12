@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.notifications_api import NotificationsApi
+from mosquito_alert.api.notifications_api import NotificationsApi
 
 
 class TestNotificationsApi(unittest.TestCase):

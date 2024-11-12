@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.app_user_token_obtain_pair import AppUserTokenObtainPair
+from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair
 
 class TestAppUserTokenObtainPair(unittest.TestCase):
     """AppUserTokenObtainPair unit test stubs"""

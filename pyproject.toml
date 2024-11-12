@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "mosquito_alert_api"
+name = "mosquito_alert"
 version = "1.0.0"
 description = "Mosquito Alert API"
 authors = ["Developers <it@mosquitoalert.com>"]
 license = "GPL-3"
 readme = "README.md"
-repository = "https://github.com/Mosquito_Alert/mosquito_alert_python_client"
+repository = "https://github.com/Mosquito_Alert/mosquito-alert-python-sdk"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Mosquito Alert API"]
-include = ["mosquito_alert_api/py.typed"]
+include = ["mosquito_alert/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -35,7 +35,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "mosquito_alert_api",
+  "mosquito_alert",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]

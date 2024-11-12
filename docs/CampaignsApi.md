@@ -1,4 +1,4 @@
-# mosquito_alert_api.CampaignsApi
+# mosquito_alert.CampaignsApi
 
 All URIs are relative to *https://api.mosquitoalert.com/v1*
 
@@ -20,14 +20,14 @@ Method | HTTP request | Description
 * Bearer (JWT) Authentication (jwtAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.paginated_campaign_list import PaginatedCampaignList
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.paginated_campaign_list import PaginatedCampaignList
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -49,14 +49,14 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.CampaignsApi(api_client)
+    api_instance = mosquito_alert.CampaignsApi(api_client)
     country_id = 56 # int | Country in which the campaign is taking place (optional)
     is_active = True # bool |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
@@ -117,14 +117,14 @@ Name | Type | Description  | Notes
 * Bearer (JWT) Authentication (jwtAuth):
 
 ```python
-import mosquito_alert_api
-from mosquito_alert_api.models.campaign import Campaign
-from mosquito_alert_api.rest import ApiException
+import mosquito_alert
+from mosquito_alert.models.campaign import Campaign
+from mosquito_alert.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     host = "https://api.mosquitoalert.com/v1"
 )
 
@@ -146,14 +146,14 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert_api.Configuration(
+configuration = mosquito_alert.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with mosquito_alert_api.ApiClient(configuration) as api_client:
+with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert_api.CampaignsApi(api_client)
+    api_instance = mosquito_alert.CampaignsApi(api_client)
     id = 56 # int | A unique integer value identifying this ow campaigns.
 
     try:

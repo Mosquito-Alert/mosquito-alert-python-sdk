@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.campaigns_api import CampaignsApi
+from mosquito_alert.api.campaigns_api import CampaignsApi
 
 
 class TestCampaignsApi(unittest.TestCase):

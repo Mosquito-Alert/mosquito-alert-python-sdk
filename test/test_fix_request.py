@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.fix_request import FixRequest
+from mosquito_alert.models.fix_request import FixRequest
 
 class TestFixRequest(unittest.TestCase):
     """FixRequest unit test stubs"""
@@ -39,7 +39,7 @@ class TestFixRequest(unittest.TestCase):
                 coverage_uuid = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                point = mosquito_alert_api.models.fix_location_request.FixLocationRequest(
+                point = mosquito_alert.models.fix_location_request.FixLocationRequest(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 power = 1.337
@@ -49,7 +49,7 @@ class TestFixRequest(unittest.TestCase):
                 coverage_uuid = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                point = mosquito_alert_api.models.fix_location_request.FixLocationRequest(
+                point = mosquito_alert.models.fix_location_request.FixLocationRequest(
                     latitude = 1.337, 
                     longitude = 1.337, ),
         )

@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.package import Package
+from mosquito_alert.models.package import Package
 
 class TestPackage(unittest.TestCase):
     """Package unit test stubs"""

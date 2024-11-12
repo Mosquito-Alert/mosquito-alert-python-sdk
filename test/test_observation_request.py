@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.observation_request import ObservationRequest
+from mosquito_alert.models.observation_request import ObservationRequest
 
 class TestObservationRequest(unittest.TestCase):
     """ObservationRequest unit test stubs"""
@@ -38,27 +38,27 @@ class TestObservationRequest(unittest.TestCase):
             return ObservationRequest(
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert_api.models.report_location_request.ReportLocationRequest(
+                location = mosquito_alert.models.report_location_request.ReportLocationRequest(
                     type = 'current', 
-                    point = mosquito_alert_api.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), ),
                 note = '',
                 tags = [
                     '0'
                     ],
-                package = mosquito_alert_api.models.package_request.PackageRequest(
+                package = mosquito_alert.models.package_request.PackageRequest(
                     name = '', 
                     version = -2147483648, 
                     language = '', ),
-                device = mosquito_alert_api.models.device_request.DeviceRequest(
+                device = mosquito_alert.models.device_request.DeviceRequest(
                     manufacturer = '', 
                     model = '', 
                     os = '', 
                     os_version = '', 
                     os_language = '', ),
                 photos = [
-                    mosquito_alert_api.models.report_photo_request.ReportPhotoRequest(
+                    mosquito_alert.models.report_photo_request.ReportPhotoRequest(
                         uuid = '', 
                         file = bytes(b'blah'), )
                     ],
@@ -73,13 +73,13 @@ class TestObservationRequest(unittest.TestCase):
             return ObservationRequest(
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert_api.models.report_location_request.ReportLocationRequest(
+                location = mosquito_alert.models.report_location_request.ReportLocationRequest(
                     type = 'current', 
-                    point = mosquito_alert_api.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), ),
                 photos = [
-                    mosquito_alert_api.models.report_photo_request.ReportPhotoRequest(
+                    mosquito_alert.models.report_photo_request.ReportPhotoRequest(
                         uuid = '', 
                         file = bytes(b'blah'), )
                     ],

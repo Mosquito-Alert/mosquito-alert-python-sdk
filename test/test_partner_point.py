@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.partner_point import PartnerPoint
+from mosquito_alert.models.partner_point import PartnerPoint
 
 class TestPartnerPoint(unittest.TestCase):
     """PartnerPoint unit test stubs"""

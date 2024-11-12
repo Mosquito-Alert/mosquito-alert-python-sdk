@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.patched_user_request import PatchedUserRequest
+from mosquito_alert.models.patched_user_request import PatchedUserRequest
 
 class TestPatchedUserRequest(unittest.TestCase):
     """PatchedUserRequest unit test stubs"""

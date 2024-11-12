@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.base_notification_create import BaseNotificationCreate
+from mosquito_alert.models.base_notification_create import BaseNotificationCreate
 
 class TestBaseNotificationCreate(unittest.TestCase):
     """BaseNotificationCreate unit test stubs"""

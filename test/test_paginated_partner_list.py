@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.paginated_partner_list import PaginatedPartnerList
+from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList
 
 class TestPaginatedPartnerList(unittest.TestCase):
     """PaginatedPartnerList unit test stubs"""
@@ -40,9 +40,9 @@ class TestPaginatedPartnerList(unittest.TestCase):
                 next = '',
                 previous = '',
                 results = [
-                    mosquito_alert_api.models.partner.Partner(
+                    mosquito_alert.models.partner.Partner(
                         id = 56, 
-                        point = mosquito_alert_api.models.partner_point.Partner_point(
+                        point = mosquito_alert.models.partner_point.Partner_point(
                             latitude = 1.337, 
                             longitude = 1.337, ), 
                         description = '', 

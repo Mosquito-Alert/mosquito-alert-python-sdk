@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.report_location import ReportLocation
+from mosquito_alert.models.report_location import ReportLocation
 
 class TestReportLocation(unittest.TestCase):
     """ReportLocation unit test stubs"""
@@ -37,7 +37,7 @@ class TestReportLocation(unittest.TestCase):
         if include_optional:
             return ReportLocation(
                 type = 'current',
-                point = mosquito_alert_api.models.report_location_point.ReportLocation_point(
+                point = mosquito_alert.models.report_location_point.ReportLocation_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',
@@ -48,7 +48,7 @@ class TestReportLocation(unittest.TestCase):
         else:
             return ReportLocation(
                 type = 'current',
-                point = mosquito_alert_api.models.report_location_point.ReportLocation_point(
+                point = mosquito_alert.models.report_location_point.ReportLocation_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',

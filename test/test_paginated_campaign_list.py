@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.paginated_campaign_list import PaginatedCampaignList
+from mosquito_alert.models.paginated_campaign_list import PaginatedCampaignList
 
 class TestPaginatedCampaignList(unittest.TestCase):
     """PaginatedCampaignList unit test stubs"""
@@ -40,7 +40,7 @@ class TestPaginatedCampaignList(unittest.TestCase):
                 next = '',
                 previous = '',
                 results = [
-                    mosquito_alert_api.models.campaign.Campaign(
+                    mosquito_alert.models.campaign.Campaign(
                         id = 56, 
                         country_id = 56, 
                         posting_address = '', 

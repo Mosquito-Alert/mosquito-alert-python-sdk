@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.token_refresh_request import TokenRefreshRequest
+from mosquito_alert.models.token_refresh_request import TokenRefreshRequest
 
 class TestTokenRefreshRequest(unittest.TestCase):
     """TokenRefreshRequest unit test stubs"""

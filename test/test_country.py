@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.country import Country
+from mosquito_alert.models.country import Country
 
 class TestCountry(unittest.TestCase):
     """Country unit test stubs"""

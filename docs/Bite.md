@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.bite import Bite
+from mosquito_alert.models.bite import Bite
 
 # TODO update the JSON string below
 json = "{}"

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.bite_request import BiteRequest
+from mosquito_alert.models.bite_request import BiteRequest
 
 # TODO update the JSON string below
 json = "{}"

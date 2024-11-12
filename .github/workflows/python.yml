@@ -3,7 +3,7 @@
 #
 # ref: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: mosquito_alert_api Python package
+name: mosquito_alert Python package
 
 on: [push, pull_request]
 

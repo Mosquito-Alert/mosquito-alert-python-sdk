@@ -21,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "mosquito-alert-api"
+NAME = "mosquito-alert"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
@@ -47,5 +47,5 @@ setup(
     long_description="""\
     Introducing API v1 for Mosquito Alert platform, a project desgined to facilitate citizen science initiatives and enable collaboration among scientists, public health officials, and environmental managers in the investigation and control of disease-carrying mosquitoes.
     """,  # noqa: E501
-    package_data={"mosquito_alert_api": ["py.typed"]},
+    package_data={"mosquito_alert": ["py.typed"]},
 )

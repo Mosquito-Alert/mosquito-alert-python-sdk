@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.token_api import TokenApi
+from mosquito_alert.api.token_api import TokenApi
 
 
 class TestTokenApi(unittest.TestCase):

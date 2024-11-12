@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.base_notification_create import BaseNotificationCreate
+from mosquito_alert.models.base_notification_create import BaseNotificationCreate
 
 # TODO update the JSON string below
 json = "{}"

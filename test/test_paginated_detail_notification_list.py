@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.paginated_detail_notification_list import PaginatedDetailNotificationList
+from mosquito_alert.models.paginated_detail_notification_list import PaginatedDetailNotificationList
 
 class TestPaginatedDetailNotificationList(unittest.TestCase):
     """PaginatedDetailNotificationList unit test stubs"""
@@ -40,7 +40,7 @@ class TestPaginatedDetailNotificationList(unittest.TestCase):
                 next = '',
                 previous = '',
                 results = [
-                    mosquito_alert_api.models.detail_notification.DetailNotification(
+                    mosquito_alert.models.detail_notification.DetailNotification(
                         id = 56, 
                         expert_id = 56, 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

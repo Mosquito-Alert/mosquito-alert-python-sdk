@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.partners_api import PartnersApi
+from mosquito_alert.api.partners_api import PartnersApi
 
 
 class TestPartnersApi(unittest.TestCase):

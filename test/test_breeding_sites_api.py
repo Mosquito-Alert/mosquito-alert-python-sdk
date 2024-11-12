@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.breeding_sites_api import BreedingSitesApi
+from mosquito_alert.api.breeding_sites_api import BreedingSitesApi
 
 
 class TestBreedingSitesApi(unittest.TestCase):

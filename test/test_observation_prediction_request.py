@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.observation_prediction_request import ObservationPredictionRequest
+from mosquito_alert.models.observation_prediction_request import ObservationPredictionRequest
 
 class TestObservationPredictionRequest(unittest.TestCase):
     """ObservationPredictionRequest unit test stubs"""

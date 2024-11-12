@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.report_photo import ReportPhoto
+from mosquito_alert.models.report_photo import ReportPhoto
 
 class TestReportPhoto(unittest.TestCase):
     """ReportPhoto unit test stubs"""

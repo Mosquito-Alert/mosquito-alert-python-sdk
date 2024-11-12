@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.device import Device
+from mosquito_alert.models.device import Device
 
 class TestDevice(unittest.TestCase):
     """Device unit test stubs"""

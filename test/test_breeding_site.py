@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.breeding_site import BreedingSite
+from mosquito_alert.models.breeding_site import BreedingSite
 
 class TestBreedingSite(unittest.TestCase):
     """BreedingSite unit test stubs"""
@@ -44,9 +44,9 @@ class TestBreedingSite(unittest.TestCase):
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert_api.models.report_location.ReportLocation(
+                location = mosquito_alert.models.report_location.ReportLocation(
                     type = 'current', 
-                    point = mosquito_alert_api.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
@@ -59,7 +59,7 @@ class TestBreedingSite(unittest.TestCase):
                     ],
                 published = True,
                 photos = [
-                    mosquito_alert_api.models.report_photo.ReportPhoto(
+                    mosquito_alert.models.report_photo.ReportPhoto(
                         uuid = '', 
                         url = '', )
                     ],
@@ -79,9 +79,9 @@ class TestBreedingSite(unittest.TestCase):
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert_api.models.report_location.ReportLocation(
+                location = mosquito_alert.models.report_location.ReportLocation(
                     type = 'current', 
-                    point = mosquito_alert_api.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
@@ -90,7 +90,7 @@ class TestBreedingSite(unittest.TestCase):
                     nuts_3 = '', ),
                 published = True,
                 photos = [
-                    mosquito_alert_api.models.report_photo.ReportPhoto(
+                    mosquito_alert.models.report_photo.ReportPhoto(
                         uuid = '', 
                         url = '', )
                     ],

@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.partner import Partner
+from mosquito_alert.models.partner import Partner
 
 class TestPartner(unittest.TestCase):
     """Partner unit test stubs"""
@@ -37,7 +37,7 @@ class TestPartner(unittest.TestCase):
         if include_optional:
             return Partner(
                 id = 56,
-                point = mosquito_alert_api.models.partner_point.Partner_point(
+                point = mosquito_alert.models.partner_point.Partner_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 description = '',
@@ -46,7 +46,7 @@ class TestPartner(unittest.TestCase):
         else:
             return Partner(
                 id = 56,
-                point = mosquito_alert_api.models.partner_point.Partner_point(
+                point = mosquito_alert.models.partner_point.Partner_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 description = '',

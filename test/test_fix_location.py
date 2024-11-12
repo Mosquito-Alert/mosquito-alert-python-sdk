@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.fix_location import FixLocation
+from mosquito_alert.models.fix_location import FixLocation
 
 class TestFixLocation(unittest.TestCase):
     """FixLocation unit test stubs"""

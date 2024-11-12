@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.paginated_bite_list import PaginatedBiteList
+from mosquito_alert.models.paginated_bite_list import PaginatedBiteList
 
 # TODO update the JSON string below
 json = "{}"

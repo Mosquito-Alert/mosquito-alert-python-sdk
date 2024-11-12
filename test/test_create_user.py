@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.create_user import CreateUser
+from mosquito_alert.models.create_user import CreateUser
 
 class TestCreateUser(unittest.TestCase):
     """CreateUser unit test stubs"""

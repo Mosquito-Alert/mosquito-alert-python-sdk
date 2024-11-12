@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.photo_prediction import PhotoPrediction
+from mosquito_alert.models.photo_prediction import PhotoPrediction
 
 class TestPhotoPrediction(unittest.TestCase):
     """PhotoPrediction unit test stubs"""
@@ -36,7 +36,7 @@ class TestPhotoPrediction(unittest.TestCase):
         model = PhotoPrediction()
         if include_optional:
             return PhotoPrediction(
-                bbox = mosquito_alert_api.models.bounding_box.BoundingBox(
+                bbox = mosquito_alert.models.bounding_box.BoundingBox(
                     x_min = 0, 
                     y_min = 0, 
                     x_max = 0, 
@@ -44,7 +44,7 @@ class TestPhotoPrediction(unittest.TestCase):
                 insect_confidence = 0.0,
                 predicted_class = 'ae_albopictus',
                 threshold_deviation = -1.0,
-                scores = mosquito_alert_api.models.prediction_score.PredictionScore(
+                scores = mosquito_alert.models.prediction_score.PredictionScore(
                     ae_albopictus = 0.0, 
                     ae_aegypti = 0.0, 
                     ae_japonicus = 0.0, 
@@ -60,14 +60,14 @@ class TestPhotoPrediction(unittest.TestCase):
             )
         else:
             return PhotoPrediction(
-                bbox = mosquito_alert_api.models.bounding_box.BoundingBox(
+                bbox = mosquito_alert.models.bounding_box.BoundingBox(
                     x_min = 0, 
                     y_min = 0, 
                     x_max = 0, 
                     y_max = 0, ),
                 insect_confidence = 0.0,
                 threshold_deviation = -1.0,
-                scores = mosquito_alert_api.models.prediction_score.PredictionScore(
+                scores = mosquito_alert.models.prediction_score.PredictionScore(
                     ae_albopictus = 0.0, 
                     ae_aegypti = 0.0, 
                     ae_japonicus = 0.0, 

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert_api.models.package_request import PackageRequest
+from mosquito_alert.models.package_request import PackageRequest
 
 # TODO update the JSON string below
 json = "{}"

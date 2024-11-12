@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.api.users_api import UsersApi
+from mosquito_alert.api.users_api import UsersApi
 
 
 class TestUsersApi(unittest.TestCase):

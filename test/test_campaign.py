@@ -15,7 +15,7 @@
 
 import unittest
 
-from mosquito_alert_api.models.campaign import Campaign
+from mosquito_alert.models.campaign import Campaign
 
 class TestCampaign(unittest.TestCase):
     """Campaign unit test stubs"""
