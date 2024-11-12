@@ -21,8 +21,8 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from mosquito_alert.models.report_location import ReportLocation
-from mosquito_alert.models.report_photo import ReportPhoto
+from mosquito_alert.models.location import Location
+from mosquito_alert.models.simple_photo import SimplePhoto
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -38,11 +38,11 @@ class BreedingSite(BaseModel):
     sent_at: datetime
     received_at: datetime
     updated_at: datetime = Field(description="Date and time when the report was last modified")
-    location: ReportLocation
+    location: Location
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     tags: Optional[List[StrictStr]] = None
     published: StrictBool
-    photos: List[ReportPhoto]
+    photos: List[SimplePhoto]
     site_type: Optional[StrictStr] = Field(default=None, description="Breeding site type.")
     has_water: Optional[StrictBool] = Field(default=None, description="Either if the user perceived water in the breeding site.")
     in_public_area: Optional[StrictBool] = Field(default=None, description="Either if the breeding site is found in a public area.")
@@ -168,11 +168,11 @@ class BreedingSite(BaseModel):
             "sent_at": obj.get("sent_at"),
             "received_at": obj.get("received_at"),
             "updated_at": obj.get("updated_at"),
-            "location": ReportLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
+            "location": Location.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "tags": obj.get("tags"),
             "published": obj.get("published"),
-            "photos": [ReportPhoto.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
+            "photos": [SimplePhoto.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
             "site_type": obj.get("site_type"),
             "has_water": obj.get("has_water"),
             "in_public_area": obj.get("in_public_area"),

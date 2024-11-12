@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **datetime** |  | 
 **sent_at** | **datetime** |  | 
-**location** | [**ReportLocationRequest**](ReportLocationRequest.md) |  | 
+**location** | [**LocationRequest**](LocationRequest.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **package** | [**PackageRequest**](PackageRequest.md) |  | [optional] 
 **device** | [**DeviceRequest**](DeviceRequest.md) |  | [optional] 
-**photos** | [**List[ReportPhotoRequest]**](ReportPhotoRequest.md) |  | 
+**photos** | [**List[SimplePhotoRequest]**](SimplePhotoRequest.md) |  | 
 **site_type** | **str** | Breeding site type. | [optional] 
 **has_water** | **bool** | Either if the user perceived water in the breeding site. | [optional] 
 **in_public_area** | **bool** | Either if the breeding site is found in a public area. | [optional] 

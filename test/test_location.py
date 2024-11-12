@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.report_location_request import ReportLocationRequest
+from mosquito_alert.models.location import Location
 
-class TestReportLocationRequest(unittest.TestCase):
-    """ReportLocationRequest unit test stubs"""
+class TestLocation(unittest.TestCase):
+    """Location unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,32 +26,40 @@ class TestReportLocationRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ReportLocationRequest:
-        """Test ReportLocationRequest
+    def make_instance(self, include_optional) -> Location:
+        """Test Location
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ReportLocationRequest`
+        # uncomment below to create an instance of `Location`
         """
-        model = ReportLocationRequest()
+        model = Location()
         if include_optional:
-            return ReportLocationRequest(
+            return Location(
                 type = 'current',
-                point = mosquito_alert.models.report_location_point.ReportLocation_point(
-                    latitude = 1.337, 
-                    longitude = 1.337, )
-            )
-        else:
-            return ReportLocationRequest(
-                type = 'current',
-                point = mosquito_alert.models.report_location_point.ReportLocation_point(
+                point = mosquito_alert.models.location_point.Location_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
+                timezone = 'Africa/Abidjan',
+                country_id = 56,
+                nuts_2 = '',
+                nuts_3 = ''
+            )
+        else:
+            return Location(
+                type = 'current',
+                point = mosquito_alert.models.location_point.Location_point(
+                    latitude = 1.337, 
+                    longitude = 1.337, ),
+                timezone = 'Africa/Abidjan',
+                country_id = 56,
+                nuts_2 = '',
+                nuts_3 = '',
         )
         """
 
-    def testReportLocationRequest(self):
-        """Test ReportLocationRequest"""
+    def testLocation(self):
+        """Test Location"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

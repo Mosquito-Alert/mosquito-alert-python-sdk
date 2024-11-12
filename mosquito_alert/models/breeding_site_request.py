@@ -23,9 +23,9 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.device_request import DeviceRequest
+from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.package_request import PackageRequest
-from mosquito_alert.models.report_location_request import ReportLocationRequest
-from mosquito_alert.models.report_photo_request import ReportPhotoRequest
+from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,12 +35,12 @@ class BreedingSiteRequest(BaseModel):
     """ # noqa: E501
     created_at: datetime
     sent_at: datetime
-    location: ReportLocationRequest
+    location: LocationRequest
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
     package: Optional[PackageRequest] = None
     device: Optional[DeviceRequest] = None
-    photos: List[ReportPhotoRequest]
+    photos: List[SimplePhotoRequest]
     site_type: Optional[StrictStr] = Field(default=None, description="Breeding site type.")
     has_water: Optional[StrictBool] = Field(default=None, description="Either if the user perceived water in the breeding site.")
     in_public_area: Optional[StrictBool] = Field(default=None, description="Either if the breeding site is found in a public area.")
@@ -152,12 +152,12 @@ class BreedingSiteRequest(BaseModel):
         _obj = cls.model_validate({
             "created_at": obj.get("created_at"),
             "sent_at": obj.get("sent_at"),
-            "location": ReportLocationRequest.from_dict(obj["location"]) if obj.get("location") is not None else None,
+            "location": LocationRequest.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "tags": obj.get("tags"),
             "package": PackageRequest.from_dict(obj["package"]) if obj.get("package") is not None else None,
             "device": DeviceRequest.from_dict(obj["device"]) if obj.get("device") is not None else None,
-            "photos": [ReportPhotoRequest.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
+            "photos": [SimplePhotoRequest.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
             "site_type": obj.get("site_type"),
             "has_water": obj.get("has_water"),
             "in_public_area": obj.get("in_public_area"),

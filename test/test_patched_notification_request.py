@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.report_photo_request import ReportPhotoRequest
+from mosquito_alert.models.patched_notification_request import PatchedNotificationRequest
 
-class TestReportPhotoRequest(unittest.TestCase):
-    """ReportPhotoRequest unit test stubs"""
+class TestPatchedNotificationRequest(unittest.TestCase):
+    """PatchedNotificationRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,25 @@ class TestReportPhotoRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ReportPhotoRequest:
-        """Test ReportPhotoRequest
+    def make_instance(self, include_optional) -> PatchedNotificationRequest:
+        """Test PatchedNotificationRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ReportPhotoRequest`
+        # uncomment below to create an instance of `PatchedNotificationRequest`
         """
-        model = ReportPhotoRequest()
+        model = PatchedNotificationRequest()
         if include_optional:
-            return ReportPhotoRequest(
-                uuid = '',
-                file = bytes(b'blah')
+            return PatchedNotificationRequest(
+                seen = True
             )
         else:
-            return ReportPhotoRequest(
-                file = bytes(b'blah'),
+            return PatchedNotificationRequest(
         )
         """
 
-    def testReportPhotoRequest(self):
-        """Test ReportPhotoRequest"""
+    def testPatchedNotificationRequest(self):
+        """Test PatchedNotificationRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -13,11 +13,11 @@ Name | Type | Description | Notes
 **sent_at** | **datetime** |  | 
 **received_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** | Date and time when the report was last modified | [readonly] 
-**location** | [**ReportLocation**](ReportLocation.md) |  | 
+**location** | [**Location**](Location.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **published** | **bool** |  | [readonly] 
-**photos** | [**List[ReportPhoto]**](ReportPhoto.md) |  | 
+**photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | 
 **event_environment** | **str** | The environment where the event took place. | [optional] 
 **event_moment** | **str** | The moment of the day when the event took place. | [optional] 
 **user_perceived_mosquito_specie** | **str** | The mosquito specie perceived by the user. | [optional] 

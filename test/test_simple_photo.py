@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.detail_notification import DetailNotification
+from mosquito_alert.models.simple_photo import SimplePhoto
 
-class TestDetailNotification(unittest.TestCase):
-    """DetailNotification unit test stubs"""
+class TestSimplePhoto(unittest.TestCase):
+    """SimplePhoto unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,36 +26,28 @@ class TestDetailNotification(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> DetailNotification:
-        """Test DetailNotification
+    def make_instance(self, include_optional) -> SimplePhoto:
+        """Test SimplePhoto
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `DetailNotification`
+        # uncomment below to create an instance of `SimplePhoto`
         """
-        model = DetailNotification()
+        model = SimplePhoto()
         if include_optional:
-            return DetailNotification(
-                id = 56,
-                expert_id = 56,
-                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                title = '',
-                body = '',
-                seen = True
+            return SimplePhoto(
+                uuid = '',
+                url = ''
             )
         else:
-            return DetailNotification(
-                id = 56,
-                expert_id = 56,
-                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                title = '',
-                body = '',
-                seen = True,
+            return SimplePhoto(
+                uuid = '',
+                url = '',
         )
         """
 
-    def testDetailNotification(self):
-        """Test DetailNotification"""
+    def testSimplePhoto(self):
+        """Test SimplePhoto"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

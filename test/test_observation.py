@@ -44,9 +44,9 @@ class TestObservation(unittest.TestCase):
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert.models.report_location.ReportLocation(
+                location = mosquito_alert.models.location.Location(
                     type = 'current', 
-                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.location_point.Location_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
@@ -59,7 +59,7 @@ class TestObservation(unittest.TestCase):
                     ],
                 published = True,
                 photos = [
-                    mosquito_alert.models.report_photo.ReportPhoto(
+                    mosquito_alert.models.simple_photo.SimplePhoto(
                         uuid = '', 
                         url = '', )
                     ],
@@ -80,9 +80,9 @@ class TestObservation(unittest.TestCase):
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert.models.report_location.ReportLocation(
+                location = mosquito_alert.models.location.Location(
                     type = 'current', 
-                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.location_point.Location_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
@@ -91,7 +91,7 @@ class TestObservation(unittest.TestCase):
                     nuts_3 = '', ),
                 published = True,
                 photos = [
-                    mosquito_alert.models.report_photo.ReportPhoto(
+                    mosquito_alert.models.simple_photo.SimplePhoto(
                         uuid = '', 
                         url = '', )
                     ],

@@ -20,16 +20,16 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from mosquito_alert.models.report_location_point import ReportLocationPoint
+from mosquito_alert.models.location_point import LocationPoint
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ReportLocationRequest(BaseModel):
+class LocationRequest(BaseModel):
     """
-    ReportLocationRequest
+    LocationRequest
     """ # noqa: E501
     type: StrictStr = Field(description="Did user indicate that report relates to current location of phone ('current') or to a location selected manually on the map ('selected')? Or is the choice missing ('missing')")
-    point: Optional[ReportLocationPoint]
+    point: Optional[LocationPoint]
     __properties: ClassVar[List[str]] = ["type", "point"]
 
     @field_validator('type')
@@ -57,7 +57,7 @@ class ReportLocationRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ReportLocationRequest from a JSON string"""
+        """Create an instance of LocationRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -90,7 +90,7 @@ class ReportLocationRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ReportLocationRequest from a dict"""
+        """Create an instance of LocationRequest from a dict"""
         if obj is None:
             return None
 
@@ -99,7 +99,7 @@ class ReportLocationRequest(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "point": ReportLocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None
+            "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None
         })
         return _obj
 

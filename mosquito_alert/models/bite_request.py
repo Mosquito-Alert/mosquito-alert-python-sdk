@@ -23,8 +23,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.device_request import DeviceRequest
+from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.package_request import PackageRequest
-from mosquito_alert.models.report_location_request import ReportLocationRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -34,7 +34,7 @@ class BiteRequest(BaseModel):
     """ # noqa: E501
     created_at: datetime
     sent_at: datetime
-    location: ReportLocationRequest
+    location: LocationRequest
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
     package: Optional[PackageRequest] = None
@@ -176,7 +176,7 @@ class BiteRequest(BaseModel):
         _obj = cls.model_validate({
             "created_at": obj.get("created_at"),
             "sent_at": obj.get("sent_at"),
-            "location": ReportLocationRequest.from_dict(obj["location"]) if obj.get("location") is not None else None,
+            "location": LocationRequest.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "tags": obj.get("tags"),
             "package": PackageRequest.from_dict(obj["package"]) if obj.get("package") is not None else None,

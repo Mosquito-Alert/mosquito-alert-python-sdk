@@ -20,12 +20,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
-from mosquito_alert.models.base_notification_create import BaseNotificationCreate
-from mosquito_alert.models.detail_notification import DetailNotification
-from mosquito_alert.models.detail_notification_request import DetailNotificationRequest
+from mosquito_alert.models.create_notification import CreateNotification
 from mosquito_alert.models.meta_notification_request import MetaNotificationRequest
-from mosquito_alert.models.paginated_detail_notification_list import PaginatedDetailNotificationList
-from mosquito_alert.models.patched_detail_notification_request import PatchedDetailNotificationRequest
+from mosquito_alert.models.notification import Notification
+from mosquito_alert.models.notification_request import NotificationRequest
+from mosquito_alert.models.paginated_notification_list import PaginatedNotificationList
+from mosquito_alert.models.patched_notification_request import PatchedNotificationRequest
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -61,7 +61,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BaseNotificationCreate:
+    ) -> CreateNotification:
         """notifications_create
 
 
@@ -98,7 +98,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "BaseNotificationCreate",
+            '201': "CreateNotification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -127,7 +127,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BaseNotificationCreate]:
+    ) -> ApiResponse[CreateNotification]:
         """notifications_create
 
 
@@ -164,7 +164,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "BaseNotificationCreate",
+            '201': "CreateNotification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -230,7 +230,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "BaseNotificationCreate",
+            '201': "CreateNotification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -339,7 +339,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaginatedDetailNotificationList:
+    ) -> PaginatedNotificationList:
         """notifications_list
 
 
@@ -385,7 +385,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedDetailNotificationList",
+            '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -417,7 +417,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaginatedDetailNotificationList]:
+    ) -> ApiResponse[PaginatedNotificationList]:
         """notifications_list
 
 
@@ -463,7 +463,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedDetailNotificationList",
+            '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -541,7 +541,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedDetailNotificationList",
+            '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -638,7 +638,7 @@ class NotificationsApi:
     def notifications_partial_update(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
-        patched_detail_notification_request: Optional[PatchedDetailNotificationRequest] = None,
+        patched_notification_request: Optional[PatchedNotificationRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -651,14 +651,14 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DetailNotification:
+    ) -> Notification:
         """notifications_partial_update
 
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
-        :param patched_detail_notification_request:
-        :type patched_detail_notification_request: PatchedDetailNotificationRequest
+        :param patched_notification_request:
+        :type patched_notification_request: PatchedNotificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -683,7 +683,7 @@ class NotificationsApi:
 
         _param = self._notifications_partial_update_serialize(
             id=id,
-            patched_detail_notification_request=patched_detail_notification_request,
+            patched_notification_request=patched_notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -691,7 +691,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -708,7 +708,7 @@ class NotificationsApi:
     def notifications_partial_update_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
-        patched_detail_notification_request: Optional[PatchedDetailNotificationRequest] = None,
+        patched_notification_request: Optional[PatchedNotificationRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -721,14 +721,14 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DetailNotification]:
+    ) -> ApiResponse[Notification]:
         """notifications_partial_update
 
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
-        :param patched_detail_notification_request:
-        :type patched_detail_notification_request: PatchedDetailNotificationRequest
+        :param patched_notification_request:
+        :type patched_notification_request: PatchedNotificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -753,7 +753,7 @@ class NotificationsApi:
 
         _param = self._notifications_partial_update_serialize(
             id=id,
-            patched_detail_notification_request=patched_detail_notification_request,
+            patched_notification_request=patched_notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -761,7 +761,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -778,7 +778,7 @@ class NotificationsApi:
     def notifications_partial_update_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
-        patched_detail_notification_request: Optional[PatchedDetailNotificationRequest] = None,
+        patched_notification_request: Optional[PatchedNotificationRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -797,8 +797,8 @@ class NotificationsApi:
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
-        :param patched_detail_notification_request:
-        :type patched_detail_notification_request: PatchedDetailNotificationRequest
+        :param patched_notification_request:
+        :type patched_notification_request: PatchedNotificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -823,7 +823,7 @@ class NotificationsApi:
 
         _param = self._notifications_partial_update_serialize(
             id=id,
-            patched_detail_notification_request=patched_detail_notification_request,
+            patched_notification_request=patched_notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -831,7 +831,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -843,7 +843,7 @@ class NotificationsApi:
     def _notifications_partial_update_serialize(
         self,
         id,
-        patched_detail_notification_request,
+        patched_notification_request,
         _request_auth,
         _content_type,
         _headers,
@@ -871,8 +871,8 @@ class NotificationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if patched_detail_notification_request is not None:
-            _body_params = patched_detail_notification_request
+        if patched_notification_request is not None:
+            _body_params = patched_notification_request
 
 
         # set the HTTP header `Accept`
@@ -940,7 +940,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DetailNotification:
+    ) -> Notification:
         """notifications_retrieve
 
 
@@ -977,7 +977,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1006,7 +1006,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DetailNotification]:
+    ) -> ApiResponse[Notification]:
         """notifications_retrieve
 
 
@@ -1043,7 +1043,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1109,7 +1109,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1188,7 +1188,7 @@ class NotificationsApi:
     def notifications_update(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
-        detail_notification_request: DetailNotificationRequest,
+        notification_request: NotificationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1201,14 +1201,14 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DetailNotification:
+    ) -> Notification:
         """notifications_update
 
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
-        :param detail_notification_request: (required)
-        :type detail_notification_request: DetailNotificationRequest
+        :param notification_request: (required)
+        :type notification_request: NotificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1233,7 +1233,7 @@ class NotificationsApi:
 
         _param = self._notifications_update_serialize(
             id=id,
-            detail_notification_request=detail_notification_request,
+            notification_request=notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1241,7 +1241,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1258,7 +1258,7 @@ class NotificationsApi:
     def notifications_update_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
-        detail_notification_request: DetailNotificationRequest,
+        notification_request: NotificationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1271,14 +1271,14 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DetailNotification]:
+    ) -> ApiResponse[Notification]:
         """notifications_update
 
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
-        :param detail_notification_request: (required)
-        :type detail_notification_request: DetailNotificationRequest
+        :param notification_request: (required)
+        :type notification_request: NotificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1303,7 +1303,7 @@ class NotificationsApi:
 
         _param = self._notifications_update_serialize(
             id=id,
-            detail_notification_request=detail_notification_request,
+            notification_request=notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1311,7 +1311,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1328,7 +1328,7 @@ class NotificationsApi:
     def notifications_update_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
-        detail_notification_request: DetailNotificationRequest,
+        notification_request: NotificationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1347,8 +1347,8 @@ class NotificationsApi:
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
-        :param detail_notification_request: (required)
-        :type detail_notification_request: DetailNotificationRequest
+        :param notification_request: (required)
+        :type notification_request: NotificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1373,7 +1373,7 @@ class NotificationsApi:
 
         _param = self._notifications_update_serialize(
             id=id,
-            detail_notification_request=detail_notification_request,
+            notification_request=notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1381,7 +1381,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DetailNotification",
+            '200': "Notification",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1393,7 +1393,7 @@ class NotificationsApi:
     def _notifications_update_serialize(
         self,
         id,
-        detail_notification_request,
+        notification_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1421,8 +1421,8 @@ class NotificationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if detail_notification_request is not None:
-            _body_params = detail_notification_request
+        if notification_request is not None:
+            _body_params = notification_request
 
 
         # set the HTTP header `Accept`

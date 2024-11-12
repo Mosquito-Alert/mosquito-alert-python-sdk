@@ -18,9 +18,9 @@ Python 3.7+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/Mosquito_Alert/mosquito-alert-python-sdk.git
+pip install git+https://github.com/Mosquito-Alert/mosquito-alert-python-sdk.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/Mosquito_Alert/mosquito-alert-python-sdk.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/Mosquito-Alert/mosquito-alert-python-sdk.git`)
 
 Then import the package:
 ```python
@@ -147,7 +147,6 @@ Class | Method | HTTP request | Description
 
  - [AppUserTokenObtainPair](docs/AppUserTokenObtainPair.md)
  - [AppUserTokenObtainPairRequest](docs/AppUserTokenObtainPairRequest.md)
- - [BaseNotificationCreate](docs/BaseNotificationCreate.md)
  - [Bite](docs/Bite.md)
  - [BiteRequest](docs/BiteRequest.md)
  - [BoundingBox](docs/BoundingBox.md)
@@ -156,17 +155,21 @@ Class | Method | HTTP request | Description
  - [BreedingSiteRequest](docs/BreedingSiteRequest.md)
  - [Campaign](docs/Campaign.md)
  - [Country](docs/Country.md)
+ - [CreateNotification](docs/CreateNotification.md)
  - [CreateUser](docs/CreateUser.md)
  - [CreateUserRequest](docs/CreateUserRequest.md)
- - [DetailNotification](docs/DetailNotification.md)
- - [DetailNotificationRequest](docs/DetailNotificationRequest.md)
  - [Device](docs/Device.md)
  - [DeviceRequest](docs/DeviceRequest.md)
  - [Fix](docs/Fix.md)
  - [FixLocation](docs/FixLocation.md)
  - [FixLocationRequest](docs/FixLocationRequest.md)
  - [FixRequest](docs/FixRequest.md)
+ - [Location](docs/Location.md)
+ - [LocationPoint](docs/LocationPoint.md)
+ - [LocationRequest](docs/LocationRequest.md)
  - [MetaNotificationRequest](docs/MetaNotificationRequest.md)
+ - [Notification](docs/Notification.md)
+ - [NotificationRequest](docs/NotificationRequest.md)
  - [Observation](docs/Observation.md)
  - [ObservationPrediction](docs/ObservationPrediction.md)
  - [ObservationPredictionRequest](docs/ObservationPredictionRequest.md)
@@ -176,23 +179,20 @@ Class | Method | HTTP request | Description
  - [PaginatedBiteList](docs/PaginatedBiteList.md)
  - [PaginatedBreedingSiteList](docs/PaginatedBreedingSiteList.md)
  - [PaginatedCampaignList](docs/PaginatedCampaignList.md)
- - [PaginatedDetailNotificationList](docs/PaginatedDetailNotificationList.md)
+ - [PaginatedNotificationList](docs/PaginatedNotificationList.md)
  - [PaginatedObservationList](docs/PaginatedObservationList.md)
  - [PaginatedPartnerList](docs/PaginatedPartnerList.md)
  - [Partner](docs/Partner.md)
  - [PartnerPoint](docs/PartnerPoint.md)
- - [PatchedDetailNotificationRequest](docs/PatchedDetailNotificationRequest.md)
+ - [PatchedNotificationRequest](docs/PatchedNotificationRequest.md)
  - [PatchedUserRequest](docs/PatchedUserRequest.md)
  - [Photo](docs/Photo.md)
  - [PhotoPrediction](docs/PhotoPrediction.md)
  - [PhotoPredictionRequest](docs/PhotoPredictionRequest.md)
  - [PredictionScore](docs/PredictionScore.md)
  - [PredictionScoreRequest](docs/PredictionScoreRequest.md)
- - [ReportLocation](docs/ReportLocation.md)
- - [ReportLocationPoint](docs/ReportLocationPoint.md)
- - [ReportLocationRequest](docs/ReportLocationRequest.md)
- - [ReportPhoto](docs/ReportPhoto.md)
- - [ReportPhotoRequest](docs/ReportPhotoRequest.md)
+ - [SimplePhoto](docs/SimplePhoto.md)
+ - [SimplePhotoRequest](docs/SimplePhotoRequest.md)
  - [TokenRefresh](docs/TokenRefresh.md)
  - [TokenRefreshRequest](docs/TokenRefreshRequest.md)
  - [TopicNotificationCreateRequest](docs/TopicNotificationCreateRequest.md)

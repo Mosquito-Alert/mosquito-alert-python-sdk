@@ -18,18 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBytes, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, StrictInt
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ReportPhotoRequest(BaseModel):
+class CreateNotification(BaseModel):
     """
-    ReportPhotoRequest
+    CreateNotification
     """ # noqa: E501
-    uuid: Optional[StrictStr] = None
-    file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]
-    __properties: ClassVar[List[str]] = ["uuid", "file"]
+    id: StrictInt
+    created_at: datetime
+    __properties: ClassVar[List[str]] = ["id", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +50,7 @@ class ReportPhotoRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ReportPhotoRequest from a JSON string"""
+        """Create an instance of CreateNotification from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -61,8 +62,12 @@ class ReportPhotoRequest(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "id",
+            "created_at",
         ])
 
         _dict = self.model_dump(
@@ -74,7 +79,7 @@ class ReportPhotoRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ReportPhotoRequest from a dict"""
+        """Create an instance of CreateNotification from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +87,8 @@ class ReportPhotoRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "uuid": obj.get("uuid"),
-            "file": obj.get("file")
+            "id": obj.get("id"),
+            "created_at": obj.get("created_at")
         })
         return _obj
 

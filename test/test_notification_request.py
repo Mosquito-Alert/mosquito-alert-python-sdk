@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.patched_detail_notification_request import PatchedDetailNotificationRequest
+from mosquito_alert.models.notification_request import NotificationRequest
 
-class TestPatchedDetailNotificationRequest(unittest.TestCase):
-    """PatchedDetailNotificationRequest unit test stubs"""
+class TestNotificationRequest(unittest.TestCase):
+    """NotificationRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,25 +26,26 @@ class TestPatchedDetailNotificationRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> PatchedDetailNotificationRequest:
-        """Test PatchedDetailNotificationRequest
+    def make_instance(self, include_optional) -> NotificationRequest:
+        """Test NotificationRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `PatchedDetailNotificationRequest`
+        # uncomment below to create an instance of `NotificationRequest`
         """
-        model = PatchedDetailNotificationRequest()
+        model = NotificationRequest()
         if include_optional:
-            return PatchedDetailNotificationRequest(
+            return NotificationRequest(
                 seen = True
             )
         else:
-            return PatchedDetailNotificationRequest(
+            return NotificationRequest(
+                seen = True,
         )
         """
 
-    def testPatchedDetailNotificationRequest(self):
-        """Test PatchedDetailNotificationRequest"""
+    def testNotificationRequest(self):
+        """Test NotificationRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

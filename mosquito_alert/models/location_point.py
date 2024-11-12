@@ -18,19 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BaseNotificationCreate(BaseModel):
+class LocationPoint(BaseModel):
     """
-    BaseNotificationCreate
+    LocationPoint
     """ # noqa: E501
-    id: StrictInt
-    created_at: datetime
-    __properties: ClassVar[List[str]] = ["id", "created_at"]
+    latitude: Union[StrictFloat, StrictInt]
+    longitude: Union[StrictFloat, StrictInt]
+    __properties: ClassVar[List[str]] = ["latitude", "longitude"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class BaseNotificationCreate(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BaseNotificationCreate from a JSON string"""
+        """Create an instance of LocationPoint from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -62,12 +61,8 @@ class BaseNotificationCreate(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "id",
-            "created_at",
         ])
 
         _dict = self.model_dump(
@@ -79,7 +74,7 @@ class BaseNotificationCreate(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BaseNotificationCreate from a dict"""
+        """Create an instance of LocationPoint from a dict"""
         if obj is None:
             return None
 
@@ -87,8 +82,8 @@ class BaseNotificationCreate(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "created_at": obj.get("created_at")
+            "latitude": obj.get("latitude"),
+            "longitude": obj.get("longitude")
         })
         return _obj
 

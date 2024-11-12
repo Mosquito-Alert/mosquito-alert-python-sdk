@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.base_notification_create import BaseNotificationCreate
+from mosquito_alert.models.create_notification import CreateNotification
 
-class TestBaseNotificationCreate(unittest.TestCase):
-    """BaseNotificationCreate unit test stubs"""
+class TestCreateNotification(unittest.TestCase):
+    """CreateNotification unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,28 @@ class TestBaseNotificationCreate(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> BaseNotificationCreate:
-        """Test BaseNotificationCreate
+    def make_instance(self, include_optional) -> CreateNotification:
+        """Test CreateNotification
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `BaseNotificationCreate`
+        # uncomment below to create an instance of `CreateNotification`
         """
-        model = BaseNotificationCreate()
+        model = CreateNotification()
         if include_optional:
-            return BaseNotificationCreate(
+            return CreateNotification(
                 id = 56,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
-            return BaseNotificationCreate(
+            return CreateNotification(
                 id = 56,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
         """
 
-    def testBaseNotificationCreate(self):
-        """Test BaseNotificationCreate"""
+    def testCreateNotification(self):
+        """Test CreateNotification"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.report_photo import ReportPhoto
+from mosquito_alert.models.location_point import LocationPoint
 
-class TestReportPhoto(unittest.TestCase):
-    """ReportPhoto unit test stubs"""
+class TestLocationPoint(unittest.TestCase):
+    """LocationPoint unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,28 @@ class TestReportPhoto(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ReportPhoto:
-        """Test ReportPhoto
+    def make_instance(self, include_optional) -> LocationPoint:
+        """Test LocationPoint
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ReportPhoto`
+        # uncomment below to create an instance of `LocationPoint`
         """
-        model = ReportPhoto()
+        model = LocationPoint()
         if include_optional:
-            return ReportPhoto(
-                uuid = '',
-                url = ''
+            return LocationPoint(
+                latitude = 1.337,
+                longitude = 1.337
             )
         else:
-            return ReportPhoto(
-                url = '',
+            return LocationPoint(
+                latitude = 1.337,
+                longitude = 1.337,
         )
         """
 
-    def testReportPhoto(self):
-        """Test ReportPhoto"""
+    def testLocationPoint(self):
+        """Test LocationPoint"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

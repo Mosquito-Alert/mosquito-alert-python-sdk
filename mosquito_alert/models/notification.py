@@ -24,9 +24,9 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DetailNotification(BaseModel):
+class Notification(BaseModel):
     """
-    DetailNotification
+    Notification
     """ # noqa: E501
     id: StrictInt
     expert_id: Optional[StrictInt] = Field(description="Expert sending the notification")
@@ -54,7 +54,7 @@ class DetailNotification(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DetailNotification from a JSON string"""
+        """Create an instance of Notification from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -96,7 +96,7 @@ class DetailNotification(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DetailNotification from a dict"""
+        """Create an instance of Notification from a dict"""
         if obj is None:
             return None
 

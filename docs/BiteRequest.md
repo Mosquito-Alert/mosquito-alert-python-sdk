@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **datetime** |  | 
 **sent_at** | **datetime** |  | 
-**location** | [**ReportLocationRequest**](ReportLocationRequest.md) |  | 
+**location** | [**LocationRequest**](LocationRequest.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **package** | [**PackageRequest**](PackageRequest.md) |  | [optional] 

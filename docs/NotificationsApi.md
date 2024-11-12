@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **notifications_create**
-> BaseNotificationCreate notifications_create(meta_notification_request=meta_notification_request)
+> CreateNotification notifications_create(meta_notification_request=meta_notification_request)
 
 
 
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.base_notification_create import BaseNotificationCreate
+from mosquito_alert.models.create_notification import CreateNotification
 from mosquito_alert.models.meta_notification_request import MetaNotificationRequest
 from mosquito_alert.rest import ApiException
 from pprint import pprint
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseNotificationCreate**](BaseNotificationCreate.md)
+[**CreateNotification**](CreateNotification.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notifications_list**
-> PaginatedDetailNotificationList notifications_list(order_by=order_by, page=page, page_size=page_size, seen=seen)
+> PaginatedNotificationList notifications_list(order_by=order_by, page=page, page_size=page_size, seen=seen)
 
 
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.paginated_detail_notification_list import PaginatedDetailNotificationList
+from mosquito_alert.models.paginated_notification_list import PaginatedNotificationList
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedDetailNotificationList**](PaginatedDetailNotificationList.md)
+[**PaginatedNotificationList**](PaginatedNotificationList.md)
 
 ### Authorization
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notifications_partial_update**
-> DetailNotification notifications_partial_update(id, patched_detail_notification_request=patched_detail_notification_request)
+> Notification notifications_partial_update(id, patched_notification_request=patched_notification_request)
 
 
 
@@ -209,8 +209,8 @@ Name | Type | Description  | Notes
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.detail_notification import DetailNotification
-from mosquito_alert.models.patched_detail_notification_request import PatchedDetailNotificationRequest
+from mosquito_alert.models.notification import Notification
+from mosquito_alert.models.patched_notification_request import PatchedNotificationRequest
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -247,10 +247,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
     id = 56 # int | A unique integer value identifying this notification.
-    patched_detail_notification_request = mosquito_alert.PatchedDetailNotificationRequest() # PatchedDetailNotificationRequest |  (optional)
+    patched_notification_request = mosquito_alert.PatchedNotificationRequest() # PatchedNotificationRequest |  (optional)
 
     try:
-        api_response = api_instance.notifications_partial_update(id, patched_detail_notification_request=patched_detail_notification_request)
+        api_response = api_instance.notifications_partial_update(id, patched_notification_request=patched_notification_request)
         print("The response of NotificationsApi->notifications_partial_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -265,11 +265,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this notification. | 
- **patched_detail_notification_request** | [**PatchedDetailNotificationRequest**](PatchedDetailNotificationRequest.md)|  | [optional] 
+ **patched_notification_request** | [**PatchedNotificationRequest**](PatchedNotificationRequest.md)|  | [optional] 
 
 ### Return type
 
-[**DetailNotification**](DetailNotification.md)
+[**Notification**](Notification.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notifications_retrieve**
-> DetailNotification notifications_retrieve(id)
+> Notification notifications_retrieve(id)
 
 
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.detail_notification import DetailNotification
+from mosquito_alert.models.notification import Notification
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DetailNotification**](DetailNotification.md)
+[**Notification**](Notification.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notifications_update**
-> DetailNotification notifications_update(id, detail_notification_request)
+> Notification notifications_update(id, notification_request)
 
 
 
@@ -390,8 +390,8 @@ Name | Type | Description  | Notes
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.detail_notification import DetailNotification
-from mosquito_alert.models.detail_notification_request import DetailNotificationRequest
+from mosquito_alert.models.notification import Notification
+from mosquito_alert.models.notification_request import NotificationRequest
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -428,10 +428,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
     id = 56 # int | A unique integer value identifying this notification.
-    detail_notification_request = mosquito_alert.DetailNotificationRequest() # DetailNotificationRequest | 
+    notification_request = mosquito_alert.NotificationRequest() # NotificationRequest | 
 
     try:
-        api_response = api_instance.notifications_update(id, detail_notification_request)
+        api_response = api_instance.notifications_update(id, notification_request)
         print("The response of NotificationsApi->notifications_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -446,11 +446,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this notification. | 
- **detail_notification_request** | [**DetailNotificationRequest**](DetailNotificationRequest.md)|  | 
+ **notification_request** | [**NotificationRequest**](NotificationRequest.md)|  | 
 
 ### Return type
 
-[**DetailNotification**](DetailNotification.md)
+[**Notification**](Notification.md)
 
 ### Authorization
 

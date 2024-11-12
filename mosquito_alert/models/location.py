@@ -20,16 +20,16 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from mosquito_alert.models.report_location_point import ReportLocationPoint
+from mosquito_alert.models.location_point import LocationPoint
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ReportLocation(BaseModel):
+class Location(BaseModel):
     """
-    ReportLocation
+    Location
     """ # noqa: E501
     type: StrictStr = Field(description="Did user indicate that report relates to current location of phone ('current') or to a location selected manually on the map ('selected')? Or is the choice missing ('missing')")
-    point: Optional[ReportLocationPoint]
+    point: Optional[LocationPoint]
     timezone: StrictStr
     country_id: Optional[StrictInt]
     nuts_2: Optional[StrictStr]
@@ -68,7 +68,7 @@ class ReportLocation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ReportLocation from a JSON string"""
+        """Create an instance of Location from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -124,7 +124,7 @@ class ReportLocation(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ReportLocation from a dict"""
+        """Create an instance of Location from a dict"""
         if obj is None:
             return None
 
@@ -133,7 +133,7 @@ class ReportLocation(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "point": ReportLocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
+            "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
             "timezone": obj.get("timezone"),
             "country_id": obj.get("country_id"),
             "nuts_2": obj.get("nuts_2"),

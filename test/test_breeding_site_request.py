@@ -38,9 +38,9 @@ class TestBreedingSiteRequest(unittest.TestCase):
             return BreedingSiteRequest(
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert.models.report_location_request.ReportLocationRequest(
+                location = mosquito_alert.models.location_request.LocationRequest(
                     type = 'current', 
-                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.location_point.Location_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), ),
                 note = '',
@@ -58,8 +58,7 @@ class TestBreedingSiteRequest(unittest.TestCase):
                     os_version = '', 
                     os_language = '', ),
                 photos = [
-                    mosquito_alert.models.report_photo_request.ReportPhotoRequest(
-                        uuid = '', 
+                    mosquito_alert.models.simple_photo_request.SimplePhotoRequest(
                         file = bytes(b'blah'), )
                     ],
                 site_type = 'basin',
@@ -72,14 +71,13 @@ class TestBreedingSiteRequest(unittest.TestCase):
             return BreedingSiteRequest(
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                location = mosquito_alert.models.report_location_request.ReportLocationRequest(
+                location = mosquito_alert.models.location_request.LocationRequest(
                     type = 'current', 
-                    point = mosquito_alert.models.report_location_point.ReportLocation_point(
+                    point = mosquito_alert.models.location_point.Location_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), ),
                 photos = [
-                    mosquito_alert.models.report_photo_request.ReportPhotoRequest(
-                        uuid = '', 
+                    mosquito_alert.models.simple_photo_request.SimplePhotoRequest(
                         file = bytes(b'blah'), )
                     ],
         )

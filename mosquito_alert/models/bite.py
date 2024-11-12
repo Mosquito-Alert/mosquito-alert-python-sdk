@@ -21,7 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from mosquito_alert.models.report_location import ReportLocation
+from mosquito_alert.models.location import Location
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,7 +37,7 @@ class Bite(BaseModel):
     sent_at: datetime
     received_at: datetime
     updated_at: datetime = Field(description="Date and time when the report was last modified")
-    location: ReportLocation
+    location: Location
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     tags: Optional[List[StrictStr]] = None
     published: StrictBool
@@ -195,7 +195,7 @@ class Bite(BaseModel):
             "sent_at": obj.get("sent_at"),
             "received_at": obj.get("received_at"),
             "updated_at": obj.get("updated_at"),
-            "location": ReportLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
+            "location": Location.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "tags": obj.get("tags"),
             "published": obj.get("published"),

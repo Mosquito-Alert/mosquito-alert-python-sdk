@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **datetime** |  | 
 **sent_at** | **datetime** |  | 
-**location** | [**ReportLocationRequest**](ReportLocationRequest.md) |  | 
+**location** | [**LocationRequest**](LocationRequest.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **package** | [**PackageRequest**](PackageRequest.md) |  | [optional] 
 **device** | [**DeviceRequest**](DeviceRequest.md) |  | [optional] 
-**photos** | [**List[ReportPhotoRequest]**](ReportPhotoRequest.md) |  | 
+**photos** | [**List[SimplePhotoRequest]**](SimplePhotoRequest.md) |  | 
 **event_environment** | **str** | The environment where the event took place. | [optional] 
 **event_moment** | **str** | The moment of the day when the event took place. | [optional] 
 **user_perceived_mosquito_specie** | **str** | The mosquito specie perceived by the user. | [optional] 

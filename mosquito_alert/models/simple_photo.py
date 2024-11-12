@@ -19,15 +19,15 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ReportPhoto(BaseModel):
+class SimplePhoto(BaseModel):
     """
-    ReportPhoto
+    SimplePhoto
     """ # noqa: E501
-    uuid: Optional[StrictStr] = None
+    uuid: StrictStr
     url: StrictStr = Field(description="URL of the photo associated with the item. Note: This URL may change over time. Do not rely on it for permanent storage.")
     __properties: ClassVar[List[str]] = ["uuid", "url"]
 
@@ -49,7 +49,7 @@ class ReportPhoto(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ReportPhoto from a JSON string"""
+        """Create an instance of SimplePhoto from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -62,8 +62,10 @@ class ReportPhoto(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "uuid",
             "url",
         ])
 
@@ -76,7 +78,7 @@ class ReportPhoto(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ReportPhoto from a dict"""
+        """Create an instance of SimplePhoto from a dict"""
         if obj is None:
             return None
 

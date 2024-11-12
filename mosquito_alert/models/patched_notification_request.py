@@ -19,15 +19,15 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DetailNotificationRequest(BaseModel):
+class PatchedNotificationRequest(BaseModel):
     """
-    DetailNotificationRequest
+    PatchedNotificationRequest
     """ # noqa: E501
-    seen: StrictBool
+    seen: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["seen"]
 
     model_config = ConfigDict(
@@ -48,7 +48,7 @@ class DetailNotificationRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DetailNotificationRequest from a JSON string"""
+        """Create an instance of PatchedNotificationRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +73,7 @@ class DetailNotificationRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DetailNotificationRequest from a dict"""
+        """Create an instance of PatchedNotificationRequest from a dict"""
         if obj is None:
             return None
 

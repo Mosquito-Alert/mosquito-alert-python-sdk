@@ -13,11 +13,11 @@ Name | Type | Description | Notes
 **sent_at** | **datetime** |  | 
 **received_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** | Date and time when the report was last modified | [readonly] 
-**location** | [**ReportLocation**](ReportLocation.md) |  | 
+**location** | [**Location**](Location.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **published** | **bool** |  | [readonly] 
-**photos** | [**List[ReportPhoto]**](ReportPhoto.md) |  | 
+**photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | 
 **site_type** | **str** | Breeding site type. | [optional] 
 **has_water** | **bool** | Either if the user perceived water in the breeding site. | [optional] 
 **in_public_area** | **bool** | Either if the breeding site is found in a public area. | [optional] 

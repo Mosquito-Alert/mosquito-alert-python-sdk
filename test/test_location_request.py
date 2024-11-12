@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.detail_notification_request import DetailNotificationRequest
+from mosquito_alert.models.location_request import LocationRequest
 
-class TestDetailNotificationRequest(unittest.TestCase):
-    """DetailNotificationRequest unit test stubs"""
+class TestLocationRequest(unittest.TestCase):
+    """LocationRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,26 +26,32 @@ class TestDetailNotificationRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> DetailNotificationRequest:
-        """Test DetailNotificationRequest
+    def make_instance(self, include_optional) -> LocationRequest:
+        """Test LocationRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `DetailNotificationRequest`
+        # uncomment below to create an instance of `LocationRequest`
         """
-        model = DetailNotificationRequest()
+        model = LocationRequest()
         if include_optional:
-            return DetailNotificationRequest(
-                seen = True
+            return LocationRequest(
+                type = 'current',
+                point = mosquito_alert.models.location_point.Location_point(
+                    latitude = 1.337, 
+                    longitude = 1.337, )
             )
         else:
-            return DetailNotificationRequest(
-                seen = True,
+            return LocationRequest(
+                type = 'current',
+                point = mosquito_alert.models.location_point.Location_point(
+                    latitude = 1.337, 
+                    longitude = 1.337, ),
         )
         """
 
-    def testDetailNotificationRequest(self):
-        """Test DetailNotificationRequest"""
+    def testLocationRequest(self):
+        """Test LocationRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

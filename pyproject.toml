@@ -5,7 +5,7 @@ description = "Mosquito Alert API"
 authors = ["Developers <it@mosquitoalert.com>"]
 license = "GPL-3"
 readme = "README.md"
-repository = "https://github.com/Mosquito_Alert/mosquito-alert-python-sdk"
+repository = "https://github.com/Mosquito-Alert/mosquito-alert-python-sdk"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Mosquito Alert API"]
 include = ["mosquito_alert/py.typed"]
 
