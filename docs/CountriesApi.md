@@ -1,10 +1,10 @@
 # mosquito_alert_api.CountriesApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**countries_retrieve**](CountriesApi.md#countries_retrieve) | **GET** /api/v1/countries/{id}/ | 
+[**countries_retrieve**](CountriesApi.md#countries_retrieve) | **GET** /countries/{id}/ | 
 
 
 # **countries_retrieve**
@@ -24,10 +24,10 @@ from mosquito_alert_api.models.country import Country
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters

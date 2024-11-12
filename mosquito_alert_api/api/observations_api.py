@@ -304,7 +304,7 @@ class ObservationsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/observations/',
+            resource_path='/observations/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -557,7 +557,7 @@ class ObservationsApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/v1/observations/{uuid}/',
+            resource_path='/observations/{uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1146,7 +1146,7 @@ class ObservationsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/observations/',
+            resource_path='/observations/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1435,7 +1435,7 @@ class ObservationsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/observations/{uuid}/prediction/',
+            resource_path='/observations/{uuid}/prediction/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1687,7 +1687,7 @@ class ObservationsApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/v1/observations/{uuid}/prediction/',
+            resource_path='/observations/{uuid}/prediction/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1946,7 +1946,7 @@ class ObservationsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/observations/{uuid}/prediction/',
+            resource_path='/observations/{uuid}/prediction/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2206,7 +2206,7 @@ class ObservationsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/observations/{uuid}/',
+            resource_path='/observations/{uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

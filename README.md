@@ -55,10 +55,10 @@ import mosquito_alert_api
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -101,46 +101,46 @@ with mosquito_alert_api.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BitesApi* | [**bites_create**](docs/BitesApi.md#bites_create) | **POST** /api/v1/bites/ | 
-*BitesApi* | [**bites_destroy**](docs/BitesApi.md#bites_destroy) | **DELETE** /api/v1/bites/{uuid}/ | 
-*BitesApi* | [**bites_list**](docs/BitesApi.md#bites_list) | **GET** /api/v1/bites/ | 
-*BitesApi* | [**bites_retrieve**](docs/BitesApi.md#bites_retrieve) | **GET** /api/v1/bites/{uuid}/ | 
-*BreedingSitesApi* | [**breeding_sites_create**](docs/BreedingSitesApi.md#breeding_sites_create) | **POST** /api/v1/breeding-sites/ | 
-*BreedingSitesApi* | [**breeding_sites_destroy**](docs/BreedingSitesApi.md#breeding_sites_destroy) | **DELETE** /api/v1/breeding-sites/{uuid}/ | 
-*BreedingSitesApi* | [**breeding_sites_list**](docs/BreedingSitesApi.md#breeding_sites_list) | **GET** /api/v1/breeding-sites/ | 
-*BreedingSitesApi* | [**breeding_sites_retrieve**](docs/BreedingSitesApi.md#breeding_sites_retrieve) | **GET** /api/v1/breeding-sites/{uuid}/ | 
-*CampaignsApi* | [**campaigns_list**](docs/CampaignsApi.md#campaigns_list) | **GET** /api/v1/campaigns/ | 
-*CampaignsApi* | [**campaigns_retrieve**](docs/CampaignsApi.md#campaigns_retrieve) | **GET** /api/v1/campaigns/{id}/ | 
-*CountriesApi* | [**countries_retrieve**](docs/CountriesApi.md#countries_retrieve) | **GET** /api/v1/countries/{id}/ | 
-*FixesApi* | [**fixes_create**](docs/FixesApi.md#fixes_create) | **POST** /api/v1/fixes/ | 
-*NotificationsApi* | [**notifications_create**](docs/NotificationsApi.md#notifications_create) | **POST** /api/v1/notifications/ | 
-*NotificationsApi* | [**notifications_list**](docs/NotificationsApi.md#notifications_list) | **GET** /api/v1/notifications/ | 
-*NotificationsApi* | [**notifications_partial_update**](docs/NotificationsApi.md#notifications_partial_update) | **PATCH** /api/v1/notifications/{id}/ | 
-*NotificationsApi* | [**notifications_retrieve**](docs/NotificationsApi.md#notifications_retrieve) | **GET** /api/v1/notifications/{id}/ | 
-*NotificationsApi* | [**notifications_update**](docs/NotificationsApi.md#notifications_update) | **PUT** /api/v1/notifications/{id}/ | 
-*ObservationsApi* | [**observations_create**](docs/ObservationsApi.md#observations_create) | **POST** /api/v1/observations/ | 
-*ObservationsApi* | [**observations_destroy**](docs/ObservationsApi.md#observations_destroy) | **DELETE** /api/v1/observations/{uuid}/ | 
-*ObservationsApi* | [**observations_list**](docs/ObservationsApi.md#observations_list) | **GET** /api/v1/observations/ | 
-*ObservationsApi* | [**observations_prediction_create**](docs/ObservationsApi.md#observations_prediction_create) | **POST** /api/v1/observations/{uuid}/prediction/ | 
-*ObservationsApi* | [**observations_prediction_destroy**](docs/ObservationsApi.md#observations_prediction_destroy) | **DELETE** /api/v1/observations/{uuid}/prediction/ | 
-*ObservationsApi* | [**observations_prediction_retrieve**](docs/ObservationsApi.md#observations_prediction_retrieve) | **GET** /api/v1/observations/{uuid}/prediction/ | 
-*ObservationsApi* | [**observations_retrieve**](docs/ObservationsApi.md#observations_retrieve) | **GET** /api/v1/observations/{uuid}/ | 
-*PartnersApi* | [**partners_list**](docs/PartnersApi.md#partners_list) | **GET** /api/v1/partners/ | 
-*PartnersApi* | [**partners_retrieve**](docs/PartnersApi.md#partners_retrieve) | **GET** /api/v1/partners/{id}/ | 
-*PhotosApi* | [**photos_prediction_create**](docs/PhotosApi.md#photos_prediction_create) | **POST** /api/v1/photos/{uuid}/prediction/ | 
-*PhotosApi* | [**photos_prediction_destroy**](docs/PhotosApi.md#photos_prediction_destroy) | **DELETE** /api/v1/photos/{uuid}/prediction/ | 
-*PhotosApi* | [**photos_prediction_retrieve**](docs/PhotosApi.md#photos_prediction_retrieve) | **GET** /api/v1/photos/{uuid}/prediction/ | 
-*PhotosApi* | [**photos_retrieve**](docs/PhotosApi.md#photos_retrieve) | **GET** /api/v1/photos/{uuid}/ | 
-*TokenApi* | [**token_create**](docs/TokenApi.md#token_create) | **POST** /api/v1/token/ | 
-*TokenApi* | [**token_refresh_create**](docs/TokenApi.md#token_refresh_create) | **POST** /api/v1/token/refresh/ | 
-*UsersApi* | [**users_create**](docs/UsersApi.md#users_create) | **POST** /api/v1/users/ | 
-*UsersApi* | [**users_partial_update**](docs/UsersApi.md#users_partial_update) | **PATCH** /api/v1/users/{uuid}/ | 
-*UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /api/v1/users/{uuid}/ | 
-*UsersApi* | [**users_update**](docs/UsersApi.md#users_update) | **PUT** /api/v1/users/{uuid}/ | 
+*BitesApi* | [**bites_create**](docs/BitesApi.md#bites_create) | **POST** /bites/ | 
+*BitesApi* | [**bites_destroy**](docs/BitesApi.md#bites_destroy) | **DELETE** /bites/{uuid}/ | 
+*BitesApi* | [**bites_list**](docs/BitesApi.md#bites_list) | **GET** /bites/ | 
+*BitesApi* | [**bites_retrieve**](docs/BitesApi.md#bites_retrieve) | **GET** /bites/{uuid}/ | 
+*BreedingSitesApi* | [**breeding_sites_create**](docs/BreedingSitesApi.md#breeding_sites_create) | **POST** /breeding-sites/ | 
+*BreedingSitesApi* | [**breeding_sites_destroy**](docs/BreedingSitesApi.md#breeding_sites_destroy) | **DELETE** /breeding-sites/{uuid}/ | 
+*BreedingSitesApi* | [**breeding_sites_list**](docs/BreedingSitesApi.md#breeding_sites_list) | **GET** /breeding-sites/ | 
+*BreedingSitesApi* | [**breeding_sites_retrieve**](docs/BreedingSitesApi.md#breeding_sites_retrieve) | **GET** /breeding-sites/{uuid}/ | 
+*CampaignsApi* | [**campaigns_list**](docs/CampaignsApi.md#campaigns_list) | **GET** /campaigns/ | 
+*CampaignsApi* | [**campaigns_retrieve**](docs/CampaignsApi.md#campaigns_retrieve) | **GET** /campaigns/{id}/ | 
+*CountriesApi* | [**countries_retrieve**](docs/CountriesApi.md#countries_retrieve) | **GET** /countries/{id}/ | 
+*FixesApi* | [**fixes_create**](docs/FixesApi.md#fixes_create) | **POST** /fixes/ | 
+*NotificationsApi* | [**notifications_create**](docs/NotificationsApi.md#notifications_create) | **POST** /notifications/ | 
+*NotificationsApi* | [**notifications_list**](docs/NotificationsApi.md#notifications_list) | **GET** /notifications/ | 
+*NotificationsApi* | [**notifications_partial_update**](docs/NotificationsApi.md#notifications_partial_update) | **PATCH** /notifications/{id}/ | 
+*NotificationsApi* | [**notifications_retrieve**](docs/NotificationsApi.md#notifications_retrieve) | **GET** /notifications/{id}/ | 
+*NotificationsApi* | [**notifications_update**](docs/NotificationsApi.md#notifications_update) | **PUT** /notifications/{id}/ | 
+*ObservationsApi* | [**observations_create**](docs/ObservationsApi.md#observations_create) | **POST** /observations/ | 
+*ObservationsApi* | [**observations_destroy**](docs/ObservationsApi.md#observations_destroy) | **DELETE** /observations/{uuid}/ | 
+*ObservationsApi* | [**observations_list**](docs/ObservationsApi.md#observations_list) | **GET** /observations/ | 
+*ObservationsApi* | [**observations_prediction_create**](docs/ObservationsApi.md#observations_prediction_create) | **POST** /observations/{uuid}/prediction/ | 
+*ObservationsApi* | [**observations_prediction_destroy**](docs/ObservationsApi.md#observations_prediction_destroy) | **DELETE** /observations/{uuid}/prediction/ | 
+*ObservationsApi* | [**observations_prediction_retrieve**](docs/ObservationsApi.md#observations_prediction_retrieve) | **GET** /observations/{uuid}/prediction/ | 
+*ObservationsApi* | [**observations_retrieve**](docs/ObservationsApi.md#observations_retrieve) | **GET** /observations/{uuid}/ | 
+*PartnersApi* | [**partners_list**](docs/PartnersApi.md#partners_list) | **GET** /partners/ | 
+*PartnersApi* | [**partners_retrieve**](docs/PartnersApi.md#partners_retrieve) | **GET** /partners/{id}/ | 
+*PhotosApi* | [**photos_prediction_create**](docs/PhotosApi.md#photos_prediction_create) | **POST** /photos/{uuid}/prediction/ | 
+*PhotosApi* | [**photos_prediction_destroy**](docs/PhotosApi.md#photos_prediction_destroy) | **DELETE** /photos/{uuid}/prediction/ | 
+*PhotosApi* | [**photos_prediction_retrieve**](docs/PhotosApi.md#photos_prediction_retrieve) | **GET** /photos/{uuid}/prediction/ | 
+*PhotosApi* | [**photos_retrieve**](docs/PhotosApi.md#photos_retrieve) | **GET** /photos/{uuid}/ | 
+*TokenApi* | [**token_create**](docs/TokenApi.md#token_create) | **POST** /token/ | 
+*TokenApi* | [**token_refresh_create**](docs/TokenApi.md#token_refresh_create) | **POST** /token/refresh/ | 
+*UsersApi* | [**users_create**](docs/UsersApi.md#users_create) | **POST** /users/ | 
+*UsersApi* | [**users_partial_update**](docs/UsersApi.md#users_partial_update) | **PATCH** /users/{uuid}/ | 
+*UsersApi* | [**users_retrieve**](docs/UsersApi.md#users_retrieve) | **GET** /users/{uuid}/ | 
+*UsersApi* | [**users_update**](docs/UsersApi.md#users_update) | **PUT** /users/{uuid}/ | 
 
 
 ## Documentation For Models

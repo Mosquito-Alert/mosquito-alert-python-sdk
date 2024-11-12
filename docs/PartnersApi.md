@@ -1,11 +1,11 @@
 # mosquito_alert_api.PartnersApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**partners_list**](PartnersApi.md#partners_list) | **GET** /api/v1/partners/ | 
-[**partners_retrieve**](PartnersApi.md#partners_retrieve) | **GET** /api/v1/partners/{id}/ | 
+[**partners_list**](PartnersApi.md#partners_list) | **GET** /partners/ | 
+[**partners_retrieve**](PartnersApi.md#partners_retrieve) | **GET** /partners/{id}/ | 
 
 
 # **partners_list**
@@ -25,10 +25,10 @@ from mosquito_alert_api.models.paginated_partner_list import PaginatedPartnerLis
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,10 +116,10 @@ from mosquito_alert_api.models.partner import Partner
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters

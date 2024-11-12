@@ -1,14 +1,14 @@
 # mosquito_alert_api.NotificationsApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**notifications_create**](NotificationsApi.md#notifications_create) | **POST** /api/v1/notifications/ | 
-[**notifications_list**](NotificationsApi.md#notifications_list) | **GET** /api/v1/notifications/ | 
-[**notifications_partial_update**](NotificationsApi.md#notifications_partial_update) | **PATCH** /api/v1/notifications/{id}/ | 
-[**notifications_retrieve**](NotificationsApi.md#notifications_retrieve) | **GET** /api/v1/notifications/{id}/ | 
-[**notifications_update**](NotificationsApi.md#notifications_update) | **PUT** /api/v1/notifications/{id}/ | 
+[**notifications_create**](NotificationsApi.md#notifications_create) | **POST** /notifications/ | 
+[**notifications_list**](NotificationsApi.md#notifications_list) | **GET** /notifications/ | 
+[**notifications_partial_update**](NotificationsApi.md#notifications_partial_update) | **PATCH** /notifications/{id}/ | 
+[**notifications_retrieve**](NotificationsApi.md#notifications_retrieve) | **GET** /notifications/{id}/ | 
+[**notifications_update**](NotificationsApi.md#notifications_update) | **PUT** /notifications/{id}/ | 
 
 
 # **notifications_create**
@@ -29,10 +29,10 @@ from mosquito_alert_api.models.meta_notification_request import MetaNotification
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -118,10 +118,10 @@ from mosquito_alert_api.models.paginated_detail_notification_list import Paginat
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -214,10 +214,10 @@ from mosquito_alert_api.models.patched_detail_notification_request import Patche
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -305,10 +305,10 @@ from mosquito_alert_api.models.detail_notification import DetailNotification
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -395,10 +395,10 @@ from mosquito_alert_api.models.detail_notification_request import DetailNotifica
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters

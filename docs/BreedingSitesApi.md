@@ -1,13 +1,13 @@
 # mosquito_alert_api.BreedingSitesApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**breeding_sites_create**](BreedingSitesApi.md#breeding_sites_create) | **POST** /api/v1/breeding-sites/ | 
-[**breeding_sites_destroy**](BreedingSitesApi.md#breeding_sites_destroy) | **DELETE** /api/v1/breeding-sites/{uuid}/ | 
-[**breeding_sites_list**](BreedingSitesApi.md#breeding_sites_list) | **GET** /api/v1/breeding-sites/ | 
-[**breeding_sites_retrieve**](BreedingSitesApi.md#breeding_sites_retrieve) | **GET** /api/v1/breeding-sites/{uuid}/ | 
+[**breeding_sites_create**](BreedingSitesApi.md#breeding_sites_create) | **POST** /breeding-sites/ | 
+[**breeding_sites_destroy**](BreedingSitesApi.md#breeding_sites_destroy) | **DELETE** /breeding-sites/{uuid}/ | 
+[**breeding_sites_list**](BreedingSitesApi.md#breeding_sites_list) | **GET** /breeding-sites/ | 
+[**breeding_sites_retrieve**](BreedingSitesApi.md#breeding_sites_retrieve) | **GET** /breeding-sites/{uuid}/ | 
 
 
 # **breeding_sites_create**
@@ -28,10 +28,10 @@ from mosquito_alert_api.models.breeding_site_request import BreedingSiteRequest
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,10 +116,10 @@ import mosquito_alert_api
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -203,10 +203,10 @@ from mosquito_alert_api.models.paginated_breeding_site_list import PaginatedBree
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -320,10 +320,10 @@ from mosquito_alert_api.models.breeding_site import BreedingSite
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters

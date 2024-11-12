@@ -302,7 +302,7 @@ class BitesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/bites/',
+            resource_path='/bites/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -555,7 +555,7 @@ class BitesApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/v1/bites/{uuid}/',
+            resource_path='/bites/{uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1093,7 +1093,7 @@ class BitesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/bites/',
+            resource_path='/bites/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1353,7 +1353,7 @@ class BitesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/bites/{uuid}/',
+            resource_path='/bites/{uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

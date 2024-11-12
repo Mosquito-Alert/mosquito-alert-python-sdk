@@ -1,13 +1,13 @@
 # mosquito_alert_api.PhotosApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**photos_prediction_create**](PhotosApi.md#photos_prediction_create) | **POST** /api/v1/photos/{uuid}/prediction/ | 
-[**photos_prediction_destroy**](PhotosApi.md#photos_prediction_destroy) | **DELETE** /api/v1/photos/{uuid}/prediction/ | 
-[**photos_prediction_retrieve**](PhotosApi.md#photos_prediction_retrieve) | **GET** /api/v1/photos/{uuid}/prediction/ | 
-[**photos_retrieve**](PhotosApi.md#photos_retrieve) | **GET** /api/v1/photos/{uuid}/ | 
+[**photos_prediction_create**](PhotosApi.md#photos_prediction_create) | **POST** /photos/{uuid}/prediction/ | 
+[**photos_prediction_destroy**](PhotosApi.md#photos_prediction_destroy) | **DELETE** /photos/{uuid}/prediction/ | 
+[**photos_prediction_retrieve**](PhotosApi.md#photos_prediction_retrieve) | **GET** /photos/{uuid}/prediction/ | 
+[**photos_retrieve**](PhotosApi.md#photos_retrieve) | **GET** /photos/{uuid}/ | 
 
 
 # **photos_prediction_create**
@@ -27,10 +27,10 @@ from mosquito_alert_api.models.photo_prediction_request import PhotoPredictionRe
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -111,10 +111,10 @@ import mosquito_alert_api
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,10 +192,10 @@ from mosquito_alert_api.models.photo_prediction import PhotoPrediction
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -275,10 +275,10 @@ from mosquito_alert_api.models.photo import Photo
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters

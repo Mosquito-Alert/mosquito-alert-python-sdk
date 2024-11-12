@@ -1,13 +1,13 @@
 # mosquito_alert_api.UsersApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**users_create**](UsersApi.md#users_create) | **POST** /api/v1/users/ | 
-[**users_partial_update**](UsersApi.md#users_partial_update) | **PATCH** /api/v1/users/{uuid}/ | 
-[**users_retrieve**](UsersApi.md#users_retrieve) | **GET** /api/v1/users/{uuid}/ | 
-[**users_update**](UsersApi.md#users_update) | **PUT** /api/v1/users/{uuid}/ | 
+[**users_create**](UsersApi.md#users_create) | **POST** /users/ | 
+[**users_partial_update**](UsersApi.md#users_partial_update) | **PATCH** /users/{uuid}/ | 
+[**users_retrieve**](UsersApi.md#users_retrieve) | **GET** /users/{uuid}/ | 
+[**users_update**](UsersApi.md#users_update) | **PUT** /users/{uuid}/ | 
 
 
 # **users_create**
@@ -28,10 +28,10 @@ from mosquito_alert_api.models.create_user_request import CreateUserRequest
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -118,10 +118,10 @@ from mosquito_alert_api.models.user import User
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -209,10 +209,10 @@ from mosquito_alert_api.models.user import User
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -299,10 +299,10 @@ from mosquito_alert_api.models.user_request import UserRequest
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters

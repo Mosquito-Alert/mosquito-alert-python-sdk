@@ -1,11 +1,11 @@
 # mosquito_alert_api.TokenApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**token_create**](TokenApi.md#token_create) | **POST** /api/v1/token/ | 
-[**token_refresh_create**](TokenApi.md#token_refresh_create) | **POST** /api/v1/token/refresh/ | 
+[**token_create**](TokenApi.md#token_create) | **POST** /token/ | 
+[**token_refresh_create**](TokenApi.md#token_refresh_create) | **POST** /token/refresh/ | 
 
 
 # **token_create**
@@ -25,10 +25,10 @@ from mosquito_alert_api.models.app_user_token_obtain_pair_request import AppUser
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 
@@ -93,10 +93,10 @@ from mosquito_alert_api.models.token_refresh_request import TokenRefreshRequest
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 

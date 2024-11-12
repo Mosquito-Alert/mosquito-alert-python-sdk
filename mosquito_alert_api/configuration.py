@@ -98,7 +98,7 @@ conf = mosquito_alert_api.Configuration(
                  ) -> None:
         """Constructor
         """
-        self._base_path = "https://api.mosquitoalert.com" if host is None else host
+        self._base_path = "https://api.mosquitoalert.com/v1" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -441,8 +441,8 @@ conf = mosquito_alert_api.Configuration(
         """
         return [
             {
-                'url': "https://api.mosquitoalert.com",
-                'description': "Production API",
+                'url': "https://api.mosquitoalert.com/v1",
+                'description': "Production API v1",
             }
         ]
 

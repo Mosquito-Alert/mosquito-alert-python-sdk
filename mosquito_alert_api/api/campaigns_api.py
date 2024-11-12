@@ -356,7 +356,7 @@ class CampaignsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/campaigns/',
+            resource_path='/campaigns/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -616,7 +616,7 @@ class CampaignsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/campaigns/{id}/',
+            resource_path='/campaigns/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

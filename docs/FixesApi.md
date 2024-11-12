@@ -1,10 +1,10 @@
 # mosquito_alert_api.FixesApi
 
-All URIs are relative to *https://api.mosquitoalert.com*
+All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fixes_create**](FixesApi.md#fixes_create) | **POST** /api/v1/fixes/ | 
+[**fixes_create**](FixesApi.md#fixes_create) | **POST** /fixes/ | 
 
 
 # **fixes_create**
@@ -25,10 +25,10 @@ from mosquito_alert_api.models.fix_request import FixRequest
 from mosquito_alert_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.mosquitoalert.com
+# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = mosquito_alert_api.Configuration(
-    host = "https://api.mosquitoalert.com"
+    host = "https://api.mosquitoalert.com/v1"
 )
 
 # The client must configure the authentication and authorization parameters
