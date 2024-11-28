@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,8 @@ class PatchedUserRequest(BaseModel):
     PatchedUserRequest
     """ # noqa: E501
     device_token: Optional[StrictStr] = Field(default=None, description="Device token, used in messaging. Must be supplied by the client")
-    __properties: ClassVar[List[str]] = ["device_token"]
+    language_iso: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=2)]] = Field(default=None, description="Language setting of app. 2-digit ISO-639-1 language code.")
+    __properties: ClassVar[List[str]] = ["device_token", "language_iso"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +88,8 @@ class PatchedUserRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "device_token": obj.get("device_token")
+            "device_token": obj.get("device_token"),
+            "language_iso": obj.get("language_iso")
         })
         return _obj
 

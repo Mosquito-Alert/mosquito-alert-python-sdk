@@ -20,7 +20,8 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,9 +31,10 @@ class CreateUser(BaseModel):
     """ # noqa: E501
     uuid: StrictStr
     registration_time: datetime = Field(description="The date and time when user registered and consented to sharing data. Automatically set by server when user uploads registration.")
+    language_iso: Optional[Annotated[str, Field(strict=True, max_length=2)]] = Field(default=None, description="Language setting of app. 2-digit ISO-639-1 language code.")
     score: StrictInt = Field(description="Global XP Score. This field is updated whenever the user asks for the score, and is only stored here. The content must equal score_v2_adult + score_v2_bite + score_v2_site")
     last_score_update: datetime = Field(description="Last time score was updated")
-    __properties: ClassVar[List[str]] = ["uuid", "registration_time", "score", "last_score_update"]
+    __properties: ClassVar[List[str]] = ["uuid", "registration_time", "language_iso", "score", "last_score_update"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,6 +97,7 @@ class CreateUser(BaseModel):
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
             "registration_time": obj.get("registration_time"),
+            "language_iso": obj.get("language_iso"),
             "score": obj.get("score"),
             "last_score_update": obj.get("last_score_update")
         })

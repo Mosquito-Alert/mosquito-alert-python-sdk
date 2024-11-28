@@ -37,6 +37,7 @@ class TestCreateUserRequest(unittest.TestCase):
         if include_optional:
             return CreateUserRequest(
                 device_token = '',
+                language_iso = '0',
                 password = '0'
             )
         else:

@@ -36,7 +36,8 @@ class TestUserRequest(unittest.TestCase):
         model = UserRequest()
         if include_optional:
             return UserRequest(
-                device_token = ''
+                device_token = '',
+                language_iso = '0'
             )
         else:
             return UserRequest(

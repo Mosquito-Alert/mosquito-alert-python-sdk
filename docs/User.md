@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | [readonly] 
 **registration_time** | **datetime** | The date and time when user registered and consented to sharing data. Automatically set by server when user uploads registration. | [readonly] 
+**language_iso** | **str** | Language setting of app. 2-digit ISO-639-1 language code. | [optional] 
 **score** | **int** | Global XP Score. This field is updated whenever the user asks for the score, and is only stored here. The content must equal score_v2_adult + score_v2_bite + score_v2_site | [readonly] 
 **last_score_update** | **datetime** | Last time score was updated | [readonly] 
 

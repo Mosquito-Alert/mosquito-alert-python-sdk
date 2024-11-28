@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **device_token** | **str** | Device token, used in messaging. Must be supplied by the client | [optional] 
+**language_iso** | **str** | Language setting of app. 2-digit ISO-639-1 language code. | [optional] 
 
 ## Example
 

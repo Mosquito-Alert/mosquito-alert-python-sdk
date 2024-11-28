@@ -29,8 +29,9 @@ class CreateUserRequest(BaseModel):
     CreateUserRequest
     """ # noqa: E501
     device_token: Optional[StrictStr] = Field(default=None, description="Device token, used in messaging. Must be supplied by the client")
+    language_iso: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=2)]] = Field(default=None, description="Language setting of app. 2-digit ISO-639-1 language code.")
     password: Annotated[str, Field(min_length=1, strict=True)]
-    __properties: ClassVar[List[str]] = ["device_token", "password"]
+    __properties: ClassVar[List[str]] = ["device_token", "language_iso", "password"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,6 +90,7 @@ class CreateUserRequest(BaseModel):
 
         _obj = cls.model_validate({
             "device_token": obj.get("device_token"),
+            "language_iso": obj.get("language_iso"),
             "password": obj.get("password")
         })
         return _obj
