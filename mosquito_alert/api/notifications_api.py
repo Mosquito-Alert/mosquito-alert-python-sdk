@@ -323,7 +323,7 @@ class NotificationsApi:
     @validate_call
     def notifications_list(
         self,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         seen: Optional[StrictBool] = None,
@@ -343,7 +343,7 @@ class NotificationsApi:
         """notifications_list
 
 
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
@@ -401,7 +401,7 @@ class NotificationsApi:
     @validate_call
     def notifications_list_with_http_info(
         self,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         seen: Optional[StrictBool] = None,
@@ -421,7 +421,7 @@ class NotificationsApi:
         """notifications_list
 
 
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
@@ -479,7 +479,7 @@ class NotificationsApi:
     @validate_call
     def notifications_list_without_preload_content(
         self,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         seen: Optional[StrictBool] = None,
@@ -499,7 +499,7 @@ class NotificationsApi:
         """notifications_list
 
 
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int

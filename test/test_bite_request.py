@@ -47,16 +47,6 @@ class TestBiteRequest(unittest.TestCase):
                 tags = [
                     '0'
                     ],
-                package = mosquito_alert.models.package_request.PackageRequest(
-                    name = '', 
-                    version = -2147483648, 
-                    language = '', ),
-                device = mosquito_alert.models.device_request.DeviceRequest(
-                    manufacturer = '', 
-                    model = '', 
-                    os = '', 
-                    os_version = '', 
-                    os_language = '', ),
                 event_environment = 'indoors',
                 event_moment = 'now',
                 head_bite_count = 56,

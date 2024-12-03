@@ -46,7 +46,7 @@ class CampaignsApi:
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -69,7 +69,7 @@ class CampaignsApi:
         :type country_id: int
         :param is_active:
         :type is_active: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
@@ -128,7 +128,7 @@ class CampaignsApi:
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -151,7 +151,7 @@ class CampaignsApi:
         :type country_id: int
         :param is_active:
         :type is_active: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
@@ -210,7 +210,7 @@ class CampaignsApi:
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -233,7 +233,7 @@ class CampaignsApi:
         :type country_id: int
         :param is_active:
         :type is_active: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int

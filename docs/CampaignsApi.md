@@ -59,7 +59,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     api_instance = mosquito_alert.CampaignsApi(api_client)
     country_id = 56 # int | Country in which the campaign is taking place (optional)
     is_active = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **country_id** | **int**| Country in which the campaign is taking place | [optional] 
  **is_active** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
 

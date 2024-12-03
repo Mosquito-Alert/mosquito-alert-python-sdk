@@ -36,14 +36,36 @@ class TestDevice(unittest.TestCase):
         model = Device()
         if include_optional:
             return Device(
+                device_id = '',
+                name = '',
+                type = 'ios',
                 manufacturer = '',
                 model = '',
-                os = '',
-                os_version = '',
-                os_language = ''
+                os = mosquito_alert.models.device_os.DeviceOs(
+                    name = '', 
+                    version = '', 
+                    locale = '', ),
+                mobile_app = mosquito_alert.models.mobile_app.MobileApp(
+                    package_name = '', 
+                    package_version = '', ),
+                user_uuid = '',
+                last_login = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return Device(
+                device_id = '',
+                type = 'ios',
+                model = '',
+                os = mosquito_alert.models.device_os.DeviceOs(
+                    name = '', 
+                    version = '', 
+                    locale = '', ),
+                user_uuid = '',
+                last_login = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
         """
 

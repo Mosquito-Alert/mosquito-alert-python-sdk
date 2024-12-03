@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.package import Package
+from mosquito_alert.models.device_os_request import DeviceOsRequest
 
-class TestPackage(unittest.TestCase):
-    """Package unit test stubs"""
+class TestDeviceOsRequest(unittest.TestCase):
+    """DeviceOsRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,29 @@ class TestPackage(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Package:
-        """Test Package
+    def make_instance(self, include_optional) -> DeviceOsRequest:
+        """Test DeviceOsRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Package`
+        # uncomment below to create an instance of `DeviceOsRequest`
         """
-        model = Package()
+        model = DeviceOsRequest()
         if include_optional:
-            return Package(
+            return DeviceOsRequest(
                 name = '',
-                version = -2147483648,
-                language = ''
+                version = '',
+                locale = ''
             )
         else:
-            return Package(
+            return DeviceOsRequest(
+                name = '',
+                version = '',
         )
         """
 
-    def testPackage(self):
-        """Test Package"""
+    def testDeviceOsRequest(self):
+        """Test DeviceOsRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

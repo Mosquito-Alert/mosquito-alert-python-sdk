@@ -18,9 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from mosquito_alert.models.device_os import DeviceOs
+from mosquito_alert.models.mobile_app import MobileApp
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +31,25 @@ class Device(BaseModel):
     """
     Device
     """ # noqa: E501
-    manufacturer: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="Manufacturer of device from which this report was submitted.")
-    model: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="Model of device from which this report was submitted.")
-    os: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="Operating system of device from which this report was submitted.")
-    os_version: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="Operating system version of device from which this report was submitted.")
-    os_language: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="Language setting of operating system on device from which this report was submitted. 2-digit ISO-639-1 language code.")
-    __properties: ClassVar[List[str]] = ["manufacturer", "model", "os", "os_version", "os_language"]
+    device_id: Annotated[str, Field(strict=True, max_length=255)] = Field(description="Unique device identifier")
+    name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    type: StrictStr
+    manufacturer: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The manufacturer of the device.")
+    model: Annotated[str, Field(strict=True, max_length=128)] = Field(description="The end-user-visible name for the end product.")
+    os: DeviceOs
+    mobile_app: Optional[MobileApp] = None
+    user_uuid: StrictStr
+    last_login: Optional[datetime]
+    created_at: datetime
+    updated_at: datetime
+    __properties: ClassVar[List[str]] = ["device_id", "name", "type", "manufacturer", "model", "os", "mobile_app", "user_uuid", "last_login", "created_at", "updated_at"]
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['ios', 'android', 'web']):
+            raise ValueError("must be one of enum values ('ios', 'android', 'web')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -65,8 +81,16 @@ class Device(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "user_uuid",
+            "last_login",
+            "created_at",
+            "updated_at",
         ])
 
         _dict = self.model_dump(
@@ -74,30 +98,26 @@ class Device(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of os
+        if self.os:
+            _dict['os'] = self.os.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of mobile_app
+        if self.mobile_app:
+            _dict['mobile_app'] = self.mobile_app.to_dict()
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
         # set to None if manufacturer (nullable) is None
         # and model_fields_set contains the field
         if self.manufacturer is None and "manufacturer" in self.model_fields_set:
             _dict['manufacturer'] = None
 
-        # set to None if model (nullable) is None
+        # set to None if last_login (nullable) is None
         # and model_fields_set contains the field
-        if self.model is None and "model" in self.model_fields_set:
-            _dict['model'] = None
-
-        # set to None if os (nullable) is None
-        # and model_fields_set contains the field
-        if self.os is None and "os" in self.model_fields_set:
-            _dict['os'] = None
-
-        # set to None if os_version (nullable) is None
-        # and model_fields_set contains the field
-        if self.os_version is None and "os_version" in self.model_fields_set:
-            _dict['os_version'] = None
-
-        # set to None if os_language (nullable) is None
-        # and model_fields_set contains the field
-        if self.os_language is None and "os_language" in self.model_fields_set:
-            _dict['os_language'] = None
+        if self.last_login is None and "last_login" in self.model_fields_set:
+            _dict['last_login'] = None
 
         return _dict
 
@@ -111,11 +131,17 @@ class Device(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "device_id": obj.get("device_id"),
+            "name": obj.get("name"),
+            "type": obj.get("type"),
             "manufacturer": obj.get("manufacturer"),
             "model": obj.get("model"),
-            "os": obj.get("os"),
-            "os_version": obj.get("os_version"),
-            "os_language": obj.get("os_language")
+            "os": DeviceOs.from_dict(obj["os"]) if obj.get("os") is not None else None,
+            "mobile_app": MobileApp.from_dict(obj["mobile_app"]) if obj.get("mobile_app") is not None else None,
+            "user_uuid": obj.get("user_uuid"),
+            "last_login": obj.get("last_login"),
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at")
         })
         return _obj
 

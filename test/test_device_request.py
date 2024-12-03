@@ -36,14 +36,30 @@ class TestDeviceRequest(unittest.TestCase):
         model = DeviceRequest()
         if include_optional:
             return DeviceRequest(
+                device_id = '',
+                name = '',
+                fcm_token = '0',
+                type = 'ios',
                 manufacturer = '',
                 model = '',
-                os = '',
-                os_version = '',
-                os_language = ''
+                os = mosquito_alert.models.device_os_request.DeviceOsRequest(
+                    name = '', 
+                    version = '', 
+                    locale = '', ),
+                mobile_app = mosquito_alert.models.mobile_app_request.MobileAppRequest(
+                    package_name = '0', 
+                    package_version = '0', )
             )
         else:
             return DeviceRequest(
+                device_id = '',
+                fcm_token = '0',
+                type = 'ios',
+                model = '',
+                os = mosquito_alert.models.device_os_request.DeviceOsRequest(
+                    name = '', 
+                    version = '', 
+                    locale = '', ),
         )
         """
 

@@ -241,7 +241,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     location_country_id = 56 # int |  (optional)
     location_nuts_2 = 'location_nuts_2_example' # str |  (optional)
     location_nuts_3 = 'location_nuts_3_example' # str |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
  **location_country_id** | **int**|  | [optional] 
  **location_nuts_2** | **str**|  | [optional] 
  **location_nuts_3** | **str**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 

@@ -22,9 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from mosquito_alert.models.device_request import DeviceRequest
 from mosquito_alert.models.location_request import LocationRequest
-from mosquito_alert.models.package_request import PackageRequest
 from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,15 +36,13 @@ class BreedingSiteRequest(BaseModel):
     location: LocationRequest
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
-    package: Optional[PackageRequest] = None
-    device: Optional[DeviceRequest] = None
     photos: List[SimplePhotoRequest]
     site_type: Optional[StrictStr] = Field(default=None, description="Breeding site type.")
     has_water: Optional[StrictBool] = Field(default=None, description="Either if the user perceived water in the breeding site.")
     in_public_area: Optional[StrictBool] = Field(default=None, description="Either if the breeding site is found in a public area.")
     has_near_mosquitoes: Optional[StrictBool] = Field(default=None, description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")
     has_larvae: Optional[StrictBool] = Field(default=None, description="Either if the user perceived larvaes the breeding site.")
-    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "package", "device", "photos", "site_type", "has_water", "in_public_area", "has_near_mosquitoes", "has_larvae"]
+    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "photos", "site_type", "has_water", "in_public_area", "has_near_mosquitoes", "has_larvae"]
 
     @field_validator('site_type')
     def site_type_validate_enum(cls, value):
@@ -100,12 +96,6 @@ class BreedingSiteRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of package
-        if self.package:
-            _dict['package'] = self.package.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of device
-        if self.device:
-            _dict['device'] = self.device.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in photos (list)
         _items = []
         if self.photos:
@@ -155,8 +145,6 @@ class BreedingSiteRequest(BaseModel):
             "location": LocationRequest.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "tags": obj.get("tags"),
-            "package": PackageRequest.from_dict(obj["package"]) if obj.get("package") is not None else None,
-            "device": DeviceRequest.from_dict(obj["device"]) if obj.get("device") is not None else None,
             "photos": [SimplePhotoRequest.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
             "site_type": obj.get("site_type"),
             "has_water": obj.get("has_water"),

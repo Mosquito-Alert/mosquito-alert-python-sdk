@@ -21,17 +21,20 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from mosquito_alert.models.device_os_request import DeviceOsRequest
+from mosquito_alert.models.mobile_app_request import MobileAppRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Package(BaseModel):
+class DeviceUpdateRequest(BaseModel):
     """
-    Package
+    DeviceUpdateRequest
     """ # noqa: E501
-    name: Optional[Annotated[str, Field(strict=True, max_length=400)]] = Field(default=None, description="Name of tigatrapp package from which this report was submitted.")
-    version: Optional[Annotated[int, Field(le=2147483647, strict=True, ge=-2147483648)]] = Field(default=None, description="Version number of tigatrapp package from which this report was submitted.")
-    language: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="Language setting, within tigatrapp, of device from which this report was submitted. 2-digit ISO-639-1 language code.")
-    __properties: ClassVar[List[str]] = ["name", "version", "language"]
+    name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    fcm_token: Annotated[str, Field(min_length=1, strict=True)]
+    os: DeviceOsRequest
+    mobile_app: Optional[MobileAppRequest] = None
+    __properties: ClassVar[List[str]] = ["name", "fcm_token", "os", "mobile_app"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +54,7 @@ class Package(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Package from a JSON string"""
+        """Create an instance of DeviceUpdateRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,26 +75,22 @@ class Package(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of os
+        if self.os:
+            _dict['os'] = self.os.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of mobile_app
+        if self.mobile_app:
+            _dict['mobile_app'] = self.mobile_app.to_dict()
         # set to None if name (nullable) is None
         # and model_fields_set contains the field
         if self.name is None and "name" in self.model_fields_set:
             _dict['name'] = None
 
-        # set to None if version (nullable) is None
-        # and model_fields_set contains the field
-        if self.version is None and "version" in self.model_fields_set:
-            _dict['version'] = None
-
-        # set to None if language (nullable) is None
-        # and model_fields_set contains the field
-        if self.language is None and "language" in self.model_fields_set:
-            _dict['language'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Package from a dict"""
+        """Create an instance of DeviceUpdateRequest from a dict"""
         if obj is None:
             return None
 
@@ -100,8 +99,9 @@ class Package(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "version": obj.get("version"),
-            "language": obj.get("language")
+            "fcm_token": obj.get("fcm_token"),
+            "os": DeviceOsRequest.from_dict(obj["os"]) if obj.get("os") is not None else None,
+            "mobile_app": MobileAppRequest.from_dict(obj["mobile_app"]) if obj.get("mobile_app") is not None else None
         })
         return _obj
 

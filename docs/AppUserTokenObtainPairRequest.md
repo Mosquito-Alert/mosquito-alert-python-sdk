@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | 
 **password** | **str** |  | 
+**device_id** | **str** |  | [optional] 
 
 ## Example
 

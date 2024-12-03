@@ -37,8 +37,8 @@ class TestPaginatedObservationList(unittest.TestCase):
         if include_optional:
             return PaginatedObservationList(
                 count = 123,
-                next = '',
-                previous = '',
+                next = 'http://api.example.org/accounts/?page=4',
+                previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     mosquito_alert.models.observation.Observation(
                         uuid = '', 

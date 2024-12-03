@@ -579,7 +579,7 @@ class BitesApi:
         location_country_id: Optional[StrictInt] = None,
         location_nuts_2: Optional[StrictStr] = None,
         location_nuts_3: Optional[StrictStr] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
@@ -614,7 +614,7 @@ class BitesApi:
         :type location_nuts_2: str
         :param location_nuts_3:
         :type location_nuts_3: str
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
@@ -697,7 +697,7 @@ class BitesApi:
         location_country_id: Optional[StrictInt] = None,
         location_nuts_2: Optional[StrictStr] = None,
         location_nuts_3: Optional[StrictStr] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
@@ -732,7 +732,7 @@ class BitesApi:
         :type location_nuts_2: str
         :param location_nuts_3:
         :type location_nuts_3: str
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
@@ -815,7 +815,7 @@ class BitesApi:
         location_country_id: Optional[StrictInt] = None,
         location_nuts_2: Optional[StrictStr] = None,
         location_nuts_3: Optional[StrictStr] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
@@ -850,7 +850,7 @@ class BitesApi:
         :type location_nuts_2: str
         :param location_nuts_3:
         :type location_nuts_3: str
-        :param order_by: Ordenamiento  
+        :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int

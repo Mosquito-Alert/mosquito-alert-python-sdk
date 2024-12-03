@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **location** | [**LocationRequest**](LocationRequest.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
 **tags** | **List[str]** |  | [optional] 
-**package** | [**PackageRequest**](PackageRequest.md) |  | [optional] 
-**device** | [**DeviceRequest**](DeviceRequest.md) |  | [optional] 
 **event_environment** | **str** | The environment where the event took place. | [optional] 
 **event_moment** | **str** | The moment of the day when the event took place. | [optional] 
 **head_bite_count** | **int** | Number of bites reported in the head. | [optional] [default to 0]

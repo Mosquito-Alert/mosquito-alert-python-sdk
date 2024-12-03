@@ -116,6 +116,10 @@ Class | Method | HTTP request | Description
 *CampaignsApi* | [**campaigns_list**](docs/CampaignsApi.md#campaigns_list) | **GET** /campaigns/ | 
 *CampaignsApi* | [**campaigns_retrieve**](docs/CampaignsApi.md#campaigns_retrieve) | **GET** /campaigns/{id}/ | 
 *CountriesApi* | [**countries_retrieve**](docs/CountriesApi.md#countries_retrieve) | **GET** /countries/{id}/ | 
+*DevicesApi* | [**devices_create**](docs/DevicesApi.md#devices_create) | **POST** /devices/ | 
+*DevicesApi* | [**devices_partial_update**](docs/DevicesApi.md#devices_partial_update) | **PATCH** /devices/{device_id}/ | 
+*DevicesApi* | [**devices_retrieve**](docs/DevicesApi.md#devices_retrieve) | **GET** /devices/{device_id}/ | 
+*DevicesApi* | [**devices_update**](docs/DevicesApi.md#devices_update) | **PUT** /devices/{device_id}/ | 
 *FixesApi* | [**fixes_create**](docs/FixesApi.md#fixes_create) | **POST** /fixes/ | 
 *NotificationsApi* | [**notifications_create**](docs/NotificationsApi.md#notifications_create) | **POST** /notifications/ | 
 *NotificationsApi* | [**notifications_list**](docs/NotificationsApi.md#notifications_list) | **GET** /notifications/ | 
@@ -159,7 +163,11 @@ Class | Method | HTTP request | Description
  - [CreateUser](docs/CreateUser.md)
  - [CreateUserRequest](docs/CreateUserRequest.md)
  - [Device](docs/Device.md)
+ - [DeviceOs](docs/DeviceOs.md)
+ - [DeviceOsRequest](docs/DeviceOsRequest.md)
  - [DeviceRequest](docs/DeviceRequest.md)
+ - [DeviceUpdate](docs/DeviceUpdate.md)
+ - [DeviceUpdateRequest](docs/DeviceUpdateRequest.md)
  - [Fix](docs/Fix.md)
  - [FixLocation](docs/FixLocation.md)
  - [FixLocationRequest](docs/FixLocationRequest.md)
@@ -168,14 +176,14 @@ Class | Method | HTTP request | Description
  - [LocationPoint](docs/LocationPoint.md)
  - [LocationRequest](docs/LocationRequest.md)
  - [MetaNotificationRequest](docs/MetaNotificationRequest.md)
+ - [MobileApp](docs/MobileApp.md)
+ - [MobileAppRequest](docs/MobileAppRequest.md)
  - [Notification](docs/Notification.md)
  - [NotificationRequest](docs/NotificationRequest.md)
  - [Observation](docs/Observation.md)
  - [ObservationPrediction](docs/ObservationPrediction.md)
  - [ObservationPredictionRequest](docs/ObservationPredictionRequest.md)
  - [ObservationRequest](docs/ObservationRequest.md)
- - [Package](docs/Package.md)
- - [PackageRequest](docs/PackageRequest.md)
  - [PaginatedBiteList](docs/PaginatedBiteList.md)
  - [PaginatedBreedingSiteList](docs/PaginatedBreedingSiteList.md)
  - [PaginatedCampaignList](docs/PaginatedCampaignList.md)
@@ -184,6 +192,7 @@ Class | Method | HTTP request | Description
  - [PaginatedPartnerList](docs/PaginatedPartnerList.md)
  - [Partner](docs/Partner.md)
  - [PartnerPoint](docs/PartnerPoint.md)
+ - [PatchedDeviceUpdateRequest](docs/PatchedDeviceUpdateRequest.md)
  - [PatchedNotificationRequest](docs/PatchedNotificationRequest.md)
  - [PatchedUserRequest](docs/PatchedUserRequest.md)
  - [Photo](docs/Photo.md)

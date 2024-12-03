@@ -47,16 +47,6 @@ class TestBreedingSiteRequest(unittest.TestCase):
                 tags = [
                     '0'
                     ],
-                package = mosquito_alert.models.package_request.PackageRequest(
-                    name = '', 
-                    version = -2147483648, 
-                    language = '', ),
-                device = mosquito_alert.models.device_request.DeviceRequest(
-                    manufacturer = '', 
-                    model = '', 
-                    os = '', 
-                    os_version = '', 
-                    os_language = '', ),
                 photos = [
                     mosquito_alert.models.simple_photo_request.SimplePhotoRequest(
                         file = bytes(b'blah'), )

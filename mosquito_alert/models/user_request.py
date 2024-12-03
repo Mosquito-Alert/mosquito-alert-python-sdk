@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +27,18 @@ class UserRequest(BaseModel):
     """
     UserRequest
     """ # noqa: E501
-    device_token: Optional[StrictStr] = Field(default=None, description="Device token, used in messaging. Must be supplied by the client")
-    language_iso: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=2)]] = Field(default=None, description="Language setting of app. 2-digit ISO-639-1 language code.")
-    __properties: ClassVar[List[str]] = ["device_token", "language_iso"]
+    locale: Optional[StrictStr] = Field(default=None, description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
+    __properties: ClassVar[List[str]] = ["locale"]
+
+    @field_validator('locale')
+    def locale_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN']):
+            raise ValueError("must be one of enum values ('es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,11 +79,6 @@ class UserRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if device_token (nullable) is None
-        # and model_fields_set contains the field
-        if self.device_token is None and "device_token" in self.model_fields_set:
-            _dict['device_token'] = None
-
         return _dict
 
     @classmethod
@@ -88,8 +91,7 @@ class UserRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "device_token": obj.get("device_token"),
-            "language_iso": obj.get("language_iso")
+            "locale": obj.get("locale")
         })
         return _obj
 

@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,10 +30,21 @@ class User(BaseModel):
     """ # noqa: E501
     uuid: StrictStr
     registration_time: datetime = Field(description="The date and time when user registered and consented to sharing data. Automatically set by server when user uploads registration.")
-    language_iso: Optional[Annotated[str, Field(strict=True, max_length=2)]] = Field(default=None, description="Language setting of app. 2-digit ISO-639-1 language code.")
+    locale: Optional[StrictStr] = Field(default=None, description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
+    language_iso: StrictStr = Field(description="ISO 639-1 code")
     score: StrictInt = Field(description="Global XP Score. This field is updated whenever the user asks for the score, and is only stored here. The content must equal score_v2_adult + score_v2_bite + score_v2_site")
     last_score_update: datetime = Field(description="Last time score was updated")
-    __properties: ClassVar[List[str]] = ["uuid", "registration_time", "language_iso", "score", "last_score_update"]
+    __properties: ClassVar[List[str]] = ["uuid", "registration_time", "locale", "language_iso", "score", "last_score_update"]
+
+    @field_validator('locale')
+    def locale_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN']):
+            raise ValueError("must be one of enum values ('es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,10 +80,12 @@ class User(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
             "registration_time",
+            "language_iso",
             "score",
             "last_score_update",
         ])
@@ -97,6 +109,7 @@ class User(BaseModel):
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
             "registration_time": obj.get("registration_time"),
+            "locale": obj.get("locale"),
             "language_iso": obj.get("language_iso"),
             "score": obj.get("score"),
             "last_score_update": obj.get("last_score_update")

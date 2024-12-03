@@ -5,11 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**manufacturer** | **str** | Manufacturer of device from which this report was submitted. | [optional] 
-**model** | **str** | Model of device from which this report was submitted. | [optional] 
-**os** | **str** | Operating system of device from which this report was submitted. | [optional] 
-**os_version** | **str** | Operating system version of device from which this report was submitted. | [optional] 
-**os_language** | **str** | Language setting of operating system on device from which this report was submitted. 2-digit ISO-639-1 language code. | [optional] 
+**device_id** | **str** | Unique device identifier | 
+**name** | **str** |  | [optional] 
+**fcm_token** | **str** |  | 
+**type** | **str** |  | 
+**manufacturer** | **str** | The manufacturer of the device. | [optional] 
+**model** | **str** | The end-user-visible name for the end product. | 
+**os** | [**DeviceOsRequest**](DeviceOsRequest.md) |  | 
+**mobile_app** | [**MobileAppRequest**](MobileAppRequest.md) |  | [optional] 
 
 ## Example
 

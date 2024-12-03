@@ -37,7 +37,8 @@ class TestAppUserTokenObtainPairRequest(unittest.TestCase):
         if include_optional:
             return AppUserTokenObtainPairRequest(
                 uuid = '',
-                password = '0'
+                password = '0',
+                device_id = '0'
             )
         else:
             return AppUserTokenObtainPairRequest(

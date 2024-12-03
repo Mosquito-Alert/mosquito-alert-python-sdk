@@ -19,19 +19,18 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PackageRequest(BaseModel):
+class MobileApp(BaseModel):
     """
-    PackageRequest
+    MobileApp
     """ # noqa: E501
-    name: Optional[Annotated[str, Field(strict=True, max_length=400)]] = Field(default=None, description="Name of tigatrapp package from which this report was submitted.")
-    version: Optional[Annotated[int, Field(le=2147483647, strict=True, ge=-2147483648)]] = Field(default=None, description="Version number of tigatrapp package from which this report was submitted.")
-    language: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="Language setting, within tigatrapp, of device from which this report was submitted. 2-digit ISO-639-1 language code.")
-    __properties: ClassVar[List[str]] = ["name", "version", "language"]
+    package_name: Annotated[str, Field(strict=True, max_length=128)]
+    package_version: Annotated[str, Field(strict=True, max_length=32)]
+    __properties: ClassVar[List[str]] = ["package_name", "package_version"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class PackageRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PackageRequest from a JSON string"""
+        """Create an instance of MobileApp from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,26 +71,11 @@ class PackageRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if version (nullable) is None
-        # and model_fields_set contains the field
-        if self.version is None and "version" in self.model_fields_set:
-            _dict['version'] = None
-
-        # set to None if language (nullable) is None
-        # and model_fields_set contains the field
-        if self.language is None and "language" in self.model_fields_set:
-            _dict['language'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PackageRequest from a dict"""
+        """Create an instance of MobileApp from a dict"""
         if obj is None:
             return None
 
@@ -99,9 +83,8 @@ class PackageRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "version": obj.get("version"),
-            "language": obj.get("language")
+            "package_name": obj.get("package_name"),
+            "package_version": obj.get("package_version")
         })
         return _obj
 

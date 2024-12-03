@@ -37,8 +37,8 @@ class TestPaginatedCampaignList(unittest.TestCase):
         if include_optional:
             return PaginatedCampaignList(
                 count = 123,
-                next = '',
-                previous = '',
+                next = 'http://api.example.org/accounts/?page=4',
+                previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     mosquito_alert.models.campaign.Campaign(
                         id = 56, 

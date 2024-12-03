@@ -22,9 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from mosquito_alert.models.device_request import DeviceRequest
 from mosquito_alert.models.location_request import LocationRequest
-from mosquito_alert.models.package_request import PackageRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,8 +35,6 @@ class BiteRequest(BaseModel):
     location: LocationRequest
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
-    package: Optional[PackageRequest] = None
-    device: Optional[DeviceRequest] = None
     event_environment: Optional[StrictStr] = Field(default=None, description="The environment where the event took place.")
     event_moment: Optional[StrictStr] = Field(default=None, description="The moment of the day when the event took place.")
     head_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the head.")
@@ -47,7 +43,7 @@ class BiteRequest(BaseModel):
     chest_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the chest.")
     left_leg_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the left leg.")
     right_leg_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the right leg.")
-    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "package", "device", "event_environment", "event_moment", "head_bite_count", "left_arm_bite_count", "right_arm_bite_count", "chest_bite_count", "left_leg_bite_count", "right_leg_bite_count"]
+    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "event_environment", "event_moment", "head_bite_count", "left_arm_bite_count", "right_arm_bite_count", "chest_bite_count", "left_leg_bite_count", "right_leg_bite_count"]
 
     @field_validator('event_environment')
     def event_environment_validate_enum(cls, value):
@@ -111,12 +107,6 @@ class BiteRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of package
-        if self.package:
-            _dict['package'] = self.package.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of device
-        if self.device:
-            _dict['device'] = self.device.to_dict()
         # set to None if note (nullable) is None
         # and model_fields_set contains the field
         if self.note is None and "note" in self.model_fields_set:
@@ -179,8 +169,6 @@ class BiteRequest(BaseModel):
             "location": LocationRequest.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "tags": obj.get("tags"),
-            "package": PackageRequest.from_dict(obj["package"]) if obj.get("package") is not None else None,
-            "device": DeviceRequest.from_dict(obj["device"]) if obj.get("device") is not None else None,
             "event_environment": obj.get("event_environment"),
             "event_moment": obj.get("event_moment"),
             "head_bite_count": obj.get("head_bite_count") if obj.get("head_bite_count") is not None else 0,

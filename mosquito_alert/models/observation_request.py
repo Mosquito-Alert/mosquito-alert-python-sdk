@@ -22,9 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from mosquito_alert.models.device_request import DeviceRequest
 from mosquito_alert.models.location_request import LocationRequest
-from mosquito_alert.models.package_request import PackageRequest
 from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,8 +36,6 @@ class ObservationRequest(BaseModel):
     location: LocationRequest
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
-    package: Optional[PackageRequest] = None
-    device: Optional[DeviceRequest] = None
     photos: List[SimplePhotoRequest]
     event_environment: Optional[StrictStr] = Field(default=None, description="The environment where the event took place.")
     event_moment: Optional[StrictStr] = Field(default=None, description="The moment of the day when the event took place.")
@@ -47,7 +43,7 @@ class ObservationRequest(BaseModel):
     user_perceived_mosquito_thorax: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the thorax resembles, according to the user.")
     user_perceived_mosquito_abdomen: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the abdomen resembles, according to the user.")
     user_perceived_mosquito_legs: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the leg resembles, according to the user.")
-    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "package", "device", "photos", "event_environment", "event_moment", "user_perceived_mosquito_specie", "user_perceived_mosquito_thorax", "user_perceived_mosquito_abdomen", "user_perceived_mosquito_legs"]
+    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "photos", "event_environment", "event_moment", "user_perceived_mosquito_specie", "user_perceived_mosquito_thorax", "user_perceived_mosquito_abdomen", "user_perceived_mosquito_legs"]
 
     @field_validator('event_environment')
     def event_environment_validate_enum(cls, value):
@@ -151,12 +147,6 @@ class ObservationRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of package
-        if self.package:
-            _dict['package'] = self.package.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of device
-        if self.device:
-            _dict['device'] = self.device.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in photos (list)
         _items = []
         if self.photos:
@@ -216,8 +206,6 @@ class ObservationRequest(BaseModel):
             "location": LocationRequest.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "tags": obj.get("tags"),
-            "package": PackageRequest.from_dict(obj["package"]) if obj.get("package") is not None else None,
-            "device": DeviceRequest.from_dict(obj["device"]) if obj.get("device") is not None else None,
             "photos": [SimplePhotoRequest.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
             "event_environment": obj.get("event_environment"),
             "event_moment": obj.get("event_moment"),

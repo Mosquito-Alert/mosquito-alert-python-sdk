@@ -36,8 +36,7 @@ class TestPatchedUserRequest(unittest.TestCase):
         model = PatchedUserRequest()
         if include_optional:
             return PatchedUserRequest(
-                device_token = '',
-                language_iso = '0'
+                locale = 'es'
             )
         else:
             return PatchedUserRequest(

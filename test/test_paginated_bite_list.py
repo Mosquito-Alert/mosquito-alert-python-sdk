@@ -37,8 +37,8 @@ class TestPaginatedBiteList(unittest.TestCase):
         if include_optional:
             return PaginatedBiteList(
                 count = 123,
-                next = '',
-                previous = '',
+                next = 'http://api.example.org/accounts/?page=4',
+                previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     mosquito_alert.models.bite.Bite(
                         uuid = '', 

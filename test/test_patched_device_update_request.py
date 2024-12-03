@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.package_request import PackageRequest
+from mosquito_alert.models.patched_device_update_request import PatchedDeviceUpdateRequest
 
-class TestPackageRequest(unittest.TestCase):
-    """PackageRequest unit test stubs"""
+class TestPatchedDeviceUpdateRequest(unittest.TestCase):
+    """PatchedDeviceUpdateRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,33 @@ class TestPackageRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> PackageRequest:
-        """Test PackageRequest
+    def make_instance(self, include_optional) -> PatchedDeviceUpdateRequest:
+        """Test PatchedDeviceUpdateRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `PackageRequest`
+        # uncomment below to create an instance of `PatchedDeviceUpdateRequest`
         """
-        model = PackageRequest()
+        model = PatchedDeviceUpdateRequest()
         if include_optional:
-            return PackageRequest(
+            return PatchedDeviceUpdateRequest(
                 name = '',
-                version = -2147483648,
-                language = ''
+                fcm_token = '0',
+                os = mosquito_alert.models.device_os_request.DeviceOsRequest(
+                    name = '', 
+                    version = '', 
+                    locale = '', ),
+                mobile_app = mosquito_alert.models.mobile_app_request.MobileAppRequest(
+                    package_name = '0', 
+                    package_version = '0', )
             )
         else:
-            return PackageRequest(
+            return PatchedDeviceUpdateRequest(
         )
         """
 
-    def testPackageRequest(self):
-        """Test PackageRequest"""
+    def testPatchedDeviceUpdateRequest(self):
+        """Test PatchedDeviceUpdateRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

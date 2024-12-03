@@ -21,7 +21,12 @@ docs/CreateNotification.md
 docs/CreateUser.md
 docs/CreateUserRequest.md
 docs/Device.md
+docs/DeviceOs.md
+docs/DeviceOsRequest.md
 docs/DeviceRequest.md
+docs/DeviceUpdate.md
+docs/DeviceUpdateRequest.md
+docs/DevicesApi.md
 docs/Fix.md
 docs/FixLocation.md
 docs/FixLocationRequest.md
@@ -31,6 +36,8 @@ docs/Location.md
 docs/LocationPoint.md
 docs/LocationRequest.md
 docs/MetaNotificationRequest.md
+docs/MobileApp.md
+docs/MobileAppRequest.md
 docs/Notification.md
 docs/NotificationRequest.md
 docs/NotificationsApi.md
@@ -39,8 +46,6 @@ docs/ObservationPrediction.md
 docs/ObservationPredictionRequest.md
 docs/ObservationRequest.md
 docs/ObservationsApi.md
-docs/Package.md
-docs/PackageRequest.md
 docs/PaginatedBiteList.md
 docs/PaginatedBreedingSiteList.md
 docs/PaginatedCampaignList.md
@@ -50,6 +55,7 @@ docs/PaginatedPartnerList.md
 docs/Partner.md
 docs/PartnerPoint.md
 docs/PartnersApi.md
+docs/PatchedDeviceUpdateRequest.md
 docs/PatchedNotificationRequest.md
 docs/PatchedUserRequest.md
 docs/Photo.md
@@ -75,6 +81,7 @@ mosquito_alert/api/bites_api.py
 mosquito_alert/api/breeding_sites_api.py
 mosquito_alert/api/campaigns_api.py
 mosquito_alert/api/countries_api.py
+mosquito_alert/api/devices_api.py
 mosquito_alert/api/fixes_api.py
 mosquito_alert/api/notifications_api.py
 mosquito_alert/api/observations_api.py
@@ -101,7 +108,11 @@ mosquito_alert/models/create_notification.py
 mosquito_alert/models/create_user.py
 mosquito_alert/models/create_user_request.py
 mosquito_alert/models/device.py
+mosquito_alert/models/device_os.py
+mosquito_alert/models/device_os_request.py
 mosquito_alert/models/device_request.py
+mosquito_alert/models/device_update.py
+mosquito_alert/models/device_update_request.py
 mosquito_alert/models/fix.py
 mosquito_alert/models/fix_location.py
 mosquito_alert/models/fix_location_request.py
@@ -110,14 +121,14 @@ mosquito_alert/models/location.py
 mosquito_alert/models/location_point.py
 mosquito_alert/models/location_request.py
 mosquito_alert/models/meta_notification_request.py
+mosquito_alert/models/mobile_app.py
+mosquito_alert/models/mobile_app_request.py
 mosquito_alert/models/notification.py
 mosquito_alert/models/notification_request.py
 mosquito_alert/models/observation.py
 mosquito_alert/models/observation_prediction.py
 mosquito_alert/models/observation_prediction_request.py
 mosquito_alert/models/observation_request.py
-mosquito_alert/models/package.py
-mosquito_alert/models/package_request.py
 mosquito_alert/models/paginated_bite_list.py
 mosquito_alert/models/paginated_breeding_site_list.py
 mosquito_alert/models/paginated_campaign_list.py
@@ -126,6 +137,7 @@ mosquito_alert/models/paginated_observation_list.py
 mosquito_alert/models/paginated_partner_list.py
 mosquito_alert/models/partner.py
 mosquito_alert/models/partner_point.py
+mosquito_alert/models/patched_device_update_request.py
 mosquito_alert/models/patched_notification_request.py
 mosquito_alert/models/patched_user_request.py
 mosquito_alert/models/photo.py
@@ -167,7 +179,12 @@ test/test_create_notification.py
 test/test_create_user.py
 test/test_create_user_request.py
 test/test_device.py
+test/test_device_os.py
+test/test_device_os_request.py
 test/test_device_request.py
+test/test_device_update.py
+test/test_device_update_request.py
+test/test_devices_api.py
 test/test_fix.py
 test/test_fix_location.py
 test/test_fix_location_request.py
@@ -177,6 +194,8 @@ test/test_location.py
 test/test_location_point.py
 test/test_location_request.py
 test/test_meta_notification_request.py
+test/test_mobile_app.py
+test/test_mobile_app_request.py
 test/test_notification.py
 test/test_notification_request.py
 test/test_notifications_api.py
@@ -185,8 +204,6 @@ test/test_observation_prediction.py
 test/test_observation_prediction_request.py
 test/test_observation_request.py
 test/test_observations_api.py
-test/test_package.py
-test/test_package_request.py
 test/test_paginated_bite_list.py
 test/test_paginated_breeding_site_list.py
 test/test_paginated_campaign_list.py
@@ -196,6 +213,7 @@ test/test_paginated_partner_list.py
 test/test_partner.py
 test/test_partner_point.py
 test/test_partners_api.py
+test/test_patched_device_update_request.py
 test/test_patched_notification_request.py
 test/test_patched_user_request.py
 test/test_photo.py

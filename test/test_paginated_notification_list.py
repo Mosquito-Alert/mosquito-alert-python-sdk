@@ -37,8 +37,8 @@ class TestPaginatedNotificationList(unittest.TestCase):
         if include_optional:
             return PaginatedNotificationList(
                 count = 123,
-                next = '',
-                previous = '',
+                next = 'http://api.example.org/accounts/?page=4',
+                previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     mosquito_alert.models.notification.Notification(
                         id = 56, 

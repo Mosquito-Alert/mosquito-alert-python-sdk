@@ -37,8 +37,8 @@ class TestPaginatedPartnerList(unittest.TestCase):
         if include_optional:
             return PaginatedPartnerList(
                 count = 123,
-                next = '',
-                previous = '',
+                next = 'http://api.example.org/accounts/?page=4',
+                previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     mosquito_alert.models.partner.Partner(
                         id = 56, 

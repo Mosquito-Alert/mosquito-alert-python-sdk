@@ -37,8 +37,8 @@ class TestPaginatedBreedingSiteList(unittest.TestCase):
         if include_optional:
             return PaginatedBreedingSiteList(
                 count = 123,
-                next = '',
-                previous = '',
+                next = 'http://api.example.org/accounts/?page=4',
+                previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     mosquito_alert.models.breeding_site.BreedingSite(
                         uuid = '', 
