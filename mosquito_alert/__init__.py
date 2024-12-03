@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.0.0"
+__version__ = "0.0.1"
 
 # import apis into sdk package
 from mosquito_alert.api.bites_api import BitesApi

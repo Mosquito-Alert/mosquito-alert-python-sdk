@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mosquito_alert"
-version = "1.0.0"
+version = "0.0.1"
 description = "Mosquito Alert API"
 authors = ["Developers <it@mosquitoalert.com>"]
 license = "GPL-3"
