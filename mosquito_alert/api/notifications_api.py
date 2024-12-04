@@ -98,6 +98,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
@@ -164,6 +172,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
@@ -230,6 +246,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
@@ -385,6 +409,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsListErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
@@ -463,6 +495,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsListErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
@@ -541,6 +581,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsListErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
@@ -691,6 +739,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsPartialUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -761,6 +817,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsPartialUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -831,6 +895,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsPartialUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -977,6 +1049,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1043,6 +1123,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1109,6 +1197,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1241,6 +1337,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1311,6 +1415,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1381,6 +1493,14 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(

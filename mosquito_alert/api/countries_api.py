@@ -92,6 +92,14 @@ class CountriesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "CountriesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Country",
         }
         response_data = self.api_client.call_api(
@@ -158,6 +166,14 @@ class CountriesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "CountriesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Country",
         }
         response_data = self.api_client.call_api(
@@ -224,6 +240,14 @@ class CountriesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "CountriesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Country",
         }
         response_data = self.api_client.call_api(

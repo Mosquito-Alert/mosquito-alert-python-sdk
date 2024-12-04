@@ -91,6 +91,14 @@ class FixesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "FixesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Fix",
         }
         response_data = self.api_client.call_api(
@@ -157,6 +165,14 @@ class FixesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "FixesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Fix",
         }
         response_data = self.api_client.call_api(
@@ -223,6 +239,14 @@ class FixesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "FixesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Fix",
         }
         response_data = self.api_client.call_api(

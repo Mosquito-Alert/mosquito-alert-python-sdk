@@ -96,6 +96,14 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Bite",
         }
         response_data = self.api_client.call_api(
@@ -162,6 +170,14 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Bite",
         }
         response_data = self.api_client.call_api(
@@ -228,6 +244,14 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Bite",
         }
         response_data = self.api_client.call_api(
@@ -371,6 +395,14 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -437,6 +469,14 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -503,6 +543,14 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -544,6 +592,13 @@ class BitesApi:
         # process the body parameter
 
 
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -676,6 +731,13 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesListErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedBiteList",
         }
         response_data = self.api_client.call_api(
@@ -794,6 +856,13 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesListErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedBiteList",
         }
         response_data = self.api_client.call_api(
@@ -912,6 +981,13 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesListErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedBiteList",
         }
         response_data = self.api_client.call_api(
@@ -1162,6 +1238,13 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Bite",
         }
         response_data = self.api_client.call_api(
@@ -1228,6 +1311,13 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Bite",
         }
         response_data = self.api_client.call_api(
@@ -1294,6 +1384,13 @@ class BitesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "BitesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Bite",
         }
         response_data = self.api_client.call_api(

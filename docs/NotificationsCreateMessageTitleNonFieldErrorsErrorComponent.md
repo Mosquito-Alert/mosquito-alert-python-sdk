@@ -1,0 +1,31 @@
+# NotificationsCreateMessageTitleNonFieldErrorsErrorComponent
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**attr** | **str** |  | 
+**code** | **str** |  | 
+**detail** | **str** |  | 
+
+## Example
+
+```python
+from mosquito_alert.models.notifications_create_message_title_non_field_errors_error_component import NotificationsCreateMessageTitleNonFieldErrorsErrorComponent
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of NotificationsCreateMessageTitleNonFieldErrorsErrorComponent from a JSON string
+notifications_create_message_title_non_field_errors_error_component_instance = NotificationsCreateMessageTitleNonFieldErrorsErrorComponent.from_json(json)
+# print the JSON string representation of the object
+print(NotificationsCreateMessageTitleNonFieldErrorsErrorComponent.to_json())
+
+# convert the object into a dict
+notifications_create_message_title_non_field_errors_error_component_dict = notifications_create_message_title_non_field_errors_error_component_instance.to_dict()
+# create an instance of NotificationsCreateMessageTitleNonFieldErrorsErrorComponent from a dict
+notifications_create_message_title_non_field_errors_error_component_from_dict = NotificationsCreateMessageTitleNonFieldErrorsErrorComponent.from_dict(notifications_create_message_title_non_field_errors_error_component_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

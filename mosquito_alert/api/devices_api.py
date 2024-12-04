@@ -96,6 +96,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Device",
         }
         response_data = self.api_client.call_api(
@@ -162,6 +170,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Device",
         }
         response_data = self.api_client.call_api(
@@ -228,6 +244,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Device",
         }
         response_data = self.api_client.call_api(
@@ -373,6 +397,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesPartialUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -443,6 +475,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesPartialUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -513,6 +553,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesPartialUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -657,6 +705,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Device",
         }
         response_data = self.api_client.call_api(
@@ -723,6 +779,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Device",
         }
         response_data = self.api_client.call_api(
@@ -789,6 +853,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Device",
         }
         response_data = self.api_client.call_api(
@@ -919,6 +991,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -989,6 +1069,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -1059,6 +1147,14 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "DevicesUpdateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(

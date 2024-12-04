@@ -98,6 +98,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -164,6 +172,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -230,6 +246,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '201': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -373,6 +397,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -439,6 +471,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -505,6 +545,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -546,6 +594,13 @@ class ObservationsApi:
         # process the body parameter
 
 
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -690,6 +745,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedObservationList",
         }
         response_data = self.api_client.call_api(
@@ -820,6 +882,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedObservationList",
         }
         response_data = self.api_client.call_api(
@@ -950,6 +1019,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "PaginatedObservationList",
         }
         response_data = self.api_client.call_api(
@@ -1219,6 +1295,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1289,6 +1373,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1359,6 +1451,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionCreateErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1504,6 +1604,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1570,6 +1678,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1636,6 +1752,14 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionDestroyErrorResponse400",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1677,6 +1801,13 @@ class ObservationsApi:
         # process the body parameter
 
 
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1756,6 +1887,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1822,6 +1960,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1888,6 +2033,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsPredictionRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -2015,6 +2167,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -2081,6 +2240,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -2147,6 +2313,13 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsRetrieveErrorResponse400",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '405': "ErrorResponse405",
+            '406': "ErrorResponse406",
+            '415': "ErrorResponse415",
+            '500': "ErrorResponse500",
             '200': "Observation",
         }
         response_data = self.api_client.call_api(
