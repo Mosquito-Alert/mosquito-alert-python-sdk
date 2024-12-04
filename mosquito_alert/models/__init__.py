@@ -26,6 +26,8 @@ from mosquito_alert.models.breeding_site_request import BreedingSiteRequest
 from mosquito_alert.models.campaign import Campaign
 from mosquito_alert.models.country import Country
 from mosquito_alert.models.create_notification import CreateNotification
+from mosquito_alert.models.create_notification_message import CreateNotificationMessage
+from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest
 from mosquito_alert.models.create_user import CreateUser
 from mosquito_alert.models.create_user_request import CreateUserRequest
 from mosquito_alert.models.device import Device
@@ -38,6 +40,8 @@ from mosquito_alert.models.fix import Fix
 from mosquito_alert.models.fix_location import FixLocation
 from mosquito_alert.models.fix_location_request import FixLocationRequest
 from mosquito_alert.models.fix_request import FixRequest
+from mosquito_alert.models.localized_field import LocalizedField
+from mosquito_alert.models.localized_field_request import LocalizedFieldRequest
 from mosquito_alert.models.location import Location
 from mosquito_alert.models.location_point import LocationPoint
 from mosquito_alert.models.location_request import LocationRequest
@@ -45,6 +49,7 @@ from mosquito_alert.models.meta_notification_request import MetaNotificationRequ
 from mosquito_alert.models.mobile_app import MobileApp
 from mosquito_alert.models.mobile_app_request import MobileAppRequest
 from mosquito_alert.models.notification import Notification
+from mosquito_alert.models.notification_message import NotificationMessage
 from mosquito_alert.models.notification_request import NotificationRequest
 from mosquito_alert.models.observation import Observation
 from mosquito_alert.models.observation_prediction import ObservationPrediction

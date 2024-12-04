@@ -37,16 +37,22 @@ class TestTopicNotificationCreateRequest(unittest.TestCase):
         if include_optional:
             return TopicNotificationCreateRequest(
                 receiver_type = 'user',
-                title_en = '0',
-                body_en = '0',
-                topic_code = '0'
+                message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
+                    title = null, 
+                    body = null, ),
+                topic_codes = [
+                    '0'
+                    ]
             )
         else:
             return TopicNotificationCreateRequest(
                 receiver_type = 'user',
-                title_en = '0',
-                body_en = '0',
-                topic_code = '0',
+                message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
+                    title = null, 
+                    body = null, ),
+                topic_codes = [
+                    '0'
+                    ],
         )
         """
 

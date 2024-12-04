@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **notifications_create**
-> CreateNotification notifications_create(meta_notification_request=meta_notification_request)
+> List[CreateNotification] notifications_create(meta_notification_request=meta_notification_request)
 
 
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateNotification**](CreateNotification.md)
+[**List[CreateNotification]**](CreateNotification.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notifications_list**
-> PaginatedNotificationList notifications_list(order_by=order_by, page=page, page_size=page_size, seen=seen)
+> PaginatedNotificationList notifications_list(is_read=is_read, order_by=order_by, page=page, page_size=page_size)
 
 
 
@@ -150,13 +150,13 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
+    is_read = True # bool |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
-    seen = True # bool |  (optional)
 
     try:
-        api_response = api_instance.notifications_list(order_by=order_by, page=page, page_size=page_size, seen=seen)
+        api_response = api_instance.notifications_list(is_read=is_read, order_by=order_by, page=page, page_size=page_size)
         print("The response of NotificationsApi->notifications_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -170,10 +170,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **is_read** | **bool**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **seen** | **bool**|  | [optional] 
 
 ### Return type
 

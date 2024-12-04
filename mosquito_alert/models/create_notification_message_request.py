@@ -18,22 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.notification_message import NotificationMessage
+from mosquito_alert.models.localized_field_request import LocalizedFieldRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Notification(BaseModel):
+class CreateNotificationMessageRequest(BaseModel):
     """
-    Notification
+    CreateNotificationMessageRequest
     """ # noqa: E501
-    id: StrictInt
-    message: NotificationMessage
-    is_read: StrictBool
-    created_at: datetime
-    __properties: ClassVar[List[str]] = ["id", "message", "is_read", "created_at"]
+    title: LocalizedFieldRequest = Field(description="Provide the message's title in all supported languages")
+    body: LocalizedFieldRequest = Field(description="Provide the message's body in all supported languages")
+    __properties: ClassVar[List[str]] = ["title", "body"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +50,7 @@ class Notification(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Notification from a JSON string"""
+        """Create an instance of CreateNotificationMessageRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -65,16 +62,8 @@ class Notification(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "id",
-            "message",
-            "is_read",
-            "created_at",
         ])
 
         _dict = self.model_dump(
@@ -82,14 +71,17 @@ class Notification(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of message
-        if self.message:
-            _dict['message'] = self.message.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of title
+        if self.title:
+            _dict['title'] = self.title.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of body
+        if self.body:
+            _dict['body'] = self.body.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Notification from a dict"""
+        """Create an instance of CreateNotificationMessageRequest from a dict"""
         if obj is None:
             return None
 
@@ -97,10 +89,8 @@ class Notification(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "message": NotificationMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
-            "is_read": obj.get("is_read"),
-            "created_at": obj.get("created_at")
+            "title": LocalizedFieldRequest.from_dict(obj["title"]) if obj.get("title") is not None else None,
+            "body": LocalizedFieldRequest.from_dict(obj["body"]) if obj.get("body") is not None else None
         })
         return _obj
 

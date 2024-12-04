@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,10 +30,9 @@ class UserNotificationCreateRequest(BaseModel):
     UserNotificationCreateRequest
     """ # noqa: E501
     receiver_type: StrictStr
-    title_en: Annotated[str, Field(min_length=1, strict=True)]
-    body_en: Annotated[str, Field(min_length=1, strict=True)]
-    user_uuid: StrictStr
-    __properties: ClassVar[List[str]] = ["receiver_type", "title_en", "body_en", "user_uuid"]
+    message: CreateNotificationMessageRequest = Field(description="The message of the notification")
+    user_uuids: Annotated[List[StrictStr], Field(min_length=1)]
+    __properties: ClassVar[List[str]] = ["receiver_type", "message", "user_uuids"]
 
     @field_validator('receiver_type')
     def receiver_type_validate_enum(cls, value):
@@ -80,6 +80,9 @@ class UserNotificationCreateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of message
+        if self.message:
+            _dict['message'] = self.message.to_dict()
         return _dict
 
     @classmethod
@@ -93,9 +96,8 @@ class UserNotificationCreateRequest(BaseModel):
 
         _obj = cls.model_validate({
             "receiver_type": obj.get("receiver_type"),
-            "title_en": obj.get("title_en"),
-            "body_en": obj.get("body_en"),
-            "user_uuid": obj.get("user_uuid")
+            "message": CreateNotificationMessageRequest.from_dict(obj["message"]) if obj.get("message") is not None else None,
+            "user_uuids": obj.get("user_uuids")
         })
         return _obj
 

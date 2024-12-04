@@ -27,8 +27,8 @@ class NotificationRequest(BaseModel):
     """
     NotificationRequest
     """ # noqa: E501
-    seen: StrictBool
-    __properties: ClassVar[List[str]] = ["seen"]
+    is_read: StrictBool
+    __properties: ClassVar[List[str]] = ["is_read"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,7 +81,7 @@ class NotificationRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "seen": obj.get("seen")
+            "is_read": obj.get("is_read")
         })
         return _obj
 

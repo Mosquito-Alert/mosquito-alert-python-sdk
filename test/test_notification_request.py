@@ -36,11 +36,11 @@ class TestNotificationRequest(unittest.TestCase):
         model = NotificationRequest()
         if include_optional:
             return NotificationRequest(
-                seen = True
+                is_read = True
             )
         else:
             return NotificationRequest(
-                seen = True,
+                is_read = True,
         )
         """
 

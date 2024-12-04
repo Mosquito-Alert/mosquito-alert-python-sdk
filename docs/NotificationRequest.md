@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**seen** | **bool** |  | 
+**is_read** | **bool** |  | 
 
 ## Example
 

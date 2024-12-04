@@ -18,22 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.notification_message import NotificationMessage
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Notification(BaseModel):
+class NotificationMessage(BaseModel):
     """
-    Notification
+    NotificationMessage
     """ # noqa: E501
-    id: StrictInt
-    message: NotificationMessage
-    is_read: StrictBool
-    created_at: datetime
-    __properties: ClassVar[List[str]] = ["id", "message", "is_read", "created_at"]
+    title: StrictStr
+    body: StrictStr
+    __properties: ClassVar[List[str]] = ["title", "body"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +49,7 @@ class Notification(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Notification from a JSON string"""
+        """Create an instance of NotificationMessage from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -67,14 +63,10 @@ class Notification(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "id",
-            "message",
-            "is_read",
-            "created_at",
+            "title",
+            "body",
         ])
 
         _dict = self.model_dump(
@@ -82,14 +74,11 @@ class Notification(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of message
-        if self.message:
-            _dict['message'] = self.message.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Notification from a dict"""
+        """Create an instance of NotificationMessage from a dict"""
         if obj is None:
             return None
 
@@ -97,10 +86,8 @@ class Notification(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "message": NotificationMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
-            "is_read": obj.get("is_read"),
-            "created_at": obj.get("created_at")
+            "title": obj.get("title"),
+            "body": obj.get("body")
         })
         return _obj
 

@@ -37,20 +37,20 @@ class TestNotification(unittest.TestCase):
         if include_optional:
             return Notification(
                 id = 56,
-                expert_id = 56,
-                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                title = '',
-                body = '',
-                seen = True
+                message = mosquito_alert.models.notification_message.NotificationMessage(
+                    title = '', 
+                    body = '', ),
+                is_read = True,
+                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return Notification(
                 id = 56,
-                expert_id = 56,
+                message = mosquito_alert.models.notification_message.NotificationMessage(
+                    title = '', 
+                    body = '', ),
+                is_read = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                title = '',
-                body = '',
-                seen = True,
         )
         """
 

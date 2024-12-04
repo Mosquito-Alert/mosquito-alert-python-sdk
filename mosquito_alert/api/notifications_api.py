@@ -61,7 +61,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateNotification:
+    ) -> List[CreateNotification]:
         """notifications_create
 
 
@@ -98,7 +98,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateNotification",
+            '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -127,7 +127,7 @@ class NotificationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateNotification]:
+    ) -> ApiResponse[List[CreateNotification]]:
         """notifications_create
 
 
@@ -164,7 +164,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateNotification",
+            '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -230,7 +230,7 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateNotification",
+            '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -323,10 +323,10 @@ class NotificationsApi:
     @validate_call
     def notifications_list(
         self,
+        is_read: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        seen: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -343,14 +343,14 @@ class NotificationsApi:
         """notifications_list
 
 
+        :param is_read:
+        :type is_read: bool
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
-        :param seen:
-        :type seen: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -374,10 +374,10 @@ class NotificationsApi:
         """ # noqa: E501
 
         _param = self._notifications_list_serialize(
+            is_read=is_read,
             order_by=order_by,
             page=page,
             page_size=page_size,
-            seen=seen,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -401,10 +401,10 @@ class NotificationsApi:
     @validate_call
     def notifications_list_with_http_info(
         self,
+        is_read: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        seen: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -421,14 +421,14 @@ class NotificationsApi:
         """notifications_list
 
 
+        :param is_read:
+        :type is_read: bool
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
-        :param seen:
-        :type seen: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -452,10 +452,10 @@ class NotificationsApi:
         """ # noqa: E501
 
         _param = self._notifications_list_serialize(
+            is_read=is_read,
             order_by=order_by,
             page=page,
             page_size=page_size,
-            seen=seen,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -479,10 +479,10 @@ class NotificationsApi:
     @validate_call
     def notifications_list_without_preload_content(
         self,
+        is_read: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        seen: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -499,14 +499,14 @@ class NotificationsApi:
         """notifications_list
 
 
+        :param is_read:
+        :type is_read: bool
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
-        :param seen:
-        :type seen: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -530,10 +530,10 @@ class NotificationsApi:
         """ # noqa: E501
 
         _param = self._notifications_list_serialize(
+            is_read=is_read,
             order_by=order_by,
             page=page,
             page_size=page_size,
-            seen=seen,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -552,10 +552,10 @@ class NotificationsApi:
 
     def _notifications_list_serialize(
         self,
+        is_read,
         order_by,
         page,
         page_size,
-        seen,
         _request_auth,
         _content_type,
         _headers,
@@ -579,6 +579,10 @@ class NotificationsApi:
 
         # process the path parameters
         # process the query parameters
+        if is_read is not None:
+            
+            _query_params.append(('is_read', is_read))
+            
         if order_by is not None:
             
             _query_params.append(('order_by', order_by))
@@ -590,10 +594,6 @@ class NotificationsApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
-            
-        if seen is not None:
-            
-            _query_params.append(('seen', seen))
             
         # process the header parameters
         # process the form parameters

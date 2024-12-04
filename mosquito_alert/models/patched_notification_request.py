@@ -27,8 +27,8 @@ class PatchedNotificationRequest(BaseModel):
     """
     PatchedNotificationRequest
     """ # noqa: E501
-    seen: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["seen"]
+    is_read: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["is_read"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,7 +81,7 @@ class PatchedNotificationRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "seen": obj.get("seen")
+            "is_read": obj.get("is_read")
         })
         return _obj
 

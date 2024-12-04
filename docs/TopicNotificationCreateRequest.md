@@ -6,9 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **receiver_type** | **str** |  | 
-**title_en** | **str** |  | 
-**body_en** | **str** |  | 
-**topic_code** | **str** |  | 
+**message** | [**CreateNotificationMessageRequest**](CreateNotificationMessageRequest.md) | The message of the notification | 
+**topic_codes** | **List[str]** |  | 
 
 ## Example
 

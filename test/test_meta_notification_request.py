@@ -37,18 +37,28 @@ class TestMetaNotificationRequest(unittest.TestCase):
         if include_optional:
             return MetaNotificationRequest(
                 receiver_type = 'user',
-                title_en = '0',
-                body_en = '0',
-                user_uuid = '',
-                topic_code = '0'
+                message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
+                    title = null, 
+                    body = null, ),
+                user_uuids = [
+                    ''
+                    ],
+                topic_codes = [
+                    '0'
+                    ]
             )
         else:
             return MetaNotificationRequest(
                 receiver_type = 'user',
-                title_en = '0',
-                body_en = '0',
-                user_uuid = '',
-                topic_code = '0',
+                message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
+                    title = null, 
+                    body = null, ),
+                user_uuids = [
+                    ''
+                    ],
+                topic_codes = [
+                    '0'
+                    ],
         )
         """
 

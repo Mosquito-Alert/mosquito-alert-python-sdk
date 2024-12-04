@@ -6,11 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
-**expert_id** | **int** | Expert sending the notification | [readonly] 
+**message** | [**NotificationMessage**](NotificationMessage.md) |  | [readonly] 
+**is_read** | **bool** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
-**title** | **str** |  | [readonly] 
-**body** | **str** |  | [readonly] 
-**seen** | **bool** |  | [readonly] 
 
 ## Example
 

@@ -42,11 +42,9 @@ class TestPaginatedNotificationList(unittest.TestCase):
                 results = [
                     mosquito_alert.models.notification.Notification(
                         id = 56, 
-                        expert_id = 56, 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        title = '', 
-                        body = '', 
-                        seen = True, )
+                        message = null, 
+                        is_read = True, 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else:

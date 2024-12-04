@@ -18,6 +18,8 @@ docs/CampaignsApi.md
 docs/CountriesApi.md
 docs/Country.md
 docs/CreateNotification.md
+docs/CreateNotificationMessage.md
+docs/CreateNotificationMessageRequest.md
 docs/CreateUser.md
 docs/CreateUserRequest.md
 docs/Device.md
@@ -32,6 +34,8 @@ docs/FixLocation.md
 docs/FixLocationRequest.md
 docs/FixRequest.md
 docs/FixesApi.md
+docs/LocalizedField.md
+docs/LocalizedFieldRequest.md
 docs/Location.md
 docs/LocationPoint.md
 docs/LocationRequest.md
@@ -39,6 +43,7 @@ docs/MetaNotificationRequest.md
 docs/MobileApp.md
 docs/MobileAppRequest.md
 docs/Notification.md
+docs/NotificationMessage.md
 docs/NotificationRequest.md
 docs/NotificationsApi.md
 docs/Observation.md
@@ -105,6 +110,8 @@ mosquito_alert/models/breeding_site_request.py
 mosquito_alert/models/campaign.py
 mosquito_alert/models/country.py
 mosquito_alert/models/create_notification.py
+mosquito_alert/models/create_notification_message.py
+mosquito_alert/models/create_notification_message_request.py
 mosquito_alert/models/create_user.py
 mosquito_alert/models/create_user_request.py
 mosquito_alert/models/device.py
@@ -117,6 +124,8 @@ mosquito_alert/models/fix.py
 mosquito_alert/models/fix_location.py
 mosquito_alert/models/fix_location_request.py
 mosquito_alert/models/fix_request.py
+mosquito_alert/models/localized_field.py
+mosquito_alert/models/localized_field_request.py
 mosquito_alert/models/location.py
 mosquito_alert/models/location_point.py
 mosquito_alert/models/location_request.py
@@ -124,6 +133,7 @@ mosquito_alert/models/meta_notification_request.py
 mosquito_alert/models/mobile_app.py
 mosquito_alert/models/mobile_app_request.py
 mosquito_alert/models/notification.py
+mosquito_alert/models/notification_message.py
 mosquito_alert/models/notification_request.py
 mosquito_alert/models/observation.py
 mosquito_alert/models/observation_prediction.py
@@ -176,6 +186,8 @@ test/test_campaigns_api.py
 test/test_countries_api.py
 test/test_country.py
 test/test_create_notification.py
+test/test_create_notification_message.py
+test/test_create_notification_message_request.py
 test/test_create_user.py
 test/test_create_user_request.py
 test/test_device.py
@@ -190,6 +202,8 @@ test/test_fix_location.py
 test/test_fix_location_request.py
 test/test_fix_request.py
 test/test_fixes_api.py
+test/test_localized_field.py
+test/test_localized_field_request.py
 test/test_location.py
 test/test_location_point.py
 test/test_location_request.py
@@ -197,6 +211,7 @@ test/test_meta_notification_request.py
 test/test_mobile_app.py
 test/test_mobile_app_request.py
 test/test_notification.py
+test/test_notification_message.py
 test/test_notification_request.py
 test/test_notifications_api.py
 test/test_observation.py
