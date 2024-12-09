@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -28,10 +28,10 @@ class AppUserTokenObtainPairRequest(BaseModel):
     """
     AppUserTokenObtainPairRequest
     """ # noqa: E501
-    uuid: StrictStr
+    username: Annotated[str, Field(min_length=1, strict=True)]
     password: Annotated[str, Field(min_length=1, strict=True)]
     device_id: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    __properties: ClassVar[List[str]] = ["uuid", "password", "device_id"]
+    __properties: ClassVar[List[str]] = ["username", "password", "device_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +84,7 @@ class AppUserTokenObtainPairRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "uuid": obj.get("uuid"),
+            "username": obj.get("username"),
             "password": obj.get("password"),
             "device_id": obj.get("device_id")
         })

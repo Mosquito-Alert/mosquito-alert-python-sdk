@@ -40,7 +40,7 @@ class CountriesApi:
 
 
     @validate_call
-    def countries_retrieve(
+    def retrieve(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
         _request_timeout: Union[
@@ -56,7 +56,7 @@ class CountriesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Country:
-        """countries_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this europe country. (required)
@@ -83,7 +83,7 @@ class CountriesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._countries_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -92,14 +92,9 @@ class CountriesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CountriesRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Country",
         }
         response_data = self.api_client.call_api(
@@ -114,7 +109,7 @@ class CountriesApi:
 
 
     @validate_call
-    def countries_retrieve_with_http_info(
+    def retrieve_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
         _request_timeout: Union[
@@ -130,7 +125,7 @@ class CountriesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Country]:
-        """countries_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this europe country. (required)
@@ -157,7 +152,7 @@ class CountriesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._countries_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -166,14 +161,9 @@ class CountriesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CountriesRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Country",
         }
         response_data = self.api_client.call_api(
@@ -188,7 +178,7 @@ class CountriesApi:
 
 
     @validate_call
-    def countries_retrieve_without_preload_content(
+    def retrieve_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
         _request_timeout: Union[
@@ -204,7 +194,7 @@ class CountriesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """countries_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this europe country. (required)
@@ -231,7 +221,7 @@ class CountriesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._countries_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -240,14 +230,9 @@ class CountriesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CountriesRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Country",
         }
         response_data = self.api_client.call_api(
@@ -257,7 +242,7 @@ class CountriesApi:
         return response_data.response
 
 
-    def _countries_retrieve_serialize(
+    def _retrieve_serialize(
         self,
         id,
         _request_auth,

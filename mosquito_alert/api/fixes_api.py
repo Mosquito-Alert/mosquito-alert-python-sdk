@@ -39,7 +39,7 @@ class FixesApi:
 
 
     @validate_call
-    def fixes_create(
+    def create(
         self,
         fix_request: FixRequest,
         _request_timeout: Union[
@@ -55,7 +55,7 @@ class FixesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Fix:
-        """fixes_create
+        """create
 
 
         :param fix_request: (required)
@@ -82,7 +82,7 @@ class FixesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fixes_create_serialize(
+        _param = self._create_serialize(
             fix_request=fix_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -91,14 +91,10 @@ class FixesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "FixesCreateErrorResponse400",
+            '400': "FixesCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Fix",
         }
         response_data = self.api_client.call_api(
@@ -113,7 +109,7 @@ class FixesApi:
 
 
     @validate_call
-    def fixes_create_with_http_info(
+    def create_with_http_info(
         self,
         fix_request: FixRequest,
         _request_timeout: Union[
@@ -129,7 +125,7 @@ class FixesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Fix]:
-        """fixes_create
+        """create
 
 
         :param fix_request: (required)
@@ -156,7 +152,7 @@ class FixesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fixes_create_serialize(
+        _param = self._create_serialize(
             fix_request=fix_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -165,14 +161,10 @@ class FixesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "FixesCreateErrorResponse400",
+            '400': "FixesCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Fix",
         }
         response_data = self.api_client.call_api(
@@ -187,7 +179,7 @@ class FixesApi:
 
 
     @validate_call
-    def fixes_create_without_preload_content(
+    def create_without_preload_content(
         self,
         fix_request: FixRequest,
         _request_timeout: Union[
@@ -203,7 +195,7 @@ class FixesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """fixes_create
+        """create
 
 
         :param fix_request: (required)
@@ -230,7 +222,7 @@ class FixesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fixes_create_serialize(
+        _param = self._create_serialize(
             fix_request=fix_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -239,14 +231,10 @@ class FixesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "FixesCreateErrorResponse400",
+            '400': "FixesCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Fix",
         }
         response_data = self.api_client.call_api(
@@ -256,7 +244,7 @@ class FixesApi:
         return response_data.response
 
 
-    def _fixes_create_serialize(
+    def _create_serialize(
         self,
         fix_request,
         _request_auth,

@@ -27,14 +27,14 @@ class TestCampaignsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_campaigns_list(self) -> None:
-        """Test case for campaigns_list
+    def test_list(self) -> None:
+        """Test case for list
 
         """
         pass
 
-    def test_campaigns_retrieve(self) -> None:
-        """Test case for campaigns_retrieve
+    def test_retrieve(self) -> None:
+        """Test case for retrieve
 
         """
         pass

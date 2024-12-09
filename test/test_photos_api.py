@@ -27,26 +27,26 @@ class TestPhotosApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_photos_prediction_create(self) -> None:
-        """Test case for photos_prediction_create
+    def test_prediction_create(self) -> None:
+        """Test case for prediction_create
 
         """
         pass
 
-    def test_photos_prediction_destroy(self) -> None:
-        """Test case for photos_prediction_destroy
+    def test_prediction_destroy(self) -> None:
+        """Test case for prediction_destroy
 
         """
         pass
 
-    def test_photos_prediction_retrieve(self) -> None:
-        """Test case for photos_prediction_retrieve
+    def test_prediction_retrieve(self) -> None:
+        """Test case for prediction_retrieve
 
         """
         pass
 
-    def test_photos_retrieve(self) -> None:
-        """Test case for photos_retrieve
+    def test_retrieve(self) -> None:
+        """Test case for retrieve
 
         """
         pass

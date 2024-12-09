@@ -4,12 +4,12 @@ All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**campaigns_list**](CampaignsApi.md#campaigns_list) | **GET** /campaigns/ | 
-[**campaigns_retrieve**](CampaignsApi.md#campaigns_retrieve) | **GET** /campaigns/{id}/ | 
+[**list**](CampaignsApi.md#list) | **GET** /campaigns/ | 
+[**retrieve**](CampaignsApi.md#retrieve) | **GET** /campaigns/{id}/ | 
 
 
-# **campaigns_list**
-> PaginatedCampaignList campaigns_list(country_id=country_id, is_active=is_active, order_by=order_by, page=page, page_size=page_size)
+# **list**
+> PaginatedCampaignList list(country_id=country_id, is_active=is_active, order_by=order_by, page=page, page_size=page_size)
 
 
 
@@ -64,11 +64,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.campaigns_list(country_id=country_id, is_active=is_active, order_by=order_by, page=page, page_size=page_size)
-        print("The response of CampaignsApi->campaigns_list:\n")
+        api_response = api_instance.list(country_id=country_id, is_active=is_active, order_by=order_by, page=page, page_size=page_size)
+        print("The response of CampaignsApi->list:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling CampaignsApi->campaigns_list: %s\n" % e)
+        print("Exception when calling CampaignsApi->list: %s\n" % e)
 ```
 
 
@@ -105,16 +105,12 @@ Name | Type | Description  | Notes
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **campaigns_retrieve**
-> Campaign campaigns_retrieve(id)
+# **retrieve**
+> Campaign retrieve(id)
 
 
 
@@ -165,11 +161,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this ow campaigns.
 
     try:
-        api_response = api_instance.campaigns_retrieve(id)
-        print("The response of CampaignsApi->campaigns_retrieve:\n")
+        api_response = api_instance.retrieve(id)
+        print("The response of CampaignsApi->retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling CampaignsApi->campaigns_retrieve: %s\n" % e)
+        print("Exception when calling CampaignsApi->retrieve: %s\n" % e)
 ```
 
 
@@ -198,14 +194,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** |  |  -  |
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

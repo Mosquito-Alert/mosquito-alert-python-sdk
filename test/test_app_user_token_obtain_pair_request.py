@@ -36,13 +36,13 @@ class TestAppUserTokenObtainPairRequest(unittest.TestCase):
         model = AppUserTokenObtainPairRequest()
         if include_optional:
             return AppUserTokenObtainPairRequest(
-                uuid = '',
+                username = '0',
                 password = '0',
                 device_id = '0'
             )
         else:
             return AppUserTokenObtainPairRequest(
-                uuid = '',
+                username = '0',
                 password = '0',
         )
         """

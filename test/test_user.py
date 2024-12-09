@@ -37,17 +37,21 @@ class TestUser(unittest.TestCase):
         if include_optional:
             return User(
                 uuid = '',
+                username = '',
                 registration_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 locale = 'es',
                 language_iso = '',
+                is_guest = True,
                 score = 56,
                 last_score_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return User(
                 uuid = '',
+                username = '',
                 registration_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 language_iso = '',
+                is_guest = True,
                 score = 56,
                 last_score_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )

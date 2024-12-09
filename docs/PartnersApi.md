@@ -4,12 +4,12 @@ All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**partners_list**](PartnersApi.md#partners_list) | **GET** /partners/ | 
-[**partners_retrieve**](PartnersApi.md#partners_retrieve) | **GET** /partners/{id}/ | 
+[**list**](PartnersApi.md#list) | **GET** /partners/ | 
+[**retrieve**](PartnersApi.md#retrieve) | **GET** /partners/{id}/ | 
 
 
-# **partners_list**
-> PaginatedPartnerList partners_list(page=page, page_size=page_size)
+# **list**
+> PaginatedPartnerList list(page=page, page_size=page_size)
 
 
 
@@ -61,11 +61,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.partners_list(page=page, page_size=page_size)
-        print("The response of PartnersApi->partners_list:\n")
+        api_response = api_instance.list(page=page, page_size=page_size)
+        print("The response of PartnersApi->list:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PartnersApi->partners_list: %s\n" % e)
+        print("Exception when calling PartnersApi->list: %s\n" % e)
 ```
 
 
@@ -95,20 +95,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** |  |  -  |
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **partners_retrieve**
-> Partner partners_retrieve(id)
+# **retrieve**
+> Partner retrieve(id)
 
 
 
@@ -159,11 +154,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this organization pin.
 
     try:
-        api_response = api_instance.partners_retrieve(id)
-        print("The response of PartnersApi->partners_retrieve:\n")
+        api_response = api_instance.retrieve(id)
+        print("The response of PartnersApi->retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PartnersApi->partners_retrieve: %s\n" % e)
+        print("Exception when calling PartnersApi->retrieve: %s\n" % e)
 ```
 
 
@@ -192,14 +187,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** |  |  -  |
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

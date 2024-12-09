@@ -4,14 +4,14 @@ All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**photos_prediction_create**](PhotosApi.md#photos_prediction_create) | **POST** /photos/{uuid}/prediction/ | 
-[**photos_prediction_destroy**](PhotosApi.md#photos_prediction_destroy) | **DELETE** /photos/{uuid}/prediction/ | 
-[**photos_prediction_retrieve**](PhotosApi.md#photos_prediction_retrieve) | **GET** /photos/{uuid}/prediction/ | 
-[**photos_retrieve**](PhotosApi.md#photos_retrieve) | **GET** /photos/{uuid}/ | 
+[**prediction_create**](PhotosApi.md#prediction_create) | **POST** /photos/{uuid}/prediction/ | 
+[**prediction_destroy**](PhotosApi.md#prediction_destroy) | **DELETE** /photos/{uuid}/prediction/ | 
+[**prediction_retrieve**](PhotosApi.md#prediction_retrieve) | **GET** /photos/{uuid}/prediction/ | 
+[**retrieve**](PhotosApi.md#retrieve) | **GET** /photos/{uuid}/ | 
 
 
-# **photos_prediction_create**
-> PhotoPrediction photos_prediction_create(uuid, photo_prediction_request)
+# **prediction_create**
+> PhotoPrediction prediction_create(uuid, photo_prediction_request)
 
 
 
@@ -58,11 +58,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     photo_prediction_request = mosquito_alert.PhotoPredictionRequest() # PhotoPredictionRequest | 
 
     try:
-        api_response = api_instance.photos_prediction_create(uuid, photo_prediction_request)
-        print("The response of PhotosApi->photos_prediction_create:\n")
+        api_response = api_instance.prediction_create(uuid, photo_prediction_request)
+        print("The response of PhotosApi->prediction_create:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PhotosApi->photos_prediction_create: %s\n" % e)
+        print("Exception when calling PhotosApi->prediction_create: %s\n" % e)
 ```
 
 
@@ -96,16 +96,12 @@ Name | Type | Description  | Notes
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **photos_prediction_destroy**
-> photos_prediction_destroy(uuid)
+# **prediction_destroy**
+> prediction_destroy(uuid)
 
 
 
@@ -149,9 +145,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     uuid = 'uuid_example' # str | 
 
     try:
-        api_instance.photos_prediction_destroy(uuid)
+        api_instance.prediction_destroy(uuid)
     except Exception as e:
-        print("Exception when calling PhotosApi->photos_prediction_destroy: %s\n" % e)
+        print("Exception when calling PhotosApi->prediction_destroy: %s\n" % e)
 ```
 
 
@@ -180,20 +176,15 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** |  |  -  |
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **photos_prediction_retrieve**
-> PhotoPrediction photos_prediction_retrieve(uuid)
+# **prediction_retrieve**
+> PhotoPrediction prediction_retrieve(uuid)
 
 
 
@@ -238,11 +229,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     uuid = 'uuid_example' # str | 
 
     try:
-        api_response = api_instance.photos_prediction_retrieve(uuid)
-        print("The response of PhotosApi->photos_prediction_retrieve:\n")
+        api_response = api_instance.prediction_retrieve(uuid)
+        print("The response of PhotosApi->prediction_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PhotosApi->photos_prediction_retrieve: %s\n" % e)
+        print("Exception when calling PhotosApi->prediction_retrieve: %s\n" % e)
 ```
 
 
@@ -271,20 +262,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** |  |  -  |
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **photos_retrieve**
-> Photo photos_retrieve(uuid)
+# **retrieve**
+> Photo retrieve(uuid)
 
 
 
@@ -329,11 +315,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     uuid = 'uuid_example' # str | 
 
     try:
-        api_response = api_instance.photos_retrieve(uuid)
-        print("The response of PhotosApi->photos_retrieve:\n")
+        api_response = api_instance.retrieve(uuid)
+        print("The response of PhotosApi->retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PhotosApi->photos_retrieve: %s\n" % e)
+        print("Exception when calling PhotosApi->retrieve: %s\n" % e)
 ```
 
 
@@ -362,14 +348,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** |  |  -  |
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -27,8 +27,8 @@ class TestFixesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_fixes_create(self) -> None:
-        """Test case for fixes_create
+    def test_create(self) -> None:
+        """Test case for create
 
         """
         pass

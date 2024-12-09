@@ -27,8 +27,8 @@ class TestCountriesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_countries_retrieve(self) -> None:
-        """Test case for countries_retrieve
+    def test_retrieve(self) -> None:
+        """Test case for retrieve
 
         """
         pass

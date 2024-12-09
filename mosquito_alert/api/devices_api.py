@@ -44,7 +44,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_create(
+    def create(
         self,
         device_request: DeviceRequest,
         _request_timeout: Union[
@@ -60,7 +60,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Device:
-        """devices_create
+        """create
 
 
         :param device_request: (required)
@@ -87,7 +87,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_create_serialize(
+        _param = self._create_serialize(
             device_request=device_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -96,14 +96,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesCreateErrorResponse400",
+            '400': "DevicesCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Device",
         }
         response_data = self.api_client.call_api(
@@ -118,7 +114,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_create_with_http_info(
+    def create_with_http_info(
         self,
         device_request: DeviceRequest,
         _request_timeout: Union[
@@ -134,7 +130,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Device]:
-        """devices_create
+        """create
 
 
         :param device_request: (required)
@@ -161,7 +157,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_create_serialize(
+        _param = self._create_serialize(
             device_request=device_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -170,14 +166,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesCreateErrorResponse400",
+            '400': "DevicesCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Device",
         }
         response_data = self.api_client.call_api(
@@ -192,7 +184,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_create_without_preload_content(
+    def create_without_preload_content(
         self,
         device_request: DeviceRequest,
         _request_timeout: Union[
@@ -208,7 +200,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """devices_create
+        """create
 
 
         :param device_request: (required)
@@ -235,7 +227,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_create_serialize(
+        _param = self._create_serialize(
             device_request=device_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -244,14 +236,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesCreateErrorResponse400",
+            '400': "DevicesCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Device",
         }
         response_data = self.api_client.call_api(
@@ -261,7 +249,7 @@ class DevicesApi:
         return response_data.response
 
 
-    def _devices_create_serialize(
+    def _create_serialize(
         self,
         device_request,
         _request_auth,
@@ -341,7 +329,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_partial_update(
+    def partial_update(
         self,
         device_id: StrictStr,
         patched_device_update_request: Optional[PatchedDeviceUpdateRequest] = None,
@@ -358,7 +346,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> DeviceUpdate:
-        """devices_partial_update
+        """partial_update
 
 
         :param device_id: (required)
@@ -387,7 +375,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_partial_update_serialize(
+        _param = self._partial_update_serialize(
             device_id=device_id,
             patched_device_update_request=patched_device_update_request,
             _request_auth=_request_auth,
@@ -397,14 +385,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesPartialUpdateErrorResponse400",
+            '400': "DevicesPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -419,7 +403,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_partial_update_with_http_info(
+    def partial_update_with_http_info(
         self,
         device_id: StrictStr,
         patched_device_update_request: Optional[PatchedDeviceUpdateRequest] = None,
@@ -436,7 +420,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[DeviceUpdate]:
-        """devices_partial_update
+        """partial_update
 
 
         :param device_id: (required)
@@ -465,7 +449,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_partial_update_serialize(
+        _param = self._partial_update_serialize(
             device_id=device_id,
             patched_device_update_request=patched_device_update_request,
             _request_auth=_request_auth,
@@ -475,14 +459,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesPartialUpdateErrorResponse400",
+            '400': "DevicesPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -497,7 +477,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_partial_update_without_preload_content(
+    def partial_update_without_preload_content(
         self,
         device_id: StrictStr,
         patched_device_update_request: Optional[PatchedDeviceUpdateRequest] = None,
@@ -514,7 +494,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """devices_partial_update
+        """partial_update
 
 
         :param device_id: (required)
@@ -543,7 +523,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_partial_update_serialize(
+        _param = self._partial_update_serialize(
             device_id=device_id,
             patched_device_update_request=patched_device_update_request,
             _request_auth=_request_auth,
@@ -553,14 +533,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesPartialUpdateErrorResponse400",
+            '400': "DevicesPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -570,7 +546,7 @@ class DevicesApi:
         return response_data.response
 
 
-    def _devices_partial_update_serialize(
+    def _partial_update_serialize(
         self,
         device_id,
         patched_device_update_request,
@@ -653,7 +629,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_retrieve(
+    def retrieve(
         self,
         device_id: StrictStr,
         _request_timeout: Union[
@@ -669,7 +645,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Device:
-        """devices_retrieve
+        """retrieve
 
 
         :param device_id: (required)
@@ -696,7 +672,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_retrieve_serialize(
+        _param = self._retrieve_serialize(
             device_id=device_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -705,14 +681,9 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Device",
         }
         response_data = self.api_client.call_api(
@@ -727,7 +698,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_retrieve_with_http_info(
+    def retrieve_with_http_info(
         self,
         device_id: StrictStr,
         _request_timeout: Union[
@@ -743,7 +714,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Device]:
-        """devices_retrieve
+        """retrieve
 
 
         :param device_id: (required)
@@ -770,7 +741,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_retrieve_serialize(
+        _param = self._retrieve_serialize(
             device_id=device_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -779,14 +750,9 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Device",
         }
         response_data = self.api_client.call_api(
@@ -801,7 +767,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_retrieve_without_preload_content(
+    def retrieve_without_preload_content(
         self,
         device_id: StrictStr,
         _request_timeout: Union[
@@ -817,7 +783,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """devices_retrieve
+        """retrieve
 
 
         :param device_id: (required)
@@ -844,7 +810,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_retrieve_serialize(
+        _param = self._retrieve_serialize(
             device_id=device_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -853,14 +819,9 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Device",
         }
         response_data = self.api_client.call_api(
@@ -870,7 +831,7 @@ class DevicesApi:
         return response_data.response
 
 
-    def _devices_retrieve_serialize(
+    def _retrieve_serialize(
         self,
         device_id,
         _request_auth,
@@ -935,7 +896,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_update(
+    def update(
         self,
         device_id: StrictStr,
         device_update_request: DeviceUpdateRequest,
@@ -952,7 +913,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> DeviceUpdate:
-        """devices_update
+        """update
 
 
         :param device_id: (required)
@@ -981,7 +942,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_update_serialize(
+        _param = self._update_serialize(
             device_id=device_id,
             device_update_request=device_update_request,
             _request_auth=_request_auth,
@@ -991,14 +952,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesUpdateErrorResponse400",
+            '400': "DevicesUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -1013,7 +970,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_update_with_http_info(
+    def update_with_http_info(
         self,
         device_id: StrictStr,
         device_update_request: DeviceUpdateRequest,
@@ -1030,7 +987,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[DeviceUpdate]:
-        """devices_update
+        """update
 
 
         :param device_id: (required)
@@ -1059,7 +1016,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_update_serialize(
+        _param = self._update_serialize(
             device_id=device_id,
             device_update_request=device_update_request,
             _request_auth=_request_auth,
@@ -1069,14 +1026,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesUpdateErrorResponse400",
+            '400': "DevicesUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -1091,7 +1044,7 @@ class DevicesApi:
 
 
     @validate_call
-    def devices_update_without_preload_content(
+    def update_without_preload_content(
         self,
         device_id: StrictStr,
         device_update_request: DeviceUpdateRequest,
@@ -1108,7 +1061,7 @@ class DevicesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """devices_update
+        """update
 
 
         :param device_id: (required)
@@ -1137,7 +1090,7 @@ class DevicesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._devices_update_serialize(
+        _param = self._update_serialize(
             device_id=device_id,
             device_update_request=device_update_request,
             _request_auth=_request_auth,
@@ -1147,14 +1100,10 @@ class DevicesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "DevicesUpdateErrorResponse400",
+            '400': "DevicesUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "DeviceUpdate",
         }
         response_data = self.api_client.call_api(
@@ -1164,7 +1113,7 @@ class DevicesApi:
         return response_data.response
 
 
-    def _devices_update_serialize(
+    def _update_serialize(
         self,
         device_id,
         device_update_request,

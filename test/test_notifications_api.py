@@ -27,32 +27,38 @@ class TestNotificationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_notifications_create(self) -> None:
-        """Test case for notifications_create
+    def test_create(self) -> None:
+        """Test case for create
 
         """
         pass
 
-    def test_notifications_list(self) -> None:
-        """Test case for notifications_list
+    def test_list(self) -> None:
+        """Test case for list
 
         """
         pass
 
-    def test_notifications_partial_update(self) -> None:
-        """Test case for notifications_partial_update
+    def test_list_mine(self) -> None:
+        """Test case for list_mine
 
         """
         pass
 
-    def test_notifications_retrieve(self) -> None:
-        """Test case for notifications_retrieve
+    def test_partial_update(self) -> None:
+        """Test case for partial_update
 
         """
         pass
 
-    def test_notifications_update(self) -> None:
-        """Test case for notifications_update
+    def test_retrieve(self) -> None:
+        """Test case for retrieve
+
+        """
+        pass
+
+    def test_update(self) -> None:
+        """Test case for update
 
         """
         pass

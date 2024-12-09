@@ -35,8 +35,8 @@ class Error401(BaseModel):
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['authentication_failed', 'not_authenticated']):
-            raise ValueError("must be one of enum values ('authentication_failed', 'not_authenticated')")
+        if value not in set(['token_not_valid', 'authentication_failed', 'not_authenticated']):
+            raise ValueError("must be one of enum values ('token_not_valid', 'authentication_failed', 'not_authenticated')")
         return value
 
     model_config = ConfigDict(

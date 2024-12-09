@@ -42,7 +42,7 @@ class CampaignsApi:
 
 
     @validate_call
-    def campaigns_list(
+    def list(
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
@@ -62,7 +62,7 @@ class CampaignsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PaginatedCampaignList:
-        """campaigns_list
+        """list
 
 
         :param country_id: Country in which the campaign is taking place
@@ -97,7 +97,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._campaigns_list_serialize(
+        _param = self._list_serialize(
             country_id=country_id,
             is_active=is_active,
             order_by=order_by,
@@ -110,14 +110,10 @@ class CampaignsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CampaignsListErrorResponse400",
+            '400': "CampaignsListValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedCampaignList",
         }
         response_data = self.api_client.call_api(
@@ -132,7 +128,7 @@ class CampaignsApi:
 
 
     @validate_call
-    def campaigns_list_with_http_info(
+    def list_with_http_info(
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
@@ -152,7 +148,7 @@ class CampaignsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PaginatedCampaignList]:
-        """campaigns_list
+        """list
 
 
         :param country_id: Country in which the campaign is taking place
@@ -187,7 +183,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._campaigns_list_serialize(
+        _param = self._list_serialize(
             country_id=country_id,
             is_active=is_active,
             order_by=order_by,
@@ -200,14 +196,10 @@ class CampaignsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CampaignsListErrorResponse400",
+            '400': "CampaignsListValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedCampaignList",
         }
         response_data = self.api_client.call_api(
@@ -222,7 +214,7 @@ class CampaignsApi:
 
 
     @validate_call
-    def campaigns_list_without_preload_content(
+    def list_without_preload_content(
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
@@ -242,7 +234,7 @@ class CampaignsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """campaigns_list
+        """list
 
 
         :param country_id: Country in which the campaign is taking place
@@ -277,7 +269,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._campaigns_list_serialize(
+        _param = self._list_serialize(
             country_id=country_id,
             is_active=is_active,
             order_by=order_by,
@@ -290,14 +282,10 @@ class CampaignsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CampaignsListErrorResponse400",
+            '400': "CampaignsListValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedCampaignList",
         }
         response_data = self.api_client.call_api(
@@ -307,7 +295,7 @@ class CampaignsApi:
         return response_data.response
 
 
-    def _campaigns_list_serialize(
+    def _list_serialize(
         self,
         country_id,
         is_active,
@@ -397,7 +385,7 @@ class CampaignsApi:
 
 
     @validate_call
-    def campaigns_retrieve(
+    def retrieve(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this ow campaigns.")],
         _request_timeout: Union[
@@ -413,7 +401,7 @@ class CampaignsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Campaign:
-        """campaigns_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this ow campaigns. (required)
@@ -440,7 +428,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._campaigns_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -449,14 +437,9 @@ class CampaignsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CampaignsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Campaign",
         }
         response_data = self.api_client.call_api(
@@ -471,7 +454,7 @@ class CampaignsApi:
 
 
     @validate_call
-    def campaigns_retrieve_with_http_info(
+    def retrieve_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this ow campaigns.")],
         _request_timeout: Union[
@@ -487,7 +470,7 @@ class CampaignsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Campaign]:
-        """campaigns_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this ow campaigns. (required)
@@ -514,7 +497,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._campaigns_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -523,14 +506,9 @@ class CampaignsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CampaignsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Campaign",
         }
         response_data = self.api_client.call_api(
@@ -545,7 +523,7 @@ class CampaignsApi:
 
 
     @validate_call
-    def campaigns_retrieve_without_preload_content(
+    def retrieve_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this ow campaigns.")],
         _request_timeout: Union[
@@ -561,7 +539,7 @@ class CampaignsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """campaigns_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this ow campaigns. (required)
@@ -588,7 +566,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._campaigns_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -597,14 +575,9 @@ class CampaignsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "CampaignsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Campaign",
         }
         response_data = self.api_client.call_api(
@@ -614,7 +587,7 @@ class CampaignsApi:
         return response_data.response
 
 
-    def _campaigns_retrieve_serialize(
+    def _retrieve_serialize(
         self,
         id,
         _request_auth,

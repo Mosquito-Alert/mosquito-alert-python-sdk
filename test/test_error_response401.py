@@ -39,7 +39,7 @@ class TestErrorResponse401(unittest.TestCase):
                 type = 'client_error',
                 errors = [
                     mosquito_alert.models.error401.Error401(
-                        code = 'authentication_failed', 
+                        code = 'token_not_valid', 
                         detail = '', 
                         attr = '', )
                     ]
@@ -49,7 +49,7 @@ class TestErrorResponse401(unittest.TestCase):
                 type = 'client_error',
                 errors = [
                     mosquito_alert.models.error401.Error401(
-                        code = 'authentication_failed', 
+                        code = 'token_not_valid', 
                         detail = '', 
                         attr = '', )
                     ],

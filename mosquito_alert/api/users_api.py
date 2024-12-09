@@ -19,8 +19,6 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from typing import Optional
-from mosquito_alert.models.create_user import CreateUser
-from mosquito_alert.models.create_user_request import CreateUserRequest
 from mosquito_alert.models.patched_user_request import PatchedUserRequest
 from mosquito_alert.models.user import User
 from mosquito_alert.models.user_request import UserRequest
@@ -44,303 +42,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_create(
-        self,
-        create_user_request: CreateUserRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateUser:
-        """users_create
-
-
-        :param create_user_request: (required)
-        :type create_user_request: CreateUserRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._users_create_serialize(
-            create_user_request=create_user_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersCreateErrorResponse400",
-            '401': "ErrorResponse401",
-            '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
-            '201': "CreateUser",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def users_create_with_http_info(
-        self,
-        create_user_request: CreateUserRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateUser]:
-        """users_create
-
-
-        :param create_user_request: (required)
-        :type create_user_request: CreateUserRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._users_create_serialize(
-            create_user_request=create_user_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersCreateErrorResponse400",
-            '401': "ErrorResponse401",
-            '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
-            '201': "CreateUser",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def users_create_without_preload_content(
-        self,
-        create_user_request: CreateUserRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """users_create
-
-
-        :param create_user_request: (required)
-        :type create_user_request: CreateUserRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._users_create_serialize(
-            create_user_request=create_user_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersCreateErrorResponse400",
-            '401': "ErrorResponse401",
-            '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
-            '201': "CreateUser",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _users_create_serialize(
-        self,
-        create_user_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if create_user_request is not None:
-            _body_params = create_user_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'tokenAuth', 
-            'jwtAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/users/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def users_partial_update(
+    def partial_update(
         self,
         uuid: StrictStr,
         patched_user_request: Optional[PatchedUserRequest] = None,
@@ -357,7 +59,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> User:
-        """users_partial_update
+        """partial_update
 
 
         :param uuid: (required)
@@ -386,7 +88,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_partial_update_serialize(
+        _param = self._partial_update_serialize(
             uuid=uuid,
             patched_user_request=patched_user_request,
             _request_auth=_request_auth,
@@ -396,14 +98,10 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersPartialUpdateErrorResponse400",
+            '400': "UsersPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -418,7 +116,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_partial_update_with_http_info(
+    def partial_update_with_http_info(
         self,
         uuid: StrictStr,
         patched_user_request: Optional[PatchedUserRequest] = None,
@@ -435,7 +133,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[User]:
-        """users_partial_update
+        """partial_update
 
 
         :param uuid: (required)
@@ -464,7 +162,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_partial_update_serialize(
+        _param = self._partial_update_serialize(
             uuid=uuid,
             patched_user_request=patched_user_request,
             _request_auth=_request_auth,
@@ -474,14 +172,10 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersPartialUpdateErrorResponse400",
+            '400': "UsersPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -496,7 +190,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_partial_update_without_preload_content(
+    def partial_update_without_preload_content(
         self,
         uuid: StrictStr,
         patched_user_request: Optional[PatchedUserRequest] = None,
@@ -513,7 +207,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """users_partial_update
+        """partial_update
 
 
         :param uuid: (required)
@@ -542,7 +236,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_partial_update_serialize(
+        _param = self._partial_update_serialize(
             uuid=uuid,
             patched_user_request=patched_user_request,
             _request_auth=_request_auth,
@@ -552,14 +246,10 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersPartialUpdateErrorResponse400",
+            '400': "UsersPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -569,7 +259,7 @@ class UsersApi:
         return response_data.response
 
 
-    def _users_partial_update_serialize(
+    def _partial_update_serialize(
         self,
         uuid,
         patched_user_request,
@@ -654,7 +344,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_retrieve(
+    def retrieve(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -670,7 +360,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> User:
-        """users_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -697,7 +387,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -706,14 +396,9 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -728,7 +413,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_retrieve_with_http_info(
+    def retrieve_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -744,7 +429,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[User]:
-        """users_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -771,7 +456,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -780,14 +465,9 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -802,7 +482,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_retrieve_without_preload_content(
+    def retrieve_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -818,7 +498,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """users_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -845,7 +525,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -854,14 +534,9 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -871,7 +546,7 @@ class UsersApi:
         return response_data.response
 
 
-    def _users_retrieve_serialize(
+    def _retrieve_serialize(
         self,
         uuid,
         _request_auth,
@@ -938,7 +613,262 @@ class UsersApi:
 
 
     @validate_call
-    def users_update(
+    def retrieve_mine(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> User:
+        """retrieve_mine
+
+        Get Current User's Profile
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_mine_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "User",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def retrieve_mine_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[User]:
+        """retrieve_mine
+
+        Get Current User's Profile
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_mine_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "User",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def retrieve_mine_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """retrieve_mine
+
+        Get Current User's Profile
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_mine_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "User",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _retrieve_mine_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'jwtAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/me/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update(
         self,
         uuid: StrictStr,
         user_request: Optional[UserRequest] = None,
@@ -955,7 +885,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> User:
-        """users_update
+        """update
 
 
         :param uuid: (required)
@@ -984,7 +914,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_update_serialize(
+        _param = self._update_serialize(
             uuid=uuid,
             user_request=user_request,
             _request_auth=_request_auth,
@@ -994,14 +924,10 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersUpdateErrorResponse400",
+            '400': "UsersUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -1016,7 +942,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_update_with_http_info(
+    def update_with_http_info(
         self,
         uuid: StrictStr,
         user_request: Optional[UserRequest] = None,
@@ -1033,7 +959,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[User]:
-        """users_update
+        """update
 
 
         :param uuid: (required)
@@ -1062,7 +988,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_update_serialize(
+        _param = self._update_serialize(
             uuid=uuid,
             user_request=user_request,
             _request_auth=_request_auth,
@@ -1072,14 +998,10 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersUpdateErrorResponse400",
+            '400': "UsersUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -1094,7 +1016,7 @@ class UsersApi:
 
 
     @validate_call
-    def users_update_without_preload_content(
+    def update_without_preload_content(
         self,
         uuid: StrictStr,
         user_request: Optional[UserRequest] = None,
@@ -1111,7 +1033,7 @@ class UsersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """users_update
+        """update
 
 
         :param uuid: (required)
@@ -1140,7 +1062,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._users_update_serialize(
+        _param = self._update_serialize(
             uuid=uuid,
             user_request=user_request,
             _request_auth=_request_auth,
@@ -1150,14 +1072,10 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "UsersUpdateErrorResponse400",
+            '400': "UsersUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "User",
         }
         response_data = self.api_client.call_api(
@@ -1167,7 +1085,7 @@ class UsersApi:
         return response_data.response
 
 
-    def _users_update_serialize(
+    def _update_serialize(
         self,
         uuid,
         user_request,

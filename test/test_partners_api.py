@@ -27,14 +27,14 @@ class TestPartnersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_partners_list(self) -> None:
-        """Test case for partners_list
+    def test_list(self) -> None:
+        """Test case for list
 
         """
         pass
 
-    def test_partners_retrieve(self) -> None:
-        """Test case for partners_retrieve
+    def test_retrieve(self) -> None:
+        """Test case for retrieve
 
         """
         pass

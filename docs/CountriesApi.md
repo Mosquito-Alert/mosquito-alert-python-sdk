@@ -4,11 +4,11 @@ All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**countries_retrieve**](CountriesApi.md#countries_retrieve) | **GET** /countries/{id}/ | 
+[**retrieve**](CountriesApi.md#retrieve) | **GET** /countries/{id}/ | 
 
 
-# **countries_retrieve**
-> Country countries_retrieve(id)
+# **retrieve**
+> Country retrieve(id)
 
 
 
@@ -59,11 +59,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this europe country.
 
     try:
-        api_response = api_instance.countries_retrieve(id)
-        print("The response of CountriesApi->countries_retrieve:\n")
+        api_response = api_instance.retrieve(id)
+        print("The response of CountriesApi->retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling CountriesApi->countries_retrieve: %s\n" % e)
+        print("Exception when calling CountriesApi->retrieve: %s\n" % e)
 ```
 
 
@@ -92,14 +92,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** |  |  -  |
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

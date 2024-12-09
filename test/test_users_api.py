@@ -27,26 +27,26 @@ class TestUsersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_users_create(self) -> None:
-        """Test case for users_create
+    def test_partial_update(self) -> None:
+        """Test case for partial_update
 
         """
         pass
 
-    def test_users_partial_update(self) -> None:
-        """Test case for users_partial_update
+    def test_retrieve(self) -> None:
+        """Test case for retrieve
 
         """
         pass
 
-    def test_users_retrieve(self) -> None:
-        """Test case for users_retrieve
+    def test_retrieve_mine(self) -> None:
+        """Test case for retrieve_mine
 
         """
         pass
 
-    def test_users_update(self) -> None:
-        """Test case for users_update
+    def test_update(self) -> None:
+        """Test case for update
 
         """
         pass

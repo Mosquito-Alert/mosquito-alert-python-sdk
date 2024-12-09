@@ -27,26 +27,32 @@ class TestBreedingSitesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_breeding_sites_create(self) -> None:
-        """Test case for breeding_sites_create
+    def test_create(self) -> None:
+        """Test case for create
 
         """
         pass
 
-    def test_breeding_sites_destroy(self) -> None:
-        """Test case for breeding_sites_destroy
+    def test_destroy(self) -> None:
+        """Test case for destroy
 
         """
         pass
 
-    def test_breeding_sites_list(self) -> None:
-        """Test case for breeding_sites_list
+    def test_list(self) -> None:
+        """Test case for list
 
         """
         pass
 
-    def test_breeding_sites_retrieve(self) -> None:
-        """Test case for breeding_sites_retrieve
+    def test_list_mine(self) -> None:
+        """Test case for list_mine
+
+        """
+        pass
+
+    def test_retrieve(self) -> None:
+        """Test case for retrieve
 
         """
         pass

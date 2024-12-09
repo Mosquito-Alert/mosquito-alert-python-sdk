@@ -46,7 +46,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_create(
+    def create(
         self,
         observation_request: ObservationRequest,
         _request_timeout: Union[
@@ -62,7 +62,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Observation:
-        """observations_create
+        """create
 
 
         :param observation_request: (required)
@@ -89,7 +89,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_create_serialize(
+        _param = self._create_serialize(
             observation_request=observation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -98,14 +98,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsCreateErrorResponse400",
+            '400': "ObservationsCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -120,7 +116,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_create_with_http_info(
+    def create_with_http_info(
         self,
         observation_request: ObservationRequest,
         _request_timeout: Union[
@@ -136,7 +132,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Observation]:
-        """observations_create
+        """create
 
 
         :param observation_request: (required)
@@ -163,7 +159,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_create_serialize(
+        _param = self._create_serialize(
             observation_request=observation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -172,14 +168,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsCreateErrorResponse400",
+            '400': "ObservationsCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -194,7 +186,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_create_without_preload_content(
+    def create_without_preload_content(
         self,
         observation_request: ObservationRequest,
         _request_timeout: Union[
@@ -210,7 +202,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """observations_create
+        """create
 
 
         :param observation_request: (required)
@@ -237,7 +229,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_create_serialize(
+        _param = self._create_serialize(
             observation_request=observation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -246,14 +238,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsCreateErrorResponse400",
+            '400': "ObservationsCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -263,7 +251,7 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _observations_create_serialize(
+    def _create_serialize(
         self,
         observation_request,
         _request_auth,
@@ -345,7 +333,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_destroy(
+    def destroy(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -361,7 +349,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """observations_destroy
+        """destroy
 
 
         :param uuid: (required)
@@ -388,7 +376,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_destroy_serialize(
+        _param = self._destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -397,14 +385,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -419,7 +402,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_destroy_with_http_info(
+    def destroy_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -435,7 +418,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """observations_destroy
+        """destroy
 
 
         :param uuid: (required)
@@ -462,7 +445,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_destroy_serialize(
+        _param = self._destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -471,14 +454,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -493,7 +471,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_destroy_without_preload_content(
+    def destroy_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -509,7 +487,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """observations_destroy
+        """destroy
 
 
         :param uuid: (required)
@@ -536,7 +514,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_destroy_serialize(
+        _param = self._destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -545,14 +523,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -562,7 +535,7 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _observations_destroy_serialize(
+    def _destroy_serialize(
         self,
         uuid,
         _request_auth,
@@ -629,7 +602,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_list(
+    def list(
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
@@ -661,7 +634,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PaginatedObservationList:
-        """observations_list
+        """list
 
 
         :param created_at_after: Created at
@@ -720,7 +693,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_list_serialize(
+        _param = self._list_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
@@ -745,13 +718,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsListErrorResponse400",
+            '400': "ObservationsListValidationError",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedObservationList",
         }
         response_data = self.api_client.call_api(
@@ -766,7 +735,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_list_with_http_info(
+    def list_with_http_info(
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
@@ -798,7 +767,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PaginatedObservationList]:
-        """observations_list
+        """list
 
 
         :param created_at_after: Created at
@@ -857,7 +826,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_list_serialize(
+        _param = self._list_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
@@ -882,13 +851,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsListErrorResponse400",
+            '400': "ObservationsListValidationError",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedObservationList",
         }
         response_data = self.api_client.call_api(
@@ -903,7 +868,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_list_without_preload_content(
+    def list_without_preload_content(
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
@@ -935,7 +900,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """observations_list
+        """list
 
 
         :param created_at_after: Created at
@@ -994,7 +959,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_list_serialize(
+        _param = self._list_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
@@ -1019,13 +984,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsListErrorResponse400",
+            '400': "ObservationsListValidationError",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedObservationList",
         }
         response_data = self.api_client.call_api(
@@ -1035,7 +996,7 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _observations_list_serialize(
+    def _list_serialize(
         self,
         created_at_after,
         created_at_before,
@@ -1239,7 +1200,609 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_create(
+    def list_mine(
+        self,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
+        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_country_id: Optional[StrictInt] = None,
+        location_nuts_2: Optional[StrictStr] = None,
+        location_nuts_3: Optional[StrictStr] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        user_uuid: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PaginatedObservationList:
+        """list_mine
+
+        Get Current User's Observations
+
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param has_photos: Has any photo
+        :type has_photos: bool
+        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
+        :type has_prediction: bool
+        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
+        :type has_predictions_all_photos: bool
+        :param location_country_id:
+        :type location_country_id: int
+        :param location_nuts_2:
+        :type location_nuts_2: str
+        :param location_nuts_3:
+        :type location_nuts_3: str
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param received_at_after: Received at
+        :type received_at_after: datetime
+        :param received_at_before: Received at
+        :type received_at_before: datetime
+        :param short_id: Short ID
+        :type short_id: str
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param user_uuid:
+        :type user_uuid: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            has_photos=has_photos,
+            has_prediction=has_prediction,
+            has_predictions_all_photos=has_predictions_all_photos,
+            location_country_id=location_country_id,
+            location_nuts_2=location_nuts_2,
+            location_nuts_3=location_nuts_3,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            received_at_after=received_at_after,
+            received_at_before=received_at_before,
+            short_id=short_id,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            user_uuid=user_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedObservationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_mine_with_http_info(
+        self,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
+        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_country_id: Optional[StrictInt] = None,
+        location_nuts_2: Optional[StrictStr] = None,
+        location_nuts_3: Optional[StrictStr] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        user_uuid: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PaginatedObservationList]:
+        """list_mine
+
+        Get Current User's Observations
+
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param has_photos: Has any photo
+        :type has_photos: bool
+        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
+        :type has_prediction: bool
+        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
+        :type has_predictions_all_photos: bool
+        :param location_country_id:
+        :type location_country_id: int
+        :param location_nuts_2:
+        :type location_nuts_2: str
+        :param location_nuts_3:
+        :type location_nuts_3: str
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param received_at_after: Received at
+        :type received_at_after: datetime
+        :param received_at_before: Received at
+        :type received_at_before: datetime
+        :param short_id: Short ID
+        :type short_id: str
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param user_uuid:
+        :type user_uuid: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            has_photos=has_photos,
+            has_prediction=has_prediction,
+            has_predictions_all_photos=has_predictions_all_photos,
+            location_country_id=location_country_id,
+            location_nuts_2=location_nuts_2,
+            location_nuts_3=location_nuts_3,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            received_at_after=received_at_after,
+            received_at_before=received_at_before,
+            short_id=short_id,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            user_uuid=user_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedObservationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_mine_without_preload_content(
+        self,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
+        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_country_id: Optional[StrictInt] = None,
+        location_nuts_2: Optional[StrictStr] = None,
+        location_nuts_3: Optional[StrictStr] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        user_uuid: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """list_mine
+
+        Get Current User's Observations
+
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param has_photos: Has any photo
+        :type has_photos: bool
+        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
+        :type has_prediction: bool
+        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
+        :type has_predictions_all_photos: bool
+        :param location_country_id:
+        :type location_country_id: int
+        :param location_nuts_2:
+        :type location_nuts_2: str
+        :param location_nuts_3:
+        :type location_nuts_3: str
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param received_at_after: Received at
+        :type received_at_after: datetime
+        :param received_at_before: Received at
+        :type received_at_before: datetime
+        :param short_id: Short ID
+        :type short_id: str
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param user_uuid:
+        :type user_uuid: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            has_photos=has_photos,
+            has_prediction=has_prediction,
+            has_predictions_all_photos=has_predictions_all_photos,
+            location_country_id=location_country_id,
+            location_nuts_2=location_nuts_2,
+            location_nuts_3=location_nuts_3,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            received_at_after=received_at_after,
+            received_at_before=received_at_before,
+            short_id=short_id,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            user_uuid=user_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedObservationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _list_mine_serialize(
+        self,
+        created_at_after,
+        created_at_before,
+        has_photos,
+        has_prediction,
+        has_predictions_all_photos,
+        location_country_id,
+        location_nuts_2,
+        location_nuts_3,
+        order_by,
+        page,
+        page_size,
+        received_at_after,
+        received_at_before,
+        short_id,
+        updated_at_after,
+        updated_at_before,
+        user_uuid,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'order_by': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if created_at_after is not None:
+            if isinstance(created_at_after, datetime):
+                _query_params.append(
+                    (
+                        'created_at_after',
+                        created_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_after', created_at_after))
+            
+        if created_at_before is not None:
+            if isinstance(created_at_before, datetime):
+                _query_params.append(
+                    (
+                        'created_at_before',
+                        created_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_before', created_at_before))
+            
+        if has_photos is not None:
+            
+            _query_params.append(('has_photos', has_photos))
+            
+        if has_prediction is not None:
+            
+            _query_params.append(('has_prediction', has_prediction))
+            
+        if has_predictions_all_photos is not None:
+            
+            _query_params.append(('has_predictions_all_photos', has_predictions_all_photos))
+            
+        if location_country_id is not None:
+            
+            _query_params.append(('location_country_id', location_country_id))
+            
+        if location_nuts_2 is not None:
+            
+            _query_params.append(('location_nuts_2', location_nuts_2))
+            
+        if location_nuts_3 is not None:
+            
+            _query_params.append(('location_nuts_3', location_nuts_3))
+            
+        if order_by is not None:
+            
+            _query_params.append(('order_by', order_by))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        if received_at_after is not None:
+            if isinstance(received_at_after, datetime):
+                _query_params.append(
+                    (
+                        'received_at_after',
+                        received_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('received_at_after', received_at_after))
+            
+        if received_at_before is not None:
+            if isinstance(received_at_before, datetime):
+                _query_params.append(
+                    (
+                        'received_at_before',
+                        received_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('received_at_before', received_at_before))
+            
+        if short_id is not None:
+            
+            _query_params.append(('short_id', short_id))
+            
+        if updated_at_after is not None:
+            if isinstance(updated_at_after, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_after',
+                        updated_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_after', updated_at_after))
+            
+        if updated_at_before is not None:
+            if isinstance(updated_at_before, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_before',
+                        updated_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_before', updated_at_before))
+            
+        if user_uuid is not None:
+            
+            _query_params.append(('user_uuid', user_uuid))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'jwtAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/me/observations/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def prediction_create(
         self,
         uuid: StrictStr,
         observation_prediction_request: ObservationPredictionRequest,
@@ -1256,7 +1819,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ObservationPrediction:
-        """observations_prediction_create
+        """prediction_create
 
 
         :param uuid: (required)
@@ -1285,7 +1848,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_create_serialize(
+        _param = self._prediction_create_serialize(
             uuid=uuid,
             observation_prediction_request=observation_prediction_request,
             _request_auth=_request_auth,
@@ -1295,14 +1858,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionCreateErrorResponse400",
+            '400': "ObservationsPredictionCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1317,7 +1876,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_create_with_http_info(
+    def prediction_create_with_http_info(
         self,
         uuid: StrictStr,
         observation_prediction_request: ObservationPredictionRequest,
@@ -1334,7 +1893,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ObservationPrediction]:
-        """observations_prediction_create
+        """prediction_create
 
 
         :param uuid: (required)
@@ -1363,7 +1922,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_create_serialize(
+        _param = self._prediction_create_serialize(
             uuid=uuid,
             observation_prediction_request=observation_prediction_request,
             _request_auth=_request_auth,
@@ -1373,14 +1932,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionCreateErrorResponse400",
+            '400': "ObservationsPredictionCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1395,7 +1950,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_create_without_preload_content(
+    def prediction_create_without_preload_content(
         self,
         uuid: StrictStr,
         observation_prediction_request: ObservationPredictionRequest,
@@ -1412,7 +1967,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """observations_prediction_create
+        """prediction_create
 
 
         :param uuid: (required)
@@ -1441,7 +1996,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_create_serialize(
+        _param = self._prediction_create_serialize(
             uuid=uuid,
             observation_prediction_request=observation_prediction_request,
             _request_auth=_request_auth,
@@ -1451,14 +2006,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionCreateErrorResponse400",
+            '400': "ObservationsPredictionCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1468,7 +2019,7 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _observations_prediction_create_serialize(
+    def _prediction_create_serialize(
         self,
         uuid,
         observation_prediction_request,
@@ -1552,7 +2103,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_destroy(
+    def prediction_destroy(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1568,7 +2119,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """observations_prediction_destroy
+        """prediction_destroy
 
 
         :param uuid: (required)
@@ -1595,7 +2146,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_destroy_serialize(
+        _param = self._prediction_destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1604,14 +2155,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1626,7 +2172,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_destroy_with_http_info(
+    def prediction_destroy_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1642,7 +2188,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """observations_prediction_destroy
+        """prediction_destroy
 
 
         :param uuid: (required)
@@ -1669,7 +2215,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_destroy_serialize(
+        _param = self._prediction_destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1678,14 +2224,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1700,7 +2241,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_destroy_without_preload_content(
+    def prediction_destroy_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1716,7 +2257,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """observations_prediction_destroy
+        """prediction_destroy
 
 
         :param uuid: (required)
@@ -1743,7 +2284,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_destroy_serialize(
+        _param = self._prediction_destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1752,14 +2293,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1769,7 +2305,7 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _observations_prediction_destroy_serialize(
+    def _prediction_destroy_serialize(
         self,
         uuid,
         _request_auth,
@@ -1835,7 +2371,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_retrieve(
+    def prediction_retrieve(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1851,7 +2387,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ObservationPrediction:
-        """observations_prediction_retrieve
+        """prediction_retrieve
 
 
         :param uuid: (required)
@@ -1878,7 +2414,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_retrieve_serialize(
+        _param = self._prediction_retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1887,13 +2423,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionRetrieveErrorResponse400",
             '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1908,7 +2440,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_retrieve_with_http_info(
+    def prediction_retrieve_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1924,7 +2456,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ObservationPrediction]:
-        """observations_prediction_retrieve
+        """prediction_retrieve
 
 
         :param uuid: (required)
@@ -1951,7 +2483,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_retrieve_serialize(
+        _param = self._prediction_retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1960,13 +2492,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionRetrieveErrorResponse400",
             '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -1981,7 +2509,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_prediction_retrieve_without_preload_content(
+    def prediction_retrieve_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1997,7 +2525,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """observations_prediction_retrieve
+        """prediction_retrieve
 
 
         :param uuid: (required)
@@ -2024,7 +2552,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_prediction_retrieve_serialize(
+        _param = self._prediction_retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2033,13 +2561,9 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionRetrieveErrorResponse400",
             '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "ObservationPrediction",
         }
         response_data = self.api_client.call_api(
@@ -2049,7 +2573,7 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _observations_prediction_retrieve_serialize(
+    def _prediction_retrieve_serialize(
         self,
         uuid,
         _request_auth,
@@ -2115,7 +2639,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_retrieve(
+    def retrieve(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -2131,7 +2655,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Observation:
-        """observations_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -2158,7 +2682,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2167,13 +2691,8 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -2188,7 +2707,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_retrieve_with_http_info(
+    def retrieve_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -2204,7 +2723,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Observation]:
-        """observations_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -2231,7 +2750,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2240,13 +2759,8 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -2261,7 +2775,7 @@ class ObservationsApi:
 
 
     @validate_call
-    def observations_retrieve_without_preload_content(
+    def retrieve_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -2277,7 +2791,7 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """observations_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -2304,7 +2818,7 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._observations_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2313,13 +2827,8 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Observation",
         }
         response_data = self.api_client.call_api(
@@ -2329,7 +2838,7 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _observations_retrieve_serialize(
+    def _retrieve_serialize(
         self,
         uuid,
         _request_auth,

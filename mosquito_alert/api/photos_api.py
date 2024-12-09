@@ -41,7 +41,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_create(
+    def prediction_create(
         self,
         uuid: StrictStr,
         photo_prediction_request: PhotoPredictionRequest,
@@ -58,7 +58,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PhotoPrediction:
-        """photos_prediction_create
+        """prediction_create
 
 
         :param uuid: (required)
@@ -87,7 +87,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_create_serialize(
+        _param = self._prediction_create_serialize(
             uuid=uuid,
             photo_prediction_request=photo_prediction_request,
             _request_auth=_request_auth,
@@ -97,14 +97,10 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionCreateErrorResponse400",
+            '400': "PhotosPredictionCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PhotoPrediction",
         }
         response_data = self.api_client.call_api(
@@ -119,7 +115,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_create_with_http_info(
+    def prediction_create_with_http_info(
         self,
         uuid: StrictStr,
         photo_prediction_request: PhotoPredictionRequest,
@@ -136,7 +132,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PhotoPrediction]:
-        """photos_prediction_create
+        """prediction_create
 
 
         :param uuid: (required)
@@ -165,7 +161,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_create_serialize(
+        _param = self._prediction_create_serialize(
             uuid=uuid,
             photo_prediction_request=photo_prediction_request,
             _request_auth=_request_auth,
@@ -175,14 +171,10 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionCreateErrorResponse400",
+            '400': "PhotosPredictionCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PhotoPrediction",
         }
         response_data = self.api_client.call_api(
@@ -197,7 +189,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_create_without_preload_content(
+    def prediction_create_without_preload_content(
         self,
         uuid: StrictStr,
         photo_prediction_request: PhotoPredictionRequest,
@@ -214,7 +206,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """photos_prediction_create
+        """prediction_create
 
 
         :param uuid: (required)
@@ -243,7 +235,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_create_serialize(
+        _param = self._prediction_create_serialize(
             uuid=uuid,
             photo_prediction_request=photo_prediction_request,
             _request_auth=_request_auth,
@@ -253,14 +245,10 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionCreateErrorResponse400",
+            '400': "PhotosPredictionCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PhotoPrediction",
         }
         response_data = self.api_client.call_api(
@@ -270,7 +258,7 @@ class PhotosApi:
         return response_data.response
 
 
-    def _photos_prediction_create_serialize(
+    def _prediction_create_serialize(
         self,
         uuid,
         photo_prediction_request,
@@ -354,7 +342,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_destroy(
+    def prediction_destroy(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -370,7 +358,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """photos_prediction_destroy
+        """prediction_destroy
 
 
         :param uuid: (required)
@@ -397,7 +385,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_destroy_serialize(
+        _param = self._prediction_destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -406,14 +394,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -428,7 +411,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_destroy_with_http_info(
+    def prediction_destroy_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -444,7 +427,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """photos_prediction_destroy
+        """prediction_destroy
 
 
         :param uuid: (required)
@@ -471,7 +454,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_destroy_serialize(
+        _param = self._prediction_destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -480,14 +463,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -502,7 +480,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_destroy_without_preload_content(
+    def prediction_destroy_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -518,7 +496,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """photos_prediction_destroy
+        """prediction_destroy
 
 
         :param uuid: (required)
@@ -545,7 +523,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_destroy_serialize(
+        _param = self._prediction_destroy_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -554,14 +532,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionDestroyErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -571,7 +544,7 @@ class PhotosApi:
         return response_data.response
 
 
-    def _photos_prediction_destroy_serialize(
+    def _prediction_destroy_serialize(
         self,
         uuid,
         _request_auth,
@@ -637,7 +610,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_retrieve(
+    def prediction_retrieve(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -653,7 +626,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PhotoPrediction:
-        """photos_prediction_retrieve
+        """prediction_retrieve
 
 
         :param uuid: (required)
@@ -680,7 +653,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_retrieve_serialize(
+        _param = self._prediction_retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -689,14 +662,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PhotoPrediction",
         }
         response_data = self.api_client.call_api(
@@ -711,7 +679,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_retrieve_with_http_info(
+    def prediction_retrieve_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -727,7 +695,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PhotoPrediction]:
-        """photos_prediction_retrieve
+        """prediction_retrieve
 
 
         :param uuid: (required)
@@ -754,7 +722,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_retrieve_serialize(
+        _param = self._prediction_retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -763,14 +731,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PhotoPrediction",
         }
         response_data = self.api_client.call_api(
@@ -785,7 +748,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_prediction_retrieve_without_preload_content(
+    def prediction_retrieve_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -801,7 +764,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """photos_prediction_retrieve
+        """prediction_retrieve
 
 
         :param uuid: (required)
@@ -828,7 +791,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_prediction_retrieve_serialize(
+        _param = self._prediction_retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -837,14 +800,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosPredictionRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PhotoPrediction",
         }
         response_data = self.api_client.call_api(
@@ -854,7 +812,7 @@ class PhotosApi:
         return response_data.response
 
 
-    def _photos_prediction_retrieve_serialize(
+    def _prediction_retrieve_serialize(
         self,
         uuid,
         _request_auth,
@@ -920,7 +878,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_retrieve(
+    def retrieve(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -936,7 +894,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Photo:
-        """photos_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -963,7 +921,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -972,14 +930,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Photo",
         }
         response_data = self.api_client.call_api(
@@ -994,7 +947,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_retrieve_with_http_info(
+    def retrieve_with_http_info(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1010,7 +963,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Photo]:
-        """photos_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -1037,7 +990,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1046,14 +999,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Photo",
         }
         response_data = self.api_client.call_api(
@@ -1068,7 +1016,7 @@ class PhotosApi:
 
 
     @validate_call
-    def photos_retrieve_without_preload_content(
+    def retrieve_without_preload_content(
         self,
         uuid: StrictStr,
         _request_timeout: Union[
@@ -1084,7 +1032,7 @@ class PhotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """photos_retrieve
+        """retrieve
 
 
         :param uuid: (required)
@@ -1111,7 +1059,7 @@ class PhotosApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._photos_retrieve_serialize(
+        _param = self._retrieve_serialize(
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1120,14 +1068,9 @@ class PhotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "PhotosRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Photo",
         }
         response_data = self.api_client.call_api(
@@ -1137,7 +1080,7 @@ class PhotosApi:
         return response_data.response
 
 
-    def _photos_retrieve_serialize(
+    def _retrieve_serialize(
         self,
         uuid,
         _request_auth,

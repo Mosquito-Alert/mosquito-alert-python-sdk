@@ -4,11 +4,11 @@ All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fixes_create**](FixesApi.md#fixes_create) | **POST** /fixes/ | 
+[**create**](FixesApi.md#create) | **POST** /fixes/ | 
 
 
-# **fixes_create**
-> Fix fixes_create(fix_request)
+# **create**
+> Fix create(fix_request)
 
 
 
@@ -60,11 +60,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     fix_request = mosquito_alert.FixRequest() # FixRequest | 
 
     try:
-        api_response = api_instance.fixes_create(fix_request)
-        print("The response of FixesApi->fixes_create:\n")
+        api_response = api_instance.create(fix_request)
+        print("The response of FixesApi->create:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling FixesApi->fixes_create: %s\n" % e)
+        print("Exception when calling FixesApi->create: %s\n" % e)
 ```
 
 
@@ -97,10 +97,6 @@ Name | Type | Description  | Notes
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**405** |  |  -  |
-**406** |  |  -  |
-**415** |  |  -  |
-**500** |  |  -  |
 **201** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

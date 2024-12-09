@@ -46,7 +46,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_create(
+    def create(
         self,
         meta_notification_request: Optional[MetaNotificationRequest] = None,
         _request_timeout: Union[
@@ -62,7 +62,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[CreateNotification]:
-        """notifications_create
+        """create
 
 
         :param meta_notification_request:
@@ -89,7 +89,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_create_serialize(
+        _param = self._create_serialize(
             meta_notification_request=meta_notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -98,14 +98,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsCreateErrorResponse400",
+            '400': "NotificationsCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
@@ -120,7 +116,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_create_with_http_info(
+    def create_with_http_info(
         self,
         meta_notification_request: Optional[MetaNotificationRequest] = None,
         _request_timeout: Union[
@@ -136,7 +132,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[CreateNotification]]:
-        """notifications_create
+        """create
 
 
         :param meta_notification_request:
@@ -163,7 +159,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_create_serialize(
+        _param = self._create_serialize(
             meta_notification_request=meta_notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -172,14 +168,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsCreateErrorResponse400",
+            '400': "NotificationsCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
@@ -194,7 +186,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_create_without_preload_content(
+    def create_without_preload_content(
         self,
         meta_notification_request: Optional[MetaNotificationRequest] = None,
         _request_timeout: Union[
@@ -210,7 +202,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """notifications_create
+        """create
 
 
         :param meta_notification_request:
@@ -237,7 +229,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_create_serialize(
+        _param = self._create_serialize(
             meta_notification_request=meta_notification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -246,14 +238,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsCreateErrorResponse400",
+            '400': "NotificationsCreateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '201': "List[CreateNotification]",
         }
         response_data = self.api_client.call_api(
@@ -263,7 +251,7 @@ class NotificationsApi:
         return response_data.response
 
 
-    def _notifications_create_serialize(
+    def _create_serialize(
         self,
         meta_notification_request,
         _request_auth,
@@ -345,7 +333,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_list(
+    def list(
         self,
         is_read: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
@@ -364,7 +352,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PaginatedNotificationList:
-        """notifications_list
+        """list
 
 
         :param is_read:
@@ -397,7 +385,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_list_serialize(
+        _param = self._list_serialize(
             is_read=is_read,
             order_by=order_by,
             page=page,
@@ -409,14 +397,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsListErrorResponse400",
+            '400': "NotificationsListValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
@@ -431,7 +415,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_list_with_http_info(
+    def list_with_http_info(
         self,
         is_read: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
@@ -450,7 +434,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PaginatedNotificationList]:
-        """notifications_list
+        """list
 
 
         :param is_read:
@@ -483,7 +467,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_list_serialize(
+        _param = self._list_serialize(
             is_read=is_read,
             order_by=order_by,
             page=page,
@@ -495,14 +479,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsListErrorResponse400",
+            '400': "NotificationsListValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
@@ -517,7 +497,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_list_without_preload_content(
+    def list_without_preload_content(
         self,
         is_read: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
@@ -536,7 +516,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """notifications_list
+        """list
 
 
         :param is_read:
@@ -569,7 +549,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_list_serialize(
+        _param = self._list_serialize(
             is_read=is_read,
             order_by=order_by,
             page=page,
@@ -581,14 +561,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsListErrorResponse400",
+            '400': "NotificationsListValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "PaginatedNotificationList",
         }
         response_data = self.api_client.call_api(
@@ -598,7 +574,7 @@ class NotificationsApi:
         return response_data.response
 
 
-    def _notifications_list_serialize(
+    def _list_serialize(
         self,
         is_read,
         order_by,
@@ -683,7 +659,334 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_partial_update(
+    def list_mine(
+        self,
+        is_read: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PaginatedNotificationList:
+        """list_mine
+
+        Get Current User's Notifications
+
+        :param is_read:
+        :type is_read: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            is_read=is_read,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedNotificationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_mine_with_http_info(
+        self,
+        is_read: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PaginatedNotificationList]:
+        """list_mine
+
+        Get Current User's Notifications
+
+        :param is_read:
+        :type is_read: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            is_read=is_read,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedNotificationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_mine_without_preload_content(
+        self,
+        is_read: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """list_mine
+
+        Get Current User's Notifications
+
+        :param is_read:
+        :type is_read: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            is_read=is_read,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "NotificationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedNotificationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _list_mine_serialize(
+        self,
+        is_read,
+        order_by,
+        page,
+        page_size,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'order_by': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if is_read is not None:
+            
+            _query_params.append(('is_read', is_read))
+            
+        if order_by is not None:
+            
+            _query_params.append(('order_by', order_by))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'jwtAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/me/notifications/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def partial_update(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         patched_notification_request: Optional[PatchedNotificationRequest] = None,
@@ -700,7 +1003,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """notifications_partial_update
+        """partial_update
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -729,7 +1032,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_partial_update_serialize(
+        _param = self._partial_update_serialize(
             id=id,
             patched_notification_request=patched_notification_request,
             _request_auth=_request_auth,
@@ -739,14 +1042,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsPartialUpdateErrorResponse400",
+            '400': "NotificationsPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -761,7 +1060,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_partial_update_with_http_info(
+    def partial_update_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         patched_notification_request: Optional[PatchedNotificationRequest] = None,
@@ -778,7 +1077,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """notifications_partial_update
+        """partial_update
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -807,7 +1106,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_partial_update_serialize(
+        _param = self._partial_update_serialize(
             id=id,
             patched_notification_request=patched_notification_request,
             _request_auth=_request_auth,
@@ -817,14 +1116,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsPartialUpdateErrorResponse400",
+            '400': "NotificationsPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -839,7 +1134,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_partial_update_without_preload_content(
+    def partial_update_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         patched_notification_request: Optional[PatchedNotificationRequest] = None,
@@ -856,7 +1151,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """notifications_partial_update
+        """partial_update
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -885,7 +1180,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_partial_update_serialize(
+        _param = self._partial_update_serialize(
             id=id,
             patched_notification_request=patched_notification_request,
             _request_auth=_request_auth,
@@ -895,14 +1190,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsPartialUpdateErrorResponse400",
+            '400': "NotificationsPartialUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -912,7 +1203,7 @@ class NotificationsApi:
         return response_data.response
 
 
-    def _notifications_partial_update_serialize(
+    def _partial_update_serialize(
         self,
         id,
         patched_notification_request,
@@ -997,7 +1288,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_retrieve(
+    def retrieve(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         _request_timeout: Union[
@@ -1013,7 +1304,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """notifications_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -1040,7 +1331,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1049,14 +1340,9 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1071,7 +1357,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_retrieve_with_http_info(
+    def retrieve_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         _request_timeout: Union[
@@ -1087,7 +1373,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """notifications_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -1114,7 +1400,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1123,14 +1409,9 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1145,7 +1426,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_retrieve_without_preload_content(
+    def retrieve_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         _request_timeout: Union[
@@ -1161,7 +1442,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """notifications_retrieve
+        """retrieve
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -1188,7 +1469,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_retrieve_serialize(
+        _param = self._retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1197,14 +1478,9 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsRetrieveErrorResponse400",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1214,7 +1490,7 @@ class NotificationsApi:
         return response_data.response
 
 
-    def _notifications_retrieve_serialize(
+    def _retrieve_serialize(
         self,
         id,
         _request_auth,
@@ -1281,7 +1557,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_update(
+    def update(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         notification_request: NotificationRequest,
@@ -1298,7 +1574,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """notifications_update
+        """update
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -1327,7 +1603,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_update_serialize(
+        _param = self._update_serialize(
             id=id,
             notification_request=notification_request,
             _request_auth=_request_auth,
@@ -1337,14 +1613,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsUpdateErrorResponse400",
+            '400': "NotificationsUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1359,7 +1631,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_update_with_http_info(
+    def update_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         notification_request: NotificationRequest,
@@ -1376,7 +1648,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """notifications_update
+        """update
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -1405,7 +1677,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_update_serialize(
+        _param = self._update_serialize(
             id=id,
             notification_request=notification_request,
             _request_auth=_request_auth,
@@ -1415,14 +1687,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsUpdateErrorResponse400",
+            '400': "NotificationsUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1437,7 +1705,7 @@ class NotificationsApi:
 
 
     @validate_call
-    def notifications_update_without_preload_content(
+    def update_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         notification_request: NotificationRequest,
@@ -1454,7 +1722,7 @@ class NotificationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """notifications_update
+        """update
 
 
         :param id: A unique integer value identifying this notification. (required)
@@ -1483,7 +1751,7 @@ class NotificationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._notifications_update_serialize(
+        _param = self._update_serialize(
             id=id,
             notification_request=notification_request,
             _request_auth=_request_auth,
@@ -1493,14 +1761,10 @@ class NotificationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "NotificationsUpdateErrorResponse400",
+            '400': "NotificationsUpdateValidationError",
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '405': "ErrorResponse405",
-            '406': "ErrorResponse406",
-            '415': "ErrorResponse415",
-            '500': "ErrorResponse500",
             '200': "Notification",
         }
         response_data = self.api_client.call_api(
@@ -1510,7 +1774,7 @@ class NotificationsApi:
         return response_data.response
 
 
-    def _notifications_update_serialize(
+    def _update_serialize(
         self,
         id,
         notification_request,

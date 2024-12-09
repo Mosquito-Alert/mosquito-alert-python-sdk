@@ -36,13 +36,13 @@ class TestError401(unittest.TestCase):
         model = Error401()
         if include_optional:
             return Error401(
-                code = 'authentication_failed',
+                code = 'token_not_valid',
                 detail = '',
                 attr = ''
             )
         else:
             return Error401(
-                code = 'authentication_failed',
+                code = 'token_not_valid',
                 detail = '',
                 attr = '',
         )
