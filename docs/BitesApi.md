@@ -14,8 +14,6 @@ Method | HTTP request | Description
 # **create**
 > Bite create(bite_request)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -108,8 +106,6 @@ Name | Type | Description  | Notes
 # **destroy**
 > destroy(uuid)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -196,8 +192,6 @@ void (empty response body)
 
 # **list**
 > PaginatedBiteList list(created_at_after=created_at_after, created_at_before=created_at_before, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
-
-
 
 ### Example
 
@@ -315,8 +309,6 @@ Name | Type | Description  | Notes
 # **list_mine**
 > PaginatedBiteList list_mine(created_at_after=created_at_after, created_at_before=created_at_before, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
 
-
-
 Get Current User's Bites
 
 ### Example
@@ -421,8 +413,6 @@ Name | Type | Description  | Notes
 
 # **retrieve**
 > Bite retrieve(uuid)
-
-
 
 ### Example
 

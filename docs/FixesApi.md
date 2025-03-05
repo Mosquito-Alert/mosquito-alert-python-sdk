@@ -10,8 +10,6 @@ Method | HTTP request | Description
 # **create**
 > Fix create(fix_request)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):

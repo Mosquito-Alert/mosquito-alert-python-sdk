@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **create**
 > Device create(device_request)
 
-
-
 ### Example
 
 * Bearer (JWT) Authentication (jwtAuth):
@@ -92,8 +90,6 @@ Name | Type | Description  | Notes
 
 # **partial_update**
 > DeviceUpdate partial_update(device_id, patched_device_update_request=patched_device_update_request)
-
-
 
 ### Example
 
@@ -175,8 +171,6 @@ Name | Type | Description  | Notes
 # **retrieve**
 > Device retrieve(device_id)
 
-
-
 ### Example
 
 * Bearer (JWT) Authentication (jwtAuth):
@@ -252,8 +246,6 @@ Name | Type | Description  | Notes
 
 # **update**
 > DeviceUpdate update(device_id, device_update_request)
-
-
 
 ### Example
 

@@ -10,8 +10,6 @@ Method | HTTP request | Description
 # **retrieve**
 > Country retrieve(id)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):

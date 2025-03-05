@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **list**
 > PaginatedCampaignList list(country_id=country_id, is_active=is_active, order_by=order_by, page=page, page_size=page_size)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -111,8 +109,6 @@ Name | Type | Description  | Notes
 
 # **retrieve**
 > Campaign retrieve(id)
-
-
 
 ### Example
 

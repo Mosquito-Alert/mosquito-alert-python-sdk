@@ -15,8 +15,6 @@ Method | HTTP request | Description
 # **create**
 > List[CreateNotification] create(meta_notification_request=meta_notification_request)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -108,8 +106,6 @@ Name | Type | Description  | Notes
 
 # **list**
 > PaginatedNotificationList list(is_read=is_read, order_by=order_by, page=page, page_size=page_size)
-
-
 
 ### Example
 
@@ -208,8 +204,6 @@ Name | Type | Description  | Notes
 # **list_mine**
 > PaginatedNotificationList list_mine(is_read=is_read, order_by=order_by, page=page, page_size=page_size)
 
-
-
 Get Current User's Notifications
 
 ### Example
@@ -294,8 +288,6 @@ Name | Type | Description  | Notes
 
 # **partial_update**
 > Notification partial_update(id, patched_notification_request=patched_notification_request)
-
-
 
 ### Example
 
@@ -391,8 +383,6 @@ Name | Type | Description  | Notes
 # **retrieve**
 > Notification retrieve(id)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -482,8 +472,6 @@ Name | Type | Description  | Notes
 
 # **update**
 > Notification update(id, notification_request)
-
-
 
 ### Example
 

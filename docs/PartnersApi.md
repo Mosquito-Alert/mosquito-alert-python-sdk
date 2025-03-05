@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **list**
 > PaginatedPartnerList list(page=page, page_size=page_size)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -104,8 +102,6 @@ Name | Type | Description  | Notes
 
 # **retrieve**
 > Partner retrieve(id)
-
-
 
 ### Example
 

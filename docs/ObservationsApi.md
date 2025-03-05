@@ -17,8 +17,6 @@ Method | HTTP request | Description
 # **create**
 > Observation create(observation_request)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -111,8 +109,6 @@ Name | Type | Description  | Notes
 # **destroy**
 > destroy(uuid)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -199,8 +195,6 @@ void (empty response body)
 
 # **list**
 > PaginatedObservationList list(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, has_prediction=has_prediction, has_predictions_all_photos=has_predictions_all_photos, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
-
-
 
 ### Example
 
@@ -324,8 +318,6 @@ Name | Type | Description  | Notes
 # **list_mine**
 > PaginatedObservationList list_mine(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, has_prediction=has_prediction, has_predictions_all_photos=has_predictions_all_photos, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
 
-
-
 Get Current User's Observations
 
 ### Example
@@ -437,8 +429,6 @@ Name | Type | Description  | Notes
 # **prediction_create**
 > ObservationPrediction prediction_create(uuid, observation_prediction_request)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -527,8 +517,6 @@ Name | Type | Description  | Notes
 # **prediction_destroy**
 > prediction_destroy(uuid)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -609,8 +597,6 @@ void (empty response body)
 
 # **prediction_retrieve**
 > ObservationPrediction prediction_retrieve(uuid)
-
-
 
 ### Example
 
@@ -695,8 +681,6 @@ Name | Type | Description  | Notes
 
 # **retrieve**
 > Observation retrieve(uuid)
-
-
 
 ### Example
 

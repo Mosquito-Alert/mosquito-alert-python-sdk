@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **prediction_create**
 > PhotoPrediction prediction_create(uuid, photo_prediction_request)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -103,8 +101,6 @@ Name | Type | Description  | Notes
 # **prediction_destroy**
 > prediction_destroy(uuid)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -185,8 +181,6 @@ void (empty response body)
 
 # **prediction_retrieve**
 > PhotoPrediction prediction_retrieve(uuid)
-
-
 
 ### Example
 
@@ -271,8 +265,6 @@ Name | Type | Description  | Notes
 
 # **retrieve**
 > Photo retrieve(uuid)
-
-
 
 ### Example
 

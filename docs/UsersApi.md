@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **partial_update**
 > User partial_update(uuid, patched_user_request=patched_user_request)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -109,8 +107,6 @@ Name | Type | Description  | Notes
 # **retrieve**
 > User retrieve(uuid)
 
-
-
 ### Example
 
 * Api Key Authentication (cookieAuth):
@@ -201,8 +197,6 @@ Name | Type | Description  | Notes
 # **retrieve_mine**
 > User retrieve_mine()
 
-
-
 Get Current User's Profile
 
 ### Example
@@ -276,8 +270,6 @@ This endpoint does not need any parameter.
 
 # **update**
 > User update(uuid, user_request=user_request)
-
-
 
 ### Example
 

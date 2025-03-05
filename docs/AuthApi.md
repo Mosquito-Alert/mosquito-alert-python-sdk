@@ -14,8 +14,6 @@ Method | HTTP request | Description
 # **change_password**
 > change_password(password_change_request)
 
-
-
 ### Example
 
 * Bearer (JWT) Authentication (jwtAuth):
@@ -91,9 +89,8 @@ void (empty response body)
 # **obtain_token**
 > AppUserTokenObtainPair obtain_token(app_user_token_obtain_pair_request)
 
-
-
-Takes a set of user credentials and returns an access and refresh JSON web token pair to prove the authentication of those credentials.
+Takes a set of user credentials and returns an access and refresh JSON web
+token pair to prove the authentication of those credentials.
 
 ### Example
 
@@ -162,9 +159,8 @@ No authorization required
 # **refresh_token**
 > TokenRefresh refresh_token(token_refresh_request)
 
-
-
-Takes a refresh type JSON web token and returns an access type JSON web token if the refresh token is valid.
+Takes a refresh type JSON web token and returns an access type JSON web
+token if the refresh token is valid.
 
 ### Example
 
@@ -233,8 +229,6 @@ No authorization required
 # **signup_guest**
 > GuestRegistration signup_guest(guest_registration_request)
 
-
-
 ### Example
 
 
@@ -301,9 +295,8 @@ No authorization required
 # **verify_token**
 > verify_token(token_verify_request)
 
-
-
-Takes a token and indicates if it is valid.  This view provides no information about a token's fitness for a particular use.
+Takes a token and indicates if it is valid.  This view provides no
+information about a token's fitness for a particular use.
 
 ### Example
 
