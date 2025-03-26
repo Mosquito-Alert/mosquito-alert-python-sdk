@@ -51,24 +51,6 @@ class TestObservationsApi(unittest.TestCase):
         """
         pass
 
-    def test_prediction_create(self) -> None:
-        """Test case for prediction_create
-
-        """
-        pass
-
-    def test_prediction_destroy(self) -> None:
-        """Test case for prediction_destroy
-
-        """
-        pass
-
-    def test_prediction_retrieve(self) -> None:
-        """Test case for prediction_retrieve
-
-        """
-        pass
-
     def test_retrieve(self) -> None:
         """Test case for retrieve
 

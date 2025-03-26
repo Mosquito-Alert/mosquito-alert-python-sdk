@@ -19,8 +19,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from mosquito_alert.models.user_score import UserScore
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,12 +32,11 @@ class User(BaseModel):
     uuid: StrictStr
     username: StrictStr
     registration_time: datetime = Field(description="The date and time when user registered and consented to sharing data. Automatically set by server when user uploads registration.")
-    locale: Optional[StrictStr] = Field(default=None, description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
+    locale: Optional[StrictStr] = Field(default='en', description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
     language_iso: StrictStr = Field(description="ISO 639-1 code")
     is_guest: StrictBool
-    score: StrictInt = Field(description="Global XP Score. This field is updated whenever the user asks for the score, and is only stored here. The content must equal score_v2_adult + score_v2_bite + score_v2_site")
-    last_score_update: datetime = Field(description="Last time score was updated")
-    __properties: ClassVar[List[str]] = ["uuid", "username", "registration_time", "locale", "language_iso", "is_guest", "score", "last_score_update"]
+    score: UserScore
+    __properties: ClassVar[List[str]] = ["uuid", "username", "registration_time", "locale", "language_iso", "is_guest", "score"]
 
     @field_validator('locale')
     def locale_validate_enum(cls, value):
@@ -84,7 +84,6 @@ class User(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
@@ -93,7 +92,6 @@ class User(BaseModel):
             "language_iso",
             "is_guest",
             "score",
-            "last_score_update",
         ])
 
         _dict = self.model_dump(
@@ -101,6 +99,9 @@ class User(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of score
+        if self.score:
+            _dict['score'] = self.score.to_dict()
         return _dict
 
     @classmethod
@@ -116,11 +117,10 @@ class User(BaseModel):
             "uuid": obj.get("uuid"),
             "username": obj.get("username"),
             "registration_time": obj.get("registration_time"),
-            "locale": obj.get("locale"),
-            "language_iso": obj.get("language_iso"),
+            "locale": obj.get("locale") if obj.get("locale") is not None else 'en',
+            "language_iso": obj.get("language_iso") if obj.get("language_iso") is not None else 'en',
             "is_guest": obj.get("is_guest"),
-            "score": obj.get("score"),
-            "last_score_update": obj.get("last_score_update")
+            "score": UserScore.from_dict(obj["score"]) if obj.get("score") is not None else None
         })
         return _obj
 

@@ -45,14 +45,13 @@ class TestBreedingSite(unittest.TestCase):
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 location = mosquito_alert.models.location.Location(
-                    type = 'current', 
+                    source = 'auto', 
                     point = mosquito_alert.models.location_point.Location_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
                     country_id = 56, 
-                    nuts_2 = '', 
-                    nuts_3 = '', ),
+                    adm_boundaries = null, ),
                 note = '',
                 tags = [
                     ''
@@ -80,14 +79,13 @@ class TestBreedingSite(unittest.TestCase):
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 location = mosquito_alert.models.location.Location(
-                    type = 'current', 
+                    source = 'auto', 
                     point = mosquito_alert.models.location_point.Location_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
                     country_id = 56, 
-                    nuts_2 = '', 
-                    nuts_3 = '', ),
+                    adm_boundaries = null, ),
                 published = True,
                 photos = [
                     mosquito_alert.models.simple_photo.SimplePhoto(

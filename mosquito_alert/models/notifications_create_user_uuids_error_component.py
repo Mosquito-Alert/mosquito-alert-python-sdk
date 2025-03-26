@@ -42,8 +42,8 @@ class NotificationsCreateUserUuidsErrorComponent(BaseModel):
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['min_length', 'not_a_list', 'null', 'required']):
-            raise ValueError("must be one of enum values ('min_length', 'not_a_list', 'null', 'required')")
+        if value not in set(['empty', 'min_length', 'not_a_list', 'null', 'required']):
+            raise ValueError("must be one of enum values ('empty', 'min_length', 'not_a_list', 'null', 'required')")
         return value
 
     model_config = ConfigDict(

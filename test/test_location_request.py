@@ -36,14 +36,14 @@ class TestLocationRequest(unittest.TestCase):
         model = LocationRequest()
         if include_optional:
             return LocationRequest(
-                type = 'current',
+                source = 'auto',
                 point = mosquito_alert.models.location_point.Location_point(
                     latitude = 1.337, 
                     longitude = 1.337, )
             )
         else:
             return LocationRequest(
-                type = 'current',
+                source = 'auto',
                 point = mosquito_alert.models.location_point.Location_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),

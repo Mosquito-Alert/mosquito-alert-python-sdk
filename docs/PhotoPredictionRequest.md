@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bbox** | [**BoundingBoxRequest**](BoundingBoxRequest.md) |  | 
 **insect_confidence** | **float** | Insect confidence | 
-**predicted_class** | **str** |  | [optional] 
+**predicted_class** | **str** |  | 
 **threshold_deviation** | **float** |  | 
+**is_final_prediction** | **bool** | Indicates if this prediction can close the identification task. | [optional] 
 **scores** | [**PredictionScoreRequest**](PredictionScoreRequest.md) |  | 
 **classifier_version** | **str** |  | 
 

@@ -37,13 +37,13 @@ class TestNotificationsCreateTopicCodesErrorComponent(unittest.TestCase):
         if include_optional:
             return NotificationsCreateTopicCodesErrorComponent(
                 attr = 'topic_codes',
-                code = 'min_length',
+                code = 'empty',
                 detail = ''
             )
         else:
             return NotificationsCreateTopicCodesErrorComponent(
                 attr = 'topic_codes',
-                code = 'min_length',
+                code = 'empty',
                 detail = '',
         )
         """

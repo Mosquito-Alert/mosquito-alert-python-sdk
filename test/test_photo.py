@@ -42,6 +42,7 @@ class TestPhoto(unittest.TestCase):
             )
         else:
             return Photo(
+                uuid = '',
                 image_url = '',
                 image_path = '',
         )

@@ -19,11 +19,12 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from mosquito_alert.models.bounding_box import BoundingBox
 from mosquito_alert.models.prediction_score import PredictionScore
+from mosquito_alert.models.simple_photo import SimplePhoto
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,22 +32,21 @@ class PhotoPrediction(BaseModel):
     """
     PhotoPrediction
     """ # noqa: E501
+    photo: SimplePhoto
     bbox: BoundingBox
     insect_confidence: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Insect confidence")
-    predicted_class: Optional[StrictStr] = None
+    predicted_class: StrictStr
     threshold_deviation: Union[Annotated[float, Field(le=1.0, strict=True, ge=-1.0)], Annotated[int, Field(le=1, strict=True, ge=-1)]]
+    is_final_prediction: Optional[StrictBool] = Field(default=None, description="Indicates if this prediction can close the identification task.")
     scores: PredictionScore
     classifier_version: StrictStr
     created_at: datetime
     updated_at: datetime
-    __properties: ClassVar[List[str]] = ["bbox", "insect_confidence", "predicted_class", "threshold_deviation", "scores", "classifier_version", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["photo", "bbox", "insect_confidence", "predicted_class", "threshold_deviation", "is_final_prediction", "scores", "classifier_version", "created_at", "updated_at"]
 
     @field_validator('predicted_class')
     def predicted_class_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['ae_albopictus', 'ae_aegypti', 'ae_japonicus', 'ae_koreicus', 'culex', 'anopheles', 'culiseta', 'other_species', 'not_sure']):
             raise ValueError("must be one of enum values ('ae_albopictus', 'ae_aegypti', 'ae_japonicus', 'ae_koreicus', 'culex', 'anopheles', 'culiseta', 'other_species', 'not_sure')")
         return value
@@ -90,8 +90,10 @@ class PhotoPrediction(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "photo",
             "created_at",
             "updated_at",
         ])
@@ -101,6 +103,9 @@ class PhotoPrediction(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of photo
+        if self.photo:
+            _dict['photo'] = self.photo.to_dict()
         # override the default output from pydantic by calling `to_dict()` of bbox
         if self.bbox:
             _dict['bbox'] = self.bbox.to_dict()
@@ -119,10 +124,12 @@ class PhotoPrediction(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "photo": SimplePhoto.from_dict(obj["photo"]) if obj.get("photo") is not None else None,
             "bbox": BoundingBox.from_dict(obj["bbox"]) if obj.get("bbox") is not None else None,
             "insect_confidence": obj.get("insect_confidence"),
             "predicted_class": obj.get("predicted_class"),
             "threshold_deviation": obj.get("threshold_deviation"),
+            "is_final_prediction": obj.get("is_final_prediction"),
             "scores": PredictionScore.from_dict(obj["scores"]) if obj.get("scores") is not None else None,
             "classifier_version": obj.get("classifier_version"),
             "created_at": obj.get("created_at"),

@@ -22,8 +22,9 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.breeding_site import BreedingSite
-from mosquito_alert.models.breeding_site_request import BreedingSiteRequest
+from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.paginated_breeding_site_list import PaginatedBreedingSiteList
+from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -46,7 +47,17 @@ class BreedingSitesApi:
     @validate_call
     def create(
         self,
-        breeding_site_request: BreedingSiteRequest,
+        created_at: datetime,
+        sent_at: datetime,
+        location: LocationRequest,
+        photos: List[SimplePhotoRequest],
+        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
+        site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
+        has_water: Annotated[Optional[StrictBool], Field(description="Either if the user perceived water in the breeding site.")] = None,
+        in_public_area: Annotated[Optional[StrictBool], Field(description="Either if the breeding site is found in a public area.")] = None,
+        has_near_mosquitoes: Annotated[Optional[StrictBool], Field(description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")] = None,
+        has_larvae: Annotated[Optional[StrictBool], Field(description="Either if the user perceived larvaes the breeding site.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,8 +74,28 @@ class BreedingSitesApi:
         """create
 
 
-        :param breeding_site_request: (required)
-        :type breeding_site_request: BreedingSiteRequest
+        :param created_at: (required)
+        :type created_at: datetime
+        :param sent_at: (required)
+        :type sent_at: datetime
+        :param location: (required)
+        :type location: LocationRequest
+        :param photos: (required)
+        :type photos: List[SimplePhotoRequest]
+        :param note: Note user attached to report.
+        :type note: str
+        :param tags:
+        :type tags: List[str]
+        :param site_type: Breeding site type.
+        :type site_type: str
+        :param has_water: Either if the user perceived water in the breeding site.
+        :type has_water: bool
+        :param in_public_area: Either if the breeding site is found in a public area.
+        :type in_public_area: bool
+        :param has_near_mosquitoes: Either if the user perceived mosquitoes near the breeding site (less than 10 meters).
+        :type has_near_mosquitoes: bool
+        :param has_larvae: Either if the user perceived larvaes the breeding site.
+        :type has_larvae: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,7 +119,17 @@ class BreedingSitesApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            breeding_site_request=breeding_site_request,
+            created_at=created_at,
+            sent_at=sent_at,
+            location=location,
+            photos=photos,
+            note=note,
+            tags=tags,
+            site_type=site_type,
+            has_water=has_water,
+            in_public_area=in_public_area,
+            has_near_mosquitoes=has_near_mosquitoes,
+            has_larvae=has_larvae,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -116,7 +157,17 @@ class BreedingSitesApi:
     @validate_call
     def create_with_http_info(
         self,
-        breeding_site_request: BreedingSiteRequest,
+        created_at: datetime,
+        sent_at: datetime,
+        location: LocationRequest,
+        photos: List[SimplePhotoRequest],
+        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
+        site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
+        has_water: Annotated[Optional[StrictBool], Field(description="Either if the user perceived water in the breeding site.")] = None,
+        in_public_area: Annotated[Optional[StrictBool], Field(description="Either if the breeding site is found in a public area.")] = None,
+        has_near_mosquitoes: Annotated[Optional[StrictBool], Field(description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")] = None,
+        has_larvae: Annotated[Optional[StrictBool], Field(description="Either if the user perceived larvaes the breeding site.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,8 +184,28 @@ class BreedingSitesApi:
         """create
 
 
-        :param breeding_site_request: (required)
-        :type breeding_site_request: BreedingSiteRequest
+        :param created_at: (required)
+        :type created_at: datetime
+        :param sent_at: (required)
+        :type sent_at: datetime
+        :param location: (required)
+        :type location: LocationRequest
+        :param photos: (required)
+        :type photos: List[SimplePhotoRequest]
+        :param note: Note user attached to report.
+        :type note: str
+        :param tags:
+        :type tags: List[str]
+        :param site_type: Breeding site type.
+        :type site_type: str
+        :param has_water: Either if the user perceived water in the breeding site.
+        :type has_water: bool
+        :param in_public_area: Either if the breeding site is found in a public area.
+        :type in_public_area: bool
+        :param has_near_mosquitoes: Either if the user perceived mosquitoes near the breeding site (less than 10 meters).
+        :type has_near_mosquitoes: bool
+        :param has_larvae: Either if the user perceived larvaes the breeding site.
+        :type has_larvae: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -158,7 +229,17 @@ class BreedingSitesApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            breeding_site_request=breeding_site_request,
+            created_at=created_at,
+            sent_at=sent_at,
+            location=location,
+            photos=photos,
+            note=note,
+            tags=tags,
+            site_type=site_type,
+            has_water=has_water,
+            in_public_area=in_public_area,
+            has_near_mosquitoes=has_near_mosquitoes,
+            has_larvae=has_larvae,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -186,7 +267,17 @@ class BreedingSitesApi:
     @validate_call
     def create_without_preload_content(
         self,
-        breeding_site_request: BreedingSiteRequest,
+        created_at: datetime,
+        sent_at: datetime,
+        location: LocationRequest,
+        photos: List[SimplePhotoRequest],
+        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
+        site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
+        has_water: Annotated[Optional[StrictBool], Field(description="Either if the user perceived water in the breeding site.")] = None,
+        in_public_area: Annotated[Optional[StrictBool], Field(description="Either if the breeding site is found in a public area.")] = None,
+        has_near_mosquitoes: Annotated[Optional[StrictBool], Field(description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")] = None,
+        has_larvae: Annotated[Optional[StrictBool], Field(description="Either if the user perceived larvaes the breeding site.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -203,8 +294,28 @@ class BreedingSitesApi:
         """create
 
 
-        :param breeding_site_request: (required)
-        :type breeding_site_request: BreedingSiteRequest
+        :param created_at: (required)
+        :type created_at: datetime
+        :param sent_at: (required)
+        :type sent_at: datetime
+        :param location: (required)
+        :type location: LocationRequest
+        :param photos: (required)
+        :type photos: List[SimplePhotoRequest]
+        :param note: Note user attached to report.
+        :type note: str
+        :param tags:
+        :type tags: List[str]
+        :param site_type: Breeding site type.
+        :type site_type: str
+        :param has_water: Either if the user perceived water in the breeding site.
+        :type has_water: bool
+        :param in_public_area: Either if the breeding site is found in a public area.
+        :type in_public_area: bool
+        :param has_near_mosquitoes: Either if the user perceived mosquitoes near the breeding site (less than 10 meters).
+        :type has_near_mosquitoes: bool
+        :param has_larvae: Either if the user perceived larvaes the breeding site.
+        :type has_larvae: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -228,7 +339,17 @@ class BreedingSitesApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            breeding_site_request=breeding_site_request,
+            created_at=created_at,
+            sent_at=sent_at,
+            location=location,
+            photos=photos,
+            note=note,
+            tags=tags,
+            site_type=site_type,
+            has_water=has_water,
+            in_public_area=in_public_area,
+            has_near_mosquitoes=has_near_mosquitoes,
+            has_larvae=has_larvae,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -251,7 +372,17 @@ class BreedingSitesApi:
 
     def _create_serialize(
         self,
-        breeding_site_request,
+        created_at,
+        sent_at,
+        location,
+        photos,
+        note,
+        tags,
+        site_type,
+        has_water,
+        in_public_area,
+        has_near_mosquitoes,
+        has_larvae,
         _request_auth,
         _content_type,
         _headers,
@@ -261,6 +392,8 @@ class BreedingSitesApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'photos': 'csv',
+            'tags': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -276,9 +409,29 @@ class BreedingSitesApi:
         # process the query parameters
         # process the header parameters
         # process the form parameters
+        if created_at is not None:
+            _form_params.append(('created_at', created_at))
+        if sent_at is not None:
+            _form_params.append(('sent_at', sent_at))
+        if location is not None:
+            _form_params.append(('location', location))
+        if note is not None:
+            _form_params.append(('note', note))
+        if tags is not None:
+            _form_params.append(('tags', tags))
+        if photos is not None:
+            _form_params.append(('photos', photos))
+        if site_type is not None:
+            _form_params.append(('site_type', site_type))
+        if has_water is not None:
+            _form_params.append(('has_water', has_water))
+        if in_public_area is not None:
+            _form_params.append(('in_public_area', in_public_area))
+        if has_near_mosquitoes is not None:
+            _form_params.append(('has_near_mosquitoes', has_near_mosquitoes))
+        if has_larvae is not None:
+            _form_params.append(('has_larvae', has_larvae))
         # process the body parameter
-        if breeding_site_request is not None:
-            _body_params = breeding_site_request
 
 
         # set the HTTP header `Accept`
@@ -296,9 +449,8 @@ class BreedingSitesApi:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
+                        'multipart/form-data', 
+                        'application/x-www-form-urlencoded'
                     ]
                 )
             )
@@ -605,9 +757,9 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -639,12 +791,12 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -689,9 +841,9 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -730,9 +882,9 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -764,12 +916,12 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -814,9 +966,9 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -855,9 +1007,9 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -889,12 +1041,12 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -939,9 +1091,9 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -975,9 +1127,9 @@ class BreedingSitesApi:
         created_at_after,
         created_at_before,
         has_photos,
+        location_adm_nuts2,
+        location_adm_nuts3,
         location_country_id,
-        location_nuts_2,
-        location_nuts_3,
         order_by,
         page,
         page_size,
@@ -1040,17 +1192,17 @@ class BreedingSitesApi:
             
             _query_params.append(('has_photos', has_photos))
             
+        if location_adm_nuts2 is not None:
+            
+            _query_params.append(('location_adm_nuts2', location_adm_nuts2))
+            
+        if location_adm_nuts3 is not None:
+            
+            _query_params.append(('location_adm_nuts3', location_adm_nuts3))
+            
         if location_country_id is not None:
             
             _query_params.append(('location_country_id', location_country_id))
-            
-        if location_nuts_2 is not None:
-            
-            _query_params.append(('location_nuts_2', location_nuts_2))
-            
-        if location_nuts_3 is not None:
-            
-            _query_params.append(('location_nuts_3', location_nuts_3))
             
         if order_by is not None:
             
@@ -1169,9 +1321,9 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1204,12 +1356,12 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1254,9 +1406,9 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1296,9 +1448,9 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1331,12 +1483,12 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1381,9 +1533,9 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1423,9 +1575,9 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1458,12 +1610,12 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1508,9 +1660,9 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1545,9 +1697,9 @@ class BreedingSitesApi:
         created_at_after,
         created_at_before,
         has_photos,
+        location_adm_nuts2,
+        location_adm_nuts3,
         location_country_id,
-        location_nuts_2,
-        location_nuts_3,
         order_by,
         page,
         page_size,
@@ -1610,17 +1762,17 @@ class BreedingSitesApi:
             
             _query_params.append(('has_photos', has_photos))
             
+        if location_adm_nuts2 is not None:
+            
+            _query_params.append(('location_adm_nuts2', location_adm_nuts2))
+            
+        if location_adm_nuts3 is not None:
+            
+            _query_params.append(('location_adm_nuts3', location_adm_nuts3))
+            
         if location_country_id is not None:
             
             _query_params.append(('location_country_id', location_country_id))
-            
-        if location_nuts_2 is not None:
-            
-            _query_params.append(('location_nuts_2', location_nuts_2))
-            
-        if location_nuts_3 is not None:
-            
-            _query_params.append(('location_nuts_3', location_nuts_3))
             
         if order_by is not None:
             

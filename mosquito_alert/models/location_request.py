@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from mosquito_alert.models.location_point import LocationPoint
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,15 +28,15 @@ class LocationRequest(BaseModel):
     """
     LocationRequest
     """ # noqa: E501
-    type: StrictStr = Field(description="Did user indicate that report relates to current location of phone ('current') or to a location selected manually on the map ('selected')? Or is the choice missing ('missing')")
-    point: Optional[LocationPoint]
-    __properties: ClassVar[List[str]] = ["type", "point"]
+    source: StrictStr = Field(description="Indicates how the location was obtained. Use 'Auto (GPS)' if the location was automatically retrieved from the device's GPS, or 'Manual (User-selected)' if the location was selected by the user on a map.")
+    point: LocationPoint
+    __properties: ClassVar[List[str]] = ["source", "point"]
 
-    @field_validator('type')
-    def type_validate_enum(cls, value):
+    @field_validator('source')
+    def source_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['current', 'selected', 'missing']):
-            raise ValueError("must be one of enum values ('current', 'selected', 'missing')")
+        if value not in set(['auto', 'manual']):
+            raise ValueError("must be one of enum values ('auto', 'manual')")
         return value
 
     model_config = ConfigDict(
@@ -81,11 +81,6 @@ class LocationRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of point
         if self.point:
             _dict['point'] = self.point.to_dict()
-        # set to None if point (nullable) is None
-        # and model_fields_set contains the field
-        if self.point is None and "point" in self.model_fields_set:
-            _dict['point'] = None
-
         return _dict
 
     @classmethod
@@ -98,7 +93,7 @@ class LocationRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
+            "source": obj.get("source"),
             "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None
         })
         return _obj

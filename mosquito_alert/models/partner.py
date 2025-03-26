@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from mosquito_alert.models.partner_point import PartnerPoint
+from mosquito_alert.models.location_point import LocationPoint
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,7 @@ class Partner(BaseModel):
     Partner
     """ # noqa: E501
     id: StrictInt
-    point: PartnerPoint
+    point: LocationPoint
     description: StrictStr = Field(description="Text desription on the pin. This text is meant to be visualized as the text body of the dialog on the map")
     url: Annotated[str, Field(strict=True, max_length=200)] = Field(description="URL link to the organization page")
     __properties: ClassVar[List[str]] = ["id", "point", "description", "url"]
@@ -92,7 +92,7 @@ class Partner(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "point": PartnerPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
+            "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
             "description": obj.get("description"),
             "url": obj.get("url")
         })

@@ -27,7 +27,7 @@ class PatchedUserRequest(BaseModel):
     """
     PatchedUserRequest
     """ # noqa: E501
-    locale: Optional[StrictStr] = Field(default=None, description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
+    locale: Optional[StrictStr] = Field(default='en', description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
     __properties: ClassVar[List[str]] = ["locale"]
 
     @field_validator('locale')
@@ -91,7 +91,7 @@ class PatchedUserRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "locale": obj.get("locale")
+            "locale": obj.get("locale") if obj.get("locale") is not None else 'en'
         })
         return _obj
 

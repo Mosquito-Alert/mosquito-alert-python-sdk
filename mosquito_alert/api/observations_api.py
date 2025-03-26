@@ -21,11 +21,10 @@ from datetime import datetime
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
+from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.observation import Observation
-from mosquito_alert.models.observation_prediction import ObservationPrediction
-from mosquito_alert.models.observation_prediction_request import ObservationPredictionRequest
-from mosquito_alert.models.observation_request import ObservationRequest
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
+from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -48,7 +47,18 @@ class ObservationsApi:
     @validate_call
     def create(
         self,
-        observation_request: ObservationRequest,
+        created_at: datetime,
+        sent_at: datetime,
+        location: LocationRequest,
+        photos: List[SimplePhotoRequest],
+        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
+        event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
+        event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
+        user_perceived_mosquito_specie: Annotated[Optional[StrictStr], Field(description="The mosquito specie perceived by the user.")] = None,
+        user_perceived_mosquito_thorax: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the thorax resembles, according to the user.")] = None,
+        user_perceived_mosquito_abdomen: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the abdomen resembles, according to the user.")] = None,
+        user_perceived_mosquito_legs: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the leg resembles, according to the user.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -65,8 +75,30 @@ class ObservationsApi:
         """create
 
 
-        :param observation_request: (required)
-        :type observation_request: ObservationRequest
+        :param created_at: (required)
+        :type created_at: datetime
+        :param sent_at: (required)
+        :type sent_at: datetime
+        :param location: (required)
+        :type location: LocationRequest
+        :param photos: (required)
+        :type photos: List[SimplePhotoRequest]
+        :param note: Note user attached to report.
+        :type note: str
+        :param tags:
+        :type tags: List[str]
+        :param event_environment: The environment where the event took place.
+        :type event_environment: str
+        :param event_moment: The moment of the day when the event took place.
+        :type event_moment: str
+        :param user_perceived_mosquito_specie: The mosquito specie perceived by the user.
+        :type user_perceived_mosquito_specie: str
+        :param user_perceived_mosquito_thorax: The species of mosquito that the thorax resembles, according to the user.
+        :type user_perceived_mosquito_thorax: str
+        :param user_perceived_mosquito_abdomen: The species of mosquito that the abdomen resembles, according to the user.
+        :type user_perceived_mosquito_abdomen: str
+        :param user_perceived_mosquito_legs: The species of mosquito that the leg resembles, according to the user.
+        :type user_perceived_mosquito_legs: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,7 +122,18 @@ class ObservationsApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            observation_request=observation_request,
+            created_at=created_at,
+            sent_at=sent_at,
+            location=location,
+            photos=photos,
+            note=note,
+            tags=tags,
+            event_environment=event_environment,
+            event_moment=event_moment,
+            user_perceived_mosquito_specie=user_perceived_mosquito_specie,
+            user_perceived_mosquito_thorax=user_perceived_mosquito_thorax,
+            user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen,
+            user_perceived_mosquito_legs=user_perceived_mosquito_legs,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -118,7 +161,18 @@ class ObservationsApi:
     @validate_call
     def create_with_http_info(
         self,
-        observation_request: ObservationRequest,
+        created_at: datetime,
+        sent_at: datetime,
+        location: LocationRequest,
+        photos: List[SimplePhotoRequest],
+        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
+        event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
+        event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
+        user_perceived_mosquito_specie: Annotated[Optional[StrictStr], Field(description="The mosquito specie perceived by the user.")] = None,
+        user_perceived_mosquito_thorax: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the thorax resembles, according to the user.")] = None,
+        user_perceived_mosquito_abdomen: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the abdomen resembles, according to the user.")] = None,
+        user_perceived_mosquito_legs: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the leg resembles, according to the user.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,8 +189,30 @@ class ObservationsApi:
         """create
 
 
-        :param observation_request: (required)
-        :type observation_request: ObservationRequest
+        :param created_at: (required)
+        :type created_at: datetime
+        :param sent_at: (required)
+        :type sent_at: datetime
+        :param location: (required)
+        :type location: LocationRequest
+        :param photos: (required)
+        :type photos: List[SimplePhotoRequest]
+        :param note: Note user attached to report.
+        :type note: str
+        :param tags:
+        :type tags: List[str]
+        :param event_environment: The environment where the event took place.
+        :type event_environment: str
+        :param event_moment: The moment of the day when the event took place.
+        :type event_moment: str
+        :param user_perceived_mosquito_specie: The mosquito specie perceived by the user.
+        :type user_perceived_mosquito_specie: str
+        :param user_perceived_mosquito_thorax: The species of mosquito that the thorax resembles, according to the user.
+        :type user_perceived_mosquito_thorax: str
+        :param user_perceived_mosquito_abdomen: The species of mosquito that the abdomen resembles, according to the user.
+        :type user_perceived_mosquito_abdomen: str
+        :param user_perceived_mosquito_legs: The species of mosquito that the leg resembles, according to the user.
+        :type user_perceived_mosquito_legs: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -160,7 +236,18 @@ class ObservationsApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            observation_request=observation_request,
+            created_at=created_at,
+            sent_at=sent_at,
+            location=location,
+            photos=photos,
+            note=note,
+            tags=tags,
+            event_environment=event_environment,
+            event_moment=event_moment,
+            user_perceived_mosquito_specie=user_perceived_mosquito_specie,
+            user_perceived_mosquito_thorax=user_perceived_mosquito_thorax,
+            user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen,
+            user_perceived_mosquito_legs=user_perceived_mosquito_legs,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -188,7 +275,18 @@ class ObservationsApi:
     @validate_call
     def create_without_preload_content(
         self,
-        observation_request: ObservationRequest,
+        created_at: datetime,
+        sent_at: datetime,
+        location: LocationRequest,
+        photos: List[SimplePhotoRequest],
+        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
+        event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
+        event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
+        user_perceived_mosquito_specie: Annotated[Optional[StrictStr], Field(description="The mosquito specie perceived by the user.")] = None,
+        user_perceived_mosquito_thorax: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the thorax resembles, according to the user.")] = None,
+        user_perceived_mosquito_abdomen: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the abdomen resembles, according to the user.")] = None,
+        user_perceived_mosquito_legs: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the leg resembles, according to the user.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -205,8 +303,30 @@ class ObservationsApi:
         """create
 
 
-        :param observation_request: (required)
-        :type observation_request: ObservationRequest
+        :param created_at: (required)
+        :type created_at: datetime
+        :param sent_at: (required)
+        :type sent_at: datetime
+        :param location: (required)
+        :type location: LocationRequest
+        :param photos: (required)
+        :type photos: List[SimplePhotoRequest]
+        :param note: Note user attached to report.
+        :type note: str
+        :param tags:
+        :type tags: List[str]
+        :param event_environment: The environment where the event took place.
+        :type event_environment: str
+        :param event_moment: The moment of the day when the event took place.
+        :type event_moment: str
+        :param user_perceived_mosquito_specie: The mosquito specie perceived by the user.
+        :type user_perceived_mosquito_specie: str
+        :param user_perceived_mosquito_thorax: The species of mosquito that the thorax resembles, according to the user.
+        :type user_perceived_mosquito_thorax: str
+        :param user_perceived_mosquito_abdomen: The species of mosquito that the abdomen resembles, according to the user.
+        :type user_perceived_mosquito_abdomen: str
+        :param user_perceived_mosquito_legs: The species of mosquito that the leg resembles, according to the user.
+        :type user_perceived_mosquito_legs: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -230,7 +350,18 @@ class ObservationsApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            observation_request=observation_request,
+            created_at=created_at,
+            sent_at=sent_at,
+            location=location,
+            photos=photos,
+            note=note,
+            tags=tags,
+            event_environment=event_environment,
+            event_moment=event_moment,
+            user_perceived_mosquito_specie=user_perceived_mosquito_specie,
+            user_perceived_mosquito_thorax=user_perceived_mosquito_thorax,
+            user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen,
+            user_perceived_mosquito_legs=user_perceived_mosquito_legs,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -253,7 +384,18 @@ class ObservationsApi:
 
     def _create_serialize(
         self,
-        observation_request,
+        created_at,
+        sent_at,
+        location,
+        photos,
+        note,
+        tags,
+        event_environment,
+        event_moment,
+        user_perceived_mosquito_specie,
+        user_perceived_mosquito_thorax,
+        user_perceived_mosquito_abdomen,
+        user_perceived_mosquito_legs,
         _request_auth,
         _content_type,
         _headers,
@@ -263,6 +405,8 @@ class ObservationsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'photos': 'csv',
+            'tags': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -278,9 +422,31 @@ class ObservationsApi:
         # process the query parameters
         # process the header parameters
         # process the form parameters
+        if created_at is not None:
+            _form_params.append(('created_at', created_at))
+        if sent_at is not None:
+            _form_params.append(('sent_at', sent_at))
+        if location is not None:
+            _form_params.append(('location', location))
+        if note is not None:
+            _form_params.append(('note', note))
+        if tags is not None:
+            _form_params.append(('tags', tags))
+        if photos is not None:
+            _form_params.append(('photos', photos))
+        if event_environment is not None:
+            _form_params.append(('event_environment', event_environment))
+        if event_moment is not None:
+            _form_params.append(('event_moment', event_moment))
+        if user_perceived_mosquito_specie is not None:
+            _form_params.append(('user_perceived_mosquito_specie', user_perceived_mosquito_specie))
+        if user_perceived_mosquito_thorax is not None:
+            _form_params.append(('user_perceived_mosquito_thorax', user_perceived_mosquito_thorax))
+        if user_perceived_mosquito_abdomen is not None:
+            _form_params.append(('user_perceived_mosquito_abdomen', user_perceived_mosquito_abdomen))
+        if user_perceived_mosquito_legs is not None:
+            _form_params.append(('user_perceived_mosquito_legs', user_perceived_mosquito_legs))
         # process the body parameter
-        if observation_request is not None:
-            _body_params = observation_request
 
 
         # set the HTTP header `Accept`
@@ -298,9 +464,8 @@ class ObservationsApi:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
+                        'multipart/form-data', 
+                        'application/x-www-form-urlencoded'
                     ]
                 )
             )
@@ -607,11 +772,9 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
-        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -643,16 +806,12 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
-        :type has_prediction: bool
-        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
-        :type has_predictions_all_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -697,11 +856,9 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            has_prediction=has_prediction,
-            has_predictions_all_photos=has_predictions_all_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -740,11 +897,9 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
-        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -776,16 +931,12 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
-        :type has_prediction: bool
-        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
-        :type has_predictions_all_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -830,11 +981,9 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            has_prediction=has_prediction,
-            has_predictions_all_photos=has_predictions_all_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -873,11 +1022,9 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
-        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -909,16 +1056,12 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
-        :type has_prediction: bool
-        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
-        :type has_predictions_all_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -963,11 +1106,9 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            has_prediction=has_prediction,
-            has_predictions_all_photos=has_predictions_all_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1001,11 +1142,9 @@ class ObservationsApi:
         created_at_after,
         created_at_before,
         has_photos,
-        has_prediction,
-        has_predictions_all_photos,
+        location_adm_nuts2,
+        location_adm_nuts3,
         location_country_id,
-        location_nuts_2,
-        location_nuts_3,
         order_by,
         page,
         page_size,
@@ -1068,25 +1207,17 @@ class ObservationsApi:
             
             _query_params.append(('has_photos', has_photos))
             
-        if has_prediction is not None:
+        if location_adm_nuts2 is not None:
             
-            _query_params.append(('has_prediction', has_prediction))
+            _query_params.append(('location_adm_nuts2', location_adm_nuts2))
             
-        if has_predictions_all_photos is not None:
+        if location_adm_nuts3 is not None:
             
-            _query_params.append(('has_predictions_all_photos', has_predictions_all_photos))
+            _query_params.append(('location_adm_nuts3', location_adm_nuts3))
             
         if location_country_id is not None:
             
             _query_params.append(('location_country_id', location_country_id))
-            
-        if location_nuts_2 is not None:
-            
-            _query_params.append(('location_nuts_2', location_nuts_2))
-            
-        if location_nuts_3 is not None:
-            
-            _query_params.append(('location_nuts_3', location_nuts_3))
             
         if order_by is not None:
             
@@ -1205,11 +1336,9 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
-        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1242,16 +1371,12 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
-        :type has_prediction: bool
-        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
-        :type has_predictions_all_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1296,11 +1421,9 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            has_prediction=has_prediction,
-            has_predictions_all_photos=has_predictions_all_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1340,11 +1463,9 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
-        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1377,16 +1498,12 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
-        :type has_prediction: bool
-        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
-        :type has_predictions_all_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1431,11 +1548,9 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            has_prediction=has_prediction,
-            has_predictions_all_photos=has_predictions_all_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1475,11 +1590,9 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        has_prediction: Annotated[Optional[StrictBool], Field(description="Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.")] = None,
-        has_predictions_all_photos: Annotated[Optional[StrictBool], Field(description="Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1512,16 +1625,12 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param has_prediction: Filter observations that have an associated prediction. An observation is considered to have a prediction if a photo has been selected as reference to use the prediction from.
-        :type has_prediction: bool
-        :param has_predictions_all_photos: Filters observations based on whether all associated photos have predictions. Set to True to include observations where every photo has a prediction; set to False to include observations where at least one photo is missing a prediction.
-        :type has_predictions_all_photos: bool
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1566,11 +1675,9 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            has_prediction=has_prediction,
-            has_predictions_all_photos=has_predictions_all_photos,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1605,11 +1712,9 @@ class ObservationsApi:
         created_at_after,
         created_at_before,
         has_photos,
-        has_prediction,
-        has_predictions_all_photos,
+        location_adm_nuts2,
+        location_adm_nuts3,
         location_country_id,
-        location_nuts_2,
-        location_nuts_3,
         order_by,
         page,
         page_size,
@@ -1672,25 +1777,17 @@ class ObservationsApi:
             
             _query_params.append(('has_photos', has_photos))
             
-        if has_prediction is not None:
+        if location_adm_nuts2 is not None:
             
-            _query_params.append(('has_prediction', has_prediction))
+            _query_params.append(('location_adm_nuts2', location_adm_nuts2))
             
-        if has_predictions_all_photos is not None:
+        if location_adm_nuts3 is not None:
             
-            _query_params.append(('has_predictions_all_photos', has_predictions_all_photos))
+            _query_params.append(('location_adm_nuts3', location_adm_nuts3))
             
         if location_country_id is not None:
             
             _query_params.append(('location_country_id', location_country_id))
-            
-        if location_nuts_2 is not None:
-            
-            _query_params.append(('location_nuts_2', location_nuts_2))
-            
-        if location_nuts_3 is not None:
-            
-            _query_params.append(('location_nuts_3', location_nuts_3))
             
         if order_by is not None:
             
@@ -1786,843 +1883,6 @@ class ObservationsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/me/observations/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def prediction_create(
-        self,
-        uuid: StrictStr,
-        observation_prediction_request: ObservationPredictionRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ObservationPrediction:
-        """prediction_create
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param observation_prediction_request: (required)
-        :type observation_prediction_request: ObservationPredictionRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_create_serialize(
-            uuid=uuid,
-            observation_prediction_request=observation_prediction_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionCreateValidationError",
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "ObservationPrediction",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def prediction_create_with_http_info(
-        self,
-        uuid: StrictStr,
-        observation_prediction_request: ObservationPredictionRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ObservationPrediction]:
-        """prediction_create
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param observation_prediction_request: (required)
-        :type observation_prediction_request: ObservationPredictionRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_create_serialize(
-            uuid=uuid,
-            observation_prediction_request=observation_prediction_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionCreateValidationError",
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "ObservationPrediction",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def prediction_create_without_preload_content(
-        self,
-        uuid: StrictStr,
-        observation_prediction_request: ObservationPredictionRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """prediction_create
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param observation_prediction_request: (required)
-        :type observation_prediction_request: ObservationPredictionRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_create_serialize(
-            uuid=uuid,
-            observation_prediction_request=observation_prediction_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsPredictionCreateValidationError",
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "ObservationPrediction",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _prediction_create_serialize(
-        self,
-        uuid,
-        observation_prediction_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if uuid is not None:
-            _path_params['uuid'] = uuid
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if observation_prediction_request is not None:
-            _body_params = observation_prediction_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'tokenAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/observations/{uuid}/prediction/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def prediction_destroy(
-        self,
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """prediction_destroy
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_destroy_serialize(
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '204': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def prediction_destroy_with_http_info(
-        self,
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """prediction_destroy
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_destroy_serialize(
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '204': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def prediction_destroy_without_preload_content(
-        self,
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """prediction_destroy
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_destroy_serialize(
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '204': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _prediction_destroy_serialize(
-        self,
-        uuid,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if uuid is not None:
-            _path_params['uuid'] = uuid
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'tokenAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/observations/{uuid}/prediction/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def prediction_retrieve(
-        self,
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ObservationPrediction:
-        """prediction_retrieve
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_retrieve_serialize(
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "ObservationPrediction",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def prediction_retrieve_with_http_info(
-        self,
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ObservationPrediction]:
-        """prediction_retrieve
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_retrieve_serialize(
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "ObservationPrediction",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def prediction_retrieve_without_preload_content(
-        self,
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """prediction_retrieve
-
-
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._prediction_retrieve_serialize(
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "ObservationPrediction",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _prediction_retrieve_serialize(
-        self,
-        uuid,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if uuid is not None:
-            _path_params['uuid'] = uuid
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'tokenAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/observations/{uuid}/prediction/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

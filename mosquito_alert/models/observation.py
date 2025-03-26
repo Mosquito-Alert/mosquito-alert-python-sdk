@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from mosquito_alert.models.identification import Identification
 from mosquito_alert.models.location import Location
 from mosquito_alert.models.simple_photo import SimplePhoto
 from typing import Optional, Set
@@ -43,13 +44,14 @@ class Observation(BaseModel):
     tags: Optional[List[StrictStr]] = None
     published: StrictBool
     photos: List[SimplePhoto]
+    identification: Optional[Identification]
     event_environment: Optional[StrictStr] = Field(default=None, description="The environment where the event took place.")
     event_moment: Optional[StrictStr] = Field(default=None, description="The moment of the day when the event took place.")
     user_perceived_mosquito_specie: Optional[StrictStr] = Field(default=None, description="The mosquito specie perceived by the user.")
     user_perceived_mosquito_thorax: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the thorax resembles, according to the user.")
     user_perceived_mosquito_abdomen: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the abdomen resembles, according to the user.")
     user_perceived_mosquito_legs: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the leg resembles, according to the user.")
-    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "sent_at", "received_at", "updated_at", "location", "note", "tags", "published", "photos", "event_environment", "event_moment", "user_perceived_mosquito_specie", "user_perceived_mosquito_thorax", "user_perceived_mosquito_abdomen", "user_perceived_mosquito_legs"]
+    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "sent_at", "received_at", "updated_at", "location", "note", "tags", "published", "photos", "identification", "event_environment", "event_moment", "user_perceived_mosquito_specie", "user_perceived_mosquito_thorax", "user_perceived_mosquito_abdomen", "user_perceived_mosquito_legs"]
 
     @field_validator('event_environment')
     def event_environment_validate_enum(cls, value):
@@ -148,6 +150,7 @@ class Observation(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
@@ -157,6 +160,7 @@ class Observation(BaseModel):
             "received_at",
             "updated_at",
             "published",
+            "identification",
         ])
 
         _dict = self.model_dump(
@@ -174,10 +178,18 @@ class Observation(BaseModel):
                 if _item_photos:
                     _items.append(_item_photos.to_dict())
             _dict['photos'] = _items
+        # override the default output from pydantic by calling `to_dict()` of identification
+        if self.identification:
+            _dict['identification'] = self.identification.to_dict()
         # set to None if note (nullable) is None
         # and model_fields_set contains the field
         if self.note is None and "note" in self.model_fields_set:
             _dict['note'] = None
+
+        # set to None if identification (nullable) is None
+        # and model_fields_set contains the field
+        if self.identification is None and "identification" in self.model_fields_set:
+            _dict['identification'] = None
 
         # set to None if event_environment (nullable) is None
         # and model_fields_set contains the field
@@ -234,6 +246,7 @@ class Observation(BaseModel):
             "tags": obj.get("tags"),
             "published": obj.get("published"),
             "photos": [SimplePhoto.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
+            "identification": Identification.from_dict(obj["identification"]) if obj.get("identification") is not None else None,
             "event_environment": obj.get("event_environment"),
             "event_moment": obj.get("event_moment"),
             "user_perceived_mosquito_specie": obj.get("user_perceived_mosquito_specie"),

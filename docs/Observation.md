@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **tags** | **List[str]** |  | [optional] 
 **published** | **bool** |  | [readonly] 
 **photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | 
+**identification** | [**Identification**](Identification.md) |  | [readonly] 
 **event_environment** | **str** | The environment where the event took place. | [optional] 
 **event_moment** | **str** | The moment of the day when the event took place. | [optional] 
 **user_perceived_mosquito_specie** | **str** | The mosquito specie perceived by the user. | [optional] 

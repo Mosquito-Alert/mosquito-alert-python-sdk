@@ -36,6 +36,9 @@ class TestPhotoPrediction(unittest.TestCase):
         model = PhotoPrediction()
         if include_optional:
             return PhotoPrediction(
+                photo = mosquito_alert.models.simple_photo.SimplePhoto(
+                    uuid = '', 
+                    url = '', ),
                 bbox = mosquito_alert.models.bounding_box.BoundingBox(
                     x_min = 0, 
                     y_min = 0, 
@@ -44,6 +47,7 @@ class TestPhotoPrediction(unittest.TestCase):
                 insect_confidence = 0.0,
                 predicted_class = 'ae_albopictus',
                 threshold_deviation = -1.0,
+                is_final_prediction = True,
                 scores = mosquito_alert.models.prediction_score.PredictionScore(
                     ae_albopictus = 0.0, 
                     ae_aegypti = 0.0, 
@@ -60,12 +64,16 @@ class TestPhotoPrediction(unittest.TestCase):
             )
         else:
             return PhotoPrediction(
+                photo = mosquito_alert.models.simple_photo.SimplePhoto(
+                    uuid = '', 
+                    url = '', ),
                 bbox = mosquito_alert.models.bounding_box.BoundingBox(
                     x_min = 0, 
                     y_min = 0, 
                     x_max = 0, 
                     y_max = 0, ),
                 insect_confidence = 0.0,
+                predicted_class = 'ae_albopictus',
                 threshold_deviation = -1.0,
                 scores = mosquito_alert.models.prediction_score.PredictionScore(
                     ae_albopictus = 0.0, 

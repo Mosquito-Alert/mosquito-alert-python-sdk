@@ -36,7 +36,7 @@ class TestUserRequest(unittest.TestCase):
         model = UserRequest()
         if include_optional:
             return UserRequest(
-                locale = 'es'
+                locale = 'en'
             )
         else:
             return UserRequest(

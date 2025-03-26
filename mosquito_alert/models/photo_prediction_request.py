@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from mosquito_alert.models.bounding_box_request import BoundingBoxRequest
@@ -32,18 +32,16 @@ class PhotoPredictionRequest(BaseModel):
     """ # noqa: E501
     bbox: BoundingBoxRequest
     insect_confidence: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Insect confidence")
-    predicted_class: Optional[StrictStr] = None
+    predicted_class: StrictStr
     threshold_deviation: Union[Annotated[float, Field(le=1.0, strict=True, ge=-1.0)], Annotated[int, Field(le=1, strict=True, ge=-1)]]
+    is_final_prediction: Optional[StrictBool] = Field(default=None, description="Indicates if this prediction can close the identification task.")
     scores: PredictionScoreRequest
     classifier_version: StrictStr
-    __properties: ClassVar[List[str]] = ["bbox", "insect_confidence", "predicted_class", "threshold_deviation", "scores", "classifier_version"]
+    __properties: ClassVar[List[str]] = ["bbox", "insect_confidence", "predicted_class", "threshold_deviation", "is_final_prediction", "scores", "classifier_version"]
 
     @field_validator('predicted_class')
     def predicted_class_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['ae_albopictus', 'ae_aegypti', 'ae_japonicus', 'ae_koreicus', 'culex', 'anopheles', 'culiseta', 'other_species', 'not_sure']):
             raise ValueError("must be one of enum values ('ae_albopictus', 'ae_aegypti', 'ae_japonicus', 'ae_koreicus', 'culex', 'anopheles', 'culiseta', 'other_species', 'not_sure')")
         return value
@@ -116,6 +114,7 @@ class PhotoPredictionRequest(BaseModel):
             "insect_confidence": obj.get("insect_confidence"),
             "predicted_class": obj.get("predicted_class"),
             "threshold_deviation": obj.get("threshold_deviation"),
+            "is_final_prediction": obj.get("is_final_prediction"),
             "scores": PredictionScoreRequest.from_dict(obj["scores"]) if obj.get("scores") is not None else None,
             "classifier_version": obj.get("classifier_version")
         })

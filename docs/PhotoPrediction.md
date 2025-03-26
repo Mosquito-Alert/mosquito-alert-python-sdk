@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**photo** | [**SimplePhoto**](SimplePhoto.md) |  | [readonly] 
 **bbox** | [**BoundingBox**](BoundingBox.md) |  | 
 **insect_confidence** | **float** | Insect confidence | 
-**predicted_class** | **str** |  | [optional] 
+**predicted_class** | **str** |  | 
 **threshold_deviation** | **float** |  | 
+**is_final_prediction** | **bool** | Indicates if this prediction can close the identification task. | [optional] 
 **scores** | [**PredictionScore**](PredictionScore.md) |  | 
 **classifier_version** | **str** |  | 
 **created_at** | **datetime** |  | [readonly] 

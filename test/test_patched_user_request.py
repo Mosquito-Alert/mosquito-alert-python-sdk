@@ -36,7 +36,7 @@ class TestPatchedUserRequest(unittest.TestCase):
         model = PatchedUserRequest()
         if include_optional:
             return PatchedUserRequest(
-                locale = 'es'
+                locale = 'en'
             )
         else:
             return PatchedUserRequest(

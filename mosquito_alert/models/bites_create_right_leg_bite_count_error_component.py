@@ -42,8 +42,8 @@ class BitesCreateRightLegBiteCountErrorComponent(BaseModel):
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid', 'max_string_length']):
-            raise ValueError("must be one of enum values ('invalid', 'max_string_length')")
+        if value not in set(['invalid', 'max_string_length', 'null']):
+            raise ValueError("must be one of enum values ('invalid', 'max_string_length', 'null')")
         return value
 
     model_config = ConfigDict(

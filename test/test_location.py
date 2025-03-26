@@ -36,25 +36,25 @@ class TestLocation(unittest.TestCase):
         model = Location()
         if include_optional:
             return Location(
-                type = 'current',
+                source = 'auto',
                 point = mosquito_alert.models.location_point.Location_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',
                 country_id = 56,
-                nuts_2 = '',
-                nuts_3 = ''
+                adm_boundaries = mosquito_alert.models.adm_boundaries.AdmBoundaries(
+                    nuts = null, )
             )
         else:
             return Location(
-                type = 'current',
+                source = 'auto',
                 point = mosquito_alert.models.location_point.Location_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',
                 country_id = 56,
-                nuts_2 = '',
-                nuts_3 = '',
+                adm_boundaries = mosquito_alert.models.adm_boundaries.AdmBoundaries(
+                    nuts = null, ),
         )
         """
 

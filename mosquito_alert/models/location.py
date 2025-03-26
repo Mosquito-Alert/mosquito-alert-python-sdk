@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from mosquito_alert.models.adm_boundaries import AdmBoundaries
 from mosquito_alert.models.location_point import LocationPoint
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,19 +29,18 @@ class Location(BaseModel):
     """
     Location
     """ # noqa: E501
-    type: StrictStr = Field(description="Did user indicate that report relates to current location of phone ('current') or to a location selected manually on the map ('selected')? Or is the choice missing ('missing')")
-    point: Optional[LocationPoint]
+    source: StrictStr = Field(description="Indicates how the location was obtained. Use 'Auto (GPS)' if the location was automatically retrieved from the device's GPS, or 'Manual (User-selected)' if the location was selected by the user on a map.")
+    point: LocationPoint
     timezone: Optional[StrictStr]
     country_id: Optional[StrictInt]
-    nuts_2: Optional[StrictStr]
-    nuts_3: Optional[StrictStr]
-    __properties: ClassVar[List[str]] = ["type", "point", "timezone", "country_id", "nuts_2", "nuts_3"]
+    adm_boundaries: AdmBoundaries
+    __properties: ClassVar[List[str]] = ["source", "point", "timezone", "country_id", "adm_boundaries"]
 
-    @field_validator('type')
-    def type_validate_enum(cls, value):
+    @field_validator('source')
+    def source_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['current', 'selected', 'missing']):
-            raise ValueError("must be one of enum values ('current', 'selected', 'missing')")
+        if value not in set(['auto', 'manual']):
+            raise ValueError("must be one of enum values ('auto', 'manual')")
         return value
 
     @field_validator('timezone')
@@ -86,13 +86,11 @@ class Location(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "timezone",
             "country_id",
-            "nuts_2",
-            "nuts_3",
+            "adm_boundaries",
         ])
 
         _dict = self.model_dump(
@@ -103,11 +101,9 @@ class Location(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of point
         if self.point:
             _dict['point'] = self.point.to_dict()
-        # set to None if point (nullable) is None
-        # and model_fields_set contains the field
-        if self.point is None and "point" in self.model_fields_set:
-            _dict['point'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of adm_boundaries
+        if self.adm_boundaries:
+            _dict['adm_boundaries'] = self.adm_boundaries.to_dict()
         # set to None if timezone (nullable) is None
         # and model_fields_set contains the field
         if self.timezone is None and "timezone" in self.model_fields_set:
@@ -117,16 +113,6 @@ class Location(BaseModel):
         # and model_fields_set contains the field
         if self.country_id is None and "country_id" in self.model_fields_set:
             _dict['country_id'] = None
-
-        # set to None if nuts_2 (nullable) is None
-        # and model_fields_set contains the field
-        if self.nuts_2 is None and "nuts_2" in self.model_fields_set:
-            _dict['nuts_2'] = None
-
-        # set to None if nuts_3 (nullable) is None
-        # and model_fields_set contains the field
-        if self.nuts_3 is None and "nuts_3" in self.model_fields_set:
-            _dict['nuts_3'] = None
 
         return _dict
 
@@ -140,12 +126,11 @@ class Location(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
+            "source": obj.get("source"),
             "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
             "timezone": obj.get("timezone"),
             "country_id": obj.get("country_id"),
-            "nuts_2": obj.get("nuts_2"),
-            "nuts_3": obj.get("nuts_3")
+            "adm_boundaries": AdmBoundaries.from_dict(obj["adm_boundaries"]) if obj.get("adm_boundaries") is not None else None
         })
         return _obj
 

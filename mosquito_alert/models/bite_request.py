@@ -122,36 +122,6 @@ class BiteRequest(BaseModel):
         if self.event_moment is None and "event_moment" in self.model_fields_set:
             _dict['event_moment'] = None
 
-        # set to None if head_bite_count (nullable) is None
-        # and model_fields_set contains the field
-        if self.head_bite_count is None and "head_bite_count" in self.model_fields_set:
-            _dict['head_bite_count'] = None
-
-        # set to None if left_arm_bite_count (nullable) is None
-        # and model_fields_set contains the field
-        if self.left_arm_bite_count is None and "left_arm_bite_count" in self.model_fields_set:
-            _dict['left_arm_bite_count'] = None
-
-        # set to None if right_arm_bite_count (nullable) is None
-        # and model_fields_set contains the field
-        if self.right_arm_bite_count is None and "right_arm_bite_count" in self.model_fields_set:
-            _dict['right_arm_bite_count'] = None
-
-        # set to None if chest_bite_count (nullable) is None
-        # and model_fields_set contains the field
-        if self.chest_bite_count is None and "chest_bite_count" in self.model_fields_set:
-            _dict['chest_bite_count'] = None
-
-        # set to None if left_leg_bite_count (nullable) is None
-        # and model_fields_set contains the field
-        if self.left_leg_bite_count is None and "left_leg_bite_count" in self.model_fields_set:
-            _dict['left_leg_bite_count'] = None
-
-        # set to None if right_leg_bite_count (nullable) is None
-        # and model_fields_set contains the field
-        if self.right_leg_bite_count is None and "right_leg_bite_count" in self.model_fields_set:
-            _dict['right_leg_bite_count'] = None
-
         return _dict
 
     @classmethod

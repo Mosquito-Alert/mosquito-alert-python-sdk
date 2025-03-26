@@ -42,8 +42,8 @@ class ObservationsCreateLocationPointErrorComponent(BaseModel):
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid', 'required']):
-            raise ValueError("must be one of enum values ('invalid', 'required')")
+        if value not in set(['invalid', 'null', 'required']):
+            raise ValueError("must be one of enum values ('invalid', 'null', 'required')")
         return value
 
     model_config = ConfigDict(

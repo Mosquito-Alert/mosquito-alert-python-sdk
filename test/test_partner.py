@@ -37,7 +37,7 @@ class TestPartner(unittest.TestCase):
         if include_optional:
             return Partner(
                 id = 56,
-                point = mosquito_alert.models.partner_point.Partner_point(
+                point = mosquito_alert.models.location_point.Location_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 description = '',
@@ -46,7 +46,7 @@ class TestPartner(unittest.TestCase):
         else:
             return Partner(
                 id = 56,
-                point = mosquito_alert.models.partner_point.Partner_point(
+                point = mosquito_alert.models.location_point.Location_point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 description = '',

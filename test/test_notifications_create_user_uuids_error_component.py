@@ -37,13 +37,13 @@ class TestNotificationsCreateUserUuidsErrorComponent(unittest.TestCase):
         if include_optional:
             return NotificationsCreateUserUuidsErrorComponent(
                 attr = 'user_uuids',
-                code = 'min_length',
+                code = 'empty',
                 detail = ''
             )
         else:
             return NotificationsCreateUserUuidsErrorComponent(
                 attr = 'user_uuids',
-                code = 'min_length',
+                code = 'empty',
                 detail = '',
         )
         """

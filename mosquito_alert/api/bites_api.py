@@ -604,9 +604,9 @@ class BitesApi:
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -636,12 +636,12 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -685,9 +685,9 @@ class BitesApi:
         _param = self._list_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -725,9 +725,9 @@ class BitesApi:
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -757,12 +757,12 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -806,9 +806,9 @@ class BitesApi:
         _param = self._list_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -846,9 +846,9 @@ class BitesApi:
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -878,12 +878,12 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -927,9 +927,9 @@ class BitesApi:
         _param = self._list_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -962,9 +962,9 @@ class BitesApi:
         self,
         created_at_after,
         created_at_before,
+        location_adm_nuts2,
+        location_adm_nuts3,
         location_country_id,
-        location_nuts_2,
-        location_nuts_3,
         order_by,
         page,
         page_size,
@@ -1023,17 +1023,17 @@ class BitesApi:
             else:
                 _query_params.append(('created_at_before', created_at_before))
             
+        if location_adm_nuts2 is not None:
+            
+            _query_params.append(('location_adm_nuts2', location_adm_nuts2))
+            
+        if location_adm_nuts3 is not None:
+            
+            _query_params.append(('location_adm_nuts3', location_adm_nuts3))
+            
         if location_country_id is not None:
             
             _query_params.append(('location_country_id', location_country_id))
-            
-        if location_nuts_2 is not None:
-            
-            _query_params.append(('location_nuts_2', location_nuts_2))
-            
-        if location_nuts_3 is not None:
-            
-            _query_params.append(('location_nuts_3', location_nuts_3))
             
         if order_by is not None:
             
@@ -1151,9 +1151,9 @@ class BitesApi:
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1184,12 +1184,12 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1233,9 +1233,9 @@ class BitesApi:
         _param = self._list_mine_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1274,9 +1274,9 @@ class BitesApi:
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1307,12 +1307,12 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1356,9 +1356,9 @@ class BitesApi:
         _param = self._list_mine_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1397,9 +1397,9 @@ class BitesApi:
         self,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        location_adm_nuts2: Optional[StrictStr] = None,
+        location_adm_nuts3: Optional[StrictStr] = None,
         location_country_id: Optional[StrictInt] = None,
-        location_nuts_2: Optional[StrictStr] = None,
-        location_nuts_3: Optional[StrictStr] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1430,12 +1430,12 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param location_adm_nuts2:
+        :type location_adm_nuts2: str
+        :param location_adm_nuts3:
+        :type location_adm_nuts3: str
         :param location_country_id:
         :type location_country_id: int
-        :param location_nuts_2:
-        :type location_nuts_2: str
-        :param location_nuts_3:
-        :type location_nuts_3: str
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1479,9 +1479,9 @@ class BitesApi:
         _param = self._list_mine_serialize(
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            location_adm_nuts2=location_adm_nuts2,
+            location_adm_nuts3=location_adm_nuts3,
             location_country_id=location_country_id,
-            location_nuts_2=location_nuts_2,
-            location_nuts_3=location_nuts_3,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1515,9 +1515,9 @@ class BitesApi:
         self,
         created_at_after,
         created_at_before,
+        location_adm_nuts2,
+        location_adm_nuts3,
         location_country_id,
-        location_nuts_2,
-        location_nuts_3,
         order_by,
         page,
         page_size,
@@ -1576,17 +1576,17 @@ class BitesApi:
             else:
                 _query_params.append(('created_at_before', created_at_before))
             
+        if location_adm_nuts2 is not None:
+            
+            _query_params.append(('location_adm_nuts2', location_adm_nuts2))
+            
+        if location_adm_nuts3 is not None:
+            
+            _query_params.append(('location_adm_nuts3', location_adm_nuts3))
+            
         if location_country_id is not None:
             
             _query_params.append(('location_country_id', location_country_id))
-            
-        if location_nuts_2 is not None:
-            
-            _query_params.append(('location_nuts_2', location_nuts_2))
-            
-        if location_nuts_3 is not None:
-            
-            _query_params.append(('location_nuts_3', location_nuts_3))
             
         if order_by is not None:
             

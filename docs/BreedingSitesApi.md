@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> BreedingSite create(breeding_site_request)
+> BreedingSite create(created_at, sent_at, location, photos, note=note, tags=tags, site_type=site_type, has_water=has_water, in_public_area=in_public_area, has_near_mosquitoes=has_near_mosquitoes, has_larvae=has_larvae)
 
 ### Example
 
@@ -23,7 +23,8 @@ Method | HTTP request | Description
 ```python
 import mosquito_alert
 from mosquito_alert.models.breeding_site import BreedingSite
-from mosquito_alert.models.breeding_site_request import BreedingSiteRequest
+from mosquito_alert.models.location_request import LocationRequest
+from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -59,10 +60,20 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.BreedingSitesApi(api_client)
-    breeding_site_request = mosquito_alert.BreedingSiteRequest() # BreedingSiteRequest | 
+    created_at = '2013-10-20T19:20:30+01:00' # datetime | 
+    sent_at = '2013-10-20T19:20:30+01:00' # datetime | 
+    location = mosquito_alert.LocationRequest() # LocationRequest | 
+    photos = [mosquito_alert.SimplePhotoRequest()] # List[SimplePhotoRequest] | 
+    note = 'note_example' # str | Note user attached to report. (optional)
+    tags = ['tags_example'] # List[str] |  (optional)
+    site_type = 'site_type_example' # str | Breeding site type. (optional)
+    has_water = True # bool | Either if the user perceived water in the breeding site. (optional)
+    in_public_area = True # bool | Either if the breeding site is found in a public area. (optional)
+    has_near_mosquitoes = True # bool | Either if the user perceived mosquitoes near the breeding site (less than 10 meters). (optional)
+    has_larvae = True # bool | Either if the user perceived larvaes the breeding site. (optional)
 
     try:
-        api_response = api_instance.create(breeding_site_request)
+        api_response = api_instance.create(created_at, sent_at, location, photos, note=note, tags=tags, site_type=site_type, has_water=has_water, in_public_area=in_public_area, has_near_mosquitoes=has_near_mosquitoes, has_larvae=has_larvae)
         print("The response of BreedingSitesApi->create:\n")
         pprint(api_response)
     except Exception as e:
@@ -76,7 +87,17 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **breeding_site_request** | [**BreedingSiteRequest**](BreedingSiteRequest.md)|  | 
+ **created_at** | **datetime**|  | 
+ **sent_at** | **datetime**|  | 
+ **location** | [**LocationRequest**](LocationRequest.md)|  | 
+ **photos** | [**List[SimplePhotoRequest]**](SimplePhotoRequest.md)|  | 
+ **note** | **str**| Note user attached to report. | [optional] 
+ **tags** | [**List[str]**](str.md)|  | [optional] 
+ **site_type** | **str**| Breeding site type. | [optional] 
+ **has_water** | **bool**| Either if the user perceived water in the breeding site. | [optional] 
+ **in_public_area** | **bool**| Either if the breeding site is found in a public area. | [optional] 
+ **has_near_mosquitoes** | **bool**| Either if the user perceived mosquitoes near the breeding site (less than 10 meters). | [optional] 
+ **has_larvae** | **bool**| Either if the user perceived larvaes the breeding site. | [optional] 
 
 ### Return type
 
@@ -88,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded
  - **Accept**: application/json
 
 ### HTTP response details
@@ -191,7 +212,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedBreedingSiteList list(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+> PaginatedBreedingSiteList list(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
 
 ### Example
 
@@ -240,9 +261,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     has_photos = True # bool | Has any photo (optional)
+    location_adm_nuts2 = 'location_adm_nuts2_example' # str |  (optional)
+    location_adm_nuts3 = 'location_adm_nuts3_example' # str |  (optional)
     location_country_id = 56 # int |  (optional)
-    location_nuts_2 = 'location_nuts_2_example' # str |  (optional)
-    location_nuts_3 = 'location_nuts_3_example' # str |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
@@ -254,7 +275,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     user_uuid = 'user_uuid_example' # str |  (optional)
 
     try:
-        api_response = api_instance.list(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+        api_response = api_instance.list(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
         print("The response of BreedingSitesApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -271,9 +292,9 @@ Name | Type | Description  | Notes
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
  **has_photos** | **bool**| Has any photo | [optional] 
+ **location_adm_nuts2** | **str**|  | [optional] 
+ **location_adm_nuts3** | **str**|  | [optional] 
  **location_country_id** | **int**|  | [optional] 
- **location_nuts_2** | **str**|  | [optional] 
- **location_nuts_3** | **str**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
@@ -309,7 +330,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_mine**
-> PaginatedBreedingSiteList list_mine(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+> PaginatedBreedingSiteList list_mine(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
 
 Get Current User's Breeding Sites
 
@@ -346,9 +367,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     has_photos = True # bool | Has any photo (optional)
+    location_adm_nuts2 = 'location_adm_nuts2_example' # str |  (optional)
+    location_adm_nuts3 = 'location_adm_nuts3_example' # str |  (optional)
     location_country_id = 56 # int |  (optional)
-    location_nuts_2 = 'location_nuts_2_example' # str |  (optional)
-    location_nuts_3 = 'location_nuts_3_example' # str |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
@@ -360,7 +381,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     user_uuid = 'user_uuid_example' # str |  (optional)
 
     try:
-        api_response = api_instance.list_mine(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_country_id=location_country_id, location_nuts_2=location_nuts_2, location_nuts_3=location_nuts_3, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+        api_response = api_instance.list_mine(created_at_after=created_at_after, created_at_before=created_at_before, has_photos=has_photos, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
         print("The response of BreedingSitesApi->list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -377,9 +398,9 @@ Name | Type | Description  | Notes
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
  **has_photos** | **bool**| Has any photo | [optional] 
+ **location_adm_nuts2** | **str**|  | [optional] 
+ **location_adm_nuts3** | **str**|  | [optional] 
  **location_country_id** | **int**|  | [optional] 
- **location_nuts_2** | **str**|  | [optional] 
- **location_nuts_3** | **str**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 

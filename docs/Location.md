@@ -5,12 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** | Did user indicate that report relates to current location of phone (&#39;current&#39;) or to a location selected manually on the map (&#39;selected&#39;)? Or is the choice missing (&#39;missing&#39;) | 
+**source** | **str** | Indicates how the location was obtained. Use &#39;Auto (GPS)&#39; if the location was automatically retrieved from the device&#39;s GPS, or &#39;Manual (User-selected)&#39; if the location was selected by the user on a map. | 
 **point** | [**LocationPoint**](LocationPoint.md) |  | 
 **timezone** | **str** |  | [readonly] 
 **country_id** | **int** |  | [readonly] 
-**nuts_2** | **str** |  | [readonly] 
-**nuts_3** | **str** |  | [readonly] 
+**adm_boundaries** | [**AdmBoundaries**](AdmBoundaries.md) |  | [readonly] 
 
 ## Example
 

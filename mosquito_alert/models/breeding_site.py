@@ -56,8 +56,8 @@ class BreedingSite(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['basin', 'bucket', 'fountain', 'small_container', 'storm_drain', 'well', 'other', '']):
-            raise ValueError("must be one of enum values ('basin', 'bucket', 'fountain', 'small_container', 'storm_drain', 'well', 'other', '')")
+        if value not in set(['basin', 'bucket', 'fountain', 'small_container', 'storm_drain', 'well', 'other']):
+            raise ValueError("must be one of enum values ('basin', 'bucket', 'fountain', 'small_container', 'storm_drain', 'well', 'other')")
         return value
 
     model_config = ConfigDict(
