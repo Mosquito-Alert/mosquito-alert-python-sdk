@@ -37,6 +37,7 @@ class TestIdentificationTask(unittest.TestCase):
         if include_optional:
             return IdentificationTask(
                 uuid = '',
+                observation_uuid = '',
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
@@ -65,6 +66,7 @@ class TestIdentificationTask(unittest.TestCase):
         else:
             return IdentificationTask(
                 uuid = '',
+                observation_uuid = '',
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),

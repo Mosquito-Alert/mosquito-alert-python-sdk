@@ -33,6 +33,7 @@ class IdentificationTask(BaseModel):
     IdentificationTask
     """ # noqa: E501
     uuid: StrictStr
+    observation_uuid: StrictStr
     public_photo: SimplePhoto
     assignees_ids: List[StrictInt]
     status: Optional[StrictStr] = None
@@ -45,7 +46,7 @@ class IdentificationTask(BaseModel):
     result: IdentificationTaskResult
     created_at: datetime
     updated_at: datetime
-    __properties: ClassVar[List[str]] = ["uuid", "public_photo", "assignees_ids", "status", "is_flagged", "is_safe", "public_note", "num_assignations", "num_annotations", "revision", "result", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["uuid", "observation_uuid", "public_photo", "assignees_ids", "status", "is_flagged", "is_safe", "public_note", "num_assignations", "num_annotations", "revision", "result", "created_at", "updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -150,6 +151,7 @@ class IdentificationTask(BaseModel):
 
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
+            "observation_uuid": obj.get("observation_uuid"),
             "public_photo": SimplePhoto.from_dict(obj["public_photo"]) if obj.get("public_photo") is not None else None,
             "assignees_ids": obj.get("assignees_ids"),
             "status": obj.get("status"),

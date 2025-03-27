@@ -42,6 +42,7 @@ class TestPaginatedIdentificationTaskList(unittest.TestCase):
                 results = [
                     mosquito_alert.models.identification_task.IdentificationTask(
                         uuid = '', 
+                        observation_uuid = '', 
                         public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                             uuid = '', 
                             url = '', ), 

@@ -50,8 +50,15 @@ class TestBite(unittest.TestCase):
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
+                    display_name = '', 
                     country_id = 56, 
-                    adm_boundaries = null, ),
+                    adm_boundaries = [
+                        mosquito_alert.models.adm_boundary.AdmBoundary(
+                            name = '', 
+                            code = '', 
+                            source = '', 
+                            level = 0, )
+                        ], ),
                 note = '',
                 tags = [
                     ''
@@ -83,8 +90,15 @@ class TestBite(unittest.TestCase):
                         latitude = 1.337, 
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
+                    display_name = '', 
                     country_id = 56, 
-                    adm_boundaries = null, ),
+                    adm_boundaries = [
+                        mosquito_alert.models.adm_boundary.AdmBoundary(
+                            name = '', 
+                            code = '', 
+                            source = '', 
+                            level = 0, )
+                        ], ),
                 published = True,
                 bite_count = 56,
         )

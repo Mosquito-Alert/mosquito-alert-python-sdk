@@ -191,7 +191,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedBiteList list(created_at_after=created_at_after, created_at_before=created_at_before, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+> PaginatedBiteList list(country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
 
 ### Example
 
@@ -237,11 +237,9 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.BitesApi(api_client)
+    country_id = 56 # int |  (optional)
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
-    location_adm_nuts2 = 'location_adm_nuts2_example' # str |  (optional)
-    location_adm_nuts3 = 'location_adm_nuts3_example' # str |  (optional)
-    location_country_id = 56 # int |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
@@ -253,7 +251,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     user_uuid = 'user_uuid_example' # str |  (optional)
 
     try:
-        api_response = api_instance.list(created_at_after=created_at_after, created_at_before=created_at_before, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+        api_response = api_instance.list(country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
         print("The response of BitesApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -267,11 +265,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **country_id** | **int**|  | [optional] 
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
- **location_adm_nuts2** | **str**|  | [optional] 
- **location_adm_nuts3** | **str**|  | [optional] 
- **location_country_id** | **int**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
@@ -307,7 +303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_mine**
-> PaginatedBiteList list_mine(created_at_after=created_at_after, created_at_before=created_at_before, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+> PaginatedBiteList list_mine(country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
 
 Get Current User's Bites
 
@@ -341,11 +337,9 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.BitesApi(api_client)
+    country_id = 56 # int |  (optional)
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
-    location_adm_nuts2 = 'location_adm_nuts2_example' # str |  (optional)
-    location_adm_nuts3 = 'location_adm_nuts3_example' # str |  (optional)
-    location_country_id = 56 # int |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
@@ -357,7 +351,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     user_uuid = 'user_uuid_example' # str |  (optional)
 
     try:
-        api_response = api_instance.list_mine(created_at_after=created_at_after, created_at_before=created_at_before, location_adm_nuts2=location_adm_nuts2, location_adm_nuts3=location_adm_nuts3, location_country_id=location_country_id, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+        api_response = api_instance.list_mine(country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
         print("The response of BitesApi->list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -371,11 +365,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **country_id** | **int**|  | [optional] 
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
- **location_adm_nuts2** | **str**|  | [optional] 
- **location_adm_nuts3** | **str**|  | [optional] 
- **location_country_id** | **int**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 

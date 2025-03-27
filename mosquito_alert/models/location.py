@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from mosquito_alert.models.adm_boundaries import AdmBoundaries
+from mosquito_alert.models.adm_boundary import AdmBoundary
 from mosquito_alert.models.location_point import LocationPoint
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,9 +32,10 @@ class Location(BaseModel):
     source: StrictStr = Field(description="Indicates how the location was obtained. Use 'Auto (GPS)' if the location was automatically retrieved from the device's GPS, or 'Manual (User-selected)' if the location was selected by the user on a map.")
     point: LocationPoint
     timezone: Optional[StrictStr]
+    display_name: Optional[StrictStr]
     country_id: Optional[StrictInt]
-    adm_boundaries: AdmBoundaries
-    __properties: ClassVar[List[str]] = ["source", "point", "timezone", "country_id", "adm_boundaries"]
+    adm_boundaries: List[AdmBoundary]
+    __properties: ClassVar[List[str]] = ["source", "point", "timezone", "display_name", "country_id", "adm_boundaries"]
 
     @field_validator('source')
     def source_validate_enum(cls, value):
@@ -86,9 +87,11 @@ class Location(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "timezone",
+            "display_name",
             "country_id",
             "adm_boundaries",
         ])
@@ -101,13 +104,22 @@ class Location(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of point
         if self.point:
             _dict['point'] = self.point.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of adm_boundaries
+        # override the default output from pydantic by calling `to_dict()` of each item in adm_boundaries (list)
+        _items = []
         if self.adm_boundaries:
-            _dict['adm_boundaries'] = self.adm_boundaries.to_dict()
+            for _item_adm_boundaries in self.adm_boundaries:
+                if _item_adm_boundaries:
+                    _items.append(_item_adm_boundaries.to_dict())
+            _dict['adm_boundaries'] = _items
         # set to None if timezone (nullable) is None
         # and model_fields_set contains the field
         if self.timezone is None and "timezone" in self.model_fields_set:
             _dict['timezone'] = None
+
+        # set to None if display_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.display_name is None and "display_name" in self.model_fields_set:
+            _dict['display_name'] = None
 
         # set to None if country_id (nullable) is None
         # and model_fields_set contains the field
@@ -129,8 +141,9 @@ class Location(BaseModel):
             "source": obj.get("source"),
             "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
             "timezone": obj.get("timezone"),
+            "display_name": obj.get("display_name"),
             "country_id": obj.get("country_id"),
-            "adm_boundaries": AdmBoundaries.from_dict(obj["adm_boundaries"]) if obj.get("adm_boundaries") is not None else None
+            "adm_boundaries": [AdmBoundary.from_dict(_item) for _item in obj["adm_boundaries"]] if obj.get("adm_boundaries") is not None else None
         })
         return _obj
 

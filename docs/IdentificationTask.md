@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | [readonly] 
+**observation_uuid** | **str** |  | 
 **public_photo** | [**SimplePhoto**](SimplePhoto.md) |  | 
 **assignees_ids** | **List[int]** |  | [readonly] 
 **status** | **str** |  | [optional] 
