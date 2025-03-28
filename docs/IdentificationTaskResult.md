@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source** | **str** |  | 
 **taxon** | [**Taxon**](Taxon.md) |  | [readonly] 
+**is_confirmed** | **bool** |  | [readonly] 
 **confidence** | **float** |  | [readonly] 
 **confidence_label** | **str** |  | [readonly] 
 **uncertainty** | **float** |  | [readonly] 

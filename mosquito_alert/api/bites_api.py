@@ -307,8 +307,8 @@ class BitesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
@@ -576,8 +576,8 @@ class BitesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
@@ -1089,8 +1089,8 @@ class BitesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
@@ -1872,8 +1872,8 @@ class BitesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 

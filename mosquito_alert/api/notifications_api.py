@@ -309,8 +309,8 @@ class NotificationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
@@ -635,8 +635,8 @@ class NotificationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
@@ -1264,8 +1264,8 @@ class NotificationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
@@ -1533,8 +1533,8 @@ class NotificationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
@@ -1835,8 +1835,8 @@ class NotificationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 

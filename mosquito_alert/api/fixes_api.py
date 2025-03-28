@@ -302,8 +302,8 @@ class FixesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'cookieAuth', 
             'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 

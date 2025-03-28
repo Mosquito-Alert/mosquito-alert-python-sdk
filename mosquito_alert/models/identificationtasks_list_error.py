@@ -19,16 +19,18 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from mosquito_alert.models.identificationtasks_list_assignees_error_component import IdentificationtasksListAssigneesErrorComponent
+from mosquito_alert.models.identificationtasks_list_created_at_error_component import IdentificationtasksListCreatedAtErrorComponent
 from mosquito_alert.models.identificationtasks_list_num_annotations_error_component import IdentificationtasksListNumAnnotationsErrorComponent
 from mosquito_alert.models.identificationtasks_list_num_assignations_error_component import IdentificationtasksListNumAssignationsErrorComponent
 from mosquito_alert.models.identificationtasks_list_order_by_error_component import IdentificationtasksListOrderByErrorComponent
 from mosquito_alert.models.identificationtasks_list_revision_type_error_component import IdentificationtasksListRevisionTypeErrorComponent
 from mosquito_alert.models.identificationtasks_list_status_error_component import IdentificationtasksListStatusErrorComponent
+from mosquito_alert.models.identificationtasks_list_updated_at_error_component import IdentificationtasksListUpdatedAtErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-IDENTIFICATIONTASKSLISTERROR_ONE_OF_SCHEMAS = ["IdentificationtasksListAssigneesErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListNumAssignationsErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListRevisionTypeErrorComponent", "IdentificationtasksListStatusErrorComponent"]
+IDENTIFICATIONTASKSLISTERROR_ONE_OF_SCHEMAS = ["IdentificationtasksListAssigneesErrorComponent", "IdentificationtasksListCreatedAtErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListNumAssignationsErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListRevisionTypeErrorComponent", "IdentificationtasksListStatusErrorComponent", "IdentificationtasksListUpdatedAtErrorComponent"]
 
 class IdentificationtasksListError(BaseModel):
     """
@@ -44,10 +46,14 @@ class IdentificationtasksListError(BaseModel):
     oneof_schema_4_validator: Optional[IdentificationtasksListNumAssignationsErrorComponent] = None
     # data type: IdentificationtasksListNumAnnotationsErrorComponent
     oneof_schema_5_validator: Optional[IdentificationtasksListNumAnnotationsErrorComponent] = None
+    # data type: IdentificationtasksListCreatedAtErrorComponent
+    oneof_schema_6_validator: Optional[IdentificationtasksListCreatedAtErrorComponent] = None
+    # data type: IdentificationtasksListUpdatedAtErrorComponent
+    oneof_schema_7_validator: Optional[IdentificationtasksListUpdatedAtErrorComponent] = None
     # data type: IdentificationtasksListOrderByErrorComponent
-    oneof_schema_6_validator: Optional[IdentificationtasksListOrderByErrorComponent] = None
-    actual_instance: Optional[Union[IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent]] = None
-    one_of_schemas: Set[str] = { "IdentificationtasksListAssigneesErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListNumAssignationsErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListRevisionTypeErrorComponent", "IdentificationtasksListStatusErrorComponent" }
+    oneof_schema_8_validator: Optional[IdentificationtasksListOrderByErrorComponent] = None
+    actual_instance: Optional[Union[IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent]] = None
+    one_of_schemas: Set[str] = { "IdentificationtasksListAssigneesErrorComponent", "IdentificationtasksListCreatedAtErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListNumAssignationsErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListRevisionTypeErrorComponent", "IdentificationtasksListStatusErrorComponent", "IdentificationtasksListUpdatedAtErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -98,6 +104,16 @@ class IdentificationtasksListError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListNumAnnotationsErrorComponent`")
         else:
             match += 1
+        # validate data type: IdentificationtasksListCreatedAtErrorComponent
+        if not isinstance(v, IdentificationtasksListCreatedAtErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListCreatedAtErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksListUpdatedAtErrorComponent
+        if not isinstance(v, IdentificationtasksListUpdatedAtErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListUpdatedAtErrorComponent`")
+        else:
+            match += 1
         # validate data type: IdentificationtasksListOrderByErrorComponent
         if not isinstance(v, IdentificationtasksListOrderByErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListOrderByErrorComponent`")
@@ -105,10 +121,10 @@ class IdentificationtasksListError(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -153,6 +169,18 @@ class IdentificationtasksListError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into IdentificationtasksListCreatedAtErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksListCreatedAtErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksListUpdatedAtErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksListUpdatedAtErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
         # deserialize data into IdentificationtasksListOrderByErrorComponent
         try:
             instance.actual_instance = IdentificationtasksListOrderByErrorComponent.from_json(json_str)
@@ -162,10 +190,10 @@ class IdentificationtasksListError(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -179,7 +207,7 @@ class IdentificationtasksListError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksListAssigneesErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListRevisionTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

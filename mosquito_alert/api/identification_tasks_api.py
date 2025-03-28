@@ -17,6 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
+from datetime import datetime
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
@@ -53,6 +54,8 @@ class IdentificationTasksApi:
     def list(
         self,
         assignees: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
         is_flagged: Optional[StrictBool] = None,
         is_safe: Optional[StrictBool] = None,
@@ -65,6 +68,8 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         revision_type: Optional[StrictStr] = None,
         status: Optional[StrictStr] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -83,6 +88,10 @@ class IdentificationTasksApi:
 
         :param assignees:
         :type assignees: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param fully_predicted: Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.
         :type fully_predicted: bool
         :param is_flagged:
@@ -107,6 +116,10 @@ class IdentificationTasksApi:
         :type revision_type: str
         :param status:
         :type status: str
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -131,6 +144,8 @@ class IdentificationTasksApi:
 
         _param = self._list_serialize(
             assignees=assignees,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             fully_predicted=fully_predicted,
             is_flagged=is_flagged,
             is_safe=is_safe,
@@ -143,6 +158,8 @@ class IdentificationTasksApi:
             page_size=page_size,
             revision_type=revision_type,
             status=status,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -171,6 +188,8 @@ class IdentificationTasksApi:
     def list_with_http_info(
         self,
         assignees: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
         is_flagged: Optional[StrictBool] = None,
         is_safe: Optional[StrictBool] = None,
@@ -183,6 +202,8 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         revision_type: Optional[StrictStr] = None,
         status: Optional[StrictStr] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,6 +222,10 @@ class IdentificationTasksApi:
 
         :param assignees:
         :type assignees: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param fully_predicted: Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.
         :type fully_predicted: bool
         :param is_flagged:
@@ -225,6 +250,10 @@ class IdentificationTasksApi:
         :type revision_type: str
         :param status:
         :type status: str
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -249,6 +278,8 @@ class IdentificationTasksApi:
 
         _param = self._list_serialize(
             assignees=assignees,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             fully_predicted=fully_predicted,
             is_flagged=is_flagged,
             is_safe=is_safe,
@@ -261,6 +292,8 @@ class IdentificationTasksApi:
             page_size=page_size,
             revision_type=revision_type,
             status=status,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -289,6 +322,8 @@ class IdentificationTasksApi:
     def list_without_preload_content(
         self,
         assignees: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
         is_flagged: Optional[StrictBool] = None,
         is_safe: Optional[StrictBool] = None,
@@ -301,6 +336,8 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         revision_type: Optional[StrictStr] = None,
         status: Optional[StrictStr] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -319,6 +356,10 @@ class IdentificationTasksApi:
 
         :param assignees:
         :type assignees: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param fully_predicted: Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.
         :type fully_predicted: bool
         :param is_flagged:
@@ -343,6 +384,10 @@ class IdentificationTasksApi:
         :type revision_type: str
         :param status:
         :type status: str
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -367,6 +412,8 @@ class IdentificationTasksApi:
 
         _param = self._list_serialize(
             assignees=assignees,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             fully_predicted=fully_predicted,
             is_flagged=is_flagged,
             is_safe=is_safe,
@@ -379,6 +426,8 @@ class IdentificationTasksApi:
             page_size=page_size,
             revision_type=revision_type,
             status=status,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -402,6 +451,8 @@ class IdentificationTasksApi:
     def _list_serialize(
         self,
         assignees,
+        created_at_after,
+        created_at_before,
         fully_predicted,
         is_flagged,
         is_safe,
@@ -414,6 +465,8 @@ class IdentificationTasksApi:
         page_size,
         revision_type,
         status,
+        updated_at_after,
+        updated_at_before,
         _request_auth,
         _content_type,
         _headers,
@@ -441,6 +494,32 @@ class IdentificationTasksApi:
         if assignees is not None:
             
             _query_params.append(('assignees', assignees))
+            
+        if created_at_after is not None:
+            if isinstance(created_at_after, datetime):
+                _query_params.append(
+                    (
+                        'created_at_after',
+                        created_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_after', created_at_after))
+            
+        if created_at_before is not None:
+            if isinstance(created_at_before, datetime):
+                _query_params.append(
+                    (
+                        'created_at_before',
+                        created_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_before', created_at_before))
             
         if fully_predicted is not None:
             
@@ -489,6 +568,32 @@ class IdentificationTasksApi:
         if status is not None:
             
             _query_params.append(('status', status))
+            
+        if updated_at_after is not None:
+            if isinstance(updated_at_after, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_after',
+                        updated_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_after', updated_at_after))
+            
+        if updated_at_before is not None:
+            if isinstance(updated_at_before, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_before',
+                        updated_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_before', updated_at_before))
             
         # process the header parameters
         # process the form parameters

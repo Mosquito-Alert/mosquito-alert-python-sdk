@@ -42,8 +42,8 @@ class IdentificationtasksPredictionsCreatePredictedClassErrorComponent(BaseModel
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid_choice', 'null', 'required']):
-            raise ValueError("must be one of enum values ('invalid_choice', 'null', 'required')")
+        if value not in set(['invalid_choice', 'required']):
+            raise ValueError("must be one of enum values ('invalid_choice', 'required')")
         return value
 
     model_config = ConfigDict(

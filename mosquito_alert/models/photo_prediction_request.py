@@ -32,7 +32,7 @@ class PhotoPredictionRequest(BaseModel):
     """ # noqa: E501
     bbox: BoundingBoxRequest
     insect_confidence: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Insect confidence")
-    predicted_class: StrictStr
+    predicted_class: Optional[StrictStr]
     threshold_deviation: Union[Annotated[float, Field(le=1.0, strict=True, ge=-1.0)], Annotated[int, Field(le=1, strict=True, ge=-1)]]
     is_final_prediction: Optional[StrictBool] = Field(default=None, description="Indicates if this prediction can close the identification task.")
     scores: PredictionScoreRequest
@@ -42,6 +42,9 @@ class PhotoPredictionRequest(BaseModel):
     @field_validator('predicted_class')
     def predicted_class_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(['ae_albopictus', 'ae_aegypti', 'ae_japonicus', 'ae_koreicus', 'culex', 'anopheles', 'culiseta', 'other_species', 'not_sure']):
             raise ValueError("must be one of enum values ('ae_albopictus', 'ae_aegypti', 'ae_japonicus', 'ae_koreicus', 'culex', 'anopheles', 'culiseta', 'other_species', 'not_sure')")
         return value
@@ -98,6 +101,11 @@ class PhotoPredictionRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of scores
         if self.scores:
             _dict['scores'] = self.scores.to_dict()
+        # set to None if predicted_class (nullable) is None
+        # and model_fields_set contains the field
+        if self.predicted_class is None and "predicted_class" in self.model_fields_set:
+            _dict['predicted_class'] = None
+
         return _dict
 
     @classmethod

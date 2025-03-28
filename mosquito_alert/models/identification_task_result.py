@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from mosquito_alert.models.taxon import Taxon
@@ -31,11 +31,12 @@ class IdentificationTaskResult(BaseModel):
     """ # noqa: E501
     source: Optional[StrictStr]
     taxon: Optional[Taxon]
+    is_confirmed: StrictBool
     confidence: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     confidence_label: StrictStr
     uncertainty: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     agreement: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
-    __properties: ClassVar[List[str]] = ["source", "taxon", "confidence", "confidence_label", "uncertainty", "agreement"]
+    __properties: ClassVar[List[str]] = ["source", "taxon", "is_confirmed", "confidence", "confidence_label", "uncertainty", "agreement"]
 
     @field_validator('source')
     def source_validate_enum(cls, value):
@@ -82,9 +83,11 @@ class IdentificationTaskResult(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "taxon",
+            "is_confirmed",
             "confidence",
             "confidence_label",
             "uncertainty",
@@ -123,6 +126,7 @@ class IdentificationTaskResult(BaseModel):
         _obj = cls.model_validate({
             "source": obj.get("source"),
             "taxon": Taxon.from_dict(obj["taxon"]) if obj.get("taxon") is not None else None,
+            "is_confirmed": obj.get("is_confirmed"),
             "confidence": obj.get("confidence"),
             "confidence_label": obj.get("confidence_label"),
             "uncertainty": obj.get("uncertainty"),

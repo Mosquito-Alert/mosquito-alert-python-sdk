@@ -104,6 +104,11 @@ class PatchedPhotoPredictionRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of scores
         if self.scores:
             _dict['scores'] = self.scores.to_dict()
+        # set to None if predicted_class (nullable) is None
+        # and model_fields_set contains the field
+        if self.predicted_class is None and "predicted_class" in self.model_fields_set:
+            _dict['predicted_class'] = None
+
         return _dict
 
     @classmethod

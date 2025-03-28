@@ -56,6 +56,7 @@ class TestIdentificationTask(unittest.TestCase):
                 result = mosquito_alert.models.identification_task_result.IdentificationTaskResult(
                     source = 'expert', 
                     taxon = null, 
+                    is_confirmed = True, 
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 
@@ -84,6 +85,7 @@ class TestIdentificationTask(unittest.TestCase):
                 result = mosquito_alert.models.identification_task_result.IdentificationTaskResult(
                     source = 'expert', 
                     taxon = null, 
+                    is_confirmed = True, 
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 

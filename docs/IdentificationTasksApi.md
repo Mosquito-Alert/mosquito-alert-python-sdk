@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **list**
-> PaginatedIdentificationTaskList list(assignees=assignees, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, order_by=order_by, page=page, page_size=page_size, revision_type=revision_type, status=status)
+> PaginatedIdentificationTaskList list(assignees=assignees, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, order_by=order_by, page=page, page_size=page_size, revision_type=revision_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 ### Example
 
@@ -58,6 +58,8 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
     assignees = [56] # List[int] |  (optional)
+    created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
+    created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     fully_predicted = True # bool | Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction. (optional)
     is_flagged = True # bool |  (optional)
     is_safe = True # bool |  (optional)
@@ -70,9 +72,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     page_size = 56 # int | Number of results to return per page. (optional)
     revision_type = 'revision_type_example' # str |  (optional)
     status = 'status_example' # str |  (optional)
+    updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
+    updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list(assignees=assignees, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, order_by=order_by, page=page, page_size=page_size, revision_type=revision_type, status=status)
+        api_response = api_instance.list(assignees=assignees, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, order_by=order_by, page=page, page_size=page_size, revision_type=revision_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -87,6 +91,8 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **assignees** | [**List[int]**](int.md)|  | [optional] 
+ **created_at_after** | **datetime**| Created at | [optional] 
+ **created_at_before** | **datetime**| Created at | [optional] 
  **fully_predicted** | **bool**| Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction. | [optional] 
  **is_flagged** | **bool**|  | [optional] 
  **is_safe** | **bool**|  | [optional] 
@@ -99,6 +105,8 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **revision_type** | **str**|  | [optional] 
  **status** | **str**|  | [optional] 
+ **updated_at_after** | **datetime**| Update at | [optional] 
+ **updated_at_before** | **datetime**| Update at | [optional] 
 
 ### Return type
 
