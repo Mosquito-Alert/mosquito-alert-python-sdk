@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **insect_confidence** | **float** | Insect confidence | [optional] 
 **predicted_class** | **str** |  | [optional] 
 **threshold_deviation** | **float** |  | [optional] 
-**is_final_prediction** | **bool** | Indicates if this prediction can close the identification task. | [optional] 
+**is_decisive** | **bool** | Indicates if this prediction can close the identification task. | [optional] 
 **scores** | [**PredictionScoreRequest**](PredictionScoreRequest.md) |  | [optional] 
 **classifier_version** | **str** |  | [optional] 
 

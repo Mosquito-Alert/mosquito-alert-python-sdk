@@ -35,10 +35,10 @@ class CreatePhotoPredictionRequest(BaseModel):
     insect_confidence: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Insect confidence")
     predicted_class: Optional[StrictStr]
     threshold_deviation: Union[Annotated[float, Field(le=1.0, strict=True, ge=-1.0)], Annotated[int, Field(le=1, strict=True, ge=-1)]]
-    is_final_prediction: Optional[StrictBool] = Field(default=None, description="Indicates if this prediction can close the identification task.")
+    is_decisive: Optional[StrictBool] = Field(default=None, description="Indicates if this prediction can close the identification task.")
     scores: PredictionScoreRequest
     classifier_version: StrictStr
-    __properties: ClassVar[List[str]] = ["photo_uuid", "bbox", "insect_confidence", "predicted_class", "threshold_deviation", "is_final_prediction", "scores", "classifier_version"]
+    __properties: ClassVar[List[str]] = ["photo_uuid", "bbox", "insect_confidence", "predicted_class", "threshold_deviation", "is_decisive", "scores", "classifier_version"]
 
     @field_validator('predicted_class')
     def predicted_class_validate_enum(cls, value):
@@ -124,7 +124,7 @@ class CreatePhotoPredictionRequest(BaseModel):
             "insect_confidence": obj.get("insect_confidence"),
             "predicted_class": obj.get("predicted_class"),
             "threshold_deviation": obj.get("threshold_deviation"),
-            "is_final_prediction": obj.get("is_final_prediction"),
+            "is_decisive": obj.get("is_decisive"),
             "scores": PredictionScoreRequest.from_dict(obj["scores"]) if obj.get("scores") is not None else None,
             "classifier_version": obj.get("classifier_version")
         })

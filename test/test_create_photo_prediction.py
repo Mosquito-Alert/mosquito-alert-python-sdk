@@ -47,7 +47,7 @@ class TestCreatePhotoPrediction(unittest.TestCase):
                 insect_confidence = 0.0,
                 predicted_class = 'ae_albopictus',
                 threshold_deviation = -1.0,
-                is_final_prediction = True,
+                is_decisive = True,
                 scores = mosquito_alert.models.prediction_score.PredictionScore(
                     ae_albopictus = 0.0, 
                     ae_aegypti = 0.0, 

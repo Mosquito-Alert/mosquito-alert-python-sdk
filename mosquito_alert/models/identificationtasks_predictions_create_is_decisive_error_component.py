@@ -23,9 +23,9 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksPredictionsPartialUpdateIsFinalPredictionErrorComponent(BaseModel):
+class IdentificationtasksPredictionsCreateIsDecisiveErrorComponent(BaseModel):
     """
-    IdentificationtasksPredictionsPartialUpdateIsFinalPredictionErrorComponent
+    IdentificationtasksPredictionsCreateIsDecisiveErrorComponent
     """ # noqa: E501
     attr: StrictStr
     code: StrictStr
@@ -35,8 +35,8 @@ class IdentificationtasksPredictionsPartialUpdateIsFinalPredictionErrorComponent
     @field_validator('attr')
     def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['is_final_prediction']):
-            raise ValueError("must be one of enum values ('is_final_prediction')")
+        if value not in set(['is_decisive']):
+            raise ValueError("must be one of enum values ('is_decisive')")
         return value
 
     @field_validator('code')
@@ -64,7 +64,7 @@ class IdentificationtasksPredictionsPartialUpdateIsFinalPredictionErrorComponent
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksPredictionsPartialUpdateIsFinalPredictionErrorComponent from a JSON string"""
+        """Create an instance of IdentificationtasksPredictionsCreateIsDecisiveErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +89,7 @@ class IdentificationtasksPredictionsPartialUpdateIsFinalPredictionErrorComponent
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksPredictionsPartialUpdateIsFinalPredictionErrorComponent from a dict"""
+        """Create an instance of IdentificationtasksPredictionsCreateIsDecisiveErrorComponent from a dict"""
         if obj is None:
             return None
 
