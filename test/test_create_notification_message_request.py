@@ -36,7 +36,7 @@ class TestCreateNotificationMessageRequest(unittest.TestCase):
         model = CreateNotificationMessageRequest()
         if include_optional:
             return CreateNotificationMessageRequest(
-                title = mosquito_alert.models.localized_field_request.LocalizedFieldRequest(
+                title = mosquito_alert.models.localized_message_title_request.LocalizedMessageTitleRequest(
                     bg = '0', 
                     bn = '0', 
                     ca = '0', 
@@ -61,7 +61,7 @@ class TestCreateNotificationMessageRequest(unittest.TestCase):
                     sv = '0', 
                     tr = '0', 
                     zh_cn = '0', ),
-                body = mosquito_alert.models.localized_field_request.LocalizedFieldRequest(
+                body = mosquito_alert.models.localized_message_body_request.LocalizedMessageBodyRequest(
                     bg = '0', 
                     bn = '0', 
                     ca = '0', 
@@ -89,7 +89,7 @@ class TestCreateNotificationMessageRequest(unittest.TestCase):
             )
         else:
             return CreateNotificationMessageRequest(
-                title = mosquito_alert.models.localized_field_request.LocalizedFieldRequest(
+                title = mosquito_alert.models.localized_message_title_request.LocalizedMessageTitleRequest(
                     bg = '0', 
                     bn = '0', 
                     ca = '0', 
@@ -114,7 +114,7 @@ class TestCreateNotificationMessageRequest(unittest.TestCase):
                     sv = '0', 
                     tr = '0', 
                     zh_cn = '0', ),
-                body = mosquito_alert.models.localized_field_request.LocalizedFieldRequest(
+                body = mosquito_alert.models.localized_message_body_request.LocalizedMessageBodyRequest(
                     bg = '0', 
                     bn = '0', 
                     ca = '0', 

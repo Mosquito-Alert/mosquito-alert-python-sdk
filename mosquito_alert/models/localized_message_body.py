@@ -18,40 +18,39 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class LocalizedField(BaseModel):
+class LocalizedMessageBody(BaseModel):
     """
     A custom serializer field that supports localization for a dynamic field name. Allows calling with arguments such as 'title', 'message', max_length, help_text, etc.
     """ # noqa: E501
-    bg: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Български")
-    bn: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="বাংলা")
-    ca: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Català")
-    de: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Deutsch")
-    el: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Ελληνικά")
-    en: Annotated[str, Field(strict=True, max_length=255)] = Field(description="English")
-    es: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Español")
-    eu: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Euskara")
-    fr: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Français")
-    gl: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Galego")
-    hr: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Hrvatski")
-    hu: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Magyar")
-    it: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Italiano")
-    lb: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Lëtzebuergesch")
-    mk: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Македонски")
-    nl: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Nederlands")
-    pt: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Português")
-    ro: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Română")
-    sl: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Slovenščina")
-    sq: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Shqip")
-    sr: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Српски")
-    sv: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Svenska")
-    tr: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Türkçe")
-    zh_cn: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="中文（中国）", alias="zh-CN")
+    bg: Optional[StrictStr] = Field(default=None, description="Български")
+    bn: Optional[StrictStr] = Field(default=None, description="বাংলা")
+    ca: Optional[StrictStr] = Field(default=None, description="Català")
+    de: Optional[StrictStr] = Field(default=None, description="Deutsch")
+    el: Optional[StrictStr] = Field(default=None, description="Ελληνικά")
+    en: StrictStr = Field(description="English")
+    es: Optional[StrictStr] = Field(default=None, description="Español")
+    eu: Optional[StrictStr] = Field(default=None, description="Euskara")
+    fr: Optional[StrictStr] = Field(default=None, description="Français")
+    gl: Optional[StrictStr] = Field(default=None, description="Galego")
+    hr: Optional[StrictStr] = Field(default=None, description="Hrvatski")
+    hu: Optional[StrictStr] = Field(default=None, description="Magyar")
+    it: Optional[StrictStr] = Field(default=None, description="Italiano")
+    lb: Optional[StrictStr] = Field(default=None, description="Lëtzebuergesch")
+    mk: Optional[StrictStr] = Field(default=None, description="Македонски")
+    nl: Optional[StrictStr] = Field(default=None, description="Nederlands")
+    pt: Optional[StrictStr] = Field(default=None, description="Português")
+    ro: Optional[StrictStr] = Field(default=None, description="Română")
+    sl: Optional[StrictStr] = Field(default=None, description="Slovenščina")
+    sq: Optional[StrictStr] = Field(default=None, description="Shqip")
+    sr: Optional[StrictStr] = Field(default=None, description="Српски")
+    sv: Optional[StrictStr] = Field(default=None, description="Svenska")
+    tr: Optional[StrictStr] = Field(default=None, description="Türkçe")
+    zh_cn: Optional[StrictStr] = Field(default=None, description="中文（中国）", alias="zh-CN")
     __properties: ClassVar[List[str]] = ["bg", "bn", "ca", "de", "el", "en", "es", "eu", "fr", "gl", "hr", "hu", "it", "lb", "mk", "nl", "pt", "ro", "sl", "sq", "sr", "sv", "tr", "zh-CN"]
 
     model_config = ConfigDict(
@@ -72,7 +71,7 @@ class LocalizedField(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of LocalizedField from a JSON string"""
+        """Create an instance of LocalizedMessageBody from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -97,7 +96,7 @@ class LocalizedField(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of LocalizedField from a dict"""
+        """Create an instance of LocalizedMessageBody from a dict"""
         if obj is None:
             return None
 

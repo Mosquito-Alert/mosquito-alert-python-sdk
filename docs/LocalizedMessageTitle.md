@@ -1,4 +1,4 @@
-# LocalizedFieldRequest
+# LocalizedMessageTitle
 
 A custom serializer field that supports localization for a dynamic field name. Allows calling with arguments such as 'title', 'message', max_length, help_text, etc.
 
@@ -34,19 +34,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert.models.localized_field_request import LocalizedFieldRequest
+from mosquito_alert.models.localized_message_title import LocalizedMessageTitle
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of LocalizedFieldRequest from a JSON string
-localized_field_request_instance = LocalizedFieldRequest.from_json(json)
+# create an instance of LocalizedMessageTitle from a JSON string
+localized_message_title_instance = LocalizedMessageTitle.from_json(json)
 # print the JSON string representation of the object
-print(LocalizedFieldRequest.to_json())
+print(LocalizedMessageTitle.to_json())
 
 # convert the object into a dict
-localized_field_request_dict = localized_field_request_instance.to_dict()
-# create an instance of LocalizedFieldRequest from a dict
-localized_field_request_from_dict = LocalizedFieldRequest.from_dict(localized_field_request_dict)
+localized_message_title_dict = localized_message_title_instance.to_dict()
+# create an instance of LocalizedMessageTitle from a dict
+localized_message_title_from_dict = LocalizedMessageTitle.from_dict(localized_message_title_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

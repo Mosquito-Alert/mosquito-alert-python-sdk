@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.localized_field_request import LocalizedFieldRequest
+from mosquito_alert.models.localized_message_title_request import LocalizedMessageTitleRequest
 
-class TestLocalizedFieldRequest(unittest.TestCase):
-    """LocalizedFieldRequest unit test stubs"""
+class TestLocalizedMessageTitleRequest(unittest.TestCase):
+    """LocalizedMessageTitleRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,16 +26,16 @@ class TestLocalizedFieldRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> LocalizedFieldRequest:
-        """Test LocalizedFieldRequest
+    def make_instance(self, include_optional) -> LocalizedMessageTitleRequest:
+        """Test LocalizedMessageTitleRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `LocalizedFieldRequest`
+        # uncomment below to create an instance of `LocalizedMessageTitleRequest`
         """
-        model = LocalizedFieldRequest()
+        model = LocalizedMessageTitleRequest()
         if include_optional:
-            return LocalizedFieldRequest(
+            return LocalizedMessageTitleRequest(
                 bg = '0',
                 bn = '0',
                 ca = '0',
@@ -62,13 +62,13 @@ class TestLocalizedFieldRequest(unittest.TestCase):
                 zh_cn = '0'
             )
         else:
-            return LocalizedFieldRequest(
+            return LocalizedMessageTitleRequest(
                 en = '0',
         )
         """
 
-    def testLocalizedFieldRequest(self):
-        """Test LocalizedFieldRequest"""
+    def testLocalizedMessageTitleRequest(self):
+        """Test LocalizedMessageTitleRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -20,7 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.localized_field_request import LocalizedFieldRequest
+from mosquito_alert.models.localized_message_body_request import LocalizedMessageBodyRequest
+from mosquito_alert.models.localized_message_title_request import LocalizedMessageTitleRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +29,8 @@ class CreateNotificationMessageRequest(BaseModel):
     """
     CreateNotificationMessageRequest
     """ # noqa: E501
-    title: LocalizedFieldRequest = Field(description="Provide the message's title in all supported languages")
-    body: LocalizedFieldRequest = Field(description="Provide the message's body in all supported languages")
+    title: LocalizedMessageTitleRequest = Field(description="Provide the message's title in all supported languages")
+    body: LocalizedMessageBodyRequest = Field(description="Provide the message's body in all supported languages")
     __properties: ClassVar[List[str]] = ["title", "body"]
 
     model_config = ConfigDict(
@@ -89,8 +90,8 @@ class CreateNotificationMessageRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "title": LocalizedFieldRequest.from_dict(obj["title"]) if obj.get("title") is not None else None,
-            "body": LocalizedFieldRequest.from_dict(obj["body"]) if obj.get("body") is not None else None
+            "title": LocalizedMessageTitleRequest.from_dict(obj["title"]) if obj.get("title") is not None else None,
+            "body": LocalizedMessageBodyRequest.from_dict(obj["body"]) if obj.get("body") is not None else None
         })
         return _obj
 

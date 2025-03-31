@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.localized_field import LocalizedField
+from mosquito_alert.models.localized_message_body import LocalizedMessageBody
 
-class TestLocalizedField(unittest.TestCase):
-    """LocalizedField unit test stubs"""
+class TestLocalizedMessageBody(unittest.TestCase):
+    """LocalizedMessageBody unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,16 +26,16 @@ class TestLocalizedField(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> LocalizedField:
-        """Test LocalizedField
+    def make_instance(self, include_optional) -> LocalizedMessageBody:
+        """Test LocalizedMessageBody
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `LocalizedField`
+        # uncomment below to create an instance of `LocalizedMessageBody`
         """
-        model = LocalizedField()
+        model = LocalizedMessageBody()
         if include_optional:
-            return LocalizedField(
+            return LocalizedMessageBody(
                 bg = '',
                 bn = '',
                 ca = '',
@@ -62,13 +62,13 @@ class TestLocalizedField(unittest.TestCase):
                 zh_cn = ''
             )
         else:
-            return LocalizedField(
+            return LocalizedMessageBody(
                 en = '',
         )
         """
 
-    def testLocalizedField(self):
-        """Test LocalizedField"""
+    def testLocalizedMessageBody(self):
+        """Test LocalizedMessageBody"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

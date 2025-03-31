@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class LocalizedFieldRequest(BaseModel):
+class LocalizedMessageTitleRequest(BaseModel):
     """
     A custom serializer field that supports localization for a dynamic field name. Allows calling with arguments such as 'title', 'message', max_length, help_text, etc.
     """ # noqa: E501
@@ -72,7 +72,7 @@ class LocalizedFieldRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of LocalizedFieldRequest from a JSON string"""
+        """Create an instance of LocalizedMessageTitleRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -97,7 +97,7 @@ class LocalizedFieldRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of LocalizedFieldRequest from a dict"""
+        """Create an instance of LocalizedMessageTitleRequest from a dict"""
         if obj is None:
             return None
 
