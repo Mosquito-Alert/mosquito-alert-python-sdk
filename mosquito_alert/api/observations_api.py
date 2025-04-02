@@ -19,7 +19,7 @@ from typing_extensions import Annotated
 
 from datetime import datetime
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import List, Optional
+from typing import Any, List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.observation import Observation
@@ -55,10 +55,7 @@ class ObservationsApi:
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
         event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
-        user_perceived_mosquito_specie: Annotated[Optional[StrictStr], Field(description="The mosquito specie perceived by the user.")] = None,
-        user_perceived_mosquito_thorax: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the thorax resembles, according to the user.")] = None,
-        user_perceived_mosquito_abdomen: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the abdomen resembles, according to the user.")] = None,
-        user_perceived_mosquito_legs: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the leg resembles, according to the user.")] = None,
+        mosquito_appearance: Annotated[Optional[Any], Field(description="User-provided description of the mosquito's appearance")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -91,14 +88,8 @@ class ObservationsApi:
         :type event_environment: str
         :param event_moment: The moment of the day when the event took place.
         :type event_moment: str
-        :param user_perceived_mosquito_specie: The mosquito specie perceived by the user.
-        :type user_perceived_mosquito_specie: str
-        :param user_perceived_mosquito_thorax: The species of mosquito that the thorax resembles, according to the user.
-        :type user_perceived_mosquito_thorax: str
-        :param user_perceived_mosquito_abdomen: The species of mosquito that the abdomen resembles, according to the user.
-        :type user_perceived_mosquito_abdomen: str
-        :param user_perceived_mosquito_legs: The species of mosquito that the leg resembles, according to the user.
-        :type user_perceived_mosquito_legs: str
+        :param mosquito_appearance: User-provided description of the mosquito's appearance
+        :type mosquito_appearance: MosquitoAppearanceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -130,10 +121,7 @@ class ObservationsApi:
             tags=tags,
             event_environment=event_environment,
             event_moment=event_moment,
-            user_perceived_mosquito_specie=user_perceived_mosquito_specie,
-            user_perceived_mosquito_thorax=user_perceived_mosquito_thorax,
-            user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen,
-            user_perceived_mosquito_legs=user_perceived_mosquito_legs,
+            mosquito_appearance=mosquito_appearance,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -169,10 +157,7 @@ class ObservationsApi:
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
         event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
-        user_perceived_mosquito_specie: Annotated[Optional[StrictStr], Field(description="The mosquito specie perceived by the user.")] = None,
-        user_perceived_mosquito_thorax: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the thorax resembles, according to the user.")] = None,
-        user_perceived_mosquito_abdomen: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the abdomen resembles, according to the user.")] = None,
-        user_perceived_mosquito_legs: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the leg resembles, according to the user.")] = None,
+        mosquito_appearance: Annotated[Optional[Any], Field(description="User-provided description of the mosquito's appearance")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -205,14 +190,8 @@ class ObservationsApi:
         :type event_environment: str
         :param event_moment: The moment of the day when the event took place.
         :type event_moment: str
-        :param user_perceived_mosquito_specie: The mosquito specie perceived by the user.
-        :type user_perceived_mosquito_specie: str
-        :param user_perceived_mosquito_thorax: The species of mosquito that the thorax resembles, according to the user.
-        :type user_perceived_mosquito_thorax: str
-        :param user_perceived_mosquito_abdomen: The species of mosquito that the abdomen resembles, according to the user.
-        :type user_perceived_mosquito_abdomen: str
-        :param user_perceived_mosquito_legs: The species of mosquito that the leg resembles, according to the user.
-        :type user_perceived_mosquito_legs: str
+        :param mosquito_appearance: User-provided description of the mosquito's appearance
+        :type mosquito_appearance: MosquitoAppearanceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -244,10 +223,7 @@ class ObservationsApi:
             tags=tags,
             event_environment=event_environment,
             event_moment=event_moment,
-            user_perceived_mosquito_specie=user_perceived_mosquito_specie,
-            user_perceived_mosquito_thorax=user_perceived_mosquito_thorax,
-            user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen,
-            user_perceived_mosquito_legs=user_perceived_mosquito_legs,
+            mosquito_appearance=mosquito_appearance,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -283,10 +259,7 @@ class ObservationsApi:
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
         event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
-        user_perceived_mosquito_specie: Annotated[Optional[StrictStr], Field(description="The mosquito specie perceived by the user.")] = None,
-        user_perceived_mosquito_thorax: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the thorax resembles, according to the user.")] = None,
-        user_perceived_mosquito_abdomen: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the abdomen resembles, according to the user.")] = None,
-        user_perceived_mosquito_legs: Annotated[Optional[StrictStr], Field(description="The species of mosquito that the leg resembles, according to the user.")] = None,
+        mosquito_appearance: Annotated[Optional[Any], Field(description="User-provided description of the mosquito's appearance")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -319,14 +292,8 @@ class ObservationsApi:
         :type event_environment: str
         :param event_moment: The moment of the day when the event took place.
         :type event_moment: str
-        :param user_perceived_mosquito_specie: The mosquito specie perceived by the user.
-        :type user_perceived_mosquito_specie: str
-        :param user_perceived_mosquito_thorax: The species of mosquito that the thorax resembles, according to the user.
-        :type user_perceived_mosquito_thorax: str
-        :param user_perceived_mosquito_abdomen: The species of mosquito that the abdomen resembles, according to the user.
-        :type user_perceived_mosquito_abdomen: str
-        :param user_perceived_mosquito_legs: The species of mosquito that the leg resembles, according to the user.
-        :type user_perceived_mosquito_legs: str
+        :param mosquito_appearance: User-provided description of the mosquito's appearance
+        :type mosquito_appearance: MosquitoAppearanceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -358,10 +325,7 @@ class ObservationsApi:
             tags=tags,
             event_environment=event_environment,
             event_moment=event_moment,
-            user_perceived_mosquito_specie=user_perceived_mosquito_specie,
-            user_perceived_mosquito_thorax=user_perceived_mosquito_thorax,
-            user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen,
-            user_perceived_mosquito_legs=user_perceived_mosquito_legs,
+            mosquito_appearance=mosquito_appearance,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -392,10 +356,7 @@ class ObservationsApi:
         tags,
         event_environment,
         event_moment,
-        user_perceived_mosquito_specie,
-        user_perceived_mosquito_thorax,
-        user_perceived_mosquito_abdomen,
-        user_perceived_mosquito_legs,
+        mosquito_appearance,
         _request_auth,
         _content_type,
         _headers,
@@ -438,14 +399,8 @@ class ObservationsApi:
             _form_params.append(('event_environment', event_environment))
         if event_moment is not None:
             _form_params.append(('event_moment', event_moment))
-        if user_perceived_mosquito_specie is not None:
-            _form_params.append(('user_perceived_mosquito_specie', user_perceived_mosquito_specie))
-        if user_perceived_mosquito_thorax is not None:
-            _form_params.append(('user_perceived_mosquito_thorax', user_perceived_mosquito_thorax))
-        if user_perceived_mosquito_abdomen is not None:
-            _form_params.append(('user_perceived_mosquito_abdomen', user_perceived_mosquito_abdomen))
-        if user_perceived_mosquito_legs is not None:
-            _form_params.append(('user_perceived_mosquito_legs', user_perceived_mosquito_legs))
+        if mosquito_appearance is not None:
+            _form_params.append(('mosquito_appearance', mosquito_appearance))
         # process the body parameter
 
 

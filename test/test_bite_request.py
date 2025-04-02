@@ -49,12 +49,13 @@ class TestBiteRequest(unittest.TestCase):
                     ],
                 event_environment = 'indoors',
                 event_moment = 'now',
-                head_bite_count = 56,
-                left_arm_bite_count = 56,
-                right_arm_bite_count = 56,
-                chest_bite_count = 56,
-                left_leg_bite_count = 56,
-                right_leg_bite_count = 56
+                counts = mosquito_alert.models.bite_counts_request.BiteCountsRequest(
+                    head = 56, 
+                    left_arm = 56, 
+                    right_arm = 56, 
+                    chest = 56, 
+                    left_leg = 56, 
+                    right_leg = 56, )
             )
         else:
             return BiteRequest(
@@ -65,6 +66,13 @@ class TestBiteRequest(unittest.TestCase):
                     point = mosquito_alert.models.location_point.Location_point(
                         latitude = 1.337, 
                         longitude = 1.337, ), ),
+                counts = mosquito_alert.models.bite_counts_request.BiteCountsRequest(
+                    head = 56, 
+                    left_arm = 56, 
+                    right_arm = 56, 
+                    chest = 56, 
+                    left_leg = 56, 
+                    right_leg = 56, ),
         )
         """
 

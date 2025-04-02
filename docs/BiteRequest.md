@@ -12,12 +12,7 @@ Name | Type | Description | Notes
 **tags** | **List[str]** |  | [optional] 
 **event_environment** | **str** | The environment where the event took place. | [optional] 
 **event_moment** | **str** | The moment of the day when the event took place. | [optional] 
-**head_bite_count** | **int** | Number of bites reported in the head. | [optional] [default to 0]
-**left_arm_bite_count** | **int** | Number of bites reported in the left arm. | [optional] [default to 0]
-**right_arm_bite_count** | **int** | Number of bites reported in the right arm. | [optional] [default to 0]
-**chest_bite_count** | **int** | Number of bites reported in the chest. | [optional] [default to 0]
-**left_leg_bite_count** | **int** | Number of bites reported in the left leg. | [optional] [default to 0]
-**right_leg_bite_count** | **int** | Number of bites reported in the right leg. | [optional] [default to 0]
+**counts** | [**BiteCountsRequest**](BiteCountsRequest.md) |  | 
 
 ## Example
 

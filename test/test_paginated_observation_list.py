@@ -77,10 +77,7 @@ class TestPaginatedObservationList(unittest.TestCase):
                         identification = null, 
                         event_environment = 'indoors', 
                         event_moment = 'now', 
-                        user_perceived_mosquito_specie = 'albopictus', 
-                        user_perceived_mosquito_thorax = 'albopictus', 
-                        user_perceived_mosquito_abdomen = 'albopictus', 
-                        user_perceived_mosquito_legs = 'albopictus', )
+                        mosquito_appearance = null, )
                     ]
             )
         else:

@@ -71,13 +71,14 @@ class TestPaginatedBiteList(unittest.TestCase):
                         published = True, 
                         event_environment = 'indoors', 
                         event_moment = 'now', 
-                        bite_count = 56, 
-                        head_bite_count = 56, 
-                        left_arm_bite_count = 56, 
-                        right_arm_bite_count = 56, 
-                        chest_bite_count = 56, 
-                        left_leg_bite_count = 56, 
-                        right_leg_bite_count = 56, )
+                        counts = mosquito_alert.models.bite_counts.BiteCounts(
+                            total = 56, 
+                            head = 56, 
+                            left_arm = 56, 
+                            right_arm = 56, 
+                            chest = 56, 
+                            left_leg = 56, 
+                            right_leg = 56, ), )
                     ]
             )
         else:

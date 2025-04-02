@@ -36,7 +36,7 @@ class TestMetaNotificationRequest(unittest.TestCase):
         model = MetaNotificationRequest()
         if include_optional:
             return MetaNotificationRequest(
-                receiver_type = 'user',
+                receiver_type = 'topic',
                 message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
                     title = null, 
                     body = null, ),
@@ -49,7 +49,6 @@ class TestMetaNotificationRequest(unittest.TestCase):
             )
         else:
             return MetaNotificationRequest(
-                receiver_type = 'user',
                 message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
                     title = null, 
                     body = null, ),

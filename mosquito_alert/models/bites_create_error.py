@@ -18,20 +18,21 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from mosquito_alert.models.bites_create_chest_bite_count_error_component import BitesCreateChestBiteCountErrorComponent
+from mosquito_alert.models.bites_create_counts_chest_error_component import BitesCreateCountsChestErrorComponent
+from mosquito_alert.models.bites_create_counts_head_error_component import BitesCreateCountsHeadErrorComponent
+from mosquito_alert.models.bites_create_counts_left_arm_error_component import BitesCreateCountsLeftArmErrorComponent
+from mosquito_alert.models.bites_create_counts_left_leg_error_component import BitesCreateCountsLeftLegErrorComponent
+from mosquito_alert.models.bites_create_counts_non_field_errors_error_component import BitesCreateCountsNonFieldErrorsErrorComponent
+from mosquito_alert.models.bites_create_counts_right_arm_error_component import BitesCreateCountsRightArmErrorComponent
+from mosquito_alert.models.bites_create_counts_right_leg_error_component import BitesCreateCountsRightLegErrorComponent
 from mosquito_alert.models.bites_create_created_at_error_component import BitesCreateCreatedAtErrorComponent
 from mosquito_alert.models.bites_create_event_environment_error_component import BitesCreateEventEnvironmentErrorComponent
 from mosquito_alert.models.bites_create_event_moment_error_component import BitesCreateEventMomentErrorComponent
-from mosquito_alert.models.bites_create_head_bite_count_error_component import BitesCreateHeadBiteCountErrorComponent
-from mosquito_alert.models.bites_create_left_arm_bite_count_error_component import BitesCreateLeftArmBiteCountErrorComponent
-from mosquito_alert.models.bites_create_left_leg_bite_count_error_component import BitesCreateLeftLegBiteCountErrorComponent
 from mosquito_alert.models.bites_create_location_non_field_errors_error_component import BitesCreateLocationNonFieldErrorsErrorComponent
 from mosquito_alert.models.bites_create_location_point_error_component import BitesCreateLocationPointErrorComponent
 from mosquito_alert.models.bites_create_location_source_error_component import BitesCreateLocationSourceErrorComponent
 from mosquito_alert.models.bites_create_non_field_errors_error_component import BitesCreateNonFieldErrorsErrorComponent
 from mosquito_alert.models.bites_create_note_error_component import BitesCreateNoteErrorComponent
-from mosquito_alert.models.bites_create_right_arm_bite_count_error_component import BitesCreateRightArmBiteCountErrorComponent
-from mosquito_alert.models.bites_create_right_leg_bite_count_error_component import BitesCreateRightLegBiteCountErrorComponent
 from mosquito_alert.models.bites_create_sent_at_error_component import BitesCreateSentAtErrorComponent
 from mosquito_alert.models.bites_create_tags_error_component import BitesCreateTagsErrorComponent
 from mosquito_alert.models.bites_create_tags_index_error_component import BitesCreateTagsINDEXErrorComponent
@@ -39,7 +40,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-BITESCREATEERROR_ONE_OF_SCHEMAS = ["BitesCreateChestBiteCountErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateHeadBiteCountErrorComponent", "BitesCreateLeftArmBiteCountErrorComponent", "BitesCreateLeftLegBiteCountErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateRightArmBiteCountErrorComponent", "BitesCreateRightLegBiteCountErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent"]
+BITESCREATEERROR_ONE_OF_SCHEMAS = ["BitesCreateCountsChestErrorComponent", "BitesCreateCountsHeadErrorComponent", "BitesCreateCountsLeftArmErrorComponent", "BitesCreateCountsLeftLegErrorComponent", "BitesCreateCountsNonFieldErrorsErrorComponent", "BitesCreateCountsRightArmErrorComponent", "BitesCreateCountsRightLegErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent"]
 
 class BitesCreateError(BaseModel):
     """
@@ -67,20 +68,22 @@ class BitesCreateError(BaseModel):
     oneof_schema_10_validator: Optional[BitesCreateEventEnvironmentErrorComponent] = None
     # data type: BitesCreateEventMomentErrorComponent
     oneof_schema_11_validator: Optional[BitesCreateEventMomentErrorComponent] = None
-    # data type: BitesCreateHeadBiteCountErrorComponent
-    oneof_schema_12_validator: Optional[BitesCreateHeadBiteCountErrorComponent] = None
-    # data type: BitesCreateLeftArmBiteCountErrorComponent
-    oneof_schema_13_validator: Optional[BitesCreateLeftArmBiteCountErrorComponent] = None
-    # data type: BitesCreateRightArmBiteCountErrorComponent
-    oneof_schema_14_validator: Optional[BitesCreateRightArmBiteCountErrorComponent] = None
-    # data type: BitesCreateChestBiteCountErrorComponent
-    oneof_schema_15_validator: Optional[BitesCreateChestBiteCountErrorComponent] = None
-    # data type: BitesCreateLeftLegBiteCountErrorComponent
-    oneof_schema_16_validator: Optional[BitesCreateLeftLegBiteCountErrorComponent] = None
-    # data type: BitesCreateRightLegBiteCountErrorComponent
-    oneof_schema_17_validator: Optional[BitesCreateRightLegBiteCountErrorComponent] = None
-    actual_instance: Optional[Union[BitesCreateChestBiteCountErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateHeadBiteCountErrorComponent, BitesCreateLeftArmBiteCountErrorComponent, BitesCreateLeftLegBiteCountErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateRightArmBiteCountErrorComponent, BitesCreateRightLegBiteCountErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]] = None
-    one_of_schemas: Set[str] = { "BitesCreateChestBiteCountErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateHeadBiteCountErrorComponent", "BitesCreateLeftArmBiteCountErrorComponent", "BitesCreateLeftLegBiteCountErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateRightArmBiteCountErrorComponent", "BitesCreateRightLegBiteCountErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent" }
+    # data type: BitesCreateCountsNonFieldErrorsErrorComponent
+    oneof_schema_12_validator: Optional[BitesCreateCountsNonFieldErrorsErrorComponent] = None
+    # data type: BitesCreateCountsHeadErrorComponent
+    oneof_schema_13_validator: Optional[BitesCreateCountsHeadErrorComponent] = None
+    # data type: BitesCreateCountsLeftArmErrorComponent
+    oneof_schema_14_validator: Optional[BitesCreateCountsLeftArmErrorComponent] = None
+    # data type: BitesCreateCountsRightArmErrorComponent
+    oneof_schema_15_validator: Optional[BitesCreateCountsRightArmErrorComponent] = None
+    # data type: BitesCreateCountsChestErrorComponent
+    oneof_schema_16_validator: Optional[BitesCreateCountsChestErrorComponent] = None
+    # data type: BitesCreateCountsLeftLegErrorComponent
+    oneof_schema_17_validator: Optional[BitesCreateCountsLeftLegErrorComponent] = None
+    # data type: BitesCreateCountsRightLegErrorComponent
+    oneof_schema_18_validator: Optional[BitesCreateCountsRightLegErrorComponent] = None
+    actual_instance: Optional[Union[BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "BitesCreateCountsChestErrorComponent", "BitesCreateCountsHeadErrorComponent", "BitesCreateCountsLeftArmErrorComponent", "BitesCreateCountsLeftLegErrorComponent", "BitesCreateCountsNonFieldErrorsErrorComponent", "BitesCreateCountsRightArmErrorComponent", "BitesCreateCountsRightLegErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -161,42 +164,47 @@ class BitesCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateEventMomentErrorComponent`")
         else:
             match += 1
-        # validate data type: BitesCreateHeadBiteCountErrorComponent
-        if not isinstance(v, BitesCreateHeadBiteCountErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateHeadBiteCountErrorComponent`")
+        # validate data type: BitesCreateCountsNonFieldErrorsErrorComponent
+        if not isinstance(v, BitesCreateCountsNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateCountsNonFieldErrorsErrorComponent`")
         else:
             match += 1
-        # validate data type: BitesCreateLeftArmBiteCountErrorComponent
-        if not isinstance(v, BitesCreateLeftArmBiteCountErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateLeftArmBiteCountErrorComponent`")
+        # validate data type: BitesCreateCountsHeadErrorComponent
+        if not isinstance(v, BitesCreateCountsHeadErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateCountsHeadErrorComponent`")
         else:
             match += 1
-        # validate data type: BitesCreateRightArmBiteCountErrorComponent
-        if not isinstance(v, BitesCreateRightArmBiteCountErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateRightArmBiteCountErrorComponent`")
+        # validate data type: BitesCreateCountsLeftArmErrorComponent
+        if not isinstance(v, BitesCreateCountsLeftArmErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateCountsLeftArmErrorComponent`")
         else:
             match += 1
-        # validate data type: BitesCreateChestBiteCountErrorComponent
-        if not isinstance(v, BitesCreateChestBiteCountErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateChestBiteCountErrorComponent`")
+        # validate data type: BitesCreateCountsRightArmErrorComponent
+        if not isinstance(v, BitesCreateCountsRightArmErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateCountsRightArmErrorComponent`")
         else:
             match += 1
-        # validate data type: BitesCreateLeftLegBiteCountErrorComponent
-        if not isinstance(v, BitesCreateLeftLegBiteCountErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateLeftLegBiteCountErrorComponent`")
+        # validate data type: BitesCreateCountsChestErrorComponent
+        if not isinstance(v, BitesCreateCountsChestErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateCountsChestErrorComponent`")
         else:
             match += 1
-        # validate data type: BitesCreateRightLegBiteCountErrorComponent
-        if not isinstance(v, BitesCreateRightLegBiteCountErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateRightLegBiteCountErrorComponent`")
+        # validate data type: BitesCreateCountsLeftLegErrorComponent
+        if not isinstance(v, BitesCreateCountsLeftLegErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateCountsLeftLegErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BitesCreateCountsRightLegErrorComponent
+        if not isinstance(v, BitesCreateCountsRightLegErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateCountsRightLegErrorComponent`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateChestBiteCountErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateHeadBiteCountErrorComponent, BitesCreateLeftArmBiteCountErrorComponent, BitesCreateLeftLegBiteCountErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateRightArmBiteCountErrorComponent, BitesCreateRightLegBiteCountErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateChestBiteCountErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateHeadBiteCountErrorComponent, BitesCreateLeftArmBiteCountErrorComponent, BitesCreateLeftLegBiteCountErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateRightArmBiteCountErrorComponent, BitesCreateRightLegBiteCountErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -277,49 +285,55 @@ class BitesCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BitesCreateHeadBiteCountErrorComponent
+        # deserialize data into BitesCreateCountsNonFieldErrorsErrorComponent
         try:
-            instance.actual_instance = BitesCreateHeadBiteCountErrorComponent.from_json(json_str)
+            instance.actual_instance = BitesCreateCountsNonFieldErrorsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BitesCreateLeftArmBiteCountErrorComponent
+        # deserialize data into BitesCreateCountsHeadErrorComponent
         try:
-            instance.actual_instance = BitesCreateLeftArmBiteCountErrorComponent.from_json(json_str)
+            instance.actual_instance = BitesCreateCountsHeadErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BitesCreateRightArmBiteCountErrorComponent
+        # deserialize data into BitesCreateCountsLeftArmErrorComponent
         try:
-            instance.actual_instance = BitesCreateRightArmBiteCountErrorComponent.from_json(json_str)
+            instance.actual_instance = BitesCreateCountsLeftArmErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BitesCreateChestBiteCountErrorComponent
+        # deserialize data into BitesCreateCountsRightArmErrorComponent
         try:
-            instance.actual_instance = BitesCreateChestBiteCountErrorComponent.from_json(json_str)
+            instance.actual_instance = BitesCreateCountsRightArmErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BitesCreateLeftLegBiteCountErrorComponent
+        # deserialize data into BitesCreateCountsChestErrorComponent
         try:
-            instance.actual_instance = BitesCreateLeftLegBiteCountErrorComponent.from_json(json_str)
+            instance.actual_instance = BitesCreateCountsChestErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BitesCreateRightLegBiteCountErrorComponent
+        # deserialize data into BitesCreateCountsLeftLegErrorComponent
         try:
-            instance.actual_instance = BitesCreateRightLegBiteCountErrorComponent.from_json(json_str)
+            instance.actual_instance = BitesCreateCountsLeftLegErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BitesCreateCountsRightLegErrorComponent
+        try:
+            instance.actual_instance = BitesCreateCountsRightLegErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateChestBiteCountErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateHeadBiteCountErrorComponent, BitesCreateLeftArmBiteCountErrorComponent, BitesCreateLeftLegBiteCountErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateRightArmBiteCountErrorComponent, BitesCreateRightLegBiteCountErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateChestBiteCountErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateHeadBiteCountErrorComponent, BitesCreateLeftArmBiteCountErrorComponent, BitesCreateLeftLegBiteCountErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateRightArmBiteCountErrorComponent, BitesCreateRightLegBiteCountErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -333,7 +347,7 @@ class BitesCreateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], BitesCreateChestBiteCountErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateHeadBiteCountErrorComponent, BitesCreateLeftArmBiteCountErrorComponent, BitesCreateLeftLegBiteCountErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateRightArmBiteCountErrorComponent, BitesCreateRightLegBiteCountErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

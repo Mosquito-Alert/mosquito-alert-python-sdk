@@ -19,9 +19,10 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from mosquito_alert.models.bite_counts_request import BiteCountsRequest
 from mosquito_alert.models.location_request import LocationRequest
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,13 +38,8 @@ class BiteRequest(BaseModel):
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
     event_environment: Optional[StrictStr] = Field(default=None, description="The environment where the event took place.")
     event_moment: Optional[StrictStr] = Field(default=None, description="The moment of the day when the event took place.")
-    head_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the head.")
-    left_arm_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the left arm.")
-    right_arm_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the right arm.")
-    chest_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the chest.")
-    left_leg_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the left leg.")
-    right_leg_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the right leg.")
-    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "event_environment", "event_moment", "head_bite_count", "left_arm_bite_count", "right_arm_bite_count", "chest_bite_count", "left_leg_bite_count", "right_leg_bite_count"]
+    counts: BiteCountsRequest
+    __properties: ClassVar[List[str]] = ["created_at", "sent_at", "location", "note", "tags", "event_environment", "event_moment", "counts"]
 
     @field_validator('event_environment')
     def event_environment_validate_enum(cls, value):
@@ -107,6 +103,9 @@ class BiteRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of counts
+        if self.counts:
+            _dict['counts'] = self.counts.to_dict()
         # set to None if note (nullable) is None
         # and model_fields_set contains the field
         if self.note is None and "note" in self.model_fields_set:
@@ -141,12 +140,7 @@ class BiteRequest(BaseModel):
             "tags": obj.get("tags"),
             "event_environment": obj.get("event_environment"),
             "event_moment": obj.get("event_moment"),
-            "head_bite_count": obj.get("head_bite_count") if obj.get("head_bite_count") is not None else 0,
-            "left_arm_bite_count": obj.get("left_arm_bite_count") if obj.get("left_arm_bite_count") is not None else 0,
-            "right_arm_bite_count": obj.get("right_arm_bite_count") if obj.get("right_arm_bite_count") is not None else 0,
-            "chest_bite_count": obj.get("chest_bite_count") if obj.get("chest_bite_count") is not None else 0,
-            "left_leg_bite_count": obj.get("left_leg_bite_count") if obj.get("left_leg_bite_count") is not None else 0,
-            "right_leg_bite_count": obj.get("right_leg_bite_count") if obj.get("right_leg_bite_count") is not None else 0
+            "counts": BiteCountsRequest.from_dict(obj["counts"]) if obj.get("counts") is not None else None
         })
         return _obj
 

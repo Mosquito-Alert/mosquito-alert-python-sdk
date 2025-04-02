@@ -36,13 +36,13 @@ class TestBitesCreateError(unittest.TestCase):
         model = BitesCreateError()
         if include_optional:
             return BitesCreateError(
-                attr = 'right_leg_bite_count',
+                attr = 'counts.right_leg',
                 code = 'invalid',
                 detail = ''
             )
         else:
             return BitesCreateError(
-                attr = 'right_leg_bite_count',
+                attr = 'counts.right_leg',
                 code = 'invalid',
                 detail = '',
         )

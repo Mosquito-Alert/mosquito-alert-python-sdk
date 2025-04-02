@@ -36,7 +36,7 @@ class TestTopicNotificationCreateRequest(unittest.TestCase):
         model = TopicNotificationCreateRequest()
         if include_optional:
             return TopicNotificationCreateRequest(
-                receiver_type = 'user',
+                receiver_type = 'topic',
                 message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
                     title = null, 
                     body = null, ),
@@ -46,7 +46,6 @@ class TestTopicNotificationCreateRequest(unittest.TestCase):
             )
         else:
             return TopicNotificationCreateRequest(
-                receiver_type = 'user',
                 message = mosquito_alert.models.create_notification_message_request.CreateNotificationMessageRequest(
                     title = null, 
                     body = null, ),

@@ -78,10 +78,11 @@ class TestObservation(unittest.TestCase):
                     public_note = '', ),
                 event_environment = 'indoors',
                 event_moment = 'now',
-                user_perceived_mosquito_specie = 'albopictus',
-                user_perceived_mosquito_thorax = 'albopictus',
-                user_perceived_mosquito_abdomen = 'albopictus',
-                user_perceived_mosquito_legs = 'albopictus'
+                mosquito_appearance = mosquito_alert.models.mosquito_appearance.MosquitoAppearance(
+                    specie = 'albopictus', 
+                    thorax = 'albopictus', 
+                    abdomen = 'albopictus', 
+                    legs = 'albopictus', )
             )
         else:
             return Observation(

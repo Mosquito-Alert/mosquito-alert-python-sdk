@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**receiver_type** | **str** |  | 
+**receiver_type** | **str** |  | [optional] [default to 'topic']
 **message** | [**CreateNotificationMessageRequest**](CreateNotificationMessageRequest.md) | The message of the notification | 
 **user_uuids** | **List[str]** |  | 
 **topic_codes** | **List[str]** |  | 

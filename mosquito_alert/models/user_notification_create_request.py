@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class UserNotificationCreateRequest(BaseModel):
     """
     UserNotificationCreateRequest
     """ # noqa: E501
-    receiver_type: StrictStr
+    receiver_type: Optional[StrictStr] = 'user'
     message: CreateNotificationMessageRequest = Field(description="The message of the notification")
     user_uuids: Annotated[List[StrictStr], Field(min_length=1)]
     __properties: ClassVar[List[str]] = ["receiver_type", "message", "user_uuids"]
@@ -37,8 +37,11 @@ class UserNotificationCreateRequest(BaseModel):
     @field_validator('receiver_type')
     def receiver_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['user', 'topic']):
-            raise ValueError("must be one of enum values ('user', 'topic')")
+        if value is None:
+            return value
+
+        if value not in set(['user']):
+            raise ValueError("must be one of enum values ('user')")
         return value
 
     model_config = ConfigDict(
@@ -95,7 +98,7 @@ class UserNotificationCreateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "receiver_type": obj.get("receiver_type"),
+            "receiver_type": obj.get("receiver_type") if obj.get("receiver_type") is not None else 'user',
             "message": CreateNotificationMessageRequest.from_dict(obj["message"]) if obj.get("message") is not None else None,
             "user_uuids": obj.get("user_uuids")
         })

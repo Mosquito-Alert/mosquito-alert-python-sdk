@@ -24,6 +24,11 @@ from mosquito_alert.models.observations_create_event_moment_error_component impo
 from mosquito_alert.models.observations_create_location_non_field_errors_error_component import ObservationsCreateLocationNonFieldErrorsErrorComponent
 from mosquito_alert.models.observations_create_location_point_error_component import ObservationsCreateLocationPointErrorComponent
 from mosquito_alert.models.observations_create_location_source_error_component import ObservationsCreateLocationSourceErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_abdomen_error_component import ObservationsCreateMosquitoAppearanceAbdomenErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_legs_error_component import ObservationsCreateMosquitoAppearanceLegsErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_non_field_errors_error_component import ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_specie_error_component import ObservationsCreateMosquitoAppearanceSpecieErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_thorax_error_component import ObservationsCreateMosquitoAppearanceThoraxErrorComponent
 from mosquito_alert.models.observations_create_non_field_errors_error_component import ObservationsCreateNonFieldErrorsErrorComponent
 from mosquito_alert.models.observations_create_note_error_component import ObservationsCreateNoteErrorComponent
 from mosquito_alert.models.observations_create_photos_index_file_error_component import ObservationsCreatePhotosINDEXFileErrorComponent
@@ -32,15 +37,11 @@ from mosquito_alert.models.observations_create_photos_non_field_errors_error_com
 from mosquito_alert.models.observations_create_sent_at_error_component import ObservationsCreateSentAtErrorComponent
 from mosquito_alert.models.observations_create_tags_error_component import ObservationsCreateTagsErrorComponent
 from mosquito_alert.models.observations_create_tags_index_error_component import ObservationsCreateTagsINDEXErrorComponent
-from mosquito_alert.models.observations_create_user_perceived_mosquito_abdomen_error_component import ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent
-from mosquito_alert.models.observations_create_user_perceived_mosquito_legs_error_component import ObservationsCreateUserPerceivedMosquitoLegsErrorComponent
-from mosquito_alert.models.observations_create_user_perceived_mosquito_specie_error_component import ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent
-from mosquito_alert.models.observations_create_user_perceived_mosquito_thorax_error_component import ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-OBSERVATIONSCREATEERROR_ONE_OF_SCHEMAS = ["ObservationsCreateCreatedAtErrorComponent", "ObservationsCreateEventEnvironmentErrorComponent", "ObservationsCreateEventMomentErrorComponent", "ObservationsCreateLocationNonFieldErrorsErrorComponent", "ObservationsCreateLocationPointErrorComponent", "ObservationsCreateLocationSourceErrorComponent", "ObservationsCreateNonFieldErrorsErrorComponent", "ObservationsCreateNoteErrorComponent", "ObservationsCreatePhotosINDEXFileErrorComponent", "ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent", "ObservationsCreatePhotosNonFieldErrorsErrorComponent", "ObservationsCreateSentAtErrorComponent", "ObservationsCreateTagsErrorComponent", "ObservationsCreateTagsINDEXErrorComponent", "ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent", "ObservationsCreateUserPerceivedMosquitoLegsErrorComponent", "ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent", "ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent"]
+OBSERVATIONSCREATEERROR_ONE_OF_SCHEMAS = ["ObservationsCreateCreatedAtErrorComponent", "ObservationsCreateEventEnvironmentErrorComponent", "ObservationsCreateEventMomentErrorComponent", "ObservationsCreateLocationNonFieldErrorsErrorComponent", "ObservationsCreateLocationPointErrorComponent", "ObservationsCreateLocationSourceErrorComponent", "ObservationsCreateMosquitoAppearanceAbdomenErrorComponent", "ObservationsCreateMosquitoAppearanceLegsErrorComponent", "ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent", "ObservationsCreateMosquitoAppearanceSpecieErrorComponent", "ObservationsCreateMosquitoAppearanceThoraxErrorComponent", "ObservationsCreateNonFieldErrorsErrorComponent", "ObservationsCreateNoteErrorComponent", "ObservationsCreatePhotosINDEXFileErrorComponent", "ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent", "ObservationsCreatePhotosNonFieldErrorsErrorComponent", "ObservationsCreateSentAtErrorComponent", "ObservationsCreateTagsErrorComponent", "ObservationsCreateTagsINDEXErrorComponent"]
 
 class ObservationsCreateError(BaseModel):
     """
@@ -74,16 +75,18 @@ class ObservationsCreateError(BaseModel):
     oneof_schema_13_validator: Optional[ObservationsCreateEventEnvironmentErrorComponent] = None
     # data type: ObservationsCreateEventMomentErrorComponent
     oneof_schema_14_validator: Optional[ObservationsCreateEventMomentErrorComponent] = None
-    # data type: ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent
-    oneof_schema_15_validator: Optional[ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent] = None
-    # data type: ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent
-    oneof_schema_16_validator: Optional[ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent] = None
-    # data type: ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent
-    oneof_schema_17_validator: Optional[ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent] = None
-    # data type: ObservationsCreateUserPerceivedMosquitoLegsErrorComponent
-    oneof_schema_18_validator: Optional[ObservationsCreateUserPerceivedMosquitoLegsErrorComponent] = None
-    actual_instance: Optional[Union[ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent, ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent, ObservationsCreateUserPerceivedMosquitoLegsErrorComponent, ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent, ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent]] = None
-    one_of_schemas: Set[str] = { "ObservationsCreateCreatedAtErrorComponent", "ObservationsCreateEventEnvironmentErrorComponent", "ObservationsCreateEventMomentErrorComponent", "ObservationsCreateLocationNonFieldErrorsErrorComponent", "ObservationsCreateLocationPointErrorComponent", "ObservationsCreateLocationSourceErrorComponent", "ObservationsCreateNonFieldErrorsErrorComponent", "ObservationsCreateNoteErrorComponent", "ObservationsCreatePhotosINDEXFileErrorComponent", "ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent", "ObservationsCreatePhotosNonFieldErrorsErrorComponent", "ObservationsCreateSentAtErrorComponent", "ObservationsCreateTagsErrorComponent", "ObservationsCreateTagsINDEXErrorComponent", "ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent", "ObservationsCreateUserPerceivedMosquitoLegsErrorComponent", "ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent", "ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent" }
+    # data type: ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent
+    oneof_schema_15_validator: Optional[ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent] = None
+    # data type: ObservationsCreateMosquitoAppearanceSpecieErrorComponent
+    oneof_schema_16_validator: Optional[ObservationsCreateMosquitoAppearanceSpecieErrorComponent] = None
+    # data type: ObservationsCreateMosquitoAppearanceThoraxErrorComponent
+    oneof_schema_17_validator: Optional[ObservationsCreateMosquitoAppearanceThoraxErrorComponent] = None
+    # data type: ObservationsCreateMosquitoAppearanceAbdomenErrorComponent
+    oneof_schema_18_validator: Optional[ObservationsCreateMosquitoAppearanceAbdomenErrorComponent] = None
+    # data type: ObservationsCreateMosquitoAppearanceLegsErrorComponent
+    oneof_schema_19_validator: Optional[ObservationsCreateMosquitoAppearanceLegsErrorComponent] = None
+    actual_instance: Optional[Union[ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateMosquitoAppearanceAbdomenErrorComponent, ObservationsCreateMosquitoAppearanceLegsErrorComponent, ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent, ObservationsCreateMosquitoAppearanceSpecieErrorComponent, ObservationsCreateMosquitoAppearanceThoraxErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "ObservationsCreateCreatedAtErrorComponent", "ObservationsCreateEventEnvironmentErrorComponent", "ObservationsCreateEventMomentErrorComponent", "ObservationsCreateLocationNonFieldErrorsErrorComponent", "ObservationsCreateLocationPointErrorComponent", "ObservationsCreateLocationSourceErrorComponent", "ObservationsCreateMosquitoAppearanceAbdomenErrorComponent", "ObservationsCreateMosquitoAppearanceLegsErrorComponent", "ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent", "ObservationsCreateMosquitoAppearanceSpecieErrorComponent", "ObservationsCreateMosquitoAppearanceThoraxErrorComponent", "ObservationsCreateNonFieldErrorsErrorComponent", "ObservationsCreateNoteErrorComponent", "ObservationsCreatePhotosINDEXFileErrorComponent", "ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent", "ObservationsCreatePhotosNonFieldErrorsErrorComponent", "ObservationsCreateSentAtErrorComponent", "ObservationsCreateTagsErrorComponent", "ObservationsCreateTagsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -179,32 +182,37 @@ class ObservationsCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateEventMomentErrorComponent`")
         else:
             match += 1
-        # validate data type: ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent
-        if not isinstance(v, ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent`")
+        # validate data type: ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent
+        if not isinstance(v, ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent`")
         else:
             match += 1
-        # validate data type: ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent
-        if not isinstance(v, ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent`")
+        # validate data type: ObservationsCreateMosquitoAppearanceSpecieErrorComponent
+        if not isinstance(v, ObservationsCreateMosquitoAppearanceSpecieErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateMosquitoAppearanceSpecieErrorComponent`")
         else:
             match += 1
-        # validate data type: ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent
-        if not isinstance(v, ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent`")
+        # validate data type: ObservationsCreateMosquitoAppearanceThoraxErrorComponent
+        if not isinstance(v, ObservationsCreateMosquitoAppearanceThoraxErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateMosquitoAppearanceThoraxErrorComponent`")
         else:
             match += 1
-        # validate data type: ObservationsCreateUserPerceivedMosquitoLegsErrorComponent
-        if not isinstance(v, ObservationsCreateUserPerceivedMosquitoLegsErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateUserPerceivedMosquitoLegsErrorComponent`")
+        # validate data type: ObservationsCreateMosquitoAppearanceAbdomenErrorComponent
+        if not isinstance(v, ObservationsCreateMosquitoAppearanceAbdomenErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateMosquitoAppearanceAbdomenErrorComponent`")
+        else:
+            match += 1
+        # validate data type: ObservationsCreateMosquitoAppearanceLegsErrorComponent
+        if not isinstance(v, ObservationsCreateMosquitoAppearanceLegsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsCreateMosquitoAppearanceLegsErrorComponent`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent, ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent, ObservationsCreateUserPerceivedMosquitoLegsErrorComponent, ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent, ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateMosquitoAppearanceAbdomenErrorComponent, ObservationsCreateMosquitoAppearanceLegsErrorComponent, ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent, ObservationsCreateMosquitoAppearanceSpecieErrorComponent, ObservationsCreateMosquitoAppearanceThoraxErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent, ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent, ObservationsCreateUserPerceivedMosquitoLegsErrorComponent, ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent, ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateMosquitoAppearanceAbdomenErrorComponent, ObservationsCreateMosquitoAppearanceLegsErrorComponent, ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent, ObservationsCreateMosquitoAppearanceSpecieErrorComponent, ObservationsCreateMosquitoAppearanceThoraxErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -303,37 +311,43 @@ class ObservationsCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent
+        # deserialize data into ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent
         try:
-            instance.actual_instance = ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent.from_json(json_str)
+            instance.actual_instance = ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent
+        # deserialize data into ObservationsCreateMosquitoAppearanceSpecieErrorComponent
         try:
-            instance.actual_instance = ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent.from_json(json_str)
+            instance.actual_instance = ObservationsCreateMosquitoAppearanceSpecieErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent
+        # deserialize data into ObservationsCreateMosquitoAppearanceThoraxErrorComponent
         try:
-            instance.actual_instance = ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent.from_json(json_str)
+            instance.actual_instance = ObservationsCreateMosquitoAppearanceThoraxErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into ObservationsCreateUserPerceivedMosquitoLegsErrorComponent
+        # deserialize data into ObservationsCreateMosquitoAppearanceAbdomenErrorComponent
         try:
-            instance.actual_instance = ObservationsCreateUserPerceivedMosquitoLegsErrorComponent.from_json(json_str)
+            instance.actual_instance = ObservationsCreateMosquitoAppearanceAbdomenErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ObservationsCreateMosquitoAppearanceLegsErrorComponent
+        try:
+            instance.actual_instance = ObservationsCreateMosquitoAppearanceLegsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent, ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent, ObservationsCreateUserPerceivedMosquitoLegsErrorComponent, ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent, ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateMosquitoAppearanceAbdomenErrorComponent, ObservationsCreateMosquitoAppearanceLegsErrorComponent, ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent, ObservationsCreateMosquitoAppearanceSpecieErrorComponent, ObservationsCreateMosquitoAppearanceThoraxErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent, ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent, ObservationsCreateUserPerceivedMosquitoLegsErrorComponent, ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent, ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ObservationsCreateError with oneOf schemas: ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateMosquitoAppearanceAbdomenErrorComponent, ObservationsCreateMosquitoAppearanceLegsErrorComponent, ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent, ObservationsCreateMosquitoAppearanceSpecieErrorComponent, ObservationsCreateMosquitoAppearanceThoraxErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -347,7 +361,7 @@ class ObservationsCreateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent, ObservationsCreateUserPerceivedMosquitoAbdomenErrorComponent, ObservationsCreateUserPerceivedMosquitoLegsErrorComponent, ObservationsCreateUserPerceivedMosquitoSpecieErrorComponent, ObservationsCreateUserPerceivedMosquitoThoraxErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], ObservationsCreateCreatedAtErrorComponent, ObservationsCreateEventEnvironmentErrorComponent, ObservationsCreateEventMomentErrorComponent, ObservationsCreateLocationNonFieldErrorsErrorComponent, ObservationsCreateLocationPointErrorComponent, ObservationsCreateLocationSourceErrorComponent, ObservationsCreateMosquitoAppearanceAbdomenErrorComponent, ObservationsCreateMosquitoAppearanceLegsErrorComponent, ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent, ObservationsCreateMosquitoAppearanceSpecieErrorComponent, ObservationsCreateMosquitoAppearanceThoraxErrorComponent, ObservationsCreateNonFieldErrorsErrorComponent, ObservationsCreateNoteErrorComponent, ObservationsCreatePhotosINDEXFileErrorComponent, ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent, ObservationsCreatePhotosNonFieldErrorsErrorComponent, ObservationsCreateSentAtErrorComponent, ObservationsCreateTagsErrorComponent, ObservationsCreateTagsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

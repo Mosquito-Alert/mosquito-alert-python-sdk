@@ -36,13 +36,13 @@ class TestObservationsCreateError(unittest.TestCase):
         model = ObservationsCreateError()
         if include_optional:
             return ObservationsCreateError(
-                attr = 'user_perceived_mosquito_legs',
+                attr = 'mosquito_appearance.legs',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
             return ObservationsCreateError(
-                attr = 'user_perceived_mosquito_legs',
+                attr = 'mosquito_appearance.legs',
                 code = 'invalid_choice',
                 detail = '',
         )

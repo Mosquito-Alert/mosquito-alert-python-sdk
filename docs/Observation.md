@@ -21,10 +21,7 @@ Name | Type | Description | Notes
 **identification** | [**Identification**](Identification.md) |  | [readonly] 
 **event_environment** | **str** | The environment where the event took place. | [optional] 
 **event_moment** | **str** | The moment of the day when the event took place. | [optional] 
-**user_perceived_mosquito_specie** | **str** | The mosquito specie perceived by the user. | [optional] 
-**user_perceived_mosquito_thorax** | **str** | The species of mosquito that the thorax resembles, according to the user. | [optional] 
-**user_perceived_mosquito_abdomen** | **str** | The species of mosquito that the abdomen resembles, according to the user. | [optional] 
-**user_perceived_mosquito_legs** | **str** | The species of mosquito that the leg resembles, according to the user. | [optional] 
+**mosquito_appearance** | [**MosquitoAppearance**](MosquitoAppearance.md) | User-provided description of the mosquito&#39;s appearance | [optional] 
 
 ## Example
 

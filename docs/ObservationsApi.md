@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> Observation create(created_at, sent_at, location, photos, note=note, tags=tags, event_environment=event_environment, event_moment=event_moment, user_perceived_mosquito_specie=user_perceived_mosquito_specie, user_perceived_mosquito_thorax=user_perceived_mosquito_thorax, user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen, user_perceived_mosquito_legs=user_perceived_mosquito_legs)
+> Observation create(created_at, sent_at, location, photos, note=note, tags=tags, event_environment=event_environment, event_moment=event_moment, mosquito_appearance=mosquito_appearance)
 
 ### Example
 
@@ -68,13 +68,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     tags = ['tags_example'] # List[str] |  (optional)
     event_environment = 'event_environment_example' # str | The environment where the event took place. (optional)
     event_moment = 'event_moment_example' # str | The moment of the day when the event took place. (optional)
-    user_perceived_mosquito_specie = 'user_perceived_mosquito_specie_example' # str | The mosquito specie perceived by the user. (optional)
-    user_perceived_mosquito_thorax = 'user_perceived_mosquito_thorax_example' # str | The species of mosquito that the thorax resembles, according to the user. (optional)
-    user_perceived_mosquito_abdomen = 'user_perceived_mosquito_abdomen_example' # str | The species of mosquito that the abdomen resembles, according to the user. (optional)
-    user_perceived_mosquito_legs = 'user_perceived_mosquito_legs_example' # str | The species of mosquito that the leg resembles, according to the user. (optional)
+    mosquito_appearance = mosquito_alert.MosquitoAppearanceRequest() # MosquitoAppearanceRequest | User-provided description of the mosquito's appearance (optional)
 
     try:
-        api_response = api_instance.create(created_at, sent_at, location, photos, note=note, tags=tags, event_environment=event_environment, event_moment=event_moment, user_perceived_mosquito_specie=user_perceived_mosquito_specie, user_perceived_mosquito_thorax=user_perceived_mosquito_thorax, user_perceived_mosquito_abdomen=user_perceived_mosquito_abdomen, user_perceived_mosquito_legs=user_perceived_mosquito_legs)
+        api_response = api_instance.create(created_at, sent_at, location, photos, note=note, tags=tags, event_environment=event_environment, event_moment=event_moment, mosquito_appearance=mosquito_appearance)
         print("The response of ObservationsApi->create:\n")
         pprint(api_response)
     except Exception as e:
@@ -96,10 +93,7 @@ Name | Type | Description  | Notes
  **tags** | [**List[str]**](str.md)|  | [optional] 
  **event_environment** | **str**| The environment where the event took place. | [optional] 
  **event_moment** | **str**| The moment of the day when the event took place. | [optional] 
- **user_perceived_mosquito_specie** | **str**| The mosquito specie perceived by the user. | [optional] 
- **user_perceived_mosquito_thorax** | **str**| The species of mosquito that the thorax resembles, according to the user. | [optional] 
- **user_perceived_mosquito_abdomen** | **str**| The species of mosquito that the abdomen resembles, according to the user. | [optional] 
- **user_perceived_mosquito_legs** | **str**| The species of mosquito that the leg resembles, according to the user. | [optional] 
+ **mosquito_appearance** | [**MosquitoAppearanceRequest**](MosquitoAppearanceRequest.md)| User-provided description of the mosquito&#39;s appearance | [optional] 
 
 ### Return type
 

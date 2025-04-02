@@ -23,6 +23,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from mosquito_alert.models.identification import Identification
 from mosquito_alert.models.location import Location
+from mosquito_alert.models.mosquito_appearance import MosquitoAppearance
 from mosquito_alert.models.simple_photo import SimplePhoto
 from typing import Optional, Set
 from typing_extensions import Self
@@ -47,11 +48,8 @@ class Observation(BaseModel):
     identification: Optional[Identification]
     event_environment: Optional[StrictStr] = Field(default=None, description="The environment where the event took place.")
     event_moment: Optional[StrictStr] = Field(default=None, description="The moment of the day when the event took place.")
-    user_perceived_mosquito_specie: Optional[StrictStr] = Field(default=None, description="The mosquito specie perceived by the user.")
-    user_perceived_mosquito_thorax: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the thorax resembles, according to the user.")
-    user_perceived_mosquito_abdomen: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the abdomen resembles, according to the user.")
-    user_perceived_mosquito_legs: Optional[StrictStr] = Field(default=None, description="The species of mosquito that the leg resembles, according to the user.")
-    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "sent_at", "received_at", "updated_at", "location", "note", "tags", "published", "photos", "identification", "event_environment", "event_moment", "user_perceived_mosquito_specie", "user_perceived_mosquito_thorax", "user_perceived_mosquito_abdomen", "user_perceived_mosquito_legs"]
+    mosquito_appearance: Optional[MosquitoAppearance] = Field(default=None, description="User-provided description of the mosquito's appearance")
+    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "sent_at", "received_at", "updated_at", "location", "note", "tags", "published", "photos", "identification", "event_environment", "event_moment", "mosquito_appearance"]
 
     @field_validator('event_environment')
     def event_environment_validate_enum(cls, value):
@@ -71,46 +69,6 @@ class Observation(BaseModel):
 
         if value not in set(['now', 'last_morning', 'last_midday', 'last_afternoon', 'last_night', '']):
             raise ValueError("must be one of enum values ('now', 'last_morning', 'last_midday', 'last_afternoon', 'last_night', '')")
-        return value
-
-    @field_validator('user_perceived_mosquito_specie')
-    def user_perceived_mosquito_specie_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '']):
-            raise ValueError("must be one of enum values ('albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '')")
-        return value
-
-    @field_validator('user_perceived_mosquito_thorax')
-    def user_perceived_mosquito_thorax_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '']):
-            raise ValueError("must be one of enum values ('albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '')")
-        return value
-
-    @field_validator('user_perceived_mosquito_abdomen')
-    def user_perceived_mosquito_abdomen_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '']):
-            raise ValueError("must be one of enum values ('albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '')")
-        return value
-
-    @field_validator('user_perceived_mosquito_legs')
-    def user_perceived_mosquito_legs_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '']):
-            raise ValueError("must be one of enum values ('albopictus', 'aegypti', 'japonicus', 'koreicus', 'culex', 'other', '')")
         return value
 
     model_config = ConfigDict(
@@ -181,6 +139,9 @@ class Observation(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of identification
         if self.identification:
             _dict['identification'] = self.identification.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of mosquito_appearance
+        if self.mosquito_appearance:
+            _dict['mosquito_appearance'] = self.mosquito_appearance.to_dict()
         # set to None if note (nullable) is None
         # and model_fields_set contains the field
         if self.note is None and "note" in self.model_fields_set:
@@ -201,25 +162,10 @@ class Observation(BaseModel):
         if self.event_moment is None and "event_moment" in self.model_fields_set:
             _dict['event_moment'] = None
 
-        # set to None if user_perceived_mosquito_specie (nullable) is None
+        # set to None if mosquito_appearance (nullable) is None
         # and model_fields_set contains the field
-        if self.user_perceived_mosquito_specie is None and "user_perceived_mosquito_specie" in self.model_fields_set:
-            _dict['user_perceived_mosquito_specie'] = None
-
-        # set to None if user_perceived_mosquito_thorax (nullable) is None
-        # and model_fields_set contains the field
-        if self.user_perceived_mosquito_thorax is None and "user_perceived_mosquito_thorax" in self.model_fields_set:
-            _dict['user_perceived_mosquito_thorax'] = None
-
-        # set to None if user_perceived_mosquito_abdomen (nullable) is None
-        # and model_fields_set contains the field
-        if self.user_perceived_mosquito_abdomen is None and "user_perceived_mosquito_abdomen" in self.model_fields_set:
-            _dict['user_perceived_mosquito_abdomen'] = None
-
-        # set to None if user_perceived_mosquito_legs (nullable) is None
-        # and model_fields_set contains the field
-        if self.user_perceived_mosquito_legs is None and "user_perceived_mosquito_legs" in self.model_fields_set:
-            _dict['user_perceived_mosquito_legs'] = None
+        if self.mosquito_appearance is None and "mosquito_appearance" in self.model_fields_set:
+            _dict['mosquito_appearance'] = None
 
         return _dict
 
@@ -249,10 +195,7 @@ class Observation(BaseModel):
             "identification": Identification.from_dict(obj["identification"]) if obj.get("identification") is not None else None,
             "event_environment": obj.get("event_environment"),
             "event_moment": obj.get("event_moment"),
-            "user_perceived_mosquito_specie": obj.get("user_perceived_mosquito_specie"),
-            "user_perceived_mosquito_thorax": obj.get("user_perceived_mosquito_thorax"),
-            "user_perceived_mosquito_abdomen": obj.get("user_perceived_mosquito_abdomen"),
-            "user_perceived_mosquito_legs": obj.get("user_perceived_mosquito_legs")
+            "mosquito_appearance": MosquitoAppearance.from_dict(obj["mosquito_appearance"]) if obj.get("mosquito_appearance") is not None else None
         })
         return _obj
 

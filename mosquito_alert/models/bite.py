@@ -19,8 +19,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from mosquito_alert.models.bite_counts import BiteCounts
 from mosquito_alert.models.location import Location
 from typing import Optional, Set
 from typing_extensions import Self
@@ -43,14 +44,8 @@ class Bite(BaseModel):
     published: StrictBool
     event_environment: Optional[StrictStr] = Field(default=None, description="The environment where the event took place.")
     event_moment: Optional[StrictStr] = Field(default=None, description="The moment of the day when the event took place.")
-    bite_count: StrictInt = Field(description="Total number of bites reported.")
-    head_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the head.")
-    left_arm_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the left arm.")
-    right_arm_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the right arm.")
-    chest_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the chest.")
-    left_leg_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the left leg.")
-    right_leg_bite_count: Optional[StrictInt] = Field(default=0, description="Number of bites reported in the right leg.")
-    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "sent_at", "received_at", "updated_at", "location", "note", "tags", "published", "event_environment", "event_moment", "bite_count", "head_bite_count", "left_arm_bite_count", "right_arm_bite_count", "chest_bite_count", "left_leg_bite_count", "right_leg_bite_count"]
+    counts: BiteCounts
+    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "sent_at", "received_at", "updated_at", "location", "note", "tags", "published", "event_environment", "event_moment", "counts"]
 
     @field_validator('event_environment')
     def event_environment_validate_enum(cls, value):
@@ -109,7 +104,6 @@ class Bite(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
@@ -119,7 +113,6 @@ class Bite(BaseModel):
             "received_at",
             "updated_at",
             "published",
-            "bite_count",
         ])
 
         _dict = self.model_dump(
@@ -130,6 +123,9 @@ class Bite(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of counts
+        if self.counts:
+            _dict['counts'] = self.counts.to_dict()
         # set to None if note (nullable) is None
         # and model_fields_set contains the field
         if self.note is None and "note" in self.model_fields_set:
@@ -171,13 +167,7 @@ class Bite(BaseModel):
             "published": obj.get("published"),
             "event_environment": obj.get("event_environment"),
             "event_moment": obj.get("event_moment"),
-            "bite_count": obj.get("bite_count"),
-            "head_bite_count": obj.get("head_bite_count") if obj.get("head_bite_count") is not None else 0,
-            "left_arm_bite_count": obj.get("left_arm_bite_count") if obj.get("left_arm_bite_count") is not None else 0,
-            "right_arm_bite_count": obj.get("right_arm_bite_count") if obj.get("right_arm_bite_count") is not None else 0,
-            "chest_bite_count": obj.get("chest_bite_count") if obj.get("chest_bite_count") is not None else 0,
-            "left_leg_bite_count": obj.get("left_leg_bite_count") if obj.get("left_leg_bite_count") is not None else 0,
-            "right_leg_bite_count": obj.get("right_leg_bite_count") if obj.get("right_leg_bite_count") is not None else 0
+            "counts": BiteCounts.from_dict(obj["counts"]) if obj.get("counts") is not None else None
         })
         return _obj
 
