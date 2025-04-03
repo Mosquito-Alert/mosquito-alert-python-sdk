@@ -25,6 +25,7 @@ from typing_extensions import Annotated
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult
 from mosquito_alert.models.identification_task_revision import IdentificationTaskRevision
 from mosquito_alert.models.simple_photo import SimplePhoto
+from mosquito_alert.models.simplified_observation import SimplifiedObservation
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,11 +33,10 @@ class IdentificationTask(BaseModel):
     """
     IdentificationTask
     """ # noqa: E501
-    uuid: StrictStr
-    observation_uuid: StrictStr
+    observation: SimplifiedObservation
     public_photo: SimplePhoto
     assignees_ids: List[StrictInt]
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = 'open'
     is_flagged: StrictBool
     is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
     public_note: Optional[StrictStr]
@@ -46,7 +46,7 @@ class IdentificationTask(BaseModel):
     result: IdentificationTaskResult
     created_at: datetime
     updated_at: datetime
-    __properties: ClassVar[List[str]] = ["uuid", "observation_uuid", "public_photo", "assignees_ids", "status", "is_flagged", "is_safe", "public_note", "num_assignations", "num_annotations", "revision", "result", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["observation", "public_photo", "assignees_ids", "status", "is_flagged", "is_safe", "public_note", "num_assignations", "num_annotations", "revision", "result", "created_at", "updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -101,7 +101,7 @@ class IdentificationTask(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "uuid",
+            "observation",
             "assignees_ids",
             "is_flagged",
             "is_safe",
@@ -119,6 +119,9 @@ class IdentificationTask(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of observation
+        if self.observation:
+            _dict['observation'] = self.observation.to_dict()
         # override the default output from pydantic by calling `to_dict()` of public_photo
         if self.public_photo:
             _dict['public_photo'] = self.public_photo.to_dict()
@@ -150,11 +153,10 @@ class IdentificationTask(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "uuid": obj.get("uuid"),
-            "observation_uuid": obj.get("observation_uuid"),
+            "observation": SimplifiedObservation.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
             "public_photo": SimplePhoto.from_dict(obj["public_photo"]) if obj.get("public_photo") is not None else None,
             "assignees_ids": obj.get("assignees_ids"),
-            "status": obj.get("status"),
+            "status": obj.get("status") if obj.get("status") is not None else 'open',
             "is_flagged": obj.get("is_flagged"),
             "is_safe": obj.get("is_safe"),
             "public_note": obj.get("public_note"),

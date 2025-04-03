@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from mosquito_alert.models.adm_boundary import AdmBoundary
+from mosquito_alert.models.country import Country
 from mosquito_alert.models.location_point import LocationPoint
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,9 +34,9 @@ class Location(BaseModel):
     point: LocationPoint
     timezone: Optional[StrictStr]
     display_name: Optional[StrictStr]
-    country_id: Optional[StrictInt]
+    country: Optional[Country]
     adm_boundaries: List[AdmBoundary]
-    __properties: ClassVar[List[str]] = ["source", "point", "timezone", "display_name", "country_id", "adm_boundaries"]
+    __properties: ClassVar[List[str]] = ["source", "point", "timezone", "display_name", "country", "adm_boundaries"]
 
     @field_validator('source')
     def source_validate_enum(cls, value):
@@ -92,7 +93,7 @@ class Location(BaseModel):
         excluded_fields: Set[str] = set([
             "timezone",
             "display_name",
-            "country_id",
+            "country",
             "adm_boundaries",
         ])
 
@@ -104,6 +105,9 @@ class Location(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of point
         if self.point:
             _dict['point'] = self.point.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of country
+        if self.country:
+            _dict['country'] = self.country.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in adm_boundaries (list)
         _items = []
         if self.adm_boundaries:
@@ -121,10 +125,10 @@ class Location(BaseModel):
         if self.display_name is None and "display_name" in self.model_fields_set:
             _dict['display_name'] = None
 
-        # set to None if country_id (nullable) is None
+        # set to None if country (nullable) is None
         # and model_fields_set contains the field
-        if self.country_id is None and "country_id" in self.model_fields_set:
-            _dict['country_id'] = None
+        if self.country is None and "country" in self.model_fields_set:
+            _dict['country'] = None
 
         return _dict
 
@@ -142,7 +146,7 @@ class Location(BaseModel):
             "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
             "timezone": obj.get("timezone"),
             "display_name": obj.get("display_name"),
-            "country_id": obj.get("country_id"),
+            "country": Country.from_dict(obj["country"]) if obj.get("country") is not None else None,
             "adm_boundaries": [AdmBoundary.from_dict(_item) for _item in obj["adm_boundaries"]] if obj.get("adm_boundaries") is not None else None
         })
         return _obj

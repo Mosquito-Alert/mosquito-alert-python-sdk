@@ -5,11 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **str** |  | [readonly] 
-**observation_uuid** | **str** |  | 
+**observation** | [**SimplifiedObservation**](SimplifiedObservation.md) |  | [readonly] 
 **public_photo** | [**SimplePhoto**](SimplePhoto.md) |  | 
 **assignees_ids** | **List[int]** |  | [readonly] 
-**status** | **str** |  | [optional] 
+**status** | **str** |  | [optional] [default to 'open']
 **is_flagged** | **bool** |  | [readonly] 
 **is_safe** | **bool** | Indicates if the content is safe for publication. | [readonly] 
 **public_note** | **str** |  | [readonly] 

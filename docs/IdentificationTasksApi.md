@@ -5,15 +5,15 @@ All URIs are relative to *https://api.mosquitoalert.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**list**](IdentificationTasksApi.md#list) | **GET** /identification-tasks/ | 
-[**photos_list**](IdentificationTasksApi.md#photos_list) | **GET** /identification-tasks/{identification_task_uuid}/photos/ | 
-[**photos_retrieve**](IdentificationTasksApi.md#photos_retrieve) | **GET** /identification-tasks/{identification_task_uuid}/photos/{uuid}/ | 
-[**predictions_create**](IdentificationTasksApi.md#predictions_create) | **POST** /identification-tasks/{identification_task_uuid}/predictions/ | 
-[**predictions_destroy**](IdentificationTasksApi.md#predictions_destroy) | **DELETE** /identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/ | 
-[**predictions_list**](IdentificationTasksApi.md#predictions_list) | **GET** /identification-tasks/{identification_task_uuid}/predictions/ | 
-[**predictions_partial_update**](IdentificationTasksApi.md#predictions_partial_update) | **PATCH** /identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/ | 
-[**predictions_retrieve**](IdentificationTasksApi.md#predictions_retrieve) | **GET** /identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/ | 
-[**predictions_update**](IdentificationTasksApi.md#predictions_update) | **PUT** /identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/ | 
-[**retrieve**](IdentificationTasksApi.md#retrieve) | **GET** /identification-tasks/{uuid}/ | 
+[**photos_list**](IdentificationTasksApi.md#photos_list) | **GET** /identification-tasks/{observation_uuid}/photos/ | 
+[**photos_retrieve**](IdentificationTasksApi.md#photos_retrieve) | **GET** /identification-tasks/{observation_uuid}/photos/{uuid}/ | 
+[**predictions_create**](IdentificationTasksApi.md#predictions_create) | **POST** /identification-tasks/{observation_uuid}/predictions/ | 
+[**predictions_destroy**](IdentificationTasksApi.md#predictions_destroy) | **DELETE** /identification-tasks/{observation_uuid}/predictions/{photo_uuid}/ | 
+[**predictions_list**](IdentificationTasksApi.md#predictions_list) | **GET** /identification-tasks/{observation_uuid}/predictions/ | 
+[**predictions_partial_update**](IdentificationTasksApi.md#predictions_partial_update) | **PATCH** /identification-tasks/{observation_uuid}/predictions/{photo_uuid}/ | 
+[**predictions_retrieve**](IdentificationTasksApi.md#predictions_retrieve) | **GET** /identification-tasks/{observation_uuid}/predictions/{photo_uuid}/ | 
+[**predictions_update**](IdentificationTasksApi.md#predictions_update) | **PUT** /identification-tasks/{observation_uuid}/predictions/{photo_uuid}/ | 
+[**retrieve**](IdentificationTasksApi.md#retrieve) | **GET** /identification-tasks/{observation_uuid}/ | 
 
 
 # **list**
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **photos_list**
-> PaginatedSimplePhotoList photos_list(identification_task_uuid, page=page, page_size=page_size)
+> PaginatedSimplePhotoList photos_list(observation_uuid, page=page, page_size=page_size)
 
 ### Example
 
@@ -174,12 +174,12 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.photos_list(identification_task_uuid, page=page, page_size=page_size)
+        api_response = api_instance.photos_list(observation_uuid, page=page, page_size=page_size)
         print("The response of IdentificationTasksApi->photos_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -193,7 +193,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **photos_retrieve**
-> SimplePhoto photos_retrieve(identification_task_uuid, uuid)
+> SimplePhoto photos_retrieve(observation_uuid, uuid)
 
 ### Example
 
@@ -262,11 +262,11 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     uuid = 'uuid_example' # str | 
 
     try:
-        api_response = api_instance.photos_retrieve(identification_task_uuid, uuid)
+        api_response = api_instance.photos_retrieve(observation_uuid, uuid)
         print("The response of IdentificationTasksApi->photos_retrieve:\n")
         pprint(api_response)
     except Exception as e:
@@ -280,7 +280,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **uuid** | **str**|  | 
 
 ### Return type
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **predictions_create**
-> CreatePhotoPrediction predictions_create(identification_task_uuid, create_photo_prediction_request)
+> CreatePhotoPrediction predictions_create(observation_uuid, create_photo_prediction_request)
 
 ### Example
 
@@ -349,11 +349,11 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     create_photo_prediction_request = mosquito_alert.CreatePhotoPredictionRequest() # CreatePhotoPredictionRequest | 
 
     try:
-        api_response = api_instance.predictions_create(identification_task_uuid, create_photo_prediction_request)
+        api_response = api_instance.predictions_create(observation_uuid, create_photo_prediction_request)
         print("The response of IdentificationTasksApi->predictions_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -367,7 +367,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **create_photo_prediction_request** | [**CreatePhotoPredictionRequest**](CreatePhotoPredictionRequest.md)|  | 
 
 ### Return type
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **predictions_destroy**
-> predictions_destroy(identification_task_uuid, photo_uuid)
+> predictions_destroy(observation_uuid, photo_uuid)
 
 ### Example
 
@@ -435,11 +435,11 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     photo_uuid = 'photo_uuid_example' # str | 
 
     try:
-        api_instance.predictions_destroy(identification_task_uuid, photo_uuid)
+        api_instance.predictions_destroy(observation_uuid, photo_uuid)
     except Exception as e:
         print("Exception when calling IdentificationTasksApi->predictions_destroy: %s\n" % e)
 ```
@@ -451,7 +451,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **photo_uuid** | **str**|  | 
 
 ### Return type
@@ -479,7 +479,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **predictions_list**
-> PaginatedPhotoPredictionList predictions_list(identification_task_uuid, page=page, page_size=page_size)
+> PaginatedPhotoPredictionList predictions_list(observation_uuid, page=page, page_size=page_size)
 
 ### Example
 
@@ -519,12 +519,12 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.predictions_list(identification_task_uuid, page=page, page_size=page_size)
+        api_response = api_instance.predictions_list(observation_uuid, page=page, page_size=page_size)
         print("The response of IdentificationTasksApi->predictions_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -538,7 +538,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
 
@@ -567,7 +567,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **predictions_partial_update**
-> PhotoPrediction predictions_partial_update(identification_task_uuid, photo_uuid, patched_photo_prediction_request=patched_photo_prediction_request)
+> PhotoPrediction predictions_partial_update(observation_uuid, photo_uuid, patched_photo_prediction_request=patched_photo_prediction_request)
 
 ### Example
 
@@ -608,12 +608,12 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     photo_uuid = 'photo_uuid_example' # str | 
     patched_photo_prediction_request = mosquito_alert.PatchedPhotoPredictionRequest() # PatchedPhotoPredictionRequest |  (optional)
 
     try:
-        api_response = api_instance.predictions_partial_update(identification_task_uuid, photo_uuid, patched_photo_prediction_request=patched_photo_prediction_request)
+        api_response = api_instance.predictions_partial_update(observation_uuid, photo_uuid, patched_photo_prediction_request=patched_photo_prediction_request)
         print("The response of IdentificationTasksApi->predictions_partial_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -627,7 +627,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **photo_uuid** | **str**|  | 
  **patched_photo_prediction_request** | [**PatchedPhotoPredictionRequest**](PatchedPhotoPredictionRequest.md)|  | [optional] 
 
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **predictions_retrieve**
-> PhotoPrediction predictions_retrieve(identification_task_uuid, photo_uuid)
+> PhotoPrediction predictions_retrieve(observation_uuid, photo_uuid)
 
 ### Example
 
@@ -697,11 +697,11 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     photo_uuid = 'photo_uuid_example' # str | 
 
     try:
-        api_response = api_instance.predictions_retrieve(identification_task_uuid, photo_uuid)
+        api_response = api_instance.predictions_retrieve(observation_uuid, photo_uuid)
         print("The response of IdentificationTasksApi->predictions_retrieve:\n")
         pprint(api_response)
     except Exception as e:
@@ -715,7 +715,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **photo_uuid** | **str**|  | 
 
 ### Return type
@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **predictions_update**
-> PhotoPrediction predictions_update(identification_task_uuid, photo_uuid, photo_prediction_request)
+> PhotoPrediction predictions_update(observation_uuid, photo_uuid, photo_prediction_request)
 
 ### Example
 
@@ -784,12 +784,12 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    identification_task_uuid = 'identification_task_uuid_example' # str | UUID of the related Identification Task
+    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
     photo_uuid = 'photo_uuid_example' # str | 
     photo_prediction_request = mosquito_alert.PhotoPredictionRequest() # PhotoPredictionRequest | 
 
     try:
-        api_response = api_instance.predictions_update(identification_task_uuid, photo_uuid, photo_prediction_request)
+        api_response = api_instance.predictions_update(observation_uuid, photo_uuid, photo_prediction_request)
         print("The response of IdentificationTasksApi->predictions_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -803,7 +803,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identification_task_uuid** | **str**| UUID of the related Identification Task | 
+ **observation_uuid** | **str**| UUID of the Observation | 
  **photo_uuid** | **str**|  | 
  **photo_prediction_request** | [**PhotoPredictionRequest**](PhotoPredictionRequest.md)|  | 
 
@@ -833,7 +833,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve**
-> IdentificationTask retrieve(uuid)
+> IdentificationTask retrieve(observation_uuid)
 
 ### Example
 
@@ -873,10 +873,10 @@ configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    uuid = 'uuid_example' # str | 
+    observation_uuid = 'observation_uuid_example' # str | 
 
     try:
-        api_response = api_instance.retrieve(uuid)
+        api_response = api_instance.retrieve(observation_uuid)
         print("The response of IdentificationTasksApi->retrieve:\n")
         pprint(api_response)
     except Exception as e:
@@ -890,7 +890,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **observation_uuid** | **str**|  | 
 
 ### Return type
 

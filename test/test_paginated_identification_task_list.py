@@ -41,8 +41,7 @@ class TestPaginatedIdentificationTaskList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     mosquito_alert.models.identification_task.IdentificationTask(
-                        uuid = '', 
-                        observation_uuid = '', 
+                        observation = null, 
                         public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                             uuid = '', 
                             url = '', ), 

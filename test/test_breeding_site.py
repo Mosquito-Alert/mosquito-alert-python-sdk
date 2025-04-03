@@ -51,7 +51,7 @@ class TestBreedingSite(unittest.TestCase):
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
                     display_name = '', 
-                    country_id = 56, 
+                    country = null, 
                     adm_boundaries = [
                         mosquito_alert.models.adm_boundary.AdmBoundary(
                             name = '', 
@@ -92,7 +92,7 @@ class TestBreedingSite(unittest.TestCase):
                         longitude = 1.337, ), 
                     timezone = 'Africa/Abidjan', 
                     display_name = '', 
-                    country_id = 56, 
+                    country = null, 
                     adm_boundaries = [
                         mosquito_alert.models.adm_boundary.AdmBoundary(
                             name = '', 

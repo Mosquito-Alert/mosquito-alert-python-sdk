@@ -636,7 +636,7 @@ class IdentificationTasksApi:
     @validate_call
     def photos_list(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -655,8 +655,8 @@ class IdentificationTasksApi:
         """photos_list
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -684,7 +684,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._photos_list_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -713,7 +713,7 @@ class IdentificationTasksApi:
     @validate_call
     def photos_list_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -732,8 +732,8 @@ class IdentificationTasksApi:
         """photos_list
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -761,7 +761,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._photos_list_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -790,7 +790,7 @@ class IdentificationTasksApi:
     @validate_call
     def photos_list_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -809,8 +809,8 @@ class IdentificationTasksApi:
         """photos_list
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -838,7 +838,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._photos_list_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -862,7 +862,7 @@ class IdentificationTasksApi:
 
     def _photos_list_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         page,
         page_size,
         _request_auth,
@@ -886,8 +886,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         # process the query parameters
         if page is not None:
             
@@ -919,7 +919,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/identification-tasks/{identification_task_uuid}/photos/',
+            resource_path='/identification-tasks/{observation_uuid}/photos/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -938,7 +938,7 @@ class IdentificationTasksApi:
     @validate_call
     def photos_retrieve(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -956,8 +956,8 @@ class IdentificationTasksApi:
         """photos_retrieve
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param uuid: (required)
         :type uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -983,7 +983,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._photos_retrieve_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1011,7 +1011,7 @@ class IdentificationTasksApi:
     @validate_call
     def photos_retrieve_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -1029,8 +1029,8 @@ class IdentificationTasksApi:
         """photos_retrieve
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param uuid: (required)
         :type uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1056,7 +1056,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._photos_retrieve_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1084,7 +1084,7 @@ class IdentificationTasksApi:
     @validate_call
     def photos_retrieve_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -1102,8 +1102,8 @@ class IdentificationTasksApi:
         """photos_retrieve
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param uuid: (required)
         :type uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1129,7 +1129,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._photos_retrieve_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             uuid=uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1152,7 +1152,7 @@ class IdentificationTasksApi:
 
     def _photos_retrieve_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         uuid,
         _request_auth,
         _content_type,
@@ -1175,8 +1175,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         if uuid is not None:
             _path_params['uuid'] = uuid
         # process the query parameters
@@ -1202,7 +1202,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/identification-tasks/{identification_task_uuid}/photos/{uuid}/',
+            resource_path='/identification-tasks/{observation_uuid}/photos/{uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1221,7 +1221,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_create(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         create_photo_prediction_request: CreatePhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -1239,8 +1239,8 @@ class IdentificationTasksApi:
         """predictions_create
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param create_photo_prediction_request: (required)
         :type create_photo_prediction_request: CreatePhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1266,7 +1266,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_create_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             create_photo_prediction_request=create_photo_prediction_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1295,7 +1295,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_create_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         create_photo_prediction_request: CreatePhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -1313,8 +1313,8 @@ class IdentificationTasksApi:
         """predictions_create
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param create_photo_prediction_request: (required)
         :type create_photo_prediction_request: CreatePhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1340,7 +1340,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_create_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             create_photo_prediction_request=create_photo_prediction_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1369,7 +1369,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_create_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         create_photo_prediction_request: CreatePhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -1387,8 +1387,8 @@ class IdentificationTasksApi:
         """predictions_create
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param create_photo_prediction_request: (required)
         :type create_photo_prediction_request: CreatePhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1414,7 +1414,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_create_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             create_photo_prediction_request=create_photo_prediction_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1438,7 +1438,7 @@ class IdentificationTasksApi:
 
     def _predictions_create_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         create_photo_prediction_request,
         _request_auth,
         _content_type,
@@ -1461,8 +1461,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1503,7 +1503,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/identification-tasks/{identification_task_uuid}/predictions/',
+            resource_path='/identification-tasks/{observation_uuid}/predictions/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1522,7 +1522,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_destroy(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -1540,8 +1540,8 @@ class IdentificationTasksApi:
         """predictions_destroy
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1567,7 +1567,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_destroy_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1595,7 +1595,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_destroy_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -1613,8 +1613,8 @@ class IdentificationTasksApi:
         """predictions_destroy
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1640,7 +1640,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_destroy_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1668,7 +1668,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_destroy_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -1686,8 +1686,8 @@ class IdentificationTasksApi:
         """predictions_destroy
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1713,7 +1713,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_destroy_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1736,7 +1736,7 @@ class IdentificationTasksApi:
 
     def _predictions_destroy_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         photo_uuid,
         _request_auth,
         _content_type,
@@ -1759,8 +1759,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         if photo_uuid is not None:
             _path_params['photo_uuid'] = photo_uuid
         # process the query parameters
@@ -1786,7 +1786,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/',
+            resource_path='/identification-tasks/{observation_uuid}/predictions/{photo_uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1805,7 +1805,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_list(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -1824,8 +1824,8 @@ class IdentificationTasksApi:
         """predictions_list
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -1853,7 +1853,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_list_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -1882,7 +1882,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_list_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -1901,8 +1901,8 @@ class IdentificationTasksApi:
         """predictions_list
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -1930,7 +1930,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_list_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -1959,7 +1959,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_list_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -1978,8 +1978,8 @@ class IdentificationTasksApi:
         """predictions_list
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -2007,7 +2007,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_list_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -2031,7 +2031,7 @@ class IdentificationTasksApi:
 
     def _predictions_list_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         page,
         page_size,
         _request_auth,
@@ -2055,8 +2055,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         # process the query parameters
         if page is not None:
             
@@ -2088,7 +2088,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/identification-tasks/{identification_task_uuid}/predictions/',
+            resource_path='/identification-tasks/{observation_uuid}/predictions/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2107,7 +2107,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_partial_update(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
@@ -2126,8 +2126,8 @@ class IdentificationTasksApi:
         """predictions_partial_update
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param patched_photo_prediction_request:
@@ -2155,7 +2155,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_partial_update_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             patched_photo_prediction_request=patched_photo_prediction_request,
             _request_auth=_request_auth,
@@ -2185,7 +2185,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_partial_update_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
@@ -2204,8 +2204,8 @@ class IdentificationTasksApi:
         """predictions_partial_update
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param patched_photo_prediction_request:
@@ -2233,7 +2233,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_partial_update_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             patched_photo_prediction_request=patched_photo_prediction_request,
             _request_auth=_request_auth,
@@ -2263,7 +2263,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_partial_update_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
@@ -2282,8 +2282,8 @@ class IdentificationTasksApi:
         """predictions_partial_update
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param patched_photo_prediction_request:
@@ -2311,7 +2311,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_partial_update_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             patched_photo_prediction_request=patched_photo_prediction_request,
             _request_auth=_request_auth,
@@ -2336,7 +2336,7 @@ class IdentificationTasksApi:
 
     def _predictions_partial_update_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         photo_uuid,
         patched_photo_prediction_request,
         _request_auth,
@@ -2360,8 +2360,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         if photo_uuid is not None:
             _path_params['photo_uuid'] = photo_uuid
         # process the query parameters
@@ -2404,7 +2404,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='PATCH',
-            resource_path='/identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/',
+            resource_path='/identification-tasks/{observation_uuid}/predictions/{photo_uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2423,7 +2423,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_retrieve(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -2441,8 +2441,8 @@ class IdentificationTasksApi:
         """predictions_retrieve
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2468,7 +2468,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_retrieve_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2496,7 +2496,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_retrieve_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -2514,8 +2514,8 @@ class IdentificationTasksApi:
         """predictions_retrieve
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2541,7 +2541,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_retrieve_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2569,7 +2569,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_retrieve_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         _request_timeout: Union[
             None,
@@ -2587,8 +2587,8 @@ class IdentificationTasksApi:
         """predictions_retrieve
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2614,7 +2614,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_retrieve_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2637,7 +2637,7 @@ class IdentificationTasksApi:
 
     def _predictions_retrieve_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         photo_uuid,
         _request_auth,
         _content_type,
@@ -2660,8 +2660,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         if photo_uuid is not None:
             _path_params['photo_uuid'] = photo_uuid
         # process the query parameters
@@ -2687,7 +2687,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/',
+            resource_path='/identification-tasks/{observation_uuid}/predictions/{photo_uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2706,7 +2706,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_update(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
@@ -2725,8 +2725,8 @@ class IdentificationTasksApi:
         """predictions_update
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param photo_prediction_request: (required)
@@ -2754,7 +2754,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_update_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             photo_prediction_request=photo_prediction_request,
             _request_auth=_request_auth,
@@ -2784,7 +2784,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_update_with_http_info(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
@@ -2803,8 +2803,8 @@ class IdentificationTasksApi:
         """predictions_update
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param photo_prediction_request: (required)
@@ -2832,7 +2832,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_update_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             photo_prediction_request=photo_prediction_request,
             _request_auth=_request_auth,
@@ -2862,7 +2862,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_update_without_preload_content(
         self,
-        identification_task_uuid: Annotated[StrictStr, Field(description="UUID of the related Identification Task")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         photo_uuid: StrictStr,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
@@ -2881,8 +2881,8 @@ class IdentificationTasksApi:
         """predictions_update
 
 
-        :param identification_task_uuid: UUID of the related Identification Task (required)
-        :type identification_task_uuid: str
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
         :param photo_uuid: (required)
         :type photo_uuid: str
         :param photo_prediction_request: (required)
@@ -2910,7 +2910,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._predictions_update_serialize(
-            identification_task_uuid=identification_task_uuid,
+            observation_uuid=observation_uuid,
             photo_uuid=photo_uuid,
             photo_prediction_request=photo_prediction_request,
             _request_auth=_request_auth,
@@ -2935,7 +2935,7 @@ class IdentificationTasksApi:
 
     def _predictions_update_serialize(
         self,
-        identification_task_uuid,
+        observation_uuid,
         photo_uuid,
         photo_prediction_request,
         _request_auth,
@@ -2959,8 +2959,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if identification_task_uuid is not None:
-            _path_params['identification_task_uuid'] = identification_task_uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         if photo_uuid is not None:
             _path_params['photo_uuid'] = photo_uuid
         # process the query parameters
@@ -3003,7 +3003,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/identification-tasks/{identification_task_uuid}/predictions/{photo_uuid}/',
+            resource_path='/identification-tasks/{observation_uuid}/predictions/{photo_uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3022,7 +3022,7 @@ class IdentificationTasksApi:
     @validate_call
     def retrieve(
         self,
-        uuid: StrictStr,
+        observation_uuid: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3039,8 +3039,8 @@ class IdentificationTasksApi:
         """retrieve
 
 
-        :param uuid: (required)
-        :type uuid: str
+        :param observation_uuid: (required)
+        :type observation_uuid: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3064,7 +3064,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._retrieve_serialize(
-            uuid=uuid,
+            observation_uuid=observation_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3091,7 +3091,7 @@ class IdentificationTasksApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        uuid: StrictStr,
+        observation_uuid: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3108,8 +3108,8 @@ class IdentificationTasksApi:
         """retrieve
 
 
-        :param uuid: (required)
-        :type uuid: str
+        :param observation_uuid: (required)
+        :type observation_uuid: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3133,7 +3133,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._retrieve_serialize(
-            uuid=uuid,
+            observation_uuid=observation_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3160,7 +3160,7 @@ class IdentificationTasksApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        uuid: StrictStr,
+        observation_uuid: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3177,8 +3177,8 @@ class IdentificationTasksApi:
         """retrieve
 
 
-        :param uuid: (required)
-        :type uuid: str
+        :param observation_uuid: (required)
+        :type observation_uuid: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3202,7 +3202,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._retrieve_serialize(
-            uuid=uuid,
+            observation_uuid=observation_uuid,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3224,7 +3224,7 @@ class IdentificationTasksApi:
 
     def _retrieve_serialize(
         self,
-        uuid,
+        observation_uuid,
         _request_auth,
         _content_type,
         _headers,
@@ -3246,8 +3246,8 @@ class IdentificationTasksApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if uuid is not None:
-            _path_params['uuid'] = uuid
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3271,7 +3271,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/identification-tasks/{uuid}/',
+            resource_path='/identification-tasks/{observation_uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **point** | [**LocationPoint**](LocationPoint.md) |  | 
 **timezone** | **str** |  | [readonly] 
 **display_name** | **str** |  | [readonly] 
-**country_id** | **int** |  | [readonly] 
+**country** | [**Country**](Country.md) |  | [readonly] 
 **adm_boundaries** | [**List[AdmBoundary]**](AdmBoundary.md) |  | [readonly] 
 
 ## Example
