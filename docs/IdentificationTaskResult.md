@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source** | **str** |  | 
-**taxon** | [**Taxon**](Taxon.md) |  | [readonly] 
-**is_confirmed** | **bool** |  | [readonly] 
+**taxon** | [**SimpleTaxon**](SimpleTaxon.md) |  | [readonly] 
+**is_high_confidence** | **bool** |  | [readonly] 
 **confidence** | **float** |  | [readonly] 
 **confidence_label** | **str** |  | [readonly] 
 **uncertainty** | **float** |  | [readonly] 

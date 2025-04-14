@@ -7,14 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **observation** | [**SimplifiedObservation**](SimplifiedObservation.md) |  | [readonly] 
 **public_photo** | [**SimplePhoto**](SimplePhoto.md) |  | 
-**assignees_ids** | **List[int]** |  | [readonly] 
+**annotators** | [**List[SimpleAnnotatorUser]**](SimpleAnnotatorUser.md) |  | [readonly] 
 **status** | **str** |  | [optional] [default to 'open']
 **is_flagged** | **bool** |  | [readonly] 
 **is_safe** | **bool** | Indicates if the content is safe for publication. | [readonly] 
 **public_note** | **str** |  | [readonly] 
-**num_assignations** | **int** |  | [readonly] 
 **num_annotations** | **int** |  | [readonly] 
-**revision** | [**IdentificationTaskRevision**](IdentificationTaskRevision.md) |  | [readonly] 
+**review** | [**IdentificationTaskReview**](IdentificationTaskReview.md) |  | [readonly] 
 **result** | [**IdentificationTaskResult**](IdentificationTaskResult.md) |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [readonly] 

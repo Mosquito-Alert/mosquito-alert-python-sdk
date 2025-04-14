@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -28,16 +28,19 @@ class Taxon(BaseModel):
     """
     Taxon
     """ # noqa: E501
+    id: StrictInt
     name: Annotated[str, Field(strict=True, max_length=32)]
     common_name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = None
     rank: StrictStr
-    __properties: ClassVar[List[str]] = ["name", "common_name", "rank"]
+    italicize: StrictBool = Field(description="Display the name in italics when rendering.")
+    is_relevant: StrictBool = Field(description="Indicates if this taxon is relevant for the application. Will be shown first and will set task to conflict if final taxon is not this.")
+    __properties: ClassVar[List[str]] = ["id", "name", "common_name", "rank", "italicize", "is_relevant"]
 
     @field_validator('rank')
     def rank_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Class', 'Orden', 'Family', 'Genus', 'Subgenus', 'Species complex', 'Species']):
-            raise ValueError("must be one of enum values ('Class', 'Orden', 'Family', 'Genus', 'Subgenus', 'Species complex', 'Species')")
+        if value not in set(['class', 'order', 'family', 'genus', 'subgenus', 'species_complex', 'species']):
+            raise ValueError("must be one of enum values ('class', 'order', 'family', 'genus', 'subgenus', 'species_complex', 'species')")
         return value
 
     model_config = ConfigDict(
@@ -70,8 +73,12 @@ class Taxon(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "id",
+            "italicize",
         ])
 
         _dict = self.model_dump(
@@ -96,9 +103,12 @@ class Taxon(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "name": obj.get("name"),
             "common_name": obj.get("common_name"),
-            "rank": obj.get("rank")
+            "rank": obj.get("rank"),
+            "italicize": obj.get("italicize"),
+            "is_relevant": obj.get("is_relevant")
         })
         return _obj
 

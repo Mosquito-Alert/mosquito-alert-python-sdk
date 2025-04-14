@@ -36,13 +36,13 @@ class TestObservationsListError(unittest.TestCase):
         model = ObservationsListError()
         if include_optional:
             return ObservationsListError(
-                attr = 'order_by',
+                attr = 'identification_taxon',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
             return ObservationsListError(
-                attr = 'order_by',
+                attr = 'identification_taxon',
                 code = 'invalid_choice',
                 detail = '',
         )

@@ -18,12 +18,15 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from datetime import datetime
-from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import List, Optional
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from typing import List, Optional, Union
 from typing_extensions import Annotated
+from mosquito_alert.models.annotation import Annotation
+from mosquito_alert.models.annotation_request import AnnotationRequest
 from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction
 from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest
 from mosquito_alert.models.identification_task import IdentificationTask
+from mosquito_alert.models.paginated_annotation_list import PaginatedAnnotationList
 from mosquito_alert.models.paginated_identification_task_list import PaginatedIdentificationTaskList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList
 from mosquito_alert.models.paginated_simple_photo_list import PaginatedSimplePhotoList
@@ -51,9 +54,1728 @@ class IdentificationTasksApi:
 
 
     @validate_call
+    def annotations_create(
+        self,
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        annotation_request: AnnotationRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> Annotation:
+        """annotations_create
+
+
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param annotation_request: (required)
+        :type annotation_request: AnnotationRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_create_serialize(
+            observation_uuid=observation_uuid,
+            annotation_request=annotation_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsCreateValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '201': "Annotation",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def annotations_create_with_http_info(
+        self,
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        annotation_request: AnnotationRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[Annotation]:
+        """annotations_create
+
+
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param annotation_request: (required)
+        :type annotation_request: AnnotationRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_create_serialize(
+            observation_uuid=observation_uuid,
+            annotation_request=annotation_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsCreateValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '201': "Annotation",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def annotations_create_without_preload_content(
+        self,
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        annotation_request: AnnotationRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """annotations_create
+
+
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param annotation_request: (required)
+        :type annotation_request: AnnotationRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_create_serialize(
+            observation_uuid=observation_uuid,
+            annotation_request=annotation_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsCreateValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '201': "Annotation",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _annotations_create_serialize(
+        self,
+        observation_uuid,
+        annotation_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if annotation_request is not None:
+            _body_params = annotation_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json', 
+                        'application/x-www-form-urlencoded', 
+                        'multipart/form-data'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'tokenAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/identification-tasks/{observation_uuid}/annotations/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def annotations_list(
+        self,
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        classification_confidence_label: Optional[StrictStr] = None,
+        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_taxon_ids: Optional[List[StrictInt]] = None,
+        is_decisive: Optional[StrictBool] = None,
+        is_flagged: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        user_ids: Optional[List[StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PaginatedAnnotationList:
+        """annotations_list
+
+
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param classification_confidence_label:
+        :type classification_confidence_label: str
+        :param classification_confidence_max:
+        :type classification_confidence_max: float
+        :param classification_confidence_min:
+        :type classification_confidence_min: float
+        :param classification_taxon_ids:
+        :type classification_taxon_ids: List[int]
+        :param is_decisive:
+        :type is_decisive: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param user_ids:
+        :type user_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_list_serialize(
+            observation_uuid=observation_uuid,
+            classification_confidence_label=classification_confidence_label,
+            classification_confidence_max=classification_confidence_max,
+            classification_confidence_min=classification_confidence_min,
+            classification_taxon_ids=classification_taxon_ids,
+            is_decisive=is_decisive,
+            is_flagged=is_flagged,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            user_ids=user_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsListValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedAnnotationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def annotations_list_with_http_info(
+        self,
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        classification_confidence_label: Optional[StrictStr] = None,
+        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_taxon_ids: Optional[List[StrictInt]] = None,
+        is_decisive: Optional[StrictBool] = None,
+        is_flagged: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        user_ids: Optional[List[StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PaginatedAnnotationList]:
+        """annotations_list
+
+
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param classification_confidence_label:
+        :type classification_confidence_label: str
+        :param classification_confidence_max:
+        :type classification_confidence_max: float
+        :param classification_confidence_min:
+        :type classification_confidence_min: float
+        :param classification_taxon_ids:
+        :type classification_taxon_ids: List[int]
+        :param is_decisive:
+        :type is_decisive: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param user_ids:
+        :type user_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_list_serialize(
+            observation_uuid=observation_uuid,
+            classification_confidence_label=classification_confidence_label,
+            classification_confidence_max=classification_confidence_max,
+            classification_confidence_min=classification_confidence_min,
+            classification_taxon_ids=classification_taxon_ids,
+            is_decisive=is_decisive,
+            is_flagged=is_flagged,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            user_ids=user_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsListValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedAnnotationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def annotations_list_without_preload_content(
+        self,
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        classification_confidence_label: Optional[StrictStr] = None,
+        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_taxon_ids: Optional[List[StrictInt]] = None,
+        is_decisive: Optional[StrictBool] = None,
+        is_flagged: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        user_ids: Optional[List[StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """annotations_list
+
+
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param classification_confidence_label:
+        :type classification_confidence_label: str
+        :param classification_confidence_max:
+        :type classification_confidence_max: float
+        :param classification_confidence_min:
+        :type classification_confidence_min: float
+        :param classification_taxon_ids:
+        :type classification_taxon_ids: List[int]
+        :param is_decisive:
+        :type is_decisive: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param user_ids:
+        :type user_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_list_serialize(
+            observation_uuid=observation_uuid,
+            classification_confidence_label=classification_confidence_label,
+            classification_confidence_max=classification_confidence_max,
+            classification_confidence_min=classification_confidence_min,
+            classification_taxon_ids=classification_taxon_ids,
+            is_decisive=is_decisive,
+            is_flagged=is_flagged,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            user_ids=user_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsListValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedAnnotationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _annotations_list_serialize(
+        self,
+        observation_uuid,
+        classification_confidence_label,
+        classification_confidence_max,
+        classification_confidence_min,
+        classification_taxon_ids,
+        is_decisive,
+        is_flagged,
+        order_by,
+        page,
+        page_size,
+        user_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'classification_taxon_ids': 'multi',
+            'order_by': 'csv',
+            'user_ids': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
+        # process the query parameters
+        if classification_confidence_label is not None:
+            
+            _query_params.append(('classification_confidence_label', classification_confidence_label))
+            
+        if classification_confidence_max is not None:
+            
+            _query_params.append(('classification_confidence_max', classification_confidence_max))
+            
+        if classification_confidence_min is not None:
+            
+            _query_params.append(('classification_confidence_min', classification_confidence_min))
+            
+        if classification_taxon_ids is not None:
+            
+            _query_params.append(('classification_taxon_ids', classification_taxon_ids))
+            
+        if is_decisive is not None:
+            
+            _query_params.append(('is_decisive', is_decisive))
+            
+        if is_flagged is not None:
+            
+            _query_params.append(('is_flagged', is_flagged))
+            
+        if order_by is not None:
+            
+            _query_params.append(('order_by', order_by))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        if user_ids is not None:
+            
+            _query_params.append(('user_ids', user_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'tokenAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/identification-tasks/{observation_uuid}/annotations/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def annotations_list_mine(
+        self,
+        classification_confidence_label: Optional[StrictStr] = None,
+        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_taxon_ids: Optional[List[StrictInt]] = None,
+        is_decisive: Optional[StrictBool] = None,
+        is_flagged: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        user_ids: Optional[List[StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PaginatedAnnotationList:
+        """annotations_list_mine
+
+        Get my annotations
+
+        :param classification_confidence_label:
+        :type classification_confidence_label: str
+        :param classification_confidence_max:
+        :type classification_confidence_max: float
+        :param classification_confidence_min:
+        :type classification_confidence_min: float
+        :param classification_taxon_ids:
+        :type classification_taxon_ids: List[int]
+        :param is_decisive:
+        :type is_decisive: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param user_ids:
+        :type user_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_list_mine_serialize(
+            classification_confidence_label=classification_confidence_label,
+            classification_confidence_max=classification_confidence_max,
+            classification_confidence_min=classification_confidence_min,
+            classification_taxon_ids=classification_taxon_ids,
+            is_decisive=is_decisive,
+            is_flagged=is_flagged,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            user_ids=user_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedAnnotationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def annotations_list_mine_with_http_info(
+        self,
+        classification_confidence_label: Optional[StrictStr] = None,
+        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_taxon_ids: Optional[List[StrictInt]] = None,
+        is_decisive: Optional[StrictBool] = None,
+        is_flagged: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        user_ids: Optional[List[StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PaginatedAnnotationList]:
+        """annotations_list_mine
+
+        Get my annotations
+
+        :param classification_confidence_label:
+        :type classification_confidence_label: str
+        :param classification_confidence_max:
+        :type classification_confidence_max: float
+        :param classification_confidence_min:
+        :type classification_confidence_min: float
+        :param classification_taxon_ids:
+        :type classification_taxon_ids: List[int]
+        :param is_decisive:
+        :type is_decisive: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param user_ids:
+        :type user_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_list_mine_serialize(
+            classification_confidence_label=classification_confidence_label,
+            classification_confidence_max=classification_confidence_max,
+            classification_confidence_min=classification_confidence_min,
+            classification_taxon_ids=classification_taxon_ids,
+            is_decisive=is_decisive,
+            is_flagged=is_flagged,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            user_ids=user_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedAnnotationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def annotations_list_mine_without_preload_content(
+        self,
+        classification_confidence_label: Optional[StrictStr] = None,
+        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_taxon_ids: Optional[List[StrictInt]] = None,
+        is_decisive: Optional[StrictBool] = None,
+        is_flagged: Optional[StrictBool] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        user_ids: Optional[List[StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """annotations_list_mine
+
+        Get my annotations
+
+        :param classification_confidence_label:
+        :type classification_confidence_label: str
+        :param classification_confidence_max:
+        :type classification_confidence_max: float
+        :param classification_confidence_min:
+        :type classification_confidence_min: float
+        :param classification_taxon_ids:
+        :type classification_taxon_ids: List[int]
+        :param is_decisive:
+        :type is_decisive: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param user_ids:
+        :type user_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_list_mine_serialize(
+            classification_confidence_label=classification_confidence_label,
+            classification_confidence_max=classification_confidence_max,
+            classification_confidence_min=classification_confidence_min,
+            classification_taxon_ids=classification_taxon_ids,
+            is_decisive=is_decisive,
+            is_flagged=is_flagged,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            user_ids=user_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksAnnotationsListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedAnnotationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _annotations_list_mine_serialize(
+        self,
+        classification_confidence_label,
+        classification_confidence_max,
+        classification_confidence_min,
+        classification_taxon_ids,
+        is_decisive,
+        is_flagged,
+        order_by,
+        page,
+        page_size,
+        user_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'classification_taxon_ids': 'multi',
+            'order_by': 'csv',
+            'user_ids': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if classification_confidence_label is not None:
+            
+            _query_params.append(('classification_confidence_label', classification_confidence_label))
+            
+        if classification_confidence_max is not None:
+            
+            _query_params.append(('classification_confidence_max', classification_confidence_max))
+            
+        if classification_confidence_min is not None:
+            
+            _query_params.append(('classification_confidence_min', classification_confidence_min))
+            
+        if classification_taxon_ids is not None:
+            
+            _query_params.append(('classification_taxon_ids', classification_taxon_ids))
+            
+        if is_decisive is not None:
+            
+            _query_params.append(('is_decisive', is_decisive))
+            
+        if is_flagged is not None:
+            
+            _query_params.append(('is_flagged', is_flagged))
+            
+        if order_by is not None:
+            
+            _query_params.append(('order_by', order_by))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        if user_ids is not None:
+            
+            _query_params.append(('user_ids', user_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'tokenAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/me/identification-tasks/annotations/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def annotations_retrieve(
+        self,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> Annotation:
+        """annotations_retrieve
+
+
+        :param id: A unique integer value identifying this expert report annotation. (required)
+        :type id: int
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_retrieve_serialize(
+            id=id,
+            observation_uuid=observation_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "Annotation",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def annotations_retrieve_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[Annotation]:
+        """annotations_retrieve
+
+
+        :param id: A unique integer value identifying this expert report annotation. (required)
+        :type id: int
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_retrieve_serialize(
+            id=id,
+            observation_uuid=observation_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "Annotation",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def annotations_retrieve_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
+        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """annotations_retrieve
+
+
+        :param id: A unique integer value identifying this expert report annotation. (required)
+        :type id: int
+        :param observation_uuid: UUID of the Observation (required)
+        :type observation_uuid: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._annotations_retrieve_serialize(
+            id=id,
+            observation_uuid=observation_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "Annotation",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _annotations_retrieve_serialize(
+        self,
+        id,
+        observation_uuid,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'tokenAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/identification-tasks/{observation_uuid}/annotations/{id}/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def backlog_next_retrieve(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> IdentificationTask:
+        """backlog_next_retrieve
+
+        Retrieve the next identification task from the backlog.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._backlog_next_retrieve_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "IdentificationTask",
+            '204': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def backlog_next_retrieve_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[IdentificationTask]:
+        """backlog_next_retrieve
+
+        Retrieve the next identification task from the backlog.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._backlog_next_retrieve_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "IdentificationTask",
+            '204': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def backlog_next_retrieve_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """backlog_next_retrieve
+
+        Retrieve the next identification task from the backlog.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._backlog_next_retrieve_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "IdentificationTask",
+            '204': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _backlog_next_retrieve_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'tokenAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/identification-tasks/backlog/next/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def list(
         self,
-        assignees: Optional[List[StrictInt]] = None,
+        annotator_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -63,11 +1785,19 @@ class IdentificationTasksApi:
         num_annotations_min: Optional[StrictInt] = None,
         num_assignations_max: Optional[StrictInt] = None,
         num_assignations_min: Optional[StrictInt] = None,
+        observation_country: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        revision_type: Optional[StrictStr] = None,
-        status: Optional[StrictStr] = None,
+        result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_taxon: Optional[List[StrictInt]] = None,
+        result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        review_type: Optional[StrictStr] = None,
+        status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         _request_timeout: Union[
@@ -86,8 +1816,8 @@ class IdentificationTasksApi:
         """list
 
 
-        :param assignees:
-        :type assignees: List[int]
+        :param annotator_ids:
+        :type annotator_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -106,16 +1836,32 @@ class IdentificationTasksApi:
         :type num_assignations_max: int
         :param num_assignations_min:
         :type num_assignations_min: int
+        :param observation_country:
+        :type observation_country: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
-        :param revision_type:
-        :type revision_type: str
+        :param result_agreement_max:
+        :type result_agreement_max: float
+        :param result_agreement_min:
+        :type result_agreement_min: float
+        :param result_confidence_max:
+        :type result_confidence_max: float
+        :param result_confidence_min:
+        :type result_confidence_min: float
+        :param result_taxon:
+        :type result_taxon: List[int]
+        :param result_uncertainty_max:
+        :type result_uncertainty_max: float
+        :param result_uncertainty_min:
+        :type result_uncertainty_min: float
+        :param review_type:
+        :type review_type: str
         :param status:
-        :type status: str
+        :type status: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -143,7 +1889,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._list_serialize(
-            assignees=assignees,
+            annotator_ids=annotator_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -153,10 +1899,18 @@ class IdentificationTasksApi:
             num_annotations_min=num_annotations_min,
             num_assignations_max=num_assignations_max,
             num_assignations_min=num_assignations_min,
+            observation_country=observation_country,
             order_by=order_by,
             page=page,
             page_size=page_size,
-            revision_type=revision_type,
+            result_agreement_max=result_agreement_max,
+            result_agreement_min=result_agreement_min,
+            result_confidence_max=result_confidence_max,
+            result_confidence_min=result_confidence_min,
+            result_taxon=result_taxon,
+            result_uncertainty_max=result_uncertainty_max,
+            result_uncertainty_min=result_uncertainty_min,
+            review_type=review_type,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -187,7 +1941,7 @@ class IdentificationTasksApi:
     @validate_call
     def list_with_http_info(
         self,
-        assignees: Optional[List[StrictInt]] = None,
+        annotator_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -197,11 +1951,19 @@ class IdentificationTasksApi:
         num_annotations_min: Optional[StrictInt] = None,
         num_assignations_max: Optional[StrictInt] = None,
         num_assignations_min: Optional[StrictInt] = None,
+        observation_country: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        revision_type: Optional[StrictStr] = None,
-        status: Optional[StrictStr] = None,
+        result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_taxon: Optional[List[StrictInt]] = None,
+        result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        review_type: Optional[StrictStr] = None,
+        status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         _request_timeout: Union[
@@ -220,8 +1982,8 @@ class IdentificationTasksApi:
         """list
 
 
-        :param assignees:
-        :type assignees: List[int]
+        :param annotator_ids:
+        :type annotator_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -240,16 +2002,32 @@ class IdentificationTasksApi:
         :type num_assignations_max: int
         :param num_assignations_min:
         :type num_assignations_min: int
+        :param observation_country:
+        :type observation_country: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
-        :param revision_type:
-        :type revision_type: str
+        :param result_agreement_max:
+        :type result_agreement_max: float
+        :param result_agreement_min:
+        :type result_agreement_min: float
+        :param result_confidence_max:
+        :type result_confidence_max: float
+        :param result_confidence_min:
+        :type result_confidence_min: float
+        :param result_taxon:
+        :type result_taxon: List[int]
+        :param result_uncertainty_max:
+        :type result_uncertainty_max: float
+        :param result_uncertainty_min:
+        :type result_uncertainty_min: float
+        :param review_type:
+        :type review_type: str
         :param status:
-        :type status: str
+        :type status: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -277,7 +2055,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._list_serialize(
-            assignees=assignees,
+            annotator_ids=annotator_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -287,10 +2065,18 @@ class IdentificationTasksApi:
             num_annotations_min=num_annotations_min,
             num_assignations_max=num_assignations_max,
             num_assignations_min=num_assignations_min,
+            observation_country=observation_country,
             order_by=order_by,
             page=page,
             page_size=page_size,
-            revision_type=revision_type,
+            result_agreement_max=result_agreement_max,
+            result_agreement_min=result_agreement_min,
+            result_confidence_max=result_confidence_max,
+            result_confidence_min=result_confidence_min,
+            result_taxon=result_taxon,
+            result_uncertainty_max=result_uncertainty_max,
+            result_uncertainty_min=result_uncertainty_min,
+            review_type=review_type,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -321,7 +2107,7 @@ class IdentificationTasksApi:
     @validate_call
     def list_without_preload_content(
         self,
-        assignees: Optional[List[StrictInt]] = None,
+        annotator_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -331,11 +2117,19 @@ class IdentificationTasksApi:
         num_annotations_min: Optional[StrictInt] = None,
         num_assignations_max: Optional[StrictInt] = None,
         num_assignations_min: Optional[StrictInt] = None,
+        observation_country: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        revision_type: Optional[StrictStr] = None,
-        status: Optional[StrictStr] = None,
+        result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_taxon: Optional[List[StrictInt]] = None,
+        result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        review_type: Optional[StrictStr] = None,
+        status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         _request_timeout: Union[
@@ -354,8 +2148,8 @@ class IdentificationTasksApi:
         """list
 
 
-        :param assignees:
-        :type assignees: List[int]
+        :param annotator_ids:
+        :type annotator_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -374,16 +2168,32 @@ class IdentificationTasksApi:
         :type num_assignations_max: int
         :param num_assignations_min:
         :type num_assignations_min: int
+        :param observation_country:
+        :type observation_country: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
-        :param revision_type:
-        :type revision_type: str
+        :param result_agreement_max:
+        :type result_agreement_max: float
+        :param result_agreement_min:
+        :type result_agreement_min: float
+        :param result_confidence_max:
+        :type result_confidence_max: float
+        :param result_confidence_min:
+        :type result_confidence_min: float
+        :param result_taxon:
+        :type result_taxon: List[int]
+        :param result_uncertainty_max:
+        :type result_uncertainty_max: float
+        :param result_uncertainty_min:
+        :type result_uncertainty_min: float
+        :param review_type:
+        :type review_type: str
         :param status:
-        :type status: str
+        :type status: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -411,7 +2221,7 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._list_serialize(
-            assignees=assignees,
+            annotator_ids=annotator_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -421,10 +2231,18 @@ class IdentificationTasksApi:
             num_annotations_min=num_annotations_min,
             num_assignations_max=num_assignations_max,
             num_assignations_min=num_assignations_min,
+            observation_country=observation_country,
             order_by=order_by,
             page=page,
             page_size=page_size,
-            revision_type=revision_type,
+            result_agreement_max=result_agreement_max,
+            result_agreement_min=result_agreement_min,
+            result_confidence_max=result_confidence_max,
+            result_confidence_min=result_confidence_min,
+            result_taxon=result_taxon,
+            result_uncertainty_max=result_uncertainty_max,
+            result_uncertainty_min=result_uncertainty_min,
+            review_type=review_type,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -450,7 +2268,7 @@ class IdentificationTasksApi:
 
     def _list_serialize(
         self,
-        assignees,
+        annotator_ids,
         created_at_after,
         created_at_before,
         fully_predicted,
@@ -460,10 +2278,18 @@ class IdentificationTasksApi:
         num_annotations_min,
         num_assignations_max,
         num_assignations_min,
+        observation_country,
         order_by,
         page,
         page_size,
-        revision_type,
+        result_agreement_max,
+        result_agreement_min,
+        result_confidence_max,
+        result_confidence_min,
+        result_taxon,
+        result_uncertainty_max,
+        result_uncertainty_min,
+        review_type,
         status,
         updated_at_after,
         updated_at_before,
@@ -476,8 +2302,11 @@ class IdentificationTasksApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'assignees': 'multi',
+            'annotator_ids': 'multi',
+            'observation_country': 'multi',
             'order_by': 'csv',
+            'result_taxon': 'multi',
+            'status': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -491,9 +2320,9 @@ class IdentificationTasksApi:
 
         # process the path parameters
         # process the query parameters
-        if assignees is not None:
+        if annotator_ids is not None:
             
-            _query_params.append(('assignees', assignees))
+            _query_params.append(('annotator_ids', annotator_ids))
             
         if created_at_after is not None:
             if isinstance(created_at_after, datetime):
@@ -549,6 +2378,10 @@ class IdentificationTasksApi:
             
             _query_params.append(('num_assignations_min', num_assignations_min))
             
+        if observation_country is not None:
+            
+            _query_params.append(('observation_country', observation_country))
+            
         if order_by is not None:
             
             _query_params.append(('order_by', order_by))
@@ -561,9 +2394,37 @@ class IdentificationTasksApi:
             
             _query_params.append(('page_size', page_size))
             
-        if revision_type is not None:
+        if result_agreement_max is not None:
             
-            _query_params.append(('revision_type', revision_type))
+            _query_params.append(('result_agreement_max', result_agreement_max))
+            
+        if result_agreement_min is not None:
+            
+            _query_params.append(('result_agreement_min', result_agreement_min))
+            
+        if result_confidence_max is not None:
+            
+            _query_params.append(('result_confidence_max', result_confidence_max))
+            
+        if result_confidence_min is not None:
+            
+            _query_params.append(('result_confidence_min', result_confidence_min))
+            
+        if result_taxon is not None:
+            
+            _query_params.append(('result_taxon', result_taxon))
+            
+        if result_uncertainty_max is not None:
+            
+            _query_params.append(('result_uncertainty_max', result_uncertainty_max))
+            
+        if result_uncertainty_min is not None:
+            
+            _query_params.append(('result_uncertainty_min', result_uncertainty_min))
+            
+        if review_type is not None:
+            
+            _query_params.append(('review_type', review_type))
             
         if status is not None:
             
@@ -618,6 +2479,731 @@ class IdentificationTasksApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/identification-tasks/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def list_mine(
+        self,
+        annotator_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
+        is_flagged: Optional[StrictBool] = None,
+        is_safe: Optional[StrictBool] = None,
+        num_annotations_max: Optional[StrictInt] = None,
+        num_annotations_min: Optional[StrictInt] = None,
+        num_assignations_max: Optional[StrictInt] = None,
+        num_assignations_min: Optional[StrictInt] = None,
+        observation_country: Optional[List[StrictInt]] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_taxon: Optional[List[StrictInt]] = None,
+        result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        review_type: Optional[StrictStr] = None,
+        status: Optional[List[StrictStr]] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PaginatedIdentificationTaskList:
+        """list_mine
+
+        Get identification tasks annotated by me
+
+        :param annotator_ids:
+        :type annotator_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param fully_predicted: Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.
+        :type fully_predicted: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param is_safe:
+        :type is_safe: bool
+        :param num_annotations_max:
+        :type num_annotations_max: int
+        :param num_annotations_min:
+        :type num_annotations_min: int
+        :param num_assignations_max:
+        :type num_assignations_max: int
+        :param num_assignations_min:
+        :type num_assignations_min: int
+        :param observation_country:
+        :type observation_country: List[int]
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param result_agreement_max:
+        :type result_agreement_max: float
+        :param result_agreement_min:
+        :type result_agreement_min: float
+        :param result_confidence_max:
+        :type result_confidence_max: float
+        :param result_confidence_min:
+        :type result_confidence_min: float
+        :param result_taxon:
+        :type result_taxon: List[int]
+        :param result_uncertainty_max:
+        :type result_uncertainty_max: float
+        :param result_uncertainty_min:
+        :type result_uncertainty_min: float
+        :param review_type:
+        :type review_type: str
+        :param status:
+        :type status: List[str]
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            annotator_ids=annotator_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            fully_predicted=fully_predicted,
+            is_flagged=is_flagged,
+            is_safe=is_safe,
+            num_annotations_max=num_annotations_max,
+            num_annotations_min=num_annotations_min,
+            num_assignations_max=num_assignations_max,
+            num_assignations_min=num_assignations_min,
+            observation_country=observation_country,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            result_agreement_max=result_agreement_max,
+            result_agreement_min=result_agreement_min,
+            result_confidence_max=result_confidence_max,
+            result_confidence_min=result_confidence_min,
+            result_taxon=result_taxon,
+            result_uncertainty_max=result_uncertainty_max,
+            result_uncertainty_min=result_uncertainty_min,
+            review_type=review_type,
+            status=status,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedIdentificationTaskList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_mine_with_http_info(
+        self,
+        annotator_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
+        is_flagged: Optional[StrictBool] = None,
+        is_safe: Optional[StrictBool] = None,
+        num_annotations_max: Optional[StrictInt] = None,
+        num_annotations_min: Optional[StrictInt] = None,
+        num_assignations_max: Optional[StrictInt] = None,
+        num_assignations_min: Optional[StrictInt] = None,
+        observation_country: Optional[List[StrictInt]] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_taxon: Optional[List[StrictInt]] = None,
+        result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        review_type: Optional[StrictStr] = None,
+        status: Optional[List[StrictStr]] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PaginatedIdentificationTaskList]:
+        """list_mine
+
+        Get identification tasks annotated by me
+
+        :param annotator_ids:
+        :type annotator_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param fully_predicted: Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.
+        :type fully_predicted: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param is_safe:
+        :type is_safe: bool
+        :param num_annotations_max:
+        :type num_annotations_max: int
+        :param num_annotations_min:
+        :type num_annotations_min: int
+        :param num_assignations_max:
+        :type num_assignations_max: int
+        :param num_assignations_min:
+        :type num_assignations_min: int
+        :param observation_country:
+        :type observation_country: List[int]
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param result_agreement_max:
+        :type result_agreement_max: float
+        :param result_agreement_min:
+        :type result_agreement_min: float
+        :param result_confidence_max:
+        :type result_confidence_max: float
+        :param result_confidence_min:
+        :type result_confidence_min: float
+        :param result_taxon:
+        :type result_taxon: List[int]
+        :param result_uncertainty_max:
+        :type result_uncertainty_max: float
+        :param result_uncertainty_min:
+        :type result_uncertainty_min: float
+        :param review_type:
+        :type review_type: str
+        :param status:
+        :type status: List[str]
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            annotator_ids=annotator_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            fully_predicted=fully_predicted,
+            is_flagged=is_flagged,
+            is_safe=is_safe,
+            num_annotations_max=num_annotations_max,
+            num_annotations_min=num_annotations_min,
+            num_assignations_max=num_assignations_max,
+            num_assignations_min=num_assignations_min,
+            observation_country=observation_country,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            result_agreement_max=result_agreement_max,
+            result_agreement_min=result_agreement_min,
+            result_confidence_max=result_confidence_max,
+            result_confidence_min=result_confidence_min,
+            result_taxon=result_taxon,
+            result_uncertainty_max=result_uncertainty_max,
+            result_uncertainty_min=result_uncertainty_min,
+            review_type=review_type,
+            status=status,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedIdentificationTaskList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_mine_without_preload_content(
+        self,
+        annotator_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
+        is_flagged: Optional[StrictBool] = None,
+        is_safe: Optional[StrictBool] = None,
+        num_annotations_max: Optional[StrictInt] = None,
+        num_annotations_min: Optional[StrictInt] = None,
+        num_assignations_max: Optional[StrictInt] = None,
+        num_assignations_min: Optional[StrictInt] = None,
+        observation_country: Optional[List[StrictInt]] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_taxon: Optional[List[StrictInt]] = None,
+        result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        review_type: Optional[StrictStr] = None,
+        status: Optional[List[StrictStr]] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """list_mine
+
+        Get identification tasks annotated by me
+
+        :param annotator_ids:
+        :type annotator_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param fully_predicted: Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.
+        :type fully_predicted: bool
+        :param is_flagged:
+        :type is_flagged: bool
+        :param is_safe:
+        :type is_safe: bool
+        :param num_annotations_max:
+        :type num_annotations_max: int
+        :param num_annotations_min:
+        :type num_annotations_min: int
+        :param num_assignations_max:
+        :type num_assignations_max: int
+        :param num_assignations_min:
+        :type num_assignations_min: int
+        :param observation_country:
+        :type observation_country: List[int]
+        :param order_by: Ordenado  
+        :type order_by: List[str]
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
+        :param result_agreement_max:
+        :type result_agreement_max: float
+        :param result_agreement_min:
+        :type result_agreement_min: float
+        :param result_confidence_max:
+        :type result_confidence_max: float
+        :param result_confidence_min:
+        :type result_confidence_min: float
+        :param result_taxon:
+        :type result_taxon: List[int]
+        :param result_uncertainty_max:
+        :type result_uncertainty_max: float
+        :param result_uncertainty_min:
+        :type result_uncertainty_min: float
+        :param review_type:
+        :type review_type: str
+        :param status:
+        :type status: List[str]
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_mine_serialize(
+            annotator_ids=annotator_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            fully_predicted=fully_predicted,
+            is_flagged=is_flagged,
+            is_safe=is_safe,
+            num_annotations_max=num_annotations_max,
+            num_annotations_min=num_annotations_min,
+            num_assignations_max=num_assignations_max,
+            num_assignations_min=num_assignations_min,
+            observation_country=observation_country,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            result_agreement_max=result_agreement_max,
+            result_agreement_min=result_agreement_min,
+            result_confidence_max=result_confidence_max,
+            result_confidence_min=result_confidence_min,
+            result_taxon=result_taxon,
+            result_uncertainty_max=result_uncertainty_max,
+            result_uncertainty_min=result_uncertainty_min,
+            review_type=review_type,
+            status=status,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksListMineValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "PaginatedIdentificationTaskList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _list_mine_serialize(
+        self,
+        annotator_ids,
+        created_at_after,
+        created_at_before,
+        fully_predicted,
+        is_flagged,
+        is_safe,
+        num_annotations_max,
+        num_annotations_min,
+        num_assignations_max,
+        num_assignations_min,
+        observation_country,
+        order_by,
+        page,
+        page_size,
+        result_agreement_max,
+        result_agreement_min,
+        result_confidence_max,
+        result_confidence_min,
+        result_taxon,
+        result_uncertainty_max,
+        result_uncertainty_min,
+        review_type,
+        status,
+        updated_at_after,
+        updated_at_before,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'annotator_ids': 'multi',
+            'observation_country': 'multi',
+            'order_by': 'csv',
+            'result_taxon': 'multi',
+            'status': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if annotator_ids is not None:
+            
+            _query_params.append(('annotator_ids', annotator_ids))
+            
+        if created_at_after is not None:
+            if isinstance(created_at_after, datetime):
+                _query_params.append(
+                    (
+                        'created_at_after',
+                        created_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_after', created_at_after))
+            
+        if created_at_before is not None:
+            if isinstance(created_at_before, datetime):
+                _query_params.append(
+                    (
+                        'created_at_before',
+                        created_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_before', created_at_before))
+            
+        if fully_predicted is not None:
+            
+            _query_params.append(('fully_predicted', fully_predicted))
+            
+        if is_flagged is not None:
+            
+            _query_params.append(('is_flagged', is_flagged))
+            
+        if is_safe is not None:
+            
+            _query_params.append(('is_safe', is_safe))
+            
+        if num_annotations_max is not None:
+            
+            _query_params.append(('num_annotations_max', num_annotations_max))
+            
+        if num_annotations_min is not None:
+            
+            _query_params.append(('num_annotations_min', num_annotations_min))
+            
+        if num_assignations_max is not None:
+            
+            _query_params.append(('num_assignations_max', num_assignations_max))
+            
+        if num_assignations_min is not None:
+            
+            _query_params.append(('num_assignations_min', num_assignations_min))
+            
+        if observation_country is not None:
+            
+            _query_params.append(('observation_country', observation_country))
+            
+        if order_by is not None:
+            
+            _query_params.append(('order_by', order_by))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        if result_agreement_max is not None:
+            
+            _query_params.append(('result_agreement_max', result_agreement_max))
+            
+        if result_agreement_min is not None:
+            
+            _query_params.append(('result_agreement_min', result_agreement_min))
+            
+        if result_confidence_max is not None:
+            
+            _query_params.append(('result_confidence_max', result_confidence_max))
+            
+        if result_confidence_min is not None:
+            
+            _query_params.append(('result_confidence_min', result_confidence_min))
+            
+        if result_taxon is not None:
+            
+            _query_params.append(('result_taxon', result_taxon))
+            
+        if result_uncertainty_max is not None:
+            
+            _query_params.append(('result_uncertainty_max', result_uncertainty_max))
+            
+        if result_uncertainty_min is not None:
+            
+            _query_params.append(('result_uncertainty_min', result_uncertainty_min))
+            
+        if review_type is not None:
+            
+            _query_params.append(('review_type', review_type))
+            
+        if status is not None:
+            
+            _query_params.append(('status', status))
+            
+        if updated_at_after is not None:
+            if isinstance(updated_at_after, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_after',
+                        updated_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_after', updated_at_after))
+            
+        if updated_at_before is not None:
+            if isinstance(updated_at_before, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_before',
+                        updated_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_before', updated_at_before))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'tokenAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/me/identification-tasks/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

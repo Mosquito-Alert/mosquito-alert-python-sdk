@@ -36,14 +36,20 @@ class TestTaxon(unittest.TestCase):
         model = Taxon()
         if include_optional:
             return Taxon(
+                id = 56,
                 name = '',
                 common_name = '',
-                rank = 'Class'
+                rank = 'class',
+                italicize = True,
+                is_relevant = True
             )
         else:
             return Taxon(
+                id = 56,
                 name = '',
-                rank = 'Class',
+                rank = 'class',
+                italicize = True,
+                is_relevant = True,
         )
         """
 

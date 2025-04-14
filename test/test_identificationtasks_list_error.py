@@ -36,14 +36,14 @@ class TestIdentificationtasksListError(unittest.TestCase):
         model = IdentificationtasksListError()
         if include_optional:
             return IdentificationtasksListError(
-                attr = 'order_by',
-                code = 'invalid_choice',
+                attr = 'result_agreement',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return IdentificationtasksListError(
-                attr = 'order_by',
-                code = 'invalid_choice',
+                attr = 'result_agreement',
+                code = 'invalid',
                 detail = '',
         )
         """

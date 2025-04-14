@@ -45,16 +45,20 @@ class TestPaginatedIdentificationTaskList(unittest.TestCase):
                         public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                             uuid = '', 
                             url = '', ), 
-                        assignees_ids = [
-                            56
+                        annotators = [
+                            mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                                id = 56, 
+                                username = 'A', 
+                                first_name = '', 
+                                last_name = '', 
+                                full_name = '', )
                             ], 
                         status = 'open', 
                         is_flagged = True, 
                         is_safe = True, 
                         public_note = '', 
-                        num_assignations = 0, 
                         num_annotations = 0, 
-                        revision = null, 
+                        review = null, 
                         result = null, 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )

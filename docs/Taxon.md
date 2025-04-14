@@ -5,9 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **common_name** | **str** |  | [optional] 
 **rank** | **str** |  | 
+**italicize** | **bool** | Display the name in italics when rendering. | [readonly] 
+**is_relevant** | **bool** | Indicates if this taxon is relevant for the application. Will be shown first and will set task to conflict if final taxon is not this. | 
 
 ## Example
 

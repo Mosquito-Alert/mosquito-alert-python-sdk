@@ -52,22 +52,26 @@ class TestIdentificationTask(unittest.TestCase):
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
-                assignees_ids = [
-                    56
+                annotators = [
+                    mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                        id = 56, 
+                        username = 'A', 
+                        first_name = '', 
+                        last_name = '', 
+                        full_name = '', )
                     ],
                 status = 'open',
                 is_flagged = True,
                 is_safe = True,
                 public_note = '',
-                num_assignations = 0,
                 num_annotations = 0,
-                revision = mosquito_alert.models.identification_task_revision.IdentificationTaskRevision(
+                review = mosquito_alert.models.identification_task_review.IdentificationTaskReview(
                     type = 'agree', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
                 result = mosquito_alert.models.identification_task_result.IdentificationTaskResult(
                     source = 'expert', 
                     taxon = null, 
-                    is_confirmed = True, 
+                    is_high_confidence = True, 
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 
@@ -93,21 +97,25 @@ class TestIdentificationTask(unittest.TestCase):
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
-                assignees_ids = [
-                    56
+                annotators = [
+                    mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                        id = 56, 
+                        username = 'A', 
+                        first_name = '', 
+                        last_name = '', 
+                        full_name = '', )
                     ],
                 is_flagged = True,
                 is_safe = True,
                 public_note = '',
-                num_assignations = 0,
                 num_annotations = 0,
-                revision = mosquito_alert.models.identification_task_revision.IdentificationTaskRevision(
+                review = mosquito_alert.models.identification_task_review.IdentificationTaskReview(
                     type = 'agree', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
                 result = mosquito_alert.models.identification_task_result.IdentificationTaskResult(
                     source = 'expert', 
                     taxon = null, 
-                    is_confirmed = True, 
+                    is_high_confidence = True, 
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 

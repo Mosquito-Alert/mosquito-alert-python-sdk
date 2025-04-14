@@ -42,8 +42,8 @@ class IdentificationtasksListStatusErrorComponent(BaseModel):
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid_choice']):
-            raise ValueError("must be one of enum values ('invalid_choice')")
+        if value not in set(['invalid_choice', 'invalid_list']):
+            raise ValueError("must be one of enum values ('invalid_choice', 'invalid_list')")
         return value
 
     model_config = ConfigDict(

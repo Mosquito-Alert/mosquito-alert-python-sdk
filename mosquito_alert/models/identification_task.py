@@ -19,11 +19,12 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult
-from mosquito_alert.models.identification_task_revision import IdentificationTaskRevision
+from mosquito_alert.models.identification_task_review import IdentificationTaskReview
+from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
 from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simplified_observation import SimplifiedObservation
 from typing import Optional, Set
@@ -35,18 +36,17 @@ class IdentificationTask(BaseModel):
     """ # noqa: E501
     observation: SimplifiedObservation
     public_photo: SimplePhoto
-    assignees_ids: List[StrictInt]
+    annotators: List[SimpleAnnotatorUser]
     status: Optional[StrictStr] = 'open'
     is_flagged: StrictBool
     is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
     public_note: Optional[StrictStr]
-    num_assignations: Annotated[int, Field(strict=True, ge=0)]
     num_annotations: Annotated[int, Field(strict=True, ge=0)]
-    revision: Optional[IdentificationTaskRevision]
+    review: Optional[IdentificationTaskReview]
     result: IdentificationTaskResult
     created_at: datetime
     updated_at: datetime
-    __properties: ClassVar[List[str]] = ["observation", "public_photo", "assignees_ids", "status", "is_flagged", "is_safe", "public_note", "num_assignations", "num_annotations", "revision", "result", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["observation", "public_photo", "annotators", "status", "is_flagged", "is_safe", "public_note", "num_annotations", "review", "result", "created_at", "updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -98,17 +98,15 @@ class IdentificationTask(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "observation",
-            "assignees_ids",
+            "annotators",
             "is_flagged",
             "is_safe",
             "public_note",
-            "num_assignations",
             "num_annotations",
-            "revision",
+            "review",
             "result",
             "created_at",
             "updated_at",
@@ -125,9 +123,16 @@ class IdentificationTask(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of public_photo
         if self.public_photo:
             _dict['public_photo'] = self.public_photo.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of revision
-        if self.revision:
-            _dict['revision'] = self.revision.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in annotators (list)
+        _items = []
+        if self.annotators:
+            for _item_annotators in self.annotators:
+                if _item_annotators:
+                    _items.append(_item_annotators.to_dict())
+            _dict['annotators'] = _items
+        # override the default output from pydantic by calling `to_dict()` of review
+        if self.review:
+            _dict['review'] = self.review.to_dict()
         # override the default output from pydantic by calling `to_dict()` of result
         if self.result:
             _dict['result'] = self.result.to_dict()
@@ -136,10 +141,10 @@ class IdentificationTask(BaseModel):
         if self.public_note is None and "public_note" in self.model_fields_set:
             _dict['public_note'] = None
 
-        # set to None if revision (nullable) is None
+        # set to None if review (nullable) is None
         # and model_fields_set contains the field
-        if self.revision is None and "revision" in self.model_fields_set:
-            _dict['revision'] = None
+        if self.review is None and "review" in self.model_fields_set:
+            _dict['review'] = None
 
         return _dict
 
@@ -155,14 +160,13 @@ class IdentificationTask(BaseModel):
         _obj = cls.model_validate({
             "observation": SimplifiedObservation.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
             "public_photo": SimplePhoto.from_dict(obj["public_photo"]) if obj.get("public_photo") is not None else None,
-            "assignees_ids": obj.get("assignees_ids"),
+            "annotators": [SimpleAnnotatorUser.from_dict(_item) for _item in obj["annotators"]] if obj.get("annotators") is not None else None,
             "status": obj.get("status") if obj.get("status") is not None else 'open',
             "is_flagged": obj.get("is_flagged"),
             "is_safe": obj.get("is_safe"),
             "public_note": obj.get("public_note"),
-            "num_assignations": obj.get("num_assignations"),
             "num_annotations": obj.get("num_annotations"),
-            "revision": IdentificationTaskRevision.from_dict(obj["revision"]) if obj.get("revision") is not None else None,
+            "review": IdentificationTaskReview.from_dict(obj["review"]) if obj.get("review") is not None else None,
             "result": IdentificationTaskResult.from_dict(obj["result"]) if obj.get("result") is not None else None,
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")

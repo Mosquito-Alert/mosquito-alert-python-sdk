@@ -27,8 +27,44 @@ class TestIdentificationTasksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_annotations_create(self) -> None:
+        """Test case for annotations_create
+
+        """
+        pass
+
+    def test_annotations_list(self) -> None:
+        """Test case for annotations_list
+
+        """
+        pass
+
+    def test_annotations_list_mine(self) -> None:
+        """Test case for annotations_list_mine
+
+        """
+        pass
+
+    def test_annotations_retrieve(self) -> None:
+        """Test case for annotations_retrieve
+
+        """
+        pass
+
+    def test_backlog_next_retrieve(self) -> None:
+        """Test case for backlog_next_retrieve
+
+        """
+        pass
+
     def test_list(self) -> None:
         """Test case for list
+
+        """
+        pass
+
+    def test_list_mine(self) -> None:
+        """Test case for list_mine
 
         """
         pass

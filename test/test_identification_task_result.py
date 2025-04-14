@@ -37,11 +37,13 @@ class TestIdentificationTaskResult(unittest.TestCase):
         if include_optional:
             return IdentificationTaskResult(
                 source = 'expert',
-                taxon = mosquito_alert.models.taxon.Taxon(
+                taxon = mosquito_alert.models.simple_taxon.SimpleTaxon(
+                    id = 56, 
                     name = '', 
                     common_name = '', 
-                    rank = 'Class', ),
-                is_confirmed = True,
+                    rank = 'class', 
+                    italicize = True, ),
+                is_high_confidence = True,
                 confidence = 0,
                 confidence_label = '',
                 uncertainty = 0,
@@ -50,11 +52,13 @@ class TestIdentificationTaskResult(unittest.TestCase):
         else:
             return IdentificationTaskResult(
                 source = 'expert',
-                taxon = mosquito_alert.models.taxon.Taxon(
+                taxon = mosquito_alert.models.simple_taxon.SimpleTaxon(
+                    id = 56, 
                     name = '', 
                     common_name = '', 
-                    rank = 'Class', ),
-                is_confirmed = True,
+                    rank = 'class', 
+                    italicize = True, ),
+                is_high_confidence = True,
                 confidence = 0,
                 confidence_label = '',
                 uncertainty = 0,
