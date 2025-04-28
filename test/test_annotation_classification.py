@@ -43,7 +43,8 @@ class TestAnnotationClassification(unittest.TestCase):
                     rank = 'class', 
                     italicize = True, ),
                 confidence = 1.337,
-                confidence_label = 'definitely'
+                confidence_label = 'definitely',
+                is_high_confidence = True
             )
         else:
             return AnnotationClassification(
@@ -55,6 +56,7 @@ class TestAnnotationClassification(unittest.TestCase):
                     italicize = True, ),
                 confidence = 1.337,
                 confidence_label = 'definitely',
+                is_high_confidence = True,
         )
         """
 

@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.observations_list_mine_identification_taxon_error_component import ObservationsListMineIdentificationTaxonErrorComponent
+from mosquito_alert.models.observations_list_mine_identification_taxon_ids_error_component import ObservationsListMineIdentificationTaxonIdsErrorComponent
 
-class TestObservationsListMineIdentificationTaxonErrorComponent(unittest.TestCase):
-    """ObservationsListMineIdentificationTaxonErrorComponent unit test stubs"""
+class TestObservationsListMineIdentificationTaxonIdsErrorComponent(unittest.TestCase):
+    """ObservationsListMineIdentificationTaxonIdsErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestObservationsListMineIdentificationTaxonErrorComponent(unittest.TestCas
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ObservationsListMineIdentificationTaxonErrorComponent:
-        """Test ObservationsListMineIdentificationTaxonErrorComponent
+    def make_instance(self, include_optional) -> ObservationsListMineIdentificationTaxonIdsErrorComponent:
+        """Test ObservationsListMineIdentificationTaxonIdsErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ObservationsListMineIdentificationTaxonErrorComponent`
+        # uncomment below to create an instance of `ObservationsListMineIdentificationTaxonIdsErrorComponent`
         """
-        model = ObservationsListMineIdentificationTaxonErrorComponent()
+        model = ObservationsListMineIdentificationTaxonIdsErrorComponent()
         if include_optional:
-            return ObservationsListMineIdentificationTaxonErrorComponent(
-                attr = 'identification_taxon',
+            return ObservationsListMineIdentificationTaxonIdsErrorComponent(
+                attr = 'identification_taxon_ids',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return ObservationsListMineIdentificationTaxonErrorComponent(
-                attr = 'identification_taxon',
+            return ObservationsListMineIdentificationTaxonIdsErrorComponent(
+                attr = 'identification_taxon_ids',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testObservationsListMineIdentificationTaxonErrorComponent(self):
-        """Test ObservationsListMineIdentificationTaxonErrorComponent"""
+    def testObservationsListMineIdentificationTaxonIdsErrorComponent(self):
+        """Test ObservationsListMineIdentificationTaxonIdsErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**best_photo_id** | **int** |  | [optional] 
+**best_photo_uuid** | **str** |  | [optional] 
 **classification** | [**AnnotationClassificationRequest**](AnnotationClassificationRequest.md) |  | 
 **feedback** | [**AnnotationFeedbackRequest**](AnnotationFeedbackRequest.md) |  | [optional] 
 **is_flagged** | **bool** |  | [optional] [default to False]

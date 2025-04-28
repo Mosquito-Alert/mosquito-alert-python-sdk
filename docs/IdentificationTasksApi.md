@@ -490,7 +490,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, observation_country=observation_country, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon=result_taxon, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 ### Example
 
@@ -538,17 +538,15 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     is_safe = True # bool |  (optional)
     num_annotations_max = 56 # int |  (optional)
     num_annotations_min = 56 # int |  (optional)
-    num_assignations_max = 56 # int |  (optional)
-    num_assignations_min = 56 # int |  (optional)
-    observation_country = [56] # List[int] |  (optional)
+    observation_country_ids = [56] # List[int] |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
     result_agreement_max = 3.4 # float |  (optional)
     result_agreement_min = 3.4 # float |  (optional)
-    result_confidence_max = 3.4 # float |  (optional)
-    result_confidence_min = 3.4 # float |  (optional)
-    result_taxon = [56] # List[int] |  (optional)
+    result_confidence_max = None # decimal.Decimal |  (optional)
+    result_confidence_min = None # decimal.Decimal |  (optional)
+    result_taxon_ids = [56] # List[int] |  (optional)
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
     review_type = 'review_type_example' # str |  (optional)
@@ -557,7 +555,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, observation_country=observation_country, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon=result_taxon, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -579,17 +577,15 @@ Name | Type | Description  | Notes
  **is_safe** | **bool**|  | [optional] 
  **num_annotations_max** | **int**|  | [optional] 
  **num_annotations_min** | **int**|  | [optional] 
- **num_assignations_max** | **int**|  | [optional] 
- **num_assignations_min** | **int**|  | [optional] 
- **observation_country** | [**List[int]**](int.md)|  | [optional] 
+ **observation_country_ids** | [**List[int]**](int.md)|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **result_agreement_max** | **float**|  | [optional] 
  **result_agreement_min** | **float**|  | [optional] 
- **result_confidence_max** | **float**|  | [optional] 
- **result_confidence_min** | **float**|  | [optional] 
- **result_taxon** | [**List[int]**](int.md)|  | [optional] 
+ **result_confidence_max** | **decimal.Decimal**|  | [optional] 
+ **result_confidence_min** | **decimal.Decimal**|  | [optional] 
+ **result_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
  **review_type** | **str**|  | [optional] 
@@ -623,7 +619,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_mine**
-> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, observation_country=observation_country, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon=result_taxon, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 Get identification tasks annotated by me
 
@@ -673,17 +669,15 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     is_safe = True # bool |  (optional)
     num_annotations_max = 56 # int |  (optional)
     num_annotations_min = 56 # int |  (optional)
-    num_assignations_max = 56 # int |  (optional)
-    num_assignations_min = 56 # int |  (optional)
-    observation_country = [56] # List[int] |  (optional)
+    observation_country_ids = [56] # List[int] |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
     result_agreement_max = 3.4 # float |  (optional)
     result_agreement_min = 3.4 # float |  (optional)
-    result_confidence_max = 3.4 # float |  (optional)
-    result_confidence_min = 3.4 # float |  (optional)
-    result_taxon = [56] # List[int] |  (optional)
+    result_confidence_max = None # decimal.Decimal |  (optional)
+    result_confidence_min = None # decimal.Decimal |  (optional)
+    result_taxon_ids = [56] # List[int] |  (optional)
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
     review_type = 'review_type_example' # str |  (optional)
@@ -692,7 +686,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list_mine(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, num_assignations_max=num_assignations_max, num_assignations_min=num_assignations_min, observation_country=observation_country, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon=result_taxon, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list_mine(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -714,17 +708,15 @@ Name | Type | Description  | Notes
  **is_safe** | **bool**|  | [optional] 
  **num_annotations_max** | **int**|  | [optional] 
  **num_annotations_min** | **int**|  | [optional] 
- **num_assignations_max** | **int**|  | [optional] 
- **num_assignations_min** | **int**|  | [optional] 
- **observation_country** | [**List[int]**](int.md)|  | [optional] 
+ **observation_country_ids** | [**List[int]**](int.md)|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **result_agreement_max** | **float**|  | [optional] 
  **result_agreement_min** | **float**|  | [optional] 
- **result_confidence_max** | **float**|  | [optional] 
- **result_confidence_min** | **float**|  | [optional] 
- **result_taxon** | [**List[int]**](int.md)|  | [optional] 
+ **result_confidence_max** | **decimal.Decimal**|  | [optional] 
+ **result_confidence_min** | **decimal.Decimal**|  | [optional] 
+ **result_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
  **review_type** | **str**|  | [optional] 

@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_observation_country_error_component import IdentificationtasksListObservationCountryErrorComponent
+from mosquito_alert.models.identificationtasks_list_observation_country_ids_error_component import IdentificationtasksListObservationCountryIdsErrorComponent
 
-class TestIdentificationtasksListObservationCountryErrorComponent(unittest.TestCase):
-    """IdentificationtasksListObservationCountryErrorComponent unit test stubs"""
+class TestIdentificationtasksListObservationCountryIdsErrorComponent(unittest.TestCase):
+    """IdentificationtasksListObservationCountryIdsErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListObservationCountryErrorComponent(unittest.TestC
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListObservationCountryErrorComponent:
-        """Test IdentificationtasksListObservationCountryErrorComponent
+    def make_instance(self, include_optional) -> IdentificationtasksListObservationCountryIdsErrorComponent:
+        """Test IdentificationtasksListObservationCountryIdsErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListObservationCountryErrorComponent`
+        # uncomment below to create an instance of `IdentificationtasksListObservationCountryIdsErrorComponent`
         """
-        model = IdentificationtasksListObservationCountryErrorComponent()
+        model = IdentificationtasksListObservationCountryIdsErrorComponent()
         if include_optional:
-            return IdentificationtasksListObservationCountryErrorComponent(
-                attr = 'observation_country',
+            return IdentificationtasksListObservationCountryIdsErrorComponent(
+                attr = 'observation_country_ids',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return IdentificationtasksListObservationCountryErrorComponent(
-                attr = 'observation_country',
+            return IdentificationtasksListObservationCountryIdsErrorComponent(
+                attr = 'observation_country_ids',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListObservationCountryErrorComponent(self):
-        """Test IdentificationtasksListObservationCountryErrorComponent"""
+    def testIdentificationtasksListObservationCountryIdsErrorComponent(self):
+        """Test IdentificationtasksListObservationCountryIdsErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

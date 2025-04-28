@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
 from mosquito_alert.models.simple_taxon import SimpleTaxon
 from typing import Optional, Set
@@ -31,7 +31,8 @@ class AnnotationClassification(BaseModel):
     taxon: SimpleTaxon
     confidence: Union[StrictFloat, StrictInt]
     confidence_label: StrictStr
-    __properties: ClassVar[List[str]] = ["taxon", "confidence", "confidence_label"]
+    is_high_confidence: StrictBool
+    __properties: ClassVar[List[str]] = ["taxon", "confidence", "confidence_label", "is_high_confidence"]
 
     @field_validator('confidence_label')
     def confidence_label_validate_enum(cls, value):
@@ -72,10 +73,12 @@ class AnnotationClassification(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "taxon",
             "confidence",
+            "is_high_confidence",
         ])
 
         _dict = self.model_dump(
@@ -100,7 +103,8 @@ class AnnotationClassification(BaseModel):
         _obj = cls.model_validate({
             "taxon": SimpleTaxon.from_dict(obj["taxon"]) if obj.get("taxon") is not None else None,
             "confidence": obj.get("confidence"),
-            "confidence_label": obj.get("confidence_label")
+            "confidence_label": obj.get("confidence_label"),
+            "is_high_confidence": obj.get("is_high_confidence")
         })
         return _obj
 

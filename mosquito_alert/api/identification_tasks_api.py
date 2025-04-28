@@ -359,8 +359,8 @@ class IdentificationTasksApi:
         self,
         observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         classification_confidence_label: Optional[StrictStr] = None,
-        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
+        classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
@@ -469,8 +469,8 @@ class IdentificationTasksApi:
         self,
         observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         classification_confidence_label: Optional[StrictStr] = None,
-        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
+        classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
@@ -579,8 +579,8 @@ class IdentificationTasksApi:
         self,
         observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
         classification_confidence_label: Optional[StrictStr] = None,
-        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
+        classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
@@ -802,8 +802,8 @@ class IdentificationTasksApi:
     def annotations_list_mine(
         self,
         classification_confidence_label: Optional[StrictStr] = None,
-        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
+        classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
@@ -909,8 +909,8 @@ class IdentificationTasksApi:
     def annotations_list_mine_with_http_info(
         self,
         classification_confidence_label: Optional[StrictStr] = None,
-        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
+        classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
@@ -1016,8 +1016,8 @@ class IdentificationTasksApi:
     def annotations_list_mine_without_preload_content(
         self,
         classification_confidence_label: Optional[StrictStr] = None,
-        classification_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        classification_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
+        classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
@@ -1783,17 +1783,15 @@ class IdentificationTasksApi:
         is_safe: Optional[StrictBool] = None,
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
-        num_assignations_max: Optional[StrictInt] = None,
-        num_assignations_min: Optional[StrictInt] = None,
-        observation_country: Optional[List[StrictInt]] = None,
+        observation_country_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_taxon: Optional[List[StrictInt]] = None,
+        result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_type: Optional[StrictStr] = None,
@@ -1832,12 +1830,8 @@ class IdentificationTasksApi:
         :type num_annotations_max: int
         :param num_annotations_min:
         :type num_annotations_min: int
-        :param num_assignations_max:
-        :type num_assignations_max: int
-        :param num_assignations_min:
-        :type num_assignations_min: int
-        :param observation_country:
-        :type observation_country: List[int]
+        :param observation_country_ids:
+        :type observation_country_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1849,11 +1843,11 @@ class IdentificationTasksApi:
         :param result_agreement_min:
         :type result_agreement_min: float
         :param result_confidence_max:
-        :type result_confidence_max: float
+        :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
-        :type result_confidence_min: float
-        :param result_taxon:
-        :type result_taxon: List[int]
+        :type result_confidence_min: decimal.Decimal
+        :param result_taxon_ids:
+        :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
@@ -1897,9 +1891,7 @@ class IdentificationTasksApi:
             is_safe=is_safe,
             num_annotations_max=num_annotations_max,
             num_annotations_min=num_annotations_min,
-            num_assignations_max=num_assignations_max,
-            num_assignations_min=num_assignations_min,
-            observation_country=observation_country,
+            observation_country_ids=observation_country_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1907,7 +1899,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
-            result_taxon=result_taxon,
+            result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_type=review_type,
@@ -1949,17 +1941,15 @@ class IdentificationTasksApi:
         is_safe: Optional[StrictBool] = None,
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
-        num_assignations_max: Optional[StrictInt] = None,
-        num_assignations_min: Optional[StrictInt] = None,
-        observation_country: Optional[List[StrictInt]] = None,
+        observation_country_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_taxon: Optional[List[StrictInt]] = None,
+        result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_type: Optional[StrictStr] = None,
@@ -1998,12 +1988,8 @@ class IdentificationTasksApi:
         :type num_annotations_max: int
         :param num_annotations_min:
         :type num_annotations_min: int
-        :param num_assignations_max:
-        :type num_assignations_max: int
-        :param num_assignations_min:
-        :type num_assignations_min: int
-        :param observation_country:
-        :type observation_country: List[int]
+        :param observation_country_ids:
+        :type observation_country_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -2015,11 +2001,11 @@ class IdentificationTasksApi:
         :param result_agreement_min:
         :type result_agreement_min: float
         :param result_confidence_max:
-        :type result_confidence_max: float
+        :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
-        :type result_confidence_min: float
-        :param result_taxon:
-        :type result_taxon: List[int]
+        :type result_confidence_min: decimal.Decimal
+        :param result_taxon_ids:
+        :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
@@ -2063,9 +2049,7 @@ class IdentificationTasksApi:
             is_safe=is_safe,
             num_annotations_max=num_annotations_max,
             num_annotations_min=num_annotations_min,
-            num_assignations_max=num_assignations_max,
-            num_assignations_min=num_assignations_min,
-            observation_country=observation_country,
+            observation_country_ids=observation_country_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -2073,7 +2057,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
-            result_taxon=result_taxon,
+            result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_type=review_type,
@@ -2115,17 +2099,15 @@ class IdentificationTasksApi:
         is_safe: Optional[StrictBool] = None,
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
-        num_assignations_max: Optional[StrictInt] = None,
-        num_assignations_min: Optional[StrictInt] = None,
-        observation_country: Optional[List[StrictInt]] = None,
+        observation_country_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_taxon: Optional[List[StrictInt]] = None,
+        result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_type: Optional[StrictStr] = None,
@@ -2164,12 +2146,8 @@ class IdentificationTasksApi:
         :type num_annotations_max: int
         :param num_annotations_min:
         :type num_annotations_min: int
-        :param num_assignations_max:
-        :type num_assignations_max: int
-        :param num_assignations_min:
-        :type num_assignations_min: int
-        :param observation_country:
-        :type observation_country: List[int]
+        :param observation_country_ids:
+        :type observation_country_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -2181,11 +2159,11 @@ class IdentificationTasksApi:
         :param result_agreement_min:
         :type result_agreement_min: float
         :param result_confidence_max:
-        :type result_confidence_max: float
+        :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
-        :type result_confidence_min: float
-        :param result_taxon:
-        :type result_taxon: List[int]
+        :type result_confidence_min: decimal.Decimal
+        :param result_taxon_ids:
+        :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
@@ -2229,9 +2207,7 @@ class IdentificationTasksApi:
             is_safe=is_safe,
             num_annotations_max=num_annotations_max,
             num_annotations_min=num_annotations_min,
-            num_assignations_max=num_assignations_max,
-            num_assignations_min=num_assignations_min,
-            observation_country=observation_country,
+            observation_country_ids=observation_country_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -2239,7 +2215,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
-            result_taxon=result_taxon,
+            result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_type=review_type,
@@ -2276,9 +2252,7 @@ class IdentificationTasksApi:
         is_safe,
         num_annotations_max,
         num_annotations_min,
-        num_assignations_max,
-        num_assignations_min,
-        observation_country,
+        observation_country_ids,
         order_by,
         page,
         page_size,
@@ -2286,7 +2260,7 @@ class IdentificationTasksApi:
         result_agreement_min,
         result_confidence_max,
         result_confidence_min,
-        result_taxon,
+        result_taxon_ids,
         result_uncertainty_max,
         result_uncertainty_min,
         review_type,
@@ -2303,9 +2277,9 @@ class IdentificationTasksApi:
 
         _collection_formats: Dict[str, str] = {
             'annotator_ids': 'multi',
-            'observation_country': 'multi',
+            'observation_country_ids': 'multi',
             'order_by': 'csv',
-            'result_taxon': 'multi',
+            'result_taxon_ids': 'multi',
             'status': 'multi',
         }
 
@@ -2370,17 +2344,9 @@ class IdentificationTasksApi:
             
             _query_params.append(('num_annotations_min', num_annotations_min))
             
-        if num_assignations_max is not None:
+        if observation_country_ids is not None:
             
-            _query_params.append(('num_assignations_max', num_assignations_max))
-            
-        if num_assignations_min is not None:
-            
-            _query_params.append(('num_assignations_min', num_assignations_min))
-            
-        if observation_country is not None:
-            
-            _query_params.append(('observation_country', observation_country))
+            _query_params.append(('observation_country_ids', observation_country_ids))
             
         if order_by is not None:
             
@@ -2410,9 +2376,9 @@ class IdentificationTasksApi:
             
             _query_params.append(('result_confidence_min', result_confidence_min))
             
-        if result_taxon is not None:
+        if result_taxon_ids is not None:
             
-            _query_params.append(('result_taxon', result_taxon))
+            _query_params.append(('result_taxon_ids', result_taxon_ids))
             
         if result_uncertainty_max is not None:
             
@@ -2505,17 +2471,15 @@ class IdentificationTasksApi:
         is_safe: Optional[StrictBool] = None,
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
-        num_assignations_max: Optional[StrictInt] = None,
-        num_assignations_min: Optional[StrictInt] = None,
-        observation_country: Optional[List[StrictInt]] = None,
+        observation_country_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_taxon: Optional[List[StrictInt]] = None,
+        result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_type: Optional[StrictStr] = None,
@@ -2555,12 +2519,8 @@ class IdentificationTasksApi:
         :type num_annotations_max: int
         :param num_annotations_min:
         :type num_annotations_min: int
-        :param num_assignations_max:
-        :type num_assignations_max: int
-        :param num_assignations_min:
-        :type num_assignations_min: int
-        :param observation_country:
-        :type observation_country: List[int]
+        :param observation_country_ids:
+        :type observation_country_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -2572,11 +2532,11 @@ class IdentificationTasksApi:
         :param result_agreement_min:
         :type result_agreement_min: float
         :param result_confidence_max:
-        :type result_confidence_max: float
+        :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
-        :type result_confidence_min: float
-        :param result_taxon:
-        :type result_taxon: List[int]
+        :type result_confidence_min: decimal.Decimal
+        :param result_taxon_ids:
+        :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
@@ -2620,9 +2580,7 @@ class IdentificationTasksApi:
             is_safe=is_safe,
             num_annotations_max=num_annotations_max,
             num_annotations_min=num_annotations_min,
-            num_assignations_max=num_assignations_max,
-            num_assignations_min=num_assignations_min,
-            observation_country=observation_country,
+            observation_country_ids=observation_country_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -2630,7 +2588,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
-            result_taxon=result_taxon,
+            result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_type=review_type,
@@ -2672,17 +2630,15 @@ class IdentificationTasksApi:
         is_safe: Optional[StrictBool] = None,
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
-        num_assignations_max: Optional[StrictInt] = None,
-        num_assignations_min: Optional[StrictInt] = None,
-        observation_country: Optional[List[StrictInt]] = None,
+        observation_country_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_taxon: Optional[List[StrictInt]] = None,
+        result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_type: Optional[StrictStr] = None,
@@ -2722,12 +2678,8 @@ class IdentificationTasksApi:
         :type num_annotations_max: int
         :param num_annotations_min:
         :type num_annotations_min: int
-        :param num_assignations_max:
-        :type num_assignations_max: int
-        :param num_assignations_min:
-        :type num_assignations_min: int
-        :param observation_country:
-        :type observation_country: List[int]
+        :param observation_country_ids:
+        :type observation_country_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -2739,11 +2691,11 @@ class IdentificationTasksApi:
         :param result_agreement_min:
         :type result_agreement_min: float
         :param result_confidence_max:
-        :type result_confidence_max: float
+        :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
-        :type result_confidence_min: float
-        :param result_taxon:
-        :type result_taxon: List[int]
+        :type result_confidence_min: decimal.Decimal
+        :param result_taxon_ids:
+        :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
@@ -2787,9 +2739,7 @@ class IdentificationTasksApi:
             is_safe=is_safe,
             num_annotations_max=num_annotations_max,
             num_annotations_min=num_annotations_min,
-            num_assignations_max=num_assignations_max,
-            num_assignations_min=num_assignations_min,
-            observation_country=observation_country,
+            observation_country_ids=observation_country_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -2797,7 +2747,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
-            result_taxon=result_taxon,
+            result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_type=review_type,
@@ -2839,17 +2789,15 @@ class IdentificationTasksApi:
         is_safe: Optional[StrictBool] = None,
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
-        num_assignations_max: Optional[StrictInt] = None,
-        num_assignations_min: Optional[StrictInt] = None,
-        observation_country: Optional[List[StrictInt]] = None,
+        observation_country_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_max: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_confidence_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        result_taxon: Optional[List[StrictInt]] = None,
+        result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_type: Optional[StrictStr] = None,
@@ -2889,12 +2837,8 @@ class IdentificationTasksApi:
         :type num_annotations_max: int
         :param num_annotations_min:
         :type num_annotations_min: int
-        :param num_assignations_max:
-        :type num_assignations_max: int
-        :param num_assignations_min:
-        :type num_assignations_min: int
-        :param observation_country:
-        :type observation_country: List[int]
+        :param observation_country_ids:
+        :type observation_country_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -2906,11 +2850,11 @@ class IdentificationTasksApi:
         :param result_agreement_min:
         :type result_agreement_min: float
         :param result_confidence_max:
-        :type result_confidence_max: float
+        :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
-        :type result_confidence_min: float
-        :param result_taxon:
-        :type result_taxon: List[int]
+        :type result_confidence_min: decimal.Decimal
+        :param result_taxon_ids:
+        :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
@@ -2954,9 +2898,7 @@ class IdentificationTasksApi:
             is_safe=is_safe,
             num_annotations_max=num_annotations_max,
             num_annotations_min=num_annotations_min,
-            num_assignations_max=num_assignations_max,
-            num_assignations_min=num_assignations_min,
-            observation_country=observation_country,
+            observation_country_ids=observation_country_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -2964,7 +2906,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
-            result_taxon=result_taxon,
+            result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_type=review_type,
@@ -3001,9 +2943,7 @@ class IdentificationTasksApi:
         is_safe,
         num_annotations_max,
         num_annotations_min,
-        num_assignations_max,
-        num_assignations_min,
-        observation_country,
+        observation_country_ids,
         order_by,
         page,
         page_size,
@@ -3011,7 +2951,7 @@ class IdentificationTasksApi:
         result_agreement_min,
         result_confidence_max,
         result_confidence_min,
-        result_taxon,
+        result_taxon_ids,
         result_uncertainty_max,
         result_uncertainty_min,
         review_type,
@@ -3028,9 +2968,9 @@ class IdentificationTasksApi:
 
         _collection_formats: Dict[str, str] = {
             'annotator_ids': 'multi',
-            'observation_country': 'multi',
+            'observation_country_ids': 'multi',
             'order_by': 'csv',
-            'result_taxon': 'multi',
+            'result_taxon_ids': 'multi',
             'status': 'multi',
         }
 
@@ -3095,17 +3035,9 @@ class IdentificationTasksApi:
             
             _query_params.append(('num_annotations_min', num_annotations_min))
             
-        if num_assignations_max is not None:
+        if observation_country_ids is not None:
             
-            _query_params.append(('num_assignations_max', num_assignations_max))
-            
-        if num_assignations_min is not None:
-            
-            _query_params.append(('num_assignations_min', num_assignations_min))
-            
-        if observation_country is not None:
-            
-            _query_params.append(('observation_country', observation_country))
+            _query_params.append(('observation_country_ids', observation_country_ids))
             
         if order_by is not None:
             
@@ -3135,9 +3067,9 @@ class IdentificationTasksApi:
             
             _query_params.append(('result_confidence_min', result_confidence_min))
             
-        if result_taxon is not None:
+        if result_taxon_ids is not None:
             
-            _query_params.append(('result_taxon', result_taxon))
+            _query_params.append(('result_taxon_ids', result_taxon_ids))
             
         if result_uncertainty_max is not None:
             

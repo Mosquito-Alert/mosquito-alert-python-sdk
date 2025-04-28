@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_num_assignations_error_component import IdentificationtasksListNumAssignationsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_best_photo_uuid_error_component import IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent
 
-class TestIdentificationtasksListNumAssignationsErrorComponent(unittest.TestCase):
-    """IdentificationtasksListNumAssignationsErrorComponent unit test stubs"""
+class TestIdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent(unittest.TestCase):
+    """IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListNumAssignationsErrorComponent(unittest.TestCase
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListNumAssignationsErrorComponent:
-        """Test IdentificationtasksListNumAssignationsErrorComponent
+    def make_instance(self, include_optional) -> IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent:
+        """Test IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListNumAssignationsErrorComponent`
+        # uncomment below to create an instance of `IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent`
         """
-        model = IdentificationtasksListNumAssignationsErrorComponent()
+        model = IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent()
         if include_optional:
-            return IdentificationtasksListNumAssignationsErrorComponent(
-                attr = 'num_assignations',
+            return IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent(
+                attr = 'best_photo_uuid',
                 code = 'invalid',
                 detail = ''
             )
         else:
-            return IdentificationtasksListNumAssignationsErrorComponent(
-                attr = 'num_assignations',
+            return IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent(
+                attr = 'best_photo_uuid',
                 code = 'invalid',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListNumAssignationsErrorComponent(self):
-        """Test IdentificationtasksListNumAssignationsErrorComponent"""
+    def testIdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent(self):
+        """Test IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

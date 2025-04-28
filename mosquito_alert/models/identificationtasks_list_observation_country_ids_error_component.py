@@ -23,9 +23,9 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksListMineNumAssignationsErrorComponent(BaseModel):
+class IdentificationtasksListObservationCountryIdsErrorComponent(BaseModel):
     """
-    IdentificationtasksListMineNumAssignationsErrorComponent
+    IdentificationtasksListObservationCountryIdsErrorComponent
     """ # noqa: E501
     attr: StrictStr
     code: StrictStr
@@ -35,15 +35,15 @@ class IdentificationtasksListMineNumAssignationsErrorComponent(BaseModel):
     @field_validator('attr')
     def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['num_assignations']):
-            raise ValueError("must be one of enum values ('num_assignations')")
+        if value not in set(['observation_country_ids']):
+            raise ValueError("must be one of enum values ('observation_country_ids')")
         return value
 
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid']):
-            raise ValueError("must be one of enum values ('invalid')")
+        if value not in set(['invalid_choice', 'invalid_list', 'invalid_pk_value']):
+            raise ValueError("must be one of enum values ('invalid_choice', 'invalid_list', 'invalid_pk_value')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +64,7 @@ class IdentificationtasksListMineNumAssignationsErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineNumAssignationsErrorComponent from a JSON string"""
+        """Create an instance of IdentificationtasksListObservationCountryIdsErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +89,7 @@ class IdentificationtasksListMineNumAssignationsErrorComponent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineNumAssignationsErrorComponent from a dict"""
+        """Create an instance of IdentificationtasksListObservationCountryIdsErrorComponent from a dict"""
         if obj is None:
             return None
 

@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_result_taxon_error_component import IdentificationtasksListResultTaxonErrorComponent
+from mosquito_alert.models.observations_list_identification_taxon_ids_error_component import ObservationsListIdentificationTaxonIdsErrorComponent
 
-class TestIdentificationtasksListResultTaxonErrorComponent(unittest.TestCase):
-    """IdentificationtasksListResultTaxonErrorComponent unit test stubs"""
+class TestObservationsListIdentificationTaxonIdsErrorComponent(unittest.TestCase):
+    """ObservationsListIdentificationTaxonIdsErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListResultTaxonErrorComponent(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListResultTaxonErrorComponent:
-        """Test IdentificationtasksListResultTaxonErrorComponent
+    def make_instance(self, include_optional) -> ObservationsListIdentificationTaxonIdsErrorComponent:
+        """Test ObservationsListIdentificationTaxonIdsErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListResultTaxonErrorComponent`
+        # uncomment below to create an instance of `ObservationsListIdentificationTaxonIdsErrorComponent`
         """
-        model = IdentificationtasksListResultTaxonErrorComponent()
+        model = ObservationsListIdentificationTaxonIdsErrorComponent()
         if include_optional:
-            return IdentificationtasksListResultTaxonErrorComponent(
-                attr = 'result_taxon',
+            return ObservationsListIdentificationTaxonIdsErrorComponent(
+                attr = 'identification_taxon_ids',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return IdentificationtasksListResultTaxonErrorComponent(
-                attr = 'result_taxon',
+            return ObservationsListIdentificationTaxonIdsErrorComponent(
+                attr = 'identification_taxon_ids',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListResultTaxonErrorComponent(self):
-        """Test IdentificationtasksListResultTaxonErrorComponent"""
+    def testObservationsListIdentificationTaxonIdsErrorComponent(self):
+        """Test ObservationsListIdentificationTaxonIdsErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

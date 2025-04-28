@@ -23,9 +23,9 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksListMineResultTaxonErrorComponent(BaseModel):
+class IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent(BaseModel):
     """
-    IdentificationtasksListMineResultTaxonErrorComponent
+    IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent
     """ # noqa: E501
     attr: StrictStr
     code: StrictStr
@@ -35,15 +35,15 @@ class IdentificationtasksListMineResultTaxonErrorComponent(BaseModel):
     @field_validator('attr')
     def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['result_taxon']):
-            raise ValueError("must be one of enum values ('result_taxon')")
+        if value not in set(['best_photo_uuid']):
+            raise ValueError("must be one of enum values ('best_photo_uuid')")
         return value
 
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid_choice', 'invalid_list', 'invalid_pk_value']):
-            raise ValueError("must be one of enum values ('invalid_choice', 'invalid_list', 'invalid_pk_value')")
+        if value not in set(['invalid', 'null']):
+            raise ValueError("must be one of enum values ('invalid', 'null')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +64,7 @@ class IdentificationtasksListMineResultTaxonErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultTaxonErrorComponent from a JSON string"""
+        """Create an instance of IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +89,7 @@ class IdentificationtasksListMineResultTaxonErrorComponent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultTaxonErrorComponent from a dict"""
+        """Create an instance of IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent from a dict"""
         if obj is None:
             return None
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **taxon** | [**SimpleTaxon**](SimpleTaxon.md) |  | [readonly] 
 **confidence** | **float** |  | [readonly] 
 **confidence_label** | **str** |  | 
+**is_high_confidence** | **bool** |  | [readonly] 
 
 ## Example
 

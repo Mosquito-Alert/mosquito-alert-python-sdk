@@ -21,12 +21,11 @@ from typing import Any, List, Optional
 from mosquito_alert.models.identificationtasks_list_annotator_ids_error_component import IdentificationtasksListAnnotatorIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_created_at_error_component import IdentificationtasksListCreatedAtErrorComponent
 from mosquito_alert.models.identificationtasks_list_num_annotations_error_component import IdentificationtasksListNumAnnotationsErrorComponent
-from mosquito_alert.models.identificationtasks_list_num_assignations_error_component import IdentificationtasksListNumAssignationsErrorComponent
-from mosquito_alert.models.identificationtasks_list_observation_country_error_component import IdentificationtasksListObservationCountryErrorComponent
+from mosquito_alert.models.identificationtasks_list_observation_country_ids_error_component import IdentificationtasksListObservationCountryIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_order_by_error_component import IdentificationtasksListOrderByErrorComponent
 from mosquito_alert.models.identificationtasks_list_result_agreement_error_component import IdentificationtasksListResultAgreementErrorComponent
 from mosquito_alert.models.identificationtasks_list_result_confidence_error_component import IdentificationtasksListResultConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_list_result_taxon_error_component import IdentificationtasksListResultTaxonErrorComponent
+from mosquito_alert.models.identificationtasks_list_result_taxon_ids_error_component import IdentificationtasksListResultTaxonIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_result_uncertainty_error_component import IdentificationtasksListResultUncertaintyErrorComponent
 from mosquito_alert.models.identificationtasks_list_review_type_error_component import IdentificationtasksListReviewTypeErrorComponent
 from mosquito_alert.models.identificationtasks_list_status_error_component import IdentificationtasksListStatusErrorComponent
@@ -35,7 +34,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-IDENTIFICATIONTASKSLISTERROR_ONE_OF_SCHEMAS = ["IdentificationtasksListAnnotatorIdsErrorComponent", "IdentificationtasksListCreatedAtErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListNumAssignationsErrorComponent", "IdentificationtasksListObservationCountryErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListResultAgreementErrorComponent", "IdentificationtasksListResultConfidenceErrorComponent", "IdentificationtasksListResultTaxonErrorComponent", "IdentificationtasksListResultUncertaintyErrorComponent", "IdentificationtasksListReviewTypeErrorComponent", "IdentificationtasksListStatusErrorComponent", "IdentificationtasksListUpdatedAtErrorComponent"]
+IDENTIFICATIONTASKSLISTERROR_ONE_OF_SCHEMAS = ["IdentificationtasksListAnnotatorIdsErrorComponent", "IdentificationtasksListCreatedAtErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListObservationCountryIdsErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListResultAgreementErrorComponent", "IdentificationtasksListResultConfidenceErrorComponent", "IdentificationtasksListResultTaxonIdsErrorComponent", "IdentificationtasksListResultUncertaintyErrorComponent", "IdentificationtasksListReviewTypeErrorComponent", "IdentificationtasksListStatusErrorComponent", "IdentificationtasksListUpdatedAtErrorComponent"]
 
 class IdentificationtasksListError(BaseModel):
     """
@@ -45,30 +44,28 @@ class IdentificationtasksListError(BaseModel):
     oneof_schema_1_validator: Optional[IdentificationtasksListReviewTypeErrorComponent] = None
     # data type: IdentificationtasksListAnnotatorIdsErrorComponent
     oneof_schema_2_validator: Optional[IdentificationtasksListAnnotatorIdsErrorComponent] = None
-    # data type: IdentificationtasksListNumAssignationsErrorComponent
-    oneof_schema_3_validator: Optional[IdentificationtasksListNumAssignationsErrorComponent] = None
     # data type: IdentificationtasksListNumAnnotationsErrorComponent
-    oneof_schema_4_validator: Optional[IdentificationtasksListNumAnnotationsErrorComponent] = None
+    oneof_schema_3_validator: Optional[IdentificationtasksListNumAnnotationsErrorComponent] = None
     # data type: IdentificationtasksListCreatedAtErrorComponent
-    oneof_schema_5_validator: Optional[IdentificationtasksListCreatedAtErrorComponent] = None
+    oneof_schema_4_validator: Optional[IdentificationtasksListCreatedAtErrorComponent] = None
     # data type: IdentificationtasksListUpdatedAtErrorComponent
-    oneof_schema_6_validator: Optional[IdentificationtasksListUpdatedAtErrorComponent] = None
+    oneof_schema_5_validator: Optional[IdentificationtasksListUpdatedAtErrorComponent] = None
     # data type: IdentificationtasksListOrderByErrorComponent
-    oneof_schema_7_validator: Optional[IdentificationtasksListOrderByErrorComponent] = None
+    oneof_schema_6_validator: Optional[IdentificationtasksListOrderByErrorComponent] = None
     # data type: IdentificationtasksListStatusErrorComponent
-    oneof_schema_8_validator: Optional[IdentificationtasksListStatusErrorComponent] = None
-    # data type: IdentificationtasksListObservationCountryErrorComponent
-    oneof_schema_9_validator: Optional[IdentificationtasksListObservationCountryErrorComponent] = None
-    # data type: IdentificationtasksListResultTaxonErrorComponent
-    oneof_schema_10_validator: Optional[IdentificationtasksListResultTaxonErrorComponent] = None
+    oneof_schema_7_validator: Optional[IdentificationtasksListStatusErrorComponent] = None
+    # data type: IdentificationtasksListObservationCountryIdsErrorComponent
+    oneof_schema_8_validator: Optional[IdentificationtasksListObservationCountryIdsErrorComponent] = None
+    # data type: IdentificationtasksListResultTaxonIdsErrorComponent
+    oneof_schema_9_validator: Optional[IdentificationtasksListResultTaxonIdsErrorComponent] = None
     # data type: IdentificationtasksListResultConfidenceErrorComponent
-    oneof_schema_11_validator: Optional[IdentificationtasksListResultConfidenceErrorComponent] = None
+    oneof_schema_10_validator: Optional[IdentificationtasksListResultConfidenceErrorComponent] = None
     # data type: IdentificationtasksListResultUncertaintyErrorComponent
-    oneof_schema_12_validator: Optional[IdentificationtasksListResultUncertaintyErrorComponent] = None
+    oneof_schema_11_validator: Optional[IdentificationtasksListResultUncertaintyErrorComponent] = None
     # data type: IdentificationtasksListResultAgreementErrorComponent
-    oneof_schema_13_validator: Optional[IdentificationtasksListResultAgreementErrorComponent] = None
-    actual_instance: Optional[Union[IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListObservationCountryErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent]] = None
-    one_of_schemas: Set[str] = { "IdentificationtasksListAnnotatorIdsErrorComponent", "IdentificationtasksListCreatedAtErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListNumAssignationsErrorComponent", "IdentificationtasksListObservationCountryErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListResultAgreementErrorComponent", "IdentificationtasksListResultConfidenceErrorComponent", "IdentificationtasksListResultTaxonErrorComponent", "IdentificationtasksListResultUncertaintyErrorComponent", "IdentificationtasksListReviewTypeErrorComponent", "IdentificationtasksListStatusErrorComponent", "IdentificationtasksListUpdatedAtErrorComponent" }
+    oneof_schema_12_validator: Optional[IdentificationtasksListResultAgreementErrorComponent] = None
+    actual_instance: Optional[Union[IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListObservationCountryIdsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonIdsErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent]] = None
+    one_of_schemas: Set[str] = { "IdentificationtasksListAnnotatorIdsErrorComponent", "IdentificationtasksListCreatedAtErrorComponent", "IdentificationtasksListNumAnnotationsErrorComponent", "IdentificationtasksListObservationCountryIdsErrorComponent", "IdentificationtasksListOrderByErrorComponent", "IdentificationtasksListResultAgreementErrorComponent", "IdentificationtasksListResultConfidenceErrorComponent", "IdentificationtasksListResultTaxonIdsErrorComponent", "IdentificationtasksListResultUncertaintyErrorComponent", "IdentificationtasksListReviewTypeErrorComponent", "IdentificationtasksListStatusErrorComponent", "IdentificationtasksListUpdatedAtErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -104,11 +101,6 @@ class IdentificationtasksListError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListAnnotatorIdsErrorComponent`")
         else:
             match += 1
-        # validate data type: IdentificationtasksListNumAssignationsErrorComponent
-        if not isinstance(v, IdentificationtasksListNumAssignationsErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListNumAssignationsErrorComponent`")
-        else:
-            match += 1
         # validate data type: IdentificationtasksListNumAnnotationsErrorComponent
         if not isinstance(v, IdentificationtasksListNumAnnotationsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListNumAnnotationsErrorComponent`")
@@ -134,14 +126,14 @@ class IdentificationtasksListError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListStatusErrorComponent`")
         else:
             match += 1
-        # validate data type: IdentificationtasksListObservationCountryErrorComponent
-        if not isinstance(v, IdentificationtasksListObservationCountryErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListObservationCountryErrorComponent`")
+        # validate data type: IdentificationtasksListObservationCountryIdsErrorComponent
+        if not isinstance(v, IdentificationtasksListObservationCountryIdsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListObservationCountryIdsErrorComponent`")
         else:
             match += 1
-        # validate data type: IdentificationtasksListResultTaxonErrorComponent
-        if not isinstance(v, IdentificationtasksListResultTaxonErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListResultTaxonErrorComponent`")
+        # validate data type: IdentificationtasksListResultTaxonIdsErrorComponent
+        if not isinstance(v, IdentificationtasksListResultTaxonIdsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListResultTaxonIdsErrorComponent`")
         else:
             match += 1
         # validate data type: IdentificationtasksListResultConfidenceErrorComponent
@@ -161,10 +153,10 @@ class IdentificationtasksListError(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListObservationCountryErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListObservationCountryIdsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonIdsErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListObservationCountryErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListObservationCountryIdsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonIdsErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -188,12 +180,6 @@ class IdentificationtasksListError(BaseModel):
         # deserialize data into IdentificationtasksListAnnotatorIdsErrorComponent
         try:
             instance.actual_instance = IdentificationtasksListAnnotatorIdsErrorComponent.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # deserialize data into IdentificationtasksListNumAssignationsErrorComponent
-        try:
-            instance.actual_instance = IdentificationtasksListNumAssignationsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -227,15 +213,15 @@ class IdentificationtasksListError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into IdentificationtasksListObservationCountryErrorComponent
+        # deserialize data into IdentificationtasksListObservationCountryIdsErrorComponent
         try:
-            instance.actual_instance = IdentificationtasksListObservationCountryErrorComponent.from_json(json_str)
+            instance.actual_instance = IdentificationtasksListObservationCountryIdsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into IdentificationtasksListResultTaxonErrorComponent
+        # deserialize data into IdentificationtasksListResultTaxonIdsErrorComponent
         try:
-            instance.actual_instance = IdentificationtasksListResultTaxonErrorComponent.from_json(json_str)
+            instance.actual_instance = IdentificationtasksListResultTaxonIdsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -260,10 +246,10 @@ class IdentificationtasksListError(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListObservationCountryErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListObservationCountryIdsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonIdsErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListObservationCountryErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksListError with oneOf schemas: IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListObservationCountryIdsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonIdsErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -277,7 +263,7 @@ class IdentificationtasksListError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListNumAssignationsErrorComponent, IdentificationtasksListObservationCountryErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksListAnnotatorIdsErrorComponent, IdentificationtasksListCreatedAtErrorComponent, IdentificationtasksListNumAnnotationsErrorComponent, IdentificationtasksListObservationCountryIdsErrorComponent, IdentificationtasksListOrderByErrorComponent, IdentificationtasksListResultAgreementErrorComponent, IdentificationtasksListResultConfidenceErrorComponent, IdentificationtasksListResultTaxonIdsErrorComponent, IdentificationtasksListResultUncertaintyErrorComponent, IdentificationtasksListReviewTypeErrorComponent, IdentificationtasksListStatusErrorComponent, IdentificationtasksListUpdatedAtErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

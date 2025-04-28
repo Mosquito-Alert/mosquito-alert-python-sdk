@@ -36,7 +36,7 @@ class TestAnnotationRequest(unittest.TestCase):
         model = AnnotationRequest()
         if include_optional:
             return AnnotationRequest(
-                best_photo_id = 56,
+                best_photo_uuid = '',
                 classification = mosquito_alert.models.annotation_classification_request.AnnotationClassificationRequest(
                     taxon_id = 56, 
                     confidence_label = 'definitely', ),

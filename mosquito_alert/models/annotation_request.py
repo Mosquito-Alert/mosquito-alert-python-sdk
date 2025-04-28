@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
@@ -30,13 +30,13 @@ class AnnotationRequest(BaseModel):
     """
     AnnotationRequest
     """ # noqa: E501
-    best_photo_id: Optional[StrictInt] = None
+    best_photo_uuid: Optional[StrictStr] = None
     classification: Optional[AnnotationClassificationRequest]
     feedback: Optional[AnnotationFeedbackRequest] = None
     is_flagged: Optional[StrictBool] = False
     is_decisive: Optional[StrictBool] = False
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
-    __properties: ClassVar[List[str]] = ["best_photo_id", "classification", "feedback", "is_flagged", "is_decisive", "tags"]
+    __properties: ClassVar[List[str]] = ["best_photo_uuid", "classification", "feedback", "is_flagged", "is_decisive", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,11 +83,6 @@ class AnnotationRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of feedback
         if self.feedback:
             _dict['feedback'] = self.feedback.to_dict()
-        # set to None if best_photo_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.best_photo_id is None and "best_photo_id" in self.model_fields_set:
-            _dict['best_photo_id'] = None
-
         # set to None if classification (nullable) is None
         # and model_fields_set contains the field
         if self.classification is None and "classification" in self.model_fields_set:
@@ -105,7 +100,7 @@ class AnnotationRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "best_photo_id": obj.get("best_photo_id"),
+            "best_photo_uuid": obj.get("best_photo_uuid"),
             "classification": AnnotationClassificationRequest.from_dict(obj["classification"]) if obj.get("classification") is not None else None,
             "feedback": AnnotationFeedbackRequest.from_dict(obj["feedback"]) if obj.get("feedback") is not None else None,
             "is_flagged": obj.get("is_flagged") if obj.get("is_flagged") is not None else False,

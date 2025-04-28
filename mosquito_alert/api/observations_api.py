@@ -728,7 +728,7 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -762,8 +762,8 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param identification_taxon:
-        :type identification_taxon: List[int]
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -809,7 +809,7 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            identification_taxon=identification_taxon,
+            identification_taxon_ids=identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -849,7 +849,7 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -883,8 +883,8 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param identification_taxon:
-        :type identification_taxon: List[int]
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -930,7 +930,7 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            identification_taxon=identification_taxon,
+            identification_taxon_ids=identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -970,7 +970,7 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1004,8 +1004,8 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param identification_taxon:
-        :type identification_taxon: List[int]
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1051,7 +1051,7 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            identification_taxon=identification_taxon,
+            identification_taxon_ids=identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1086,7 +1086,7 @@ class ObservationsApi:
         created_at_after,
         created_at_before,
         has_photos,
-        identification_taxon,
+        identification_taxon_ids,
         order_by,
         page,
         page_size,
@@ -1105,7 +1105,7 @@ class ObservationsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'identification_taxon': 'multi',
+            'identification_taxon_ids': 'multi',
             'order_by': 'csv',
         }
 
@@ -1154,9 +1154,9 @@ class ObservationsApi:
             
             _query_params.append(('has_photos', has_photos))
             
-        if identification_taxon is not None:
+        if identification_taxon_ids is not None:
             
-            _query_params.append(('identification_taxon', identification_taxon))
+            _query_params.append(('identification_taxon_ids', identification_taxon_ids))
             
         if order_by is not None:
             
@@ -1276,7 +1276,7 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1311,8 +1311,8 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param identification_taxon:
-        :type identification_taxon: List[int]
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1358,7 +1358,7 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            identification_taxon=identification_taxon,
+            identification_taxon_ids=identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1399,7 +1399,7 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1434,8 +1434,8 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param identification_taxon:
-        :type identification_taxon: List[int]
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1481,7 +1481,7 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            identification_taxon=identification_taxon,
+            identification_taxon_ids=identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1522,7 +1522,7 @@ class ObservationsApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictInt]] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
@@ -1557,8 +1557,8 @@ class ObservationsApi:
         :type created_at_before: datetime
         :param has_photos: Has any photo
         :type has_photos: bool
-        :param identification_taxon:
-        :type identification_taxon: List[int]
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[int]
         :param order_by: Ordenado  
         :type order_by: List[str]
         :param page: A page number within the paginated result set.
@@ -1604,7 +1604,7 @@ class ObservationsApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             has_photos=has_photos,
-            identification_taxon=identification_taxon,
+            identification_taxon_ids=identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
@@ -1640,7 +1640,7 @@ class ObservationsApi:
         created_at_after,
         created_at_before,
         has_photos,
-        identification_taxon,
+        identification_taxon_ids,
         order_by,
         page,
         page_size,
@@ -1659,7 +1659,7 @@ class ObservationsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'identification_taxon': 'multi',
+            'identification_taxon_ids': 'multi',
             'order_by': 'csv',
         }
 
@@ -1708,9 +1708,9 @@ class ObservationsApi:
             
             _query_params.append(('has_photos', has_photos))
             
-        if identification_taxon is not None:
+        if identification_taxon_ids is not None:
             
-            _query_params.append(('identification_taxon', identification_taxon))
+            _query_params.append(('identification_taxon_ids', identification_taxon_ids))
             
         if order_by is not None:
             

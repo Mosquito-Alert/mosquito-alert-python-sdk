@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.observations_list_error import ObservationsListError
+from mosquito_alert.models.paginated_country_list import PaginatedCountryList
 
-class TestObservationsListError(unittest.TestCase):
-    """ObservationsListError unit test stubs"""
+class TestPaginatedCountryList(unittest.TestCase):
+    """PaginatedCountryList unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,33 @@ class TestObservationsListError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ObservationsListError:
-        """Test ObservationsListError
+    def make_instance(self, include_optional) -> PaginatedCountryList:
+        """Test PaginatedCountryList
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ObservationsListError`
+        # uncomment below to create an instance of `PaginatedCountryList`
         """
-        model = ObservationsListError()
+        model = PaginatedCountryList()
         if include_optional:
-            return ObservationsListError(
-                attr = 'identification_taxon_ids',
-                code = 'invalid_choice',
-                detail = ''
+            return PaginatedCountryList(
+                count = 123,
+                next = 'http://api.example.org/accounts/?page=4',
+                previous = 'http://api.example.org/accounts/?page=2',
+                results = [
+                    mosquito_alert.models.country.Country(
+                        id = 56, 
+                        name_en = '', 
+                        iso3_code = '', )
+                    ]
             )
         else:
-            return ObservationsListError(
-                attr = 'identification_taxon_ids',
-                code = 'invalid_choice',
-                detail = '',
+            return PaginatedCountryList(
         )
         """
 
-    def testObservationsListError(self):
-        """Test ObservationsListError"""
+    def testPaginatedCountryList(self):
+        """Test PaginatedCountryList"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

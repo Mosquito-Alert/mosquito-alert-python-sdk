@@ -50,7 +50,8 @@ class TestAnnotation(unittest.TestCase):
                 classification = mosquito_alert.models.annotation_classification.AnnotationClassification(
                     taxon = null, 
                     confidence = 1.337, 
-                    confidence_label = 'definitely', ),
+                    confidence_label = 'definitely', 
+                    is_high_confidence = True, ),
                 feedback = mosquito_alert.models.annotation_feedback.AnnotationFeedback(
                     public_note = '', 
                     user_note = '', ),
@@ -78,7 +79,8 @@ class TestAnnotation(unittest.TestCase):
                 classification = mosquito_alert.models.annotation_classification.AnnotationClassification(
                     taxon = null, 
                     confidence = 1.337, 
-                    confidence_label = 'definitely', ),
+                    confidence_label = 'definitely', 
+                    is_high_confidence = True, ),
                 is_flagged = True,
                 is_decisive = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
