@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | [readonly] 
+**user_uuid** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | 
 **created_at_local** | **datetime** | The date and time when the record was created, displayed in the local timezone specified for this entry. | [readonly] 
 **received_at** | **datetime** |  | [readonly] 

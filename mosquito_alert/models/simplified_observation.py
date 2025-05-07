@@ -30,12 +30,13 @@ class SimplifiedObservation(BaseModel):
     SimplifiedObservation
     """ # noqa: E501
     uuid: StrictStr
+    user_uuid: StrictStr
     created_at: datetime
     created_at_local: datetime = Field(description="The date and time when the record was created, displayed in the local timezone specified for this entry.")
     received_at: datetime
     location: SimplifiedLocation
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
-    __properties: ClassVar[List[str]] = ["uuid", "created_at", "created_at_local", "received_at", "location", "note"]
+    __properties: ClassVar[List[str]] = ["uuid", "user_uuid", "created_at", "created_at_local", "received_at", "location", "note"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,9 +71,11 @@ class SimplifiedObservation(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
+            "user_uuid",
             "created_at_local",
             "received_at",
         ])
@@ -103,6 +106,7 @@ class SimplifiedObservation(BaseModel):
 
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
+            "user_uuid": obj.get("user_uuid"),
             "created_at": obj.get("created_at"),
             "created_at_local": obj.get("created_at_local"),
             "received_at": obj.get("received_at"),
