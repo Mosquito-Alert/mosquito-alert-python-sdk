@@ -288,8 +288,9 @@ class PhotosApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'tokenAuth', 
             'cookieAuth', 
-            'tokenAuth'
+            'jwtAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -589,8 +590,9 @@ class PhotosApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'tokenAuth', 
             'cookieAuth', 
-            'tokenAuth'
+            'jwtAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -857,8 +859,9 @@ class PhotosApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'tokenAuth', 
             'cookieAuth', 
-            'tokenAuth'
+            'jwtAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -1158,8 +1161,9 @@ class PhotosApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'tokenAuth', 
             'cookieAuth', 
-            'tokenAuth'
+            'jwtAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -1426,8 +1430,9 @@ class PhotosApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'tokenAuth', 
             'cookieAuth', 
-            'tokenAuth'
+            'jwtAuth'
         ]
 
         return self.api_client.param_serialize(

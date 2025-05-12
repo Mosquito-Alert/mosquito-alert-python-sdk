@@ -66,6 +66,18 @@ configuration = mosquito_alert.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
 # Configure Bearer authorization (JWT): jwtAuth
 configuration = mosquito_alert.Configuration(
     access_token = os.environ["BEARER_TOKEN"]

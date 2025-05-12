@@ -846,6 +846,8 @@ class UsersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 

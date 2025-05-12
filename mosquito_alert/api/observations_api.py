@@ -1800,6 +1800,8 @@ class ObservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'tokenAuth', 
+            'cookieAuth', 
             'jwtAuth'
         ]
 
