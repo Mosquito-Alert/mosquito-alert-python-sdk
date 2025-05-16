@@ -22,9 +22,9 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from mosquito_alert.models.assignment import Assignment
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult
 from mosquito_alert.models.identification_task_review import IdentificationTaskReview
-from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
 from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simplified_observation import SimplifiedObservation
 from typing import Optional, Set
@@ -36,7 +36,7 @@ class IdentificationTask(BaseModel):
     """ # noqa: E501
     observation: SimplifiedObservation
     public_photo: SimplePhoto
-    annotators: List[SimpleAnnotatorUser]
+    assignments: List[Assignment]
     status: Optional[StrictStr] = 'open'
     is_flagged: StrictBool
     is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
@@ -46,7 +46,7 @@ class IdentificationTask(BaseModel):
     result: IdentificationTaskResult
     created_at: datetime
     updated_at: datetime
-    __properties: ClassVar[List[str]] = ["observation", "public_photo", "annotators", "status", "is_flagged", "is_safe", "public_note", "num_annotations", "review", "result", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["observation", "public_photo", "assignments", "status", "is_flagged", "is_safe", "public_note", "num_annotations", "review", "result", "created_at", "updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -101,7 +101,7 @@ class IdentificationTask(BaseModel):
         """
         excluded_fields: Set[str] = set([
             "observation",
-            "annotators",
+            "assignments",
             "is_flagged",
             "is_safe",
             "public_note",
@@ -123,13 +123,13 @@ class IdentificationTask(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of public_photo
         if self.public_photo:
             _dict['public_photo'] = self.public_photo.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in annotators (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in assignments (list)
         _items = []
-        if self.annotators:
-            for _item_annotators in self.annotators:
-                if _item_annotators:
-                    _items.append(_item_annotators.to_dict())
-            _dict['annotators'] = _items
+        if self.assignments:
+            for _item_assignments in self.assignments:
+                if _item_assignments:
+                    _items.append(_item_assignments.to_dict())
+            _dict['assignments'] = _items
         # override the default output from pydantic by calling `to_dict()` of review
         if self.review:
             _dict['review'] = self.review.to_dict()
@@ -160,7 +160,7 @@ class IdentificationTask(BaseModel):
         _obj = cls.model_validate({
             "observation": SimplifiedObservation.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
             "public_photo": SimplePhoto.from_dict(obj["public_photo"]) if obj.get("public_photo") is not None else None,
-            "annotators": [SimpleAnnotatorUser.from_dict(_item) for _item in obj["annotators"]] if obj.get("annotators") is not None else None,
+            "assignments": [Assignment.from_dict(_item) for _item in obj["assignments"]] if obj.get("assignments") is not None else None,
             "status": obj.get("status") if obj.get("status") is not None else 'open',
             "is_flagged": obj.get("is_flagged"),
             "is_safe": obj.get("is_safe"),

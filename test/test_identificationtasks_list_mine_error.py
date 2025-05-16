@@ -36,14 +36,14 @@ class TestIdentificationtasksListMineError(unittest.TestCase):
         model = IdentificationtasksListMineError()
         if include_optional:
             return IdentificationtasksListMineError(
-                attr = 'result_agreement',
-                code = 'invalid',
+                attr = 'result_source',
+                code = 'invalid_choice',
                 detail = ''
             )
         else:
             return IdentificationtasksListMineError(
-                attr = 'result_agreement',
-                code = 'invalid',
+                attr = 'result_source',
+                code = 'invalid_choice',
                 detail = '',
         )
         """

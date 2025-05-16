@@ -53,8 +53,8 @@ class CreatePhotoPredictionRequest(BaseModel):
     @field_validator('classifier_version')
     def classifier_version_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['v2023.1', 'v2024.1', 'v2025.1']):
-            raise ValueError("must be one of enum values ('v2023.1', 'v2024.1', 'v2025.1')")
+        if value not in set(['v2023.1', 'v2024.1', 'v2025.1', 'v2025.2', 'v2025.3', 'v2025.4']):
+            raise ValueError("must be one of enum values ('v2023.1', 'v2024.1', 'v2025.1', 'v2025.2', 'v2025.3', 'v2025.4')")
         return value
 
     model_config = ConfigDict(

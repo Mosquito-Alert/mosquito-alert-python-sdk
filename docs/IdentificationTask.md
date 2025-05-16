@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **observation** | [**SimplifiedObservation**](SimplifiedObservation.md) |  | [readonly] 
 **public_photo** | [**SimplePhoto**](SimplePhoto.md) |  | 
-**annotators** | [**List[SimpleAnnotatorUser]**](SimpleAnnotatorUser.md) |  | [readonly] 
+**assignments** | [**List[Assignment]**](Assignment.md) |  | [readonly] 
 **status** | **str** |  | [optional] [default to 'open']
 **is_flagged** | **bool** |  | [readonly] 
 **is_safe** | **bool** | Indicates if the content is safe for publication. | [readonly] 

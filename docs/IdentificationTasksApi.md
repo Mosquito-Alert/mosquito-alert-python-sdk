@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**annotations_list**](IdentificationTasksApi.md#annotations_list) | **GET** /identification-tasks/{observation_uuid}/annotations/ | 
 [**annotations_list_mine**](IdentificationTasksApi.md#annotations_list_mine) | **GET** /me/identification-tasks/annotations/ | 
 [**annotations_retrieve**](IdentificationTasksApi.md#annotations_retrieve) | **GET** /identification-tasks/{observation_uuid}/annotations/{id}/ | 
-[**backlog_next_retrieve**](IdentificationTasksApi.md#backlog_next_retrieve) | **GET** /identification-tasks/backlog/next/ | 
+[**assign_new**](IdentificationTasksApi.md#assign_new) | **POST** /identification-tasks/assign/ | 
 [**list**](IdentificationTasksApi.md#list) | **GET** /identification-tasks/ | 
 [**list_mine**](IdentificationTasksApi.md#list_mine) | **GET** /me/identification-tasks/ | 
 [**photos_list**](IdentificationTasksApi.md#photos_list) | **GET** /identification-tasks/{observation_uuid}/photos/ | 
@@ -430,10 +430,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **backlog_next_retrieve**
-> IdentificationTask backlog_next_retrieve()
+# **assign_new**
+> IdentificationTask assign_new()
 
-Retrieve the next identification task from the backlog.
+Assign the next available identification task.
 
 ### Example
 
@@ -481,11 +481,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
 
     try:
-        api_response = api_instance.backlog_next_retrieve()
-        print("The response of IdentificationTasksApi->backlog_next_retrieve:\n")
+        api_response = api_instance.assign_new()
+        print("The response of IdentificationTasksApi->assign_new:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling IdentificationTasksApi->backlog_next_retrieve: %s\n" % e)
+        print("Exception when calling IdentificationTasksApi->assign_new: %s\n" % e)
 ```
 
 
@@ -514,13 +514,13 @@ This endpoint does not need any parameter.
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**200** |  |  -  |
-**204** | No available tasks in backlog |  -  |
+**201** |  |  -  |
+**204** | No available tasks pending to assign |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 ### Example
 
@@ -567,6 +567,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
     annotator_ids = [56] # List[int] |  (optional)
+    assignee_ids = [56] # List[int] |  (optional)
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     fully_predicted = True # bool | Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction. (optional)
@@ -582,6 +583,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_agreement_min = 3.4 # float |  (optional)
     result_confidence_max = None # decimal.Decimal |  (optional)
     result_confidence_min = None # decimal.Decimal |  (optional)
+    result_source = 'result_source_example' # str |  (optional)
     result_taxon_ids = [56] # List[int] |  (optional)
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
@@ -591,7 +593,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -606,6 +608,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **annotator_ids** | [**List[int]**](int.md)|  | [optional] 
+ **assignee_ids** | [**List[int]**](int.md)|  | [optional] 
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
  **fully_predicted** | **bool**| Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction. | [optional] 
@@ -621,6 +624,7 @@ Name | Type | Description  | Notes
  **result_agreement_min** | **float**|  | [optional] 
  **result_confidence_max** | **decimal.Decimal**|  | [optional] 
  **result_confidence_min** | **decimal.Decimal**|  | [optional] 
+ **result_source** | **str**|  | [optional] 
  **result_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
@@ -655,7 +659,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_mine**
-> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 Get identification tasks annotated by me
 
@@ -704,6 +708,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
     annotator_ids = [56] # List[int] |  (optional)
+    assignee_ids = [56] # List[int] |  (optional)
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     fully_predicted = True # bool | Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction. (optional)
@@ -719,6 +724,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_agreement_min = 3.4 # float |  (optional)
     result_confidence_max = None # decimal.Decimal |  (optional)
     result_confidence_min = None # decimal.Decimal |  (optional)
+    result_source = 'result_source_example' # str |  (optional)
     result_taxon_ids = [56] # List[int] |  (optional)
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
@@ -728,7 +734,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list_mine(annotator_ids=annotator_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_type=review_type, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -743,6 +749,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **annotator_ids** | [**List[int]**](int.md)|  | [optional] 
+ **assignee_ids** | [**List[int]**](int.md)|  | [optional] 
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
  **fully_predicted** | **bool**| Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction. | [optional] 
@@ -758,6 +765,7 @@ Name | Type | Description  | Notes
  **result_agreement_min** | **float**|  | [optional] 
  **result_confidence_max** | **decimal.Decimal**|  | [optional] 
  **result_confidence_min** | **decimal.Decimal**|  | [optional] 
+ **result_source** | **str**|  | [optional] 
  **result_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 

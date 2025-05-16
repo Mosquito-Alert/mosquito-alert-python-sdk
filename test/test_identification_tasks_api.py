@@ -51,8 +51,8 @@ class TestIdentificationTasksApi(unittest.TestCase):
         """
         pass
 
-    def test_backlog_next_retrieve(self) -> None:
-        """Test case for backlog_next_retrieve
+    def test_assign_new(self) -> None:
+        """Test case for assign_new
 
         """
         pass

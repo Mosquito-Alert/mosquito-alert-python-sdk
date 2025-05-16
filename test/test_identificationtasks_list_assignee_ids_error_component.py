@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_error import IdentificationtasksListError
+from mosquito_alert.models.identificationtasks_list_assignee_ids_error_component import IdentificationtasksListAssigneeIdsErrorComponent
 
-class TestIdentificationtasksListError(unittest.TestCase):
-    """IdentificationtasksListError unit test stubs"""
+class TestIdentificationtasksListAssigneeIdsErrorComponent(unittest.TestCase):
+    """IdentificationtasksListAssigneeIdsErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListError:
-        """Test IdentificationtasksListError
+    def make_instance(self, include_optional) -> IdentificationtasksListAssigneeIdsErrorComponent:
+        """Test IdentificationtasksListAssigneeIdsErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListError`
+        # uncomment below to create an instance of `IdentificationtasksListAssigneeIdsErrorComponent`
         """
-        model = IdentificationtasksListError()
+        model = IdentificationtasksListAssigneeIdsErrorComponent()
         if include_optional:
-            return IdentificationtasksListError(
-                attr = 'result_source',
+            return IdentificationtasksListAssigneeIdsErrorComponent(
+                attr = 'assignee_ids',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return IdentificationtasksListError(
-                attr = 'result_source',
+            return IdentificationtasksListAssigneeIdsErrorComponent(
+                attr = 'assignee_ids',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListError(self):
-        """Test IdentificationtasksListError"""
+    def testIdentificationtasksListAssigneeIdsErrorComponent(self):
+        """Test IdentificationtasksListAssigneeIdsErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

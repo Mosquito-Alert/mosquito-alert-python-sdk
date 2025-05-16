@@ -1518,7 +1518,7 @@ class IdentificationTasksApi:
 
 
     @validate_call
-    def backlog_next_retrieve(
+    def assign_new(
         self,
         _request_timeout: Union[
             None,
@@ -1533,9 +1533,9 @@ class IdentificationTasksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> IdentificationTask:
-        """backlog_next_retrieve
+        """assign_new
 
-        Retrieve the next identification task from the backlog.
+        Assign the next available identification task.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1559,7 +1559,7 @@ class IdentificationTasksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._backlog_next_retrieve_serialize(
+        _param = self._assign_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1570,7 +1570,7 @@ class IdentificationTasksApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "IdentificationTask",
+            '201': "IdentificationTask",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1585,7 +1585,7 @@ class IdentificationTasksApi:
 
 
     @validate_call
-    def backlog_next_retrieve_with_http_info(
+    def assign_new_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1600,9 +1600,9 @@ class IdentificationTasksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[IdentificationTask]:
-        """backlog_next_retrieve
+        """assign_new
 
-        Retrieve the next identification task from the backlog.
+        Assign the next available identification task.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1626,7 +1626,7 @@ class IdentificationTasksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._backlog_next_retrieve_serialize(
+        _param = self._assign_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1637,7 +1637,7 @@ class IdentificationTasksApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "IdentificationTask",
+            '201': "IdentificationTask",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1652,7 +1652,7 @@ class IdentificationTasksApi:
 
 
     @validate_call
-    def backlog_next_retrieve_without_preload_content(
+    def assign_new_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1667,9 +1667,9 @@ class IdentificationTasksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """backlog_next_retrieve
+        """assign_new
 
-        Retrieve the next identification task from the backlog.
+        Assign the next available identification task.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1693,7 +1693,7 @@ class IdentificationTasksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._backlog_next_retrieve_serialize(
+        _param = self._assign_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1704,7 +1704,7 @@ class IdentificationTasksApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "IdentificationTask",
+            '201': "IdentificationTask",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1714,7 +1714,7 @@ class IdentificationTasksApi:
         return response_data.response
 
 
-    def _backlog_next_retrieve_serialize(
+    def _assign_new_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1760,8 +1760,8 @@ class IdentificationTasksApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/identification-tasks/backlog/next/',
+            method='POST',
+            resource_path='/identification-tasks/assign/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1781,6 +1781,7 @@ class IdentificationTasksApi:
     def list(
         self,
         annotator_ids: Optional[List[StrictInt]] = None,
+        assignee_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -1796,6 +1797,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_source: Optional[StrictStr] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -1821,6 +1823,8 @@ class IdentificationTasksApi:
 
         :param annotator_ids:
         :type annotator_ids: List[int]
+        :param assignee_ids:
+        :type assignee_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -1851,6 +1855,8 @@ class IdentificationTasksApi:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
+        :param result_source:
+        :type result_source: str
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -1889,6 +1895,7 @@ class IdentificationTasksApi:
 
         _param = self._list_serialize(
             annotator_ids=annotator_ids,
+            assignee_ids=assignee_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -1904,6 +1911,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
+            result_source=result_source,
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
@@ -1939,6 +1947,7 @@ class IdentificationTasksApi:
     def list_with_http_info(
         self,
         annotator_ids: Optional[List[StrictInt]] = None,
+        assignee_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -1954,6 +1963,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_source: Optional[StrictStr] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -1979,6 +1989,8 @@ class IdentificationTasksApi:
 
         :param annotator_ids:
         :type annotator_ids: List[int]
+        :param assignee_ids:
+        :type assignee_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -2009,6 +2021,8 @@ class IdentificationTasksApi:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
+        :param result_source:
+        :type result_source: str
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2047,6 +2061,7 @@ class IdentificationTasksApi:
 
         _param = self._list_serialize(
             annotator_ids=annotator_ids,
+            assignee_ids=assignee_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -2062,6 +2077,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
+            result_source=result_source,
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
@@ -2097,6 +2113,7 @@ class IdentificationTasksApi:
     def list_without_preload_content(
         self,
         annotator_ids: Optional[List[StrictInt]] = None,
+        assignee_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -2112,6 +2129,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_source: Optional[StrictStr] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2137,6 +2155,8 @@ class IdentificationTasksApi:
 
         :param annotator_ids:
         :type annotator_ids: List[int]
+        :param assignee_ids:
+        :type assignee_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -2167,6 +2187,8 @@ class IdentificationTasksApi:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
+        :param result_source:
+        :type result_source: str
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2205,6 +2227,7 @@ class IdentificationTasksApi:
 
         _param = self._list_serialize(
             annotator_ids=annotator_ids,
+            assignee_ids=assignee_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -2220,6 +2243,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
+            result_source=result_source,
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
@@ -2250,6 +2274,7 @@ class IdentificationTasksApi:
     def _list_serialize(
         self,
         annotator_ids,
+        assignee_ids,
         created_at_after,
         created_at_before,
         fully_predicted,
@@ -2265,6 +2290,7 @@ class IdentificationTasksApi:
         result_agreement_min,
         result_confidence_max,
         result_confidence_min,
+        result_source,
         result_taxon_ids,
         result_uncertainty_max,
         result_uncertainty_min,
@@ -2282,6 +2308,7 @@ class IdentificationTasksApi:
 
         _collection_formats: Dict[str, str] = {
             'annotator_ids': 'multi',
+            'assignee_ids': 'multi',
             'observation_country_ids': 'multi',
             'order_by': 'csv',
             'result_taxon_ids': 'multi',
@@ -2302,6 +2329,10 @@ class IdentificationTasksApi:
         if annotator_ids is not None:
             
             _query_params.append(('annotator_ids', annotator_ids))
+            
+        if assignee_ids is not None:
+            
+            _query_params.append(('assignee_ids', assignee_ids))
             
         if created_at_after is not None:
             if isinstance(created_at_after, datetime):
@@ -2380,6 +2411,10 @@ class IdentificationTasksApi:
         if result_confidence_min is not None:
             
             _query_params.append(('result_confidence_min', result_confidence_min))
+            
+        if result_source is not None:
+            
+            _query_params.append(('result_source', result_source))
             
         if result_taxon_ids is not None:
             
@@ -2470,6 +2505,7 @@ class IdentificationTasksApi:
     def list_mine(
         self,
         annotator_ids: Optional[List[StrictInt]] = None,
+        assignee_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -2485,6 +2521,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_source: Optional[StrictStr] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2511,6 +2548,8 @@ class IdentificationTasksApi:
 
         :param annotator_ids:
         :type annotator_ids: List[int]
+        :param assignee_ids:
+        :type assignee_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -2541,6 +2580,8 @@ class IdentificationTasksApi:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
+        :param result_source:
+        :type result_source: str
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2579,6 +2620,7 @@ class IdentificationTasksApi:
 
         _param = self._list_mine_serialize(
             annotator_ids=annotator_ids,
+            assignee_ids=assignee_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -2594,6 +2636,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
+            result_source=result_source,
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
@@ -2629,6 +2672,7 @@ class IdentificationTasksApi:
     def list_mine_with_http_info(
         self,
         annotator_ids: Optional[List[StrictInt]] = None,
+        assignee_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -2644,6 +2688,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_source: Optional[StrictStr] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2670,6 +2715,8 @@ class IdentificationTasksApi:
 
         :param annotator_ids:
         :type annotator_ids: List[int]
+        :param assignee_ids:
+        :type assignee_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -2700,6 +2747,8 @@ class IdentificationTasksApi:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
+        :param result_source:
+        :type result_source: str
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2738,6 +2787,7 @@ class IdentificationTasksApi:
 
         _param = self._list_mine_serialize(
             annotator_ids=annotator_ids,
+            assignee_ids=assignee_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -2753,6 +2803,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
+            result_source=result_source,
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
@@ -2788,6 +2839,7 @@ class IdentificationTasksApi:
     def list_mine_without_preload_content(
         self,
         annotator_ids: Optional[List[StrictInt]] = None,
+        assignee_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         fully_predicted: Annotated[Optional[StrictBool], Field(description="Filters identification task based on whether all associated photos have predictions. Set to True to include identification tasks where every photo has a prediction; set to False to include identification tasks where at least one photo is missing a prediction.")] = None,
@@ -2803,6 +2855,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
+        result_source: Optional[StrictStr] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2829,6 +2882,8 @@ class IdentificationTasksApi:
 
         :param annotator_ids:
         :type annotator_ids: List[int]
+        :param assignee_ids:
+        :type assignee_ids: List[int]
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
@@ -2859,6 +2914,8 @@ class IdentificationTasksApi:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
+        :param result_source:
+        :type result_source: str
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2897,6 +2954,7 @@ class IdentificationTasksApi:
 
         _param = self._list_mine_serialize(
             annotator_ids=annotator_ids,
+            assignee_ids=assignee_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             fully_predicted=fully_predicted,
@@ -2912,6 +2970,7 @@ class IdentificationTasksApi:
             result_agreement_min=result_agreement_min,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
+            result_source=result_source,
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
@@ -2942,6 +3001,7 @@ class IdentificationTasksApi:
     def _list_mine_serialize(
         self,
         annotator_ids,
+        assignee_ids,
         created_at_after,
         created_at_before,
         fully_predicted,
@@ -2957,6 +3017,7 @@ class IdentificationTasksApi:
         result_agreement_min,
         result_confidence_max,
         result_confidence_min,
+        result_source,
         result_taxon_ids,
         result_uncertainty_max,
         result_uncertainty_min,
@@ -2974,6 +3035,7 @@ class IdentificationTasksApi:
 
         _collection_formats: Dict[str, str] = {
             'annotator_ids': 'multi',
+            'assignee_ids': 'multi',
             'observation_country_ids': 'multi',
             'order_by': 'csv',
             'result_taxon_ids': 'multi',
@@ -2994,6 +3056,10 @@ class IdentificationTasksApi:
         if annotator_ids is not None:
             
             _query_params.append(('annotator_ids', annotator_ids))
+            
+        if assignee_ids is not None:
+            
+            _query_params.append(('assignee_ids', assignee_ids))
             
         if created_at_after is not None:
             if isinstance(created_at_after, datetime):
@@ -3072,6 +3138,10 @@ class IdentificationTasksApi:
         if result_confidence_min is not None:
             
             _query_params.append(('result_confidence_min', result_confidence_min))
+            
+        if result_source is not None:
+            
+            _query_params.append(('result_source', result_source))
             
         if result_taxon_ids is not None:
             

@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_error import IdentificationtasksListError
+from mosquito_alert.models.assignment import Assignment
 
-class TestIdentificationtasksListError(unittest.TestCase):
-    """IdentificationtasksListError unit test stubs"""
+class TestAssignment(unittest.TestCase):
+    """Assignment unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,38 @@ class TestIdentificationtasksListError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListError:
-        """Test IdentificationtasksListError
+    def make_instance(self, include_optional) -> Assignment:
+        """Test Assignment
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListError`
+        # uncomment below to create an instance of `Assignment`
         """
-        model = IdentificationtasksListError()
+        model = Assignment()
         if include_optional:
-            return IdentificationtasksListError(
-                attr = 'result_source',
-                code = 'invalid_choice',
-                detail = ''
+            return Assignment(
+                user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                    id = 56, 
+                    username = 'A', 
+                    first_name = '', 
+                    last_name = '', 
+                    full_name = '', ),
+                annotation_id = 56
             )
         else:
-            return IdentificationtasksListError(
-                attr = 'result_source',
-                code = 'invalid_choice',
-                detail = '',
+            return Assignment(
+                user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                    id = 56, 
+                    username = 'A', 
+                    first_name = '', 
+                    last_name = '', 
+                    full_name = '', ),
+                annotation_id = 56,
         )
         """
 
-    def testIdentificationtasksListError(self):
-        """Test IdentificationtasksListError"""
+    def testAssignment(self):
+        """Test Assignment"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

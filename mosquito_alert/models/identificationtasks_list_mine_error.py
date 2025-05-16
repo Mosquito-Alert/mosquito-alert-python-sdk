@@ -19,12 +19,14 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from mosquito_alert.models.identificationtasks_list_mine_annotator_ids_error_component import IdentificationtasksListMineAnnotatorIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_assignee_ids_error_component import IdentificationtasksListMineAssigneeIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_created_at_error_component import IdentificationtasksListMineCreatedAtErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_num_annotations_error_component import IdentificationtasksListMineNumAnnotationsErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_observation_country_ids_error_component import IdentificationtasksListMineObservationCountryIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_order_by_error_component import IdentificationtasksListMineOrderByErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_result_agreement_error_component import IdentificationtasksListMineResultAgreementErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_result_confidence_error_component import IdentificationtasksListMineResultConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_result_source_error_component import IdentificationtasksListMineResultSourceErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_result_taxon_ids_error_component import IdentificationtasksListMineResultTaxonIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_result_uncertainty_error_component import IdentificationtasksListMineResultUncertaintyErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_review_type_error_component import IdentificationtasksListMineReviewTypeErrorComponent
@@ -34,7 +36,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-IDENTIFICATIONTASKSLISTMINEERROR_ONE_OF_SCHEMAS = ["IdentificationtasksListMineAnnotatorIdsErrorComponent", "IdentificationtasksListMineCreatedAtErrorComponent", "IdentificationtasksListMineNumAnnotationsErrorComponent", "IdentificationtasksListMineObservationCountryIdsErrorComponent", "IdentificationtasksListMineOrderByErrorComponent", "IdentificationtasksListMineResultAgreementErrorComponent", "IdentificationtasksListMineResultConfidenceErrorComponent", "IdentificationtasksListMineResultTaxonIdsErrorComponent", "IdentificationtasksListMineResultUncertaintyErrorComponent", "IdentificationtasksListMineReviewTypeErrorComponent", "IdentificationtasksListMineStatusErrorComponent", "IdentificationtasksListMineUpdatedAtErrorComponent"]
+IDENTIFICATIONTASKSLISTMINEERROR_ONE_OF_SCHEMAS = ["IdentificationtasksListMineAnnotatorIdsErrorComponent", "IdentificationtasksListMineAssigneeIdsErrorComponent", "IdentificationtasksListMineCreatedAtErrorComponent", "IdentificationtasksListMineNumAnnotationsErrorComponent", "IdentificationtasksListMineObservationCountryIdsErrorComponent", "IdentificationtasksListMineOrderByErrorComponent", "IdentificationtasksListMineResultAgreementErrorComponent", "IdentificationtasksListMineResultConfidenceErrorComponent", "IdentificationtasksListMineResultSourceErrorComponent", "IdentificationtasksListMineResultTaxonIdsErrorComponent", "IdentificationtasksListMineResultUncertaintyErrorComponent", "IdentificationtasksListMineReviewTypeErrorComponent", "IdentificationtasksListMineStatusErrorComponent", "IdentificationtasksListMineUpdatedAtErrorComponent"]
 
 class IdentificationtasksListMineError(BaseModel):
     """
@@ -44,28 +46,32 @@ class IdentificationtasksListMineError(BaseModel):
     oneof_schema_1_validator: Optional[IdentificationtasksListMineReviewTypeErrorComponent] = None
     # data type: IdentificationtasksListMineAnnotatorIdsErrorComponent
     oneof_schema_2_validator: Optional[IdentificationtasksListMineAnnotatorIdsErrorComponent] = None
+    # data type: IdentificationtasksListMineAssigneeIdsErrorComponent
+    oneof_schema_3_validator: Optional[IdentificationtasksListMineAssigneeIdsErrorComponent] = None
     # data type: IdentificationtasksListMineNumAnnotationsErrorComponent
-    oneof_schema_3_validator: Optional[IdentificationtasksListMineNumAnnotationsErrorComponent] = None
+    oneof_schema_4_validator: Optional[IdentificationtasksListMineNumAnnotationsErrorComponent] = None
     # data type: IdentificationtasksListMineCreatedAtErrorComponent
-    oneof_schema_4_validator: Optional[IdentificationtasksListMineCreatedAtErrorComponent] = None
+    oneof_schema_5_validator: Optional[IdentificationtasksListMineCreatedAtErrorComponent] = None
     # data type: IdentificationtasksListMineUpdatedAtErrorComponent
-    oneof_schema_5_validator: Optional[IdentificationtasksListMineUpdatedAtErrorComponent] = None
+    oneof_schema_6_validator: Optional[IdentificationtasksListMineUpdatedAtErrorComponent] = None
     # data type: IdentificationtasksListMineOrderByErrorComponent
-    oneof_schema_6_validator: Optional[IdentificationtasksListMineOrderByErrorComponent] = None
+    oneof_schema_7_validator: Optional[IdentificationtasksListMineOrderByErrorComponent] = None
     # data type: IdentificationtasksListMineStatusErrorComponent
-    oneof_schema_7_validator: Optional[IdentificationtasksListMineStatusErrorComponent] = None
+    oneof_schema_8_validator: Optional[IdentificationtasksListMineStatusErrorComponent] = None
     # data type: IdentificationtasksListMineObservationCountryIdsErrorComponent
-    oneof_schema_8_validator: Optional[IdentificationtasksListMineObservationCountryIdsErrorComponent] = None
+    oneof_schema_9_validator: Optional[IdentificationtasksListMineObservationCountryIdsErrorComponent] = None
     # data type: IdentificationtasksListMineResultTaxonIdsErrorComponent
-    oneof_schema_9_validator: Optional[IdentificationtasksListMineResultTaxonIdsErrorComponent] = None
+    oneof_schema_10_validator: Optional[IdentificationtasksListMineResultTaxonIdsErrorComponent] = None
     # data type: IdentificationtasksListMineResultConfidenceErrorComponent
-    oneof_schema_10_validator: Optional[IdentificationtasksListMineResultConfidenceErrorComponent] = None
+    oneof_schema_11_validator: Optional[IdentificationtasksListMineResultConfidenceErrorComponent] = None
     # data type: IdentificationtasksListMineResultUncertaintyErrorComponent
-    oneof_schema_11_validator: Optional[IdentificationtasksListMineResultUncertaintyErrorComponent] = None
+    oneof_schema_12_validator: Optional[IdentificationtasksListMineResultUncertaintyErrorComponent] = None
     # data type: IdentificationtasksListMineResultAgreementErrorComponent
-    oneof_schema_12_validator: Optional[IdentificationtasksListMineResultAgreementErrorComponent] = None
-    actual_instance: Optional[Union[IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent]] = None
-    one_of_schemas: Set[str] = { "IdentificationtasksListMineAnnotatorIdsErrorComponent", "IdentificationtasksListMineCreatedAtErrorComponent", "IdentificationtasksListMineNumAnnotationsErrorComponent", "IdentificationtasksListMineObservationCountryIdsErrorComponent", "IdentificationtasksListMineOrderByErrorComponent", "IdentificationtasksListMineResultAgreementErrorComponent", "IdentificationtasksListMineResultConfidenceErrorComponent", "IdentificationtasksListMineResultTaxonIdsErrorComponent", "IdentificationtasksListMineResultUncertaintyErrorComponent", "IdentificationtasksListMineReviewTypeErrorComponent", "IdentificationtasksListMineStatusErrorComponent", "IdentificationtasksListMineUpdatedAtErrorComponent" }
+    oneof_schema_13_validator: Optional[IdentificationtasksListMineResultAgreementErrorComponent] = None
+    # data type: IdentificationtasksListMineResultSourceErrorComponent
+    oneof_schema_14_validator: Optional[IdentificationtasksListMineResultSourceErrorComponent] = None
+    actual_instance: Optional[Union[IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineAssigneeIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultSourceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent]] = None
+    one_of_schemas: Set[str] = { "IdentificationtasksListMineAnnotatorIdsErrorComponent", "IdentificationtasksListMineAssigneeIdsErrorComponent", "IdentificationtasksListMineCreatedAtErrorComponent", "IdentificationtasksListMineNumAnnotationsErrorComponent", "IdentificationtasksListMineObservationCountryIdsErrorComponent", "IdentificationtasksListMineOrderByErrorComponent", "IdentificationtasksListMineResultAgreementErrorComponent", "IdentificationtasksListMineResultConfidenceErrorComponent", "IdentificationtasksListMineResultSourceErrorComponent", "IdentificationtasksListMineResultTaxonIdsErrorComponent", "IdentificationtasksListMineResultUncertaintyErrorComponent", "IdentificationtasksListMineReviewTypeErrorComponent", "IdentificationtasksListMineStatusErrorComponent", "IdentificationtasksListMineUpdatedAtErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -99,6 +105,11 @@ class IdentificationtasksListMineError(BaseModel):
         # validate data type: IdentificationtasksListMineAnnotatorIdsErrorComponent
         if not isinstance(v, IdentificationtasksListMineAnnotatorIdsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListMineAnnotatorIdsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksListMineAssigneeIdsErrorComponent
+        if not isinstance(v, IdentificationtasksListMineAssigneeIdsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListMineAssigneeIdsErrorComponent`")
         else:
             match += 1
         # validate data type: IdentificationtasksListMineNumAnnotationsErrorComponent
@@ -151,12 +162,17 @@ class IdentificationtasksListMineError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListMineResultAgreementErrorComponent`")
         else:
             match += 1
+        # validate data type: IdentificationtasksListMineResultSourceErrorComponent
+        if not isinstance(v, IdentificationtasksListMineResultSourceErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksListMineResultSourceErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineAssigneeIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultSourceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineAssigneeIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultSourceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -180,6 +196,12 @@ class IdentificationtasksListMineError(BaseModel):
         # deserialize data into IdentificationtasksListMineAnnotatorIdsErrorComponent
         try:
             instance.actual_instance = IdentificationtasksListMineAnnotatorIdsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksListMineAssigneeIdsErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksListMineAssigneeIdsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -243,13 +265,19 @@ class IdentificationtasksListMineError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into IdentificationtasksListMineResultSourceErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksListMineResultSourceErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineAssigneeIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultSourceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksListMineError with oneOf schemas: IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineAssigneeIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultSourceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -263,7 +291,7 @@ class IdentificationtasksListMineError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksListMineAnnotatorIdsErrorComponent, IdentificationtasksListMineAssigneeIdsErrorComponent, IdentificationtasksListMineCreatedAtErrorComponent, IdentificationtasksListMineNumAnnotationsErrorComponent, IdentificationtasksListMineObservationCountryIdsErrorComponent, IdentificationtasksListMineOrderByErrorComponent, IdentificationtasksListMineResultAgreementErrorComponent, IdentificationtasksListMineResultConfidenceErrorComponent, IdentificationtasksListMineResultSourceErrorComponent, IdentificationtasksListMineResultTaxonIdsErrorComponent, IdentificationtasksListMineResultUncertaintyErrorComponent, IdentificationtasksListMineReviewTypeErrorComponent, IdentificationtasksListMineStatusErrorComponent, IdentificationtasksListMineUpdatedAtErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

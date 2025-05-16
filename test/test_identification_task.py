@@ -53,13 +53,15 @@ class TestIdentificationTask(unittest.TestCase):
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
-                annotators = [
-                    mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                        id = 56, 
-                        username = 'A', 
-                        first_name = '', 
-                        last_name = '', 
-                        full_name = '', )
+                assignments = [
+                    mosquito_alert.models.assignment.Assignment(
+                        user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                            id = 56, 
+                            username = 'A', 
+                            first_name = '', 
+                            last_name = '', 
+                            full_name = '', ), 
+                        annotation_id = 56, )
                     ],
                 status = 'open',
                 is_flagged = True,
@@ -99,13 +101,15 @@ class TestIdentificationTask(unittest.TestCase):
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
-                annotators = [
-                    mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                        id = 56, 
-                        username = 'A', 
-                        first_name = '', 
-                        last_name = '', 
-                        full_name = '', )
+                assignments = [
+                    mosquito_alert.models.assignment.Assignment(
+                        user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                            id = 56, 
+                            username = 'A', 
+                            first_name = '', 
+                            last_name = '', 
+                            full_name = '', ), 
+                        annotation_id = 56, )
                     ],
                 is_flagged = True,
                 is_safe = True,
