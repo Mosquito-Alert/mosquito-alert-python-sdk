@@ -51,8 +51,8 @@ class TestIdentificationTasksApi(unittest.TestCase):
         """
         pass
 
-    def test_assign_new(self) -> None:
-        """Test case for assign_new
+    def test_assign_next(self) -> None:
+        """Test case for assign_next
 
         """
         pass
@@ -65,18 +65,6 @@ class TestIdentificationTasksApi(unittest.TestCase):
 
     def test_list_mine(self) -> None:
         """Test case for list_mine
-
-        """
-        pass
-
-    def test_photos_list(self) -> None:
-        """Test case for photos_list
-
-        """
-        pass
-
-    def test_photos_retrieve(self) -> None:
-        """Test case for photos_retrieve
 
         """
         pass

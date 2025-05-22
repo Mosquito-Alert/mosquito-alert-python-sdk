@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.simplified_observation import SimplifiedObservation
+from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos
 
-class TestSimplifiedObservation(unittest.TestCase):
-    """SimplifiedObservation unit test stubs"""
+class TestSimplifiedObservationWithPhotos(unittest.TestCase):
+    """SimplifiedObservationWithPhotos unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,16 +26,16 @@ class TestSimplifiedObservation(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SimplifiedObservation:
-        """Test SimplifiedObservation
+    def make_instance(self, include_optional) -> SimplifiedObservationWithPhotos:
+        """Test SimplifiedObservationWithPhotos
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SimplifiedObservation`
+        # uncomment below to create an instance of `SimplifiedObservationWithPhotos`
         """
-        model = SimplifiedObservation()
+        model = SimplifiedObservationWithPhotos()
         if include_optional:
-            return SimplifiedObservation(
+            return SimplifiedObservationWithPhotos(
                 uuid = '',
                 user_uuid = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
@@ -48,10 +48,15 @@ class TestSimplifiedObservation(unittest.TestCase):
                     timezone = 'Africa/Abidjan', 
                     display_name = '', 
                     country = null, ),
-                note = ''
+                note = '',
+                photos = [
+                    mosquito_alert.models.simple_photo.SimplePhoto(
+                        uuid = '', 
+                        url = '', )
+                    ]
             )
         else:
-            return SimplifiedObservation(
+            return SimplifiedObservationWithPhotos(
                 uuid = '',
                 user_uuid = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
@@ -64,11 +69,16 @@ class TestSimplifiedObservation(unittest.TestCase):
                     timezone = 'Africa/Abidjan', 
                     display_name = '', 
                     country = null, ),
+                photos = [
+                    mosquito_alert.models.simple_photo.SimplePhoto(
+                        uuid = '', 
+                        url = '', )
+                    ],
         )
         """
 
-    def testSimplifiedObservation(self):
-        """Test SimplifiedObservation"""
+    def testSimplifiedObservationWithPhotos(self):
+        """Test SimplifiedObservationWithPhotos"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

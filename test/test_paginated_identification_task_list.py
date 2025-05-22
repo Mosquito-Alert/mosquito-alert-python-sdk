@@ -46,14 +46,15 @@ class TestPaginatedIdentificationTaskList(unittest.TestCase):
                             uuid = '', 
                             url = '', ), 
                         assignments = [
-                            mosquito_alert.models.assignment.Assignment(
+                            mosquito_alert.models.user_assignment.UserAssignment(
                                 user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
                                     id = 56, 
                                     username = 'A', 
                                     first_name = '', 
                                     last_name = '', 
                                     full_name = '', ), 
-                                annotation_id = 56, )
+                                annotation_id = 56, 
+                                annotation_type = 'short', )
                             ], 
                         status = 'open', 
                         is_flagged = True, 

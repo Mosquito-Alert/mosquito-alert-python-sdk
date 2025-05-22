@@ -18,21 +18,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from mosquito_alert.models.simple_photo import SimplePhoto
+from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PaginatedSimplePhotoList(BaseModel):
+class UserAssignment(BaseModel):
     """
-    PaginatedSimplePhotoList
+    UserAssignment
     """ # noqa: E501
-    count: Optional[StrictInt] = None
-    next: Optional[StrictStr] = None
-    previous: Optional[StrictStr] = None
-    results: Optional[List[SimplePhoto]] = None
-    __properties: ClassVar[List[str]] = ["count", "next", "previous", "results"]
+    user: SimpleAnnotatorUser
+    annotation_id: Optional[StrictInt]
+    annotation_type: StrictStr
+    __properties: ClassVar[List[str]] = ["user", "annotation_id", "annotation_type"]
+
+    @field_validator('annotation_type')
+    def annotation_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['short', 'long']):
+            raise ValueError("must be one of enum values ('short', 'long')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +58,7 @@ class PaginatedSimplePhotoList(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PaginatedSimplePhotoList from a JSON string"""
+        """Create an instance of UserAssignment from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -64,8 +70,12 @@ class PaginatedSimplePhotoList(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "annotation_id",
+            "annotation_type",
         ])
 
         _dict = self.model_dump(
@@ -73,28 +83,19 @@ class PaginatedSimplePhotoList(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
-        _items = []
-        if self.results:
-            for _item_results in self.results:
-                if _item_results:
-                    _items.append(_item_results.to_dict())
-            _dict['results'] = _items
-        # set to None if next (nullable) is None
+        # override the default output from pydantic by calling `to_dict()` of user
+        if self.user:
+            _dict['user'] = self.user.to_dict()
+        # set to None if annotation_id (nullable) is None
         # and model_fields_set contains the field
-        if self.next is None and "next" in self.model_fields_set:
-            _dict['next'] = None
-
-        # set to None if previous (nullable) is None
-        # and model_fields_set contains the field
-        if self.previous is None and "previous" in self.model_fields_set:
-            _dict['previous'] = None
+        if self.annotation_id is None and "annotation_id" in self.model_fields_set:
+            _dict['annotation_id'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PaginatedSimplePhotoList from a dict"""
+        """Create an instance of UserAssignment from a dict"""
         if obj is None:
             return None
 
@@ -102,10 +103,9 @@ class PaginatedSimplePhotoList(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "count": obj.get("count"),
-            "next": obj.get("next"),
-            "previous": obj.get("previous"),
-            "results": [SimplePhoto.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
+            "user": SimpleAnnotatorUser.from_dict(obj["user"]) if obj.get("user") is not None else None,
+            "annotation_id": obj.get("annotation_id"),
+            "annotation_type": obj.get("annotation_type")
         })
         return _obj
 

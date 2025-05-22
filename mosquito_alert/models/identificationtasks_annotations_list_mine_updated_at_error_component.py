@@ -20,23 +20,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Assignment(BaseModel):
+class IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent(BaseModel):
     """
-    Assignment
+    IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent
     """ # noqa: E501
-    observation: SimplifiedObservationWithPhotos
-    annotation_type: StrictStr
-    __properties: ClassVar[List[str]] = ["observation", "annotation_type"]
+    attr: StrictStr
+    code: StrictStr
+    detail: StrictStr
+    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
 
-    @field_validator('annotation_type')
-    def annotation_type_validate_enum(cls, value):
+    @field_validator('attr')
+    def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['short', 'long']):
-            raise ValueError("must be one of enum values ('short', 'long')")
+        if value not in set(['updated_at']):
+            raise ValueError("must be one of enum values ('updated_at')")
+        return value
+
+    @field_validator('code')
+    def code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['invalid']):
+            raise ValueError("must be one of enum values ('invalid')")
         return value
 
     model_config = ConfigDict(
@@ -57,7 +64,7 @@ class Assignment(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Assignment from a JSON string"""
+        """Create an instance of IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,12 +76,8 @@ class Assignment(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "observation",
-            "annotation_type",
         ])
 
         _dict = self.model_dump(
@@ -82,14 +85,11 @@ class Assignment(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of observation
-        if self.observation:
-            _dict['observation'] = self.observation.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Assignment from a dict"""
+        """Create an instance of IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent from a dict"""
         if obj is None:
             return None
 
@@ -97,8 +97,9 @@ class Assignment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "observation": SimplifiedObservationWithPhotos.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
-            "annotation_type": obj.get("annotation_type")
+            "attr": obj.get("attr"),
+            "code": obj.get("code"),
+            "detail": obj.get("detail")
         })
         return _obj
 

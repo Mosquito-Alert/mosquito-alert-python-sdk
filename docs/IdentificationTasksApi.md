@@ -8,11 +8,9 @@ Method | HTTP request | Description
 [**annotations_list**](IdentificationTasksApi.md#annotations_list) | **GET** /identification-tasks/{observation_uuid}/annotations/ | 
 [**annotations_list_mine**](IdentificationTasksApi.md#annotations_list_mine) | **GET** /me/identification-tasks/annotations/ | 
 [**annotations_retrieve**](IdentificationTasksApi.md#annotations_retrieve) | **GET** /identification-tasks/{observation_uuid}/annotations/{id}/ | 
-[**assign_new**](IdentificationTasksApi.md#assign_new) | **POST** /identification-tasks/assign/ | 
+[**assign_next**](IdentificationTasksApi.md#assign_next) | **POST** /identification-tasks/assignments/next/ | 
 [**list**](IdentificationTasksApi.md#list) | **GET** /identification-tasks/ | 
 [**list_mine**](IdentificationTasksApi.md#list_mine) | **GET** /me/identification-tasks/ | 
-[**photos_list**](IdentificationTasksApi.md#photos_list) | **GET** /identification-tasks/{observation_uuid}/photos/ | 
-[**photos_retrieve**](IdentificationTasksApi.md#photos_retrieve) | **GET** /identification-tasks/{observation_uuid}/photos/{uuid}/ | 
 [**predictions_create**](IdentificationTasksApi.md#predictions_create) | **POST** /identification-tasks/{observation_uuid}/predictions/ | 
 [**predictions_destroy**](IdentificationTasksApi.md#predictions_destroy) | **DELETE** /identification-tasks/{observation_uuid}/predictions/{photo_uuid}/ | 
 [**predictions_list**](IdentificationTasksApi.md#predictions_list) | **GET** /identification-tasks/{observation_uuid}/predictions/ | 
@@ -117,7 +115,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list**
-> PaginatedAnnotationList annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 ### Example
 
@@ -168,15 +166,19 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     classification_confidence_max = 3.4 # float |  (optional)
     classification_confidence_min = 3.4 # float |  (optional)
     classification_taxon_ids = [56] # List[int] |  (optional)
+    created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
+    created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     is_decisive = True # bool |  (optional)
     is_flagged = True # bool |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
+    updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
+    updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, user_ids=user_ids)
+        api_response = api_instance.annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -195,11 +197,15 @@ Name | Type | Description  | Notes
  **classification_confidence_max** | **float**|  | [optional] 
  **classification_confidence_min** | **float**|  | [optional] 
  **classification_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
+ **created_at_after** | **datetime**| Created at | [optional] 
+ **created_at_before** | **datetime**| Created at | [optional] 
  **is_decisive** | **bool**|  | [optional] 
  **is_flagged** | **bool**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **updated_at_after** | **datetime**| Updated at | [optional] 
+ **updated_at_before** | **datetime**| Updated at | [optional] 
  **user_ids** | [**List[int]**](int.md)|  | [optional] 
 
 ### Return type
@@ -228,7 +234,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list_mine**
-> PaginatedAnnotationList annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 Get my annotations
 
@@ -280,15 +286,19 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     classification_confidence_max = 3.4 # float |  (optional)
     classification_confidence_min = 3.4 # float |  (optional)
     classification_taxon_ids = [56] # List[int] |  (optional)
+    created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
+    created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     is_decisive = True # bool |  (optional)
     is_flagged = True # bool |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
+    updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
+    updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, user_ids=user_ids)
+        api_response = api_instance.annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -306,11 +316,15 @@ Name | Type | Description  | Notes
  **classification_confidence_max** | **float**|  | [optional] 
  **classification_confidence_min** | **float**|  | [optional] 
  **classification_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
+ **created_at_after** | **datetime**| Created at | [optional] 
+ **created_at_before** | **datetime**| Created at | [optional] 
  **is_decisive** | **bool**|  | [optional] 
  **is_flagged** | **bool**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **updated_at_after** | **datetime**| Updated at | [optional] 
+ **updated_at_before** | **datetime**| Updated at | [optional] 
  **user_ids** | [**List[int]**](int.md)|  | [optional] 
 
 ### Return type
@@ -430,8 +444,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **assign_new**
-> IdentificationTask assign_new()
+# **assign_next**
+> Assignment assign_next()
 
 Assign the next available identification task.
 
@@ -443,7 +457,7 @@ Assign the next available identification task.
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.identification_task import IdentificationTask
+from mosquito_alert.models.assignment import Assignment
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -481,11 +495,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
 
     try:
-        api_response = api_instance.assign_new()
-        print("The response of IdentificationTasksApi->assign_new:\n")
+        api_response = api_instance.assign_next()
+        print("The response of IdentificationTasksApi->assign_next:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling IdentificationTasksApi->assign_new: %s\n" % e)
+        print("Exception when calling IdentificationTasksApi->assign_next: %s\n" % e)
 ```
 
 
@@ -496,7 +510,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**IdentificationTask**](IdentificationTask.md)
+[**Assignment**](Assignment.md)
 
 ### Authorization
 
@@ -792,192 +806,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **400** |  |  -  |
-**401** |  |  -  |
-**403** |  |  -  |
-**404** |  |  -  |
-**200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **photos_list**
-> PaginatedSimplePhotoList photos_list(observation_uuid, page=page, page_size=page_size)
-
-### Example
-
-* Api Key Authentication (tokenAuth):
-* Api Key Authentication (cookieAuth):
-* Bearer (JWT) Authentication (jwtAuth):
-
-```python
-import mosquito_alert
-from mosquito_alert.models.paginated_simple_photo_list import PaginatedSimplePhotoList
-from mosquito_alert.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert.Configuration(
-    host = "https://api.mosquitoalert.com/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: tokenAuth
-configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with mosquito_alert.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
-
-    try:
-        api_response = api_instance.photos_list(observation_uuid, page=page, page_size=page_size)
-        print("The response of IdentificationTasksApi->photos_list:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IdentificationTasksApi->photos_list: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **observation_uuid** | **str**| UUID of the Observation | 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
-
-### Return type
-
-[**PaginatedSimplePhotoList**](PaginatedSimplePhotoList.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth), [cookieAuth](../README.md#cookieAuth), [jwtAuth](../README.md#jwtAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**401** |  |  -  |
-**403** |  |  -  |
-**404** |  |  -  |
-**200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **photos_retrieve**
-> SimplePhoto photos_retrieve(observation_uuid, uuid)
-
-### Example
-
-* Api Key Authentication (tokenAuth):
-* Api Key Authentication (cookieAuth):
-* Bearer (JWT) Authentication (jwtAuth):
-
-```python
-import mosquito_alert
-from mosquito_alert.models.simple_photo import SimplePhoto
-from mosquito_alert.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.mosquitoalert.com/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = mosquito_alert.Configuration(
-    host = "https://api.mosquitoalert.com/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: tokenAuth
-configuration.api_key['tokenAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure Bearer authorization (JWT): jwtAuth
-configuration = mosquito_alert.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with mosquito_alert.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    observation_uuid = 'observation_uuid_example' # str | UUID of the Observation
-    uuid = 'uuid_example' # str | 
-
-    try:
-        api_response = api_instance.photos_retrieve(observation_uuid, uuid)
-        print("The response of IdentificationTasksApi->photos_retrieve:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IdentificationTasksApi->photos_retrieve: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **observation_uuid** | **str**| UUID of the Observation | 
- **uuid** | **str**|  | 
-
-### Return type
-
-[**SimplePhoto**](SimplePhoto.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth), [cookieAuth](../README.md#cookieAuth), [jwtAuth](../README.md#jwtAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |

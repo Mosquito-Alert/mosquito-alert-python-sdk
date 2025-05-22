@@ -36,23 +36,49 @@ class TestAssignment(unittest.TestCase):
         model = Assignment()
         if include_optional:
             return Assignment(
-                user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                    id = 56, 
-                    username = 'A', 
-                    first_name = '', 
-                    last_name = '', 
-                    full_name = '', ),
-                annotation_id = 56
+                observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
+                    uuid = '', 
+                    user_uuid = '', 
+                    created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    location = mosquito_alert.models.simplified_location.SimplifiedLocation(
+                        point = mosquito_alert.models.location_point.Location_point(
+                            latitude = 1.337, 
+                            longitude = 1.337, ), 
+                        timezone = 'Africa/Abidjan', 
+                        display_name = '', 
+                        country = null, ), 
+                    note = '', 
+                    photos = [
+                        mosquito_alert.models.simple_photo.SimplePhoto(
+                            uuid = '', 
+                            url = '', )
+                        ], ),
+                annotation_type = 'short'
             )
         else:
             return Assignment(
-                user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                    id = 56, 
-                    username = 'A', 
-                    first_name = '', 
-                    last_name = '', 
-                    full_name = '', ),
-                annotation_id = 56,
+                observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
+                    uuid = '', 
+                    user_uuid = '', 
+                    created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    location = mosquito_alert.models.simplified_location.SimplifiedLocation(
+                        point = mosquito_alert.models.location_point.Location_point(
+                            latitude = 1.337, 
+                            longitude = 1.337, ), 
+                        timezone = 'Africa/Abidjan', 
+                        display_name = '', 
+                        country = null, ), 
+                    note = '', 
+                    photos = [
+                        mosquito_alert.models.simple_photo.SimplePhoto(
+                            uuid = '', 
+                            url = '', )
+                        ], ),
+                annotation_type = 'short',
         )
         """
 

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**SimpleAnnotatorUser**](SimpleAnnotatorUser.md) |  | 
-**annotation_id** | **int** |  | [readonly] 
+**observation** | [**SimplifiedObservationWithPhotos**](SimplifiedObservationWithPhotos.md) |  | [readonly] 
+**annotation_type** | **str** |  | [readonly] 
 
 ## Example
 

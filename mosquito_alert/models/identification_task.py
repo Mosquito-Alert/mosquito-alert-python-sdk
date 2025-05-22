@@ -22,11 +22,11 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from mosquito_alert.models.assignment import Assignment
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult
 from mosquito_alert.models.identification_task_review import IdentificationTaskReview
 from mosquito_alert.models.simple_photo import SimplePhoto
-from mosquito_alert.models.simplified_observation import SimplifiedObservation
+from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos
+from mosquito_alert.models.user_assignment import UserAssignment
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -34,9 +34,9 @@ class IdentificationTask(BaseModel):
     """
     IdentificationTask
     """ # noqa: E501
-    observation: SimplifiedObservation
+    observation: SimplifiedObservationWithPhotos
     public_photo: SimplePhoto
-    assignments: List[Assignment]
+    assignments: List[UserAssignment]
     status: Optional[StrictStr] = 'open'
     is_flagged: StrictBool
     is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
@@ -158,9 +158,9 @@ class IdentificationTask(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "observation": SimplifiedObservation.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
+            "observation": SimplifiedObservationWithPhotos.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
             "public_photo": SimplePhoto.from_dict(obj["public_photo"]) if obj.get("public_photo") is not None else None,
-            "assignments": [Assignment.from_dict(_item) for _item in obj["assignments"]] if obj.get("assignments") is not None else None,
+            "assignments": [UserAssignment.from_dict(_item) for _item in obj["assignments"]] if obj.get("assignments") is not None else None,
             "status": obj.get("status") if obj.get("status") is not None else 'open',
             "is_flagged": obj.get("is_flagged"),
             "is_safe": obj.get("is_safe"),

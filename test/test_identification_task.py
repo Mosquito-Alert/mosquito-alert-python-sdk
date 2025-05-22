@@ -36,7 +36,7 @@ class TestIdentificationTask(unittest.TestCase):
         model = IdentificationTask()
         if include_optional:
             return IdentificationTask(
-                observation = mosquito_alert.models.simplified_observation.SimplifiedObservation(
+                observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
                     uuid = '', 
                     user_uuid = '', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -49,19 +49,25 @@ class TestIdentificationTask(unittest.TestCase):
                         timezone = 'Africa/Abidjan', 
                         display_name = '', 
                         country = null, ), 
-                    note = '', ),
+                    note = '', 
+                    photos = [
+                        mosquito_alert.models.simple_photo.SimplePhoto(
+                            uuid = '', 
+                            url = '', )
+                        ], ),
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
                 assignments = [
-                    mosquito_alert.models.assignment.Assignment(
+                    mosquito_alert.models.user_assignment.UserAssignment(
                         user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
                             id = 56, 
                             username = 'A', 
                             first_name = '', 
                             last_name = '', 
                             full_name = '', ), 
-                        annotation_id = 56, )
+                        annotation_id = 56, 
+                        annotation_type = 'short', )
                     ],
                 status = 'open',
                 is_flagged = True,
@@ -84,7 +90,7 @@ class TestIdentificationTask(unittest.TestCase):
             )
         else:
             return IdentificationTask(
-                observation = mosquito_alert.models.simplified_observation.SimplifiedObservation(
+                observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
                     uuid = '', 
                     user_uuid = '', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -97,19 +103,25 @@ class TestIdentificationTask(unittest.TestCase):
                         timezone = 'Africa/Abidjan', 
                         display_name = '', 
                         country = null, ), 
-                    note = '', ),
+                    note = '', 
+                    photos = [
+                        mosquito_alert.models.simple_photo.SimplePhoto(
+                            uuid = '', 
+                            url = '', )
+                        ], ),
                 public_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
                 assignments = [
-                    mosquito_alert.models.assignment.Assignment(
+                    mosquito_alert.models.user_assignment.UserAssignment(
                         user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
                             id = 56, 
                             username = 'A', 
                             first_name = '', 
                             last_name = '', 
                             full_name = '', ), 
-                        annotation_id = 56, )
+                        annotation_id = 56, 
+                        annotation_type = 'short', )
                     ],
                 is_flagged = True,
                 is_safe = True,

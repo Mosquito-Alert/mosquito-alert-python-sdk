@@ -23,17 +23,16 @@ from typing import List, Optional, Union
 from typing_extensions import Annotated
 from mosquito_alert.models.annotation import Annotation
 from mosquito_alert.models.annotation_request import AnnotationRequest
+from mosquito_alert.models.assignment import Assignment
 from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction
 from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest
 from mosquito_alert.models.identification_task import IdentificationTask
 from mosquito_alert.models.paginated_annotation_list import PaginatedAnnotationList
 from mosquito_alert.models.paginated_identification_task_list import PaginatedIdentificationTaskList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList
-from mosquito_alert.models.paginated_simple_photo_list import PaginatedSimplePhotoList
 from mosquito_alert.models.patched_photo_prediction_request import PatchedPhotoPredictionRequest
 from mosquito_alert.models.photo_prediction import PhotoPrediction
 from mosquito_alert.models.photo_prediction_request import PhotoPredictionRequest
-from mosquito_alert.models.simple_photo import SimplePhoto
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -363,11 +362,15 @@ class IdentificationTasksApi:
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
         _request_timeout: Union[
             None,
@@ -395,6 +398,10 @@ class IdentificationTasksApi:
         :type classification_confidence_min: float
         :param classification_taxon_ids:
         :type classification_taxon_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
         :param is_flagged:
@@ -405,6 +412,10 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param updated_at_after: Updated at
+        :type updated_at_after: datetime
+        :param updated_at_before: Updated at
+        :type updated_at_before: datetime
         :param user_ids:
         :type user_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -435,11 +446,15 @@ class IdentificationTasksApi:
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
             classification_taxon_ids=classification_taxon_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             is_decisive=is_decisive,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             user_ids=user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -473,11 +488,15 @@ class IdentificationTasksApi:
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
         _request_timeout: Union[
             None,
@@ -505,6 +524,10 @@ class IdentificationTasksApi:
         :type classification_confidence_min: float
         :param classification_taxon_ids:
         :type classification_taxon_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
         :param is_flagged:
@@ -515,6 +538,10 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param updated_at_after: Updated at
+        :type updated_at_after: datetime
+        :param updated_at_before: Updated at
+        :type updated_at_before: datetime
         :param user_ids:
         :type user_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -545,11 +572,15 @@ class IdentificationTasksApi:
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
             classification_taxon_ids=classification_taxon_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             is_decisive=is_decisive,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             user_ids=user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -583,11 +614,15 @@ class IdentificationTasksApi:
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
         _request_timeout: Union[
             None,
@@ -615,6 +650,10 @@ class IdentificationTasksApi:
         :type classification_confidence_min: float
         :param classification_taxon_ids:
         :type classification_taxon_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
         :param is_flagged:
@@ -625,6 +664,10 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param updated_at_after: Updated at
+        :type updated_at_after: datetime
+        :param updated_at_before: Updated at
+        :type updated_at_before: datetime
         :param user_ids:
         :type user_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -655,11 +698,15 @@ class IdentificationTasksApi:
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
             classification_taxon_ids=classification_taxon_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             is_decisive=is_decisive,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             user_ids=user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -688,11 +735,15 @@ class IdentificationTasksApi:
         classification_confidence_max,
         classification_confidence_min,
         classification_taxon_ids,
+        created_at_after,
+        created_at_before,
         is_decisive,
         is_flagged,
         order_by,
         page,
         page_size,
+        updated_at_after,
+        updated_at_before,
         user_ids,
         _request_auth,
         _content_type,
@@ -737,6 +788,32 @@ class IdentificationTasksApi:
             
             _query_params.append(('classification_taxon_ids', classification_taxon_ids))
             
+        if created_at_after is not None:
+            if isinstance(created_at_after, datetime):
+                _query_params.append(
+                    (
+                        'created_at_after',
+                        created_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_after', created_at_after))
+            
+        if created_at_before is not None:
+            if isinstance(created_at_before, datetime):
+                _query_params.append(
+                    (
+                        'created_at_before',
+                        created_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_before', created_at_before))
+            
         if is_decisive is not None:
             
             _query_params.append(('is_decisive', is_decisive))
@@ -756,6 +833,32 @@ class IdentificationTasksApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
+            
+        if updated_at_after is not None:
+            if isinstance(updated_at_after, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_after',
+                        updated_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_after', updated_at_after))
+            
+        if updated_at_before is not None:
+            if isinstance(updated_at_before, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_before',
+                        updated_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_before', updated_at_before))
             
         if user_ids is not None:
             
@@ -807,11 +910,15 @@ class IdentificationTasksApi:
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
         _request_timeout: Union[
             None,
@@ -838,6 +945,10 @@ class IdentificationTasksApi:
         :type classification_confidence_min: float
         :param classification_taxon_ids:
         :type classification_taxon_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
         :param is_flagged:
@@ -848,6 +959,10 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param updated_at_after: Updated at
+        :type updated_at_after: datetime
+        :param updated_at_before: Updated at
+        :type updated_at_before: datetime
         :param user_ids:
         :type user_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -877,11 +992,15 @@ class IdentificationTasksApi:
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
             classification_taxon_ids=classification_taxon_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             is_decisive=is_decisive,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             user_ids=user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -914,11 +1033,15 @@ class IdentificationTasksApi:
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
         _request_timeout: Union[
             None,
@@ -945,6 +1068,10 @@ class IdentificationTasksApi:
         :type classification_confidence_min: float
         :param classification_taxon_ids:
         :type classification_taxon_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
         :param is_flagged:
@@ -955,6 +1082,10 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param updated_at_after: Updated at
+        :type updated_at_after: datetime
+        :param updated_at_before: Updated at
+        :type updated_at_before: datetime
         :param user_ids:
         :type user_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -984,11 +1115,15 @@ class IdentificationTasksApi:
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
             classification_taxon_ids=classification_taxon_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             is_decisive=is_decisive,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             user_ids=user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1021,11 +1156,15 @@ class IdentificationTasksApi:
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_taxon_ids: Optional[List[StrictInt]] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
         _request_timeout: Union[
             None,
@@ -1052,6 +1191,10 @@ class IdentificationTasksApi:
         :type classification_confidence_min: float
         :param classification_taxon_ids:
         :type classification_taxon_ids: List[int]
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
         :param is_flagged:
@@ -1062,6 +1205,10 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param updated_at_after: Updated at
+        :type updated_at_after: datetime
+        :param updated_at_before: Updated at
+        :type updated_at_before: datetime
         :param user_ids:
         :type user_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -1091,11 +1238,15 @@ class IdentificationTasksApi:
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
             classification_taxon_ids=classification_taxon_ids,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
             is_decisive=is_decisive,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
             user_ids=user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1123,11 +1274,15 @@ class IdentificationTasksApi:
         classification_confidence_max,
         classification_confidence_min,
         classification_taxon_ids,
+        created_at_after,
+        created_at_before,
         is_decisive,
         is_flagged,
         order_by,
         page,
         page_size,
+        updated_at_after,
+        updated_at_before,
         user_ids,
         _request_auth,
         _content_type,
@@ -1170,6 +1325,32 @@ class IdentificationTasksApi:
             
             _query_params.append(('classification_taxon_ids', classification_taxon_ids))
             
+        if created_at_after is not None:
+            if isinstance(created_at_after, datetime):
+                _query_params.append(
+                    (
+                        'created_at_after',
+                        created_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_after', created_at_after))
+            
+        if created_at_before is not None:
+            if isinstance(created_at_before, datetime):
+                _query_params.append(
+                    (
+                        'created_at_before',
+                        created_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_before', created_at_before))
+            
         if is_decisive is not None:
             
             _query_params.append(('is_decisive', is_decisive))
@@ -1189,6 +1370,32 @@ class IdentificationTasksApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
+            
+        if updated_at_after is not None:
+            if isinstance(updated_at_after, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_after',
+                        updated_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_after', updated_at_after))
+            
+        if updated_at_before is not None:
+            if isinstance(updated_at_before, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_before',
+                        updated_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_before', updated_at_before))
             
         if user_ids is not None:
             
@@ -1518,7 +1725,7 @@ class IdentificationTasksApi:
 
 
     @validate_call
-    def assign_new(
+    def assign_next(
         self,
         _request_timeout: Union[
             None,
@@ -1532,8 +1739,8 @@ class IdentificationTasksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> IdentificationTask:
-        """assign_new
+    ) -> Assignment:
+        """assign_next
 
         Assign the next available identification task.
 
@@ -1559,7 +1766,7 @@ class IdentificationTasksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._assign_new_serialize(
+        _param = self._assign_next_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1570,7 +1777,7 @@ class IdentificationTasksApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '201': "IdentificationTask",
+            '201': "Assignment",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1585,7 +1792,7 @@ class IdentificationTasksApi:
 
 
     @validate_call
-    def assign_new_with_http_info(
+    def assign_next_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1599,8 +1806,8 @@ class IdentificationTasksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[IdentificationTask]:
-        """assign_new
+    ) -> ApiResponse[Assignment]:
+        """assign_next
 
         Assign the next available identification task.
 
@@ -1626,7 +1833,7 @@ class IdentificationTasksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._assign_new_serialize(
+        _param = self._assign_next_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1637,7 +1844,7 @@ class IdentificationTasksApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '201': "IdentificationTask",
+            '201': "Assignment",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1652,7 +1859,7 @@ class IdentificationTasksApi:
 
 
     @validate_call
-    def assign_new_without_preload_content(
+    def assign_next_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1667,7 +1874,7 @@ class IdentificationTasksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """assign_new
+        """assign_next
 
         Assign the next available identification task.
 
@@ -1693,7 +1900,7 @@ class IdentificationTasksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._assign_new_serialize(
+        _param = self._assign_next_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1704,7 +1911,7 @@ class IdentificationTasksApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '201': "IdentificationTask",
+            '201': "Assignment",
             '204': None,
         }
         response_data = self.api_client.call_api(
@@ -1714,7 +1921,7 @@ class IdentificationTasksApi:
         return response_data.response
 
 
-    def _assign_new_serialize(
+    def _assign_next_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1761,7 +1968,7 @@ class IdentificationTasksApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/identification-tasks/assign/',
+            resource_path='/identification-tasks/assignments/next/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3213,593 +3420,6 @@ class IdentificationTasksApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/me/identification-tasks/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def photos_list(
-        self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaginatedSimplePhotoList:
-        """photos_list
-
-
-        :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._photos_list_serialize(
-            observation_uuid=observation_uuid,
-            page=page,
-            page_size=page_size,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "PaginatedSimplePhotoList",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def photos_list_with_http_info(
-        self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaginatedSimplePhotoList]:
-        """photos_list
-
-
-        :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._photos_list_serialize(
-            observation_uuid=observation_uuid,
-            page=page,
-            page_size=page_size,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "PaginatedSimplePhotoList",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def photos_list_without_preload_content(
-        self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """photos_list
-
-
-        :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._photos_list_serialize(
-            observation_uuid=observation_uuid,
-            page=page,
-            page_size=page_size,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "PaginatedSimplePhotoList",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _photos_list_serialize(
-        self,
-        observation_uuid,
-        page,
-        page_size,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if observation_uuid is not None:
-            _path_params['observation_uuid'] = observation_uuid
-        # process the query parameters
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'tokenAuth', 
-            'cookieAuth', 
-            'jwtAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/identification-tasks/{observation_uuid}/photos/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def photos_retrieve(
-        self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SimplePhoto:
-        """photos_retrieve
-
-
-        :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._photos_retrieve_serialize(
-            observation_uuid=observation_uuid,
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "SimplePhoto",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def photos_retrieve_with_http_info(
-        self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SimplePhoto]:
-        """photos_retrieve
-
-
-        :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._photos_retrieve_serialize(
-            observation_uuid=observation_uuid,
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "SimplePhoto",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def photos_retrieve_without_preload_content(
-        self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        uuid: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """photos_retrieve
-
-
-        :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
-        :param uuid: (required)
-        :type uuid: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._photos_retrieve_serialize(
-            observation_uuid=observation_uuid,
-            uuid=uuid,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "SimplePhoto",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _photos_retrieve_serialize(
-        self,
-        observation_uuid,
-        uuid,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if observation_uuid is not None:
-            _path_params['observation_uuid'] = observation_uuid
-        if uuid is not None:
-            _path_params['uuid'] = uuid
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'tokenAuth', 
-            'cookieAuth', 
-            'jwtAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/identification-tasks/{observation_uuid}/photos/{uuid}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

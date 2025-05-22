@@ -18,25 +18,33 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from mosquito_alert.models.simplified_location import SimplifiedLocation
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SimplifiedObservation(BaseModel):
+class IdentificationtasksAnnotationsListCreatedAtErrorComponent(BaseModel):
     """
-    SimplifiedObservation
+    IdentificationtasksAnnotationsListCreatedAtErrorComponent
     """ # noqa: E501
-    uuid: StrictStr
-    user_uuid: StrictStr
-    created_at: datetime
-    created_at_local: datetime = Field(description="The date and time when the record was created, displayed in the local timezone specified for this entry.")
-    received_at: datetime
-    location: SimplifiedLocation
-    note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
-    __properties: ClassVar[List[str]] = ["uuid", "user_uuid", "created_at", "created_at_local", "received_at", "location", "note"]
+    attr: StrictStr
+    code: StrictStr
+    detail: StrictStr
+    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
+
+    @field_validator('attr')
+    def attr_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['created_at']):
+            raise ValueError("must be one of enum values ('created_at')")
+        return value
+
+    @field_validator('code')
+    def code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['invalid']):
+            raise ValueError("must be one of enum values ('invalid')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +64,7 @@ class SimplifiedObservation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SimplifiedObservation from a JSON string"""
+        """Create an instance of IdentificationtasksAnnotationsListCreatedAtErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -68,16 +76,8 @@ class SimplifiedObservation(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "uuid",
-            "user_uuid",
-            "created_at_local",
-            "received_at",
         ])
 
         _dict = self.model_dump(
@@ -85,19 +85,11 @@ class SimplifiedObservation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of location
-        if self.location:
-            _dict['location'] = self.location.to_dict()
-        # set to None if note (nullable) is None
-        # and model_fields_set contains the field
-        if self.note is None and "note" in self.model_fields_set:
-            _dict['note'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SimplifiedObservation from a dict"""
+        """Create an instance of IdentificationtasksAnnotationsListCreatedAtErrorComponent from a dict"""
         if obj is None:
             return None
 
@@ -105,13 +97,9 @@ class SimplifiedObservation(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "uuid": obj.get("uuid"),
-            "user_uuid": obj.get("user_uuid"),
-            "created_at": obj.get("created_at"),
-            "created_at_local": obj.get("created_at_local"),
-            "received_at": obj.get("received_at"),
-            "location": SimplifiedLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
-            "note": obj.get("note")
+            "attr": obj.get("attr"),
+            "code": obj.get("code"),
+            "detail": obj.get("detail")
         })
         return _obj
 
