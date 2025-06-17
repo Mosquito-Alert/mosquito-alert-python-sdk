@@ -38,14 +38,20 @@ class TestTaxaListValidationError(unittest.TestCase):
             return TaxaListValidationError(
                 type = 'validation_error',
                 errors = [
-                    null
+                    mosquito_alert.models.taxa_list_rank_error_component.TaxaListRankErrorComponent(
+                        attr = 'rank', 
+                        code = 'invalid_choice', 
+                        detail = '', )
                     ]
             )
         else:
             return TaxaListValidationError(
                 type = 'validation_error',
                 errors = [
-                    null
+                    mosquito_alert.models.taxa_list_rank_error_component.TaxaListRankErrorComponent(
+                        attr = 'rank', 
+                        code = 'invalid_choice', 
+                        detail = '', )
                     ],
         )
         """

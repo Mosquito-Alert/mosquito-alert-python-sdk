@@ -43,12 +43,13 @@ class TestPaginatedPhotoPredictionList(unittest.TestCase):
                     mosquito_alert.models.photo_prediction.PhotoPrediction(
                         photo = null, 
                         bbox = mosquito_alert.models.bounding_box.BoundingBox(
-                            x_min = 0, 
-                            y_min = 0, 
-                            x_max = 0, 
-                            y_max = 0, ), 
+                            x_min = 0.0, 
+                            y_min = 0.0, 
+                            x_max = 0.0, 
+                            y_max = 0.0, ), 
                         insect_confidence = 0.0, 
                         predicted_class = 'ae_albopictus', 
+                        taxon = null, 
                         threshold_deviation = -1.0, 
                         is_decisive = True, 
                         scores = mosquito_alert.models.prediction_score.PredictionScore(

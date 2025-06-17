@@ -28,8 +28,9 @@ class AnnotationFeedbackRequest(BaseModel):
     AnnotationFeedbackRequest
     """ # noqa: E501
     public_note: Optional[StrictStr] = Field(default=None, description="Notes to display on public map")
+    internal_note: Optional[StrictStr] = Field(default=None, description="Internal notes for yourself or other experts")
     user_note: Optional[StrictStr] = Field(default=None, description="Message that user will receive when viewing report on phone")
-    __properties: ClassVar[List[str]] = ["public_note", "user_note"]
+    __properties: ClassVar[List[str]] = ["public_note", "internal_note", "user_note"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +76,11 @@ class AnnotationFeedbackRequest(BaseModel):
         if self.public_note is None and "public_note" in self.model_fields_set:
             _dict['public_note'] = None
 
+        # set to None if internal_note (nullable) is None
+        # and model_fields_set contains the field
+        if self.internal_note is None and "internal_note" in self.model_fields_set:
+            _dict['internal_note'] = None
+
         # set to None if user_note (nullable) is None
         # and model_fields_set contains the field
         if self.user_note is None and "user_note" in self.model_fields_set:
@@ -93,6 +99,7 @@ class AnnotationFeedbackRequest(BaseModel):
 
         _obj = cls.model_validate({
             "public_note": obj.get("public_note"),
+            "internal_note": obj.get("internal_note"),
             "user_note": obj.get("user_note")
         })
         return _obj

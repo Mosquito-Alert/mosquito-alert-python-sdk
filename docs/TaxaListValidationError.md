@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | 
-**errors** | [**List[TaxaListError]**](TaxaListError.md) |  | 
+**errors** | [**List[TaxaListRankErrorComponent]**](TaxaListRankErrorComponent.md) |  | 
 
 ## Example
 

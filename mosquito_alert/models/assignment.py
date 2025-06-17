@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos
+from mosquito_alert.models.assigned_observation import AssignedObservation
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class Assignment(BaseModel):
     """
     Assignment
     """ # noqa: E501
-    observation: SimplifiedObservationWithPhotos
+    observation: AssignedObservation
     annotation_type: StrictStr
     __properties: ClassVar[List[str]] = ["observation", "annotation_type"]
 
@@ -97,7 +97,7 @@ class Assignment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "observation": SimplifiedObservationWithPhotos.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
+            "observation": AssignedObservation.from_dict(obj["observation"]) if obj.get("observation") is not None else None,
             "annotation_type": obj.get("annotation_type")
         })
         return _obj

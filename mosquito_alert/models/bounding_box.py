@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,10 +28,10 @@ class BoundingBox(BaseModel):
     """
     BoundingBox
     """ # noqa: E501
-    x_min: Annotated[int, Field(le=2147483647, strict=True, ge=0)] = Field(description="photo bounding box coordinates top left x")
-    y_min: Annotated[int, Field(le=2147483647, strict=True, ge=0)] = Field(description="photo bounding box coordinates top left y")
-    x_max: Annotated[int, Field(le=2147483647, strict=True, ge=0)] = Field(description="photo bounding box coordinates bottom right x")
-    y_max: Annotated[int, Field(le=2147483647, strict=True, ge=0)] = Field(description="photo bounding box coordinates bottom right y")
+    x_min: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="photo bounding box relative coordinates top left x")
+    y_min: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="photo bounding box relative coordinates top left y")
+    x_max: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="photo bounding box relative coordinates bottom right x")
+    y_max: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="photo bounding box relative coordinates bottom right y")
     __properties: ClassVar[List[str]] = ["x_min", "y_min", "x_max", "y_max"]
 
     model_config = ConfigDict(

@@ -37,6 +37,7 @@ class TestAnnotationFeedbackRequest(unittest.TestCase):
         if include_optional:
             return AnnotationFeedbackRequest(
                 public_note = '',
+                internal_note = '',
                 user_note = ''
             )
         else:

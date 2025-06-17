@@ -7,9 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **best_photo_uuid** | **str** |  | [optional] 
 **classification** | [**AnnotationClassificationRequest**](AnnotationClassificationRequest.md) |  | 
+**characteristics** | [**AnnotationCharacteristicsRequest**](AnnotationCharacteristicsRequest.md) |  | [optional] 
 **feedback** | [**AnnotationFeedbackRequest**](AnnotationFeedbackRequest.md) |  | [optional] 
 **is_flagged** | **bool** |  | [optional] [default to False]
 **is_decisive** | **bool** |  | [optional] [default to False]
+**observation_flags** | [**ObservationFlagsRequest**](ObservationFlagsRequest.md) |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 
 ## Example

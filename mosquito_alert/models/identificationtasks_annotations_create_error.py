@@ -19,22 +19,30 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from mosquito_alert.models.identificationtasks_annotations_create_best_photo_uuid_error_component import IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_is_blood_fed_error_component import IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_is_gravid_error_component import IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_non_field_errors_error_component import IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_sex_error_component import IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_classification_confidence_label_error_component import IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_classification_non_field_errors_error_component import IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_classification_taxon_id_error_component import IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_feedback_internal_note_error_component import IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_feedback_non_field_errors_error_component import IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_feedback_public_note_error_component import IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_feedback_user_note_error_component import IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_is_decisive_error_component import IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_is_flagged_error_component import IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_non_field_errors_error_component import IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_is_favourite_error_component import IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_is_visible_error_component import IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_non_field_errors_error_component import IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_tags_error_component import IdentificationtasksAnnotationsCreateTagsErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_tags_index_error_component import IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-IDENTIFICATIONTASKSANNOTATIONSCREATEERROR_ONE_OF_SCHEMAS = ["IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent", "IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent", "IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent", "IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent", "IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent", "IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateTagsErrorComponent", "IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent"]
+IDENTIFICATIONTASKSANNOTATIONSCREATEERROR_ONE_OF_SCHEMAS = ["IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent", "IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent", "IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent", "IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent", "IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent", "IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent", "IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent", "IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateTagsErrorComponent", "IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent"]
 
 class IdentificationtasksAnnotationsCreateError(BaseModel):
     """
@@ -50,22 +58,38 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
     oneof_schema_4_validator: Optional[IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent
     oneof_schema_5_validator: Optional[IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent
+    oneof_schema_6_validator: Optional[IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent
+    oneof_schema_7_validator: Optional[IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent
+    oneof_schema_8_validator: Optional[IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent
+    oneof_schema_9_validator: Optional[IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent
-    oneof_schema_6_validator: Optional[IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent] = None
+    oneof_schema_10_validator: Optional[IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent
-    oneof_schema_7_validator: Optional[IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent] = None
+    oneof_schema_11_validator: Optional[IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent
+    oneof_schema_12_validator: Optional[IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent
-    oneof_schema_8_validator: Optional[IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent] = None
+    oneof_schema_13_validator: Optional[IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent
-    oneof_schema_9_validator: Optional[IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent] = None
+    oneof_schema_14_validator: Optional[IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent
-    oneof_schema_10_validator: Optional[IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent] = None
+    oneof_schema_15_validator: Optional[IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent
+    oneof_schema_16_validator: Optional[IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent
+    oneof_schema_17_validator: Optional[IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent] = None
+    # data type: IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent
+    oneof_schema_18_validator: Optional[IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateTagsErrorComponent
-    oneof_schema_11_validator: Optional[IdentificationtasksAnnotationsCreateTagsErrorComponent] = None
+    oneof_schema_19_validator: Optional[IdentificationtasksAnnotationsCreateTagsErrorComponent] = None
     # data type: IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent
-    oneof_schema_12_validator: Optional[IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent] = None
-    actual_instance: Optional[Union[IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent]] = None
-    one_of_schemas: Set[str] = { "IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent", "IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent", "IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent", "IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent", "IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent", "IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateTagsErrorComponent", "IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent" }
+    oneof_schema_20_validator: Optional[IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent] = None
+    actual_instance: Optional[Union[IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent", "IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent", "IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent", "IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent", "IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent", "IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent", "IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent", "IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent", "IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent", "IdentificationtasksAnnotationsCreateTagsErrorComponent", "IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -116,6 +140,26 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent`")
         else:
             match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent`")
+        else:
+            match += 1
         # validate data type: IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent
         if not isinstance(v, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent`")
@@ -124,6 +168,11 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
         # validate data type: IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent
         if not isinstance(v, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent`")
         else:
             match += 1
         # validate data type: IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent
@@ -141,6 +190,21 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent`")
         else:
             match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent
+        if not isinstance(v, IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent`")
+        else:
+            match += 1
         # validate data type: IdentificationtasksAnnotationsCreateTagsErrorComponent
         if not isinstance(v, IdentificationtasksAnnotationsCreateTagsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksAnnotationsCreateTagsErrorComponent`")
@@ -153,10 +217,10 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -201,6 +265,30 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
         # deserialize data into IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent
         try:
             instance.actual_instance = IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent.from_json(json_str)
@@ -210,6 +298,12 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
         # deserialize data into IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent
         try:
             instance.actual_instance = IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -231,6 +325,24 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
         # deserialize data into IdentificationtasksAnnotationsCreateTagsErrorComponent
         try:
             instance.actual_instance = IdentificationtasksAnnotationsCreateTagsErrorComponent.from_json(json_str)
@@ -246,10 +358,10 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksAnnotationsCreateError with oneOf schemas: IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -263,7 +375,7 @@ class IdentificationtasksAnnotationsCreateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent, IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent, IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent, IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent, IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent, IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent, IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent, IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent, IdentificationtasksAnnotationsCreateTagsErrorComponent, IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**x_min** | **int** | photo bounding box coordinates top left x | 
-**y_min** | **int** | photo bounding box coordinates top left y | 
-**x_max** | **int** | photo bounding box coordinates bottom right x | 
-**y_max** | **int** | photo bounding box coordinates bottom right y | 
+**x_min** | **float** | photo bounding box relative coordinates top left x | 
+**y_min** | **float** | photo bounding box relative coordinates top left y | 
+**x_max** | **float** | photo bounding box relative coordinates bottom right x | 
+**y_max** | **float** | photo bounding box relative coordinates bottom right y | 
 
 ## Example
 

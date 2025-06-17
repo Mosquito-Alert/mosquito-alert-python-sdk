@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.taxa_list_error import TaxaListError
+from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class TaxaListValidationError(BaseModel):
     TaxaListValidationError
     """ # noqa: E501
     type: StrictStr
-    errors: List[TaxaListError]
+    errors: List[TaxaListRankErrorComponent]
     __properties: ClassVar[List[str]] = ["type", "errors"]
 
     @field_validator('type')
@@ -98,7 +98,7 @@ class TaxaListValidationError(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "errors": [TaxaListError.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
+            "errors": [TaxaListRankErrorComponent.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
         })
         return _obj
 

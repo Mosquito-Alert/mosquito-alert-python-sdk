@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictInt
-from typing import Optional
+from pydantic import Field, StrictBool, StrictInt, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList
 from mosquito_alert.models.taxon import Taxon
@@ -48,6 +48,7 @@ class TaxaApi:
         is_relevant: Optional[StrictBool] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        rank: Optional[List[Optional[StrictInt]]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,6 +71,8 @@ class TaxaApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param rank:
+        :type rank: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -96,6 +99,7 @@ class TaxaApi:
             is_relevant=is_relevant,
             page=page,
             page_size=page_size,
+            rank=rank,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -126,6 +130,7 @@ class TaxaApi:
         is_relevant: Optional[StrictBool] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        rank: Optional[List[Optional[StrictInt]]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -148,6 +153,8 @@ class TaxaApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param rank:
+        :type rank: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -174,6 +181,7 @@ class TaxaApi:
             is_relevant=is_relevant,
             page=page,
             page_size=page_size,
+            rank=rank,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -204,6 +212,7 @@ class TaxaApi:
         is_relevant: Optional[StrictBool] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        rank: Optional[List[Optional[StrictInt]]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -226,6 +235,8 @@ class TaxaApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param rank:
+        :type rank: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -252,6 +263,7 @@ class TaxaApi:
             is_relevant=is_relevant,
             page=page,
             page_size=page_size,
+            rank=rank,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -277,6 +289,7 @@ class TaxaApi:
         is_relevant,
         page,
         page_size,
+        rank,
         _request_auth,
         _content_type,
         _headers,
@@ -286,6 +299,7 @@ class TaxaApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'rank': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -310,6 +324,10 @@ class TaxaApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
+            
+        if rank is not None:
+            
+            _query_params.append(('rank', rank))
             
         # process the header parameters
         # process the form parameters

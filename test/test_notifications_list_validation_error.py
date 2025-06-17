@@ -38,14 +38,20 @@ class TestNotificationsListValidationError(unittest.TestCase):
             return NotificationsListValidationError(
                 type = 'validation_error',
                 errors = [
-                    null
+                    mosquito_alert.models.notifications_list_order_by_error_component.NotificationsListOrderByErrorComponent(
+                        attr = 'order_by', 
+                        code = 'invalid_choice', 
+                        detail = '', )
                     ]
             )
         else:
             return NotificationsListValidationError(
                 type = 'validation_error',
                 errors = [
-                    null
+                    mosquito_alert.models.notifications_list_order_by_error_component.NotificationsListOrderByErrorComponent(
+                        attr = 'order_by', 
+                        code = 'invalid_choice', 
+                        detail = '', )
                     ],
         )
         """

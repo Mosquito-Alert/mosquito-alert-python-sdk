@@ -36,9 +36,8 @@ class TestAssignment(unittest.TestCase):
         model = Assignment()
         if include_optional:
             return Assignment(
-                observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
+                observation = mosquito_alert.models.assigned_observation.AssignedObservation(
                     uuid = '', 
-                    user_uuid = '', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -54,14 +53,14 @@ class TestAssignment(unittest.TestCase):
                         mosquito_alert.models.simple_photo.SimplePhoto(
                             uuid = '', 
                             url = '', )
-                        ], ),
+                        ], 
+                    user = null, ),
                 annotation_type = 'short'
             )
         else:
             return Assignment(
-                observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
+                observation = mosquito_alert.models.assigned_observation.AssignedObservation(
                     uuid = '', 
-                    user_uuid = '', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -77,7 +76,8 @@ class TestAssignment(unittest.TestCase):
                         mosquito_alert.models.simple_photo.SimplePhoto(
                             uuid = '', 
                             url = '', )
-                        ], ),
+                        ], 
+                    user = null, ),
                 annotation_type = 'short',
         )
         """

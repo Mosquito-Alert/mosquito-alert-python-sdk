@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.notifications_list_error import NotificationsListError
+from mosquito_alert.models.identificationtasks_annotations_list_mine_type_error_component import IdentificationtasksAnnotationsListMineTypeErrorComponent
 
-class TestNotificationsListError(unittest.TestCase):
-    """NotificationsListError unit test stubs"""
+class TestIdentificationtasksAnnotationsListMineTypeErrorComponent(unittest.TestCase):
+    """IdentificationtasksAnnotationsListMineTypeErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestNotificationsListError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> NotificationsListError:
-        """Test NotificationsListError
+    def make_instance(self, include_optional) -> IdentificationtasksAnnotationsListMineTypeErrorComponent:
+        """Test IdentificationtasksAnnotationsListMineTypeErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `NotificationsListError`
+        # uncomment below to create an instance of `IdentificationtasksAnnotationsListMineTypeErrorComponent`
         """
-        model = NotificationsListError()
+        model = IdentificationtasksAnnotationsListMineTypeErrorComponent()
         if include_optional:
-            return NotificationsListError(
-                attr = 'order_by',
+            return IdentificationtasksAnnotationsListMineTypeErrorComponent(
+                attr = 'type',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return NotificationsListError(
-                attr = 'order_by',
+            return IdentificationtasksAnnotationsListMineTypeErrorComponent(
+                attr = 'type',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testNotificationsListError(self):
-        """Test NotificationsListError"""
+    def testIdentificationtasksAnnotationsListMineTypeErrorComponent(self):
+        """Test IdentificationtasksAnnotationsListMineTypeErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

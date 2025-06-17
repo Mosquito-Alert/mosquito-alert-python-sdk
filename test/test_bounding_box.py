@@ -36,17 +36,17 @@ class TestBoundingBox(unittest.TestCase):
         model = BoundingBox()
         if include_optional:
             return BoundingBox(
-                x_min = 0,
-                y_min = 0,
-                x_max = 0,
-                y_max = 0
+                x_min = 0.0,
+                y_min = 0.0,
+                x_max = 0.0,
+                y_max = 0.0
             )
         else:
             return BoundingBox(
-                x_min = 0,
-                y_min = 0,
-                x_max = 0,
-                y_max = 0,
+                x_min = 0.0,
+                y_min = 0.0,
+                x_max = 0.0,
+                y_max = 0.0,
         )
         """
 

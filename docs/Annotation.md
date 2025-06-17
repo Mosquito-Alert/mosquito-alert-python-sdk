@@ -11,8 +11,10 @@ Name | Type | Description | Notes
 **best_photo** | [**SimplePhoto**](SimplePhoto.md) |  | [readonly] 
 **classification** | [**AnnotationClassification**](AnnotationClassification.md) |  | 
 **feedback** | [**AnnotationFeedback**](AnnotationFeedback.md) |  | [optional] 
+**type** | **str** |  | [readonly] 
 **is_flagged** | **bool** |  | [readonly] [default to False]
 **is_decisive** | **bool** |  | [readonly] [default to False]
+**observation_flags** | [**ObservationFlags**](ObservationFlags.md) |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [readonly] 

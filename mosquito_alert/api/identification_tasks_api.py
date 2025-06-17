@@ -365,10 +365,12 @@ class IdentificationTasksApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
+        is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
@@ -404,6 +406,8 @@ class IdentificationTasksApi:
         :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
+        :param is_favourite:
+        :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
         :param order_by: Ordenado  
@@ -412,6 +416,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param type:
+        :type type: str
         :param updated_at_after: Updated at
         :type updated_at_after: datetime
         :param updated_at_before: Updated at
@@ -449,10 +455,12 @@ class IdentificationTasksApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             is_decisive=is_decisive,
+            is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_ids=user_ids,
@@ -491,10 +499,12 @@ class IdentificationTasksApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
+        is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
@@ -530,6 +540,8 @@ class IdentificationTasksApi:
         :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
+        :param is_favourite:
+        :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
         :param order_by: Ordenado  
@@ -538,6 +550,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param type:
+        :type type: str
         :param updated_at_after: Updated at
         :type updated_at_after: datetime
         :param updated_at_before: Updated at
@@ -575,10 +589,12 @@ class IdentificationTasksApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             is_decisive=is_decisive,
+            is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_ids=user_ids,
@@ -617,10 +633,12 @@ class IdentificationTasksApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
+        is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
@@ -656,6 +674,8 @@ class IdentificationTasksApi:
         :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
+        :param is_favourite:
+        :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
         :param order_by: Ordenado  
@@ -664,6 +684,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param type:
+        :type type: str
         :param updated_at_after: Updated at
         :type updated_at_after: datetime
         :param updated_at_before: Updated at
@@ -701,10 +723,12 @@ class IdentificationTasksApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             is_decisive=is_decisive,
+            is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_ids=user_ids,
@@ -738,10 +762,12 @@ class IdentificationTasksApi:
         created_at_after,
         created_at_before,
         is_decisive,
+        is_favourite,
         is_flagged,
         order_by,
         page,
         page_size,
+        type,
         updated_at_after,
         updated_at_before,
         user_ids,
@@ -818,6 +844,10 @@ class IdentificationTasksApi:
             
             _query_params.append(('is_decisive', is_decisive))
             
+        if is_favourite is not None:
+            
+            _query_params.append(('is_favourite', is_favourite))
+            
         if is_flagged is not None:
             
             _query_params.append(('is_flagged', is_flagged))
@@ -833,6 +863,10 @@ class IdentificationTasksApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
+            
+        if type is not None:
+            
+            _query_params.append(('type', type))
             
         if updated_at_after is not None:
             if isinstance(updated_at_after, datetime):
@@ -913,10 +947,12 @@ class IdentificationTasksApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
+        is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
@@ -951,6 +987,8 @@ class IdentificationTasksApi:
         :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
+        :param is_favourite:
+        :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
         :param order_by: Ordenado  
@@ -959,6 +997,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param type:
+        :type type: str
         :param updated_at_after: Updated at
         :type updated_at_after: datetime
         :param updated_at_before: Updated at
@@ -995,10 +1035,12 @@ class IdentificationTasksApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             is_decisive=is_decisive,
+            is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_ids=user_ids,
@@ -1036,10 +1078,12 @@ class IdentificationTasksApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
+        is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
@@ -1074,6 +1118,8 @@ class IdentificationTasksApi:
         :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
+        :param is_favourite:
+        :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
         :param order_by: Ordenado  
@@ -1082,6 +1128,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param type:
+        :type type: str
         :param updated_at_after: Updated at
         :type updated_at_after: datetime
         :param updated_at_before: Updated at
@@ -1118,10 +1166,12 @@ class IdentificationTasksApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             is_decisive=is_decisive,
+            is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_ids=user_ids,
@@ -1159,10 +1209,12 @@ class IdentificationTasksApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         is_decisive: Optional[StrictBool] = None,
+        is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         user_ids: Optional[List[StrictInt]] = None,
@@ -1197,6 +1249,8 @@ class IdentificationTasksApi:
         :type created_at_before: datetime
         :param is_decisive:
         :type is_decisive: bool
+        :param is_favourite:
+        :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
         :param order_by: Ordenado  
@@ -1205,6 +1259,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param type:
+        :type type: str
         :param updated_at_after: Updated at
         :type updated_at_after: datetime
         :param updated_at_before: Updated at
@@ -1241,10 +1297,12 @@ class IdentificationTasksApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             is_decisive=is_decisive,
+            is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_ids=user_ids,
@@ -1277,10 +1335,12 @@ class IdentificationTasksApi:
         created_at_after,
         created_at_before,
         is_decisive,
+        is_favourite,
         is_flagged,
         order_by,
         page,
         page_size,
+        type,
         updated_at_after,
         updated_at_before,
         user_ids,
@@ -1355,6 +1415,10 @@ class IdentificationTasksApi:
             
             _query_params.append(('is_decisive', is_decisive))
             
+        if is_favourite is not None:
+            
+            _query_params.append(('is_favourite', is_favourite))
+            
         if is_flagged is not None:
             
             _query_params.append(('is_flagged', is_flagged))
@@ -1370,6 +1434,10 @@ class IdentificationTasksApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
+            
+        if type is not None:
+            
+            _query_params.append(('type', type))
             
         if updated_at_after is not None:
             if isinstance(updated_at_after, datetime):

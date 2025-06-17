@@ -38,10 +38,10 @@ class TestCreatePhotoPredictionRequest(unittest.TestCase):
             return CreatePhotoPredictionRequest(
                 photo_uuid = '',
                 bbox = mosquito_alert.models.bounding_box_request.BoundingBoxRequest(
-                    x_min = 0, 
-                    y_min = 0, 
-                    x_max = 0, 
-                    y_max = 0, ),
+                    x_min = 0.0, 
+                    y_min = 0.0, 
+                    x_max = 0.0, 
+                    y_max = 0.0, ),
                 insect_confidence = 0.0,
                 predicted_class = 'ae_albopictus',
                 threshold_deviation = -1.0,
@@ -62,10 +62,10 @@ class TestCreatePhotoPredictionRequest(unittest.TestCase):
             return CreatePhotoPredictionRequest(
                 photo_uuid = '',
                 bbox = mosquito_alert.models.bounding_box_request.BoundingBoxRequest(
-                    x_min = 0, 
-                    y_min = 0, 
-                    x_max = 0, 
-                    y_max = 0, ),
+                    x_min = 0.0, 
+                    y_min = 0.0, 
+                    x_max = 0.0, 
+                    y_max = 0.0, ),
                 insect_confidence = 0.0,
                 predicted_class = 'ae_albopictus',
                 threshold_deviation = -1.0,

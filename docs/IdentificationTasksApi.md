@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list**
-> PaginatedAnnotationList annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 ### Example
 
@@ -169,16 +169,18 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     is_decisive = True # bool |  (optional)
+    is_favourite = True # bool |  (optional)
     is_flagged = True # bool |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
+    type = 'type_example' # str |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+        api_response = api_instance.annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -200,10 +202,12 @@ Name | Type | Description  | Notes
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
  **is_decisive** | **bool**|  | [optional] 
+ **is_favourite** | **bool**|  | [optional] 
  **is_flagged** | **bool**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **type** | **str**|  | [optional] 
  **updated_at_after** | **datetime**| Updated at | [optional] 
  **updated_at_before** | **datetime**| Updated at | [optional] 
  **user_ids** | [**List[int]**](int.md)|  | [optional] 
@@ -234,7 +238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list_mine**
-> PaginatedAnnotationList annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 Get my annotations
 
@@ -289,16 +293,18 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     is_decisive = True # bool |  (optional)
+    is_favourite = True # bool |  (optional)
     is_flagged = True # bool |  (optional)
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
+    type = 'type_example' # str |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+        api_response = api_instance.annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -319,10 +325,12 @@ Name | Type | Description  | Notes
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
  **is_decisive** | **bool**|  | [optional] 
+ **is_favourite** | **bool**|  | [optional] 
  **is_flagged** | **bool**|  | [optional] 
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **type** | **str**|  | [optional] 
  **updated_at_after** | **datetime**| Updated at | [optional] 
  **updated_at_before** | **datetime**| Updated at | [optional] 
  **user_ids** | [**List[int]**](int.md)|  | [optional] 

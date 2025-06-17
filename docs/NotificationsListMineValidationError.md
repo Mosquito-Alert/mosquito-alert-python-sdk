@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | 
-**errors** | [**List[NotificationsListMineError]**](NotificationsListMineError.md) |  | 
+**errors** | [**List[NotificationsListMineOrderByErrorComponent]**](NotificationsListMineOrderByErrorComponent.md) |  | 
 
 ## Example
 

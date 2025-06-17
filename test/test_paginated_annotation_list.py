@@ -48,9 +48,14 @@ class TestPaginatedAnnotationList(unittest.TestCase):
                         classification = null, 
                         feedback = mosquito_alert.models.annotation_feedback.AnnotationFeedback(
                             public_note = '', 
+                            internal_note = '', 
                             user_note = '', ), 
+                        type = 'short', 
                         is_flagged = True, 
                         is_decisive = True, 
+                        observation_flags = mosquito_alert.models.observation_flags.ObservationFlags(
+                            is_favourite = True, 
+                            is_visible = True, ), 
                         tags = [
                             ''
                             ], 

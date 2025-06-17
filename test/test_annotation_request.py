@@ -40,11 +40,19 @@ class TestAnnotationRequest(unittest.TestCase):
                 classification = mosquito_alert.models.annotation_classification_request.AnnotationClassificationRequest(
                     taxon_id = 56, 
                     confidence_label = 'definitely', ),
+                characteristics = mosquito_alert.models.annotation_characteristics_request.AnnotationCharacteristicsRequest(
+                    sex = 'male', 
+                    is_blood_fed = True, 
+                    is_gravid = True, ),
                 feedback = mosquito_alert.models.annotation_feedback_request.AnnotationFeedbackRequest(
                     public_note = '', 
+                    internal_note = '', 
                     user_note = '', ),
                 is_flagged = True,
                 is_decisive = True,
+                observation_flags = mosquito_alert.models.observation_flags_request.ObservationFlagsRequest(
+                    is_favourite = True, 
+                    is_visible = True, ),
                 tags = [
                     '0'
                     ]

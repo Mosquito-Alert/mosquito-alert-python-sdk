@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **list**
-> PaginatedTaxonList list(is_relevant=is_relevant, page=page, page_size=page_size)
+> PaginatedTaxonList list(is_relevant=is_relevant, page=page, page_size=page_size, rank=rank)
 
 ### Example
 
@@ -60,9 +60,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     is_relevant = True # bool |  (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
+    rank = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.list(is_relevant=is_relevant, page=page, page_size=page_size)
+        api_response = api_instance.list(is_relevant=is_relevant, page=page, page_size=page_size, rank=rank)
         print("The response of TaxaApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
  **is_relevant** | **bool**|  | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **rank** | [**List[int]**](int.md)|  | [optional] 
 
 ### Return type
 

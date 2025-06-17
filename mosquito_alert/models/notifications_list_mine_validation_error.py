@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.notifications_list_mine_error import NotificationsListMineError
+from mosquito_alert.models.notifications_list_mine_order_by_error_component import NotificationsListMineOrderByErrorComponent
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class NotificationsListMineValidationError(BaseModel):
     NotificationsListMineValidationError
     """ # noqa: E501
     type: StrictStr
-    errors: List[NotificationsListMineError]
+    errors: List[NotificationsListMineOrderByErrorComponent]
     __properties: ClassVar[List[str]] = ["type", "errors"]
 
     @field_validator('type')
@@ -98,7 +98,7 @@ class NotificationsListMineValidationError(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "errors": [NotificationsListMineError.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
+            "errors": [NotificationsListMineOrderByErrorComponent.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
         })
         return _obj
 

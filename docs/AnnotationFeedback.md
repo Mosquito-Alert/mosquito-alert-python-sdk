@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **public_note** | **str** | Notes to display on public map | [optional] 
+**internal_note** | **str** | Internal notes for yourself or other experts | [optional] 
 **user_note** | **str** | Message that user will receive when viewing report on phone | [optional] 
 
 ## Example

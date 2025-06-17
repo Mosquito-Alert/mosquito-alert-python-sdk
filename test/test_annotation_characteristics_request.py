@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.taxa_list_error import TaxaListError
+from mosquito_alert.models.annotation_characteristics_request import AnnotationCharacteristicsRequest
 
-class TestTaxaListError(unittest.TestCase):
-    """TaxaListError unit test stubs"""
+class TestAnnotationCharacteristicsRequest(unittest.TestCase):
+    """AnnotationCharacteristicsRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,24 +26,27 @@ class TestTaxaListError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> TaxaListError:
-        """Test TaxaListError
+    def make_instance(self, include_optional) -> AnnotationCharacteristicsRequest:
+        """Test AnnotationCharacteristicsRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `TaxaListError`
+        # uncomment below to create an instance of `AnnotationCharacteristicsRequest`
         """
-        model = TaxaListError()
+        model = AnnotationCharacteristicsRequest()
         if include_optional:
-            return TaxaListError(
+            return AnnotationCharacteristicsRequest(
+                sex = 'male',
+                is_blood_fed = True,
+                is_gravid = True
             )
         else:
-            return TaxaListError(
+            return AnnotationCharacteristicsRequest(
         )
         """
 
-    def testTaxaListError(self):
-        """Test TaxaListError"""
+    def testAnnotationCharacteristicsRequest(self):
+        """Test AnnotationCharacteristicsRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

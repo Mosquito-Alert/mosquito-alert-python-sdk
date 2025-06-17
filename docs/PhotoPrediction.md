@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **bbox** | [**BoundingBox**](BoundingBox.md) |  | 
 **insect_confidence** | **float** | Insect confidence | 
 **predicted_class** | **str** |  | 
+**taxon** | [**SimpleTaxon**](SimpleTaxon.md) |  | [readonly] 
 **threshold_deviation** | **float** |  | 
 **is_decisive** | **bool** | Indicates if this prediction can close the identification task. | [optional] 
 **scores** | [**PredictionScore**](PredictionScore.md) |  | 

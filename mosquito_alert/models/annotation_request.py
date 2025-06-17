@@ -21,8 +21,10 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from mosquito_alert.models.annotation_characteristics_request import AnnotationCharacteristicsRequest
 from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
 from mosquito_alert.models.annotation_feedback_request import AnnotationFeedbackRequest
+from mosquito_alert.models.observation_flags_request import ObservationFlagsRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,11 +34,13 @@ class AnnotationRequest(BaseModel):
     """ # noqa: E501
     best_photo_uuid: Optional[StrictStr] = None
     classification: Optional[AnnotationClassificationRequest]
+    characteristics: Optional[AnnotationCharacteristicsRequest] = None
     feedback: Optional[AnnotationFeedbackRequest] = None
     is_flagged: Optional[StrictBool] = False
     is_decisive: Optional[StrictBool] = False
+    observation_flags: Optional[ObservationFlagsRequest] = None
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
-    __properties: ClassVar[List[str]] = ["best_photo_uuid", "classification", "feedback", "is_flagged", "is_decisive", "tags"]
+    __properties: ClassVar[List[str]] = ["best_photo_uuid", "classification", "characteristics", "feedback", "is_flagged", "is_decisive", "observation_flags", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,9 +84,15 @@ class AnnotationRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of classification
         if self.classification:
             _dict['classification'] = self.classification.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of characteristics
+        if self.characteristics:
+            _dict['characteristics'] = self.characteristics.to_dict()
         # override the default output from pydantic by calling `to_dict()` of feedback
         if self.feedback:
             _dict['feedback'] = self.feedback.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of observation_flags
+        if self.observation_flags:
+            _dict['observation_flags'] = self.observation_flags.to_dict()
         # set to None if classification (nullable) is None
         # and model_fields_set contains the field
         if self.classification is None and "classification" in self.model_fields_set:
@@ -102,9 +112,11 @@ class AnnotationRequest(BaseModel):
         _obj = cls.model_validate({
             "best_photo_uuid": obj.get("best_photo_uuid"),
             "classification": AnnotationClassificationRequest.from_dict(obj["classification"]) if obj.get("classification") is not None else None,
+            "characteristics": AnnotationCharacteristicsRequest.from_dict(obj["characteristics"]) if obj.get("characteristics") is not None else None,
             "feedback": AnnotationFeedbackRequest.from_dict(obj["feedback"]) if obj.get("feedback") is not None else None,
             "is_flagged": obj.get("is_flagged") if obj.get("is_flagged") is not None else False,
             "is_decisive": obj.get("is_decisive") if obj.get("is_decisive") is not None else False,
+            "observation_flags": ObservationFlagsRequest.from_dict(obj["observation_flags"]) if obj.get("observation_flags") is not None else None,
             "tags": obj.get("tags")
         })
         return _obj

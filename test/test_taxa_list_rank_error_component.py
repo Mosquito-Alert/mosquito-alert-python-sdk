@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.notifications_list_mine_error import NotificationsListMineError
+from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent
 
-class TestNotificationsListMineError(unittest.TestCase):
-    """NotificationsListMineError unit test stubs"""
+class TestTaxaListRankErrorComponent(unittest.TestCase):
+    """TaxaListRankErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestNotificationsListMineError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> NotificationsListMineError:
-        """Test NotificationsListMineError
+    def make_instance(self, include_optional) -> TaxaListRankErrorComponent:
+        """Test TaxaListRankErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `NotificationsListMineError`
+        # uncomment below to create an instance of `TaxaListRankErrorComponent`
         """
-        model = NotificationsListMineError()
+        model = TaxaListRankErrorComponent()
         if include_optional:
-            return NotificationsListMineError(
-                attr = 'order_by',
+            return TaxaListRankErrorComponent(
+                attr = 'rank',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return NotificationsListMineError(
-                attr = 'order_by',
+            return TaxaListRankErrorComponent(
+                attr = 'rank',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testNotificationsListMineError(self):
-        """Test NotificationsListMineError"""
+    def testTaxaListRankErrorComponent(self):
+        """Test TaxaListRankErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

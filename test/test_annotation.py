@@ -54,9 +54,14 @@ class TestAnnotation(unittest.TestCase):
                     is_high_confidence = True, ),
                 feedback = mosquito_alert.models.annotation_feedback.AnnotationFeedback(
                     public_note = '', 
+                    internal_note = '', 
                     user_note = '', ),
+                type = 'short',
                 is_flagged = True,
                 is_decisive = True,
+                observation_flags = mosquito_alert.models.observation_flags.ObservationFlags(
+                    is_favourite = True, 
+                    is_visible = True, ),
                 tags = [
                     ''
                     ],
@@ -81,6 +86,7 @@ class TestAnnotation(unittest.TestCase):
                     confidence = 1.337, 
                     confidence_label = 'definitely', 
                     is_high_confidence = True, ),
+                type = 'short',
                 is_flagged = True,
                 is_decisive = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
