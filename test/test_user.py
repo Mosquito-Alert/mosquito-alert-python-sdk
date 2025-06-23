@@ -38,6 +38,9 @@ class TestUser(unittest.TestCase):
             return User(
                 uuid = '',
                 username = '',
+                first_name = '',
+                last_name = '',
+                full_name = '',
                 registration_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 locale = 'en',
                 language_iso = 'en',
@@ -50,6 +53,9 @@ class TestUser(unittest.TestCase):
             return User(
                 uuid = '',
                 username = '',
+                first_name = '',
+                last_name = '',
+                full_name = '',
                 registration_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 language_iso = 'en',
                 is_guest = True,

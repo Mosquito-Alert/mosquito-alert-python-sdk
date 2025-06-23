@@ -39,8 +39,8 @@ class TestAnnotation(unittest.TestCase):
                 id = 56,
                 observation_uuid = '',
                 user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                    id = 56, 
-                    username = 'A', 
+                    uuid = '', 
+                    username = '', 
                     first_name = '', 
                     last_name = '', 
                     full_name = '', ),
@@ -73,8 +73,8 @@ class TestAnnotation(unittest.TestCase):
                 id = 56,
                 observation_uuid = '',
                 user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                    id = 56, 
-                    username = 'A', 
+                    uuid = '', 
+                    username = '', 
                     first_name = '', 
                     last_name = '', 
                     full_name = '', ),

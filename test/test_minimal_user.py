@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.simple_user import SimpleUser
+from mosquito_alert.models.minimal_user import MinimalUser
 
-class TestSimpleUser(unittest.TestCase):
-    """SimpleUser unit test stubs"""
+class TestMinimalUser(unittest.TestCase):
+    """MinimalUser unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,27 @@ class TestSimpleUser(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SimpleUser:
-        """Test SimpleUser
+    def make_instance(self, include_optional) -> MinimalUser:
+        """Test MinimalUser
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SimpleUser`
+        # uncomment below to create an instance of `MinimalUser`
         """
-        model = SimpleUser()
+        model = MinimalUser()
         if include_optional:
-            return SimpleUser(
+            return MinimalUser(
                 uuid = '',
                 locale = 'en'
             )
         else:
-            return SimpleUser(
+            return MinimalUser(
                 uuid = '',
         )
         """
 
-    def testSimpleUser(self):
-        """Test SimpleUser"""
+    def testMinimalUser(self):
+        """Test MinimalUser"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

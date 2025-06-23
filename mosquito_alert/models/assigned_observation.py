@@ -21,8 +21,8 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from mosquito_alert.models.minimal_user import MinimalUser
 from mosquito_alert.models.simple_photo import SimplePhoto
-from mosquito_alert.models.simple_user import SimpleUser
 from mosquito_alert.models.simplified_location import SimplifiedLocation
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,7 +38,7 @@ class AssignedObservation(BaseModel):
     location: SimplifiedLocation
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     photos: List[SimplePhoto]
-    user: SimpleUser
+    user: MinimalUser
     __properties: ClassVar[List[str]] = ["uuid", "created_at", "created_at_local", "received_at", "location", "note", "photos", "user"]
 
     model_config = ConfigDict(
@@ -125,7 +125,7 @@ class AssignedObservation(BaseModel):
             "location": SimplifiedLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "note": obj.get("note"),
             "photos": [SimplePhoto.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
-            "user": SimpleUser.from_dict(obj["user"]) if obj.get("user") is not None else None
+            "user": MinimalUser.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
         return _obj
 

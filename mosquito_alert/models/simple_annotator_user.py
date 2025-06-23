@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,19 +27,12 @@ class SimpleAnnotatorUser(BaseModel):
     """
     SimpleAnnotatorUser
     """ # noqa: E501
-    id: StrictInt
-    username: Annotated[str, Field(strict=True, max_length=150)] = Field(description="Requerido. 150 carácteres como máximo. Únicamente letras, dígitos y @/./+/-/_ ")
-    first_name: Optional[Annotated[str, Field(strict=True, max_length=150)]] = None
-    last_name: Optional[Annotated[str, Field(strict=True, max_length=150)]] = None
+    uuid: StrictStr
+    username: StrictStr
+    first_name: StrictStr
+    last_name: StrictStr
     full_name: StrictStr
-    __properties: ClassVar[List[str]] = ["id", "username", "first_name", "last_name", "full_name"]
-
-    @field_validator('username')
-    def username_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[\w.@+-]+$", value):
-            raise ValueError(r"must validate the regular expression /^[\w.@+-]+$/")
-        return value
+    __properties: ClassVar[List[str]] = ["uuid", "username", "first_name", "last_name", "full_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,9 +66,15 @@ class SimpleAnnotatorUser(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "id",
+            "uuid",
+            "username",
+            "first_name",
+            "last_name",
             "full_name",
         ])
 
@@ -97,7 +95,7 @@ class SimpleAnnotatorUser(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
+            "uuid": obj.get("uuid"),
             "username": obj.get("username"),
             "first_name": obj.get("first_name"),
             "last_name": obj.get("last_name"),

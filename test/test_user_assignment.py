@@ -37,8 +37,8 @@ class TestUserAssignment(unittest.TestCase):
         if include_optional:
             return UserAssignment(
                 user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                    id = 56, 
-                    username = 'A', 
+                    uuid = '', 
+                    username = '', 
                     first_name = '', 
                     last_name = '', 
                     full_name = '', ),
@@ -48,8 +48,8 @@ class TestUserAssignment(unittest.TestCase):
         else:
             return UserAssignment(
                 user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                    id = 56, 
-                    username = 'A', 
+                    uuid = '', 
+                    username = '', 
                     first_name = '', 
                     last_name = '', 
                     full_name = '', ),

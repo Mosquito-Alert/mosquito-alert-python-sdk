@@ -53,7 +53,7 @@ class TestAssignedObservation(unittest.TestCase):
                         uuid = '', 
                         url = '', )
                     ],
-                user = mosquito_alert.models.simple_user.SimpleUser(
+                user = mosquito_alert.models.minimal_user.MinimalUser(
                     uuid = '', 
                     locale = 'en', )
             )
@@ -75,7 +75,7 @@ class TestAssignedObservation(unittest.TestCase):
                         uuid = '', 
                         url = '', )
                     ],
-                user = mosquito_alert.models.simple_user.SimpleUser(
+                user = mosquito_alert.models.minimal_user.MinimalUser(
                     uuid = '', 
                     locale = 'en', ),
         )

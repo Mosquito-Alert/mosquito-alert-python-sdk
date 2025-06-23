@@ -367,6 +367,7 @@ docs/Location.md
 docs/LocationPoint.md
 docs/LocationRequest.md
 docs/MetaNotificationRequest.md
+docs/MinimalUser.md
 docs/MobileApp.md
 docs/MobileAppRequest.md
 docs/MosquitoAppearance.md
@@ -562,12 +563,10 @@ docs/PhotosPredictionUpdateValidationError.md
 docs/PredictionScore.md
 docs/PredictionScoreRequest.md
 docs/SimpleAnnotatorUser.md
-docs/SimpleAnnotatorUserRequest.md
 docs/SimplePhoto.md
 docs/SimplePhotoRequest.md
 docs/SimpleTaxon.md
 docs/SimpleTaxonRequest.md
-docs/SimpleUser.md
 docs/SimplifiedLocation.md
 docs/SimplifiedObservationWithPhotos.md
 docs/TaxaApi.md
@@ -971,6 +970,7 @@ mosquito_alert/models/location.py
 mosquito_alert/models/location_point.py
 mosquito_alert/models/location_request.py
 mosquito_alert/models/meta_notification_request.py
+mosquito_alert/models/minimal_user.py
 mosquito_alert/models/mobile_app.py
 mosquito_alert/models/mobile_app_request.py
 mosquito_alert/models/mosquito_appearance.py
@@ -1162,12 +1162,10 @@ mosquito_alert/models/photos_prediction_update_validation_error.py
 mosquito_alert/models/prediction_score.py
 mosquito_alert/models/prediction_score_request.py
 mosquito_alert/models/simple_annotator_user.py
-mosquito_alert/models/simple_annotator_user_request.py
 mosquito_alert/models/simple_photo.py
 mosquito_alert/models/simple_photo_request.py
 mosquito_alert/models/simple_taxon.py
 mosquito_alert/models/simple_taxon_request.py
-mosquito_alert/models/simple_user.py
 mosquito_alert/models/simplified_location.py
 mosquito_alert/models/simplified_observation_with_photos.py
 mosquito_alert/models/taxa_list_rank_error_component.py
@@ -1563,6 +1561,7 @@ test/test_location.py
 test/test_location_point.py
 test/test_location_request.py
 test/test_meta_notification_request.py
+test/test_minimal_user.py
 test/test_mobile_app.py
 test/test_mobile_app_request.py
 test/test_mosquito_appearance.py
@@ -1758,12 +1757,10 @@ test/test_photos_prediction_update_validation_error.py
 test/test_prediction_score.py
 test/test_prediction_score_request.py
 test/test_simple_annotator_user.py
-test/test_simple_annotator_user_request.py
 test/test_simple_photo.py
 test/test_simple_photo_request.py
 test/test_simple_taxon.py
 test/test_simple_taxon_request.py
-test/test_simple_user.py
 test/test_simplified_location.py
 test/test_simplified_observation_with_photos.py
 test/test_taxa_api.py

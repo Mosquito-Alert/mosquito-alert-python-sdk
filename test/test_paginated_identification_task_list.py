@@ -48,8 +48,8 @@ class TestPaginatedIdentificationTaskList(unittest.TestCase):
                         assignments = [
                             mosquito_alert.models.user_assignment.UserAssignment(
                                 user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
-                                    id = 56, 
-                                    username = 'A', 
+                                    uuid = '', 
+                                    username = '', 
                                     first_name = '', 
                                     last_name = '', 
                                     full_name = '', ), 

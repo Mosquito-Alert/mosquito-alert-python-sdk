@@ -371,6 +371,7 @@ from mosquito_alert.models.location import Location
 from mosquito_alert.models.location_point import LocationPoint
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.meta_notification_request import MetaNotificationRequest
+from mosquito_alert.models.minimal_user import MinimalUser
 from mosquito_alert.models.mobile_app import MobileApp
 from mosquito_alert.models.mobile_app_request import MobileAppRequest
 from mosquito_alert.models.mosquito_appearance import MosquitoAppearance
@@ -562,12 +563,10 @@ from mosquito_alert.models.photos_prediction_update_validation_error import Phot
 from mosquito_alert.models.prediction_score import PredictionScore
 from mosquito_alert.models.prediction_score_request import PredictionScoreRequest
 from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
-from mosquito_alert.models.simple_annotator_user_request import SimpleAnnotatorUserRequest
 from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 from mosquito_alert.models.simple_taxon import SimpleTaxon
 from mosquito_alert.models.simple_taxon_request import SimpleTaxonRequest
-from mosquito_alert.models.simple_user import SimpleUser
 from mosquito_alert.models.simplified_location import SimplifiedLocation
 from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos
 from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent

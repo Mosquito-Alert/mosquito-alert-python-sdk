@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**username** | **str** | Requerido. 150 carácteres como máximo. Únicamente letras, dígitos y @/./+/-/_  | 
-**first_name** | **str** |  | [optional] 
-**last_name** | **str** |  | [optional] 
+**uuid** | **str** |  | [readonly] 
+**username** | **str** |  | [readonly] 
+**first_name** | **str** |  | [readonly] 
+**last_name** | **str** |  | [readonly] 
 **full_name** | **str** |  | [readonly] 
 
 ## Example

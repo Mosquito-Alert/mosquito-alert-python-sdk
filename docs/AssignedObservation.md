@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **location** | [**SimplifiedLocation**](SimplifiedLocation.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
 **photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | 
-**user** | [**SimpleUser**](SimpleUser.md) |  | [readonly] 
+**user** | [**MinimalUser**](MinimalUser.md) |  | [readonly] 
 
 ## Example
 

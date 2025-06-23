@@ -36,16 +36,18 @@ class TestSimpleAnnotatorUser(unittest.TestCase):
         model = SimpleAnnotatorUser()
         if include_optional:
             return SimpleAnnotatorUser(
-                id = 56,
-                username = 'A',
+                uuid = '',
+                username = '',
                 first_name = '',
                 last_name = '',
                 full_name = ''
             )
         else:
             return SimpleAnnotatorUser(
-                id = 56,
-                username = 'A',
+                uuid = '',
+                username = '',
+                first_name = '',
+                last_name = '',
                 full_name = '',
         )
         """

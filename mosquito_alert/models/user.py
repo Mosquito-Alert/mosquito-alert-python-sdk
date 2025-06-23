@@ -31,12 +31,15 @@ class User(BaseModel):
     """ # noqa: E501
     uuid: StrictStr
     username: StrictStr
+    first_name: StrictStr
+    last_name: StrictStr
+    full_name: StrictStr
     registration_time: datetime = Field(description="The date and time when user registered and consented to sharing data. Automatically set by server when user uploads registration.")
     locale: Optional[StrictStr] = Field(default='en', description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
     language_iso: StrictStr = Field(description="ISO 639-1 code")
     is_guest: StrictBool
     score: UserScore
-    __properties: ClassVar[List[str]] = ["uuid", "username", "registration_time", "locale", "language_iso", "is_guest", "score"]
+    __properties: ClassVar[List[str]] = ["uuid", "username", "first_name", "last_name", "full_name", "registration_time", "locale", "language_iso", "is_guest", "score"]
 
     @field_validator('locale')
     def locale_validate_enum(cls, value):
@@ -84,10 +87,16 @@ class User(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
             "username",
+            "first_name",
+            "last_name",
+            "full_name",
             "registration_time",
             "language_iso",
             "is_guest",
@@ -116,6 +125,9 @@ class User(BaseModel):
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
             "username": obj.get("username"),
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
+            "full_name": obj.get("full_name"),
             "registration_time": obj.get("registration_time"),
             "locale": obj.get("locale") if obj.get("locale") is not None else 'en',
             "language_iso": obj.get("language_iso") if obj.get("language_iso") is not None else 'en',

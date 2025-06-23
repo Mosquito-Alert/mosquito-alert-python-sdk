@@ -18,26 +18,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SimpleAnnotatorUserRequest(BaseModel):
+class MinimalUser(BaseModel):
     """
-    SimpleAnnotatorUserRequest
+    MinimalUser
     """ # noqa: E501
-    username: Annotated[str, Field(min_length=1, strict=True, max_length=150)] = Field(description="Requerido. 150 carácteres como máximo. Únicamente letras, dígitos y @/./+/-/_ ")
-    first_name: Optional[Annotated[str, Field(strict=True, max_length=150)]] = None
-    last_name: Optional[Annotated[str, Field(strict=True, max_length=150)]] = None
-    __properties: ClassVar[List[str]] = ["username", "first_name", "last_name"]
+    uuid: StrictStr
+    locale: Optional[StrictStr] = Field(default='en', description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
+    __properties: ClassVar[List[str]] = ["uuid", "locale"]
 
-    @field_validator('username')
-    def username_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[\w.@+-]+$", value):
-            raise ValueError(r"must validate the regular expression /^[\w.@+-]+$/")
+    @field_validator('locale')
+    def locale_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN']):
+            raise ValueError("must be one of enum values ('es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN')")
         return value
 
     model_config = ConfigDict(
@@ -58,7 +59,7 @@ class SimpleAnnotatorUserRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SimpleAnnotatorUserRequest from a JSON string"""
+        """Create an instance of MinimalUser from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,8 +71,10 @@ class SimpleAnnotatorUserRequest(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "uuid",
         ])
 
         _dict = self.model_dump(
@@ -83,7 +86,7 @@ class SimpleAnnotatorUserRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SimpleAnnotatorUserRequest from a dict"""
+        """Create an instance of MinimalUser from a dict"""
         if obj is None:
             return None
 
@@ -91,9 +94,8 @@ class SimpleAnnotatorUserRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "username": obj.get("username"),
-            "first_name": obj.get("first_name"),
-            "last_name": obj.get("last_name")
+            "uuid": obj.get("uuid"),
+            "locale": obj.get("locale") if obj.get("locale") is not None else 'en'
         })
         return _obj
 
