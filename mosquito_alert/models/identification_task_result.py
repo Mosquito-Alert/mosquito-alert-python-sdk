@@ -29,7 +29,7 @@ class IdentificationTaskResult(BaseModel):
     """
     IdentificationTaskResult
     """ # noqa: E501
-    source: Optional[StrictStr]
+    source: StrictStr
     taxon: Optional[SimpleTaxon]
     is_high_confidence: StrictBool
     confidence: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
@@ -41,9 +41,6 @@ class IdentificationTaskResult(BaseModel):
     @field_validator('source')
     def source_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['expert', 'ai']):
             raise ValueError("must be one of enum values ('expert', 'ai')")
         return value
@@ -102,11 +99,6 @@ class IdentificationTaskResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of taxon
         if self.taxon:
             _dict['taxon'] = self.taxon.to_dict()
-        # set to None if source (nullable) is None
-        # and model_fields_set contains the field
-        if self.source is None and "source" in self.model_fields_set:
-            _dict['source'] = None
-
         # set to None if taxon (nullable) is None
         # and model_fields_set contains the field
         if self.taxon is None and "taxon" in self.model_fields_set:

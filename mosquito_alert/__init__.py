@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.20"
+__version__ = "0.1.21"
 
 # import apis into sdk package
 from mosquito_alert.api.auth_api import AuthApi

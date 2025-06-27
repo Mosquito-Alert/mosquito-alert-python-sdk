@@ -43,7 +43,7 @@ class IdentificationTask(BaseModel):
     public_note: Optional[StrictStr]
     num_annotations: Annotated[int, Field(strict=True, ge=0)]
     review: Optional[IdentificationTaskReview]
-    result: IdentificationTaskResult
+    result: Optional[IdentificationTaskResult]
     created_at: datetime
     updated_at: datetime
     __properties: ClassVar[List[str]] = ["observation", "public_photo", "assignments", "status", "is_flagged", "is_safe", "public_note", "num_annotations", "review", "result", "created_at", "updated_at"]
@@ -145,6 +145,11 @@ class IdentificationTask(BaseModel):
         # and model_fields_set contains the field
         if self.review is None and "review" in self.model_fields_set:
             _dict['review'] = None
+
+        # set to None if result (nullable) is None
+        # and model_fields_set contains the field
+        if self.result is None and "result" in self.model_fields_set:
+            _dict['result'] = None
 
         return _dict
 

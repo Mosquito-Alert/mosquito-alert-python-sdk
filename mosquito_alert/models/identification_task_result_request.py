@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,15 +27,12 @@ class IdentificationTaskResultRequest(BaseModel):
     """
     IdentificationTaskResultRequest
     """ # noqa: E501
-    source: Optional[StrictStr]
+    source: StrictStr
     __properties: ClassVar[List[str]] = ["source"]
 
     @field_validator('source')
     def source_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['expert', 'ai']):
             raise ValueError("must be one of enum values ('expert', 'ai')")
         return value
@@ -79,11 +76,6 @@ class IdentificationTaskResultRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if source (nullable) is None
-        # and model_fields_set contains the field
-        if self.source is None and "source" in self.model_fields_set:
-            _dict['source'] = None
-
         return _dict
 
     @classmethod
