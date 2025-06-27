@@ -18,33 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from mosquito_alert.models.annotation_permission import AnnotationPermission
+from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission
+from mosquito_alert.models.review_permission import ReviewPermission
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
+class Permissions(BaseModel):
     """
-    IdentificationtasksListMineResultSourceErrorComponent
+    Permissions
     """ # noqa: E501
-    attr: StrictStr
-    code: StrictStr
-    detail: StrictStr
-    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
-
-    @field_validator('attr')
-    def attr_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['result_source']):
-            raise ValueError("must be one of enum values ('result_source')")
-        return value
-
-    @field_validator('code')
-    def code_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['invalid_choice', 'invalid_list']):
-            raise ValueError("must be one of enum values ('invalid_choice', 'invalid_list')")
-        return value
+    annotation: AnnotationPermission
+    identification_task: IdentificationTaskPermission
+    review: ReviewPermission
+    __properties: ClassVar[List[str]] = ["annotation", "identification_task", "review"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,7 +53,7 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a JSON string"""
+        """Create an instance of Permissions from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -85,11 +74,20 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of annotation
+        if self.annotation:
+            _dict['annotation'] = self.annotation.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of identification_task
+        if self.identification_task:
+            _dict['identification_task'] = self.identification_task.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of review
+        if self.review:
+            _dict['review'] = self.review.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a dict"""
+        """Create an instance of Permissions from a dict"""
         if obj is None:
             return None
 
@@ -97,9 +95,9 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "attr": obj.get("attr"),
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
+            "annotation": AnnotationPermission.from_dict(obj["annotation"]) if obj.get("annotation") is not None else None,
+            "identification_task": IdentificationTaskPermission.from_dict(obj["identification_task"]) if obj.get("identification_task") is not None else None,
+            "review": ReviewPermission.from_dict(obj["review"]) if obj.get("review") is not None else None
         })
         return _obj
 

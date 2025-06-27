@@ -605,7 +605,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_agreement_min = 3.4 # float |  (optional)
     result_confidence_max = None # decimal.Decimal |  (optional)
     result_confidence_min = None # decimal.Decimal |  (optional)
-    result_source = 'result_source_example' # str |  (optional)
+    result_source = ['result_source_example'] # List[str] |  (optional)
     result_taxon_ids = [56] # List[int] |  (optional)
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
  **result_agreement_min** | **float**|  | [optional] 
  **result_confidence_max** | **decimal.Decimal**|  | [optional] 
  **result_confidence_min** | **decimal.Decimal**|  | [optional] 
- **result_source** | **str**|  | [optional] 
+ **result_source** | [**List[str]**](str.md)|  | [optional] 
  **result_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
@@ -746,7 +746,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_agreement_min = 3.4 # float |  (optional)
     result_confidence_max = None # decimal.Decimal |  (optional)
     result_confidence_min = None # decimal.Decimal |  (optional)
-    result_source = 'result_source_example' # str |  (optional)
+    result_source = ['result_source_example'] # List[str] |  (optional)
     result_taxon_ids = [56] # List[int] |  (optional)
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
  **result_agreement_min** | **float**|  | [optional] 
  **result_confidence_max** | **decimal.Decimal**|  | [optional] 
  **result_confidence_min** | **decimal.Decimal**|  | [optional] 
- **result_source** | **str**|  | [optional] 
+ **result_source** | [**List[str]**](str.md)|  | [optional] 
  **result_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 

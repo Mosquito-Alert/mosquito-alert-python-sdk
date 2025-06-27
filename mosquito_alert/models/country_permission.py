@@ -20,30 +20,25 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
+from mosquito_alert.models.country import Country
+from mosquito_alert.models.permissions import Permissions
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
+class CountryPermission(BaseModel):
     """
-    IdentificationtasksListMineResultSourceErrorComponent
+    CountryPermission
     """ # noqa: E501
-    attr: StrictStr
-    code: StrictStr
-    detail: StrictStr
-    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
+    role: StrictStr
+    permissions: Permissions
+    country: Country
+    __properties: ClassVar[List[str]] = ["role", "permissions", "country"]
 
-    @field_validator('attr')
-    def attr_validate_enum(cls, value):
+    @field_validator('role')
+    def role_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['result_source']):
-            raise ValueError("must be one of enum values ('result_source')")
-        return value
-
-    @field_validator('code')
-    def code_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['invalid_choice', 'invalid_list']):
-            raise ValueError("must be one of enum values ('invalid_choice', 'invalid_list')")
+        if value not in set(['base', 'annotator', 'supervisor', 'reviewer', 'admin']):
+            raise ValueError("must be one of enum values ('base', 'annotator', 'supervisor', 'reviewer', 'admin')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +59,7 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a JSON string"""
+        """Create an instance of CountryPermission from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,8 +71,14 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "role",
+            "permissions",
+            "country",
         ])
 
         _dict = self.model_dump(
@@ -85,11 +86,17 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of permissions
+        if self.permissions:
+            _dict['permissions'] = self.permissions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of country
+        if self.country:
+            _dict['country'] = self.country.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a dict"""
+        """Create an instance of CountryPermission from a dict"""
         if obj is None:
             return None
 
@@ -97,9 +104,9 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "attr": obj.get("attr"),
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
+            "role": obj.get("role"),
+            "permissions": Permissions.from_dict(obj["permissions"]) if obj.get("permissions") is not None else None,
+            "country": Country.from_dict(obj["country"]) if obj.get("country") is not None else None
         })
         return _obj
 

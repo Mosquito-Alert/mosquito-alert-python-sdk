@@ -12,6 +12,7 @@ docs/AnnotationClassification.md
 docs/AnnotationClassificationRequest.md
 docs/AnnotationFeedback.md
 docs/AnnotationFeedbackRequest.md
+docs/AnnotationPermission.md
 docs/AnnotationRequest.md
 docs/AppUserTokenObtainPair.md
 docs/AppUserTokenObtainPairRequest.md
@@ -132,6 +133,7 @@ docs/CampaignsListOrderByErrorComponent.md
 docs/CampaignsListValidationError.md
 docs/CountriesApi.md
 docs/Country.md
+docs/CountryPermission.md
 docs/CountryRequest.md
 docs/CreateNotification.md
 docs/CreateNotificationMessage.md
@@ -206,11 +208,13 @@ docs/FixesCreatePointNonFieldErrorsErrorComponent.md
 docs/FixesCreatePowerErrorComponent.md
 docs/FixesCreateSentAtErrorComponent.md
 docs/FixesCreateValidationError.md
+docs/GeneralPermission.md
 docs/GuestRegistration.md
 docs/GuestRegistrationRequest.md
 docs/Identification.md
 docs/IdentificationRequest.md
 docs/IdentificationTask.md
+docs/IdentificationTaskPermission.md
 docs/IdentificationTaskResult.md
 docs/IdentificationTaskResultRequest.md
 docs/IdentificationTaskReview.md
@@ -510,6 +514,8 @@ docs/PatchedDeviceUpdateRequest.md
 docs/PatchedNotificationRequest.md
 docs/PatchedPhotoPredictionRequest.md
 docs/PatchedUserRequest.md
+docs/Permissions.md
+docs/PermissionsApi.md
 docs/Photo.md
 docs/PhotoPrediction.md
 docs/PhotoPredictionRequest.md
@@ -562,6 +568,7 @@ docs/PhotosPredictionUpdateThresholdDeviationErrorComponent.md
 docs/PhotosPredictionUpdateValidationError.md
 docs/PredictionScore.md
 docs/PredictionScoreRequest.md
+docs/ReviewPermission.md
 docs/SimpleAnnotatorUser.md
 docs/SimplePhoto.md
 docs/SimplePhotoRequest.md
@@ -581,6 +588,7 @@ docs/TopicNotificationCreateRequest.md
 docs/User.md
 docs/UserAssignment.md
 docs/UserNotificationCreateRequest.md
+docs/UserPermission.md
 docs/UserRequest.md
 docs/UserScore.md
 docs/UsersApi.md
@@ -606,6 +614,7 @@ mosquito_alert/api/identification_tasks_api.py
 mosquito_alert/api/notifications_api.py
 mosquito_alert/api/observations_api.py
 mosquito_alert/api/partners_api.py
+mosquito_alert/api/permissions_api.py
 mosquito_alert/api/photos_api.py
 mosquito_alert/api/taxa_api.py
 mosquito_alert/api/users_api.py
@@ -623,6 +632,7 @@ mosquito_alert/models/annotation_classification.py
 mosquito_alert/models/annotation_classification_request.py
 mosquito_alert/models/annotation_feedback.py
 mosquito_alert/models/annotation_feedback_request.py
+mosquito_alert/models/annotation_permission.py
 mosquito_alert/models/annotation_request.py
 mosquito_alert/models/app_user_token_obtain_pair.py
 mosquito_alert/models/app_user_token_obtain_pair_request.py
@@ -738,6 +748,7 @@ mosquito_alert/models/campaigns_list_error.py
 mosquito_alert/models/campaigns_list_order_by_error_component.py
 mosquito_alert/models/campaigns_list_validation_error.py
 mosquito_alert/models/country.py
+mosquito_alert/models/country_permission.py
 mosquito_alert/models/country_request.py
 mosquito_alert/models/create_notification.py
 mosquito_alert/models/create_notification_message.py
@@ -810,11 +821,13 @@ mosquito_alert/models/fixes_create_point_non_field_errors_error_component.py
 mosquito_alert/models/fixes_create_power_error_component.py
 mosquito_alert/models/fixes_create_sent_at_error_component.py
 mosquito_alert/models/fixes_create_validation_error.py
+mosquito_alert/models/general_permission.py
 mosquito_alert/models/guest_registration.py
 mosquito_alert/models/guest_registration_request.py
 mosquito_alert/models/identification.py
 mosquito_alert/models/identification_request.py
 mosquito_alert/models/identification_task.py
+mosquito_alert/models/identification_task_permission.py
 mosquito_alert/models/identification_task_result.py
 mosquito_alert/models/identification_task_result_request.py
 mosquito_alert/models/identification_task_review.py
@@ -1110,6 +1123,7 @@ mosquito_alert/models/patched_device_update_request.py
 mosquito_alert/models/patched_notification_request.py
 mosquito_alert/models/patched_photo_prediction_request.py
 mosquito_alert/models/patched_user_request.py
+mosquito_alert/models/permissions.py
 mosquito_alert/models/photo.py
 mosquito_alert/models/photo_prediction.py
 mosquito_alert/models/photo_prediction_request.py
@@ -1161,6 +1175,7 @@ mosquito_alert/models/photos_prediction_update_threshold_deviation_error_compone
 mosquito_alert/models/photos_prediction_update_validation_error.py
 mosquito_alert/models/prediction_score.py
 mosquito_alert/models/prediction_score_request.py
+mosquito_alert/models/review_permission.py
 mosquito_alert/models/simple_annotator_user.py
 mosquito_alert/models/simple_photo.py
 mosquito_alert/models/simple_photo_request.py
@@ -1179,6 +1194,7 @@ mosquito_alert/models/topic_notification_create_request.py
 mosquito_alert/models/user.py
 mosquito_alert/models/user_assignment.py
 mosquito_alert/models/user_notification_create_request.py
+mosquito_alert/models/user_permission.py
 mosquito_alert/models/user_request.py
 mosquito_alert/models/user_score.py
 mosquito_alert/models/users_partial_update_error.py
@@ -1206,6 +1222,7 @@ test/test_annotation_classification.py
 test/test_annotation_classification_request.py
 test/test_annotation_feedback.py
 test/test_annotation_feedback_request.py
+test/test_annotation_permission.py
 test/test_annotation_request.py
 test/test_app_user_token_obtain_pair.py
 test/test_app_user_token_obtain_pair_request.py
@@ -1326,6 +1343,7 @@ test/test_campaigns_list_order_by_error_component.py
 test/test_campaigns_list_validation_error.py
 test/test_countries_api.py
 test/test_country.py
+test/test_country_permission.py
 test/test_country_request.py
 test/test_create_notification.py
 test/test_create_notification_message.py
@@ -1400,11 +1418,13 @@ test/test_fixes_create_point_non_field_errors_error_component.py
 test/test_fixes_create_power_error_component.py
 test/test_fixes_create_sent_at_error_component.py
 test/test_fixes_create_validation_error.py
+test/test_general_permission.py
 test/test_guest_registration.py
 test/test_guest_registration_request.py
 test/test_identification.py
 test/test_identification_request.py
 test/test_identification_task.py
+test/test_identification_task_permission.py
 test/test_identification_task_result.py
 test/test_identification_task_result_request.py
 test/test_identification_task_review.py
@@ -1704,6 +1724,8 @@ test/test_patched_device_update_request.py
 test/test_patched_notification_request.py
 test/test_patched_photo_prediction_request.py
 test/test_patched_user_request.py
+test/test_permissions.py
+test/test_permissions_api.py
 test/test_photo.py
 test/test_photo_prediction.py
 test/test_photo_prediction_request.py
@@ -1756,6 +1778,7 @@ test/test_photos_prediction_update_threshold_deviation_error_component.py
 test/test_photos_prediction_update_validation_error.py
 test/test_prediction_score.py
 test/test_prediction_score_request.py
+test/test_review_permission.py
 test/test_simple_annotator_user.py
 test/test_simple_photo.py
 test/test_simple_photo_request.py
@@ -1775,6 +1798,7 @@ test/test_topic_notification_create_request.py
 test/test_user.py
 test/test_user_assignment.py
 test/test_user_notification_create_request.py
+test/test_user_permission.py
 test/test_user_request.py
 test/test_user_score.py
 test/test_users_api.py

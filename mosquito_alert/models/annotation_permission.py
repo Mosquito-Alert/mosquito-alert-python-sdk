@@ -18,33 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictBool
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
+class AnnotationPermission(BaseModel):
     """
-    IdentificationtasksListMineResultSourceErrorComponent
+    AnnotationPermission
     """ # noqa: E501
-    attr: StrictStr
-    code: StrictStr
-    detail: StrictStr
-    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
-
-    @field_validator('attr')
-    def attr_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['result_source']):
-            raise ValueError("must be one of enum values ('result_source')")
-        return value
-
-    @field_validator('code')
-    def code_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['invalid_choice', 'invalid_list']):
-            raise ValueError("must be one of enum values ('invalid_choice', 'invalid_list')")
-        return value
+    add: StrictBool
+    change: StrictBool
+    view: StrictBool
+    delete: StrictBool
+    mark_as_decisive: StrictBool
+    __properties: ClassVar[List[str]] = ["add", "change", "view", "delete", "mark_as_decisive"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,7 +52,7 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a JSON string"""
+        """Create an instance of AnnotationPermission from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +77,7 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a dict"""
+        """Create an instance of AnnotationPermission from a dict"""
         if obj is None:
             return None
 
@@ -97,9 +85,11 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "attr": obj.get("attr"),
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
+            "add": obj.get("add"),
+            "change": obj.get("change"),
+            "view": obj.get("view"),
+            "delete": obj.get("delete"),
+            "mark_as_decisive": obj.get("mark_as_decisive")
         })
         return _obj
 

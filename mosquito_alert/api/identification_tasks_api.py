@@ -2072,7 +2072,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
-        result_source: Optional[StrictStr] = None,
+        result_source: Optional[List[StrictStr]] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2131,7 +2131,7 @@ class IdentificationTasksApi:
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
         :param result_source:
-        :type result_source: str
+        :type result_source: List[str]
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2238,7 +2238,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
-        result_source: Optional[StrictStr] = None,
+        result_source: Optional[List[StrictStr]] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2297,7 +2297,7 @@ class IdentificationTasksApi:
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
         :param result_source:
-        :type result_source: str
+        :type result_source: List[str]
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2404,7 +2404,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
-        result_source: Optional[StrictStr] = None,
+        result_source: Optional[List[StrictStr]] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2463,7 +2463,7 @@ class IdentificationTasksApi:
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
         :param result_source:
-        :type result_source: str
+        :type result_source: List[str]
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2586,6 +2586,7 @@ class IdentificationTasksApi:
             'assignee_ids': 'multi',
             'observation_country_ids': 'multi',
             'order_by': 'csv',
+            'result_source': 'multi',
             'result_taxon_ids': 'multi',
             'status': 'multi',
         }
@@ -2796,7 +2797,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
-        result_source: Optional[StrictStr] = None,
+        result_source: Optional[List[StrictStr]] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -2856,7 +2857,7 @@ class IdentificationTasksApi:
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
         :param result_source:
-        :type result_source: str
+        :type result_source: List[str]
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -2963,7 +2964,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
-        result_source: Optional[StrictStr] = None,
+        result_source: Optional[List[StrictStr]] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -3023,7 +3024,7 @@ class IdentificationTasksApi:
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
         :param result_source:
-        :type result_source: str
+        :type result_source: List[str]
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -3130,7 +3131,7 @@ class IdentificationTasksApi:
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
-        result_source: Optional[StrictStr] = None,
+        result_source: Optional[List[StrictStr]] = None,
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -3190,7 +3191,7 @@ class IdentificationTasksApi:
         :param result_confidence_min:
         :type result_confidence_min: decimal.Decimal
         :param result_source:
-        :type result_source: str
+        :type result_source: List[str]
         :param result_taxon_ids:
         :type result_taxon_ids: List[int]
         :param result_uncertainty_max:
@@ -3313,6 +3314,7 @@ class IdentificationTasksApi:
             'assignee_ids': 'multi',
             'observation_country_ids': 'multi',
             'order_by': 'csv',
+            'result_source': 'multi',
             'result_taxon_ids': 'multi',
             'status': 'multi',
         }

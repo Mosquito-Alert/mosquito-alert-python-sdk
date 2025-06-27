@@ -18,33 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from mosquito_alert.models.country_permission import CountryPermission
+from mosquito_alert.models.general_permission import GeneralPermission
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
+class UserPermission(BaseModel):
     """
-    IdentificationtasksListMineResultSourceErrorComponent
+    UserPermission
     """ # noqa: E501
-    attr: StrictStr
-    code: StrictStr
-    detail: StrictStr
-    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
-
-    @field_validator('attr')
-    def attr_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['result_source']):
-            raise ValueError("must be one of enum values ('result_source')")
-        return value
-
-    @field_validator('code')
-    def code_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['invalid_choice', 'invalid_list']):
-            raise ValueError("must be one of enum values ('invalid_choice', 'invalid_list')")
-        return value
+    general: GeneralPermission
+    countries: List[CountryPermission]
+    __properties: ClassVar[List[str]] = ["general", "countries"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,7 +51,7 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a JSON string"""
+        """Create an instance of UserPermission from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,8 +63,12 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "general",
+            "countries",
         ])
 
         _dict = self.model_dump(
@@ -85,11 +76,21 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of general
+        if self.general:
+            _dict['general'] = self.general.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in countries (list)
+        _items = []
+        if self.countries:
+            for _item_countries in self.countries:
+                if _item_countries:
+                    _items.append(_item_countries.to_dict())
+            _dict['countries'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListMineResultSourceErrorComponent from a dict"""
+        """Create an instance of UserPermission from a dict"""
         if obj is None:
             return None
 
@@ -97,9 +98,8 @@ class IdentificationtasksListMineResultSourceErrorComponent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "attr": obj.get("attr"),
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
+            "general": GeneralPermission.from_dict(obj["general"]) if obj.get("general") is not None else None,
+            "countries": [CountryPermission.from_dict(_item) for _item in obj["countries"]] if obj.get("countries") is not None else None
         })
         return _obj
 

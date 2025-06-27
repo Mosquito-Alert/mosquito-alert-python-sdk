@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.19"
+__version__ = "0.1.20"
 
 # import apis into sdk package
 from mosquito_alert.api.auth_api import AuthApi
@@ -29,6 +29,7 @@ from mosquito_alert.api.identification_tasks_api import IdentificationTasksApi
 from mosquito_alert.api.notifications_api import NotificationsApi
 from mosquito_alert.api.observations_api import ObservationsApi
 from mosquito_alert.api.partners_api import PartnersApi
+from mosquito_alert.api.permissions_api import PermissionsApi
 from mosquito_alert.api.photos_api import PhotosApi
 from mosquito_alert.api.taxa_api import TaxaApi
 from mosquito_alert.api.users_api import UsersApi
@@ -54,6 +55,7 @@ from mosquito_alert.models.annotation_classification import AnnotationClassifica
 from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
 from mosquito_alert.models.annotation_feedback import AnnotationFeedback
 from mosquito_alert.models.annotation_feedback_request import AnnotationFeedbackRequest
+from mosquito_alert.models.annotation_permission import AnnotationPermission
 from mosquito_alert.models.annotation_request import AnnotationRequest
 from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair
 from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest
@@ -169,6 +171,7 @@ from mosquito_alert.models.campaigns_list_error import CampaignsListError
 from mosquito_alert.models.campaigns_list_order_by_error_component import CampaignsListOrderByErrorComponent
 from mosquito_alert.models.campaigns_list_validation_error import CampaignsListValidationError
 from mosquito_alert.models.country import Country
+from mosquito_alert.models.country_permission import CountryPermission
 from mosquito_alert.models.country_request import CountryRequest
 from mosquito_alert.models.create_notification import CreateNotification
 from mosquito_alert.models.create_notification_message import CreateNotificationMessage
@@ -241,11 +244,13 @@ from mosquito_alert.models.fixes_create_point_non_field_errors_error_component i
 from mosquito_alert.models.fixes_create_power_error_component import FixesCreatePowerErrorComponent
 from mosquito_alert.models.fixes_create_sent_at_error_component import FixesCreateSentAtErrorComponent
 from mosquito_alert.models.fixes_create_validation_error import FixesCreateValidationError
+from mosquito_alert.models.general_permission import GeneralPermission
 from mosquito_alert.models.guest_registration import GuestRegistration
 from mosquito_alert.models.guest_registration_request import GuestRegistrationRequest
 from mosquito_alert.models.identification import Identification
 from mosquito_alert.models.identification_request import IdentificationRequest
 from mosquito_alert.models.identification_task import IdentificationTask
+from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult
 from mosquito_alert.models.identification_task_result_request import IdentificationTaskResultRequest
 from mosquito_alert.models.identification_task_review import IdentificationTaskReview
@@ -541,6 +546,7 @@ from mosquito_alert.models.patched_device_update_request import PatchedDeviceUpd
 from mosquito_alert.models.patched_notification_request import PatchedNotificationRequest
 from mosquito_alert.models.patched_photo_prediction_request import PatchedPhotoPredictionRequest
 from mosquito_alert.models.patched_user_request import PatchedUserRequest
+from mosquito_alert.models.permissions import Permissions
 from mosquito_alert.models.photo import Photo
 from mosquito_alert.models.photo_prediction import PhotoPrediction
 from mosquito_alert.models.photo_prediction_request import PhotoPredictionRequest
@@ -592,6 +598,7 @@ from mosquito_alert.models.photos_prediction_update_threshold_deviation_error_co
 from mosquito_alert.models.photos_prediction_update_validation_error import PhotosPredictionUpdateValidationError
 from mosquito_alert.models.prediction_score import PredictionScore
 from mosquito_alert.models.prediction_score_request import PredictionScoreRequest
+from mosquito_alert.models.review_permission import ReviewPermission
 from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
 from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
@@ -610,6 +617,7 @@ from mosquito_alert.models.topic_notification_create_request import TopicNotific
 from mosquito_alert.models.user import User
 from mosquito_alert.models.user_assignment import UserAssignment
 from mosquito_alert.models.user_notification_create_request import UserNotificationCreateRequest
+from mosquito_alert.models.user_permission import UserPermission
 from mosquito_alert.models.user_request import UserRequest
 from mosquito_alert.models.user_score import UserScore
 from mosquito_alert.models.users_partial_update_error import UsersPartialUpdateError
