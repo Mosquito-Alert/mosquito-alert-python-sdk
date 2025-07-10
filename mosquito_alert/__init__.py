@@ -17,614 +17,1224 @@
 
 __version__ = "0.1.21"
 
+# Define package exports
+__all__ = [
+    "AuthApi",
+    "BitesApi",
+    "BreedingSitesApi",
+    "CampaignsApi",
+    "CountriesApi",
+    "DevicesApi",
+    "FixesApi",
+    "IdentificationTasksApi",
+    "NotificationsApi",
+    "ObservationsApi",
+    "PartnersApi",
+    "PermissionsApi",
+    "PhotosApi",
+    "TaxaApi",
+    "UsersApi",
+    "ApiResponse",
+    "ApiClient",
+    "Configuration",
+    "OpenApiException",
+    "ApiTypeError",
+    "ApiValueError",
+    "ApiKeyError",
+    "ApiAttributeError",
+    "ApiException",
+    "AdmBoundary",
+    "AdmBoundaryRequest",
+    "Annotation",
+    "AnnotationCharacteristics",
+    "AnnotationCharacteristicsRequest",
+    "AnnotationClassification",
+    "AnnotationClassificationRequest",
+    "AnnotationFeedback",
+    "AnnotationFeedbackRequest",
+    "AnnotationPermission",
+    "AnnotationRequest",
+    "AppUserTokenObtainPair",
+    "AppUserTokenObtainPairRequest",
+    "AssignedObservation",
+    "Assignment",
+    "AuthChangePasswordError",
+    "AuthChangePasswordNonFieldErrorsErrorComponent",
+    "AuthChangePasswordPasswordErrorComponent",
+    "AuthChangePasswordValidationError",
+    "AuthObtainTokenDeviceIdErrorComponent",
+    "AuthObtainTokenError",
+    "AuthObtainTokenNonFieldErrorsErrorComponent",
+    "AuthObtainTokenPasswordErrorComponent",
+    "AuthObtainTokenUsernameErrorComponent",
+    "AuthObtainTokenValidationError",
+    "AuthRefreshTokenError",
+    "AuthRefreshTokenNonFieldErrorsErrorComponent",
+    "AuthRefreshTokenRefreshErrorComponent",
+    "AuthRefreshTokenValidationError",
+    "AuthSignupGuestError",
+    "AuthSignupGuestNonFieldErrorsErrorComponent",
+    "AuthSignupGuestPasswordErrorComponent",
+    "AuthSignupGuestValidationError",
+    "AuthVerifyTokenError",
+    "AuthVerifyTokenNonFieldErrorsErrorComponent",
+    "AuthVerifyTokenTokenErrorComponent",
+    "AuthVerifyTokenValidationError",
+    "Bite",
+    "BiteCounts",
+    "BiteCountsRequest",
+    "BiteRequest",
+    "BitesCreateCountsChestErrorComponent",
+    "BitesCreateCountsHeadErrorComponent",
+    "BitesCreateCountsLeftArmErrorComponent",
+    "BitesCreateCountsLeftLegErrorComponent",
+    "BitesCreateCountsNonFieldErrorsErrorComponent",
+    "BitesCreateCountsRightArmErrorComponent",
+    "BitesCreateCountsRightLegErrorComponent",
+    "BitesCreateCreatedAtErrorComponent",
+    "BitesCreateError",
+    "BitesCreateEventEnvironmentErrorComponent",
+    "BitesCreateEventMomentErrorComponent",
+    "BitesCreateLocationNonFieldErrorsErrorComponent",
+    "BitesCreateLocationPointErrorComponent",
+    "BitesCreateLocationSourceErrorComponent",
+    "BitesCreateNonFieldErrorsErrorComponent",
+    "BitesCreateNoteErrorComponent",
+    "BitesCreateSentAtErrorComponent",
+    "BitesCreateTagsErrorComponent",
+    "BitesCreateTagsINDEXErrorComponent",
+    "BitesCreateValidationError",
+    "BitesListCountryIdErrorComponent",
+    "BitesListCreatedAtErrorComponent",
+    "BitesListError",
+    "BitesListMineCountryIdErrorComponent",
+    "BitesListMineCreatedAtErrorComponent",
+    "BitesListMineError",
+    "BitesListMineOrderByErrorComponent",
+    "BitesListMineReceivedAtErrorComponent",
+    "BitesListMineShortIdErrorComponent",
+    "BitesListMineUpdatedAtErrorComponent",
+    "BitesListMineUserUuidErrorComponent",
+    "BitesListMineValidationError",
+    "BitesListOrderByErrorComponent",
+    "BitesListReceivedAtErrorComponent",
+    "BitesListShortIdErrorComponent",
+    "BitesListUpdatedAtErrorComponent",
+    "BitesListUserUuidErrorComponent",
+    "BitesListValidationError",
+    "BoundingBox",
+    "BoundingBoxRequest",
+    "BreedingSite",
+    "BreedingsitesCreateCreatedAtErrorComponent",
+    "BreedingsitesCreateError",
+    "BreedingsitesCreateHasLarvaeErrorComponent",
+    "BreedingsitesCreateHasNearMosquitoesErrorComponent",
+    "BreedingsitesCreateHasWaterErrorComponent",
+    "BreedingsitesCreateInPublicAreaErrorComponent",
+    "BreedingsitesCreateLocationNonFieldErrorsErrorComponent",
+    "BreedingsitesCreateLocationPointErrorComponent",
+    "BreedingsitesCreateLocationSourceErrorComponent",
+    "BreedingsitesCreateNonFieldErrorsErrorComponent",
+    "BreedingsitesCreateNoteErrorComponent",
+    "BreedingsitesCreatePhotosINDEXFileErrorComponent",
+    "BreedingsitesCreatePhotosINDEXNonFieldErrorsErrorComponent",
+    "BreedingsitesCreatePhotosNonFieldErrorsErrorComponent",
+    "BreedingsitesCreateSentAtErrorComponent",
+    "BreedingsitesCreateSiteTypeErrorComponent",
+    "BreedingsitesCreateTagsErrorComponent",
+    "BreedingsitesCreateTagsINDEXErrorComponent",
+    "BreedingsitesCreateValidationError",
+    "BreedingsitesListCountryIdErrorComponent",
+    "BreedingsitesListCreatedAtErrorComponent",
+    "BreedingsitesListError",
+    "BreedingsitesListMineCountryIdErrorComponent",
+    "BreedingsitesListMineCreatedAtErrorComponent",
+    "BreedingsitesListMineError",
+    "BreedingsitesListMineOrderByErrorComponent",
+    "BreedingsitesListMineReceivedAtErrorComponent",
+    "BreedingsitesListMineShortIdErrorComponent",
+    "BreedingsitesListMineUpdatedAtErrorComponent",
+    "BreedingsitesListMineUserUuidErrorComponent",
+    "BreedingsitesListMineValidationError",
+    "BreedingsitesListOrderByErrorComponent",
+    "BreedingsitesListReceivedAtErrorComponent",
+    "BreedingsitesListShortIdErrorComponent",
+    "BreedingsitesListUpdatedAtErrorComponent",
+    "BreedingsitesListUserUuidErrorComponent",
+    "BreedingsitesListValidationError",
+    "Campaign",
+    "CampaignsListCountryIdErrorComponent",
+    "CampaignsListError",
+    "CampaignsListOrderByErrorComponent",
+    "CampaignsListValidationError",
+    "Country",
+    "CountryPermission",
+    "CountryRequest",
+    "CreateNotification",
+    "CreateNotificationMessage",
+    "CreateNotificationMessageRequest",
+    "CreatePhotoPrediction",
+    "CreatePhotoPredictionRequest",
+    "Device",
+    "DeviceOs",
+    "DeviceOsRequest",
+    "DeviceRequest",
+    "DeviceUpdate",
+    "DeviceUpdateRequest",
+    "DevicesCreateDeviceIdErrorComponent",
+    "DevicesCreateError",
+    "DevicesCreateFcmTokenErrorComponent",
+    "DevicesCreateManufacturerErrorComponent",
+    "DevicesCreateMobileAppNonFieldErrorsErrorComponent",
+    "DevicesCreateMobileAppPackageNameErrorComponent",
+    "DevicesCreateMobileAppPackageVersionErrorComponent",
+    "DevicesCreateModelErrorComponent",
+    "DevicesCreateNameErrorComponent",
+    "DevicesCreateNonFieldErrorsErrorComponent",
+    "DevicesCreateOsLocaleErrorComponent",
+    "DevicesCreateOsNameErrorComponent",
+    "DevicesCreateOsNonFieldErrorsErrorComponent",
+    "DevicesCreateOsVersionErrorComponent",
+    "DevicesCreateTypeErrorComponent",
+    "DevicesCreateValidationError",
+    "DevicesPartialUpdateError",
+    "DevicesPartialUpdateFcmTokenErrorComponent",
+    "DevicesPartialUpdateMobileAppNonFieldErrorsErrorComponent",
+    "DevicesPartialUpdateMobileAppPackageNameErrorComponent",
+    "DevicesPartialUpdateMobileAppPackageVersionErrorComponent",
+    "DevicesPartialUpdateNameErrorComponent",
+    "DevicesPartialUpdateNonFieldErrorsErrorComponent",
+    "DevicesPartialUpdateOsLocaleErrorComponent",
+    "DevicesPartialUpdateOsNameErrorComponent",
+    "DevicesPartialUpdateOsNonFieldErrorsErrorComponent",
+    "DevicesPartialUpdateOsVersionErrorComponent",
+    "DevicesPartialUpdateValidationError",
+    "DevicesUpdateError",
+    "DevicesUpdateFcmTokenErrorComponent",
+    "DevicesUpdateMobileAppNonFieldErrorsErrorComponent",
+    "DevicesUpdateMobileAppPackageNameErrorComponent",
+    "DevicesUpdateMobileAppPackageVersionErrorComponent",
+    "DevicesUpdateNameErrorComponent",
+    "DevicesUpdateNonFieldErrorsErrorComponent",
+    "DevicesUpdateOsLocaleErrorComponent",
+    "DevicesUpdateOsNameErrorComponent",
+    "DevicesUpdateOsNonFieldErrorsErrorComponent",
+    "DevicesUpdateOsVersionErrorComponent",
+    "DevicesUpdateValidationError",
+    "Error401",
+    "Error403",
+    "Error404",
+    "ErrorResponse401",
+    "ErrorResponse403",
+    "ErrorResponse404",
+    "Fix",
+    "FixLocation",
+    "FixLocationRequest",
+    "FixRequest",
+    "FixesCreateCoverageUuidErrorComponent",
+    "FixesCreateCreatedAtErrorComponent",
+    "FixesCreateError",
+    "FixesCreateNonFieldErrorsErrorComponent",
+    "FixesCreatePointLatitudeErrorComponent",
+    "FixesCreatePointLongitudeErrorComponent",
+    "FixesCreatePointNonFieldErrorsErrorComponent",
+    "FixesCreatePowerErrorComponent",
+    "FixesCreateSentAtErrorComponent",
+    "FixesCreateValidationError",
+    "GeneralPermission",
+    "GuestRegistration",
+    "GuestRegistrationRequest",
+    "Identification",
+    "IdentificationRequest",
+    "IdentificationTask",
+    "IdentificationTaskPermission",
+    "IdentificationTaskResult",
+    "IdentificationTaskResultRequest",
+    "IdentificationTaskReview",
+    "IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent",
+    "IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent",
+    "IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent",
+    "IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent",
+    "IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent",
+    "IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent",
+    "IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent",
+    "IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent",
+    "IdentificationtasksAnnotationsCreateError",
+    "IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent",
+    "IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent",
+    "IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent",
+    "IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent",
+    "IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent",
+    "IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent",
+    "IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent",
+    "IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent",
+    "IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent",
+    "IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent",
+    "IdentificationtasksAnnotationsCreateTagsErrorComponent",
+    "IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent",
+    "IdentificationtasksAnnotationsCreateValidationError",
+    "IdentificationtasksAnnotationsListClassificationConfidenceErrorComponent",
+    "IdentificationtasksAnnotationsListClassificationConfidenceLabelErrorComponent",
+    "IdentificationtasksAnnotationsListClassificationTaxonIdsErrorComponent",
+    "IdentificationtasksAnnotationsListCreatedAtErrorComponent",
+    "IdentificationtasksAnnotationsListError",
+    "IdentificationtasksAnnotationsListMineClassificationConfidenceErrorComponent",
+    "IdentificationtasksAnnotationsListMineClassificationConfidenceLabelErrorComponent",
+    "IdentificationtasksAnnotationsListMineClassificationTaxonIdsErrorComponent",
+    "IdentificationtasksAnnotationsListMineCreatedAtErrorComponent",
+    "IdentificationtasksAnnotationsListMineError",
+    "IdentificationtasksAnnotationsListMineOrderByErrorComponent",
+    "IdentificationtasksAnnotationsListMineTypeErrorComponent",
+    "IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent",
+    "IdentificationtasksAnnotationsListMineUserIdsErrorComponent",
+    "IdentificationtasksAnnotationsListMineValidationError",
+    "IdentificationtasksAnnotationsListOrderByErrorComponent",
+    "IdentificationtasksAnnotationsListTypeErrorComponent",
+    "IdentificationtasksAnnotationsListUpdatedAtErrorComponent",
+    "IdentificationtasksAnnotationsListUserIdsErrorComponent",
+    "IdentificationtasksAnnotationsListValidationError",
+    "IdentificationtasksListAnnotatorIdsErrorComponent",
+    "IdentificationtasksListAssigneeIdsErrorComponent",
+    "IdentificationtasksListCreatedAtErrorComponent",
+    "IdentificationtasksListError",
+    "IdentificationtasksListMineAnnotatorIdsErrorComponent",
+    "IdentificationtasksListMineAssigneeIdsErrorComponent",
+    "IdentificationtasksListMineCreatedAtErrorComponent",
+    "IdentificationtasksListMineError",
+    "IdentificationtasksListMineNumAnnotationsErrorComponent",
+    "IdentificationtasksListMineObservationCountryIdsErrorComponent",
+    "IdentificationtasksListMineOrderByErrorComponent",
+    "IdentificationtasksListMineResultAgreementErrorComponent",
+    "IdentificationtasksListMineResultConfidenceErrorComponent",
+    "IdentificationtasksListMineResultSourceErrorComponent",
+    "IdentificationtasksListMineResultTaxonIdsErrorComponent",
+    "IdentificationtasksListMineResultUncertaintyErrorComponent",
+    "IdentificationtasksListMineReviewTypeErrorComponent",
+    "IdentificationtasksListMineStatusErrorComponent",
+    "IdentificationtasksListMineUpdatedAtErrorComponent",
+    "IdentificationtasksListMineValidationError",
+    "IdentificationtasksListNumAnnotationsErrorComponent",
+    "IdentificationtasksListObservationCountryIdsErrorComponent",
+    "IdentificationtasksListOrderByErrorComponent",
+    "IdentificationtasksListResultAgreementErrorComponent",
+    "IdentificationtasksListResultConfidenceErrorComponent",
+    "IdentificationtasksListResultSourceErrorComponent",
+    "IdentificationtasksListResultTaxonIdsErrorComponent",
+    "IdentificationtasksListResultUncertaintyErrorComponent",
+    "IdentificationtasksListReviewTypeErrorComponent",
+    "IdentificationtasksListStatusErrorComponent",
+    "IdentificationtasksListUpdatedAtErrorComponent",
+    "IdentificationtasksListValidationError",
+    "IdentificationtasksPredictionsCreateBboxNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsCreateBboxXMaxErrorComponent",
+    "IdentificationtasksPredictionsCreateBboxXMinErrorComponent",
+    "IdentificationtasksPredictionsCreateBboxYMaxErrorComponent",
+    "IdentificationtasksPredictionsCreateBboxYMinErrorComponent",
+    "IdentificationtasksPredictionsCreateClassifierVersionErrorComponent",
+    "IdentificationtasksPredictionsCreateError",
+    "IdentificationtasksPredictionsCreateInsectConfidenceErrorComponent",
+    "IdentificationtasksPredictionsCreateIsDecisiveErrorComponent",
+    "IdentificationtasksPredictionsCreateNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsCreatePhotoUuidErrorComponent",
+    "IdentificationtasksPredictionsCreatePredictedClassErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresAeAegyptiErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresAeAlbopictusErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresAeJaponicusErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresAeKoreicusErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresAnophelesErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresCulexErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresCulisetaErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresNotSureErrorComponent",
+    "IdentificationtasksPredictionsCreateScoresOtherSpeciesErrorComponent",
+    "IdentificationtasksPredictionsCreateThresholdDeviationErrorComponent",
+    "IdentificationtasksPredictionsCreateValidationError",
+    "IdentificationtasksPredictionsPartialUpdateBboxNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateBboxXMaxErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateBboxXMinErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateBboxYMaxErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateBboxYMinErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateClassifierVersionErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateError",
+    "IdentificationtasksPredictionsPartialUpdateInsectConfidenceErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateIsDecisiveErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdatePredictedClassErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresAeAegyptiErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresAeAlbopictusErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresAeJaponicusErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresAeKoreicusErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresAnophelesErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresCulexErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresCulisetaErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresNotSureErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateScoresOtherSpeciesErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateThresholdDeviationErrorComponent",
+    "IdentificationtasksPredictionsPartialUpdateValidationError",
+    "IdentificationtasksPredictionsUpdateBboxNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsUpdateBboxXMaxErrorComponent",
+    "IdentificationtasksPredictionsUpdateBboxXMinErrorComponent",
+    "IdentificationtasksPredictionsUpdateBboxYMaxErrorComponent",
+    "IdentificationtasksPredictionsUpdateBboxYMinErrorComponent",
+    "IdentificationtasksPredictionsUpdateClassifierVersionErrorComponent",
+    "IdentificationtasksPredictionsUpdateError",
+    "IdentificationtasksPredictionsUpdateInsectConfidenceErrorComponent",
+    "IdentificationtasksPredictionsUpdateIsDecisiveErrorComponent",
+    "IdentificationtasksPredictionsUpdateNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsUpdatePredictedClassErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresAeAegyptiErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresAeAlbopictusErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresAeJaponicusErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresAeKoreicusErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresAnophelesErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresCulexErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresCulisetaErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresNonFieldErrorsErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresNotSureErrorComponent",
+    "IdentificationtasksPredictionsUpdateScoresOtherSpeciesErrorComponent",
+    "IdentificationtasksPredictionsUpdateThresholdDeviationErrorComponent",
+    "IdentificationtasksPredictionsUpdateValidationError",
+    "LocalizedMessageBody",
+    "LocalizedMessageBodyRequest",
+    "LocalizedMessageTitle",
+    "LocalizedMessageTitleRequest",
+    "Location",
+    "LocationPoint",
+    "LocationRequest",
+    "MetaNotificationRequest",
+    "MinimalUser",
+    "MobileApp",
+    "MobileAppRequest",
+    "MosquitoAppearance",
+    "MosquitoAppearanceRequest",
+    "Notification",
+    "NotificationMessage",
+    "NotificationRequest",
+    "NotificationsCreateError",
+    "NotificationsCreateMessageBodyBgErrorComponent",
+    "NotificationsCreateMessageBodyBnErrorComponent",
+    "NotificationsCreateMessageBodyCaErrorComponent",
+    "NotificationsCreateMessageBodyDeErrorComponent",
+    "NotificationsCreateMessageBodyElErrorComponent",
+    "NotificationsCreateMessageBodyEnErrorComponent",
+    "NotificationsCreateMessageBodyEsErrorComponent",
+    "NotificationsCreateMessageBodyEuErrorComponent",
+    "NotificationsCreateMessageBodyFrErrorComponent",
+    "NotificationsCreateMessageBodyGlErrorComponent",
+    "NotificationsCreateMessageBodyHrErrorComponent",
+    "NotificationsCreateMessageBodyHuErrorComponent",
+    "NotificationsCreateMessageBodyItErrorComponent",
+    "NotificationsCreateMessageBodyLbErrorComponent",
+    "NotificationsCreateMessageBodyMkErrorComponent",
+    "NotificationsCreateMessageBodyNlErrorComponent",
+    "NotificationsCreateMessageBodyNonFieldErrorsErrorComponent",
+    "NotificationsCreateMessageBodyPtErrorComponent",
+    "NotificationsCreateMessageBodyRoErrorComponent",
+    "NotificationsCreateMessageBodySlErrorComponent",
+    "NotificationsCreateMessageBodySqErrorComponent",
+    "NotificationsCreateMessageBodySrErrorComponent",
+    "NotificationsCreateMessageBodySvErrorComponent",
+    "NotificationsCreateMessageBodyTrErrorComponent",
+    "NotificationsCreateMessageBodyZhCNErrorComponent",
+    "NotificationsCreateMessageNonFieldErrorsErrorComponent",
+    "NotificationsCreateMessageTitleBgErrorComponent",
+    "NotificationsCreateMessageTitleBnErrorComponent",
+    "NotificationsCreateMessageTitleCaErrorComponent",
+    "NotificationsCreateMessageTitleDeErrorComponent",
+    "NotificationsCreateMessageTitleElErrorComponent",
+    "NotificationsCreateMessageTitleEnErrorComponent",
+    "NotificationsCreateMessageTitleEsErrorComponent",
+    "NotificationsCreateMessageTitleEuErrorComponent",
+    "NotificationsCreateMessageTitleFrErrorComponent",
+    "NotificationsCreateMessageTitleGlErrorComponent",
+    "NotificationsCreateMessageTitleHrErrorComponent",
+    "NotificationsCreateMessageTitleHuErrorComponent",
+    "NotificationsCreateMessageTitleItErrorComponent",
+    "NotificationsCreateMessageTitleLbErrorComponent",
+    "NotificationsCreateMessageTitleMkErrorComponent",
+    "NotificationsCreateMessageTitleNlErrorComponent",
+    "NotificationsCreateMessageTitleNonFieldErrorsErrorComponent",
+    "NotificationsCreateMessageTitlePtErrorComponent",
+    "NotificationsCreateMessageTitleRoErrorComponent",
+    "NotificationsCreateMessageTitleSlErrorComponent",
+    "NotificationsCreateMessageTitleSqErrorComponent",
+    "NotificationsCreateMessageTitleSrErrorComponent",
+    "NotificationsCreateMessageTitleSvErrorComponent",
+    "NotificationsCreateMessageTitleTrErrorComponent",
+    "NotificationsCreateMessageTitleZhCNErrorComponent",
+    "NotificationsCreateNonFieldErrorsErrorComponent",
+    "NotificationsCreateReceiverTypeErrorComponent",
+    "NotificationsCreateTopicCodesErrorComponent",
+    "NotificationsCreateTopicCodesINDEXErrorComponent",
+    "NotificationsCreateUserUuidsErrorComponent",
+    "NotificationsCreateUserUuidsINDEXErrorComponent",
+    "NotificationsCreateValidationError",
+    "NotificationsListMineOrderByErrorComponent",
+    "NotificationsListMineValidationError",
+    "NotificationsListOrderByErrorComponent",
+    "NotificationsListValidationError",
+    "NotificationsPartialUpdateError",
+    "NotificationsPartialUpdateIsReadErrorComponent",
+    "NotificationsPartialUpdateNonFieldErrorsErrorComponent",
+    "NotificationsPartialUpdateValidationError",
+    "NotificationsUpdateError",
+    "NotificationsUpdateIsReadErrorComponent",
+    "NotificationsUpdateNonFieldErrorsErrorComponent",
+    "NotificationsUpdateValidationError",
+    "Observation",
+    "ObservationFlags",
+    "ObservationFlagsRequest",
+    "ObservationsCreateCreatedAtErrorComponent",
+    "ObservationsCreateError",
+    "ObservationsCreateEventEnvironmentErrorComponent",
+    "ObservationsCreateEventMomentErrorComponent",
+    "ObservationsCreateLocationNonFieldErrorsErrorComponent",
+    "ObservationsCreateLocationPointErrorComponent",
+    "ObservationsCreateLocationSourceErrorComponent",
+    "ObservationsCreateMosquitoAppearanceAbdomenErrorComponent",
+    "ObservationsCreateMosquitoAppearanceLegsErrorComponent",
+    "ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent",
+    "ObservationsCreateMosquitoAppearanceSpecieErrorComponent",
+    "ObservationsCreateMosquitoAppearanceThoraxErrorComponent",
+    "ObservationsCreateNonFieldErrorsErrorComponent",
+    "ObservationsCreateNoteErrorComponent",
+    "ObservationsCreatePhotosINDEXFileErrorComponent",
+    "ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent",
+    "ObservationsCreatePhotosNonFieldErrorsErrorComponent",
+    "ObservationsCreateSentAtErrorComponent",
+    "ObservationsCreateTagsErrorComponent",
+    "ObservationsCreateTagsINDEXErrorComponent",
+    "ObservationsCreateValidationError",
+    "ObservationsListCountryIdErrorComponent",
+    "ObservationsListCreatedAtErrorComponent",
+    "ObservationsListError",
+    "ObservationsListIdentificationTaxonIdsErrorComponent",
+    "ObservationsListMineCountryIdErrorComponent",
+    "ObservationsListMineCreatedAtErrorComponent",
+    "ObservationsListMineError",
+    "ObservationsListMineIdentificationTaxonIdsErrorComponent",
+    "ObservationsListMineOrderByErrorComponent",
+    "ObservationsListMineReceivedAtErrorComponent",
+    "ObservationsListMineShortIdErrorComponent",
+    "ObservationsListMineUpdatedAtErrorComponent",
+    "ObservationsListMineUserUuidErrorComponent",
+    "ObservationsListMineValidationError",
+    "ObservationsListOrderByErrorComponent",
+    "ObservationsListReceivedAtErrorComponent",
+    "ObservationsListShortIdErrorComponent",
+    "ObservationsListUpdatedAtErrorComponent",
+    "ObservationsListUserUuidErrorComponent",
+    "ObservationsListValidationError",
+    "PaginatedAnnotationList",
+    "PaginatedBiteList",
+    "PaginatedBreedingSiteList",
+    "PaginatedCampaignList",
+    "PaginatedCountryList",
+    "PaginatedIdentificationTaskList",
+    "PaginatedNotificationList",
+    "PaginatedObservationList",
+    "PaginatedPartnerList",
+    "PaginatedPhotoPredictionList",
+    "PaginatedTaxonList",
+    "Partner",
+    "PasswordChangeRequest",
+    "PatchedDeviceUpdateRequest",
+    "PatchedNotificationRequest",
+    "PatchedPhotoPredictionRequest",
+    "PatchedUserRequest",
+    "Permissions",
+    "Photo",
+    "PhotoPrediction",
+    "PhotoPredictionRequest",
+    "PhotosPredictionPartialUpdateBboxNonFieldErrorsErrorComponent",
+    "PhotosPredictionPartialUpdateBboxXMaxErrorComponent",
+    "PhotosPredictionPartialUpdateBboxXMinErrorComponent",
+    "PhotosPredictionPartialUpdateBboxYMaxErrorComponent",
+    "PhotosPredictionPartialUpdateBboxYMinErrorComponent",
+    "PhotosPredictionPartialUpdateClassifierVersionErrorComponent",
+    "PhotosPredictionPartialUpdateError",
+    "PhotosPredictionPartialUpdateInsectConfidenceErrorComponent",
+    "PhotosPredictionPartialUpdateIsDecisiveErrorComponent",
+    "PhotosPredictionPartialUpdateNonFieldErrorsErrorComponent",
+    "PhotosPredictionPartialUpdatePredictedClassErrorComponent",
+    "PhotosPredictionPartialUpdateScoresAeAegyptiErrorComponent",
+    "PhotosPredictionPartialUpdateScoresAeAlbopictusErrorComponent",
+    "PhotosPredictionPartialUpdateScoresAeJaponicusErrorComponent",
+    "PhotosPredictionPartialUpdateScoresAeKoreicusErrorComponent",
+    "PhotosPredictionPartialUpdateScoresAnophelesErrorComponent",
+    "PhotosPredictionPartialUpdateScoresCulexErrorComponent",
+    "PhotosPredictionPartialUpdateScoresCulisetaErrorComponent",
+    "PhotosPredictionPartialUpdateScoresNonFieldErrorsErrorComponent",
+    "PhotosPredictionPartialUpdateScoresNotSureErrorComponent",
+    "PhotosPredictionPartialUpdateScoresOtherSpeciesErrorComponent",
+    "PhotosPredictionPartialUpdateThresholdDeviationErrorComponent",
+    "PhotosPredictionPartialUpdateValidationError",
+    "PhotosPredictionUpdateBboxNonFieldErrorsErrorComponent",
+    "PhotosPredictionUpdateBboxXMaxErrorComponent",
+    "PhotosPredictionUpdateBboxXMinErrorComponent",
+    "PhotosPredictionUpdateBboxYMaxErrorComponent",
+    "PhotosPredictionUpdateBboxYMinErrorComponent",
+    "PhotosPredictionUpdateClassifierVersionErrorComponent",
+    "PhotosPredictionUpdateError",
+    "PhotosPredictionUpdateInsectConfidenceErrorComponent",
+    "PhotosPredictionUpdateIsDecisiveErrorComponent",
+    "PhotosPredictionUpdateNonFieldErrorsErrorComponent",
+    "PhotosPredictionUpdatePredictedClassErrorComponent",
+    "PhotosPredictionUpdateScoresAeAegyptiErrorComponent",
+    "PhotosPredictionUpdateScoresAeAlbopictusErrorComponent",
+    "PhotosPredictionUpdateScoresAeJaponicusErrorComponent",
+    "PhotosPredictionUpdateScoresAeKoreicusErrorComponent",
+    "PhotosPredictionUpdateScoresAnophelesErrorComponent",
+    "PhotosPredictionUpdateScoresCulexErrorComponent",
+    "PhotosPredictionUpdateScoresCulisetaErrorComponent",
+    "PhotosPredictionUpdateScoresNonFieldErrorsErrorComponent",
+    "PhotosPredictionUpdateScoresNotSureErrorComponent",
+    "PhotosPredictionUpdateScoresOtherSpeciesErrorComponent",
+    "PhotosPredictionUpdateThresholdDeviationErrorComponent",
+    "PhotosPredictionUpdateValidationError",
+    "PredictionScore",
+    "PredictionScoreRequest",
+    "ReviewPermission",
+    "SimpleAnnotatorUser",
+    "SimplePhoto",
+    "SimplePhotoRequest",
+    "SimpleTaxon",
+    "SimpleTaxonRequest",
+    "SimplifiedLocation",
+    "SimplifiedObservationWithPhotos",
+    "TaxaListRankErrorComponent",
+    "TaxaListValidationError",
+    "Taxon",
+    "TaxonTreeNode",
+    "TokenRefresh",
+    "TokenRefreshRequest",
+    "TokenVerifyRequest",
+    "TopicNotificationCreateRequest",
+    "User",
+    "UserAssignment",
+    "UserNotificationCreateRequest",
+    "UserPermission",
+    "UserRequest",
+    "UserScore",
+    "UsersPartialUpdateError",
+    "UsersPartialUpdateLocaleErrorComponent",
+    "UsersPartialUpdateNonFieldErrorsErrorComponent",
+    "UsersPartialUpdateValidationError",
+    "UsersUpdateError",
+    "UsersUpdateLocaleErrorComponent",
+    "UsersUpdateNonFieldErrorsErrorComponent",
+    "UsersUpdateValidationError",
+]
+
 # import apis into sdk package
-from mosquito_alert.api.auth_api import AuthApi
-from mosquito_alert.api.bites_api import BitesApi
-from mosquito_alert.api.breeding_sites_api import BreedingSitesApi
-from mosquito_alert.api.campaigns_api import CampaignsApi
-from mosquito_alert.api.countries_api import CountriesApi
-from mosquito_alert.api.devices_api import DevicesApi
-from mosquito_alert.api.fixes_api import FixesApi
-from mosquito_alert.api.identification_tasks_api import IdentificationTasksApi
-from mosquito_alert.api.notifications_api import NotificationsApi
-from mosquito_alert.api.observations_api import ObservationsApi
-from mosquito_alert.api.partners_api import PartnersApi
-from mosquito_alert.api.permissions_api import PermissionsApi
-from mosquito_alert.api.photos_api import PhotosApi
-from mosquito_alert.api.taxa_api import TaxaApi
-from mosquito_alert.api.users_api import UsersApi
+from mosquito_alert.api.auth_api import AuthApi as AuthApi
+from mosquito_alert.api.bites_api import BitesApi as BitesApi
+from mosquito_alert.api.breeding_sites_api import BreedingSitesApi as BreedingSitesApi
+from mosquito_alert.api.campaigns_api import CampaignsApi as CampaignsApi
+from mosquito_alert.api.countries_api import CountriesApi as CountriesApi
+from mosquito_alert.api.devices_api import DevicesApi as DevicesApi
+from mosquito_alert.api.fixes_api import FixesApi as FixesApi
+from mosquito_alert.api.identification_tasks_api import IdentificationTasksApi as IdentificationTasksApi
+from mosquito_alert.api.notifications_api import NotificationsApi as NotificationsApi
+from mosquito_alert.api.observations_api import ObservationsApi as ObservationsApi
+from mosquito_alert.api.partners_api import PartnersApi as PartnersApi
+from mosquito_alert.api.permissions_api import PermissionsApi as PermissionsApi
+from mosquito_alert.api.photos_api import PhotosApi as PhotosApi
+from mosquito_alert.api.taxa_api import TaxaApi as TaxaApi
+from mosquito_alert.api.users_api import UsersApi as UsersApi
 
 # import ApiClient
-from mosquito_alert.api_response import ApiResponse
-from mosquito_alert.api_client import ApiClient
-from mosquito_alert.configuration import Configuration
-from mosquito_alert.exceptions import OpenApiException
-from mosquito_alert.exceptions import ApiTypeError
-from mosquito_alert.exceptions import ApiValueError
-from mosquito_alert.exceptions import ApiKeyError
-from mosquito_alert.exceptions import ApiAttributeError
-from mosquito_alert.exceptions import ApiException
+from mosquito_alert.api_response import ApiResponse as ApiResponse
+from mosquito_alert.api_client import ApiClient as ApiClient
+from mosquito_alert.configuration import Configuration as Configuration
+from mosquito_alert.exceptions import OpenApiException as OpenApiException
+from mosquito_alert.exceptions import ApiTypeError as ApiTypeError
+from mosquito_alert.exceptions import ApiValueError as ApiValueError
+from mosquito_alert.exceptions import ApiKeyError as ApiKeyError
+from mosquito_alert.exceptions import ApiAttributeError as ApiAttributeError
+from mosquito_alert.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from mosquito_alert.models.adm_boundary import AdmBoundary
-from mosquito_alert.models.adm_boundary_request import AdmBoundaryRequest
-from mosquito_alert.models.annotation import Annotation
-from mosquito_alert.models.annotation_characteristics import AnnotationCharacteristics
-from mosquito_alert.models.annotation_characteristics_request import AnnotationCharacteristicsRequest
-from mosquito_alert.models.annotation_classification import AnnotationClassification
-from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
-from mosquito_alert.models.annotation_feedback import AnnotationFeedback
-from mosquito_alert.models.annotation_feedback_request import AnnotationFeedbackRequest
-from mosquito_alert.models.annotation_permission import AnnotationPermission
-from mosquito_alert.models.annotation_request import AnnotationRequest
-from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair
-from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest
-from mosquito_alert.models.assigned_observation import AssignedObservation
-from mosquito_alert.models.assignment import Assignment
-from mosquito_alert.models.auth_change_password_error import AuthChangePasswordError
-from mosquito_alert.models.auth_change_password_non_field_errors_error_component import AuthChangePasswordNonFieldErrorsErrorComponent
-from mosquito_alert.models.auth_change_password_password_error_component import AuthChangePasswordPasswordErrorComponent
-from mosquito_alert.models.auth_change_password_validation_error import AuthChangePasswordValidationError
-from mosquito_alert.models.auth_obtain_token_device_id_error_component import AuthObtainTokenDeviceIdErrorComponent
-from mosquito_alert.models.auth_obtain_token_error import AuthObtainTokenError
-from mosquito_alert.models.auth_obtain_token_non_field_errors_error_component import AuthObtainTokenNonFieldErrorsErrorComponent
-from mosquito_alert.models.auth_obtain_token_password_error_component import AuthObtainTokenPasswordErrorComponent
-from mosquito_alert.models.auth_obtain_token_username_error_component import AuthObtainTokenUsernameErrorComponent
-from mosquito_alert.models.auth_obtain_token_validation_error import AuthObtainTokenValidationError
-from mosquito_alert.models.auth_refresh_token_error import AuthRefreshTokenError
-from mosquito_alert.models.auth_refresh_token_non_field_errors_error_component import AuthRefreshTokenNonFieldErrorsErrorComponent
-from mosquito_alert.models.auth_refresh_token_refresh_error_component import AuthRefreshTokenRefreshErrorComponent
-from mosquito_alert.models.auth_refresh_token_validation_error import AuthRefreshTokenValidationError
-from mosquito_alert.models.auth_signup_guest_error import AuthSignupGuestError
-from mosquito_alert.models.auth_signup_guest_non_field_errors_error_component import AuthSignupGuestNonFieldErrorsErrorComponent
-from mosquito_alert.models.auth_signup_guest_password_error_component import AuthSignupGuestPasswordErrorComponent
-from mosquito_alert.models.auth_signup_guest_validation_error import AuthSignupGuestValidationError
-from mosquito_alert.models.auth_verify_token_error import AuthVerifyTokenError
-from mosquito_alert.models.auth_verify_token_non_field_errors_error_component import AuthVerifyTokenNonFieldErrorsErrorComponent
-from mosquito_alert.models.auth_verify_token_token_error_component import AuthVerifyTokenTokenErrorComponent
-from mosquito_alert.models.auth_verify_token_validation_error import AuthVerifyTokenValidationError
-from mosquito_alert.models.bite import Bite
-from mosquito_alert.models.bite_counts import BiteCounts
-from mosquito_alert.models.bite_counts_request import BiteCountsRequest
-from mosquito_alert.models.bite_request import BiteRequest
-from mosquito_alert.models.bites_create_counts_chest_error_component import BitesCreateCountsChestErrorComponent
-from mosquito_alert.models.bites_create_counts_head_error_component import BitesCreateCountsHeadErrorComponent
-from mosquito_alert.models.bites_create_counts_left_arm_error_component import BitesCreateCountsLeftArmErrorComponent
-from mosquito_alert.models.bites_create_counts_left_leg_error_component import BitesCreateCountsLeftLegErrorComponent
-from mosquito_alert.models.bites_create_counts_non_field_errors_error_component import BitesCreateCountsNonFieldErrorsErrorComponent
-from mosquito_alert.models.bites_create_counts_right_arm_error_component import BitesCreateCountsRightArmErrorComponent
-from mosquito_alert.models.bites_create_counts_right_leg_error_component import BitesCreateCountsRightLegErrorComponent
-from mosquito_alert.models.bites_create_created_at_error_component import BitesCreateCreatedAtErrorComponent
-from mosquito_alert.models.bites_create_error import BitesCreateError
-from mosquito_alert.models.bites_create_event_environment_error_component import BitesCreateEventEnvironmentErrorComponent
-from mosquito_alert.models.bites_create_event_moment_error_component import BitesCreateEventMomentErrorComponent
-from mosquito_alert.models.bites_create_location_non_field_errors_error_component import BitesCreateLocationNonFieldErrorsErrorComponent
-from mosquito_alert.models.bites_create_location_point_error_component import BitesCreateLocationPointErrorComponent
-from mosquito_alert.models.bites_create_location_source_error_component import BitesCreateLocationSourceErrorComponent
-from mosquito_alert.models.bites_create_non_field_errors_error_component import BitesCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.bites_create_note_error_component import BitesCreateNoteErrorComponent
-from mosquito_alert.models.bites_create_sent_at_error_component import BitesCreateSentAtErrorComponent
-from mosquito_alert.models.bites_create_tags_error_component import BitesCreateTagsErrorComponent
-from mosquito_alert.models.bites_create_tags_index_error_component import BitesCreateTagsINDEXErrorComponent
-from mosquito_alert.models.bites_create_validation_error import BitesCreateValidationError
-from mosquito_alert.models.bites_list_country_id_error_component import BitesListCountryIdErrorComponent
-from mosquito_alert.models.bites_list_created_at_error_component import BitesListCreatedAtErrorComponent
-from mosquito_alert.models.bites_list_error import BitesListError
-from mosquito_alert.models.bites_list_mine_country_id_error_component import BitesListMineCountryIdErrorComponent
-from mosquito_alert.models.bites_list_mine_created_at_error_component import BitesListMineCreatedAtErrorComponent
-from mosquito_alert.models.bites_list_mine_error import BitesListMineError
-from mosquito_alert.models.bites_list_mine_order_by_error_component import BitesListMineOrderByErrorComponent
-from mosquito_alert.models.bites_list_mine_received_at_error_component import BitesListMineReceivedAtErrorComponent
-from mosquito_alert.models.bites_list_mine_short_id_error_component import BitesListMineShortIdErrorComponent
-from mosquito_alert.models.bites_list_mine_updated_at_error_component import BitesListMineUpdatedAtErrorComponent
-from mosquito_alert.models.bites_list_mine_user_uuid_error_component import BitesListMineUserUuidErrorComponent
-from mosquito_alert.models.bites_list_mine_validation_error import BitesListMineValidationError
-from mosquito_alert.models.bites_list_order_by_error_component import BitesListOrderByErrorComponent
-from mosquito_alert.models.bites_list_received_at_error_component import BitesListReceivedAtErrorComponent
-from mosquito_alert.models.bites_list_short_id_error_component import BitesListShortIdErrorComponent
-from mosquito_alert.models.bites_list_updated_at_error_component import BitesListUpdatedAtErrorComponent
-from mosquito_alert.models.bites_list_user_uuid_error_component import BitesListUserUuidErrorComponent
-from mosquito_alert.models.bites_list_validation_error import BitesListValidationError
-from mosquito_alert.models.bounding_box import BoundingBox
-from mosquito_alert.models.bounding_box_request import BoundingBoxRequest
-from mosquito_alert.models.breeding_site import BreedingSite
-from mosquito_alert.models.breedingsites_create_created_at_error_component import BreedingsitesCreateCreatedAtErrorComponent
-from mosquito_alert.models.breedingsites_create_error import BreedingsitesCreateError
-from mosquito_alert.models.breedingsites_create_has_larvae_error_component import BreedingsitesCreateHasLarvaeErrorComponent
-from mosquito_alert.models.breedingsites_create_has_near_mosquitoes_error_component import BreedingsitesCreateHasNearMosquitoesErrorComponent
-from mosquito_alert.models.breedingsites_create_has_water_error_component import BreedingsitesCreateHasWaterErrorComponent
-from mosquito_alert.models.breedingsites_create_in_public_area_error_component import BreedingsitesCreateInPublicAreaErrorComponent
-from mosquito_alert.models.breedingsites_create_location_non_field_errors_error_component import BreedingsitesCreateLocationNonFieldErrorsErrorComponent
-from mosquito_alert.models.breedingsites_create_location_point_error_component import BreedingsitesCreateLocationPointErrorComponent
-from mosquito_alert.models.breedingsites_create_location_source_error_component import BreedingsitesCreateLocationSourceErrorComponent
-from mosquito_alert.models.breedingsites_create_non_field_errors_error_component import BreedingsitesCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.breedingsites_create_note_error_component import BreedingsitesCreateNoteErrorComponent
-from mosquito_alert.models.breedingsites_create_photos_index_file_error_component import BreedingsitesCreatePhotosINDEXFileErrorComponent
-from mosquito_alert.models.breedingsites_create_photos_index_non_field_errors_error_component import BreedingsitesCreatePhotosINDEXNonFieldErrorsErrorComponent
-from mosquito_alert.models.breedingsites_create_photos_non_field_errors_error_component import BreedingsitesCreatePhotosNonFieldErrorsErrorComponent
-from mosquito_alert.models.breedingsites_create_sent_at_error_component import BreedingsitesCreateSentAtErrorComponent
-from mosquito_alert.models.breedingsites_create_site_type_error_component import BreedingsitesCreateSiteTypeErrorComponent
-from mosquito_alert.models.breedingsites_create_tags_error_component import BreedingsitesCreateTagsErrorComponent
-from mosquito_alert.models.breedingsites_create_tags_index_error_component import BreedingsitesCreateTagsINDEXErrorComponent
-from mosquito_alert.models.breedingsites_create_validation_error import BreedingsitesCreateValidationError
-from mosquito_alert.models.breedingsites_list_country_id_error_component import BreedingsitesListCountryIdErrorComponent
-from mosquito_alert.models.breedingsites_list_created_at_error_component import BreedingsitesListCreatedAtErrorComponent
-from mosquito_alert.models.breedingsites_list_error import BreedingsitesListError
-from mosquito_alert.models.breedingsites_list_mine_country_id_error_component import BreedingsitesListMineCountryIdErrorComponent
-from mosquito_alert.models.breedingsites_list_mine_created_at_error_component import BreedingsitesListMineCreatedAtErrorComponent
-from mosquito_alert.models.breedingsites_list_mine_error import BreedingsitesListMineError
-from mosquito_alert.models.breedingsites_list_mine_order_by_error_component import BreedingsitesListMineOrderByErrorComponent
-from mosquito_alert.models.breedingsites_list_mine_received_at_error_component import BreedingsitesListMineReceivedAtErrorComponent
-from mosquito_alert.models.breedingsites_list_mine_short_id_error_component import BreedingsitesListMineShortIdErrorComponent
-from mosquito_alert.models.breedingsites_list_mine_updated_at_error_component import BreedingsitesListMineUpdatedAtErrorComponent
-from mosquito_alert.models.breedingsites_list_mine_user_uuid_error_component import BreedingsitesListMineUserUuidErrorComponent
-from mosquito_alert.models.breedingsites_list_mine_validation_error import BreedingsitesListMineValidationError
-from mosquito_alert.models.breedingsites_list_order_by_error_component import BreedingsitesListOrderByErrorComponent
-from mosquito_alert.models.breedingsites_list_received_at_error_component import BreedingsitesListReceivedAtErrorComponent
-from mosquito_alert.models.breedingsites_list_short_id_error_component import BreedingsitesListShortIdErrorComponent
-from mosquito_alert.models.breedingsites_list_updated_at_error_component import BreedingsitesListUpdatedAtErrorComponent
-from mosquito_alert.models.breedingsites_list_user_uuid_error_component import BreedingsitesListUserUuidErrorComponent
-from mosquito_alert.models.breedingsites_list_validation_error import BreedingsitesListValidationError
-from mosquito_alert.models.campaign import Campaign
-from mosquito_alert.models.campaigns_list_country_id_error_component import CampaignsListCountryIdErrorComponent
-from mosquito_alert.models.campaigns_list_error import CampaignsListError
-from mosquito_alert.models.campaigns_list_order_by_error_component import CampaignsListOrderByErrorComponent
-from mosquito_alert.models.campaigns_list_validation_error import CampaignsListValidationError
-from mosquito_alert.models.country import Country
-from mosquito_alert.models.country_permission import CountryPermission
-from mosquito_alert.models.country_request import CountryRequest
-from mosquito_alert.models.create_notification import CreateNotification
-from mosquito_alert.models.create_notification_message import CreateNotificationMessage
-from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest
-from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction
-from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest
-from mosquito_alert.models.device import Device
-from mosquito_alert.models.device_os import DeviceOs
-from mosquito_alert.models.device_os_request import DeviceOsRequest
-from mosquito_alert.models.device_request import DeviceRequest
-from mosquito_alert.models.device_update import DeviceUpdate
-from mosquito_alert.models.device_update_request import DeviceUpdateRequest
-from mosquito_alert.models.devices_create_device_id_error_component import DevicesCreateDeviceIdErrorComponent
-from mosquito_alert.models.devices_create_error import DevicesCreateError
-from mosquito_alert.models.devices_create_fcm_token_error_component import DevicesCreateFcmTokenErrorComponent
-from mosquito_alert.models.devices_create_manufacturer_error_component import DevicesCreateManufacturerErrorComponent
-from mosquito_alert.models.devices_create_mobile_app_non_field_errors_error_component import DevicesCreateMobileAppNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_create_mobile_app_package_name_error_component import DevicesCreateMobileAppPackageNameErrorComponent
-from mosquito_alert.models.devices_create_mobile_app_package_version_error_component import DevicesCreateMobileAppPackageVersionErrorComponent
-from mosquito_alert.models.devices_create_model_error_component import DevicesCreateModelErrorComponent
-from mosquito_alert.models.devices_create_name_error_component import DevicesCreateNameErrorComponent
-from mosquito_alert.models.devices_create_non_field_errors_error_component import DevicesCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_create_os_locale_error_component import DevicesCreateOsLocaleErrorComponent
-from mosquito_alert.models.devices_create_os_name_error_component import DevicesCreateOsNameErrorComponent
-from mosquito_alert.models.devices_create_os_non_field_errors_error_component import DevicesCreateOsNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_create_os_version_error_component import DevicesCreateOsVersionErrorComponent
-from mosquito_alert.models.devices_create_type_error_component import DevicesCreateTypeErrorComponent
-from mosquito_alert.models.devices_create_validation_error import DevicesCreateValidationError
-from mosquito_alert.models.devices_partial_update_error import DevicesPartialUpdateError
-from mosquito_alert.models.devices_partial_update_fcm_token_error_component import DevicesPartialUpdateFcmTokenErrorComponent
-from mosquito_alert.models.devices_partial_update_mobile_app_non_field_errors_error_component import DevicesPartialUpdateMobileAppNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_partial_update_mobile_app_package_name_error_component import DevicesPartialUpdateMobileAppPackageNameErrorComponent
-from mosquito_alert.models.devices_partial_update_mobile_app_package_version_error_component import DevicesPartialUpdateMobileAppPackageVersionErrorComponent
-from mosquito_alert.models.devices_partial_update_name_error_component import DevicesPartialUpdateNameErrorComponent
-from mosquito_alert.models.devices_partial_update_non_field_errors_error_component import DevicesPartialUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_partial_update_os_locale_error_component import DevicesPartialUpdateOsLocaleErrorComponent
-from mosquito_alert.models.devices_partial_update_os_name_error_component import DevicesPartialUpdateOsNameErrorComponent
-from mosquito_alert.models.devices_partial_update_os_non_field_errors_error_component import DevicesPartialUpdateOsNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_partial_update_os_version_error_component import DevicesPartialUpdateOsVersionErrorComponent
-from mosquito_alert.models.devices_partial_update_validation_error import DevicesPartialUpdateValidationError
-from mosquito_alert.models.devices_update_error import DevicesUpdateError
-from mosquito_alert.models.devices_update_fcm_token_error_component import DevicesUpdateFcmTokenErrorComponent
-from mosquito_alert.models.devices_update_mobile_app_non_field_errors_error_component import DevicesUpdateMobileAppNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_update_mobile_app_package_name_error_component import DevicesUpdateMobileAppPackageNameErrorComponent
-from mosquito_alert.models.devices_update_mobile_app_package_version_error_component import DevicesUpdateMobileAppPackageVersionErrorComponent
-from mosquito_alert.models.devices_update_name_error_component import DevicesUpdateNameErrorComponent
-from mosquito_alert.models.devices_update_non_field_errors_error_component import DevicesUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_update_os_locale_error_component import DevicesUpdateOsLocaleErrorComponent
-from mosquito_alert.models.devices_update_os_name_error_component import DevicesUpdateOsNameErrorComponent
-from mosquito_alert.models.devices_update_os_non_field_errors_error_component import DevicesUpdateOsNonFieldErrorsErrorComponent
-from mosquito_alert.models.devices_update_os_version_error_component import DevicesUpdateOsVersionErrorComponent
-from mosquito_alert.models.devices_update_validation_error import DevicesUpdateValidationError
-from mosquito_alert.models.error401 import Error401
-from mosquito_alert.models.error403 import Error403
-from mosquito_alert.models.error404 import Error404
-from mosquito_alert.models.error_response401 import ErrorResponse401
-from mosquito_alert.models.error_response403 import ErrorResponse403
-from mosquito_alert.models.error_response404 import ErrorResponse404
-from mosquito_alert.models.fix import Fix
-from mosquito_alert.models.fix_location import FixLocation
-from mosquito_alert.models.fix_location_request import FixLocationRequest
-from mosquito_alert.models.fix_request import FixRequest
-from mosquito_alert.models.fixes_create_coverage_uuid_error_component import FixesCreateCoverageUuidErrorComponent
-from mosquito_alert.models.fixes_create_created_at_error_component import FixesCreateCreatedAtErrorComponent
-from mosquito_alert.models.fixes_create_error import FixesCreateError
-from mosquito_alert.models.fixes_create_non_field_errors_error_component import FixesCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.fixes_create_point_latitude_error_component import FixesCreatePointLatitudeErrorComponent
-from mosquito_alert.models.fixes_create_point_longitude_error_component import FixesCreatePointLongitudeErrorComponent
-from mosquito_alert.models.fixes_create_point_non_field_errors_error_component import FixesCreatePointNonFieldErrorsErrorComponent
-from mosquito_alert.models.fixes_create_power_error_component import FixesCreatePowerErrorComponent
-from mosquito_alert.models.fixes_create_sent_at_error_component import FixesCreateSentAtErrorComponent
-from mosquito_alert.models.fixes_create_validation_error import FixesCreateValidationError
-from mosquito_alert.models.general_permission import GeneralPermission
-from mosquito_alert.models.guest_registration import GuestRegistration
-from mosquito_alert.models.guest_registration_request import GuestRegistrationRequest
-from mosquito_alert.models.identification import Identification
-from mosquito_alert.models.identification_request import IdentificationRequest
-from mosquito_alert.models.identification_task import IdentificationTask
-from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission
-from mosquito_alert.models.identification_task_result import IdentificationTaskResult
-from mosquito_alert.models.identification_task_result_request import IdentificationTaskResultRequest
-from mosquito_alert.models.identification_task_review import IdentificationTaskReview
-from mosquito_alert.models.identificationtasks_annotations_create_best_photo_uuid_error_component import IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_characteristics_is_blood_fed_error_component import IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_characteristics_is_gravid_error_component import IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_characteristics_non_field_errors_error_component import IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_characteristics_sex_error_component import IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_classification_confidence_label_error_component import IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_classification_non_field_errors_error_component import IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_classification_taxon_id_error_component import IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_error import IdentificationtasksAnnotationsCreateError
-from mosquito_alert.models.identificationtasks_annotations_create_feedback_internal_note_error_component import IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_feedback_non_field_errors_error_component import IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_feedback_public_note_error_component import IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_feedback_user_note_error_component import IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_is_decisive_error_component import IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_is_flagged_error_component import IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_non_field_errors_error_component import IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_is_favourite_error_component import IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_is_visible_error_component import IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_non_field_errors_error_component import IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_tags_error_component import IdentificationtasksAnnotationsCreateTagsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_tags_index_error_component import IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_create_validation_error import IdentificationtasksAnnotationsCreateValidationError
-from mosquito_alert.models.identificationtasks_annotations_list_classification_confidence_error_component import IdentificationtasksAnnotationsListClassificationConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_classification_confidence_label_error_component import IdentificationtasksAnnotationsListClassificationConfidenceLabelErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_classification_taxon_ids_error_component import IdentificationtasksAnnotationsListClassificationTaxonIdsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_created_at_error_component import IdentificationtasksAnnotationsListCreatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_error import IdentificationtasksAnnotationsListError
-from mosquito_alert.models.identificationtasks_annotations_list_mine_classification_confidence_error_component import IdentificationtasksAnnotationsListMineClassificationConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_classification_confidence_label_error_component import IdentificationtasksAnnotationsListMineClassificationConfidenceLabelErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_classification_taxon_ids_error_component import IdentificationtasksAnnotationsListMineClassificationTaxonIdsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_created_at_error_component import IdentificationtasksAnnotationsListMineCreatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_error import IdentificationtasksAnnotationsListMineError
-from mosquito_alert.models.identificationtasks_annotations_list_mine_order_by_error_component import IdentificationtasksAnnotationsListMineOrderByErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_type_error_component import IdentificationtasksAnnotationsListMineTypeErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_updated_at_error_component import IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_user_ids_error_component import IdentificationtasksAnnotationsListMineUserIdsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_mine_validation_error import IdentificationtasksAnnotationsListMineValidationError
-from mosquito_alert.models.identificationtasks_annotations_list_order_by_error_component import IdentificationtasksAnnotationsListOrderByErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_type_error_component import IdentificationtasksAnnotationsListTypeErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_updated_at_error_component import IdentificationtasksAnnotationsListUpdatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_user_ids_error_component import IdentificationtasksAnnotationsListUserIdsErrorComponent
-from mosquito_alert.models.identificationtasks_annotations_list_validation_error import IdentificationtasksAnnotationsListValidationError
-from mosquito_alert.models.identificationtasks_list_annotator_ids_error_component import IdentificationtasksListAnnotatorIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_assignee_ids_error_component import IdentificationtasksListAssigneeIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_created_at_error_component import IdentificationtasksListCreatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_list_error import IdentificationtasksListError
-from mosquito_alert.models.identificationtasks_list_mine_annotator_ids_error_component import IdentificationtasksListMineAnnotatorIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_assignee_ids_error_component import IdentificationtasksListMineAssigneeIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_created_at_error_component import IdentificationtasksListMineCreatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_error import IdentificationtasksListMineError
-from mosquito_alert.models.identificationtasks_list_mine_num_annotations_error_component import IdentificationtasksListMineNumAnnotationsErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_observation_country_ids_error_component import IdentificationtasksListMineObservationCountryIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_order_by_error_component import IdentificationtasksListMineOrderByErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_result_agreement_error_component import IdentificationtasksListMineResultAgreementErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_result_confidence_error_component import IdentificationtasksListMineResultConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_result_source_error_component import IdentificationtasksListMineResultSourceErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_result_taxon_ids_error_component import IdentificationtasksListMineResultTaxonIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_result_uncertainty_error_component import IdentificationtasksListMineResultUncertaintyErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_review_type_error_component import IdentificationtasksListMineReviewTypeErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_status_error_component import IdentificationtasksListMineStatusErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_updated_at_error_component import IdentificationtasksListMineUpdatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_validation_error import IdentificationtasksListMineValidationError
-from mosquito_alert.models.identificationtasks_list_num_annotations_error_component import IdentificationtasksListNumAnnotationsErrorComponent
-from mosquito_alert.models.identificationtasks_list_observation_country_ids_error_component import IdentificationtasksListObservationCountryIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_order_by_error_component import IdentificationtasksListOrderByErrorComponent
-from mosquito_alert.models.identificationtasks_list_result_agreement_error_component import IdentificationtasksListResultAgreementErrorComponent
-from mosquito_alert.models.identificationtasks_list_result_confidence_error_component import IdentificationtasksListResultConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_list_result_source_error_component import IdentificationtasksListResultSourceErrorComponent
-from mosquito_alert.models.identificationtasks_list_result_taxon_ids_error_component import IdentificationtasksListResultTaxonIdsErrorComponent
-from mosquito_alert.models.identificationtasks_list_result_uncertainty_error_component import IdentificationtasksListResultUncertaintyErrorComponent
-from mosquito_alert.models.identificationtasks_list_review_type_error_component import IdentificationtasksListReviewTypeErrorComponent
-from mosquito_alert.models.identificationtasks_list_status_error_component import IdentificationtasksListStatusErrorComponent
-from mosquito_alert.models.identificationtasks_list_updated_at_error_component import IdentificationtasksListUpdatedAtErrorComponent
-from mosquito_alert.models.identificationtasks_list_validation_error import IdentificationtasksListValidationError
-from mosquito_alert.models.identificationtasks_predictions_create_bbox_non_field_errors_error_component import IdentificationtasksPredictionsCreateBboxNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_bbox_x_max_error_component import IdentificationtasksPredictionsCreateBboxXMaxErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_bbox_x_min_error_component import IdentificationtasksPredictionsCreateBboxXMinErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_bbox_y_max_error_component import IdentificationtasksPredictionsCreateBboxYMaxErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_bbox_y_min_error_component import IdentificationtasksPredictionsCreateBboxYMinErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_classifier_version_error_component import IdentificationtasksPredictionsCreateClassifierVersionErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_error import IdentificationtasksPredictionsCreateError
-from mosquito_alert.models.identificationtasks_predictions_create_insect_confidence_error_component import IdentificationtasksPredictionsCreateInsectConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_is_decisive_error_component import IdentificationtasksPredictionsCreateIsDecisiveErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_non_field_errors_error_component import IdentificationtasksPredictionsCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_photo_uuid_error_component import IdentificationtasksPredictionsCreatePhotoUuidErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_predicted_class_error_component import IdentificationtasksPredictionsCreatePredictedClassErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_aegypti_error_component import IdentificationtasksPredictionsCreateScoresAeAegyptiErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_albopictus_error_component import IdentificationtasksPredictionsCreateScoresAeAlbopictusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_japonicus_error_component import IdentificationtasksPredictionsCreateScoresAeJaponicusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_koreicus_error_component import IdentificationtasksPredictionsCreateScoresAeKoreicusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_anopheles_error_component import IdentificationtasksPredictionsCreateScoresAnophelesErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_culex_error_component import IdentificationtasksPredictionsCreateScoresCulexErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_culiseta_error_component import IdentificationtasksPredictionsCreateScoresCulisetaErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_non_field_errors_error_component import IdentificationtasksPredictionsCreateScoresNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_not_sure_error_component import IdentificationtasksPredictionsCreateScoresNotSureErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_scores_other_species_error_component import IdentificationtasksPredictionsCreateScoresOtherSpeciesErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_threshold_deviation_error_component import IdentificationtasksPredictionsCreateThresholdDeviationErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_create_validation_error import IdentificationtasksPredictionsCreateValidationError
-from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_non_field_errors_error_component import IdentificationtasksPredictionsPartialUpdateBboxNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_x_max_error_component import IdentificationtasksPredictionsPartialUpdateBboxXMaxErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_x_min_error_component import IdentificationtasksPredictionsPartialUpdateBboxXMinErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_y_max_error_component import IdentificationtasksPredictionsPartialUpdateBboxYMaxErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_y_min_error_component import IdentificationtasksPredictionsPartialUpdateBboxYMinErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_classifier_version_error_component import IdentificationtasksPredictionsPartialUpdateClassifierVersionErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_error import IdentificationtasksPredictionsPartialUpdateError
-from mosquito_alert.models.identificationtasks_predictions_partial_update_insect_confidence_error_component import IdentificationtasksPredictionsPartialUpdateInsectConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_is_decisive_error_component import IdentificationtasksPredictionsPartialUpdateIsDecisiveErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_non_field_errors_error_component import IdentificationtasksPredictionsPartialUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_predicted_class_error_component import IdentificationtasksPredictionsPartialUpdatePredictedClassErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_aegypti_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeAegyptiErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_albopictus_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeAlbopictusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_japonicus_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeJaponicusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_koreicus_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeKoreicusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_anopheles_error_component import IdentificationtasksPredictionsPartialUpdateScoresAnophelesErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_culex_error_component import IdentificationtasksPredictionsPartialUpdateScoresCulexErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_culiseta_error_component import IdentificationtasksPredictionsPartialUpdateScoresCulisetaErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_non_field_errors_error_component import IdentificationtasksPredictionsPartialUpdateScoresNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_not_sure_error_component import IdentificationtasksPredictionsPartialUpdateScoresNotSureErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_other_species_error_component import IdentificationtasksPredictionsPartialUpdateScoresOtherSpeciesErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_threshold_deviation_error_component import IdentificationtasksPredictionsPartialUpdateThresholdDeviationErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_partial_update_validation_error import IdentificationtasksPredictionsPartialUpdateValidationError
-from mosquito_alert.models.identificationtasks_predictions_update_bbox_non_field_errors_error_component import IdentificationtasksPredictionsUpdateBboxNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_bbox_x_max_error_component import IdentificationtasksPredictionsUpdateBboxXMaxErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_bbox_x_min_error_component import IdentificationtasksPredictionsUpdateBboxXMinErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_bbox_y_max_error_component import IdentificationtasksPredictionsUpdateBboxYMaxErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_bbox_y_min_error_component import IdentificationtasksPredictionsUpdateBboxYMinErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_classifier_version_error_component import IdentificationtasksPredictionsUpdateClassifierVersionErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_error import IdentificationtasksPredictionsUpdateError
-from mosquito_alert.models.identificationtasks_predictions_update_insect_confidence_error_component import IdentificationtasksPredictionsUpdateInsectConfidenceErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_is_decisive_error_component import IdentificationtasksPredictionsUpdateIsDecisiveErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_non_field_errors_error_component import IdentificationtasksPredictionsUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_predicted_class_error_component import IdentificationtasksPredictionsUpdatePredictedClassErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_aegypti_error_component import IdentificationtasksPredictionsUpdateScoresAeAegyptiErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_albopictus_error_component import IdentificationtasksPredictionsUpdateScoresAeAlbopictusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_japonicus_error_component import IdentificationtasksPredictionsUpdateScoresAeJaponicusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_koreicus_error_component import IdentificationtasksPredictionsUpdateScoresAeKoreicusErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_anopheles_error_component import IdentificationtasksPredictionsUpdateScoresAnophelesErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_culex_error_component import IdentificationtasksPredictionsUpdateScoresCulexErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_culiseta_error_component import IdentificationtasksPredictionsUpdateScoresCulisetaErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_non_field_errors_error_component import IdentificationtasksPredictionsUpdateScoresNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_not_sure_error_component import IdentificationtasksPredictionsUpdateScoresNotSureErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_scores_other_species_error_component import IdentificationtasksPredictionsUpdateScoresOtherSpeciesErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_threshold_deviation_error_component import IdentificationtasksPredictionsUpdateThresholdDeviationErrorComponent
-from mosquito_alert.models.identificationtasks_predictions_update_validation_error import IdentificationtasksPredictionsUpdateValidationError
-from mosquito_alert.models.localized_message_body import LocalizedMessageBody
-from mosquito_alert.models.localized_message_body_request import LocalizedMessageBodyRequest
-from mosquito_alert.models.localized_message_title import LocalizedMessageTitle
-from mosquito_alert.models.localized_message_title_request import LocalizedMessageTitleRequest
-from mosquito_alert.models.location import Location
-from mosquito_alert.models.location_point import LocationPoint
-from mosquito_alert.models.location_request import LocationRequest
-from mosquito_alert.models.meta_notification_request import MetaNotificationRequest
-from mosquito_alert.models.minimal_user import MinimalUser
-from mosquito_alert.models.mobile_app import MobileApp
-from mosquito_alert.models.mobile_app_request import MobileAppRequest
-from mosquito_alert.models.mosquito_appearance import MosquitoAppearance
-from mosquito_alert.models.mosquito_appearance_request import MosquitoAppearanceRequest
-from mosquito_alert.models.notification import Notification
-from mosquito_alert.models.notification_message import NotificationMessage
-from mosquito_alert.models.notification_request import NotificationRequest
-from mosquito_alert.models.notifications_create_error import NotificationsCreateError
-from mosquito_alert.models.notifications_create_message_body_bg_error_component import NotificationsCreateMessageBodyBgErrorComponent
-from mosquito_alert.models.notifications_create_message_body_bn_error_component import NotificationsCreateMessageBodyBnErrorComponent
-from mosquito_alert.models.notifications_create_message_body_ca_error_component import NotificationsCreateMessageBodyCaErrorComponent
-from mosquito_alert.models.notifications_create_message_body_de_error_component import NotificationsCreateMessageBodyDeErrorComponent
-from mosquito_alert.models.notifications_create_message_body_el_error_component import NotificationsCreateMessageBodyElErrorComponent
-from mosquito_alert.models.notifications_create_message_body_en_error_component import NotificationsCreateMessageBodyEnErrorComponent
-from mosquito_alert.models.notifications_create_message_body_es_error_component import NotificationsCreateMessageBodyEsErrorComponent
-from mosquito_alert.models.notifications_create_message_body_eu_error_component import NotificationsCreateMessageBodyEuErrorComponent
-from mosquito_alert.models.notifications_create_message_body_fr_error_component import NotificationsCreateMessageBodyFrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_gl_error_component import NotificationsCreateMessageBodyGlErrorComponent
-from mosquito_alert.models.notifications_create_message_body_hr_error_component import NotificationsCreateMessageBodyHrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_hu_error_component import NotificationsCreateMessageBodyHuErrorComponent
-from mosquito_alert.models.notifications_create_message_body_it_error_component import NotificationsCreateMessageBodyItErrorComponent
-from mosquito_alert.models.notifications_create_message_body_lb_error_component import NotificationsCreateMessageBodyLbErrorComponent
-from mosquito_alert.models.notifications_create_message_body_mk_error_component import NotificationsCreateMessageBodyMkErrorComponent
-from mosquito_alert.models.notifications_create_message_body_nl_error_component import NotificationsCreateMessageBodyNlErrorComponent
-from mosquito_alert.models.notifications_create_message_body_non_field_errors_error_component import NotificationsCreateMessageBodyNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_message_body_pt_error_component import NotificationsCreateMessageBodyPtErrorComponent
-from mosquito_alert.models.notifications_create_message_body_ro_error_component import NotificationsCreateMessageBodyRoErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sl_error_component import NotificationsCreateMessageBodySlErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sq_error_component import NotificationsCreateMessageBodySqErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sr_error_component import NotificationsCreateMessageBodySrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sv_error_component import NotificationsCreateMessageBodySvErrorComponent
-from mosquito_alert.models.notifications_create_message_body_tr_error_component import NotificationsCreateMessageBodyTrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_zh_cn_error_component import NotificationsCreateMessageBodyZhCNErrorComponent
-from mosquito_alert.models.notifications_create_message_non_field_errors_error_component import NotificationsCreateMessageNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_message_title_bg_error_component import NotificationsCreateMessageTitleBgErrorComponent
-from mosquito_alert.models.notifications_create_message_title_bn_error_component import NotificationsCreateMessageTitleBnErrorComponent
-from mosquito_alert.models.notifications_create_message_title_ca_error_component import NotificationsCreateMessageTitleCaErrorComponent
-from mosquito_alert.models.notifications_create_message_title_de_error_component import NotificationsCreateMessageTitleDeErrorComponent
-from mosquito_alert.models.notifications_create_message_title_el_error_component import NotificationsCreateMessageTitleElErrorComponent
-from mosquito_alert.models.notifications_create_message_title_en_error_component import NotificationsCreateMessageTitleEnErrorComponent
-from mosquito_alert.models.notifications_create_message_title_es_error_component import NotificationsCreateMessageTitleEsErrorComponent
-from mosquito_alert.models.notifications_create_message_title_eu_error_component import NotificationsCreateMessageTitleEuErrorComponent
-from mosquito_alert.models.notifications_create_message_title_fr_error_component import NotificationsCreateMessageTitleFrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_gl_error_component import NotificationsCreateMessageTitleGlErrorComponent
-from mosquito_alert.models.notifications_create_message_title_hr_error_component import NotificationsCreateMessageTitleHrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_hu_error_component import NotificationsCreateMessageTitleHuErrorComponent
-from mosquito_alert.models.notifications_create_message_title_it_error_component import NotificationsCreateMessageTitleItErrorComponent
-from mosquito_alert.models.notifications_create_message_title_lb_error_component import NotificationsCreateMessageTitleLbErrorComponent
-from mosquito_alert.models.notifications_create_message_title_mk_error_component import NotificationsCreateMessageTitleMkErrorComponent
-from mosquito_alert.models.notifications_create_message_title_nl_error_component import NotificationsCreateMessageTitleNlErrorComponent
-from mosquito_alert.models.notifications_create_message_title_non_field_errors_error_component import NotificationsCreateMessageTitleNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_message_title_pt_error_component import NotificationsCreateMessageTitlePtErrorComponent
-from mosquito_alert.models.notifications_create_message_title_ro_error_component import NotificationsCreateMessageTitleRoErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sl_error_component import NotificationsCreateMessageTitleSlErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sq_error_component import NotificationsCreateMessageTitleSqErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sr_error_component import NotificationsCreateMessageTitleSrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sv_error_component import NotificationsCreateMessageTitleSvErrorComponent
-from mosquito_alert.models.notifications_create_message_title_tr_error_component import NotificationsCreateMessageTitleTrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_zh_cn_error_component import NotificationsCreateMessageTitleZhCNErrorComponent
-from mosquito_alert.models.notifications_create_non_field_errors_error_component import NotificationsCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_receiver_type_error_component import NotificationsCreateReceiverTypeErrorComponent
-from mosquito_alert.models.notifications_create_topic_codes_error_component import NotificationsCreateTopicCodesErrorComponent
-from mosquito_alert.models.notifications_create_topic_codes_index_error_component import NotificationsCreateTopicCodesINDEXErrorComponent
-from mosquito_alert.models.notifications_create_user_uuids_error_component import NotificationsCreateUserUuidsErrorComponent
-from mosquito_alert.models.notifications_create_user_uuids_index_error_component import NotificationsCreateUserUuidsINDEXErrorComponent
-from mosquito_alert.models.notifications_create_validation_error import NotificationsCreateValidationError
-from mosquito_alert.models.notifications_list_mine_order_by_error_component import NotificationsListMineOrderByErrorComponent
-from mosquito_alert.models.notifications_list_mine_validation_error import NotificationsListMineValidationError
-from mosquito_alert.models.notifications_list_order_by_error_component import NotificationsListOrderByErrorComponent
-from mosquito_alert.models.notifications_list_validation_error import NotificationsListValidationError
-from mosquito_alert.models.notifications_partial_update_error import NotificationsPartialUpdateError
-from mosquito_alert.models.notifications_partial_update_is_read_error_component import NotificationsPartialUpdateIsReadErrorComponent
-from mosquito_alert.models.notifications_partial_update_non_field_errors_error_component import NotificationsPartialUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_partial_update_validation_error import NotificationsPartialUpdateValidationError
-from mosquito_alert.models.notifications_update_error import NotificationsUpdateError
-from mosquito_alert.models.notifications_update_is_read_error_component import NotificationsUpdateIsReadErrorComponent
-from mosquito_alert.models.notifications_update_non_field_errors_error_component import NotificationsUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_update_validation_error import NotificationsUpdateValidationError
-from mosquito_alert.models.observation import Observation
-from mosquito_alert.models.observation_flags import ObservationFlags
-from mosquito_alert.models.observation_flags_request import ObservationFlagsRequest
-from mosquito_alert.models.observations_create_created_at_error_component import ObservationsCreateCreatedAtErrorComponent
-from mosquito_alert.models.observations_create_error import ObservationsCreateError
-from mosquito_alert.models.observations_create_event_environment_error_component import ObservationsCreateEventEnvironmentErrorComponent
-from mosquito_alert.models.observations_create_event_moment_error_component import ObservationsCreateEventMomentErrorComponent
-from mosquito_alert.models.observations_create_location_non_field_errors_error_component import ObservationsCreateLocationNonFieldErrorsErrorComponent
-from mosquito_alert.models.observations_create_location_point_error_component import ObservationsCreateLocationPointErrorComponent
-from mosquito_alert.models.observations_create_location_source_error_component import ObservationsCreateLocationSourceErrorComponent
-from mosquito_alert.models.observations_create_mosquito_appearance_abdomen_error_component import ObservationsCreateMosquitoAppearanceAbdomenErrorComponent
-from mosquito_alert.models.observations_create_mosquito_appearance_legs_error_component import ObservationsCreateMosquitoAppearanceLegsErrorComponent
-from mosquito_alert.models.observations_create_mosquito_appearance_non_field_errors_error_component import ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent
-from mosquito_alert.models.observations_create_mosquito_appearance_specie_error_component import ObservationsCreateMosquitoAppearanceSpecieErrorComponent
-from mosquito_alert.models.observations_create_mosquito_appearance_thorax_error_component import ObservationsCreateMosquitoAppearanceThoraxErrorComponent
-from mosquito_alert.models.observations_create_non_field_errors_error_component import ObservationsCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.observations_create_note_error_component import ObservationsCreateNoteErrorComponent
-from mosquito_alert.models.observations_create_photos_index_file_error_component import ObservationsCreatePhotosINDEXFileErrorComponent
-from mosquito_alert.models.observations_create_photos_index_non_field_errors_error_component import ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent
-from mosquito_alert.models.observations_create_photos_non_field_errors_error_component import ObservationsCreatePhotosNonFieldErrorsErrorComponent
-from mosquito_alert.models.observations_create_sent_at_error_component import ObservationsCreateSentAtErrorComponent
-from mosquito_alert.models.observations_create_tags_error_component import ObservationsCreateTagsErrorComponent
-from mosquito_alert.models.observations_create_tags_index_error_component import ObservationsCreateTagsINDEXErrorComponent
-from mosquito_alert.models.observations_create_validation_error import ObservationsCreateValidationError
-from mosquito_alert.models.observations_list_country_id_error_component import ObservationsListCountryIdErrorComponent
-from mosquito_alert.models.observations_list_created_at_error_component import ObservationsListCreatedAtErrorComponent
-from mosquito_alert.models.observations_list_error import ObservationsListError
-from mosquito_alert.models.observations_list_identification_taxon_ids_error_component import ObservationsListIdentificationTaxonIdsErrorComponent
-from mosquito_alert.models.observations_list_mine_country_id_error_component import ObservationsListMineCountryIdErrorComponent
-from mosquito_alert.models.observations_list_mine_created_at_error_component import ObservationsListMineCreatedAtErrorComponent
-from mosquito_alert.models.observations_list_mine_error import ObservationsListMineError
-from mosquito_alert.models.observations_list_mine_identification_taxon_ids_error_component import ObservationsListMineIdentificationTaxonIdsErrorComponent
-from mosquito_alert.models.observations_list_mine_order_by_error_component import ObservationsListMineOrderByErrorComponent
-from mosquito_alert.models.observations_list_mine_received_at_error_component import ObservationsListMineReceivedAtErrorComponent
-from mosquito_alert.models.observations_list_mine_short_id_error_component import ObservationsListMineShortIdErrorComponent
-from mosquito_alert.models.observations_list_mine_updated_at_error_component import ObservationsListMineUpdatedAtErrorComponent
-from mosquito_alert.models.observations_list_mine_user_uuid_error_component import ObservationsListMineUserUuidErrorComponent
-from mosquito_alert.models.observations_list_mine_validation_error import ObservationsListMineValidationError
-from mosquito_alert.models.observations_list_order_by_error_component import ObservationsListOrderByErrorComponent
-from mosquito_alert.models.observations_list_received_at_error_component import ObservationsListReceivedAtErrorComponent
-from mosquito_alert.models.observations_list_short_id_error_component import ObservationsListShortIdErrorComponent
-from mosquito_alert.models.observations_list_updated_at_error_component import ObservationsListUpdatedAtErrorComponent
-from mosquito_alert.models.observations_list_user_uuid_error_component import ObservationsListUserUuidErrorComponent
-from mosquito_alert.models.observations_list_validation_error import ObservationsListValidationError
-from mosquito_alert.models.paginated_annotation_list import PaginatedAnnotationList
-from mosquito_alert.models.paginated_bite_list import PaginatedBiteList
-from mosquito_alert.models.paginated_breeding_site_list import PaginatedBreedingSiteList
-from mosquito_alert.models.paginated_campaign_list import PaginatedCampaignList
-from mosquito_alert.models.paginated_country_list import PaginatedCountryList
-from mosquito_alert.models.paginated_identification_task_list import PaginatedIdentificationTaskList
-from mosquito_alert.models.paginated_notification_list import PaginatedNotificationList
-from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
-from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList
-from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList
-from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList
-from mosquito_alert.models.partner import Partner
-from mosquito_alert.models.password_change_request import PasswordChangeRequest
-from mosquito_alert.models.patched_device_update_request import PatchedDeviceUpdateRequest
-from mosquito_alert.models.patched_notification_request import PatchedNotificationRequest
-from mosquito_alert.models.patched_photo_prediction_request import PatchedPhotoPredictionRequest
-from mosquito_alert.models.patched_user_request import PatchedUserRequest
-from mosquito_alert.models.permissions import Permissions
-from mosquito_alert.models.photo import Photo
-from mosquito_alert.models.photo_prediction import PhotoPrediction
-from mosquito_alert.models.photo_prediction_request import PhotoPredictionRequest
-from mosquito_alert.models.photos_prediction_partial_update_bbox_non_field_errors_error_component import PhotosPredictionPartialUpdateBboxNonFieldErrorsErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_bbox_x_max_error_component import PhotosPredictionPartialUpdateBboxXMaxErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_bbox_x_min_error_component import PhotosPredictionPartialUpdateBboxXMinErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_bbox_y_max_error_component import PhotosPredictionPartialUpdateBboxYMaxErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_bbox_y_min_error_component import PhotosPredictionPartialUpdateBboxYMinErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_classifier_version_error_component import PhotosPredictionPartialUpdateClassifierVersionErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_error import PhotosPredictionPartialUpdateError
-from mosquito_alert.models.photos_prediction_partial_update_insect_confidence_error_component import PhotosPredictionPartialUpdateInsectConfidenceErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_is_decisive_error_component import PhotosPredictionPartialUpdateIsDecisiveErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_non_field_errors_error_component import PhotosPredictionPartialUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_predicted_class_error_component import PhotosPredictionPartialUpdatePredictedClassErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_ae_aegypti_error_component import PhotosPredictionPartialUpdateScoresAeAegyptiErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_ae_albopictus_error_component import PhotosPredictionPartialUpdateScoresAeAlbopictusErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_ae_japonicus_error_component import PhotosPredictionPartialUpdateScoresAeJaponicusErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_ae_koreicus_error_component import PhotosPredictionPartialUpdateScoresAeKoreicusErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_anopheles_error_component import PhotosPredictionPartialUpdateScoresAnophelesErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_culex_error_component import PhotosPredictionPartialUpdateScoresCulexErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_culiseta_error_component import PhotosPredictionPartialUpdateScoresCulisetaErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_non_field_errors_error_component import PhotosPredictionPartialUpdateScoresNonFieldErrorsErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_not_sure_error_component import PhotosPredictionPartialUpdateScoresNotSureErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_scores_other_species_error_component import PhotosPredictionPartialUpdateScoresOtherSpeciesErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_threshold_deviation_error_component import PhotosPredictionPartialUpdateThresholdDeviationErrorComponent
-from mosquito_alert.models.photos_prediction_partial_update_validation_error import PhotosPredictionPartialUpdateValidationError
-from mosquito_alert.models.photos_prediction_update_bbox_non_field_errors_error_component import PhotosPredictionUpdateBboxNonFieldErrorsErrorComponent
-from mosquito_alert.models.photos_prediction_update_bbox_x_max_error_component import PhotosPredictionUpdateBboxXMaxErrorComponent
-from mosquito_alert.models.photos_prediction_update_bbox_x_min_error_component import PhotosPredictionUpdateBboxXMinErrorComponent
-from mosquito_alert.models.photos_prediction_update_bbox_y_max_error_component import PhotosPredictionUpdateBboxYMaxErrorComponent
-from mosquito_alert.models.photos_prediction_update_bbox_y_min_error_component import PhotosPredictionUpdateBboxYMinErrorComponent
-from mosquito_alert.models.photos_prediction_update_classifier_version_error_component import PhotosPredictionUpdateClassifierVersionErrorComponent
-from mosquito_alert.models.photos_prediction_update_error import PhotosPredictionUpdateError
-from mosquito_alert.models.photos_prediction_update_insect_confidence_error_component import PhotosPredictionUpdateInsectConfidenceErrorComponent
-from mosquito_alert.models.photos_prediction_update_is_decisive_error_component import PhotosPredictionUpdateIsDecisiveErrorComponent
-from mosquito_alert.models.photos_prediction_update_non_field_errors_error_component import PhotosPredictionUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.photos_prediction_update_predicted_class_error_component import PhotosPredictionUpdatePredictedClassErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_ae_aegypti_error_component import PhotosPredictionUpdateScoresAeAegyptiErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_ae_albopictus_error_component import PhotosPredictionUpdateScoresAeAlbopictusErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_ae_japonicus_error_component import PhotosPredictionUpdateScoresAeJaponicusErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_ae_koreicus_error_component import PhotosPredictionUpdateScoresAeKoreicusErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_anopheles_error_component import PhotosPredictionUpdateScoresAnophelesErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_culex_error_component import PhotosPredictionUpdateScoresCulexErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_culiseta_error_component import PhotosPredictionUpdateScoresCulisetaErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_non_field_errors_error_component import PhotosPredictionUpdateScoresNonFieldErrorsErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_not_sure_error_component import PhotosPredictionUpdateScoresNotSureErrorComponent
-from mosquito_alert.models.photos_prediction_update_scores_other_species_error_component import PhotosPredictionUpdateScoresOtherSpeciesErrorComponent
-from mosquito_alert.models.photos_prediction_update_threshold_deviation_error_component import PhotosPredictionUpdateThresholdDeviationErrorComponent
-from mosquito_alert.models.photos_prediction_update_validation_error import PhotosPredictionUpdateValidationError
-from mosquito_alert.models.prediction_score import PredictionScore
-from mosquito_alert.models.prediction_score_request import PredictionScoreRequest
-from mosquito_alert.models.review_permission import ReviewPermission
-from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
-from mosquito_alert.models.simple_photo import SimplePhoto
-from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
-from mosquito_alert.models.simple_taxon import SimpleTaxon
-from mosquito_alert.models.simple_taxon_request import SimpleTaxonRequest
-from mosquito_alert.models.simplified_location import SimplifiedLocation
-from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos
-from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent
-from mosquito_alert.models.taxa_list_validation_error import TaxaListValidationError
-from mosquito_alert.models.taxon import Taxon
-from mosquito_alert.models.taxon_tree_node import TaxonTreeNode
-from mosquito_alert.models.token_refresh import TokenRefresh
-from mosquito_alert.models.token_refresh_request import TokenRefreshRequest
-from mosquito_alert.models.token_verify_request import TokenVerifyRequest
-from mosquito_alert.models.topic_notification_create_request import TopicNotificationCreateRequest
-from mosquito_alert.models.user import User
-from mosquito_alert.models.user_assignment import UserAssignment
-from mosquito_alert.models.user_notification_create_request import UserNotificationCreateRequest
-from mosquito_alert.models.user_permission import UserPermission
-from mosquito_alert.models.user_request import UserRequest
-from mosquito_alert.models.user_score import UserScore
-from mosquito_alert.models.users_partial_update_error import UsersPartialUpdateError
-from mosquito_alert.models.users_partial_update_locale_error_component import UsersPartialUpdateLocaleErrorComponent
-from mosquito_alert.models.users_partial_update_non_field_errors_error_component import UsersPartialUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.users_partial_update_validation_error import UsersPartialUpdateValidationError
-from mosquito_alert.models.users_update_error import UsersUpdateError
-from mosquito_alert.models.users_update_locale_error_component import UsersUpdateLocaleErrorComponent
-from mosquito_alert.models.users_update_non_field_errors_error_component import UsersUpdateNonFieldErrorsErrorComponent
-from mosquito_alert.models.users_update_validation_error import UsersUpdateValidationError
+from mosquito_alert.models.adm_boundary import AdmBoundary as AdmBoundary
+from mosquito_alert.models.adm_boundary_request import AdmBoundaryRequest as AdmBoundaryRequest
+from mosquito_alert.models.annotation import Annotation as Annotation
+from mosquito_alert.models.annotation_characteristics import AnnotationCharacteristics as AnnotationCharacteristics
+from mosquito_alert.models.annotation_characteristics_request import AnnotationCharacteristicsRequest as AnnotationCharacteristicsRequest
+from mosquito_alert.models.annotation_classification import AnnotationClassification as AnnotationClassification
+from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest as AnnotationClassificationRequest
+from mosquito_alert.models.annotation_feedback import AnnotationFeedback as AnnotationFeedback
+from mosquito_alert.models.annotation_feedback_request import AnnotationFeedbackRequest as AnnotationFeedbackRequest
+from mosquito_alert.models.annotation_permission import AnnotationPermission as AnnotationPermission
+from mosquito_alert.models.annotation_request import AnnotationRequest as AnnotationRequest
+from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair as AppUserTokenObtainPair
+from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest as AppUserTokenObtainPairRequest
+from mosquito_alert.models.assigned_observation import AssignedObservation as AssignedObservation
+from mosquito_alert.models.assignment import Assignment as Assignment
+from mosquito_alert.models.auth_change_password_error import AuthChangePasswordError as AuthChangePasswordError
+from mosquito_alert.models.auth_change_password_non_field_errors_error_component import AuthChangePasswordNonFieldErrorsErrorComponent as AuthChangePasswordNonFieldErrorsErrorComponent
+from mosquito_alert.models.auth_change_password_password_error_component import AuthChangePasswordPasswordErrorComponent as AuthChangePasswordPasswordErrorComponent
+from mosquito_alert.models.auth_change_password_validation_error import AuthChangePasswordValidationError as AuthChangePasswordValidationError
+from mosquito_alert.models.auth_obtain_token_device_id_error_component import AuthObtainTokenDeviceIdErrorComponent as AuthObtainTokenDeviceIdErrorComponent
+from mosquito_alert.models.auth_obtain_token_error import AuthObtainTokenError as AuthObtainTokenError
+from mosquito_alert.models.auth_obtain_token_non_field_errors_error_component import AuthObtainTokenNonFieldErrorsErrorComponent as AuthObtainTokenNonFieldErrorsErrorComponent
+from mosquito_alert.models.auth_obtain_token_password_error_component import AuthObtainTokenPasswordErrorComponent as AuthObtainTokenPasswordErrorComponent
+from mosquito_alert.models.auth_obtain_token_username_error_component import AuthObtainTokenUsernameErrorComponent as AuthObtainTokenUsernameErrorComponent
+from mosquito_alert.models.auth_obtain_token_validation_error import AuthObtainTokenValidationError as AuthObtainTokenValidationError
+from mosquito_alert.models.auth_refresh_token_error import AuthRefreshTokenError as AuthRefreshTokenError
+from mosquito_alert.models.auth_refresh_token_non_field_errors_error_component import AuthRefreshTokenNonFieldErrorsErrorComponent as AuthRefreshTokenNonFieldErrorsErrorComponent
+from mosquito_alert.models.auth_refresh_token_refresh_error_component import AuthRefreshTokenRefreshErrorComponent as AuthRefreshTokenRefreshErrorComponent
+from mosquito_alert.models.auth_refresh_token_validation_error import AuthRefreshTokenValidationError as AuthRefreshTokenValidationError
+from mosquito_alert.models.auth_signup_guest_error import AuthSignupGuestError as AuthSignupGuestError
+from mosquito_alert.models.auth_signup_guest_non_field_errors_error_component import AuthSignupGuestNonFieldErrorsErrorComponent as AuthSignupGuestNonFieldErrorsErrorComponent
+from mosquito_alert.models.auth_signup_guest_password_error_component import AuthSignupGuestPasswordErrorComponent as AuthSignupGuestPasswordErrorComponent
+from mosquito_alert.models.auth_signup_guest_validation_error import AuthSignupGuestValidationError as AuthSignupGuestValidationError
+from mosquito_alert.models.auth_verify_token_error import AuthVerifyTokenError as AuthVerifyTokenError
+from mosquito_alert.models.auth_verify_token_non_field_errors_error_component import AuthVerifyTokenNonFieldErrorsErrorComponent as AuthVerifyTokenNonFieldErrorsErrorComponent
+from mosquito_alert.models.auth_verify_token_token_error_component import AuthVerifyTokenTokenErrorComponent as AuthVerifyTokenTokenErrorComponent
+from mosquito_alert.models.auth_verify_token_validation_error import AuthVerifyTokenValidationError as AuthVerifyTokenValidationError
+from mosquito_alert.models.bite import Bite as Bite
+from mosquito_alert.models.bite_counts import BiteCounts as BiteCounts
+from mosquito_alert.models.bite_counts_request import BiteCountsRequest as BiteCountsRequest
+from mosquito_alert.models.bite_request import BiteRequest as BiteRequest
+from mosquito_alert.models.bites_create_counts_chest_error_component import BitesCreateCountsChestErrorComponent as BitesCreateCountsChestErrorComponent
+from mosquito_alert.models.bites_create_counts_head_error_component import BitesCreateCountsHeadErrorComponent as BitesCreateCountsHeadErrorComponent
+from mosquito_alert.models.bites_create_counts_left_arm_error_component import BitesCreateCountsLeftArmErrorComponent as BitesCreateCountsLeftArmErrorComponent
+from mosquito_alert.models.bites_create_counts_left_leg_error_component import BitesCreateCountsLeftLegErrorComponent as BitesCreateCountsLeftLegErrorComponent
+from mosquito_alert.models.bites_create_counts_non_field_errors_error_component import BitesCreateCountsNonFieldErrorsErrorComponent as BitesCreateCountsNonFieldErrorsErrorComponent
+from mosquito_alert.models.bites_create_counts_right_arm_error_component import BitesCreateCountsRightArmErrorComponent as BitesCreateCountsRightArmErrorComponent
+from mosquito_alert.models.bites_create_counts_right_leg_error_component import BitesCreateCountsRightLegErrorComponent as BitesCreateCountsRightLegErrorComponent
+from mosquito_alert.models.bites_create_created_at_error_component import BitesCreateCreatedAtErrorComponent as BitesCreateCreatedAtErrorComponent
+from mosquito_alert.models.bites_create_error import BitesCreateError as BitesCreateError
+from mosquito_alert.models.bites_create_event_environment_error_component import BitesCreateEventEnvironmentErrorComponent as BitesCreateEventEnvironmentErrorComponent
+from mosquito_alert.models.bites_create_event_moment_error_component import BitesCreateEventMomentErrorComponent as BitesCreateEventMomentErrorComponent
+from mosquito_alert.models.bites_create_location_non_field_errors_error_component import BitesCreateLocationNonFieldErrorsErrorComponent as BitesCreateLocationNonFieldErrorsErrorComponent
+from mosquito_alert.models.bites_create_location_point_error_component import BitesCreateLocationPointErrorComponent as BitesCreateLocationPointErrorComponent
+from mosquito_alert.models.bites_create_location_source_error_component import BitesCreateLocationSourceErrorComponent as BitesCreateLocationSourceErrorComponent
+from mosquito_alert.models.bites_create_non_field_errors_error_component import BitesCreateNonFieldErrorsErrorComponent as BitesCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.bites_create_note_error_component import BitesCreateNoteErrorComponent as BitesCreateNoteErrorComponent
+from mosquito_alert.models.bites_create_sent_at_error_component import BitesCreateSentAtErrorComponent as BitesCreateSentAtErrorComponent
+from mosquito_alert.models.bites_create_tags_error_component import BitesCreateTagsErrorComponent as BitesCreateTagsErrorComponent
+from mosquito_alert.models.bites_create_tags_index_error_component import BitesCreateTagsINDEXErrorComponent as BitesCreateTagsINDEXErrorComponent
+from mosquito_alert.models.bites_create_validation_error import BitesCreateValidationError as BitesCreateValidationError
+from mosquito_alert.models.bites_list_country_id_error_component import BitesListCountryIdErrorComponent as BitesListCountryIdErrorComponent
+from mosquito_alert.models.bites_list_created_at_error_component import BitesListCreatedAtErrorComponent as BitesListCreatedAtErrorComponent
+from mosquito_alert.models.bites_list_error import BitesListError as BitesListError
+from mosquito_alert.models.bites_list_mine_country_id_error_component import BitesListMineCountryIdErrorComponent as BitesListMineCountryIdErrorComponent
+from mosquito_alert.models.bites_list_mine_created_at_error_component import BitesListMineCreatedAtErrorComponent as BitesListMineCreatedAtErrorComponent
+from mosquito_alert.models.bites_list_mine_error import BitesListMineError as BitesListMineError
+from mosquito_alert.models.bites_list_mine_order_by_error_component import BitesListMineOrderByErrorComponent as BitesListMineOrderByErrorComponent
+from mosquito_alert.models.bites_list_mine_received_at_error_component import BitesListMineReceivedAtErrorComponent as BitesListMineReceivedAtErrorComponent
+from mosquito_alert.models.bites_list_mine_short_id_error_component import BitesListMineShortIdErrorComponent as BitesListMineShortIdErrorComponent
+from mosquito_alert.models.bites_list_mine_updated_at_error_component import BitesListMineUpdatedAtErrorComponent as BitesListMineUpdatedAtErrorComponent
+from mosquito_alert.models.bites_list_mine_user_uuid_error_component import BitesListMineUserUuidErrorComponent as BitesListMineUserUuidErrorComponent
+from mosquito_alert.models.bites_list_mine_validation_error import BitesListMineValidationError as BitesListMineValidationError
+from mosquito_alert.models.bites_list_order_by_error_component import BitesListOrderByErrorComponent as BitesListOrderByErrorComponent
+from mosquito_alert.models.bites_list_received_at_error_component import BitesListReceivedAtErrorComponent as BitesListReceivedAtErrorComponent
+from mosquito_alert.models.bites_list_short_id_error_component import BitesListShortIdErrorComponent as BitesListShortIdErrorComponent
+from mosquito_alert.models.bites_list_updated_at_error_component import BitesListUpdatedAtErrorComponent as BitesListUpdatedAtErrorComponent
+from mosquito_alert.models.bites_list_user_uuid_error_component import BitesListUserUuidErrorComponent as BitesListUserUuidErrorComponent
+from mosquito_alert.models.bites_list_validation_error import BitesListValidationError as BitesListValidationError
+from mosquito_alert.models.bounding_box import BoundingBox as BoundingBox
+from mosquito_alert.models.bounding_box_request import BoundingBoxRequest as BoundingBoxRequest
+from mosquito_alert.models.breeding_site import BreedingSite as BreedingSite
+from mosquito_alert.models.breedingsites_create_created_at_error_component import BreedingsitesCreateCreatedAtErrorComponent as BreedingsitesCreateCreatedAtErrorComponent
+from mosquito_alert.models.breedingsites_create_error import BreedingsitesCreateError as BreedingsitesCreateError
+from mosquito_alert.models.breedingsites_create_has_larvae_error_component import BreedingsitesCreateHasLarvaeErrorComponent as BreedingsitesCreateHasLarvaeErrorComponent
+from mosquito_alert.models.breedingsites_create_has_near_mosquitoes_error_component import BreedingsitesCreateHasNearMosquitoesErrorComponent as BreedingsitesCreateHasNearMosquitoesErrorComponent
+from mosquito_alert.models.breedingsites_create_has_water_error_component import BreedingsitesCreateHasWaterErrorComponent as BreedingsitesCreateHasWaterErrorComponent
+from mosquito_alert.models.breedingsites_create_in_public_area_error_component import BreedingsitesCreateInPublicAreaErrorComponent as BreedingsitesCreateInPublicAreaErrorComponent
+from mosquito_alert.models.breedingsites_create_location_non_field_errors_error_component import BreedingsitesCreateLocationNonFieldErrorsErrorComponent as BreedingsitesCreateLocationNonFieldErrorsErrorComponent
+from mosquito_alert.models.breedingsites_create_location_point_error_component import BreedingsitesCreateLocationPointErrorComponent as BreedingsitesCreateLocationPointErrorComponent
+from mosquito_alert.models.breedingsites_create_location_source_error_component import BreedingsitesCreateLocationSourceErrorComponent as BreedingsitesCreateLocationSourceErrorComponent
+from mosquito_alert.models.breedingsites_create_non_field_errors_error_component import BreedingsitesCreateNonFieldErrorsErrorComponent as BreedingsitesCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.breedingsites_create_note_error_component import BreedingsitesCreateNoteErrorComponent as BreedingsitesCreateNoteErrorComponent
+from mosquito_alert.models.breedingsites_create_photos_index_file_error_component import BreedingsitesCreatePhotosINDEXFileErrorComponent as BreedingsitesCreatePhotosINDEXFileErrorComponent
+from mosquito_alert.models.breedingsites_create_photos_index_non_field_errors_error_component import BreedingsitesCreatePhotosINDEXNonFieldErrorsErrorComponent as BreedingsitesCreatePhotosINDEXNonFieldErrorsErrorComponent
+from mosquito_alert.models.breedingsites_create_photos_non_field_errors_error_component import BreedingsitesCreatePhotosNonFieldErrorsErrorComponent as BreedingsitesCreatePhotosNonFieldErrorsErrorComponent
+from mosquito_alert.models.breedingsites_create_sent_at_error_component import BreedingsitesCreateSentAtErrorComponent as BreedingsitesCreateSentAtErrorComponent
+from mosquito_alert.models.breedingsites_create_site_type_error_component import BreedingsitesCreateSiteTypeErrorComponent as BreedingsitesCreateSiteTypeErrorComponent
+from mosquito_alert.models.breedingsites_create_tags_error_component import BreedingsitesCreateTagsErrorComponent as BreedingsitesCreateTagsErrorComponent
+from mosquito_alert.models.breedingsites_create_tags_index_error_component import BreedingsitesCreateTagsINDEXErrorComponent as BreedingsitesCreateTagsINDEXErrorComponent
+from mosquito_alert.models.breedingsites_create_validation_error import BreedingsitesCreateValidationError as BreedingsitesCreateValidationError
+from mosquito_alert.models.breedingsites_list_country_id_error_component import BreedingsitesListCountryIdErrorComponent as BreedingsitesListCountryIdErrorComponent
+from mosquito_alert.models.breedingsites_list_created_at_error_component import BreedingsitesListCreatedAtErrorComponent as BreedingsitesListCreatedAtErrorComponent
+from mosquito_alert.models.breedingsites_list_error import BreedingsitesListError as BreedingsitesListError
+from mosquito_alert.models.breedingsites_list_mine_country_id_error_component import BreedingsitesListMineCountryIdErrorComponent as BreedingsitesListMineCountryIdErrorComponent
+from mosquito_alert.models.breedingsites_list_mine_created_at_error_component import BreedingsitesListMineCreatedAtErrorComponent as BreedingsitesListMineCreatedAtErrorComponent
+from mosquito_alert.models.breedingsites_list_mine_error import BreedingsitesListMineError as BreedingsitesListMineError
+from mosquito_alert.models.breedingsites_list_mine_order_by_error_component import BreedingsitesListMineOrderByErrorComponent as BreedingsitesListMineOrderByErrorComponent
+from mosquito_alert.models.breedingsites_list_mine_received_at_error_component import BreedingsitesListMineReceivedAtErrorComponent as BreedingsitesListMineReceivedAtErrorComponent
+from mosquito_alert.models.breedingsites_list_mine_short_id_error_component import BreedingsitesListMineShortIdErrorComponent as BreedingsitesListMineShortIdErrorComponent
+from mosquito_alert.models.breedingsites_list_mine_updated_at_error_component import BreedingsitesListMineUpdatedAtErrorComponent as BreedingsitesListMineUpdatedAtErrorComponent
+from mosquito_alert.models.breedingsites_list_mine_user_uuid_error_component import BreedingsitesListMineUserUuidErrorComponent as BreedingsitesListMineUserUuidErrorComponent
+from mosquito_alert.models.breedingsites_list_mine_validation_error import BreedingsitesListMineValidationError as BreedingsitesListMineValidationError
+from mosquito_alert.models.breedingsites_list_order_by_error_component import BreedingsitesListOrderByErrorComponent as BreedingsitesListOrderByErrorComponent
+from mosquito_alert.models.breedingsites_list_received_at_error_component import BreedingsitesListReceivedAtErrorComponent as BreedingsitesListReceivedAtErrorComponent
+from mosquito_alert.models.breedingsites_list_short_id_error_component import BreedingsitesListShortIdErrorComponent as BreedingsitesListShortIdErrorComponent
+from mosquito_alert.models.breedingsites_list_updated_at_error_component import BreedingsitesListUpdatedAtErrorComponent as BreedingsitesListUpdatedAtErrorComponent
+from mosquito_alert.models.breedingsites_list_user_uuid_error_component import BreedingsitesListUserUuidErrorComponent as BreedingsitesListUserUuidErrorComponent
+from mosquito_alert.models.breedingsites_list_validation_error import BreedingsitesListValidationError as BreedingsitesListValidationError
+from mosquito_alert.models.campaign import Campaign as Campaign
+from mosquito_alert.models.campaigns_list_country_id_error_component import CampaignsListCountryIdErrorComponent as CampaignsListCountryIdErrorComponent
+from mosquito_alert.models.campaigns_list_error import CampaignsListError as CampaignsListError
+from mosquito_alert.models.campaigns_list_order_by_error_component import CampaignsListOrderByErrorComponent as CampaignsListOrderByErrorComponent
+from mosquito_alert.models.campaigns_list_validation_error import CampaignsListValidationError as CampaignsListValidationError
+from mosquito_alert.models.country import Country as Country
+from mosquito_alert.models.country_permission import CountryPermission as CountryPermission
+from mosquito_alert.models.country_request import CountryRequest as CountryRequest
+from mosquito_alert.models.create_notification import CreateNotification as CreateNotification
+from mosquito_alert.models.create_notification_message import CreateNotificationMessage as CreateNotificationMessage
+from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest as CreateNotificationMessageRequest
+from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction as CreatePhotoPrediction
+from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest as CreatePhotoPredictionRequest
+from mosquito_alert.models.device import Device as Device
+from mosquito_alert.models.device_os import DeviceOs as DeviceOs
+from mosquito_alert.models.device_os_request import DeviceOsRequest as DeviceOsRequest
+from mosquito_alert.models.device_request import DeviceRequest as DeviceRequest
+from mosquito_alert.models.device_update import DeviceUpdate as DeviceUpdate
+from mosquito_alert.models.device_update_request import DeviceUpdateRequest as DeviceUpdateRequest
+from mosquito_alert.models.devices_create_device_id_error_component import DevicesCreateDeviceIdErrorComponent as DevicesCreateDeviceIdErrorComponent
+from mosquito_alert.models.devices_create_error import DevicesCreateError as DevicesCreateError
+from mosquito_alert.models.devices_create_fcm_token_error_component import DevicesCreateFcmTokenErrorComponent as DevicesCreateFcmTokenErrorComponent
+from mosquito_alert.models.devices_create_manufacturer_error_component import DevicesCreateManufacturerErrorComponent as DevicesCreateManufacturerErrorComponent
+from mosquito_alert.models.devices_create_mobile_app_non_field_errors_error_component import DevicesCreateMobileAppNonFieldErrorsErrorComponent as DevicesCreateMobileAppNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_create_mobile_app_package_name_error_component import DevicesCreateMobileAppPackageNameErrorComponent as DevicesCreateMobileAppPackageNameErrorComponent
+from mosquito_alert.models.devices_create_mobile_app_package_version_error_component import DevicesCreateMobileAppPackageVersionErrorComponent as DevicesCreateMobileAppPackageVersionErrorComponent
+from mosquito_alert.models.devices_create_model_error_component import DevicesCreateModelErrorComponent as DevicesCreateModelErrorComponent
+from mosquito_alert.models.devices_create_name_error_component import DevicesCreateNameErrorComponent as DevicesCreateNameErrorComponent
+from mosquito_alert.models.devices_create_non_field_errors_error_component import DevicesCreateNonFieldErrorsErrorComponent as DevicesCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_create_os_locale_error_component import DevicesCreateOsLocaleErrorComponent as DevicesCreateOsLocaleErrorComponent
+from mosquito_alert.models.devices_create_os_name_error_component import DevicesCreateOsNameErrorComponent as DevicesCreateOsNameErrorComponent
+from mosquito_alert.models.devices_create_os_non_field_errors_error_component import DevicesCreateOsNonFieldErrorsErrorComponent as DevicesCreateOsNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_create_os_version_error_component import DevicesCreateOsVersionErrorComponent as DevicesCreateOsVersionErrorComponent
+from mosquito_alert.models.devices_create_type_error_component import DevicesCreateTypeErrorComponent as DevicesCreateTypeErrorComponent
+from mosquito_alert.models.devices_create_validation_error import DevicesCreateValidationError as DevicesCreateValidationError
+from mosquito_alert.models.devices_partial_update_error import DevicesPartialUpdateError as DevicesPartialUpdateError
+from mosquito_alert.models.devices_partial_update_fcm_token_error_component import DevicesPartialUpdateFcmTokenErrorComponent as DevicesPartialUpdateFcmTokenErrorComponent
+from mosquito_alert.models.devices_partial_update_mobile_app_non_field_errors_error_component import DevicesPartialUpdateMobileAppNonFieldErrorsErrorComponent as DevicesPartialUpdateMobileAppNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_partial_update_mobile_app_package_name_error_component import DevicesPartialUpdateMobileAppPackageNameErrorComponent as DevicesPartialUpdateMobileAppPackageNameErrorComponent
+from mosquito_alert.models.devices_partial_update_mobile_app_package_version_error_component import DevicesPartialUpdateMobileAppPackageVersionErrorComponent as DevicesPartialUpdateMobileAppPackageVersionErrorComponent
+from mosquito_alert.models.devices_partial_update_name_error_component import DevicesPartialUpdateNameErrorComponent as DevicesPartialUpdateNameErrorComponent
+from mosquito_alert.models.devices_partial_update_non_field_errors_error_component import DevicesPartialUpdateNonFieldErrorsErrorComponent as DevicesPartialUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_partial_update_os_locale_error_component import DevicesPartialUpdateOsLocaleErrorComponent as DevicesPartialUpdateOsLocaleErrorComponent
+from mosquito_alert.models.devices_partial_update_os_name_error_component import DevicesPartialUpdateOsNameErrorComponent as DevicesPartialUpdateOsNameErrorComponent
+from mosquito_alert.models.devices_partial_update_os_non_field_errors_error_component import DevicesPartialUpdateOsNonFieldErrorsErrorComponent as DevicesPartialUpdateOsNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_partial_update_os_version_error_component import DevicesPartialUpdateOsVersionErrorComponent as DevicesPartialUpdateOsVersionErrorComponent
+from mosquito_alert.models.devices_partial_update_validation_error import DevicesPartialUpdateValidationError as DevicesPartialUpdateValidationError
+from mosquito_alert.models.devices_update_error import DevicesUpdateError as DevicesUpdateError
+from mosquito_alert.models.devices_update_fcm_token_error_component import DevicesUpdateFcmTokenErrorComponent as DevicesUpdateFcmTokenErrorComponent
+from mosquito_alert.models.devices_update_mobile_app_non_field_errors_error_component import DevicesUpdateMobileAppNonFieldErrorsErrorComponent as DevicesUpdateMobileAppNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_update_mobile_app_package_name_error_component import DevicesUpdateMobileAppPackageNameErrorComponent as DevicesUpdateMobileAppPackageNameErrorComponent
+from mosquito_alert.models.devices_update_mobile_app_package_version_error_component import DevicesUpdateMobileAppPackageVersionErrorComponent as DevicesUpdateMobileAppPackageVersionErrorComponent
+from mosquito_alert.models.devices_update_name_error_component import DevicesUpdateNameErrorComponent as DevicesUpdateNameErrorComponent
+from mosquito_alert.models.devices_update_non_field_errors_error_component import DevicesUpdateNonFieldErrorsErrorComponent as DevicesUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_update_os_locale_error_component import DevicesUpdateOsLocaleErrorComponent as DevicesUpdateOsLocaleErrorComponent
+from mosquito_alert.models.devices_update_os_name_error_component import DevicesUpdateOsNameErrorComponent as DevicesUpdateOsNameErrorComponent
+from mosquito_alert.models.devices_update_os_non_field_errors_error_component import DevicesUpdateOsNonFieldErrorsErrorComponent as DevicesUpdateOsNonFieldErrorsErrorComponent
+from mosquito_alert.models.devices_update_os_version_error_component import DevicesUpdateOsVersionErrorComponent as DevicesUpdateOsVersionErrorComponent
+from mosquito_alert.models.devices_update_validation_error import DevicesUpdateValidationError as DevicesUpdateValidationError
+from mosquito_alert.models.error401 import Error401 as Error401
+from mosquito_alert.models.error403 import Error403 as Error403
+from mosquito_alert.models.error404 import Error404 as Error404
+from mosquito_alert.models.error_response401 import ErrorResponse401 as ErrorResponse401
+from mosquito_alert.models.error_response403 import ErrorResponse403 as ErrorResponse403
+from mosquito_alert.models.error_response404 import ErrorResponse404 as ErrorResponse404
+from mosquito_alert.models.fix import Fix as Fix
+from mosquito_alert.models.fix_location import FixLocation as FixLocation
+from mosquito_alert.models.fix_location_request import FixLocationRequest as FixLocationRequest
+from mosquito_alert.models.fix_request import FixRequest as FixRequest
+from mosquito_alert.models.fixes_create_coverage_uuid_error_component import FixesCreateCoverageUuidErrorComponent as FixesCreateCoverageUuidErrorComponent
+from mosquito_alert.models.fixes_create_created_at_error_component import FixesCreateCreatedAtErrorComponent as FixesCreateCreatedAtErrorComponent
+from mosquito_alert.models.fixes_create_error import FixesCreateError as FixesCreateError
+from mosquito_alert.models.fixes_create_non_field_errors_error_component import FixesCreateNonFieldErrorsErrorComponent as FixesCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.fixes_create_point_latitude_error_component import FixesCreatePointLatitudeErrorComponent as FixesCreatePointLatitudeErrorComponent
+from mosquito_alert.models.fixes_create_point_longitude_error_component import FixesCreatePointLongitudeErrorComponent as FixesCreatePointLongitudeErrorComponent
+from mosquito_alert.models.fixes_create_point_non_field_errors_error_component import FixesCreatePointNonFieldErrorsErrorComponent as FixesCreatePointNonFieldErrorsErrorComponent
+from mosquito_alert.models.fixes_create_power_error_component import FixesCreatePowerErrorComponent as FixesCreatePowerErrorComponent
+from mosquito_alert.models.fixes_create_sent_at_error_component import FixesCreateSentAtErrorComponent as FixesCreateSentAtErrorComponent
+from mosquito_alert.models.fixes_create_validation_error import FixesCreateValidationError as FixesCreateValidationError
+from mosquito_alert.models.general_permission import GeneralPermission as GeneralPermission
+from mosquito_alert.models.guest_registration import GuestRegistration as GuestRegistration
+from mosquito_alert.models.guest_registration_request import GuestRegistrationRequest as GuestRegistrationRequest
+from mosquito_alert.models.identification import Identification as Identification
+from mosquito_alert.models.identification_request import IdentificationRequest as IdentificationRequest
+from mosquito_alert.models.identification_task import IdentificationTask as IdentificationTask
+from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission as IdentificationTaskPermission
+from mosquito_alert.models.identification_task_result import IdentificationTaskResult as IdentificationTaskResult
+from mosquito_alert.models.identification_task_result_request import IdentificationTaskResultRequest as IdentificationTaskResultRequest
+from mosquito_alert.models.identification_task_review import IdentificationTaskReview as IdentificationTaskReview
+from mosquito_alert.models.identificationtasks_annotations_create_best_photo_uuid_error_component import IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent as IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_is_blood_fed_error_component import IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent as IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_is_gravid_error_component import IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent as IdentificationtasksAnnotationsCreateCharacteristicsIsGravidErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_non_field_errors_error_component import IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent as IdentificationtasksAnnotationsCreateCharacteristicsNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_characteristics_sex_error_component import IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent as IdentificationtasksAnnotationsCreateCharacteristicsSexErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_classification_confidence_label_error_component import IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent as IdentificationtasksAnnotationsCreateClassificationConfidenceLabelErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_classification_non_field_errors_error_component import IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent as IdentificationtasksAnnotationsCreateClassificationNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_classification_taxon_id_error_component import IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent as IdentificationtasksAnnotationsCreateClassificationTaxonIdErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_error import IdentificationtasksAnnotationsCreateError as IdentificationtasksAnnotationsCreateError
+from mosquito_alert.models.identificationtasks_annotations_create_feedback_internal_note_error_component import IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent as IdentificationtasksAnnotationsCreateFeedbackInternalNoteErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_feedback_non_field_errors_error_component import IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent as IdentificationtasksAnnotationsCreateFeedbackNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_feedback_public_note_error_component import IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent as IdentificationtasksAnnotationsCreateFeedbackPublicNoteErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_feedback_user_note_error_component import IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent as IdentificationtasksAnnotationsCreateFeedbackUserNoteErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_is_decisive_error_component import IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent as IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_is_flagged_error_component import IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent as IdentificationtasksAnnotationsCreateIsFlaggedErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_non_field_errors_error_component import IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent as IdentificationtasksAnnotationsCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_is_favourite_error_component import IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent as IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_is_visible_error_component import IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent as IdentificationtasksAnnotationsCreateObservationFlagsIsVisibleErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_observation_flags_non_field_errors_error_component import IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent as IdentificationtasksAnnotationsCreateObservationFlagsNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_tags_error_component import IdentificationtasksAnnotationsCreateTagsErrorComponent as IdentificationtasksAnnotationsCreateTagsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_tags_index_error_component import IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent as IdentificationtasksAnnotationsCreateTagsINDEXErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_create_validation_error import IdentificationtasksAnnotationsCreateValidationError as IdentificationtasksAnnotationsCreateValidationError
+from mosquito_alert.models.identificationtasks_annotations_list_classification_confidence_error_component import IdentificationtasksAnnotationsListClassificationConfidenceErrorComponent as IdentificationtasksAnnotationsListClassificationConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_classification_confidence_label_error_component import IdentificationtasksAnnotationsListClassificationConfidenceLabelErrorComponent as IdentificationtasksAnnotationsListClassificationConfidenceLabelErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_classification_taxon_ids_error_component import IdentificationtasksAnnotationsListClassificationTaxonIdsErrorComponent as IdentificationtasksAnnotationsListClassificationTaxonIdsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_created_at_error_component import IdentificationtasksAnnotationsListCreatedAtErrorComponent as IdentificationtasksAnnotationsListCreatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_error import IdentificationtasksAnnotationsListError as IdentificationtasksAnnotationsListError
+from mosquito_alert.models.identificationtasks_annotations_list_mine_classification_confidence_error_component import IdentificationtasksAnnotationsListMineClassificationConfidenceErrorComponent as IdentificationtasksAnnotationsListMineClassificationConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_classification_confidence_label_error_component import IdentificationtasksAnnotationsListMineClassificationConfidenceLabelErrorComponent as IdentificationtasksAnnotationsListMineClassificationConfidenceLabelErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_classification_taxon_ids_error_component import IdentificationtasksAnnotationsListMineClassificationTaxonIdsErrorComponent as IdentificationtasksAnnotationsListMineClassificationTaxonIdsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_created_at_error_component import IdentificationtasksAnnotationsListMineCreatedAtErrorComponent as IdentificationtasksAnnotationsListMineCreatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_error import IdentificationtasksAnnotationsListMineError as IdentificationtasksAnnotationsListMineError
+from mosquito_alert.models.identificationtasks_annotations_list_mine_order_by_error_component import IdentificationtasksAnnotationsListMineOrderByErrorComponent as IdentificationtasksAnnotationsListMineOrderByErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_type_error_component import IdentificationtasksAnnotationsListMineTypeErrorComponent as IdentificationtasksAnnotationsListMineTypeErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_updated_at_error_component import IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent as IdentificationtasksAnnotationsListMineUpdatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_user_ids_error_component import IdentificationtasksAnnotationsListMineUserIdsErrorComponent as IdentificationtasksAnnotationsListMineUserIdsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_mine_validation_error import IdentificationtasksAnnotationsListMineValidationError as IdentificationtasksAnnotationsListMineValidationError
+from mosquito_alert.models.identificationtasks_annotations_list_order_by_error_component import IdentificationtasksAnnotationsListOrderByErrorComponent as IdentificationtasksAnnotationsListOrderByErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_type_error_component import IdentificationtasksAnnotationsListTypeErrorComponent as IdentificationtasksAnnotationsListTypeErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_updated_at_error_component import IdentificationtasksAnnotationsListUpdatedAtErrorComponent as IdentificationtasksAnnotationsListUpdatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_user_ids_error_component import IdentificationtasksAnnotationsListUserIdsErrorComponent as IdentificationtasksAnnotationsListUserIdsErrorComponent
+from mosquito_alert.models.identificationtasks_annotations_list_validation_error import IdentificationtasksAnnotationsListValidationError as IdentificationtasksAnnotationsListValidationError
+from mosquito_alert.models.identificationtasks_list_annotator_ids_error_component import IdentificationtasksListAnnotatorIdsErrorComponent as IdentificationtasksListAnnotatorIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_assignee_ids_error_component import IdentificationtasksListAssigneeIdsErrorComponent as IdentificationtasksListAssigneeIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_created_at_error_component import IdentificationtasksListCreatedAtErrorComponent as IdentificationtasksListCreatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_list_error import IdentificationtasksListError as IdentificationtasksListError
+from mosquito_alert.models.identificationtasks_list_mine_annotator_ids_error_component import IdentificationtasksListMineAnnotatorIdsErrorComponent as IdentificationtasksListMineAnnotatorIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_assignee_ids_error_component import IdentificationtasksListMineAssigneeIdsErrorComponent as IdentificationtasksListMineAssigneeIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_created_at_error_component import IdentificationtasksListMineCreatedAtErrorComponent as IdentificationtasksListMineCreatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_error import IdentificationtasksListMineError as IdentificationtasksListMineError
+from mosquito_alert.models.identificationtasks_list_mine_num_annotations_error_component import IdentificationtasksListMineNumAnnotationsErrorComponent as IdentificationtasksListMineNumAnnotationsErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_observation_country_ids_error_component import IdentificationtasksListMineObservationCountryIdsErrorComponent as IdentificationtasksListMineObservationCountryIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_order_by_error_component import IdentificationtasksListMineOrderByErrorComponent as IdentificationtasksListMineOrderByErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_result_agreement_error_component import IdentificationtasksListMineResultAgreementErrorComponent as IdentificationtasksListMineResultAgreementErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_result_confidence_error_component import IdentificationtasksListMineResultConfidenceErrorComponent as IdentificationtasksListMineResultConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_result_source_error_component import IdentificationtasksListMineResultSourceErrorComponent as IdentificationtasksListMineResultSourceErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_result_taxon_ids_error_component import IdentificationtasksListMineResultTaxonIdsErrorComponent as IdentificationtasksListMineResultTaxonIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_result_uncertainty_error_component import IdentificationtasksListMineResultUncertaintyErrorComponent as IdentificationtasksListMineResultUncertaintyErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_review_type_error_component import IdentificationtasksListMineReviewTypeErrorComponent as IdentificationtasksListMineReviewTypeErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_status_error_component import IdentificationtasksListMineStatusErrorComponent as IdentificationtasksListMineStatusErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_updated_at_error_component import IdentificationtasksListMineUpdatedAtErrorComponent as IdentificationtasksListMineUpdatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_validation_error import IdentificationtasksListMineValidationError as IdentificationtasksListMineValidationError
+from mosquito_alert.models.identificationtasks_list_num_annotations_error_component import IdentificationtasksListNumAnnotationsErrorComponent as IdentificationtasksListNumAnnotationsErrorComponent
+from mosquito_alert.models.identificationtasks_list_observation_country_ids_error_component import IdentificationtasksListObservationCountryIdsErrorComponent as IdentificationtasksListObservationCountryIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_order_by_error_component import IdentificationtasksListOrderByErrorComponent as IdentificationtasksListOrderByErrorComponent
+from mosquito_alert.models.identificationtasks_list_result_agreement_error_component import IdentificationtasksListResultAgreementErrorComponent as IdentificationtasksListResultAgreementErrorComponent
+from mosquito_alert.models.identificationtasks_list_result_confidence_error_component import IdentificationtasksListResultConfidenceErrorComponent as IdentificationtasksListResultConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_list_result_source_error_component import IdentificationtasksListResultSourceErrorComponent as IdentificationtasksListResultSourceErrorComponent
+from mosquito_alert.models.identificationtasks_list_result_taxon_ids_error_component import IdentificationtasksListResultTaxonIdsErrorComponent as IdentificationtasksListResultTaxonIdsErrorComponent
+from mosquito_alert.models.identificationtasks_list_result_uncertainty_error_component import IdentificationtasksListResultUncertaintyErrorComponent as IdentificationtasksListResultUncertaintyErrorComponent
+from mosquito_alert.models.identificationtasks_list_review_type_error_component import IdentificationtasksListReviewTypeErrorComponent as IdentificationtasksListReviewTypeErrorComponent
+from mosquito_alert.models.identificationtasks_list_status_error_component import IdentificationtasksListStatusErrorComponent as IdentificationtasksListStatusErrorComponent
+from mosquito_alert.models.identificationtasks_list_updated_at_error_component import IdentificationtasksListUpdatedAtErrorComponent as IdentificationtasksListUpdatedAtErrorComponent
+from mosquito_alert.models.identificationtasks_list_validation_error import IdentificationtasksListValidationError as IdentificationtasksListValidationError
+from mosquito_alert.models.identificationtasks_predictions_create_bbox_non_field_errors_error_component import IdentificationtasksPredictionsCreateBboxNonFieldErrorsErrorComponent as IdentificationtasksPredictionsCreateBboxNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_bbox_x_max_error_component import IdentificationtasksPredictionsCreateBboxXMaxErrorComponent as IdentificationtasksPredictionsCreateBboxXMaxErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_bbox_x_min_error_component import IdentificationtasksPredictionsCreateBboxXMinErrorComponent as IdentificationtasksPredictionsCreateBboxXMinErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_bbox_y_max_error_component import IdentificationtasksPredictionsCreateBboxYMaxErrorComponent as IdentificationtasksPredictionsCreateBboxYMaxErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_bbox_y_min_error_component import IdentificationtasksPredictionsCreateBboxYMinErrorComponent as IdentificationtasksPredictionsCreateBboxYMinErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_classifier_version_error_component import IdentificationtasksPredictionsCreateClassifierVersionErrorComponent as IdentificationtasksPredictionsCreateClassifierVersionErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_error import IdentificationtasksPredictionsCreateError as IdentificationtasksPredictionsCreateError
+from mosquito_alert.models.identificationtasks_predictions_create_insect_confidence_error_component import IdentificationtasksPredictionsCreateInsectConfidenceErrorComponent as IdentificationtasksPredictionsCreateInsectConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_is_decisive_error_component import IdentificationtasksPredictionsCreateIsDecisiveErrorComponent as IdentificationtasksPredictionsCreateIsDecisiveErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_non_field_errors_error_component import IdentificationtasksPredictionsCreateNonFieldErrorsErrorComponent as IdentificationtasksPredictionsCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_photo_uuid_error_component import IdentificationtasksPredictionsCreatePhotoUuidErrorComponent as IdentificationtasksPredictionsCreatePhotoUuidErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_predicted_class_error_component import IdentificationtasksPredictionsCreatePredictedClassErrorComponent as IdentificationtasksPredictionsCreatePredictedClassErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_aegypti_error_component import IdentificationtasksPredictionsCreateScoresAeAegyptiErrorComponent as IdentificationtasksPredictionsCreateScoresAeAegyptiErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_albopictus_error_component import IdentificationtasksPredictionsCreateScoresAeAlbopictusErrorComponent as IdentificationtasksPredictionsCreateScoresAeAlbopictusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_japonicus_error_component import IdentificationtasksPredictionsCreateScoresAeJaponicusErrorComponent as IdentificationtasksPredictionsCreateScoresAeJaponicusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_ae_koreicus_error_component import IdentificationtasksPredictionsCreateScoresAeKoreicusErrorComponent as IdentificationtasksPredictionsCreateScoresAeKoreicusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_anopheles_error_component import IdentificationtasksPredictionsCreateScoresAnophelesErrorComponent as IdentificationtasksPredictionsCreateScoresAnophelesErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_culex_error_component import IdentificationtasksPredictionsCreateScoresCulexErrorComponent as IdentificationtasksPredictionsCreateScoresCulexErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_culiseta_error_component import IdentificationtasksPredictionsCreateScoresCulisetaErrorComponent as IdentificationtasksPredictionsCreateScoresCulisetaErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_non_field_errors_error_component import IdentificationtasksPredictionsCreateScoresNonFieldErrorsErrorComponent as IdentificationtasksPredictionsCreateScoresNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_not_sure_error_component import IdentificationtasksPredictionsCreateScoresNotSureErrorComponent as IdentificationtasksPredictionsCreateScoresNotSureErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_scores_other_species_error_component import IdentificationtasksPredictionsCreateScoresOtherSpeciesErrorComponent as IdentificationtasksPredictionsCreateScoresOtherSpeciesErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_threshold_deviation_error_component import IdentificationtasksPredictionsCreateThresholdDeviationErrorComponent as IdentificationtasksPredictionsCreateThresholdDeviationErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_create_validation_error import IdentificationtasksPredictionsCreateValidationError as IdentificationtasksPredictionsCreateValidationError
+from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_non_field_errors_error_component import IdentificationtasksPredictionsPartialUpdateBboxNonFieldErrorsErrorComponent as IdentificationtasksPredictionsPartialUpdateBboxNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_x_max_error_component import IdentificationtasksPredictionsPartialUpdateBboxXMaxErrorComponent as IdentificationtasksPredictionsPartialUpdateBboxXMaxErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_x_min_error_component import IdentificationtasksPredictionsPartialUpdateBboxXMinErrorComponent as IdentificationtasksPredictionsPartialUpdateBboxXMinErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_y_max_error_component import IdentificationtasksPredictionsPartialUpdateBboxYMaxErrorComponent as IdentificationtasksPredictionsPartialUpdateBboxYMaxErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_bbox_y_min_error_component import IdentificationtasksPredictionsPartialUpdateBboxYMinErrorComponent as IdentificationtasksPredictionsPartialUpdateBboxYMinErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_classifier_version_error_component import IdentificationtasksPredictionsPartialUpdateClassifierVersionErrorComponent as IdentificationtasksPredictionsPartialUpdateClassifierVersionErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_error import IdentificationtasksPredictionsPartialUpdateError as IdentificationtasksPredictionsPartialUpdateError
+from mosquito_alert.models.identificationtasks_predictions_partial_update_insect_confidence_error_component import IdentificationtasksPredictionsPartialUpdateInsectConfidenceErrorComponent as IdentificationtasksPredictionsPartialUpdateInsectConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_is_decisive_error_component import IdentificationtasksPredictionsPartialUpdateIsDecisiveErrorComponent as IdentificationtasksPredictionsPartialUpdateIsDecisiveErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_non_field_errors_error_component import IdentificationtasksPredictionsPartialUpdateNonFieldErrorsErrorComponent as IdentificationtasksPredictionsPartialUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_predicted_class_error_component import IdentificationtasksPredictionsPartialUpdatePredictedClassErrorComponent as IdentificationtasksPredictionsPartialUpdatePredictedClassErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_aegypti_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeAegyptiErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresAeAegyptiErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_albopictus_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeAlbopictusErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresAeAlbopictusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_japonicus_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeJaponicusErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresAeJaponicusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_ae_koreicus_error_component import IdentificationtasksPredictionsPartialUpdateScoresAeKoreicusErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresAeKoreicusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_anopheles_error_component import IdentificationtasksPredictionsPartialUpdateScoresAnophelesErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresAnophelesErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_culex_error_component import IdentificationtasksPredictionsPartialUpdateScoresCulexErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresCulexErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_culiseta_error_component import IdentificationtasksPredictionsPartialUpdateScoresCulisetaErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresCulisetaErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_non_field_errors_error_component import IdentificationtasksPredictionsPartialUpdateScoresNonFieldErrorsErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_not_sure_error_component import IdentificationtasksPredictionsPartialUpdateScoresNotSureErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresNotSureErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_scores_other_species_error_component import IdentificationtasksPredictionsPartialUpdateScoresOtherSpeciesErrorComponent as IdentificationtasksPredictionsPartialUpdateScoresOtherSpeciesErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_threshold_deviation_error_component import IdentificationtasksPredictionsPartialUpdateThresholdDeviationErrorComponent as IdentificationtasksPredictionsPartialUpdateThresholdDeviationErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_partial_update_validation_error import IdentificationtasksPredictionsPartialUpdateValidationError as IdentificationtasksPredictionsPartialUpdateValidationError
+from mosquito_alert.models.identificationtasks_predictions_update_bbox_non_field_errors_error_component import IdentificationtasksPredictionsUpdateBboxNonFieldErrorsErrorComponent as IdentificationtasksPredictionsUpdateBboxNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_bbox_x_max_error_component import IdentificationtasksPredictionsUpdateBboxXMaxErrorComponent as IdentificationtasksPredictionsUpdateBboxXMaxErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_bbox_x_min_error_component import IdentificationtasksPredictionsUpdateBboxXMinErrorComponent as IdentificationtasksPredictionsUpdateBboxXMinErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_bbox_y_max_error_component import IdentificationtasksPredictionsUpdateBboxYMaxErrorComponent as IdentificationtasksPredictionsUpdateBboxYMaxErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_bbox_y_min_error_component import IdentificationtasksPredictionsUpdateBboxYMinErrorComponent as IdentificationtasksPredictionsUpdateBboxYMinErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_classifier_version_error_component import IdentificationtasksPredictionsUpdateClassifierVersionErrorComponent as IdentificationtasksPredictionsUpdateClassifierVersionErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_error import IdentificationtasksPredictionsUpdateError as IdentificationtasksPredictionsUpdateError
+from mosquito_alert.models.identificationtasks_predictions_update_insect_confidence_error_component import IdentificationtasksPredictionsUpdateInsectConfidenceErrorComponent as IdentificationtasksPredictionsUpdateInsectConfidenceErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_is_decisive_error_component import IdentificationtasksPredictionsUpdateIsDecisiveErrorComponent as IdentificationtasksPredictionsUpdateIsDecisiveErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_non_field_errors_error_component import IdentificationtasksPredictionsUpdateNonFieldErrorsErrorComponent as IdentificationtasksPredictionsUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_predicted_class_error_component import IdentificationtasksPredictionsUpdatePredictedClassErrorComponent as IdentificationtasksPredictionsUpdatePredictedClassErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_aegypti_error_component import IdentificationtasksPredictionsUpdateScoresAeAegyptiErrorComponent as IdentificationtasksPredictionsUpdateScoresAeAegyptiErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_albopictus_error_component import IdentificationtasksPredictionsUpdateScoresAeAlbopictusErrorComponent as IdentificationtasksPredictionsUpdateScoresAeAlbopictusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_japonicus_error_component import IdentificationtasksPredictionsUpdateScoresAeJaponicusErrorComponent as IdentificationtasksPredictionsUpdateScoresAeJaponicusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_ae_koreicus_error_component import IdentificationtasksPredictionsUpdateScoresAeKoreicusErrorComponent as IdentificationtasksPredictionsUpdateScoresAeKoreicusErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_anopheles_error_component import IdentificationtasksPredictionsUpdateScoresAnophelesErrorComponent as IdentificationtasksPredictionsUpdateScoresAnophelesErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_culex_error_component import IdentificationtasksPredictionsUpdateScoresCulexErrorComponent as IdentificationtasksPredictionsUpdateScoresCulexErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_culiseta_error_component import IdentificationtasksPredictionsUpdateScoresCulisetaErrorComponent as IdentificationtasksPredictionsUpdateScoresCulisetaErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_non_field_errors_error_component import IdentificationtasksPredictionsUpdateScoresNonFieldErrorsErrorComponent as IdentificationtasksPredictionsUpdateScoresNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_not_sure_error_component import IdentificationtasksPredictionsUpdateScoresNotSureErrorComponent as IdentificationtasksPredictionsUpdateScoresNotSureErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_scores_other_species_error_component import IdentificationtasksPredictionsUpdateScoresOtherSpeciesErrorComponent as IdentificationtasksPredictionsUpdateScoresOtherSpeciesErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_threshold_deviation_error_component import IdentificationtasksPredictionsUpdateThresholdDeviationErrorComponent as IdentificationtasksPredictionsUpdateThresholdDeviationErrorComponent
+from mosquito_alert.models.identificationtasks_predictions_update_validation_error import IdentificationtasksPredictionsUpdateValidationError as IdentificationtasksPredictionsUpdateValidationError
+from mosquito_alert.models.localized_message_body import LocalizedMessageBody as LocalizedMessageBody
+from mosquito_alert.models.localized_message_body_request import LocalizedMessageBodyRequest as LocalizedMessageBodyRequest
+from mosquito_alert.models.localized_message_title import LocalizedMessageTitle as LocalizedMessageTitle
+from mosquito_alert.models.localized_message_title_request import LocalizedMessageTitleRequest as LocalizedMessageTitleRequest
+from mosquito_alert.models.location import Location as Location
+from mosquito_alert.models.location_point import LocationPoint as LocationPoint
+from mosquito_alert.models.location_request import LocationRequest as LocationRequest
+from mosquito_alert.models.meta_notification_request import MetaNotificationRequest as MetaNotificationRequest
+from mosquito_alert.models.minimal_user import MinimalUser as MinimalUser
+from mosquito_alert.models.mobile_app import MobileApp as MobileApp
+from mosquito_alert.models.mobile_app_request import MobileAppRequest as MobileAppRequest
+from mosquito_alert.models.mosquito_appearance import MosquitoAppearance as MosquitoAppearance
+from mosquito_alert.models.mosquito_appearance_request import MosquitoAppearanceRequest as MosquitoAppearanceRequest
+from mosquito_alert.models.notification import Notification as Notification
+from mosquito_alert.models.notification_message import NotificationMessage as NotificationMessage
+from mosquito_alert.models.notification_request import NotificationRequest as NotificationRequest
+from mosquito_alert.models.notifications_create_error import NotificationsCreateError as NotificationsCreateError
+from mosquito_alert.models.notifications_create_message_body_bg_error_component import NotificationsCreateMessageBodyBgErrorComponent as NotificationsCreateMessageBodyBgErrorComponent
+from mosquito_alert.models.notifications_create_message_body_bn_error_component import NotificationsCreateMessageBodyBnErrorComponent as NotificationsCreateMessageBodyBnErrorComponent
+from mosquito_alert.models.notifications_create_message_body_ca_error_component import NotificationsCreateMessageBodyCaErrorComponent as NotificationsCreateMessageBodyCaErrorComponent
+from mosquito_alert.models.notifications_create_message_body_de_error_component import NotificationsCreateMessageBodyDeErrorComponent as NotificationsCreateMessageBodyDeErrorComponent
+from mosquito_alert.models.notifications_create_message_body_el_error_component import NotificationsCreateMessageBodyElErrorComponent as NotificationsCreateMessageBodyElErrorComponent
+from mosquito_alert.models.notifications_create_message_body_en_error_component import NotificationsCreateMessageBodyEnErrorComponent as NotificationsCreateMessageBodyEnErrorComponent
+from mosquito_alert.models.notifications_create_message_body_es_error_component import NotificationsCreateMessageBodyEsErrorComponent as NotificationsCreateMessageBodyEsErrorComponent
+from mosquito_alert.models.notifications_create_message_body_eu_error_component import NotificationsCreateMessageBodyEuErrorComponent as NotificationsCreateMessageBodyEuErrorComponent
+from mosquito_alert.models.notifications_create_message_body_fr_error_component import NotificationsCreateMessageBodyFrErrorComponent as NotificationsCreateMessageBodyFrErrorComponent
+from mosquito_alert.models.notifications_create_message_body_gl_error_component import NotificationsCreateMessageBodyGlErrorComponent as NotificationsCreateMessageBodyGlErrorComponent
+from mosquito_alert.models.notifications_create_message_body_hr_error_component import NotificationsCreateMessageBodyHrErrorComponent as NotificationsCreateMessageBodyHrErrorComponent
+from mosquito_alert.models.notifications_create_message_body_hu_error_component import NotificationsCreateMessageBodyHuErrorComponent as NotificationsCreateMessageBodyHuErrorComponent
+from mosquito_alert.models.notifications_create_message_body_it_error_component import NotificationsCreateMessageBodyItErrorComponent as NotificationsCreateMessageBodyItErrorComponent
+from mosquito_alert.models.notifications_create_message_body_lb_error_component import NotificationsCreateMessageBodyLbErrorComponent as NotificationsCreateMessageBodyLbErrorComponent
+from mosquito_alert.models.notifications_create_message_body_mk_error_component import NotificationsCreateMessageBodyMkErrorComponent as NotificationsCreateMessageBodyMkErrorComponent
+from mosquito_alert.models.notifications_create_message_body_nl_error_component import NotificationsCreateMessageBodyNlErrorComponent as NotificationsCreateMessageBodyNlErrorComponent
+from mosquito_alert.models.notifications_create_message_body_non_field_errors_error_component import NotificationsCreateMessageBodyNonFieldErrorsErrorComponent as NotificationsCreateMessageBodyNonFieldErrorsErrorComponent
+from mosquito_alert.models.notifications_create_message_body_pt_error_component import NotificationsCreateMessageBodyPtErrorComponent as NotificationsCreateMessageBodyPtErrorComponent
+from mosquito_alert.models.notifications_create_message_body_ro_error_component import NotificationsCreateMessageBodyRoErrorComponent as NotificationsCreateMessageBodyRoErrorComponent
+from mosquito_alert.models.notifications_create_message_body_sl_error_component import NotificationsCreateMessageBodySlErrorComponent as NotificationsCreateMessageBodySlErrorComponent
+from mosquito_alert.models.notifications_create_message_body_sq_error_component import NotificationsCreateMessageBodySqErrorComponent as NotificationsCreateMessageBodySqErrorComponent
+from mosquito_alert.models.notifications_create_message_body_sr_error_component import NotificationsCreateMessageBodySrErrorComponent as NotificationsCreateMessageBodySrErrorComponent
+from mosquito_alert.models.notifications_create_message_body_sv_error_component import NotificationsCreateMessageBodySvErrorComponent as NotificationsCreateMessageBodySvErrorComponent
+from mosquito_alert.models.notifications_create_message_body_tr_error_component import NotificationsCreateMessageBodyTrErrorComponent as NotificationsCreateMessageBodyTrErrorComponent
+from mosquito_alert.models.notifications_create_message_body_zh_cn_error_component import NotificationsCreateMessageBodyZhCNErrorComponent as NotificationsCreateMessageBodyZhCNErrorComponent
+from mosquito_alert.models.notifications_create_message_non_field_errors_error_component import NotificationsCreateMessageNonFieldErrorsErrorComponent as NotificationsCreateMessageNonFieldErrorsErrorComponent
+from mosquito_alert.models.notifications_create_message_title_bg_error_component import NotificationsCreateMessageTitleBgErrorComponent as NotificationsCreateMessageTitleBgErrorComponent
+from mosquito_alert.models.notifications_create_message_title_bn_error_component import NotificationsCreateMessageTitleBnErrorComponent as NotificationsCreateMessageTitleBnErrorComponent
+from mosquito_alert.models.notifications_create_message_title_ca_error_component import NotificationsCreateMessageTitleCaErrorComponent as NotificationsCreateMessageTitleCaErrorComponent
+from mosquito_alert.models.notifications_create_message_title_de_error_component import NotificationsCreateMessageTitleDeErrorComponent as NotificationsCreateMessageTitleDeErrorComponent
+from mosquito_alert.models.notifications_create_message_title_el_error_component import NotificationsCreateMessageTitleElErrorComponent as NotificationsCreateMessageTitleElErrorComponent
+from mosquito_alert.models.notifications_create_message_title_en_error_component import NotificationsCreateMessageTitleEnErrorComponent as NotificationsCreateMessageTitleEnErrorComponent
+from mosquito_alert.models.notifications_create_message_title_es_error_component import NotificationsCreateMessageTitleEsErrorComponent as NotificationsCreateMessageTitleEsErrorComponent
+from mosquito_alert.models.notifications_create_message_title_eu_error_component import NotificationsCreateMessageTitleEuErrorComponent as NotificationsCreateMessageTitleEuErrorComponent
+from mosquito_alert.models.notifications_create_message_title_fr_error_component import NotificationsCreateMessageTitleFrErrorComponent as NotificationsCreateMessageTitleFrErrorComponent
+from mosquito_alert.models.notifications_create_message_title_gl_error_component import NotificationsCreateMessageTitleGlErrorComponent as NotificationsCreateMessageTitleGlErrorComponent
+from mosquito_alert.models.notifications_create_message_title_hr_error_component import NotificationsCreateMessageTitleHrErrorComponent as NotificationsCreateMessageTitleHrErrorComponent
+from mosquito_alert.models.notifications_create_message_title_hu_error_component import NotificationsCreateMessageTitleHuErrorComponent as NotificationsCreateMessageTitleHuErrorComponent
+from mosquito_alert.models.notifications_create_message_title_it_error_component import NotificationsCreateMessageTitleItErrorComponent as NotificationsCreateMessageTitleItErrorComponent
+from mosquito_alert.models.notifications_create_message_title_lb_error_component import NotificationsCreateMessageTitleLbErrorComponent as NotificationsCreateMessageTitleLbErrorComponent
+from mosquito_alert.models.notifications_create_message_title_mk_error_component import NotificationsCreateMessageTitleMkErrorComponent as NotificationsCreateMessageTitleMkErrorComponent
+from mosquito_alert.models.notifications_create_message_title_nl_error_component import NotificationsCreateMessageTitleNlErrorComponent as NotificationsCreateMessageTitleNlErrorComponent
+from mosquito_alert.models.notifications_create_message_title_non_field_errors_error_component import NotificationsCreateMessageTitleNonFieldErrorsErrorComponent as NotificationsCreateMessageTitleNonFieldErrorsErrorComponent
+from mosquito_alert.models.notifications_create_message_title_pt_error_component import NotificationsCreateMessageTitlePtErrorComponent as NotificationsCreateMessageTitlePtErrorComponent
+from mosquito_alert.models.notifications_create_message_title_ro_error_component import NotificationsCreateMessageTitleRoErrorComponent as NotificationsCreateMessageTitleRoErrorComponent
+from mosquito_alert.models.notifications_create_message_title_sl_error_component import NotificationsCreateMessageTitleSlErrorComponent as NotificationsCreateMessageTitleSlErrorComponent
+from mosquito_alert.models.notifications_create_message_title_sq_error_component import NotificationsCreateMessageTitleSqErrorComponent as NotificationsCreateMessageTitleSqErrorComponent
+from mosquito_alert.models.notifications_create_message_title_sr_error_component import NotificationsCreateMessageTitleSrErrorComponent as NotificationsCreateMessageTitleSrErrorComponent
+from mosquito_alert.models.notifications_create_message_title_sv_error_component import NotificationsCreateMessageTitleSvErrorComponent as NotificationsCreateMessageTitleSvErrorComponent
+from mosquito_alert.models.notifications_create_message_title_tr_error_component import NotificationsCreateMessageTitleTrErrorComponent as NotificationsCreateMessageTitleTrErrorComponent
+from mosquito_alert.models.notifications_create_message_title_zh_cn_error_component import NotificationsCreateMessageTitleZhCNErrorComponent as NotificationsCreateMessageTitleZhCNErrorComponent
+from mosquito_alert.models.notifications_create_non_field_errors_error_component import NotificationsCreateNonFieldErrorsErrorComponent as NotificationsCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.notifications_create_receiver_type_error_component import NotificationsCreateReceiverTypeErrorComponent as NotificationsCreateReceiverTypeErrorComponent
+from mosquito_alert.models.notifications_create_topic_codes_error_component import NotificationsCreateTopicCodesErrorComponent as NotificationsCreateTopicCodesErrorComponent
+from mosquito_alert.models.notifications_create_topic_codes_index_error_component import NotificationsCreateTopicCodesINDEXErrorComponent as NotificationsCreateTopicCodesINDEXErrorComponent
+from mosquito_alert.models.notifications_create_user_uuids_error_component import NotificationsCreateUserUuidsErrorComponent as NotificationsCreateUserUuidsErrorComponent
+from mosquito_alert.models.notifications_create_user_uuids_index_error_component import NotificationsCreateUserUuidsINDEXErrorComponent as NotificationsCreateUserUuidsINDEXErrorComponent
+from mosquito_alert.models.notifications_create_validation_error import NotificationsCreateValidationError as NotificationsCreateValidationError
+from mosquito_alert.models.notifications_list_mine_order_by_error_component import NotificationsListMineOrderByErrorComponent as NotificationsListMineOrderByErrorComponent
+from mosquito_alert.models.notifications_list_mine_validation_error import NotificationsListMineValidationError as NotificationsListMineValidationError
+from mosquito_alert.models.notifications_list_order_by_error_component import NotificationsListOrderByErrorComponent as NotificationsListOrderByErrorComponent
+from mosquito_alert.models.notifications_list_validation_error import NotificationsListValidationError as NotificationsListValidationError
+from mosquito_alert.models.notifications_partial_update_error import NotificationsPartialUpdateError as NotificationsPartialUpdateError
+from mosquito_alert.models.notifications_partial_update_is_read_error_component import NotificationsPartialUpdateIsReadErrorComponent as NotificationsPartialUpdateIsReadErrorComponent
+from mosquito_alert.models.notifications_partial_update_non_field_errors_error_component import NotificationsPartialUpdateNonFieldErrorsErrorComponent as NotificationsPartialUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.notifications_partial_update_validation_error import NotificationsPartialUpdateValidationError as NotificationsPartialUpdateValidationError
+from mosquito_alert.models.notifications_update_error import NotificationsUpdateError as NotificationsUpdateError
+from mosquito_alert.models.notifications_update_is_read_error_component import NotificationsUpdateIsReadErrorComponent as NotificationsUpdateIsReadErrorComponent
+from mosquito_alert.models.notifications_update_non_field_errors_error_component import NotificationsUpdateNonFieldErrorsErrorComponent as NotificationsUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.notifications_update_validation_error import NotificationsUpdateValidationError as NotificationsUpdateValidationError
+from mosquito_alert.models.observation import Observation as Observation
+from mosquito_alert.models.observation_flags import ObservationFlags as ObservationFlags
+from mosquito_alert.models.observation_flags_request import ObservationFlagsRequest as ObservationFlagsRequest
+from mosquito_alert.models.observations_create_created_at_error_component import ObservationsCreateCreatedAtErrorComponent as ObservationsCreateCreatedAtErrorComponent
+from mosquito_alert.models.observations_create_error import ObservationsCreateError as ObservationsCreateError
+from mosquito_alert.models.observations_create_event_environment_error_component import ObservationsCreateEventEnvironmentErrorComponent as ObservationsCreateEventEnvironmentErrorComponent
+from mosquito_alert.models.observations_create_event_moment_error_component import ObservationsCreateEventMomentErrorComponent as ObservationsCreateEventMomentErrorComponent
+from mosquito_alert.models.observations_create_location_non_field_errors_error_component import ObservationsCreateLocationNonFieldErrorsErrorComponent as ObservationsCreateLocationNonFieldErrorsErrorComponent
+from mosquito_alert.models.observations_create_location_point_error_component import ObservationsCreateLocationPointErrorComponent as ObservationsCreateLocationPointErrorComponent
+from mosquito_alert.models.observations_create_location_source_error_component import ObservationsCreateLocationSourceErrorComponent as ObservationsCreateLocationSourceErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_abdomen_error_component import ObservationsCreateMosquitoAppearanceAbdomenErrorComponent as ObservationsCreateMosquitoAppearanceAbdomenErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_legs_error_component import ObservationsCreateMosquitoAppearanceLegsErrorComponent as ObservationsCreateMosquitoAppearanceLegsErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_non_field_errors_error_component import ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent as ObservationsCreateMosquitoAppearanceNonFieldErrorsErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_specie_error_component import ObservationsCreateMosquitoAppearanceSpecieErrorComponent as ObservationsCreateMosquitoAppearanceSpecieErrorComponent
+from mosquito_alert.models.observations_create_mosquito_appearance_thorax_error_component import ObservationsCreateMosquitoAppearanceThoraxErrorComponent as ObservationsCreateMosquitoAppearanceThoraxErrorComponent
+from mosquito_alert.models.observations_create_non_field_errors_error_component import ObservationsCreateNonFieldErrorsErrorComponent as ObservationsCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.observations_create_note_error_component import ObservationsCreateNoteErrorComponent as ObservationsCreateNoteErrorComponent
+from mosquito_alert.models.observations_create_photos_index_file_error_component import ObservationsCreatePhotosINDEXFileErrorComponent as ObservationsCreatePhotosINDEXFileErrorComponent
+from mosquito_alert.models.observations_create_photos_index_non_field_errors_error_component import ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent as ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent
+from mosquito_alert.models.observations_create_photos_non_field_errors_error_component import ObservationsCreatePhotosNonFieldErrorsErrorComponent as ObservationsCreatePhotosNonFieldErrorsErrorComponent
+from mosquito_alert.models.observations_create_sent_at_error_component import ObservationsCreateSentAtErrorComponent as ObservationsCreateSentAtErrorComponent
+from mosquito_alert.models.observations_create_tags_error_component import ObservationsCreateTagsErrorComponent as ObservationsCreateTagsErrorComponent
+from mosquito_alert.models.observations_create_tags_index_error_component import ObservationsCreateTagsINDEXErrorComponent as ObservationsCreateTagsINDEXErrorComponent
+from mosquito_alert.models.observations_create_validation_error import ObservationsCreateValidationError as ObservationsCreateValidationError
+from mosquito_alert.models.observations_list_country_id_error_component import ObservationsListCountryIdErrorComponent as ObservationsListCountryIdErrorComponent
+from mosquito_alert.models.observations_list_created_at_error_component import ObservationsListCreatedAtErrorComponent as ObservationsListCreatedAtErrorComponent
+from mosquito_alert.models.observations_list_error import ObservationsListError as ObservationsListError
+from mosquito_alert.models.observations_list_identification_taxon_ids_error_component import ObservationsListIdentificationTaxonIdsErrorComponent as ObservationsListIdentificationTaxonIdsErrorComponent
+from mosquito_alert.models.observations_list_mine_country_id_error_component import ObservationsListMineCountryIdErrorComponent as ObservationsListMineCountryIdErrorComponent
+from mosquito_alert.models.observations_list_mine_created_at_error_component import ObservationsListMineCreatedAtErrorComponent as ObservationsListMineCreatedAtErrorComponent
+from mosquito_alert.models.observations_list_mine_error import ObservationsListMineError as ObservationsListMineError
+from mosquito_alert.models.observations_list_mine_identification_taxon_ids_error_component import ObservationsListMineIdentificationTaxonIdsErrorComponent as ObservationsListMineIdentificationTaxonIdsErrorComponent
+from mosquito_alert.models.observations_list_mine_order_by_error_component import ObservationsListMineOrderByErrorComponent as ObservationsListMineOrderByErrorComponent
+from mosquito_alert.models.observations_list_mine_received_at_error_component import ObservationsListMineReceivedAtErrorComponent as ObservationsListMineReceivedAtErrorComponent
+from mosquito_alert.models.observations_list_mine_short_id_error_component import ObservationsListMineShortIdErrorComponent as ObservationsListMineShortIdErrorComponent
+from mosquito_alert.models.observations_list_mine_updated_at_error_component import ObservationsListMineUpdatedAtErrorComponent as ObservationsListMineUpdatedAtErrorComponent
+from mosquito_alert.models.observations_list_mine_user_uuid_error_component import ObservationsListMineUserUuidErrorComponent as ObservationsListMineUserUuidErrorComponent
+from mosquito_alert.models.observations_list_mine_validation_error import ObservationsListMineValidationError as ObservationsListMineValidationError
+from mosquito_alert.models.observations_list_order_by_error_component import ObservationsListOrderByErrorComponent as ObservationsListOrderByErrorComponent
+from mosquito_alert.models.observations_list_received_at_error_component import ObservationsListReceivedAtErrorComponent as ObservationsListReceivedAtErrorComponent
+from mosquito_alert.models.observations_list_short_id_error_component import ObservationsListShortIdErrorComponent as ObservationsListShortIdErrorComponent
+from mosquito_alert.models.observations_list_updated_at_error_component import ObservationsListUpdatedAtErrorComponent as ObservationsListUpdatedAtErrorComponent
+from mosquito_alert.models.observations_list_user_uuid_error_component import ObservationsListUserUuidErrorComponent as ObservationsListUserUuidErrorComponent
+from mosquito_alert.models.observations_list_validation_error import ObservationsListValidationError as ObservationsListValidationError
+from mosquito_alert.models.paginated_annotation_list import PaginatedAnnotationList as PaginatedAnnotationList
+from mosquito_alert.models.paginated_bite_list import PaginatedBiteList as PaginatedBiteList
+from mosquito_alert.models.paginated_breeding_site_list import PaginatedBreedingSiteList as PaginatedBreedingSiteList
+from mosquito_alert.models.paginated_campaign_list import PaginatedCampaignList as PaginatedCampaignList
+from mosquito_alert.models.paginated_country_list import PaginatedCountryList as PaginatedCountryList
+from mosquito_alert.models.paginated_identification_task_list import PaginatedIdentificationTaskList as PaginatedIdentificationTaskList
+from mosquito_alert.models.paginated_notification_list import PaginatedNotificationList as PaginatedNotificationList
+from mosquito_alert.models.paginated_observation_list import PaginatedObservationList as PaginatedObservationList
+from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList as PaginatedPartnerList
+from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList as PaginatedPhotoPredictionList
+from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList as PaginatedTaxonList
+from mosquito_alert.models.partner import Partner as Partner
+from mosquito_alert.models.password_change_request import PasswordChangeRequest as PasswordChangeRequest
+from mosquito_alert.models.patched_device_update_request import PatchedDeviceUpdateRequest as PatchedDeviceUpdateRequest
+from mosquito_alert.models.patched_notification_request import PatchedNotificationRequest as PatchedNotificationRequest
+from mosquito_alert.models.patched_photo_prediction_request import PatchedPhotoPredictionRequest as PatchedPhotoPredictionRequest
+from mosquito_alert.models.patched_user_request import PatchedUserRequest as PatchedUserRequest
+from mosquito_alert.models.permissions import Permissions as Permissions
+from mosquito_alert.models.photo import Photo as Photo
+from mosquito_alert.models.photo_prediction import PhotoPrediction as PhotoPrediction
+from mosquito_alert.models.photo_prediction_request import PhotoPredictionRequest as PhotoPredictionRequest
+from mosquito_alert.models.photos_prediction_partial_update_bbox_non_field_errors_error_component import PhotosPredictionPartialUpdateBboxNonFieldErrorsErrorComponent as PhotosPredictionPartialUpdateBboxNonFieldErrorsErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_bbox_x_max_error_component import PhotosPredictionPartialUpdateBboxXMaxErrorComponent as PhotosPredictionPartialUpdateBboxXMaxErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_bbox_x_min_error_component import PhotosPredictionPartialUpdateBboxXMinErrorComponent as PhotosPredictionPartialUpdateBboxXMinErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_bbox_y_max_error_component import PhotosPredictionPartialUpdateBboxYMaxErrorComponent as PhotosPredictionPartialUpdateBboxYMaxErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_bbox_y_min_error_component import PhotosPredictionPartialUpdateBboxYMinErrorComponent as PhotosPredictionPartialUpdateBboxYMinErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_classifier_version_error_component import PhotosPredictionPartialUpdateClassifierVersionErrorComponent as PhotosPredictionPartialUpdateClassifierVersionErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_error import PhotosPredictionPartialUpdateError as PhotosPredictionPartialUpdateError
+from mosquito_alert.models.photos_prediction_partial_update_insect_confidence_error_component import PhotosPredictionPartialUpdateInsectConfidenceErrorComponent as PhotosPredictionPartialUpdateInsectConfidenceErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_is_decisive_error_component import PhotosPredictionPartialUpdateIsDecisiveErrorComponent as PhotosPredictionPartialUpdateIsDecisiveErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_non_field_errors_error_component import PhotosPredictionPartialUpdateNonFieldErrorsErrorComponent as PhotosPredictionPartialUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_predicted_class_error_component import PhotosPredictionPartialUpdatePredictedClassErrorComponent as PhotosPredictionPartialUpdatePredictedClassErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_ae_aegypti_error_component import PhotosPredictionPartialUpdateScoresAeAegyptiErrorComponent as PhotosPredictionPartialUpdateScoresAeAegyptiErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_ae_albopictus_error_component import PhotosPredictionPartialUpdateScoresAeAlbopictusErrorComponent as PhotosPredictionPartialUpdateScoresAeAlbopictusErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_ae_japonicus_error_component import PhotosPredictionPartialUpdateScoresAeJaponicusErrorComponent as PhotosPredictionPartialUpdateScoresAeJaponicusErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_ae_koreicus_error_component import PhotosPredictionPartialUpdateScoresAeKoreicusErrorComponent as PhotosPredictionPartialUpdateScoresAeKoreicusErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_anopheles_error_component import PhotosPredictionPartialUpdateScoresAnophelesErrorComponent as PhotosPredictionPartialUpdateScoresAnophelesErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_culex_error_component import PhotosPredictionPartialUpdateScoresCulexErrorComponent as PhotosPredictionPartialUpdateScoresCulexErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_culiseta_error_component import PhotosPredictionPartialUpdateScoresCulisetaErrorComponent as PhotosPredictionPartialUpdateScoresCulisetaErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_non_field_errors_error_component import PhotosPredictionPartialUpdateScoresNonFieldErrorsErrorComponent as PhotosPredictionPartialUpdateScoresNonFieldErrorsErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_not_sure_error_component import PhotosPredictionPartialUpdateScoresNotSureErrorComponent as PhotosPredictionPartialUpdateScoresNotSureErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_scores_other_species_error_component import PhotosPredictionPartialUpdateScoresOtherSpeciesErrorComponent as PhotosPredictionPartialUpdateScoresOtherSpeciesErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_threshold_deviation_error_component import PhotosPredictionPartialUpdateThresholdDeviationErrorComponent as PhotosPredictionPartialUpdateThresholdDeviationErrorComponent
+from mosquito_alert.models.photos_prediction_partial_update_validation_error import PhotosPredictionPartialUpdateValidationError as PhotosPredictionPartialUpdateValidationError
+from mosquito_alert.models.photos_prediction_update_bbox_non_field_errors_error_component import PhotosPredictionUpdateBboxNonFieldErrorsErrorComponent as PhotosPredictionUpdateBboxNonFieldErrorsErrorComponent
+from mosquito_alert.models.photos_prediction_update_bbox_x_max_error_component import PhotosPredictionUpdateBboxXMaxErrorComponent as PhotosPredictionUpdateBboxXMaxErrorComponent
+from mosquito_alert.models.photos_prediction_update_bbox_x_min_error_component import PhotosPredictionUpdateBboxXMinErrorComponent as PhotosPredictionUpdateBboxXMinErrorComponent
+from mosquito_alert.models.photos_prediction_update_bbox_y_max_error_component import PhotosPredictionUpdateBboxYMaxErrorComponent as PhotosPredictionUpdateBboxYMaxErrorComponent
+from mosquito_alert.models.photos_prediction_update_bbox_y_min_error_component import PhotosPredictionUpdateBboxYMinErrorComponent as PhotosPredictionUpdateBboxYMinErrorComponent
+from mosquito_alert.models.photos_prediction_update_classifier_version_error_component import PhotosPredictionUpdateClassifierVersionErrorComponent as PhotosPredictionUpdateClassifierVersionErrorComponent
+from mosquito_alert.models.photos_prediction_update_error import PhotosPredictionUpdateError as PhotosPredictionUpdateError
+from mosquito_alert.models.photos_prediction_update_insect_confidence_error_component import PhotosPredictionUpdateInsectConfidenceErrorComponent as PhotosPredictionUpdateInsectConfidenceErrorComponent
+from mosquito_alert.models.photos_prediction_update_is_decisive_error_component import PhotosPredictionUpdateIsDecisiveErrorComponent as PhotosPredictionUpdateIsDecisiveErrorComponent
+from mosquito_alert.models.photos_prediction_update_non_field_errors_error_component import PhotosPredictionUpdateNonFieldErrorsErrorComponent as PhotosPredictionUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.photos_prediction_update_predicted_class_error_component import PhotosPredictionUpdatePredictedClassErrorComponent as PhotosPredictionUpdatePredictedClassErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_ae_aegypti_error_component import PhotosPredictionUpdateScoresAeAegyptiErrorComponent as PhotosPredictionUpdateScoresAeAegyptiErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_ae_albopictus_error_component import PhotosPredictionUpdateScoresAeAlbopictusErrorComponent as PhotosPredictionUpdateScoresAeAlbopictusErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_ae_japonicus_error_component import PhotosPredictionUpdateScoresAeJaponicusErrorComponent as PhotosPredictionUpdateScoresAeJaponicusErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_ae_koreicus_error_component import PhotosPredictionUpdateScoresAeKoreicusErrorComponent as PhotosPredictionUpdateScoresAeKoreicusErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_anopheles_error_component import PhotosPredictionUpdateScoresAnophelesErrorComponent as PhotosPredictionUpdateScoresAnophelesErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_culex_error_component import PhotosPredictionUpdateScoresCulexErrorComponent as PhotosPredictionUpdateScoresCulexErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_culiseta_error_component import PhotosPredictionUpdateScoresCulisetaErrorComponent as PhotosPredictionUpdateScoresCulisetaErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_non_field_errors_error_component import PhotosPredictionUpdateScoresNonFieldErrorsErrorComponent as PhotosPredictionUpdateScoresNonFieldErrorsErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_not_sure_error_component import PhotosPredictionUpdateScoresNotSureErrorComponent as PhotosPredictionUpdateScoresNotSureErrorComponent
+from mosquito_alert.models.photos_prediction_update_scores_other_species_error_component import PhotosPredictionUpdateScoresOtherSpeciesErrorComponent as PhotosPredictionUpdateScoresOtherSpeciesErrorComponent
+from mosquito_alert.models.photos_prediction_update_threshold_deviation_error_component import PhotosPredictionUpdateThresholdDeviationErrorComponent as PhotosPredictionUpdateThresholdDeviationErrorComponent
+from mosquito_alert.models.photos_prediction_update_validation_error import PhotosPredictionUpdateValidationError as PhotosPredictionUpdateValidationError
+from mosquito_alert.models.prediction_score import PredictionScore as PredictionScore
+from mosquito_alert.models.prediction_score_request import PredictionScoreRequest as PredictionScoreRequest
+from mosquito_alert.models.review_permission import ReviewPermission as ReviewPermission
+from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser as SimpleAnnotatorUser
+from mosquito_alert.models.simple_photo import SimplePhoto as SimplePhoto
+from mosquito_alert.models.simple_photo_request import SimplePhotoRequest as SimplePhotoRequest
+from mosquito_alert.models.simple_taxon import SimpleTaxon as SimpleTaxon
+from mosquito_alert.models.simple_taxon_request import SimpleTaxonRequest as SimpleTaxonRequest
+from mosquito_alert.models.simplified_location import SimplifiedLocation as SimplifiedLocation
+from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos as SimplifiedObservationWithPhotos
+from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent as TaxaListRankErrorComponent
+from mosquito_alert.models.taxa_list_validation_error import TaxaListValidationError as TaxaListValidationError
+from mosquito_alert.models.taxon import Taxon as Taxon
+from mosquito_alert.models.taxon_tree_node import TaxonTreeNode as TaxonTreeNode
+from mosquito_alert.models.token_refresh import TokenRefresh as TokenRefresh
+from mosquito_alert.models.token_refresh_request import TokenRefreshRequest as TokenRefreshRequest
+from mosquito_alert.models.token_verify_request import TokenVerifyRequest as TokenVerifyRequest
+from mosquito_alert.models.topic_notification_create_request import TopicNotificationCreateRequest as TopicNotificationCreateRequest
+from mosquito_alert.models.user import User as User
+from mosquito_alert.models.user_assignment import UserAssignment as UserAssignment
+from mosquito_alert.models.user_notification_create_request import UserNotificationCreateRequest as UserNotificationCreateRequest
+from mosquito_alert.models.user_permission import UserPermission as UserPermission
+from mosquito_alert.models.user_request import UserRequest as UserRequest
+from mosquito_alert.models.user_score import UserScore as UserScore
+from mosquito_alert.models.users_partial_update_error import UsersPartialUpdateError as UsersPartialUpdateError
+from mosquito_alert.models.users_partial_update_locale_error_component import UsersPartialUpdateLocaleErrorComponent as UsersPartialUpdateLocaleErrorComponent
+from mosquito_alert.models.users_partial_update_non_field_errors_error_component import UsersPartialUpdateNonFieldErrorsErrorComponent as UsersPartialUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.users_partial_update_validation_error import UsersPartialUpdateValidationError as UsersPartialUpdateValidationError
+from mosquito_alert.models.users_update_error import UsersUpdateError as UsersUpdateError
+from mosquito_alert.models.users_update_locale_error_component import UsersUpdateLocaleErrorComponent as UsersUpdateLocaleErrorComponent
+from mosquito_alert.models.users_update_non_field_errors_error_component import UsersUpdateNonFieldErrorsErrorComponent as UsersUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.users_update_validation_error import UsersUpdateValidationError as UsersUpdateValidationError

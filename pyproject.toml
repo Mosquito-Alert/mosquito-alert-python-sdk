@@ -1,23 +1,29 @@
-[tool.poetry]
+[project]
 name = "mosquito_alert"
 version = "0.1.21"
 description = "Mosquito Alert API"
-authors = ["Developers <it@mosquitoalert.com>"]
+authors = [
+  {name = "Developers",email = "it@mosquitoalert.com"},
+]
 license = "GPL-3"
 readme = "README.md"
-repository = "https://github.com/Mosquito-Alert/mosquito-alert-python-sdk"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Mosquito Alert API"]
-include = ["mosquito_alert/py.typed"]
+requires-python = ">=3.9"
 
-[tool.poetry.dependencies]
-python = "^3.9"
+dependencies = [
+  "urllib3 (>=2.1.0,<3.0.0)",
+  "python-dateutil (>=2.8.2)",
+  "pydantic (>=2)",
+  "typing-extensions (>=4.7.1)"
+]
 
-urllib3 = ">= 2.1.0, < 3.0.0"
-python-dateutil = ">= 2.8.2"
-pydantic = ">= 2"
-typing-extensions = ">= 4.7.1"
+[project.urls]
+Repository = "https://github.com/Mosquito-Alert/mosquito-alert-python-sdk"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry]
+requires-poetry = ">=2.0"
+
+[tool.poetry.group.dev.dependencies]
 pytest = ">= 7.2.1"
 pytest-cov = ">= 2.8.1"
 tox = ">= 3.9.0"

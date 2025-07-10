@@ -7,6 +7,9 @@ name: mosquito_alert Python package
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   build:
 
