@@ -37,12 +37,12 @@ class TestMobileApp(unittest.TestCase):
         if include_optional:
             return MobileApp(
                 package_name = '',
-                package_version = ''
+                package_version = '4.072888001528021798096225500850762068629.39333975650685139102691291732729478601482026'
             )
         else:
             return MobileApp(
                 package_name = '',
-                package_version = '',
+                package_version = '4.072888001528021798096225500850762068629.39333975650685139102691291732729478601482026',
         )
         """
 

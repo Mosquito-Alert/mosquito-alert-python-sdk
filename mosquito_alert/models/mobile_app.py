@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -31,6 +31,13 @@ class MobileApp(BaseModel):
     package_name: Annotated[str, Field(strict=True, max_length=128)]
     package_version: Annotated[str, Field(strict=True, max_length=32)]
     __properties: ClassVar[List[str]] = ["package_name", "package_version"]
+
+    @field_validator('package_version')
+    def package_version_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^(\d+)\.(\d+)\.(\d+)(?:-([0-9a-zA-Z.-]+))?(?:\+([0-9a-zA-Z.-]+))?$", value):
+            raise ValueError(r"must validate the regular expression /^(\d+)\.(\d+)\.(\d+)(?:-([0-9a-zA-Z.-]+))?(?:\+([0-9a-zA-Z.-]+))?$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

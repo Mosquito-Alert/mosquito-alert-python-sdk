@@ -37,12 +37,12 @@ class TestMobileAppRequest(unittest.TestCase):
         if include_optional:
             return MobileAppRequest(
                 package_name = '0',
-                package_version = '0'
+                package_version = '4.072888001528021798096225500850762068629.393339756506851391026912917327294786014820260'
             )
         else:
             return MobileAppRequest(
                 package_name = '0',
-                package_version = '0',
+                package_version = '4.072888001528021798096225500850762068629.393339756506851391026912917327294786014820260',
         )
         """
 

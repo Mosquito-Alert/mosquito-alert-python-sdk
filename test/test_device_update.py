@@ -47,7 +47,7 @@ class TestDeviceUpdate(unittest.TestCase):
                     locale = '', ),
                 mobile_app = mosquito_alert.models.mobile_app.MobileApp(
                     package_name = '', 
-                    package_version = '', ),
+                    package_version = '4.072888001528021798096225500850762068629.39333975650685139102691291732729478601482026', ),
                 user_uuid = '',
                 last_login = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
