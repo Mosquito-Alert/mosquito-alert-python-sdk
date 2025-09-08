@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identification_task_result_request import IdentificationTaskResultRequest
+from mosquito_alert.models.create_agree_review_request import CreateAgreeReviewRequest
 
-class TestIdentificationTaskResultRequest(unittest.TestCase):
-    """IdentificationTaskResultRequest unit test stubs"""
+class TestCreateAgreeReviewRequest(unittest.TestCase):
+    """CreateAgreeReviewRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,26 +26,25 @@ class TestIdentificationTaskResultRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationTaskResultRequest:
-        """Test IdentificationTaskResultRequest
+    def make_instance(self, include_optional) -> CreateAgreeReviewRequest:
+        """Test CreateAgreeReviewRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationTaskResultRequest`
+        # uncomment below to create an instance of `CreateAgreeReviewRequest`
         """
-        model = IdentificationTaskResultRequest()
+        model = CreateAgreeReviewRequest()
         if include_optional:
-            return IdentificationTaskResultRequest(
-                source = 'expert'
+            return CreateAgreeReviewRequest(
+                action = 'agree'
             )
         else:
-            return IdentificationTaskResultRequest(
-                source = 'expert',
+            return CreateAgreeReviewRequest(
         )
         """
 
-    def testIdentificationTaskResultRequest(self):
-        """Test IdentificationTaskResultRequest"""
+    def testCreateAgreeReviewRequest(self):
+        """Test CreateAgreeReviewRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

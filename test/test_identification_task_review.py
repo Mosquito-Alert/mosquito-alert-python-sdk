@@ -36,12 +36,12 @@ class TestIdentificationTaskReview(unittest.TestCase):
         model = IdentificationTaskReview()
         if include_optional:
             return IdentificationTaskReview(
-                type = 'agree',
+                action = 'agree',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return IdentificationTaskReview(
-                type = 'agree',
+                action = 'agree',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
         """

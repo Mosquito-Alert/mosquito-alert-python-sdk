@@ -37,7 +37,7 @@ class IdentificationTask(BaseModel):
     observation: SimplifiedObservationWithPhotos
     public_photo: SimplePhoto
     assignments: List[UserAssignment]
-    status: Optional[StrictStr] = 'open'
+    status: StrictStr
     is_flagged: StrictBool
     is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
     public_note: Optional[StrictStr]
@@ -51,9 +51,6 @@ class IdentificationTask(BaseModel):
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['open', 'conflict', 'review', 'done', 'archived']):
             raise ValueError("must be one of enum values ('open', 'conflict', 'review', 'done', 'archived')")
         return value
@@ -98,10 +95,14 @@ class IdentificationTask(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "observation",
+            "public_photo",
             "assignments",
+            "status",
             "is_flagged",
             "is_safe",
             "public_note",

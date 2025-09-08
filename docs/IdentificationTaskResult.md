@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | **str** |  | 
+**source** | **str** |  | [readonly] 
 **taxon** | [**SimpleTaxon**](SimpleTaxon.md) |  | [readonly] 
 **is_high_confidence** | **bool** |  | [readonly] 
 **confidence** | **float** |  | [readonly] 

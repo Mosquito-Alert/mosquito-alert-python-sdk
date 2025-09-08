@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_mine_error import IdentificationtasksListMineError
+from mosquito_alert.models.identificationtasks_review_create_public_note_error_component import IdentificationtasksReviewCreatePublicNoteErrorComponent
 
-class TestIdentificationtasksListMineError(unittest.TestCase):
-    """IdentificationtasksListMineError unit test stubs"""
+class TestIdentificationtasksReviewCreatePublicNoteErrorComponent(unittest.TestCase):
+    """IdentificationtasksReviewCreatePublicNoteErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListMineError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListMineError:
-        """Test IdentificationtasksListMineError
+    def make_instance(self, include_optional) -> IdentificationtasksReviewCreatePublicNoteErrorComponent:
+        """Test IdentificationtasksReviewCreatePublicNoteErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListMineError`
+        # uncomment below to create an instance of `IdentificationtasksReviewCreatePublicNoteErrorComponent`
         """
-        model = IdentificationtasksListMineError()
+        model = IdentificationtasksReviewCreatePublicNoteErrorComponent()
         if include_optional:
-            return IdentificationtasksListMineError(
-                attr = 'review_action',
-                code = 'invalid_choice',
+            return IdentificationtasksReviewCreatePublicNoteErrorComponent(
+                attr = 'public_note',
+                code = 'blank',
                 detail = ''
             )
         else:
-            return IdentificationtasksListMineError(
-                attr = 'review_action',
-                code = 'invalid_choice',
+            return IdentificationtasksReviewCreatePublicNoteErrorComponent(
+                attr = 'public_note',
+                code = 'blank',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListMineError(self):
-        """Test IdentificationtasksListMineError"""
+    def testIdentificationtasksReviewCreatePublicNoteErrorComponent(self):
+        """Test IdentificationtasksReviewCreatePublicNoteErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

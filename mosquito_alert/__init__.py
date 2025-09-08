@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.22"
+__version__ = "0.1.23"
 
 # Define package exports
 __all__ = [
@@ -170,9 +170,11 @@ __all__ = [
     "Country",
     "CountryPermission",
     "CountryRequest",
+    "CreateAgreeReviewRequest",
     "CreateNotification",
     "CreateNotificationMessage",
     "CreateNotificationMessageRequest",
+    "CreateOverwriteReviewRequest",
     "CreatePhotoPrediction",
     "CreatePhotoPredictionRequest",
     "Device",
@@ -249,7 +251,6 @@ __all__ = [
     "IdentificationTask",
     "IdentificationTaskPermission",
     "IdentificationTaskResult",
-    "IdentificationTaskResultRequest",
     "IdentificationTaskReview",
     "IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent",
     "IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent",
@@ -309,7 +310,7 @@ __all__ = [
     "IdentificationtasksListMineResultSourceErrorComponent",
     "IdentificationtasksListMineResultTaxonIdsErrorComponent",
     "IdentificationtasksListMineResultUncertaintyErrorComponent",
-    "IdentificationtasksListMineReviewTypeErrorComponent",
+    "IdentificationtasksListMineReviewActionErrorComponent",
     "IdentificationtasksListMineStatusErrorComponent",
     "IdentificationtasksListMineUpdatedAtErrorComponent",
     "IdentificationtasksListMineValidationError",
@@ -321,7 +322,7 @@ __all__ = [
     "IdentificationtasksListResultSourceErrorComponent",
     "IdentificationtasksListResultTaxonIdsErrorComponent",
     "IdentificationtasksListResultUncertaintyErrorComponent",
-    "IdentificationtasksListReviewTypeErrorComponent",
+    "IdentificationtasksListReviewActionErrorComponent",
     "IdentificationtasksListStatusErrorComponent",
     "IdentificationtasksListUpdatedAtErrorComponent",
     "IdentificationtasksListValidationError",
@@ -395,6 +396,16 @@ __all__ = [
     "IdentificationtasksPredictionsUpdateScoresOtherSpeciesErrorComponent",
     "IdentificationtasksPredictionsUpdateThresholdDeviationErrorComponent",
     "IdentificationtasksPredictionsUpdateValidationError",
+    "IdentificationtasksReviewCreateActionErrorComponent",
+    "IdentificationtasksReviewCreateError",
+    "IdentificationtasksReviewCreateIsSafeErrorComponent",
+    "IdentificationtasksReviewCreateNonFieldErrorsErrorComponent",
+    "IdentificationtasksReviewCreatePublicNoteErrorComponent",
+    "IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent",
+    "IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent",
+    "IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent",
+    "IdentificationtasksReviewCreateResultTaxonIdErrorComponent",
+    "IdentificationtasksReviewCreateValidationError",
     "LocalizedMessageBody",
     "LocalizedMessageBodyRequest",
     "LocalizedMessageTitle",
@@ -402,6 +413,7 @@ __all__ = [
     "Location",
     "LocationPoint",
     "LocationRequest",
+    "MetaCreateIdentificationTaskReviewRequest",
     "MetaNotificationRequest",
     "MinimalUser",
     "MobileApp",
@@ -783,9 +795,11 @@ from mosquito_alert.models.campaigns_list_validation_error import CampaignsListV
 from mosquito_alert.models.country import Country as Country
 from mosquito_alert.models.country_permission import CountryPermission as CountryPermission
 from mosquito_alert.models.country_request import CountryRequest as CountryRequest
+from mosquito_alert.models.create_agree_review_request import CreateAgreeReviewRequest as CreateAgreeReviewRequest
 from mosquito_alert.models.create_notification import CreateNotification as CreateNotification
 from mosquito_alert.models.create_notification_message import CreateNotificationMessage as CreateNotificationMessage
 from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest as CreateNotificationMessageRequest
+from mosquito_alert.models.create_overwrite_review_request import CreateOverwriteReviewRequest as CreateOverwriteReviewRequest
 from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction as CreatePhotoPrediction
 from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest as CreatePhotoPredictionRequest
 from mosquito_alert.models.device import Device as Device
@@ -862,7 +876,6 @@ from mosquito_alert.models.identification_request import IdentificationRequest a
 from mosquito_alert.models.identification_task import IdentificationTask as IdentificationTask
 from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission as IdentificationTaskPermission
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult as IdentificationTaskResult
-from mosquito_alert.models.identification_task_result_request import IdentificationTaskResultRequest as IdentificationTaskResultRequest
 from mosquito_alert.models.identification_task_review import IdentificationTaskReview as IdentificationTaskReview
 from mosquito_alert.models.identificationtasks_annotations_create_best_photo_uuid_error_component import IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent as IdentificationtasksAnnotationsCreateBestPhotoUuidErrorComponent
 from mosquito_alert.models.identificationtasks_annotations_create_characteristics_is_blood_fed_error_component import IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent as IdentificationtasksAnnotationsCreateCharacteristicsIsBloodFedErrorComponent
@@ -922,7 +935,7 @@ from mosquito_alert.models.identificationtasks_list_mine_result_confidence_error
 from mosquito_alert.models.identificationtasks_list_mine_result_source_error_component import IdentificationtasksListMineResultSourceErrorComponent as IdentificationtasksListMineResultSourceErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_result_taxon_ids_error_component import IdentificationtasksListMineResultTaxonIdsErrorComponent as IdentificationtasksListMineResultTaxonIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_result_uncertainty_error_component import IdentificationtasksListMineResultUncertaintyErrorComponent as IdentificationtasksListMineResultUncertaintyErrorComponent
-from mosquito_alert.models.identificationtasks_list_mine_review_type_error_component import IdentificationtasksListMineReviewTypeErrorComponent as IdentificationtasksListMineReviewTypeErrorComponent
+from mosquito_alert.models.identificationtasks_list_mine_review_action_error_component import IdentificationtasksListMineReviewActionErrorComponent as IdentificationtasksListMineReviewActionErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_status_error_component import IdentificationtasksListMineStatusErrorComponent as IdentificationtasksListMineStatusErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_updated_at_error_component import IdentificationtasksListMineUpdatedAtErrorComponent as IdentificationtasksListMineUpdatedAtErrorComponent
 from mosquito_alert.models.identificationtasks_list_mine_validation_error import IdentificationtasksListMineValidationError as IdentificationtasksListMineValidationError
@@ -934,7 +947,7 @@ from mosquito_alert.models.identificationtasks_list_result_confidence_error_comp
 from mosquito_alert.models.identificationtasks_list_result_source_error_component import IdentificationtasksListResultSourceErrorComponent as IdentificationtasksListResultSourceErrorComponent
 from mosquito_alert.models.identificationtasks_list_result_taxon_ids_error_component import IdentificationtasksListResultTaxonIdsErrorComponent as IdentificationtasksListResultTaxonIdsErrorComponent
 from mosquito_alert.models.identificationtasks_list_result_uncertainty_error_component import IdentificationtasksListResultUncertaintyErrorComponent as IdentificationtasksListResultUncertaintyErrorComponent
-from mosquito_alert.models.identificationtasks_list_review_type_error_component import IdentificationtasksListReviewTypeErrorComponent as IdentificationtasksListReviewTypeErrorComponent
+from mosquito_alert.models.identificationtasks_list_review_action_error_component import IdentificationtasksListReviewActionErrorComponent as IdentificationtasksListReviewActionErrorComponent
 from mosquito_alert.models.identificationtasks_list_status_error_component import IdentificationtasksListStatusErrorComponent as IdentificationtasksListStatusErrorComponent
 from mosquito_alert.models.identificationtasks_list_updated_at_error_component import IdentificationtasksListUpdatedAtErrorComponent as IdentificationtasksListUpdatedAtErrorComponent
 from mosquito_alert.models.identificationtasks_list_validation_error import IdentificationtasksListValidationError as IdentificationtasksListValidationError
@@ -1008,6 +1021,16 @@ from mosquito_alert.models.identificationtasks_predictions_update_scores_not_sur
 from mosquito_alert.models.identificationtasks_predictions_update_scores_other_species_error_component import IdentificationtasksPredictionsUpdateScoresOtherSpeciesErrorComponent as IdentificationtasksPredictionsUpdateScoresOtherSpeciesErrorComponent
 from mosquito_alert.models.identificationtasks_predictions_update_threshold_deviation_error_component import IdentificationtasksPredictionsUpdateThresholdDeviationErrorComponent as IdentificationtasksPredictionsUpdateThresholdDeviationErrorComponent
 from mosquito_alert.models.identificationtasks_predictions_update_validation_error import IdentificationtasksPredictionsUpdateValidationError as IdentificationtasksPredictionsUpdateValidationError
+from mosquito_alert.models.identificationtasks_review_create_action_error_component import IdentificationtasksReviewCreateActionErrorComponent as IdentificationtasksReviewCreateActionErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_error import IdentificationtasksReviewCreateError as IdentificationtasksReviewCreateError
+from mosquito_alert.models.identificationtasks_review_create_is_safe_error_component import IdentificationtasksReviewCreateIsSafeErrorComponent as IdentificationtasksReviewCreateIsSafeErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_non_field_errors_error_component import IdentificationtasksReviewCreateNonFieldErrorsErrorComponent as IdentificationtasksReviewCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_public_note_error_component import IdentificationtasksReviewCreatePublicNoteErrorComponent as IdentificationtasksReviewCreatePublicNoteErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_public_photo_uuid_error_component import IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent as IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_result_confidence_label_error_component import IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent as IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_result_non_field_errors_error_component import IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent as IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_result_taxon_id_error_component import IdentificationtasksReviewCreateResultTaxonIdErrorComponent as IdentificationtasksReviewCreateResultTaxonIdErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_validation_error import IdentificationtasksReviewCreateValidationError as IdentificationtasksReviewCreateValidationError
 from mosquito_alert.models.localized_message_body import LocalizedMessageBody as LocalizedMessageBody
 from mosquito_alert.models.localized_message_body_request import LocalizedMessageBodyRequest as LocalizedMessageBodyRequest
 from mosquito_alert.models.localized_message_title import LocalizedMessageTitle as LocalizedMessageTitle
@@ -1015,6 +1038,7 @@ from mosquito_alert.models.localized_message_title_request import LocalizedMessa
 from mosquito_alert.models.location import Location as Location
 from mosquito_alert.models.location_point import LocationPoint as LocationPoint
 from mosquito_alert.models.location_request import LocationRequest as LocationRequest
+from mosquito_alert.models.meta_create_identification_task_review_request import MetaCreateIdentificationTaskReviewRequest as MetaCreateIdentificationTaskReviewRequest
 from mosquito_alert.models.meta_notification_request import MetaNotificationRequest as MetaNotificationRequest
 from mosquito_alert.models.minimal_user import MinimalUser as MinimalUser
 from mosquito_alert.models.mobile_app import MobileApp as MobileApp

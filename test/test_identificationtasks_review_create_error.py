@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_review_type_error_component import IdentificationtasksListReviewTypeErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_error import IdentificationtasksReviewCreateError
 
-class TestIdentificationtasksListReviewTypeErrorComponent(unittest.TestCase):
-    """IdentificationtasksListReviewTypeErrorComponent unit test stubs"""
+class TestIdentificationtasksReviewCreateError(unittest.TestCase):
+    """IdentificationtasksReviewCreateError unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListReviewTypeErrorComponent(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListReviewTypeErrorComponent:
-        """Test IdentificationtasksListReviewTypeErrorComponent
+    def make_instance(self, include_optional) -> IdentificationtasksReviewCreateError:
+        """Test IdentificationtasksReviewCreateError
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListReviewTypeErrorComponent`
+        # uncomment below to create an instance of `IdentificationtasksReviewCreateError`
         """
-        model = IdentificationtasksListReviewTypeErrorComponent()
+        model = IdentificationtasksReviewCreateError()
         if include_optional:
-            return IdentificationtasksListReviewTypeErrorComponent(
-                attr = 'review_type',
+            return IdentificationtasksReviewCreateError(
+                attr = 'result.confidence_label',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return IdentificationtasksListReviewTypeErrorComponent(
-                attr = 'review_type',
+            return IdentificationtasksReviewCreateError(
+                attr = 'result.confidence_label',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListReviewTypeErrorComponent(self):
-        """Test IdentificationtasksListReviewTypeErrorComponent"""
+    def testIdentificationtasksReviewCreateError(self):
+        """Test IdentificationtasksReviewCreateError"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

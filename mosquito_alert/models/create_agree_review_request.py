@@ -18,25 +18,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationTaskReview(BaseModel):
+class CreateAgreeReviewRequest(BaseModel):
     """
-    IdentificationTaskReview
+    CreateAgreeReviewRequest
     """ # noqa: E501
-    action: StrictStr
-    created_at: datetime
-    __properties: ClassVar[List[str]] = ["action", "created_at"]
+    action: Optional[StrictStr] = 'agree'
+    __properties: ClassVar[List[str]] = ["action"]
 
     @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['agree', 'overwrite']):
-            raise ValueError("must be one of enum values ('agree', 'overwrite')")
+        if value is None:
+            return value
+
+        if value not in set(['agree']):
+            raise ValueError("must be one of enum values ('agree')")
         return value
 
     model_config = ConfigDict(
@@ -57,7 +58,7 @@ class IdentificationTaskReview(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationTaskReview from a JSON string"""
+        """Create an instance of CreateAgreeReviewRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,10 +70,8 @@ class IdentificationTaskReview(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "created_at",
         ])
 
         _dict = self.model_dump(
@@ -84,7 +83,7 @@ class IdentificationTaskReview(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationTaskReview from a dict"""
+        """Create an instance of CreateAgreeReviewRequest from a dict"""
         if obj is None:
             return None
 
@@ -92,8 +91,7 @@ class IdentificationTaskReview(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "action": obj.get("action"),
-            "created_at": obj.get("created_at")
+            "action": obj.get("action") if obj.get("action") is not None else 'agree'
         })
         return _obj
 

@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_mine_review_type_error_component import IdentificationtasksListMineReviewTypeErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_is_safe_error_component import IdentificationtasksReviewCreateIsSafeErrorComponent
 
-class TestIdentificationtasksListMineReviewTypeErrorComponent(unittest.TestCase):
-    """IdentificationtasksListMineReviewTypeErrorComponent unit test stubs"""
+class TestIdentificationtasksReviewCreateIsSafeErrorComponent(unittest.TestCase):
+    """IdentificationtasksReviewCreateIsSafeErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListMineReviewTypeErrorComponent(unittest.TestCase)
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListMineReviewTypeErrorComponent:
-        """Test IdentificationtasksListMineReviewTypeErrorComponent
+    def make_instance(self, include_optional) -> IdentificationtasksReviewCreateIsSafeErrorComponent:
+        """Test IdentificationtasksReviewCreateIsSafeErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListMineReviewTypeErrorComponent`
+        # uncomment below to create an instance of `IdentificationtasksReviewCreateIsSafeErrorComponent`
         """
-        model = IdentificationtasksListMineReviewTypeErrorComponent()
+        model = IdentificationtasksReviewCreateIsSafeErrorComponent()
         if include_optional:
-            return IdentificationtasksListMineReviewTypeErrorComponent(
-                attr = 'review_type',
-                code = 'invalid_choice',
+            return IdentificationtasksReviewCreateIsSafeErrorComponent(
+                attr = 'is_safe',
+                code = 'invalid',
                 detail = ''
             )
         else:
-            return IdentificationtasksListMineReviewTypeErrorComponent(
-                attr = 'review_type',
-                code = 'invalid_choice',
+            return IdentificationtasksReviewCreateIsSafeErrorComponent(
+                attr = 'is_safe',
+                code = 'invalid',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListMineReviewTypeErrorComponent(self):
-        """Test IdentificationtasksListMineReviewTypeErrorComponent"""
+    def testIdentificationtasksReviewCreateIsSafeErrorComponent(self):
+        """Test IdentificationtasksReviewCreateIsSafeErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

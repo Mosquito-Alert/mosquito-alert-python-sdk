@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | 
+**action** | **str** |  | 
 **created_at** | **datetime** |  | [readonly] 
 
 ## Example

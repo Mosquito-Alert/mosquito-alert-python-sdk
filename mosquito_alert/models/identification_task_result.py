@@ -81,8 +81,10 @@ class IdentificationTaskResult(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "source",
             "taxon",
             "is_high_confidence",
             "confidence",

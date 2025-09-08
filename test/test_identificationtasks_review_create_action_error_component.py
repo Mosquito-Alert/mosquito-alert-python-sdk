@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.identificationtasks_list_mine_error import IdentificationtasksListMineError
+from mosquito_alert.models.identificationtasks_review_create_action_error_component import IdentificationtasksReviewCreateActionErrorComponent
 
-class TestIdentificationtasksListMineError(unittest.TestCase):
-    """IdentificationtasksListMineError unit test stubs"""
+class TestIdentificationtasksReviewCreateActionErrorComponent(unittest.TestCase):
+    """IdentificationtasksReviewCreateActionErrorComponent unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestIdentificationtasksListMineError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IdentificationtasksListMineError:
-        """Test IdentificationtasksListMineError
+    def make_instance(self, include_optional) -> IdentificationtasksReviewCreateActionErrorComponent:
+        """Test IdentificationtasksReviewCreateActionErrorComponent
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IdentificationtasksListMineError`
+        # uncomment below to create an instance of `IdentificationtasksReviewCreateActionErrorComponent`
         """
-        model = IdentificationtasksListMineError()
+        model = IdentificationtasksReviewCreateActionErrorComponent()
         if include_optional:
-            return IdentificationtasksListMineError(
-                attr = 'review_action',
+            return IdentificationtasksReviewCreateActionErrorComponent(
+                attr = 'action',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
-            return IdentificationtasksListMineError(
-                attr = 'review_action',
+            return IdentificationtasksReviewCreateActionErrorComponent(
+                attr = 'action',
                 code = 'invalid_choice',
                 detail = '',
         )
         """
 
-    def testIdentificationtasksListMineError(self):
-        """Test IdentificationtasksListMineError"""
+    def testIdentificationtasksReviewCreateActionErrorComponent(self):
+        """Test IdentificationtasksReviewCreateActionErrorComponent"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

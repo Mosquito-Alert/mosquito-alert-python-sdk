@@ -23,18 +23,27 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationTaskResultRequest(BaseModel):
+class IdentificationtasksReviewCreateNonFieldErrorsErrorComponent(BaseModel):
     """
-    IdentificationTaskResultRequest
+    IdentificationtasksReviewCreateNonFieldErrorsErrorComponent
     """ # noqa: E501
-    source: StrictStr
-    __properties: ClassVar[List[str]] = ["source"]
+    attr: StrictStr
+    code: StrictStr
+    detail: StrictStr
+    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
 
-    @field_validator('source')
-    def source_validate_enum(cls, value):
+    @field_validator('attr')
+    def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['expert', 'ai']):
-            raise ValueError("must be one of enum values ('expert', 'ai')")
+        if value not in set(['non_field_errors']):
+            raise ValueError("must be one of enum values ('non_field_errors')")
+        return value
+
+    @field_validator('code')
+    def code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['invalid', 'null']):
+            raise ValueError("must be one of enum values ('invalid', 'null')")
         return value
 
     model_config = ConfigDict(
@@ -55,7 +64,7 @@ class IdentificationTaskResultRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationTaskResultRequest from a JSON string"""
+        """Create an instance of IdentificationtasksReviewCreateNonFieldErrorsErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,7 +89,7 @@ class IdentificationTaskResultRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationTaskResultRequest from a dict"""
+        """Create an instance of IdentificationtasksReviewCreateNonFieldErrorsErrorComponent from a dict"""
         if obj is None:
             return None
 
@@ -88,7 +97,9 @@ class IdentificationTaskResultRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "source": obj.get("source")
+            "attr": obj.get("attr"),
+            "code": obj.get("code"),
+            "detail": obj.get("detail")
         })
         return _obj
 

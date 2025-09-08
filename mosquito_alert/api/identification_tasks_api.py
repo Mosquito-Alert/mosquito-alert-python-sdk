@@ -27,6 +27,8 @@ from mosquito_alert.models.assignment import Assignment
 from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction
 from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest
 from mosquito_alert.models.identification_task import IdentificationTask
+from mosquito_alert.models.identification_task_review import IdentificationTaskReview
+from mosquito_alert.models.meta_create_identification_task_review_request import MetaCreateIdentificationTaskReviewRequest
 from mosquito_alert.models.paginated_annotation_list import PaginatedAnnotationList
 from mosquito_alert.models.paginated_identification_task_list import PaginatedIdentificationTaskList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList
@@ -2076,7 +2078,7 @@ class IdentificationTasksApi:
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        review_type: Optional[StrictStr] = None,
+        review_action: Optional[StrictStr] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2138,8 +2140,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
         :type result_uncertainty_min: float
-        :param review_type:
-        :type review_type: str
+        :param review_action:
+        :type review_action: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2190,7 +2192,7 @@ class IdentificationTasksApi:
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
-            review_type=review_type,
+            review_action=review_action,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2242,7 +2244,7 @@ class IdentificationTasksApi:
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        review_type: Optional[StrictStr] = None,
+        review_action: Optional[StrictStr] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2304,8 +2306,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
         :type result_uncertainty_min: float
-        :param review_type:
-        :type review_type: str
+        :param review_action:
+        :type review_action: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2356,7 +2358,7 @@ class IdentificationTasksApi:
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
-            review_type=review_type,
+            review_action=review_action,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2408,7 +2410,7 @@ class IdentificationTasksApi:
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        review_type: Optional[StrictStr] = None,
+        review_action: Optional[StrictStr] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2470,8 +2472,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
         :type result_uncertainty_min: float
-        :param review_type:
-        :type review_type: str
+        :param review_action:
+        :type review_action: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2522,7 +2524,7 @@ class IdentificationTasksApi:
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
-            review_type=review_type,
+            review_action=review_action,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2569,7 +2571,7 @@ class IdentificationTasksApi:
         result_taxon_ids,
         result_uncertainty_max,
         result_uncertainty_min,
-        review_type,
+        review_action,
         status,
         updated_at_after,
         updated_at_before,
@@ -2704,9 +2706,9 @@ class IdentificationTasksApi:
             
             _query_params.append(('result_uncertainty_min', result_uncertainty_min))
             
-        if review_type is not None:
+        if review_action is not None:
             
-            _query_params.append(('review_type', review_type))
+            _query_params.append(('review_action', review_action))
             
         if status is not None:
             
@@ -2801,7 +2803,7 @@ class IdentificationTasksApi:
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        review_type: Optional[StrictStr] = None,
+        review_action: Optional[StrictStr] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2864,8 +2866,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
         :type result_uncertainty_min: float
-        :param review_type:
-        :type review_type: str
+        :param review_action:
+        :type review_action: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2916,7 +2918,7 @@ class IdentificationTasksApi:
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
-            review_type=review_type,
+            review_action=review_action,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2968,7 +2970,7 @@ class IdentificationTasksApi:
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        review_type: Optional[StrictStr] = None,
+        review_action: Optional[StrictStr] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -3031,8 +3033,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
         :type result_uncertainty_min: float
-        :param review_type:
-        :type review_type: str
+        :param review_action:
+        :type review_action: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -3083,7 +3085,7 @@ class IdentificationTasksApi:
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
-            review_type=review_type,
+            review_action=review_action,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -3135,7 +3137,7 @@ class IdentificationTasksApi:
         result_taxon_ids: Optional[List[StrictInt]] = None,
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
-        review_type: Optional[StrictStr] = None,
+        review_action: Optional[StrictStr] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -3198,8 +3200,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_max: float
         :param result_uncertainty_min:
         :type result_uncertainty_min: float
-        :param review_type:
-        :type review_type: str
+        :param review_action:
+        :type review_action: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -3250,7 +3252,7 @@ class IdentificationTasksApi:
             result_taxon_ids=result_taxon_ids,
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
-            review_type=review_type,
+            review_action=review_action,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -3297,7 +3299,7 @@ class IdentificationTasksApi:
         result_taxon_ids,
         result_uncertainty_max,
         result_uncertainty_min,
-        review_type,
+        review_action,
         status,
         updated_at_after,
         updated_at_before,
@@ -3432,9 +3434,9 @@ class IdentificationTasksApi:
             
             _query_params.append(('result_uncertainty_min', result_uncertainty_min))
             
-        if review_type is not None:
+        if review_action is not None:
             
-            _query_params.append(('review_type', review_type))
+            _query_params.append(('review_action', review_action))
             
         if status is not None:
             
@@ -5566,6 +5568,308 @@ class IdentificationTasksApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/identification-tasks/{observation_uuid}/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def review_create(
+        self,
+        observation_uuid: StrictStr,
+        meta_create_identification_task_review_request: Optional[MetaCreateIdentificationTaskReviewRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> IdentificationTaskReview:
+        """review_create
+
+
+        :param observation_uuid: (required)
+        :type observation_uuid: str
+        :param meta_create_identification_task_review_request:
+        :type meta_create_identification_task_review_request: MetaCreateIdentificationTaskReviewRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._review_create_serialize(
+            observation_uuid=observation_uuid,
+            meta_create_identification_task_review_request=meta_create_identification_task_review_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksReviewCreateValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '201': "IdentificationTaskReview",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def review_create_with_http_info(
+        self,
+        observation_uuid: StrictStr,
+        meta_create_identification_task_review_request: Optional[MetaCreateIdentificationTaskReviewRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[IdentificationTaskReview]:
+        """review_create
+
+
+        :param observation_uuid: (required)
+        :type observation_uuid: str
+        :param meta_create_identification_task_review_request:
+        :type meta_create_identification_task_review_request: MetaCreateIdentificationTaskReviewRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._review_create_serialize(
+            observation_uuid=observation_uuid,
+            meta_create_identification_task_review_request=meta_create_identification_task_review_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksReviewCreateValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '201': "IdentificationTaskReview",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def review_create_without_preload_content(
+        self,
+        observation_uuid: StrictStr,
+        meta_create_identification_task_review_request: Optional[MetaCreateIdentificationTaskReviewRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """review_create
+
+
+        :param observation_uuid: (required)
+        :type observation_uuid: str
+        :param meta_create_identification_task_review_request:
+        :type meta_create_identification_task_review_request: MetaCreateIdentificationTaskReviewRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._review_create_serialize(
+            observation_uuid=observation_uuid,
+            meta_create_identification_task_review_request=meta_create_identification_task_review_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "IdentificationtasksReviewCreateValidationError",
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '201': "IdentificationTaskReview",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _review_create_serialize(
+        self,
+        observation_uuid,
+        meta_create_identification_task_review_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if observation_uuid is not None:
+            _path_params['observation_uuid'] = observation_uuid
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if meta_create_identification_task_review_request is not None:
+            _body_params = meta_create_identification_task_review_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json', 
+                        'application/x-www-form-urlencoded', 
+                        'multipart/form-data'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'tokenAuth', 
+            'cookieAuth', 
+            'jwtAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/identification-tasks/{observation_uuid}/review/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

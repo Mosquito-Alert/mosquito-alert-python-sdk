@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **observation** | [**SimplifiedObservationWithPhotos**](SimplifiedObservationWithPhotos.md) |  | [readonly] 
-**public_photo** | [**SimplePhoto**](SimplePhoto.md) |  | 
+**public_photo** | [**SimplePhoto**](SimplePhoto.md) |  | [readonly] 
 **assignments** | [**List[UserAssignment]**](UserAssignment.md) |  | [readonly] 
-**status** | **str** |  | [optional] [default to 'open']
+**status** | **str** |  | [readonly] [default to 'open']
 **is_flagged** | **bool** |  | [readonly] 
 **is_safe** | **bool** | Indicates if the content is safe for publication. | [readonly] 
 **public_note** | **str** |  | [readonly] 

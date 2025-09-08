@@ -23,9 +23,9 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksListReviewTypeErrorComponent(BaseModel):
+class IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent(BaseModel):
     """
-    IdentificationtasksListReviewTypeErrorComponent
+    IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent
     """ # noqa: E501
     attr: StrictStr
     code: StrictStr
@@ -35,15 +35,15 @@ class IdentificationtasksListReviewTypeErrorComponent(BaseModel):
     @field_validator('attr')
     def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['review_type']):
-            raise ValueError("must be one of enum values ('review_type')")
+        if value not in set(['public_photo_uuid']):
+            raise ValueError("must be one of enum values ('public_photo_uuid')")
         return value
 
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid_choice']):
-            raise ValueError("must be one of enum values ('invalid_choice')")
+        if value not in set(['invalid', 'null', 'required']):
+            raise ValueError("must be one of enum values ('invalid', 'null', 'required')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +64,7 @@ class IdentificationtasksListReviewTypeErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListReviewTypeErrorComponent from a JSON string"""
+        """Create an instance of IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +89,7 @@ class IdentificationtasksListReviewTypeErrorComponent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksListReviewTypeErrorComponent from a dict"""
+        """Create an instance of IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent from a dict"""
         if obj is None:
             return None
 

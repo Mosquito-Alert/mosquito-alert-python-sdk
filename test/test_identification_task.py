@@ -75,7 +75,7 @@ class TestIdentificationTask(unittest.TestCase):
                 public_note = '',
                 num_annotations = 0,
                 review = mosquito_alert.models.identification_task_review.IdentificationTaskReview(
-                    type = 'agree', 
+                    action = 'agree', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
                 result = mosquito_alert.models.identification_task_result.IdentificationTaskResult(
                     source = 'expert', 
@@ -123,12 +123,13 @@ class TestIdentificationTask(unittest.TestCase):
                         annotation_id = 56, 
                         annotation_type = 'short', )
                     ],
+                status = 'open',
                 is_flagged = True,
                 is_safe = True,
                 public_note = '',
                 num_annotations = 0,
                 review = mosquito_alert.models.identification_task_review.IdentificationTaskReview(
-                    type = 'agree', 
+                    action = 'agree', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
                 result = mosquito_alert.models.identification_task_result.IdentificationTaskResult(
                     source = 'expert', 

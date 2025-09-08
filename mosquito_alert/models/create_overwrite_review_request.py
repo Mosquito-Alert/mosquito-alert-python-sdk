@@ -18,25 +18,32 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationTaskReview(BaseModel):
+class CreateOverwriteReviewRequest(BaseModel):
     """
-    IdentificationTaskReview
+    CreateOverwriteReviewRequest
     """ # noqa: E501
-    action: StrictStr
-    created_at: datetime
-    __properties: ClassVar[List[str]] = ["action", "created_at"]
+    action: Optional[StrictStr] = 'overwrite'
+    public_photo_uuid: StrictStr
+    is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
+    public_note: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    result: Optional[AnnotationClassificationRequest]
+    __properties: ClassVar[List[str]] = ["action", "public_photo_uuid", "is_safe", "public_note", "result"]
 
     @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['agree', 'overwrite']):
-            raise ValueError("must be one of enum values ('agree', 'overwrite')")
+        if value is None:
+            return value
+
+        if value not in set(['overwrite']):
+            raise ValueError("must be one of enum values ('overwrite')")
         return value
 
     model_config = ConfigDict(
@@ -57,7 +64,7 @@ class IdentificationTaskReview(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationTaskReview from a JSON string"""
+        """Create an instance of CreateOverwriteReviewRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,10 +76,8 @@ class IdentificationTaskReview(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "created_at",
         ])
 
         _dict = self.model_dump(
@@ -80,11 +85,24 @@ class IdentificationTaskReview(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of result
+        if self.result:
+            _dict['result'] = self.result.to_dict()
+        # set to None if public_note (nullable) is None
+        # and model_fields_set contains the field
+        if self.public_note is None and "public_note" in self.model_fields_set:
+            _dict['public_note'] = None
+
+        # set to None if result (nullable) is None
+        # and model_fields_set contains the field
+        if self.result is None and "result" in self.model_fields_set:
+            _dict['result'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationTaskReview from a dict"""
+        """Create an instance of CreateOverwriteReviewRequest from a dict"""
         if obj is None:
             return None
 
@@ -92,8 +110,11 @@ class IdentificationTaskReview(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "action": obj.get("action"),
-            "created_at": obj.get("created_at")
+            "action": obj.get("action") if obj.get("action") is not None else 'overwrite',
+            "public_photo_uuid": obj.get("public_photo_uuid"),
+            "is_safe": obj.get("is_safe"),
+            "public_note": obj.get("public_note"),
+            "result": AnnotationClassificationRequest.from_dict(obj["result"]) if obj.get("result") is not None else None
         })
         return _obj
 
