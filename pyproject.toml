@@ -5,7 +5,7 @@ description = "Mosquito Alert API"
 authors = [
   {name = "Developers",email = "it@mosquitoalert.com"},
 ]
-license = "GPL-3"
+license = "GPL-3.0-only"
 readme = "README.md"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Mosquito Alert API"]
 requires-python = ">=3.9"
