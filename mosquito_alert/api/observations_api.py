@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.observation import Observation
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
@@ -737,7 +738,7 @@ class ObservationsApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -858,7 +859,7 @@ class ObservationsApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -979,7 +980,7 @@ class ObservationsApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1285,7 +1286,7 @@ class ObservationsApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1408,7 +1409,7 @@ class ObservationsApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1531,7 +1532,7 @@ class ObservationsApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

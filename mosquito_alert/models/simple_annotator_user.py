@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,7 @@ class SimpleAnnotatorUser(BaseModel):
     """
     SimpleAnnotatorUser
     """ # noqa: E501
-    uuid: StrictStr
+    uuid: UUID
     username: StrictStr
     first_name: StrictStr
     last_name: StrictStr

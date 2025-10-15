@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.bounding_box_request import BoundingBoxRequest
 from mosquito_alert.models.prediction_score_request import PredictionScoreRequest
 from typing import Optional, Set
@@ -30,7 +31,7 @@ class CreatePhotoPredictionRequest(BaseModel):
     """
     CreatePhotoPredictionRequest
     """ # noqa: E501
-    photo_uuid: StrictStr
+    photo_uuid: UUID
     bbox: BoundingBoxRequest
     insect_confidence: Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Insect confidence")
     predicted_class: Optional[StrictStr]

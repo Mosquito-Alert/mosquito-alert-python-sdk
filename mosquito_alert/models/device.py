@@ -22,6 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.device_os import DeviceOs
 from mosquito_alert.models.mobile_app import MobileApp
 from typing import Optional, Set
@@ -38,7 +39,7 @@ class Device(BaseModel):
     model: Annotated[str, Field(strict=True, max_length=128)] = Field(description="The end-user-visible name for the end product.")
     os: DeviceOs
     mobile_app: Optional[MobileApp] = None
-    user_uuid: StrictStr
+    user_uuid: UUID
     last_login: Optional[datetime]
     created_at: datetime
     updated_at: datetime

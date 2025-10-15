@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +31,7 @@ class CreateOverwriteReviewRequest(BaseModel):
     CreateOverwriteReviewRequest
     """ # noqa: E501
     action: Optional[StrictStr] = 'overwrite'
-    public_photo_uuid: StrictStr
+    public_photo_uuid: UUID
     is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
     public_note: Optional[Annotated[str, Field(min_length=1, strict=True)]]
     result: Optional[AnnotationClassificationRequest]

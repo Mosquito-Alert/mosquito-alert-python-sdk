@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.breeding_site import BreedingSite
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.paginated_breeding_site_list import PaginatedBreedingSiteList
@@ -766,7 +767,7 @@ class BreedingSitesApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -883,7 +884,7 @@ class BreedingSitesApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1000,7 +1001,7 @@ class BreedingSitesApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1296,7 +1297,7 @@ class BreedingSitesApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1415,7 +1416,7 @@ class BreedingSitesApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1534,7 +1535,7 @@ class BreedingSitesApi:
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
-        user_uuid: Optional[StrictStr] = None,
+        user_uuid: Optional[UUID] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +32,7 @@ class UserNotificationCreateRequest(BaseModel):
     """ # noqa: E501
     receiver_type: Optional[StrictStr] = 'user'
     message: CreateNotificationMessageRequest = Field(description="The message of the notification")
-    user_uuids: Annotated[List[StrictStr], Field(min_length=1)]
+    user_uuids: Annotated[List[UUID], Field(min_length=1)]
     __properties: ClassVar[List[str]] = ["receiver_type", "message", "user_uuids"]
 
     @field_validator('receiver_type')

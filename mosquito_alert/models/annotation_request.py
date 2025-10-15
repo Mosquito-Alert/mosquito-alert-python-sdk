@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.annotation_characteristics_request import AnnotationCharacteristicsRequest
 from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
 from mosquito_alert.models.annotation_feedback_request import AnnotationFeedbackRequest
@@ -32,7 +33,7 @@ class AnnotationRequest(BaseModel):
     """
     AnnotationRequest
     """ # noqa: E501
-    best_photo_uuid: Optional[StrictStr] = None
+    best_photo_uuid: Optional[UUID] = None
     classification: Optional[AnnotationClassificationRequest]
     characteristics: Optional[AnnotationCharacteristicsRequest] = None
     feedback: Optional[AnnotationFeedbackRequest] = None

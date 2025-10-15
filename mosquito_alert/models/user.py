@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from mosquito_alert.models.user_score import UserScore
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +30,7 @@ class User(BaseModel):
     """
     User
     """ # noqa: E501
-    uuid: StrictStr
+    uuid: UUID
     username: StrictStr
     first_name: StrictStr
     last_name: StrictStr

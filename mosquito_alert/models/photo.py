@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,7 @@ class Photo(BaseModel):
     """
     Photo
     """ # noqa: E501
-    uuid: StrictStr
+    uuid: UUID
     image_url: StrictStr = Field(description="Photo uploaded by user.")
     image_path: StrictStr = Field(description="Internal server path of the image.")
     __properties: ClassVar[List[str]] = ["uuid", "image_url", "image_path"]

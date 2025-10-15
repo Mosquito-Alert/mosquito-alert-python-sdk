@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from mosquito_alert.models.minimal_user import MinimalUser
 from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simplified_location import SimplifiedLocation
@@ -31,7 +32,7 @@ class AssignedObservation(BaseModel):
     """
     AssignedObservation
     """ # noqa: E501
-    uuid: StrictStr
+    uuid: UUID
     created_at: datetime
     created_at_local: datetime = Field(description="The date and time when the record was created, displayed in the local timezone specified for this entry.")
     received_at: datetime

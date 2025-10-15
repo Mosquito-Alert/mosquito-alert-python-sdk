@@ -19,8 +19,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from uuid import UUID
 from mosquito_alert.models.fix_location_request import FixLocationRequest
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +30,7 @@ class FixRequest(BaseModel):
     """
     FixRequest
     """ # noqa: E501
-    coverage_uuid: StrictStr
+    coverage_uuid: UUID
     created_at: datetime
     sent_at: datetime
     point: FixLocationRequest

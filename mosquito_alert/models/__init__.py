@@ -13,7 +13,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from mosquito_alert.models.adm_boundary import AdmBoundary
 from mosquito_alert.models.adm_boundary_request import AdmBoundaryRequest
@@ -609,3 +608,4 @@ from mosquito_alert.models.users_update_error import UsersUpdateError
 from mosquito_alert.models.users_update_locale_error_component import UsersUpdateLocaleErrorComponent
 from mosquito_alert.models.users_update_non_field_errors_error_component import UsersUpdateNonFieldErrorsErrorComponent
 from mosquito_alert.models.users_update_validation_error import UsersUpdateValidationError
+

@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import List, Optional, Union
 from typing_extensions import Annotated
+from uuid import UUID
 from mosquito_alert.models.annotation import Annotation
 from mosquito_alert.models.annotation_request import AnnotationRequest
 from mosquito_alert.models.assignment import Assignment
@@ -57,7 +58,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_create(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         annotation_request: AnnotationRequest,
         _request_timeout: Union[
             None,
@@ -131,7 +132,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_create_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         annotation_request: AnnotationRequest,
         _request_timeout: Union[
             None,
@@ -205,7 +206,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_create_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         annotation_request: AnnotationRequest,
         _request_timeout: Union[
             None,
@@ -359,7 +360,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_list(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -493,7 +494,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_list_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -627,7 +628,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_list_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -1514,7 +1515,7 @@ class IdentificationTasksApi:
     def annotations_retrieve(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1587,7 +1588,7 @@ class IdentificationTasksApi:
     def annotations_retrieve_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1660,7 +1661,7 @@ class IdentificationTasksApi:
     def annotations_retrieve_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3510,7 +3511,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_create(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         create_photo_prediction_request: CreatePhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -3584,7 +3585,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_create_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         create_photo_prediction_request: CreatePhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -3658,7 +3659,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_create_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         create_photo_prediction_request: CreatePhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -3812,8 +3813,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_destroy(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3885,8 +3886,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_destroy_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3958,8 +3959,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_destroy_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4096,7 +4097,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_list(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -4173,7 +4174,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_list_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -4250,7 +4251,7 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_list_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
@@ -4399,8 +4400,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_partial_update(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
             None,
@@ -4477,8 +4478,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_partial_update_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
             None,
@@ -4555,8 +4556,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_partial_update_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
             None,
@@ -4716,8 +4717,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_retrieve(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4789,8 +4790,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_retrieve_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4862,8 +4863,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_retrieve_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5000,8 +5001,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_update(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -5078,8 +5079,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_update_with_http_info(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -5156,8 +5157,8 @@ class IdentificationTasksApi:
     @validate_call
     def predictions_update_without_preload_content(
         self,
-        observation_uuid: Annotated[StrictStr, Field(description="UUID of the Observation")],
-        photo_uuid: StrictStr,
+        observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        photo_uuid: UUID,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
             None,

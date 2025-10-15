@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
 from typing import Optional
+from uuid import UUID
 from mosquito_alert.models.patched_photo_prediction_request import PatchedPhotoPredictionRequest
 from mosquito_alert.models.photo import Photo
 from mosquito_alert.models.photo_prediction import PhotoPrediction
@@ -45,7 +45,7 @@ class PhotosApi:
     @validate_call
     def prediction_destroy(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -114,7 +114,7 @@ class PhotosApi:
     @validate_call
     def prediction_destroy_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -183,7 +183,7 @@ class PhotosApi:
     @validate_call
     def prediction_destroy_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -314,7 +314,7 @@ class PhotosApi:
     @validate_call
     def prediction_partial_update(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
             None,
@@ -388,7 +388,7 @@ class PhotosApi:
     @validate_call
     def prediction_partial_update_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
             None,
@@ -462,7 +462,7 @@ class PhotosApi:
     @validate_call
     def prediction_partial_update_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         patched_photo_prediction_request: Optional[PatchedPhotoPredictionRequest] = None,
         _request_timeout: Union[
             None,
@@ -616,7 +616,7 @@ class PhotosApi:
     @validate_call
     def prediction_retrieve(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -685,7 +685,7 @@ class PhotosApi:
     @validate_call
     def prediction_retrieve_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -754,7 +754,7 @@ class PhotosApi:
     @validate_call
     def prediction_retrieve_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -885,7 +885,7 @@ class PhotosApi:
     @validate_call
     def prediction_update(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -959,7 +959,7 @@ class PhotosApi:
     @validate_call
     def prediction_update_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -1033,7 +1033,7 @@ class PhotosApi:
     @validate_call
     def prediction_update_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         photo_prediction_request: PhotoPredictionRequest,
         _request_timeout: Union[
             None,
@@ -1187,7 +1187,7 @@ class PhotosApi:
     @validate_call
     def retrieve(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1256,7 +1256,7 @@ class PhotosApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1325,7 +1325,7 @@ class PhotosApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

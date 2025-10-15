@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,7 @@ class SimplePhoto(BaseModel):
     """
     SimplePhoto
     """ # noqa: E501
-    uuid: StrictStr
+    uuid: UUID
     url: StrictStr = Field(description="URL of the photo associated with the item. Note: This URL may change over time. Do not rely on it for permanent storage.")
     __properties: ClassVar[List[str]] = ["uuid", "url"]
 
