@@ -33,6 +33,7 @@ class AssignedObservation(BaseModel):
     AssignedObservation
     """ # noqa: E501
     uuid: UUID
+    short_id: StrictStr
     created_at: datetime
     created_at_local: datetime = Field(description="The date and time when the record was created, displayed in the local timezone specified for this entry.")
     received_at: datetime
@@ -40,7 +41,7 @@ class AssignedObservation(BaseModel):
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     photos: List[SimplePhoto]
     user: MinimalUser
-    __properties: ClassVar[List[str]] = ["uuid", "created_at", "created_at_local", "received_at", "location", "note", "photos", "user"]
+    __properties: ClassVar[List[str]] = ["uuid", "short_id", "created_at", "created_at_local", "received_at", "location", "note", "photos", "user"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,9 +77,11 @@ class AssignedObservation(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
+            "short_id",
             "created_at_local",
             "received_at",
             "user",
@@ -120,6 +123,7 @@ class AssignedObservation(BaseModel):
 
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
+            "short_id": obj.get("short_id"),
             "created_at": obj.get("created_at"),
             "created_at_local": obj.get("created_at_local"),
             "received_at": obj.get("received_at"),

@@ -32,6 +32,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
     SimplifiedObservationWithPhotos
     """ # noqa: E501
     uuid: UUID
+    short_id: StrictStr
     user_uuid: UUID
     created_at: datetime
     created_at_local: datetime = Field(description="The date and time when the record was created, displayed in the local timezone specified for this entry.")
@@ -39,7 +40,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
     location: SimplifiedLocation
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
     photos: List[SimplePhoto]
-    __properties: ClassVar[List[str]] = ["uuid", "user_uuid", "created_at", "created_at_local", "received_at", "location", "note", "photos"]
+    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "received_at", "location", "note", "photos"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,9 +76,11 @@ class SimplifiedObservationWithPhotos(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
+            "short_id",
             "user_uuid",
             "created_at_local",
             "received_at",
@@ -116,6 +119,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
 
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
+            "short_id": obj.get("short_id"),
             "user_uuid": obj.get("user_uuid"),
             "created_at": obj.get("created_at"),
             "created_at_local": obj.get("created_at_local"),

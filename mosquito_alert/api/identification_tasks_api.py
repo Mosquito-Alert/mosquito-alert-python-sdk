@@ -373,6 +373,7 @@ class IdentificationTasksApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -419,6 +420,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param search: A search term.
+        :type search: str
         :param type:
         :type type: str
         :param updated_at_after: Updated at
@@ -463,6 +466,7 @@ class IdentificationTasksApi:
             order_by=order_by,
             page=page,
             page_size=page_size,
+            search=search,
             type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -507,6 +511,7 @@ class IdentificationTasksApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -553,6 +558,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param search: A search term.
+        :type search: str
         :param type:
         :type type: str
         :param updated_at_after: Updated at
@@ -597,6 +604,7 @@ class IdentificationTasksApi:
             order_by=order_by,
             page=page,
             page_size=page_size,
+            search=search,
             type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -641,6 +649,7 @@ class IdentificationTasksApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -687,6 +696,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param search: A search term.
+        :type search: str
         :param type:
         :type type: str
         :param updated_at_after: Updated at
@@ -731,6 +742,7 @@ class IdentificationTasksApi:
             order_by=order_by,
             page=page,
             page_size=page_size,
+            search=search,
             type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -770,6 +782,7 @@ class IdentificationTasksApi:
         order_by,
         page,
         page_size,
+        search,
         type,
         updated_at_after,
         updated_at_before,
@@ -867,6 +880,10 @@ class IdentificationTasksApi:
             
             _query_params.append(('page_size', page_size))
             
+        if search is not None:
+            
+            _query_params.append(('search', search))
+            
         if type is not None:
             
             _query_params.append(('type', type))
@@ -955,6 +972,7 @@ class IdentificationTasksApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -1000,6 +1018,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param search: A search term.
+        :type search: str
         :param type:
         :type type: str
         :param updated_at_after: Updated at
@@ -1043,6 +1063,7 @@ class IdentificationTasksApi:
             order_by=order_by,
             page=page,
             page_size=page_size,
+            search=search,
             type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -1086,6 +1107,7 @@ class IdentificationTasksApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -1131,6 +1153,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param search: A search term.
+        :type search: str
         :param type:
         :type type: str
         :param updated_at_after: Updated at
@@ -1174,6 +1198,7 @@ class IdentificationTasksApi:
             order_by=order_by,
             page=page,
             page_size=page_size,
+            search=search,
             type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -1217,6 +1242,7 @@ class IdentificationTasksApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -1262,6 +1288,8 @@ class IdentificationTasksApi:
         :type page: int
         :param page_size: Number of results to return per page.
         :type page_size: int
+        :param search: A search term.
+        :type search: str
         :param type:
         :type type: str
         :param updated_at_after: Updated at
@@ -1305,6 +1333,7 @@ class IdentificationTasksApi:
             order_by=order_by,
             page=page,
             page_size=page_size,
+            search=search,
             type=type,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -1343,6 +1372,7 @@ class IdentificationTasksApi:
         order_by,
         page,
         page_size,
+        search,
         type,
         updated_at_after,
         updated_at_before,
@@ -1437,6 +1467,10 @@ class IdentificationTasksApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
             
         if type is not None:
             
@@ -2080,6 +2114,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2143,6 +2178,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
+        :param search: A search term.
+        :type search: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2194,6 +2231,7 @@ class IdentificationTasksApi:
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_action=review_action,
+            search=search,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2246,6 +2284,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2309,6 +2348,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
+        :param search: A search term.
+        :type search: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2360,6 +2401,7 @@ class IdentificationTasksApi:
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_action=review_action,
+            search=search,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2412,6 +2454,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2475,6 +2518,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
+        :param search: A search term.
+        :type search: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2526,6 +2571,7 @@ class IdentificationTasksApi:
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_action=review_action,
+            search=search,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2573,6 +2619,7 @@ class IdentificationTasksApi:
         result_uncertainty_max,
         result_uncertainty_min,
         review_action,
+        search,
         status,
         updated_at_after,
         updated_at_before,
@@ -2710,6 +2757,10 @@ class IdentificationTasksApi:
         if review_action is not None:
             
             _query_params.append(('review_action', review_action))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
             
         if status is not None:
             
@@ -2805,6 +2856,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2869,6 +2921,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
+        :param search: A search term.
+        :type search: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -2920,6 +2974,7 @@ class IdentificationTasksApi:
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_action=review_action,
+            search=search,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -2972,6 +3027,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -3036,6 +3092,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
+        :param search: A search term.
+        :type search: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -3087,6 +3145,7 @@ class IdentificationTasksApi:
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_action=review_action,
+            search=search,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -3139,6 +3198,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -3203,6 +3263,8 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
+        :param search: A search term.
+        :type search: str
         :param status:
         :type status: List[str]
         :param updated_at_after: Update at
@@ -3254,6 +3316,7 @@ class IdentificationTasksApi:
             result_uncertainty_max=result_uncertainty_max,
             result_uncertainty_min=result_uncertainty_min,
             review_action=review_action,
+            search=search,
             status=status,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -3301,6 +3364,7 @@ class IdentificationTasksApi:
         result_uncertainty_max,
         result_uncertainty_min,
         review_action,
+        search,
         status,
         updated_at_after,
         updated_at_before,
@@ -3438,6 +3502,10 @@ class IdentificationTasksApi:
         if review_action is not None:
             
             _query_params.append(('review_action', review_action))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
             
         if status is not None:
             

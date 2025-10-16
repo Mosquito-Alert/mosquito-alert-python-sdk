@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list**
-> PaginatedAnnotationList annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 ### Example
 
@@ -175,13 +175,14 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
+    search = 'search_example' # str | A search term. (optional)
     type = 'type_example' # str |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+        api_response = api_instance.annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -208,6 +209,7 @@ Name | Type | Description  | Notes
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **type** | **str**|  | [optional] 
  **updated_at_after** | **datetime**| Updated at | [optional] 
  **updated_at_before** | **datetime**| Updated at | [optional] 
@@ -239,7 +241,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list_mine**
-> PaginatedAnnotationList annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 Get my annotations
 
@@ -299,13 +301,14 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
     page = 56 # int | A page number within the paginated result set. (optional)
     page_size = 56 # int | Number of results to return per page. (optional)
+    search = 'search_example' # str | A search term. (optional)
     type = 'type_example' # str |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+        api_response = api_instance.annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -331,6 +334,7 @@ Name | Type | Description  | Notes
  **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **type** | **str**|  | [optional] 
  **updated_at_after** | **datetime**| Updated at | [optional] 
  **updated_at_before** | **datetime**| Updated at | [optional] 
@@ -543,7 +547,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 ### Example
 
@@ -611,12 +615,13 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
     review_action = 'review_action_example' # str |  (optional)
+    search = 'search_example' # str | A search term. (optional)
     status = ['status_example'] # List[str] |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -652,6 +657,7 @@ Name | Type | Description  | Notes
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
  **review_action** | **str**|  | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **status** | [**List[str]**](str.md)|  | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
@@ -682,7 +688,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_mine**
-> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 Get identification tasks annotated by me
 
@@ -752,12 +758,13 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
     review_action = 'review_action_example' # str |  (optional)
+    search = 'search_example' # str | A search term. (optional)
     status = ['status_example'] # List[str] |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -793,6 +800,7 @@ Name | Type | Description  | Notes
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
  **review_action** | **str**|  | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **status** | [**List[str]**](str.md)|  | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 

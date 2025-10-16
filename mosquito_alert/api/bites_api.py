@@ -611,6 +611,7 @@ class BitesApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -647,6 +648,8 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
+        :param search: A search term.
+        :type search: str
         :param short_id: Short ID
         :type short_id: str
         :param updated_at_after: Update at
@@ -686,6 +689,7 @@ class BitesApi:
             page_size=page_size,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
+            search=search,
             short_id=short_id,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -724,6 +728,7 @@ class BitesApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -760,6 +765,8 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
+        :param search: A search term.
+        :type search: str
         :param short_id: Short ID
         :type short_id: str
         :param updated_at_after: Update at
@@ -799,6 +806,7 @@ class BitesApi:
             page_size=page_size,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
+            search=search,
             short_id=short_id,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -837,6 +845,7 @@ class BitesApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -873,6 +882,8 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
+        :param search: A search term.
+        :type search: str
         :param short_id: Short ID
         :type short_id: str
         :param updated_at_after: Update at
@@ -912,6 +923,7 @@ class BitesApi:
             page_size=page_size,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
+            search=search,
             short_id=short_id,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -945,6 +957,7 @@ class BitesApi:
         page_size,
         received_at_after,
         received_at_before,
+        search,
         short_id,
         updated_at_after,
         updated_at_before,
@@ -1039,6 +1052,10 @@ class BitesApi:
                 )
             else:
                 _query_params.append(('received_at_before', received_at_before))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
             
         if short_id is not None:
             
@@ -1124,6 +1141,7 @@ class BitesApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -1161,6 +1179,8 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
+        :param search: A search term.
+        :type search: str
         :param short_id: Short ID
         :type short_id: str
         :param updated_at_after: Update at
@@ -1200,6 +1220,7 @@ class BitesApi:
             page_size=page_size,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
+            search=search,
             short_id=short_id,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -1239,6 +1260,7 @@ class BitesApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -1276,6 +1298,8 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
+        :param search: A search term.
+        :type search: str
         :param short_id: Short ID
         :type short_id: str
         :param updated_at_after: Update at
@@ -1315,6 +1339,7 @@ class BitesApi:
             page_size=page_size,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
+            search=search,
             short_id=short_id,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -1354,6 +1379,7 @@ class BitesApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -1391,6 +1417,8 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
+        :param search: A search term.
+        :type search: str
         :param short_id: Short ID
         :type short_id: str
         :param updated_at_after: Update at
@@ -1430,6 +1458,7 @@ class BitesApi:
             page_size=page_size,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
+            search=search,
             short_id=short_id,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
@@ -1464,6 +1493,7 @@ class BitesApi:
         page_size,
         received_at_after,
         received_at_before,
+        search,
         short_id,
         updated_at_after,
         updated_at_before,
@@ -1558,6 +1588,10 @@ class BitesApi:
                 )
             else:
                 _query_params.append(('received_at_before', received_at_before))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
             
         if short_id is not None:
             

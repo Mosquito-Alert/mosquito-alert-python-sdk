@@ -38,6 +38,7 @@ class TestAssignment(unittest.TestCase):
             return Assignment(
                 observation = mosquito_alert.models.assigned_observation.AssignedObservation(
                     uuid = '', 
+                    short_id = '', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -61,6 +62,7 @@ class TestAssignment(unittest.TestCase):
             return Assignment(
                 observation = mosquito_alert.models.assigned_observation.AssignedObservation(
                     uuid = '', 
+                    short_id = '', 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
