@@ -19,8 +19,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from mosquito_alert.models.annotation_classification import AnnotationClassification
 from mosquito_alert.models.annotation_feedback import AnnotationFeedback
 from mosquito_alert.models.observation_flags import ObservationFlags
@@ -34,7 +35,7 @@ class Annotation(BaseModel):
     Annotation
     """ # noqa: E501
     id: StrictInt
-    observation_uuid: StrictStr = Field(description="UUID randomly generated on phone to identify each unique report version. Must be exactly 36 characters (32 hex digits plus 4 hyphens).")
+    observation_uuid: UUID
     user: SimpleAnnotatorUser
     best_photo: Optional[SimplePhoto]
     classification: Optional[AnnotationClassification]

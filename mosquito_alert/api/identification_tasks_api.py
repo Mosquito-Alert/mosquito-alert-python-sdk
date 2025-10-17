@@ -5386,7 +5386,7 @@ class IdentificationTasksApi:
     @validate_call
     def retrieve(
         self,
-        observation_uuid: StrictStr,
+        observation_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5455,7 +5455,7 @@ class IdentificationTasksApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        observation_uuid: StrictStr,
+        observation_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5524,7 +5524,7 @@ class IdentificationTasksApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        observation_uuid: StrictStr,
+        observation_uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5655,7 +5655,7 @@ class IdentificationTasksApi:
     @validate_call
     def review_create(
         self,
-        observation_uuid: StrictStr,
+        observation_uuid: UUID,
         meta_create_identification_task_review_request: Optional[MetaCreateIdentificationTaskReviewRequest] = None,
         _request_timeout: Union[
             None,
@@ -5729,7 +5729,7 @@ class IdentificationTasksApi:
     @validate_call
     def review_create_with_http_info(
         self,
-        observation_uuid: StrictStr,
+        observation_uuid: UUID,
         meta_create_identification_task_review_request: Optional[MetaCreateIdentificationTaskReviewRequest] = None,
         _request_timeout: Union[
             None,
@@ -5803,7 +5803,7 @@ class IdentificationTasksApi:
     @validate_call
     def review_create_without_preload_content(
         self,
-        observation_uuid: StrictStr,
+        observation_uuid: UUID,
         meta_create_identification_task_review_request: Optional[MetaCreateIdentificationTaskReviewRequest] = None,
         _request_timeout: Union[
             None,

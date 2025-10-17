@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
-**observation_uuid** | **str** | UUID randomly generated on phone to identify each unique report version. Must be exactly 36 characters (32 hex digits plus 4 hyphens). | [readonly] 
+**observation_uuid** | **str** |  | [readonly] 
 **user** | [**SimpleAnnotatorUser**](SimpleAnnotatorUser.md) |  | [readonly] 
 **best_photo** | [**SimplePhoto**](SimplePhoto.md) |  | [readonly] 
 **classification** | [**AnnotationClassification**](AnnotationClassification.md) |  | 

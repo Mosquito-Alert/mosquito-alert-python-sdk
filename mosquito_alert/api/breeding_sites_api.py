@@ -486,7 +486,7 @@ class BreedingSitesApi:
     @validate_call
     def destroy(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -555,7 +555,7 @@ class BreedingSitesApi:
     @validate_call
     def destroy_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -624,7 +624,7 @@ class BreedingSitesApi:
     @validate_call
     def destroy_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1855,7 +1855,7 @@ class BreedingSitesApi:
     @validate_call
     def retrieve(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1923,7 +1923,7 @@ class BreedingSitesApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1991,7 +1991,7 @@ class BreedingSitesApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

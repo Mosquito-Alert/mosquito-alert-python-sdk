@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
 from typing import Optional
+from uuid import UUID
 from mosquito_alert.models.patched_user_request import PatchedUserRequest
 from mosquito_alert.models.user import User
 from mosquito_alert.models.user_request import UserRequest
@@ -44,7 +44,7 @@ class UsersApi:
     @validate_call
     def partial_update(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         patched_user_request: Optional[PatchedUserRequest] = None,
         _request_timeout: Union[
             None,
@@ -118,7 +118,7 @@ class UsersApi:
     @validate_call
     def partial_update_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         patched_user_request: Optional[PatchedUserRequest] = None,
         _request_timeout: Union[
             None,
@@ -192,7 +192,7 @@ class UsersApi:
     @validate_call
     def partial_update_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         patched_user_request: Optional[PatchedUserRequest] = None,
         _request_timeout: Union[
             None,
@@ -346,7 +346,7 @@ class UsersApi:
     @validate_call
     def retrieve(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -415,7 +415,7 @@ class UsersApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -484,7 +484,7 @@ class UsersApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -872,7 +872,7 @@ class UsersApi:
     @validate_call
     def update(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         user_request: Optional[UserRequest] = None,
         _request_timeout: Union[
             None,
@@ -946,7 +946,7 @@ class UsersApi:
     @validate_call
     def update_with_http_info(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         user_request: Optional[UserRequest] = None,
         _request_timeout: Union[
             None,
@@ -1020,7 +1020,7 @@ class UsersApi:
     @validate_call
     def update_without_preload_content(
         self,
-        uuid: StrictStr,
+        uuid: UUID,
         user_request: Optional[UserRequest] = None,
         _request_timeout: Union[
             None,
