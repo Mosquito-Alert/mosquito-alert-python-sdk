@@ -44,7 +44,7 @@ class TestIdentificationTask(unittest.TestCase):
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     location = mosquito_alert.models.simplified_location.SimplifiedLocation(
-                        point = mosquito_alert.models.location_point.Location_point(
+                        point = mosquito_alert.models.point.Point(
                             latitude = 1.337, 
                             longitude = 1.337, ), 
                         timezone = 'Africa/Abidjan', 
@@ -99,7 +99,7 @@ class TestIdentificationTask(unittest.TestCase):
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     location = mosquito_alert.models.simplified_location.SimplifiedLocation(
-                        point = mosquito_alert.models.location_point.Location_point(
+                        point = mosquito_alert.models.point.Point(
                             latitude = 1.337, 
                             longitude = 1.337, ), 
                         timezone = 'Africa/Abidjan', 

@@ -40,7 +40,7 @@ class TestBiteRequest(unittest.TestCase):
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 location = mosquito_alert.models.location_request.LocationRequest(
                     source = 'auto', 
-                    point = mosquito_alert.models.location_point.Location_point(
+                    point = mosquito_alert.models.point_request.PointRequest(
                         latitude = 1.337, 
                         longitude = 1.337, ), ),
                 note = '',
@@ -63,7 +63,7 @@ class TestBiteRequest(unittest.TestCase):
                 sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 location = mosquito_alert.models.location_request.LocationRequest(
                     source = 'auto', 
-                    point = mosquito_alert.models.location_point.Location_point(
+                    point = mosquito_alert.models.point_request.PointRequest(
                         latitude = 1.337, 
                         longitude = 1.337, ), ),
                 counts = mosquito_alert.models.bite_counts_request.BiteCountsRequest(

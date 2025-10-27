@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**point** | [**LocationPoint**](LocationPoint.md) |  | 
+**point** | [**Point**](Point.md) |  | 
 **timezone** | **str** |  | [readonly] 
 **display_name** | **str** |  | [readonly] 
 **country** | [**Country**](Country.md) |  | [readonly] 

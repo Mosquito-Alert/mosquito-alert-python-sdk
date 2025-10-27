@@ -51,7 +51,7 @@ class TestPaginatedObservationList(unittest.TestCase):
                         updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         location = mosquito_alert.models.location.Location(
                             source = 'auto', 
-                            point = mosquito_alert.models.location_point.Location_point(
+                            point = mosquito_alert.models.point.Point(
                                 latitude = 1.337, 
                                 longitude = 1.337, ), 
                             timezone = 'Africa/Abidjan', 

@@ -18,14 +18,13 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from datetime import datetime
-from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import List, Optional
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
+from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from uuid import UUID
 from mosquito_alert.models.breeding_site import BreedingSite
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.paginated_breeding_site_list import PaginatedBreedingSiteList
-from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -51,7 +50,7 @@ class BreedingSitesApi:
         created_at: datetime,
         sent_at: datetime,
         location: LocationRequest,
-        photos: List[SimplePhotoRequest],
+        photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
@@ -82,7 +81,7 @@ class BreedingSitesApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[SimplePhotoRequest]
+        :type photos: List[bytearray]
         :param note: Note user attached to report.
         :type note: str
         :param tags:
@@ -161,7 +160,7 @@ class BreedingSitesApi:
         created_at: datetime,
         sent_at: datetime,
         location: LocationRequest,
-        photos: List[SimplePhotoRequest],
+        photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
@@ -192,7 +191,7 @@ class BreedingSitesApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[SimplePhotoRequest]
+        :type photos: List[bytearray]
         :param note: Note user attached to report.
         :type note: str
         :param tags:
@@ -271,7 +270,7 @@ class BreedingSitesApi:
         created_at: datetime,
         sent_at: datetime,
         location: LocationRequest,
-        photos: List[SimplePhotoRequest],
+        photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
@@ -302,7 +301,7 @@ class BreedingSitesApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[SimplePhotoRequest]
+        :type photos: List[bytearray]
         :param note: Note user attached to report.
         :type note: str
         :param tags:
@@ -421,7 +420,7 @@ class BreedingSitesApi:
         if tags is not None:
             _form_params.append(('tags', tags))
         if photos is not None:
-            _form_params.append(('photos', photos))
+            _files['photos'] = photos
         if site_type is not None:
             _form_params.append(('site_type', site_type))
         if has_water is not None:

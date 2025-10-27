@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **uuid** | **str** |  | [readonly] 
 **short_id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | 
-**created_at_local** | **datetime** | The date and time when the record was created, displayed in the local timezone specified for this entry. | [readonly] 
+**created_at_local** | **datetime** | The date and time when the record was created, displayed without timezone field. | [readonly] 
 **received_at** | **datetime** |  | [readonly] 
 **location** | [**SimplifiedLocation**](SimplifiedLocation.md) |  | 
 **note** | **str** | Note user attached to report. | [optional] 
-**photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | 
+**photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | [readonly] 
 **user** | [**MinimalUser**](MinimalUser.md) |  | [readonly] 
 
 ## Example

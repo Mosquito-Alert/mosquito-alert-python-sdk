@@ -29,7 +29,9 @@ from mosquito_alert.models.bites_create_created_at_error_component import BitesC
 from mosquito_alert.models.bites_create_event_environment_error_component import BitesCreateEventEnvironmentErrorComponent
 from mosquito_alert.models.bites_create_event_moment_error_component import BitesCreateEventMomentErrorComponent
 from mosquito_alert.models.bites_create_location_non_field_errors_error_component import BitesCreateLocationNonFieldErrorsErrorComponent
-from mosquito_alert.models.bites_create_location_point_error_component import BitesCreateLocationPointErrorComponent
+from mosquito_alert.models.bites_create_location_point_latitude_error_component import BitesCreateLocationPointLatitudeErrorComponent
+from mosquito_alert.models.bites_create_location_point_longitude_error_component import BitesCreateLocationPointLongitudeErrorComponent
+from mosquito_alert.models.bites_create_location_point_non_field_errors_error_component import BitesCreateLocationPointNonFieldErrorsErrorComponent
 from mosquito_alert.models.bites_create_location_source_error_component import BitesCreateLocationSourceErrorComponent
 from mosquito_alert.models.bites_create_non_field_errors_error_component import BitesCreateNonFieldErrorsErrorComponent
 from mosquito_alert.models.bites_create_note_error_component import BitesCreateNoteErrorComponent
@@ -40,7 +42,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-BITESCREATEERROR_ONE_OF_SCHEMAS = ["BitesCreateCountsChestErrorComponent", "BitesCreateCountsHeadErrorComponent", "BitesCreateCountsLeftArmErrorComponent", "BitesCreateCountsLeftLegErrorComponent", "BitesCreateCountsNonFieldErrorsErrorComponent", "BitesCreateCountsRightArmErrorComponent", "BitesCreateCountsRightLegErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent"]
+BITESCREATEERROR_ONE_OF_SCHEMAS = ["BitesCreateCountsChestErrorComponent", "BitesCreateCountsHeadErrorComponent", "BitesCreateCountsLeftArmErrorComponent", "BitesCreateCountsLeftLegErrorComponent", "BitesCreateCountsNonFieldErrorsErrorComponent", "BitesCreateCountsRightArmErrorComponent", "BitesCreateCountsRightLegErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointLatitudeErrorComponent", "BitesCreateLocationPointLongitudeErrorComponent", "BitesCreateLocationPointNonFieldErrorsErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent"]
 
 class BitesCreateError(BaseModel):
     """
@@ -56,34 +58,38 @@ class BitesCreateError(BaseModel):
     oneof_schema_4_validator: Optional[BitesCreateLocationNonFieldErrorsErrorComponent] = None
     # data type: BitesCreateLocationSourceErrorComponent
     oneof_schema_5_validator: Optional[BitesCreateLocationSourceErrorComponent] = None
-    # data type: BitesCreateLocationPointErrorComponent
-    oneof_schema_6_validator: Optional[BitesCreateLocationPointErrorComponent] = None
+    # data type: BitesCreateLocationPointNonFieldErrorsErrorComponent
+    oneof_schema_6_validator: Optional[BitesCreateLocationPointNonFieldErrorsErrorComponent] = None
+    # data type: BitesCreateLocationPointLatitudeErrorComponent
+    oneof_schema_7_validator: Optional[BitesCreateLocationPointLatitudeErrorComponent] = None
+    # data type: BitesCreateLocationPointLongitudeErrorComponent
+    oneof_schema_8_validator: Optional[BitesCreateLocationPointLongitudeErrorComponent] = None
     # data type: BitesCreateNoteErrorComponent
-    oneof_schema_7_validator: Optional[BitesCreateNoteErrorComponent] = None
+    oneof_schema_9_validator: Optional[BitesCreateNoteErrorComponent] = None
     # data type: BitesCreateTagsErrorComponent
-    oneof_schema_8_validator: Optional[BitesCreateTagsErrorComponent] = None
+    oneof_schema_10_validator: Optional[BitesCreateTagsErrorComponent] = None
     # data type: BitesCreateTagsINDEXErrorComponent
-    oneof_schema_9_validator: Optional[BitesCreateTagsINDEXErrorComponent] = None
+    oneof_schema_11_validator: Optional[BitesCreateTagsINDEXErrorComponent] = None
     # data type: BitesCreateEventEnvironmentErrorComponent
-    oneof_schema_10_validator: Optional[BitesCreateEventEnvironmentErrorComponent] = None
+    oneof_schema_12_validator: Optional[BitesCreateEventEnvironmentErrorComponent] = None
     # data type: BitesCreateEventMomentErrorComponent
-    oneof_schema_11_validator: Optional[BitesCreateEventMomentErrorComponent] = None
+    oneof_schema_13_validator: Optional[BitesCreateEventMomentErrorComponent] = None
     # data type: BitesCreateCountsNonFieldErrorsErrorComponent
-    oneof_schema_12_validator: Optional[BitesCreateCountsNonFieldErrorsErrorComponent] = None
+    oneof_schema_14_validator: Optional[BitesCreateCountsNonFieldErrorsErrorComponent] = None
     # data type: BitesCreateCountsHeadErrorComponent
-    oneof_schema_13_validator: Optional[BitesCreateCountsHeadErrorComponent] = None
+    oneof_schema_15_validator: Optional[BitesCreateCountsHeadErrorComponent] = None
     # data type: BitesCreateCountsLeftArmErrorComponent
-    oneof_schema_14_validator: Optional[BitesCreateCountsLeftArmErrorComponent] = None
+    oneof_schema_16_validator: Optional[BitesCreateCountsLeftArmErrorComponent] = None
     # data type: BitesCreateCountsRightArmErrorComponent
-    oneof_schema_15_validator: Optional[BitesCreateCountsRightArmErrorComponent] = None
+    oneof_schema_17_validator: Optional[BitesCreateCountsRightArmErrorComponent] = None
     # data type: BitesCreateCountsChestErrorComponent
-    oneof_schema_16_validator: Optional[BitesCreateCountsChestErrorComponent] = None
+    oneof_schema_18_validator: Optional[BitesCreateCountsChestErrorComponent] = None
     # data type: BitesCreateCountsLeftLegErrorComponent
-    oneof_schema_17_validator: Optional[BitesCreateCountsLeftLegErrorComponent] = None
+    oneof_schema_19_validator: Optional[BitesCreateCountsLeftLegErrorComponent] = None
     # data type: BitesCreateCountsRightLegErrorComponent
-    oneof_schema_18_validator: Optional[BitesCreateCountsRightLegErrorComponent] = None
-    actual_instance: Optional[Union[BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]] = None
-    one_of_schemas: Set[str] = { "BitesCreateCountsChestErrorComponent", "BitesCreateCountsHeadErrorComponent", "BitesCreateCountsLeftArmErrorComponent", "BitesCreateCountsLeftLegErrorComponent", "BitesCreateCountsNonFieldErrorsErrorComponent", "BitesCreateCountsRightArmErrorComponent", "BitesCreateCountsRightLegErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent" }
+    oneof_schema_20_validator: Optional[BitesCreateCountsRightLegErrorComponent] = None
+    actual_instance: Optional[Union[BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointLatitudeErrorComponent, BitesCreateLocationPointLongitudeErrorComponent, BitesCreateLocationPointNonFieldErrorsErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "BitesCreateCountsChestErrorComponent", "BitesCreateCountsHeadErrorComponent", "BitesCreateCountsLeftArmErrorComponent", "BitesCreateCountsLeftLegErrorComponent", "BitesCreateCountsNonFieldErrorsErrorComponent", "BitesCreateCountsRightArmErrorComponent", "BitesCreateCountsRightLegErrorComponent", "BitesCreateCreatedAtErrorComponent", "BitesCreateEventEnvironmentErrorComponent", "BitesCreateEventMomentErrorComponent", "BitesCreateLocationNonFieldErrorsErrorComponent", "BitesCreateLocationPointLatitudeErrorComponent", "BitesCreateLocationPointLongitudeErrorComponent", "BitesCreateLocationPointNonFieldErrorsErrorComponent", "BitesCreateLocationSourceErrorComponent", "BitesCreateNonFieldErrorsErrorComponent", "BitesCreateNoteErrorComponent", "BitesCreateSentAtErrorComponent", "BitesCreateTagsErrorComponent", "BitesCreateTagsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -134,9 +140,19 @@ class BitesCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateLocationSourceErrorComponent`")
         else:
             match += 1
-        # validate data type: BitesCreateLocationPointErrorComponent
-        if not isinstance(v, BitesCreateLocationPointErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateLocationPointErrorComponent`")
+        # validate data type: BitesCreateLocationPointNonFieldErrorsErrorComponent
+        if not isinstance(v, BitesCreateLocationPointNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateLocationPointNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BitesCreateLocationPointLatitudeErrorComponent
+        if not isinstance(v, BitesCreateLocationPointLatitudeErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateLocationPointLatitudeErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BitesCreateLocationPointLongitudeErrorComponent
+        if not isinstance(v, BitesCreateLocationPointLongitudeErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesCreateLocationPointLongitudeErrorComponent`")
         else:
             match += 1
         # validate data type: BitesCreateNoteErrorComponent
@@ -201,10 +217,10 @@ class BitesCreateError(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointLatitudeErrorComponent, BitesCreateLocationPointLongitudeErrorComponent, BitesCreateLocationPointNonFieldErrorsErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointLatitudeErrorComponent, BitesCreateLocationPointLongitudeErrorComponent, BitesCreateLocationPointNonFieldErrorsErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -249,9 +265,21 @@ class BitesCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BitesCreateLocationPointErrorComponent
+        # deserialize data into BitesCreateLocationPointNonFieldErrorsErrorComponent
         try:
-            instance.actual_instance = BitesCreateLocationPointErrorComponent.from_json(json_str)
+            instance.actual_instance = BitesCreateLocationPointNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BitesCreateLocationPointLatitudeErrorComponent
+        try:
+            instance.actual_instance = BitesCreateLocationPointLatitudeErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BitesCreateLocationPointLongitudeErrorComponent
+        try:
+            instance.actual_instance = BitesCreateLocationPointLongitudeErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -330,10 +358,10 @@ class BitesCreateError(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointLatitudeErrorComponent, BitesCreateLocationPointLongitudeErrorComponent, BitesCreateLocationPointNonFieldErrorsErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into BitesCreateError with oneOf schemas: BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointLatitudeErrorComponent, BitesCreateLocationPointLongitudeErrorComponent, BitesCreateLocationPointNonFieldErrorsErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -347,7 +375,7 @@ class BitesCreateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], BitesCreateCountsChestErrorComponent, BitesCreateCountsHeadErrorComponent, BitesCreateCountsLeftArmErrorComponent, BitesCreateCountsLeftLegErrorComponent, BitesCreateCountsNonFieldErrorsErrorComponent, BitesCreateCountsRightArmErrorComponent, BitesCreateCountsRightLegErrorComponent, BitesCreateCreatedAtErrorComponent, BitesCreateEventEnvironmentErrorComponent, BitesCreateEventMomentErrorComponent, BitesCreateLocationNonFieldErrorsErrorComponent, BitesCreateLocationPointLatitudeErrorComponent, BitesCreateLocationPointLongitudeErrorComponent, BitesCreateLocationPointNonFieldErrorsErrorComponent, BitesCreateLocationSourceErrorComponent, BitesCreateNonFieldErrorsErrorComponent, BitesCreateNoteErrorComponent, BitesCreateSentAtErrorComponent, BitesCreateTagsErrorComponent, BitesCreateTagsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

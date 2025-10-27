@@ -35,7 +35,7 @@ class AssignedObservation(BaseModel):
     uuid: UUID
     short_id: StrictStr
     created_at: datetime
-    created_at_local: datetime = Field(description="The date and time when the record was created, displayed in the local timezone specified for this entry.")
+    created_at_local: datetime = Field(description="The date and time when the record was created, displayed without timezone field.")
     received_at: datetime
     location: SimplifiedLocation
     note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
@@ -78,12 +78,14 @@ class AssignedObservation(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
             "short_id",
             "created_at_local",
             "received_at",
+            "photos",
             "user",
         ])
 

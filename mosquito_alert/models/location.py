@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from mosquito_alert.models.adm_boundary import AdmBoundary
 from mosquito_alert.models.country import Country
-from mosquito_alert.models.location_point import LocationPoint
+from mosquito_alert.models.point import Point
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class Location(BaseModel):
     Location
     """ # noqa: E501
     source: StrictStr = Field(description="Indicates how the location was obtained. Use 'Auto (GPS)' if the location was automatically retrieved from the device's GPS, or 'Manual (User-selected)' if the location was selected by the user on a map.")
-    point: LocationPoint
+    point: Point
     timezone: Optional[StrictStr]
     display_name: Optional[StrictStr]
     country: Optional[Country]
@@ -143,7 +143,7 @@ class Location(BaseModel):
 
         _obj = cls.model_validate({
             "source": obj.get("source"),
-            "point": LocationPoint.from_dict(obj["point"]) if obj.get("point") is not None else None,
+            "point": Point.from_dict(obj["point"]) if obj.get("point") is not None else None,
             "timezone": obj.get("timezone"),
             "display_name": obj.get("display_name"),
             "country": Country.from_dict(obj["country"]) if obj.get("country") is not None else None,

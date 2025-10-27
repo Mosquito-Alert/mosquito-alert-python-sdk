@@ -37,7 +37,7 @@ class TestLocation(unittest.TestCase):
         if include_optional:
             return Location(
                 source = 'auto',
-                point = mosquito_alert.models.location_point.Location_point(
+                point = mosquito_alert.models.point.Point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',
@@ -57,7 +57,7 @@ class TestLocation(unittest.TestCase):
         else:
             return Location(
                 source = 'auto',
-                point = mosquito_alert.models.location_point.Location_point(
+                point = mosquito_alert.models.point.Point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',

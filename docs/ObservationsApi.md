@@ -24,7 +24,6 @@ Method | HTTP request | Description
 import mosquito_alert
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.observation import Observation
-from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -63,7 +62,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at = '2013-10-20T19:20:30+01:00' # datetime | 
     sent_at = '2013-10-20T19:20:30+01:00' # datetime | 
     location = mosquito_alert.LocationRequest() # LocationRequest | 
-    photos = [mosquito_alert.SimplePhotoRequest()] # List[SimplePhotoRequest] | 
+    photos = None # List[bytearray] | 
     note = 'note_example' # str | Note user attached to report. (optional)
     tags = ['tags_example'] # List[str] |  (optional)
     event_environment = 'event_environment_example' # str | The environment where the event took place. (optional)
@@ -88,7 +87,7 @@ Name | Type | Description  | Notes
  **created_at** | **datetime**|  | 
  **sent_at** | **datetime**|  | 
  **location** | [**LocationRequest**](LocationRequest.md)|  | 
- **photos** | [**List[SimplePhotoRequest]**](SimplePhotoRequest.md)|  | 
+ **photos** | **List[bytearray]**|  | 
  **note** | **str**| Note user attached to report. | [optional] 
  **tags** | [**List[str]**](str.md)|  | [optional] 
  **event_environment** | **str**| The environment where the event took place. | [optional] 

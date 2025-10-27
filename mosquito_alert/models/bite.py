@@ -35,7 +35,7 @@ class Bite(BaseModel):
     short_id: StrictStr
     user_uuid: UUID
     created_at: datetime
-    created_at_local: datetime = Field(description="The date and time when the record was created, displayed in the local timezone specified for this entry.")
+    created_at_local: datetime = Field(description="The date and time when the record was created, displayed without timezone field.")
     sent_at: datetime
     received_at: datetime
     updated_at: datetime = Field(description="Date and time when the report was last modified")

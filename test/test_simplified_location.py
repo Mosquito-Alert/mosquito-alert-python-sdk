@@ -36,7 +36,7 @@ class TestSimplifiedLocation(unittest.TestCase):
         model = SimplifiedLocation()
         if include_optional:
             return SimplifiedLocation(
-                point = mosquito_alert.models.location_point.Location_point(
+                point = mosquito_alert.models.point.Point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',
@@ -48,7 +48,7 @@ class TestSimplifiedLocation(unittest.TestCase):
             )
         else:
             return SimplifiedLocation(
-                point = mosquito_alert.models.location_point.Location_point(
+                point = mosquito_alert.models.point.Point(
                     latitude = 1.337, 
                     longitude = 1.337, ),
                 timezone = 'Africa/Abidjan',

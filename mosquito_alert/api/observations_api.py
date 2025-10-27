@@ -18,14 +18,13 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from datetime import datetime
-from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import Any, List, Optional
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
+from typing import Any, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from uuid import UUID
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.observation import Observation
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
-from mosquito_alert.models.simple_photo_request import SimplePhotoRequest
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -51,7 +50,7 @@ class ObservationsApi:
         created_at: datetime,
         sent_at: datetime,
         location: LocationRequest,
-        photos: List[SimplePhotoRequest],
+        photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
@@ -80,7 +79,7 @@ class ObservationsApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[SimplePhotoRequest]
+        :type photos: List[bytearray]
         :param note: Note user attached to report.
         :type note: str
         :param tags:
@@ -153,7 +152,7 @@ class ObservationsApi:
         created_at: datetime,
         sent_at: datetime,
         location: LocationRequest,
-        photos: List[SimplePhotoRequest],
+        photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
@@ -182,7 +181,7 @@ class ObservationsApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[SimplePhotoRequest]
+        :type photos: List[bytearray]
         :param note: Note user attached to report.
         :type note: str
         :param tags:
@@ -255,7 +254,7 @@ class ObservationsApi:
         created_at: datetime,
         sent_at: datetime,
         location: LocationRequest,
-        photos: List[SimplePhotoRequest],
+        photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
@@ -284,7 +283,7 @@ class ObservationsApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[SimplePhotoRequest]
+        :type photos: List[bytearray]
         :param note: Note user attached to report.
         :type note: str
         :param tags:
@@ -395,7 +394,7 @@ class ObservationsApi:
         if tags is not None:
             _form_params.append(('tags', tags))
         if photos is not None:
-            _form_params.append(('photos', photos))
+            _files['photos'] = photos
         if event_environment is not None:
             _form_params.append(('event_environment', event_environment))
         if event_moment is not None:

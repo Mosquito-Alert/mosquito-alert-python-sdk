@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.25"
+__version__ = "0.1.26"
 
 # Define package exports
 __all__ = [
@@ -96,7 +96,9 @@ __all__ = [
     "BitesCreateEventEnvironmentErrorComponent",
     "BitesCreateEventMomentErrorComponent",
     "BitesCreateLocationNonFieldErrorsErrorComponent",
-    "BitesCreateLocationPointErrorComponent",
+    "BitesCreateLocationPointLatitudeErrorComponent",
+    "BitesCreateLocationPointLongitudeErrorComponent",
+    "BitesCreateLocationPointNonFieldErrorsErrorComponent",
     "BitesCreateLocationSourceErrorComponent",
     "BitesCreateNonFieldErrorsErrorComponent",
     "BitesCreateNoteErrorComponent",
@@ -132,13 +134,14 @@ __all__ = [
     "BreedingsitesCreateHasWaterErrorComponent",
     "BreedingsitesCreateInPublicAreaErrorComponent",
     "BreedingsitesCreateLocationNonFieldErrorsErrorComponent",
-    "BreedingsitesCreateLocationPointErrorComponent",
+    "BreedingsitesCreateLocationPointLatitudeErrorComponent",
+    "BreedingsitesCreateLocationPointLongitudeErrorComponent",
+    "BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent",
     "BreedingsitesCreateLocationSourceErrorComponent",
     "BreedingsitesCreateNonFieldErrorsErrorComponent",
     "BreedingsitesCreateNoteErrorComponent",
-    "BreedingsitesCreatePhotosINDEXFileErrorComponent",
-    "BreedingsitesCreatePhotosINDEXNonFieldErrorsErrorComponent",
-    "BreedingsitesCreatePhotosNonFieldErrorsErrorComponent",
+    "BreedingsitesCreatePhotosErrorComponent",
+    "BreedingsitesCreatePhotosINDEXErrorComponent",
     "BreedingsitesCreateSentAtErrorComponent",
     "BreedingsitesCreateSiteTypeErrorComponent",
     "BreedingsitesCreateTagsErrorComponent",
@@ -247,7 +250,6 @@ __all__ = [
     "GuestRegistration",
     "GuestRegistrationRequest",
     "Identification",
-    "IdentificationRequest",
     "IdentificationTask",
     "IdentificationTaskPermission",
     "IdentificationTaskResult",
@@ -411,7 +413,6 @@ __all__ = [
     "LocalizedMessageTitle",
     "LocalizedMessageTitleRequest",
     "Location",
-    "LocationPoint",
     "LocationRequest",
     "MetaCreateIdentificationTaskReviewRequest",
     "MetaNotificationRequest",
@@ -502,7 +503,9 @@ __all__ = [
     "ObservationsCreateEventEnvironmentErrorComponent",
     "ObservationsCreateEventMomentErrorComponent",
     "ObservationsCreateLocationNonFieldErrorsErrorComponent",
-    "ObservationsCreateLocationPointErrorComponent",
+    "ObservationsCreateLocationPointLatitudeErrorComponent",
+    "ObservationsCreateLocationPointLongitudeErrorComponent",
+    "ObservationsCreateLocationPointNonFieldErrorsErrorComponent",
     "ObservationsCreateLocationSourceErrorComponent",
     "ObservationsCreateMosquitoAppearanceAbdomenErrorComponent",
     "ObservationsCreateMosquitoAppearanceLegsErrorComponent",
@@ -511,9 +514,8 @@ __all__ = [
     "ObservationsCreateMosquitoAppearanceThoraxErrorComponent",
     "ObservationsCreateNonFieldErrorsErrorComponent",
     "ObservationsCreateNoteErrorComponent",
-    "ObservationsCreatePhotosINDEXFileErrorComponent",
-    "ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent",
-    "ObservationsCreatePhotosNonFieldErrorsErrorComponent",
+    "ObservationsCreatePhotosErrorComponent",
+    "ObservationsCreatePhotosINDEXErrorComponent",
     "ObservationsCreateSentAtErrorComponent",
     "ObservationsCreateTagsErrorComponent",
     "ObservationsCreateTagsINDEXErrorComponent",
@@ -550,6 +552,7 @@ __all__ = [
     "PaginatedPhotoPredictionList",
     "PaginatedTaxonList",
     "Partner",
+    "PartnerPoint",
     "PasswordChangeRequest",
     "PatchedDeviceUpdateRequest",
     "PatchedNotificationRequest",
@@ -605,12 +608,13 @@ __all__ = [
     "PhotosPredictionUpdateScoresOtherSpeciesErrorComponent",
     "PhotosPredictionUpdateThresholdDeviationErrorComponent",
     "PhotosPredictionUpdateValidationError",
+    "Point",
+    "PointRequest",
     "PredictionScore",
     "PredictionScoreRequest",
     "ReviewPermission",
     "SimpleAnnotatorUser",
     "SimplePhoto",
-    "SimplePhotoRequest",
     "SimpleTaxon",
     "SimpleTaxonRequest",
     "SimplifiedLocation",
@@ -721,7 +725,9 @@ from mosquito_alert.models.bites_create_error import BitesCreateError as BitesCr
 from mosquito_alert.models.bites_create_event_environment_error_component import BitesCreateEventEnvironmentErrorComponent as BitesCreateEventEnvironmentErrorComponent
 from mosquito_alert.models.bites_create_event_moment_error_component import BitesCreateEventMomentErrorComponent as BitesCreateEventMomentErrorComponent
 from mosquito_alert.models.bites_create_location_non_field_errors_error_component import BitesCreateLocationNonFieldErrorsErrorComponent as BitesCreateLocationNonFieldErrorsErrorComponent
-from mosquito_alert.models.bites_create_location_point_error_component import BitesCreateLocationPointErrorComponent as BitesCreateLocationPointErrorComponent
+from mosquito_alert.models.bites_create_location_point_latitude_error_component import BitesCreateLocationPointLatitudeErrorComponent as BitesCreateLocationPointLatitudeErrorComponent
+from mosquito_alert.models.bites_create_location_point_longitude_error_component import BitesCreateLocationPointLongitudeErrorComponent as BitesCreateLocationPointLongitudeErrorComponent
+from mosquito_alert.models.bites_create_location_point_non_field_errors_error_component import BitesCreateLocationPointNonFieldErrorsErrorComponent as BitesCreateLocationPointNonFieldErrorsErrorComponent
 from mosquito_alert.models.bites_create_location_source_error_component import BitesCreateLocationSourceErrorComponent as BitesCreateLocationSourceErrorComponent
 from mosquito_alert.models.bites_create_non_field_errors_error_component import BitesCreateNonFieldErrorsErrorComponent as BitesCreateNonFieldErrorsErrorComponent
 from mosquito_alert.models.bites_create_note_error_component import BitesCreateNoteErrorComponent as BitesCreateNoteErrorComponent
@@ -757,13 +763,14 @@ from mosquito_alert.models.breedingsites_create_has_near_mosquitoes_error_compon
 from mosquito_alert.models.breedingsites_create_has_water_error_component import BreedingsitesCreateHasWaterErrorComponent as BreedingsitesCreateHasWaterErrorComponent
 from mosquito_alert.models.breedingsites_create_in_public_area_error_component import BreedingsitesCreateInPublicAreaErrorComponent as BreedingsitesCreateInPublicAreaErrorComponent
 from mosquito_alert.models.breedingsites_create_location_non_field_errors_error_component import BreedingsitesCreateLocationNonFieldErrorsErrorComponent as BreedingsitesCreateLocationNonFieldErrorsErrorComponent
-from mosquito_alert.models.breedingsites_create_location_point_error_component import BreedingsitesCreateLocationPointErrorComponent as BreedingsitesCreateLocationPointErrorComponent
+from mosquito_alert.models.breedingsites_create_location_point_latitude_error_component import BreedingsitesCreateLocationPointLatitudeErrorComponent as BreedingsitesCreateLocationPointLatitudeErrorComponent
+from mosquito_alert.models.breedingsites_create_location_point_longitude_error_component import BreedingsitesCreateLocationPointLongitudeErrorComponent as BreedingsitesCreateLocationPointLongitudeErrorComponent
+from mosquito_alert.models.breedingsites_create_location_point_non_field_errors_error_component import BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent as BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent
 from mosquito_alert.models.breedingsites_create_location_source_error_component import BreedingsitesCreateLocationSourceErrorComponent as BreedingsitesCreateLocationSourceErrorComponent
 from mosquito_alert.models.breedingsites_create_non_field_errors_error_component import BreedingsitesCreateNonFieldErrorsErrorComponent as BreedingsitesCreateNonFieldErrorsErrorComponent
 from mosquito_alert.models.breedingsites_create_note_error_component import BreedingsitesCreateNoteErrorComponent as BreedingsitesCreateNoteErrorComponent
-from mosquito_alert.models.breedingsites_create_photos_index_file_error_component import BreedingsitesCreatePhotosINDEXFileErrorComponent as BreedingsitesCreatePhotosINDEXFileErrorComponent
-from mosquito_alert.models.breedingsites_create_photos_index_non_field_errors_error_component import BreedingsitesCreatePhotosINDEXNonFieldErrorsErrorComponent as BreedingsitesCreatePhotosINDEXNonFieldErrorsErrorComponent
-from mosquito_alert.models.breedingsites_create_photos_non_field_errors_error_component import BreedingsitesCreatePhotosNonFieldErrorsErrorComponent as BreedingsitesCreatePhotosNonFieldErrorsErrorComponent
+from mosquito_alert.models.breedingsites_create_photos_error_component import BreedingsitesCreatePhotosErrorComponent as BreedingsitesCreatePhotosErrorComponent
+from mosquito_alert.models.breedingsites_create_photos_index_error_component import BreedingsitesCreatePhotosINDEXErrorComponent as BreedingsitesCreatePhotosINDEXErrorComponent
 from mosquito_alert.models.breedingsites_create_sent_at_error_component import BreedingsitesCreateSentAtErrorComponent as BreedingsitesCreateSentAtErrorComponent
 from mosquito_alert.models.breedingsites_create_site_type_error_component import BreedingsitesCreateSiteTypeErrorComponent as BreedingsitesCreateSiteTypeErrorComponent
 from mosquito_alert.models.breedingsites_create_tags_error_component import BreedingsitesCreateTagsErrorComponent as BreedingsitesCreateTagsErrorComponent
@@ -872,7 +879,6 @@ from mosquito_alert.models.general_permission import GeneralPermission as Genera
 from mosquito_alert.models.guest_registration import GuestRegistration as GuestRegistration
 from mosquito_alert.models.guest_registration_request import GuestRegistrationRequest as GuestRegistrationRequest
 from mosquito_alert.models.identification import Identification as Identification
-from mosquito_alert.models.identification_request import IdentificationRequest as IdentificationRequest
 from mosquito_alert.models.identification_task import IdentificationTask as IdentificationTask
 from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission as IdentificationTaskPermission
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult as IdentificationTaskResult
@@ -1036,7 +1042,6 @@ from mosquito_alert.models.localized_message_body_request import LocalizedMessag
 from mosquito_alert.models.localized_message_title import LocalizedMessageTitle as LocalizedMessageTitle
 from mosquito_alert.models.localized_message_title_request import LocalizedMessageTitleRequest as LocalizedMessageTitleRequest
 from mosquito_alert.models.location import Location as Location
-from mosquito_alert.models.location_point import LocationPoint as LocationPoint
 from mosquito_alert.models.location_request import LocationRequest as LocationRequest
 from mosquito_alert.models.meta_create_identification_task_review_request import MetaCreateIdentificationTaskReviewRequest as MetaCreateIdentificationTaskReviewRequest
 from mosquito_alert.models.meta_notification_request import MetaNotificationRequest as MetaNotificationRequest
@@ -1127,7 +1132,9 @@ from mosquito_alert.models.observations_create_error import ObservationsCreateEr
 from mosquito_alert.models.observations_create_event_environment_error_component import ObservationsCreateEventEnvironmentErrorComponent as ObservationsCreateEventEnvironmentErrorComponent
 from mosquito_alert.models.observations_create_event_moment_error_component import ObservationsCreateEventMomentErrorComponent as ObservationsCreateEventMomentErrorComponent
 from mosquito_alert.models.observations_create_location_non_field_errors_error_component import ObservationsCreateLocationNonFieldErrorsErrorComponent as ObservationsCreateLocationNonFieldErrorsErrorComponent
-from mosquito_alert.models.observations_create_location_point_error_component import ObservationsCreateLocationPointErrorComponent as ObservationsCreateLocationPointErrorComponent
+from mosquito_alert.models.observations_create_location_point_latitude_error_component import ObservationsCreateLocationPointLatitudeErrorComponent as ObservationsCreateLocationPointLatitudeErrorComponent
+from mosquito_alert.models.observations_create_location_point_longitude_error_component import ObservationsCreateLocationPointLongitudeErrorComponent as ObservationsCreateLocationPointLongitudeErrorComponent
+from mosquito_alert.models.observations_create_location_point_non_field_errors_error_component import ObservationsCreateLocationPointNonFieldErrorsErrorComponent as ObservationsCreateLocationPointNonFieldErrorsErrorComponent
 from mosquito_alert.models.observations_create_location_source_error_component import ObservationsCreateLocationSourceErrorComponent as ObservationsCreateLocationSourceErrorComponent
 from mosquito_alert.models.observations_create_mosquito_appearance_abdomen_error_component import ObservationsCreateMosquitoAppearanceAbdomenErrorComponent as ObservationsCreateMosquitoAppearanceAbdomenErrorComponent
 from mosquito_alert.models.observations_create_mosquito_appearance_legs_error_component import ObservationsCreateMosquitoAppearanceLegsErrorComponent as ObservationsCreateMosquitoAppearanceLegsErrorComponent
@@ -1136,9 +1143,8 @@ from mosquito_alert.models.observations_create_mosquito_appearance_specie_error_
 from mosquito_alert.models.observations_create_mosquito_appearance_thorax_error_component import ObservationsCreateMosquitoAppearanceThoraxErrorComponent as ObservationsCreateMosquitoAppearanceThoraxErrorComponent
 from mosquito_alert.models.observations_create_non_field_errors_error_component import ObservationsCreateNonFieldErrorsErrorComponent as ObservationsCreateNonFieldErrorsErrorComponent
 from mosquito_alert.models.observations_create_note_error_component import ObservationsCreateNoteErrorComponent as ObservationsCreateNoteErrorComponent
-from mosquito_alert.models.observations_create_photos_index_file_error_component import ObservationsCreatePhotosINDEXFileErrorComponent as ObservationsCreatePhotosINDEXFileErrorComponent
-from mosquito_alert.models.observations_create_photos_index_non_field_errors_error_component import ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent as ObservationsCreatePhotosINDEXNonFieldErrorsErrorComponent
-from mosquito_alert.models.observations_create_photos_non_field_errors_error_component import ObservationsCreatePhotosNonFieldErrorsErrorComponent as ObservationsCreatePhotosNonFieldErrorsErrorComponent
+from mosquito_alert.models.observations_create_photos_error_component import ObservationsCreatePhotosErrorComponent as ObservationsCreatePhotosErrorComponent
+from mosquito_alert.models.observations_create_photos_index_error_component import ObservationsCreatePhotosINDEXErrorComponent as ObservationsCreatePhotosINDEXErrorComponent
 from mosquito_alert.models.observations_create_sent_at_error_component import ObservationsCreateSentAtErrorComponent as ObservationsCreateSentAtErrorComponent
 from mosquito_alert.models.observations_create_tags_error_component import ObservationsCreateTagsErrorComponent as ObservationsCreateTagsErrorComponent
 from mosquito_alert.models.observations_create_tags_index_error_component import ObservationsCreateTagsINDEXErrorComponent as ObservationsCreateTagsINDEXErrorComponent
@@ -1175,6 +1181,7 @@ from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList as
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList as PaginatedPhotoPredictionList
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList as PaginatedTaxonList
 from mosquito_alert.models.partner import Partner as Partner
+from mosquito_alert.models.partner_point import PartnerPoint as PartnerPoint
 from mosquito_alert.models.password_change_request import PasswordChangeRequest as PasswordChangeRequest
 from mosquito_alert.models.patched_device_update_request import PatchedDeviceUpdateRequest as PatchedDeviceUpdateRequest
 from mosquito_alert.models.patched_notification_request import PatchedNotificationRequest as PatchedNotificationRequest
@@ -1230,12 +1237,13 @@ from mosquito_alert.models.photos_prediction_update_scores_not_sure_error_compon
 from mosquito_alert.models.photos_prediction_update_scores_other_species_error_component import PhotosPredictionUpdateScoresOtherSpeciesErrorComponent as PhotosPredictionUpdateScoresOtherSpeciesErrorComponent
 from mosquito_alert.models.photos_prediction_update_threshold_deviation_error_component import PhotosPredictionUpdateThresholdDeviationErrorComponent as PhotosPredictionUpdateThresholdDeviationErrorComponent
 from mosquito_alert.models.photos_prediction_update_validation_error import PhotosPredictionUpdateValidationError as PhotosPredictionUpdateValidationError
+from mosquito_alert.models.point import Point as Point
+from mosquito_alert.models.point_request import PointRequest as PointRequest
 from mosquito_alert.models.prediction_score import PredictionScore as PredictionScore
 from mosquito_alert.models.prediction_score_request import PredictionScoreRequest as PredictionScoreRequest
 from mosquito_alert.models.review_permission import ReviewPermission as ReviewPermission
 from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser as SimpleAnnotatorUser
 from mosquito_alert.models.simple_photo import SimplePhoto as SimplePhoto
-from mosquito_alert.models.simple_photo_request import SimplePhotoRequest as SimplePhotoRequest
 from mosquito_alert.models.simple_taxon import SimpleTaxon as SimpleTaxon
 from mosquito_alert.models.simple_taxon_request import SimpleTaxonRequest as SimpleTaxonRequest
 from mosquito_alert.models.simplified_location import SimplifiedLocation as SimplifiedLocation

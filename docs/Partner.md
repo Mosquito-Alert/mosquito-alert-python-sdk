@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
-**point** | [**LocationPoint**](LocationPoint.md) |  | 
+**point** | [**PartnerPoint**](PartnerPoint.md) |  | 
 **description** | **str** | Text desription on the pin. This text is meant to be visualized as the text body of the dialog on the map | 
 **url** | **str** | URL link to the organization page | 
 

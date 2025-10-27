@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source** | **str** | Indicates how the location was obtained. Use &#39;Auto (GPS)&#39; if the location was automatically retrieved from the device&#39;s GPS, or &#39;Manual (User-selected)&#39; if the location was selected by the user on a map. | 
-**point** | [**LocationPoint**](LocationPoint.md) |  | 
+**point** | [**Point**](Point.md) |  | 
 **timezone** | **str** |  | [readonly] 
 **display_name** | **str** |  | [readonly] 
 **country** | [**Country**](Country.md) |  | [readonly] 
