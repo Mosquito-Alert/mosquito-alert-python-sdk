@@ -37,12 +37,12 @@ class TestNotificationMessage(unittest.TestCase):
         if include_optional:
             return NotificationMessage(
                 title = '',
-                body = ''
+                body = '<body><p><strong>Welcome!</strong>this is a text in html.</p></body>'
             )
         else:
             return NotificationMessage(
                 title = '',
-                body = '',
+                body = '<body><p><strong>Welcome!</strong>this is a text in html.</p></body>',
         )
         """
 

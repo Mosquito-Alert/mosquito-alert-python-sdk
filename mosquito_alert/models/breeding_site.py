@@ -44,7 +44,7 @@ class BreedingSite(BaseModel):
     tags: Optional[List[StrictStr]] = None
     published: StrictBool
     photos: List[SimplePhoto]
-    site_type: Optional[StrictStr] = Field(default=None, description="Breeding site type.")
+    site_type: StrictStr = Field(description="Breeding site type.")
     has_water: Optional[StrictBool] = Field(default=None, description="Either if the user perceived water in the breeding site.")
     in_public_area: Optional[StrictBool] = Field(default=None, description="Either if the breeding site is found in a public area.")
     has_near_mosquitoes: Optional[StrictBool] = Field(default=None, description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")
@@ -54,9 +54,6 @@ class BreedingSite(BaseModel):
     @field_validator('site_type')
     def site_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['basin', 'bucket', 'fountain', 'small_container', 'storm_drain', 'well', 'other']):
             raise ValueError("must be one of enum values ('basin', 'bucket', 'fountain', 'small_container', 'storm_drain', 'well', 'other')")
         return value

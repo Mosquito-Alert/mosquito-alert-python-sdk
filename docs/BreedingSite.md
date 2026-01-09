@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **tags** | **List[str]** |  | [optional] 
 **published** | **bool** |  | [readonly] 
 **photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | [readonly] 
-**site_type** | **str** | Breeding site type. | [optional] 
+**site_type** | **str** | Breeding site type. | 
 **has_water** | **bool** | Either if the user perceived water in the breeding site. | [optional] 
 **in_public_area** | **bool** | Either if the breeding site is found in a public area. | [optional] 
 **has_near_mosquitoes** | **bool** | Either if the user perceived mosquitoes near the breeding site (less than 10 meters). | [optional] 

@@ -39,7 +39,7 @@ class TestNotification(unittest.TestCase):
                 id = 56,
                 message = mosquito_alert.models.notification_message.NotificationMessage(
                     title = '', 
-                    body = '', ),
+                    body = '<body><p><strong>Welcome!</strong>this is a text in html.</p></body>', ),
                 is_read = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
@@ -48,7 +48,7 @@ class TestNotification(unittest.TestCase):
                 id = 56,
                 message = mosquito_alert.models.notification_message.NotificationMessage(
                     title = '', 
-                    body = '', ),
+                    body = '<body><p><strong>Welcome!</strong>this is a text in html.</p></body>', ),
                 is_read = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )

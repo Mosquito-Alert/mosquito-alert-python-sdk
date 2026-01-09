@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> BreedingSite create(created_at, sent_at, location, photos, note=note, tags=tags, site_type=site_type, has_water=has_water, in_public_area=in_public_area, has_near_mosquitoes=has_near_mosquitoes, has_larvae=has_larvae)
+> BreedingSite create(created_at, sent_at, location, photos, site_type, note=note, tags=tags, has_water=has_water, in_public_area=in_public_area, has_near_mosquitoes=has_near_mosquitoes, has_larvae=has_larvae)
 
 ### Example
 
@@ -63,16 +63,16 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     sent_at = '2013-10-20T19:20:30+01:00' # datetime | 
     location = mosquito_alert.LocationRequest() # LocationRequest | 
     photos = None # List[bytearray] | 
+    site_type = 'site_type_example' # str | Breeding site type.
     note = 'note_example' # str | Note user attached to report. (optional)
     tags = ['tags_example'] # List[str] |  (optional)
-    site_type = 'site_type_example' # str | Breeding site type. (optional)
     has_water = True # bool | Either if the user perceived water in the breeding site. (optional)
     in_public_area = True # bool | Either if the breeding site is found in a public area. (optional)
     has_near_mosquitoes = True # bool | Either if the user perceived mosquitoes near the breeding site (less than 10 meters). (optional)
     has_larvae = True # bool | Either if the user perceived larvaes the breeding site. (optional)
 
     try:
-        api_response = api_instance.create(created_at, sent_at, location, photos, note=note, tags=tags, site_type=site_type, has_water=has_water, in_public_area=in_public_area, has_near_mosquitoes=has_near_mosquitoes, has_larvae=has_larvae)
+        api_response = api_instance.create(created_at, sent_at, location, photos, site_type, note=note, tags=tags, has_water=has_water, in_public_area=in_public_area, has_near_mosquitoes=has_near_mosquitoes, has_larvae=has_larvae)
         print("The response of BreedingSitesApi->create:\n")
         pprint(api_response)
     except Exception as e:
@@ -90,9 +90,9 @@ Name | Type | Description  | Notes
  **sent_at** | **datetime**|  | 
  **location** | [**LocationRequest**](LocationRequest.md)|  | 
  **photos** | **List[bytearray]**|  | 
+ **site_type** | **str**| Breeding site type. | 
  **note** | **str**| Note user attached to report. | [optional] 
  **tags** | [**List[str]**](str.md)|  | [optional] 
- **site_type** | **str**| Breeding site type. | [optional] 
  **has_water** | **bool**| Either if the user perceived water in the breeding site. | [optional] 
  **in_public_area** | **bool**| Either if the breeding site is found in a public area. | [optional] 
  **has_near_mosquitoes** | **bool**| Either if the user perceived mosquitoes near the breeding site (less than 10 meters). | [optional] 

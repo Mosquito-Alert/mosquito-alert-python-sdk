@@ -101,7 +101,7 @@ class AuthApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -171,7 +171,7 @@ class AuthApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -241,7 +241,7 @@ class AuthApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
             *_param,

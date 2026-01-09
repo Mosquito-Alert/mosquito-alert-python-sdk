@@ -51,9 +51,9 @@ class BreedingSitesApi:
         sent_at: datetime,
         location: LocationRequest,
         photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
+        site_type: Annotated[StrictStr, Field(description="Breeding site type.")],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
-        site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
         has_water: Annotated[Optional[StrictBool], Field(description="Either if the user perceived water in the breeding site.")] = None,
         in_public_area: Annotated[Optional[StrictBool], Field(description="Either if the breeding site is found in a public area.")] = None,
         has_near_mosquitoes: Annotated[Optional[StrictBool], Field(description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")] = None,
@@ -82,12 +82,12 @@ class BreedingSitesApi:
         :type location: LocationRequest
         :param photos: (required)
         :type photos: List[bytearray]
+        :param site_type: Breeding site type. (required)
+        :type site_type: str
         :param note: Note user attached to report.
         :type note: str
         :param tags:
         :type tags: List[str]
-        :param site_type: Breeding site type.
-        :type site_type: str
         :param has_water: Either if the user perceived water in the breeding site.
         :type has_water: bool
         :param in_public_area: Either if the breeding site is found in a public area.
@@ -123,9 +123,9 @@ class BreedingSitesApi:
             sent_at=sent_at,
             location=location,
             photos=photos,
+            site_type=site_type,
             note=note,
             tags=tags,
-            site_type=site_type,
             has_water=has_water,
             in_public_area=in_public_area,
             has_near_mosquitoes=has_near_mosquitoes,
@@ -161,9 +161,9 @@ class BreedingSitesApi:
         sent_at: datetime,
         location: LocationRequest,
         photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
+        site_type: Annotated[StrictStr, Field(description="Breeding site type.")],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
-        site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
         has_water: Annotated[Optional[StrictBool], Field(description="Either if the user perceived water in the breeding site.")] = None,
         in_public_area: Annotated[Optional[StrictBool], Field(description="Either if the breeding site is found in a public area.")] = None,
         has_near_mosquitoes: Annotated[Optional[StrictBool], Field(description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")] = None,
@@ -192,12 +192,12 @@ class BreedingSitesApi:
         :type location: LocationRequest
         :param photos: (required)
         :type photos: List[bytearray]
+        :param site_type: Breeding site type. (required)
+        :type site_type: str
         :param note: Note user attached to report.
         :type note: str
         :param tags:
         :type tags: List[str]
-        :param site_type: Breeding site type.
-        :type site_type: str
         :param has_water: Either if the user perceived water in the breeding site.
         :type has_water: bool
         :param in_public_area: Either if the breeding site is found in a public area.
@@ -233,9 +233,9 @@ class BreedingSitesApi:
             sent_at=sent_at,
             location=location,
             photos=photos,
+            site_type=site_type,
             note=note,
             tags=tags,
-            site_type=site_type,
             has_water=has_water,
             in_public_area=in_public_area,
             has_near_mosquitoes=has_near_mosquitoes,
@@ -271,9 +271,9 @@ class BreedingSitesApi:
         sent_at: datetime,
         location: LocationRequest,
         photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
+        site_type: Annotated[StrictStr, Field(description="Breeding site type.")],
         note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
-        site_type: Annotated[Optional[StrictStr], Field(description="Breeding site type.")] = None,
         has_water: Annotated[Optional[StrictBool], Field(description="Either if the user perceived water in the breeding site.")] = None,
         in_public_area: Annotated[Optional[StrictBool], Field(description="Either if the breeding site is found in a public area.")] = None,
         has_near_mosquitoes: Annotated[Optional[StrictBool], Field(description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")] = None,
@@ -302,12 +302,12 @@ class BreedingSitesApi:
         :type location: LocationRequest
         :param photos: (required)
         :type photos: List[bytearray]
+        :param site_type: Breeding site type. (required)
+        :type site_type: str
         :param note: Note user attached to report.
         :type note: str
         :param tags:
         :type tags: List[str]
-        :param site_type: Breeding site type.
-        :type site_type: str
         :param has_water: Either if the user perceived water in the breeding site.
         :type has_water: bool
         :param in_public_area: Either if the breeding site is found in a public area.
@@ -343,9 +343,9 @@ class BreedingSitesApi:
             sent_at=sent_at,
             location=location,
             photos=photos,
+            site_type=site_type,
             note=note,
             tags=tags,
-            site_type=site_type,
             has_water=has_water,
             in_public_area=in_public_area,
             has_near_mosquitoes=has_near_mosquitoes,
@@ -376,9 +376,9 @@ class BreedingSitesApi:
         sent_at,
         location,
         photos,
+        site_type,
         note,
         tags,
-        site_type,
         has_water,
         in_public_area,
         has_near_mosquitoes,

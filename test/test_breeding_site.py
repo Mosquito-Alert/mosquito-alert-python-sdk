@@ -106,6 +106,7 @@ class TestBreedingSite(unittest.TestCase):
                         uuid = '', 
                         url = '', )
                     ],
+                site_type = 'basin',
         )
         """
 

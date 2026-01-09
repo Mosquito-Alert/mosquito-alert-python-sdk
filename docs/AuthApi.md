@@ -96,7 +96,7 @@ void (empty response body)
 **401** |  |  -  |
 **403** |  |  -  |
 **404** |  |  -  |
-**200** | No response body |  -  |
+**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
