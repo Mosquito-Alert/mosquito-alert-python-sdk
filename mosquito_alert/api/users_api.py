@@ -63,7 +63,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param patched_user_request:
         :type patched_user_request: PatchedUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -137,7 +137,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param patched_user_request:
         :type patched_user_request: PatchedUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -211,7 +211,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param patched_user_request:
         :type patched_user_request: PatchedUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -364,7 +364,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -433,7 +433,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -502,7 +502,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -891,7 +891,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param user_request:
         :type user_request: UserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -965,7 +965,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param user_request:
         :type user_request: UserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1039,7 +1039,7 @@ class UsersApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param user_request:
         :type user_request: UserRequest
         :param _request_timeout: timeout setting for this request. If one

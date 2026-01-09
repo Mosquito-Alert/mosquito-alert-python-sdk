@@ -473,7 +473,7 @@ class ObservationsApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -542,7 +542,7 @@ class ObservationsApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -611,7 +611,7 @@ class ObservationsApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -784,7 +784,7 @@ class ObservationsApi:
         :param updated_at_before: Update at
         :type updated_at_before: datetime
         :param user_uuid:
-        :type user_uuid: str
+        :type user_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -909,7 +909,7 @@ class ObservationsApi:
         :param updated_at_before: Update at
         :type updated_at_before: datetime
         :param user_uuid:
-        :type user_uuid: str
+        :type user_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1034,7 +1034,7 @@ class ObservationsApi:
         :param updated_at_before: Update at
         :type updated_at_before: datetime
         :param user_uuid:
-        :type user_uuid: str
+        :type user_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1350,7 +1350,7 @@ class ObservationsApi:
         :param updated_at_before: Update at
         :type updated_at_before: datetime
         :param user_uuid:
-        :type user_uuid: str
+        :type user_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1477,7 +1477,7 @@ class ObservationsApi:
         :param updated_at_before: Update at
         :type updated_at_before: datetime
         :param user_uuid:
-        :type user_uuid: str
+        :type user_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1604,7 +1604,7 @@ class ObservationsApi:
         :param updated_at_before: Update at
         :type updated_at_before: datetime
         :param user_uuid:
-        :type user_uuid: str
+        :type user_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1878,7 +1878,7 @@ class ObservationsApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1946,7 +1946,7 @@ class ObservationsApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2014,7 +2014,7 @@ class ObservationsApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

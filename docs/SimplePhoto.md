@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **str** |  | [readonly] 
+**uuid** | **UUID** |  | [readonly] 
 **url** | **str** | URL of the photo associated with the item. Note: This URL may change over time. Do not rely on it for permanent storage. | [readonly] 
 
 ## Example

@@ -57,7 +57,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.PhotosApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
 
     try:
         api_instance.prediction_destroy(uuid)
@@ -72,7 +72,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
 
 ### Return type
 
@@ -146,7 +146,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.PhotosApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
     patched_photo_prediction_request = mosquito_alert.PatchedPhotoPredictionRequest() # PatchedPhotoPredictionRequest |  (optional)
 
     try:
@@ -164,7 +164,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
  **patched_photo_prediction_request** | [**PatchedPhotoPredictionRequest**](PatchedPhotoPredictionRequest.md)|  | [optional] 
 
 ### Return type
@@ -239,7 +239,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.PhotosApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
 
     try:
         api_response = api_instance.prediction_retrieve(uuid)
@@ -256,7 +256,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
 
 ### Return type
 
@@ -330,7 +330,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.PhotosApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
     photo_prediction_request = mosquito_alert.PhotoPredictionRequest() # PhotoPredictionRequest | 
 
     try:
@@ -348,7 +348,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
  **photo_prediction_request** | [**PhotoPredictionRequest**](PhotoPredictionRequest.md)|  | 
 
 ### Return type
@@ -423,7 +423,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.PhotosApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
 
     try:
         api_response = api_instance.retrieve(uuid)
@@ -440,7 +440,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
 
 ### Return type
 

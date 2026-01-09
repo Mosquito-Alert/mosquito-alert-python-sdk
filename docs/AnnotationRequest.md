@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**best_photo_uuid** | **str** |  | [optional] 
+**best_photo_uuid** | **UUID** |  | [optional] 
 **classification** | [**AnnotationClassificationRequest**](AnnotationClassificationRequest.md) |  | 
 **characteristics** | [**AnnotationCharacteristicsRequest**](AnnotationCharacteristicsRequest.md) |  | [optional] 
 **feedback** | [**AnnotationFeedbackRequest**](AnnotationFeedbackRequest.md) |  | [optional] 

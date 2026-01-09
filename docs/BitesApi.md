@@ -149,7 +149,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.BitesApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
 
     try:
         api_instance.destroy(uuid)
@@ -164,7 +164,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
 
 ### Return type
 
@@ -249,7 +249,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     short_id = 'short_id_example' # str | Short ID (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
-    user_uuid = 'user_uuid_example' # str |  (optional)
+    user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
 
     try:
         api_response = api_instance.list(country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, search=search, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
  **short_id** | **str**| Short ID | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
- **user_uuid** | **str**|  | [optional] 
+ **user_uuid** | **UUID**|  | [optional] 
 
 ### Return type
 
@@ -365,7 +365,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     short_id = 'short_id_example' # str | Short ID (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
-    user_uuid = 'user_uuid_example' # str |  (optional)
+    user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
 
     try:
         api_response = api_instance.list_mine(country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, order_by=order_by, page=page, page_size=page_size, received_at_after=received_at_after, received_at_before=received_at_before, search=search, short_id=short_id, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
  **short_id** | **str**| Short ID | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
- **user_uuid** | **str**|  | [optional] 
+ **user_uuid** | **UUID**|  | [optional] 
 
 ### Return type
 
@@ -468,7 +468,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.BitesApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
 
     try:
         api_response = api_instance.retrieve(uuid)
@@ -485,7 +485,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
 
 ### Return type
 

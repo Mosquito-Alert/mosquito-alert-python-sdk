@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **str** |  | 
+**uuid** | **UUID** |  | 
 **image_url** | **str** | Photo uploaded by user. | 
 **image_path** | **str** | Internal server path of the image. | [readonly] 
 

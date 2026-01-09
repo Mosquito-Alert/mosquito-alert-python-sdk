@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** |  | [optional] [default to 'overwrite']
-**public_photo_uuid** | **str** |  | 
+**public_photo_uuid** | **UUID** |  | 
 **is_safe** | **bool** | Indicates if the content is safe for publication. | 
 **public_note** | **str** |  | 
 **result** | [**AnnotationClassificationRequest**](AnnotationClassificationRequest.md) |  | 

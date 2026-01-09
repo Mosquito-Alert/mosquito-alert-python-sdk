@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
-**observation_uuid** | **str** |  | [readonly] 
+**observation_uuid** | **UUID** |  | [readonly] 
 **user** | [**SimpleAnnotatorUser**](SimpleAnnotatorUser.md) |  | [readonly] 
 **best_photo** | [**SimplePhoto**](SimplePhoto.md) |  | [readonly] 
 **classification** | [**AnnotationClassification**](AnnotationClassification.md) |  | 

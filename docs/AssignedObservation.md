@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **str** |  | [readonly] 
+**uuid** | **UUID** |  | [readonly] 
 **short_id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | 
 **created_at_local** | **datetime** | The date and time when the record was created, displayed without timezone field. | [readonly] 

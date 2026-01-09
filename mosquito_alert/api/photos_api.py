@@ -63,7 +63,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -132,7 +132,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -201,7 +201,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -333,7 +333,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param patched_photo_prediction_request:
         :type patched_photo_prediction_request: PatchedPhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -407,7 +407,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param patched_photo_prediction_request:
         :type patched_photo_prediction_request: PatchedPhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -481,7 +481,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param patched_photo_prediction_request:
         :type patched_photo_prediction_request: PatchedPhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -634,7 +634,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -703,7 +703,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -772,7 +772,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -904,7 +904,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param photo_prediction_request: (required)
         :type photo_prediction_request: PhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -978,7 +978,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param photo_prediction_request: (required)
         :type photo_prediction_request: PhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1052,7 +1052,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param photo_prediction_request: (required)
         :type photo_prediction_request: PhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1205,7 +1205,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1274,7 +1274,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1343,7 +1343,7 @@ class PhotosApi:
 
 
         :param uuid: (required)
-        :type uuid: str
+        :type uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **str** |  | [readonly] 
+**uuid** | **UUID** |  | [readonly] 
 **username** | **str** |  | [readonly] 
 **first_name** | **str** |  | [readonly] 
 **last_name** | **str** |  | [readonly] 

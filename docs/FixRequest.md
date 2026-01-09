@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**coverage_uuid** | **str** |  | 
+**coverage_uuid** | **UUID** |  | 
 **created_at** | **datetime** |  | 
 **sent_at** | **datetime** |  | 
 **point** | [**FixLocationRequest**](FixLocationRequest.md) |  | 

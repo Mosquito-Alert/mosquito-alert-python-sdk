@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**photo_uuid** | **str** |  | 
+**photo_uuid** | **UUID** |  | 
 **bbox** | [**BoundingBoxRequest**](BoundingBoxRequest.md) |  | 
 **insect_confidence** | **float** | Insect confidence | 
 **predicted_class** | **str** |  | 

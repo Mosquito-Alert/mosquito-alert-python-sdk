@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **model** | **str** | The end-user-visible name for the end product. | [readonly] 
 **os** | [**DeviceOs**](DeviceOs.md) |  | 
 **mobile_app** | [**MobileApp**](MobileApp.md) |  | [optional] 
-**user_uuid** | **str** |  | [readonly] 
+**user_uuid** | **UUID** |  | [readonly] 
 **last_login** | **datetime** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [readonly] 

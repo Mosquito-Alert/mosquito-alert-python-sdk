@@ -58,7 +58,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.UsersApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
     patched_user_request = mosquito_alert.PatchedUserRequest() # PatchedUserRequest |  (optional)
 
     try:
@@ -76,7 +76,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
  **patched_user_request** | [**PatchedUserRequest**](PatchedUserRequest.md)|  | [optional] 
 
 ### Return type
@@ -151,7 +151,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.UsersApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
 
     try:
         api_response = api_instance.retrieve(uuid)
@@ -168,7 +168,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
 
 ### Return type
 
@@ -330,7 +330,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.UsersApi(api_client)
-    uuid = 'uuid_example' # str | 
+    uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | 
     user_request = mosquito_alert.UserRequest() # UserRequest |  (optional)
 
     try:
@@ -348,7 +348,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **str**|  | 
+ **uuid** | **UUID**|  | 
  **user_request** | [**UserRequest**](UserRequest.md)|  | [optional] 
 
 ### Return type

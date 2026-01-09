@@ -77,7 +77,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param annotation_request: (required)
         :type annotation_request: AnnotationRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -151,7 +151,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param annotation_request: (required)
         :type annotation_request: AnnotationRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -225,7 +225,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param annotation_request: (required)
         :type annotation_request: AnnotationRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -395,7 +395,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -533,7 +533,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -671,7 +671,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -1569,7 +1569,7 @@ class IdentificationTasksApi:
         :param id: A unique integer value identifying this expert report annotation. (required)
         :type id: int
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1642,7 +1642,7 @@ class IdentificationTasksApi:
         :param id: A unique integer value identifying this expert report annotation. (required)
         :type id: int
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1715,7 +1715,7 @@ class IdentificationTasksApi:
         :param id: A unique integer value identifying this expert report annotation. (required)
         :type id: int
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3598,7 +3598,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param create_photo_prediction_request: (required)
         :type create_photo_prediction_request: CreatePhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -3672,7 +3672,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param create_photo_prediction_request: (required)
         :type create_photo_prediction_request: CreatePhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -3746,7 +3746,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param create_photo_prediction_request: (required)
         :type create_photo_prediction_request: CreatePhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -3900,9 +3900,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3973,9 +3973,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4046,9 +4046,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4185,7 +4185,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -4262,7 +4262,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -4339,7 +4339,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param page: A page number within the paginated result set.
         :type page: int
         :param page_size: Number of results to return per page.
@@ -4488,9 +4488,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param patched_photo_prediction_request:
         :type patched_photo_prediction_request: PatchedPhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -4566,9 +4566,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param patched_photo_prediction_request:
         :type patched_photo_prediction_request: PatchedPhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -4644,9 +4644,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param patched_photo_prediction_request:
         :type patched_photo_prediction_request: PatchedPhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -4804,9 +4804,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4877,9 +4877,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4950,9 +4950,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5089,9 +5089,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param photo_prediction_request: (required)
         :type photo_prediction_request: PhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -5167,9 +5167,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param photo_prediction_request: (required)
         :type photo_prediction_request: PhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -5245,9 +5245,9 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: UUID of the Observation (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param photo_uuid: (required)
-        :type photo_uuid: str
+        :type photo_uuid: UUID
         :param photo_prediction_request: (required)
         :type photo_prediction_request: PhotoPredictionRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -5404,7 +5404,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5473,7 +5473,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5542,7 +5542,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5674,7 +5674,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param meta_create_identification_task_review_request:
         :type meta_create_identification_task_review_request: MetaCreateIdentificationTaskReviewRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -5748,7 +5748,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param meta_create_identification_task_review_request:
         :type meta_create_identification_task_review_request: MetaCreateIdentificationTaskReviewRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -5822,7 +5822,7 @@ class IdentificationTasksApi:
 
 
         :param observation_uuid: (required)
-        :type observation_uuid: str
+        :type observation_uuid: UUID
         :param meta_create_identification_task_review_request:
         :type meta_create_identification_task_review_request: MetaCreateIdentificationTaskReviewRequest
         :param _request_timeout: timeout setting for this request. If one
