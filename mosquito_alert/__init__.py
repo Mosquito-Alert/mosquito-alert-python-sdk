@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.30"
+__version__ = "0.1.31"
 
 # Define package exports
 __all__ = [
@@ -32,7 +32,7 @@ __all__ = [
     "PartnersApi",
     "PermissionsApi",
     "PhotosApi",
-    "StatusApi",
+    "PingApi",
     "TaxaApi",
     "UsersApi",
     "ApiResponse",
@@ -658,7 +658,7 @@ from mosquito_alert.api.observations_api import ObservationsApi as ObservationsA
 from mosquito_alert.api.partners_api import PartnersApi as PartnersApi
 from mosquito_alert.api.permissions_api import PermissionsApi as PermissionsApi
 from mosquito_alert.api.photos_api import PhotosApi as PhotosApi
-from mosquito_alert.api.status_api import StatusApi as StatusApi
+from mosquito_alert.api.ping_api import PingApi as PingApi
 from mosquito_alert.api.taxa_api import TaxaApi as TaxaApi
 from mosquito_alert.api.users_api import UsersApi as UsersApi
 

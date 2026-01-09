@@ -15,14 +15,14 @@
 
 import unittest
 
-from mosquito_alert.api.status_api import StatusApi
+from mosquito_alert.api.ping_api import PingApi
 
 
-class TestStatusApi(unittest.TestCase):
-    """StatusApi unit test stubs"""
+class TestPingApi(unittest.TestCase):
+    """PingApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = StatusApi()
+        self.api = PingApi()
 
     def tearDown(self) -> None:
         pass

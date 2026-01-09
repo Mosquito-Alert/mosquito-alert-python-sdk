@@ -581,6 +581,7 @@ docs/PhotosPredictionUpdateScoresNotSureErrorComponent.md
 docs/PhotosPredictionUpdateScoresOtherSpeciesErrorComponent.md
 docs/PhotosPredictionUpdateThresholdDeviationErrorComponent.md
 docs/PhotosPredictionUpdateValidationError.md
+docs/PingApi.md
 docs/Point.md
 docs/PointRequest.md
 docs/PredictionScore.md
@@ -592,7 +593,6 @@ docs/SimpleTaxon.md
 docs/SimpleTaxonRequest.md
 docs/SimplifiedLocation.md
 docs/SimplifiedObservationWithPhotos.md
-docs/StatusApi.md
 docs/TaxaApi.md
 docs/TaxaListRankErrorComponent.md
 docs/TaxaListValidationError.md
@@ -633,7 +633,7 @@ mosquito_alert/api/observations_api.py
 mosquito_alert/api/partners_api.py
 mosquito_alert/api/permissions_api.py
 mosquito_alert/api/photos_api.py
-mosquito_alert/api/status_api.py
+mosquito_alert/api/ping_api.py
 mosquito_alert/api/taxa_api.py
 mosquito_alert/api/users_api.py
 mosquito_alert/api_client.py
@@ -1825,6 +1825,7 @@ test/test_photos_prediction_update_scores_not_sure_error_component.py
 test/test_photos_prediction_update_scores_other_species_error_component.py
 test/test_photos_prediction_update_threshold_deviation_error_component.py
 test/test_photos_prediction_update_validation_error.py
+test/test_ping_api.py
 test/test_point.py
 test/test_point_request.py
 test/test_prediction_score.py
@@ -1836,7 +1837,6 @@ test/test_simple_taxon.py
 test/test_simple_taxon_request.py
 test/test_simplified_location.py
 test/test_simplified_observation_with_photos.py
-test/test_status_api.py
 test/test_taxa_api.py
 test/test_taxa_list_rank_error_component.py
 test/test_taxa_list_validation_error.py

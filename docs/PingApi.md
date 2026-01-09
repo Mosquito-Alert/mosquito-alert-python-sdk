@@ -1,14 +1,16 @@
-# mosquito_alert.StatusApi
+# mosquito_alert.PingApi
 
 All URIs are relative to *https://api.mosquitoalert.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve**](StatusApi.md#retrieve) | **GET** /status/ | 
+[**retrieve**](PingApi.md#retrieve) | **GET** /ping/ | 
 
 
 # **retrieve**
 > retrieve()
+
+Simple ping endpoint to check API connectivity
 
 ### Example
 
@@ -28,12 +30,12 @@ configuration = mosquito_alert.Configuration(
 # Enter a context with an instance of the API client
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mosquito_alert.StatusApi(api_client)
+    api_instance = mosquito_alert.PingApi(api_client)
 
     try:
         api_instance.retrieve()
     except Exception as e:
-        print("Exception when calling StatusApi->retrieve: %s\n" % e)
+        print("Exception when calling PingApi->retrieve: %s\n" % e)
 ```
 
 
@@ -60,7 +62,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** |  |  -  |
-**200** | No response body |  -  |
+**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
