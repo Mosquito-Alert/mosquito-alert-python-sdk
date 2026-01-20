@@ -65,6 +65,30 @@ class TestPaginatedAnnotationList(unittest.TestCase):
             )
         else:
             return PaginatedAnnotationList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.annotation.Annotation(
+                        id = 56, 
+                        observation_uuid = '', 
+                        user = null, 
+                        best_photo = null, 
+                        classification = null, 
+                        feedback = mosquito_alert.models.annotation_feedback.AnnotationFeedback(
+                            public_note = '', 
+                            internal_note = '', 
+                            user_note = '', ), 
+                        type = 'short', 
+                        is_flagged = True, 
+                        is_decisive = True, 
+                        observation_flags = mosquito_alert.models.observation_flags.ObservationFlags(
+                            is_favourite = True, 
+                            is_visible = True, ), 
+                        tags = [
+                            ''
+                            ], 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ],
         )
         """
 

@@ -51,6 +51,16 @@ class TestPaginatedPartnerList(unittest.TestCase):
             )
         else:
             return PaginatedPartnerList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.partner.Partner(
+                        id = 56, 
+                        point = mosquito_alert.models.partner_point.Partner_point(
+                            latitude = 1.337, 
+                            longitude = 1.337, ), 
+                        description = '', 
+                        url = '', )
+                    ],
         )
         """
 

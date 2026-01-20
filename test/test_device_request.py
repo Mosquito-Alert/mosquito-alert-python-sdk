@@ -36,7 +36,7 @@ class TestDeviceRequest(unittest.TestCase):
         model = DeviceRequest()
         if include_optional:
             return DeviceRequest(
-                device_id = '',
+                device_id = '0',
                 name = '',
                 fcm_token = '0',
                 type = 'ios',
@@ -52,7 +52,7 @@ class TestDeviceRequest(unittest.TestCase):
             )
         else:
             return DeviceRequest(
-                device_id = '',
+                device_id = '0',
                 fcm_token = '0',
                 type = 'ios',
                 model = '',

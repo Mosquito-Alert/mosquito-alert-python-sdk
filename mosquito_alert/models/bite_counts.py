@@ -89,7 +89,7 @@ class BiteCounts(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "total": obj.get("total"),
+            "total": obj.get("total") if obj.get("total") is not None else 0,
             "head": obj.get("head") if obj.get("head") is not None else 0,
             "left_arm": obj.get("left_arm") if obj.get("left_arm") is not None else 0,
             "right_arm": obj.get("right_arm") if obj.get("right_arm") is not None else 0,

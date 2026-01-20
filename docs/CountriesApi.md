@@ -55,8 +55,8 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.CountriesApi(api_client)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
+    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
+    page_size = 56 # int | Número de resultados a devolver por página. (optional)
 
     try:
         api_response = api_instance.list(page=page, page_size=page_size)
@@ -73,8 +73,8 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
+ **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
 
 ### Return type
 
@@ -147,7 +147,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.CountriesApi(api_client)
-    id = 56 # int | A unique integer value identifying this europe country.
+    id = 56 # int | Un valor de entero único que identifique este europe country.
 
     try:
         api_response = api_instance.retrieve(id)
@@ -164,7 +164,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this europe country. | 
+ **id** | **int**| Un valor de entero único que identifique este europe country. | 
 
 ### Return type
 

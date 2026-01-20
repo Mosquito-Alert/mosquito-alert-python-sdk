@@ -83,6 +83,48 @@ class TestPaginatedBreedingSiteList(unittest.TestCase):
             )
         else:
             return PaginatedBreedingSiteList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.breeding_site.BreedingSite(
+                        uuid = '', 
+                        short_id = '', 
+                        user_uuid = '', 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        location = mosquito_alert.models.location.Location(
+                            source = 'auto', 
+                            point = mosquito_alert.models.point.Point(
+                                latitude = 1.337, 
+                                longitude = 1.337, ), 
+                            timezone = 'Africa/Abidjan', 
+                            display_name = '', 
+                            country = null, 
+                            adm_boundaries = [
+                                mosquito_alert.models.adm_boundary.AdmBoundary(
+                                    name = '', 
+                                    code = '', 
+                                    source = '', 
+                                    level = 0, )
+                                ], ), 
+                        note = '', 
+                        tags = [
+                            ''
+                            ], 
+                        published = True, 
+                        photos = [
+                            mosquito_alert.models.simple_photo.SimplePhoto(
+                                uuid = '', 
+                                url = '', )
+                            ], 
+                        site_type = 'basin', 
+                        has_water = True, 
+                        in_public_area = True, 
+                        has_near_mosquitoes = True, 
+                        has_larvae = True, )
+                    ],
         )
         """
 

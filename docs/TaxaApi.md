@@ -58,8 +58,8 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.TaxaApi(api_client)
     is_relevant = True # bool |  (optional)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
+    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
+    page_size = 56 # int | Número de resultados a devolver por página. (optional)
     rank = [56] # List[int] |  (optional)
 
     try:
@@ -78,8 +78,8 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **is_relevant** | **bool**|  | [optional] 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
+ **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
  **rank** | [**List[int]**](int.md)|  | [optional] 
 
 ### Return type
@@ -154,7 +154,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.TaxaApi(api_client)
-    id = 56 # int | A unique integer value identifying this taxon.
+    id = 56 # int | Un valor de entero único que identifique este taxon.
 
     try:
         api_response = api_instance.retrieve(id)
@@ -171,7 +171,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this taxon. | 
+ **id** | **int**| Un valor de entero único que identifique este taxon. | 
 
 ### Return type
 
@@ -330,7 +330,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.TaxaApi(api_client)
-    id = 56 # int | A unique integer value identifying this taxon.
+    id = 56 # int | Un valor de entero único que identifique este taxon.
 
     try:
         api_response = api_instance.tree_retrieve(id)
@@ -347,7 +347,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this taxon. | 
+ **id** | **int**| Un valor de entero único que identifique este taxon. | 
 
 ### Return type
 

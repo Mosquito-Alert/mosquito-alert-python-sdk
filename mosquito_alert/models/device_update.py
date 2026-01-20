@@ -35,7 +35,7 @@ class DeviceUpdate(BaseModel):
     device_id: StrictStr = Field(description="Unique device identifier")
     name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
     type: StrictStr
-    manufacturer: StrictStr = Field(description="The manufacturer of the device.")
+    manufacturer: Optional[StrictStr] = Field(description="The manufacturer of the device.")
     model: StrictStr = Field(description="The end-user-visible name for the end product.")
     os: DeviceOs
     mobile_app: Optional[MobileApp] = None
@@ -117,6 +117,11 @@ class DeviceUpdate(BaseModel):
         # and model_fields_set contains the field
         if self.name is None and "name" in self.model_fields_set:
             _dict['name'] = None
+
+        # set to None if manufacturer (nullable) is None
+        # and model_fields_set contains the field
+        if self.manufacturer is None and "manufacturer" in self.model_fields_set:
+            _dict['manufacturer'] = None
 
         # set to None if last_login (nullable) is None
         # and model_fields_set contains the field

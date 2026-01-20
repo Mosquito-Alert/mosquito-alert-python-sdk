@@ -83,6 +83,48 @@ class TestPaginatedBiteList(unittest.TestCase):
             )
         else:
             return PaginatedBiteList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.bite.Bite(
+                        uuid = '', 
+                        short_id = '', 
+                        user_uuid = '', 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        sent_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        location = mosquito_alert.models.location.Location(
+                            source = 'auto', 
+                            point = mosquito_alert.models.point.Point(
+                                latitude = 1.337, 
+                                longitude = 1.337, ), 
+                            timezone = 'Africa/Abidjan', 
+                            display_name = '', 
+                            country = null, 
+                            adm_boundaries = [
+                                mosquito_alert.models.adm_boundary.AdmBoundary(
+                                    name = '', 
+                                    code = '', 
+                                    source = '', 
+                                    level = 0, )
+                                ], ), 
+                        note = '', 
+                        tags = [
+                            ''
+                            ], 
+                        published = True, 
+                        event_environment = 'indoors', 
+                        event_moment = 'now', 
+                        counts = mosquito_alert.models.bite_counts.BiteCounts(
+                            total = 56, 
+                            head = 56, 
+                            left_arm = 56, 
+                            right_arm = 56, 
+                            chest = 56, 
+                            left_leg = 56, 
+                            right_leg = 56, ), )
+                    ],
         )
         """
 

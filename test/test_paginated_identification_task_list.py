@@ -67,6 +67,32 @@ class TestPaginatedIdentificationTaskList(unittest.TestCase):
             )
         else:
             return PaginatedIdentificationTaskList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.identification_task.IdentificationTask(
+                        observation = null, 
+                        public_photo = null, 
+                        assignments = [
+                            mosquito_alert.models.user_assignment.UserAssignment(
+                                user = mosquito_alert.models.simple_annotator_user.SimpleAnnotatorUser(
+                                    uuid = '', 
+                                    username = '', 
+                                    first_name = '', 
+                                    last_name = '', 
+                                    full_name = '', ), 
+                                annotation_id = 56, 
+                                annotation_type = 'short', )
+                            ], 
+                        status = 'open', 
+                        is_flagged = True, 
+                        is_safe = True, 
+                        public_note = '', 
+                        num_annotations = 0, 
+                        review = null, 
+                        result = null, 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ],
         )
         """
 

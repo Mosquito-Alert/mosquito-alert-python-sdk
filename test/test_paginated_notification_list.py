@@ -49,6 +49,14 @@ class TestPaginatedNotificationList(unittest.TestCase):
             )
         else:
             return PaginatedNotificationList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.notification.Notification(
+                        id = 56, 
+                        message = null, 
+                        is_read = True, 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ],
         )
         """
 

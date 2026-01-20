@@ -606,12 +606,12 @@ class BitesApi:
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -638,17 +638,17 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: A search term.
+        :param search: Un término de búsqueda.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
@@ -723,12 +723,12 @@ class BitesApi:
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -755,17 +755,17 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: A search term.
+        :param search: Un término de búsqueda.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
@@ -840,12 +840,12 @@ class BitesApi:
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -872,17 +872,17 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: A search term.
+        :param search: Un término de búsqueda.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
@@ -1136,12 +1136,12 @@ class BitesApi:
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -1169,17 +1169,17 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: A search term.
+        :param search: Un término de búsqueda.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
@@ -1255,12 +1255,12 @@ class BitesApi:
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -1288,17 +1288,17 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: A search term.
+        :param search: Un término de búsqueda.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
@@ -1374,12 +1374,12 @@ class BitesApi:
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -1407,17 +1407,17 @@ class BitesApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: A search term.
+        :param search: Un término de búsqueda.
         :type search: str
         :param short_id: Short ID
         :type short_id: str

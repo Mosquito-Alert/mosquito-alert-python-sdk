@@ -51,6 +51,16 @@ class TestPaginatedTaxonList(unittest.TestCase):
             )
         else:
             return PaginatedTaxonList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.taxon.Taxon(
+                        id = 56, 
+                        name = '', 
+                        common_name = '', 
+                        rank = 'class', 
+                        italicize = True, 
+                        is_relevant = True, )
+                    ],
         )
         """
 

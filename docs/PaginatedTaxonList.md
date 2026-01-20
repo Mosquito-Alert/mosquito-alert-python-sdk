@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
+**count** | **int** |  | 
 **next** | **str** |  | [optional] 
 **previous** | **str** |  | [optional] 
-**results** | [**List[Taxon]**](Taxon.md) |  | [optional] 
+**results** | [**List[Taxon]**](Taxon.md) |  | 
 
 ## Example
 

@@ -336,9 +336,9 @@ class NotificationsApi:
     def list(
         self,
         is_read: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -357,11 +357,11 @@ class NotificationsApi:
 
         :param is_read:
         :type is_read: bool
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -418,9 +418,9 @@ class NotificationsApi:
     def list_with_http_info(
         self,
         is_read: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -439,11 +439,11 @@ class NotificationsApi:
 
         :param is_read:
         :type is_read: bool
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -500,9 +500,9 @@ class NotificationsApi:
     def list_without_preload_content(
         self,
         is_read: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -521,11 +521,11 @@ class NotificationsApi:
 
         :param is_read:
         :type is_read: bool
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -662,9 +662,9 @@ class NotificationsApi:
     def list_mine(
         self,
         is_read: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -684,11 +684,11 @@ class NotificationsApi:
 
         :param is_read:
         :type is_read: bool
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -745,9 +745,9 @@ class NotificationsApi:
     def list_mine_with_http_info(
         self,
         is_read: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -767,11 +767,11 @@ class NotificationsApi:
 
         :param is_read:
         :type is_read: bool
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -828,9 +828,9 @@ class NotificationsApi:
     def list_mine_without_preload_content(
         self,
         is_read: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenado  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -850,11 +850,11 @@ class NotificationsApi:
 
         :param is_read:
         :type is_read: bool
-        :param order_by: Ordenado  
+        :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -990,7 +990,7 @@ class NotificationsApi:
     @validate_call
     def partial_update(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         patched_notification_request: Optional[PatchedNotificationRequest] = None,
         _request_timeout: Union[
             None,
@@ -1008,7 +1008,7 @@ class NotificationsApi:
         """partial_update
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param patched_notification_request:
         :type patched_notification_request: PatchedNotificationRequest
@@ -1064,7 +1064,7 @@ class NotificationsApi:
     @validate_call
     def partial_update_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         patched_notification_request: Optional[PatchedNotificationRequest] = None,
         _request_timeout: Union[
             None,
@@ -1082,7 +1082,7 @@ class NotificationsApi:
         """partial_update
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param patched_notification_request:
         :type patched_notification_request: PatchedNotificationRequest
@@ -1138,7 +1138,7 @@ class NotificationsApi:
     @validate_call
     def partial_update_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         patched_notification_request: Optional[PatchedNotificationRequest] = None,
         _request_timeout: Union[
             None,
@@ -1156,7 +1156,7 @@ class NotificationsApi:
         """partial_update
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param patched_notification_request:
         :type patched_notification_request: PatchedNotificationRequest
@@ -1292,7 +1292,7 @@ class NotificationsApi:
     @validate_call
     def retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1309,7 +1309,7 @@ class NotificationsApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1361,7 +1361,7 @@ class NotificationsApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1378,7 +1378,7 @@ class NotificationsApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1430,7 +1430,7 @@ class NotificationsApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1447,7 +1447,7 @@ class NotificationsApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1561,7 +1561,7 @@ class NotificationsApi:
     @validate_call
     def update(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         notification_request: NotificationRequest,
         _request_timeout: Union[
             None,
@@ -1579,7 +1579,7 @@ class NotificationsApi:
         """update
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param notification_request: (required)
         :type notification_request: NotificationRequest
@@ -1635,7 +1635,7 @@ class NotificationsApi:
     @validate_call
     def update_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         notification_request: NotificationRequest,
         _request_timeout: Union[
             None,
@@ -1653,7 +1653,7 @@ class NotificationsApi:
         """update
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param notification_request: (required)
         :type notification_request: NotificationRequest
@@ -1709,7 +1709,7 @@ class NotificationsApi:
     @validate_call
     def update_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este notification.")],
         notification_request: NotificationRequest,
         _request_timeout: Union[
             None,
@@ -1727,7 +1727,7 @@ class NotificationsApi:
         """update
 
 
-        :param id: A unique integer value identifying this notification. (required)
+        :param id: Un valor de entero único que identifique este notification. (required)
         :type id: int
         :param notification_request: (required)
         :type notification_request: NotificationRequest

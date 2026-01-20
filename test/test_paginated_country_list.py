@@ -48,6 +48,13 @@ class TestPaginatedCountryList(unittest.TestCase):
             )
         else:
             return PaginatedCountryList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.country.Country(
+                        id = 56, 
+                        name_en = '', 
+                        iso3_code = '', )
+                    ],
         )
         """
 

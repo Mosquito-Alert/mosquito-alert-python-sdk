@@ -37,13 +37,13 @@ class TestDevicesCreateDeviceIdErrorComponent(unittest.TestCase):
         if include_optional:
             return DevicesCreateDeviceIdErrorComponent(
                 attr = 'device_id',
-                code = 'invalid',
+                code = 'blank',
                 detail = ''
             )
         else:
             return DevicesCreateDeviceIdErrorComponent(
                 attr = 'device_id',
-                code = 'invalid',
+                code = 'blank',
                 detail = '',
         )
         """

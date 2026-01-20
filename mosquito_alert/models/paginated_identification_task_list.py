@@ -28,10 +28,10 @@ class PaginatedIdentificationTaskList(BaseModel):
     """
     PaginatedIdentificationTaskList
     """ # noqa: E501
-    count: Optional[StrictInt] = None
+    count: StrictInt
     next: Optional[StrictStr] = None
     previous: Optional[StrictStr] = None
-    results: Optional[List[IdentificationTask]] = None
+    results: List[IdentificationTask]
     __properties: ClassVar[List[str]] = ["count", "next", "previous", "results"]
 
     model_config = ConfigDict(

@@ -57,9 +57,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     api_instance = mosquito_alert.CampaignsApi(api_client)
     country_id = 56 # int | Country in which the campaign is taking place (optional)
     is_active = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
+    page_size = 56 # int | Número de resultados a devolver por página. (optional)
 
     try:
         api_response = api_instance.list(country_id=country_id, is_active=is_active, order_by=order_by, page=page, page_size=page_size)
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **country_id** | **int**| Country in which the campaign is taking place | [optional] 
  **is_active** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
+ **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
 
 ### Return type
 
@@ -154,7 +154,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.CampaignsApi(api_client)
-    id = 56 # int | A unique integer value identifying this ow campaigns.
+    id = 56 # int | Un valor de entero único que identifique este ow campaigns.
 
     try:
         api_response = api_instance.retrieve(id)
@@ -171,7 +171,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this ow campaigns. | 
+ **id** | **int**| Un valor de entero único que identifique este ow campaigns. | 
 
 ### Return type
 

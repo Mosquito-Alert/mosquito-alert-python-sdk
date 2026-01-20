@@ -30,7 +30,7 @@ class DeviceRequest(BaseModel):
     """
     DeviceRequest
     """ # noqa: E501
-    device_id: Annotated[str, Field(strict=True, max_length=255)] = Field(description="Unique device identifier")
+    device_id: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="Unique device identifier")
     name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
     fcm_token: Annotated[str, Field(min_length=1, strict=True)]
     type: StrictStr

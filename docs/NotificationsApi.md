@@ -152,9 +152,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
     is_read = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
+    page_size = 56 # int | Número de resultados a devolver por página. (optional)
 
     try:
         api_response = api_instance.list(is_read=is_read, order_by=order_by, page=page, page_size=page_size)
@@ -172,9 +172,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **is_read** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
+ **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
 
 ### Return type
 
@@ -251,9 +251,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
     is_read = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
+    page_size = 56 # int | Número de resultados a devolver por página. (optional)
 
     try:
         api_response = api_instance.list_mine(is_read=is_read, order_by=order_by, page=page, page_size=page_size)
@@ -271,9 +271,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **is_read** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
+ **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
 
 ### Return type
 
@@ -348,7 +348,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this notification.
+    id = 56 # int | Un valor de entero único que identifique este notification.
     patched_notification_request = mosquito_alert.PatchedNotificationRequest() # PatchedNotificationRequest |  (optional)
 
     try:
@@ -366,7 +366,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this notification. | 
+ **id** | **int**| Un valor de entero único que identifique este notification. | 
  **patched_notification_request** | [**PatchedNotificationRequest**](PatchedNotificationRequest.md)|  | [optional] 
 
 ### Return type
@@ -441,7 +441,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this notification.
+    id = 56 # int | Un valor de entero único que identifique este notification.
 
     try:
         api_response = api_instance.retrieve(id)
@@ -458,7 +458,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this notification. | 
+ **id** | **int**| Un valor de entero único que identifique este notification. | 
 
 ### Return type
 
@@ -532,7 +532,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.NotificationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this notification.
+    id = 56 # int | Un valor de entero único que identifique este notification.
     notification_request = mosquito_alert.NotificationRequest() # NotificationRequest | 
 
     try:
@@ -550,7 +550,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this notification. | 
+ **id** | **int**| Un valor de entero único que identifique este notification. | 
  **notification_request** | [**NotificationRequest**](NotificationRequest.md)|  | 
 
 ### Return type

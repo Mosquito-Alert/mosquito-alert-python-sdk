@@ -44,8 +44,8 @@ class CountriesApi:
     @validate_call
     def list(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -62,9 +62,9 @@ class CountriesApi:
         """list
 
 
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -117,8 +117,8 @@ class CountriesApi:
     @validate_call
     def list_with_http_info(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,9 +135,9 @@ class CountriesApi:
         """list
 
 
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -190,8 +190,8 @@ class CountriesApi:
     @validate_call
     def list_without_preload_content(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -208,9 +208,9 @@ class CountriesApi:
         """list
 
 
-        :param page: A page number within the paginated result set.
+        :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
-        :param page_size: Number of results to return per page.
+        :param page_size: Número de resultados a devolver por página.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -332,7 +332,7 @@ class CountriesApi:
     @validate_call
     def retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este europe country.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -349,7 +349,7 @@ class CountriesApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this europe country. (required)
+        :param id: Un valor de entero único que identifique este europe country. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -401,7 +401,7 @@ class CountriesApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este europe country.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -418,7 +418,7 @@ class CountriesApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this europe country. (required)
+        :param id: Un valor de entero único que identifique este europe country. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -470,7 +470,7 @@ class CountriesApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
+        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este europe country.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -487,7 +487,7 @@ class CountriesApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this europe country. (required)
+        :param id: Un valor de entero único que identifique este europe country. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

@@ -258,12 +258,12 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     has_photos = True # bool | Has any photo (optional)
     identification_taxon_ids = [56] # List[int] |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
+    page_size = 56 # int | Número de resultados a devolver por página. (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | A search term. (optional)
+    search = 'search_example' # str | Un término de búsqueda. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
@@ -289,12 +289,12 @@ Name | Type | Description  | Notes
  **created_at_before** | **datetime**| Created at | [optional] 
  **has_photos** | **bool**| Has any photo | [optional] 
  **identification_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
+ **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| A search term. | [optional] 
+ **search** | **str**| Un término de búsqueda. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
@@ -378,12 +378,12 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     has_photos = True # bool | Has any photo (optional)
     identification_taxon_ids = [56] # List[int] |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenado   (optional)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
+    page_size = 56 # int | Número de resultados a devolver por página. (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | A search term. (optional)
+    search = 'search_example' # str | Un término de búsqueda. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
@@ -409,12 +409,12 @@ Name | Type | Description  | Notes
  **created_at_before** | **datetime**| Created at | [optional] 
  **has_photos** | **bool**| Has any photo | [optional] 
  **identification_taxon_ids** | [**List[int]**](int.md)|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenado   | [optional] 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
+ **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| A search term. | [optional] 
+ **search** | **str**| Un término de búsqueda. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 

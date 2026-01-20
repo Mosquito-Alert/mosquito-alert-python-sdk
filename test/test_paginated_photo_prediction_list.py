@@ -69,6 +69,34 @@ class TestPaginatedPhotoPredictionList(unittest.TestCase):
             )
         else:
             return PaginatedPhotoPredictionList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.photo_prediction.PhotoPrediction(
+                        photo = null, 
+                        bbox = mosquito_alert.models.bounding_box.BoundingBox(
+                            x_min = 0.0, 
+                            y_min = 0.0, 
+                            x_max = 0.0, 
+                            y_max = 0.0, ), 
+                        insect_confidence = 0.0, 
+                        predicted_class = 'ae_albopictus', 
+                        taxon = null, 
+                        threshold_deviation = -1.0, 
+                        is_decisive = True, 
+                        scores = mosquito_alert.models.prediction_score.PredictionScore(
+                            ae_albopictus = 0.0, 
+                            ae_aegypti = 0.0, 
+                            ae_japonicus = 0.0, 
+                            ae_koreicus = 0.0, 
+                            culex = 0.0, 
+                            anopheles = 0.0, 
+                            culiseta = 0.0, 
+                            other_species = 0.0, 
+                            not_sure = 0.0, ), 
+                        classifier_version = 'v2023.1', 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ],
         )
         """
 

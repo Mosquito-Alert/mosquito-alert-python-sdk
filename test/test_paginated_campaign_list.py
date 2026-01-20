@@ -50,6 +50,15 @@ class TestPaginatedCampaignList(unittest.TestCase):
             )
         else:
             return PaginatedCampaignList(
+                count = 123,
+                results = [
+                    mosquito_alert.models.campaign.Campaign(
+                        id = 56, 
+                        country_id = 56, 
+                        posting_address = '', 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ],
         )
         """
 
