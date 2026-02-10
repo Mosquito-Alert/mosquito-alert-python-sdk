@@ -609,7 +609,6 @@ class BitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
-        format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
@@ -647,8 +646,6 @@ class BitesApi:
         :type created_at_before: datetime
         :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
         :type dist: float
-        :param format:
-        :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
         :param order_by: Ordenamiento  
@@ -699,7 +696,6 @@ class BitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             dist=dist,
-            format=format,
             geo_precision=geo_precision,
             order_by=order_by,
             point=point,
@@ -742,7 +738,6 @@ class BitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
-        format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
@@ -780,8 +775,6 @@ class BitesApi:
         :type created_at_before: datetime
         :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
         :type dist: float
-        :param format:
-        :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
         :param order_by: Ordenamiento  
@@ -832,7 +825,6 @@ class BitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             dist=dist,
-            format=format,
             geo_precision=geo_precision,
             order_by=order_by,
             point=point,
@@ -875,7 +867,6 @@ class BitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
-        format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
@@ -913,8 +904,6 @@ class BitesApi:
         :type created_at_before: datetime
         :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
         :type dist: float
-        :param format:
-        :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
         :param order_by: Ordenamiento  
@@ -965,7 +954,6 @@ class BitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             dist=dist,
-            format=format,
             geo_precision=geo_precision,
             order_by=order_by,
             point=point,
@@ -1003,7 +991,6 @@ class BitesApi:
         created_at_after,
         created_at_before,
         dist,
-        format,
         geo_precision,
         order_by,
         point,
@@ -1077,10 +1064,6 @@ class BitesApi:
         if dist is not None:
             
             _query_params.append(('dist', dist))
-            
-        if format is not None:
-            
-            _query_params.append(('format', format))
             
         if geo_precision is not None:
             

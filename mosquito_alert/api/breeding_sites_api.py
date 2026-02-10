@@ -760,7 +760,6 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
-        format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_larvae: Optional[StrictBool] = None,
         has_near_mosquitoes: Optional[StrictBool] = None,
@@ -803,8 +802,6 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
         :type dist: float
-        :param format:
-        :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
         :param has_larvae:
@@ -865,7 +862,6 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             dist=dist,
-            format=format,
             geo_precision=geo_precision,
             has_larvae=has_larvae,
             has_near_mosquitoes=has_near_mosquitoes,
@@ -913,7 +909,6 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
-        format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_larvae: Optional[StrictBool] = None,
         has_near_mosquitoes: Optional[StrictBool] = None,
@@ -956,8 +951,6 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
         :type dist: float
-        :param format:
-        :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
         :param has_larvae:
@@ -1018,7 +1011,6 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             dist=dist,
-            format=format,
             geo_precision=geo_precision,
             has_larvae=has_larvae,
             has_near_mosquitoes=has_near_mosquitoes,
@@ -1066,7 +1058,6 @@ class BreedingSitesApi:
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
-        format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_larvae: Optional[StrictBool] = None,
         has_near_mosquitoes: Optional[StrictBool] = None,
@@ -1109,8 +1100,6 @@ class BreedingSitesApi:
         :type created_at_before: datetime
         :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
         :type dist: float
-        :param format:
-        :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
         :param has_larvae:
@@ -1171,7 +1160,6 @@ class BreedingSitesApi:
             created_at_after=created_at_after,
             created_at_before=created_at_before,
             dist=dist,
-            format=format,
             geo_precision=geo_precision,
             has_larvae=has_larvae,
             has_near_mosquitoes=has_near_mosquitoes,
@@ -1214,7 +1202,6 @@ class BreedingSitesApi:
         created_at_after,
         created_at_before,
         dist,
-        format,
         geo_precision,
         has_larvae,
         has_near_mosquitoes,
@@ -1294,10 +1281,6 @@ class BreedingSitesApi:
         if dist is not None:
             
             _query_params.append(('dist', dist))
-            
-        if format is not None:
-            
-            _query_params.append(('format', format))
             
         if geo_precision is not None:
             

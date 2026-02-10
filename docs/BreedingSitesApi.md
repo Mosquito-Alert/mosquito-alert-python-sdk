@@ -212,7 +212,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geo_list**
-> List[BreedingSiteGeoModel] geo_list(boundary_uuid=boundary_uuid, country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, dist=dist, format=format, geo_precision=geo_precision, has_larvae=has_larvae, has_near_mosquitoes=has_near_mosquitoes, has_photos=has_photos, has_water=has_water, order_by=order_by, point=point, received_at_after=received_at_after, received_at_before=received_at_before, search=search, short_id=short_id, site_type=site_type, tags=tags, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+> List[BreedingSiteGeoModel] geo_list(boundary_uuid=boundary_uuid, country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, dist=dist, geo_precision=geo_precision, has_larvae=has_larvae, has_near_mosquitoes=has_near_mosquitoes, has_photos=has_photos, has_water=has_water, order_by=order_by, point=point, received_at_after=received_at_after, received_at_before=received_at_before, search=search, short_id=short_id, site_type=site_type, tags=tags, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
 
 ### Example
 
@@ -263,7 +263,6 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at_after = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     created_at_before = '2013-10-20T19:20:30+01:00' # datetime | Created at (optional)
     dist = 1000 # float | Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed. (optional) (default to 1000)
-    format = 'format_example' # str |  (optional)
     geo_precision = 3.4 # float | Latitude/Longitude precision (optional)
     has_larvae = True # bool |  (optional)
     has_near_mosquitoes = True # bool |  (optional)
@@ -282,7 +281,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
 
     try:
-        api_response = api_instance.geo_list(boundary_uuid=boundary_uuid, country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, dist=dist, format=format, geo_precision=geo_precision, has_larvae=has_larvae, has_near_mosquitoes=has_near_mosquitoes, has_photos=has_photos, has_water=has_water, order_by=order_by, point=point, received_at_after=received_at_after, received_at_before=received_at_before, search=search, short_id=short_id, site_type=site_type, tags=tags, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
+        api_response = api_instance.geo_list(boundary_uuid=boundary_uuid, country_id=country_id, created_at_after=created_at_after, created_at_before=created_at_before, dist=dist, geo_precision=geo_precision, has_larvae=has_larvae, has_near_mosquitoes=has_near_mosquitoes, has_photos=has_photos, has_water=has_water, order_by=order_by, point=point, received_at_after=received_at_after, received_at_before=received_at_before, search=search, short_id=short_id, site_type=site_type, tags=tags, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_uuid=user_uuid)
         print("The response of BreedingSitesApi->geo_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -301,7 +300,6 @@ Name | Type | Description  | Notes
  **created_at_after** | **datetime**| Created at | [optional] 
  **created_at_before** | **datetime**| Created at | [optional] 
  **dist** | **float**| Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed. | [optional] [default to 1000]
- **format** | **str**|  | [optional] 
  **geo_precision** | **float**| Latitude/Longitude precision | [optional] 
  **has_larvae** | **bool**|  | [optional] 
  **has_near_mosquitoes** | **bool**|  | [optional] 
