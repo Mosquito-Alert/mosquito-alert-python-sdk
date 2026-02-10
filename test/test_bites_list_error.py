@@ -36,14 +36,14 @@ class TestBitesListError(unittest.TestCase):
         model = BitesListError()
         if include_optional:
             return BitesListError(
-                attr = 'order_by',
-                code = 'invalid_choice',
+                attr = 'boundary_uuid',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return BitesListError(
-                attr = 'order_by',
-                code = 'invalid_choice',
+                attr = 'boundary_uuid',
+                code = 'invalid',
                 detail = '',
         )
         """

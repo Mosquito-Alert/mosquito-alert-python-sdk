@@ -42,7 +42,7 @@ class Observation(BaseModel):
     received_at: datetime
     updated_at: datetime = Field(description="Date and time when the report was last modified")
     location: Location
-    note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
+    note: Optional[StrictStr]
     tags: Optional[List[StrictStr]] = None
     published: StrictBool
     photos: List[SimplePhoto]
@@ -111,6 +111,7 @@ class Observation(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
@@ -119,6 +120,7 @@ class Observation(BaseModel):
             "created_at_local",
             "received_at",
             "updated_at",
+            "note",
             "published",
             "photos",
             "identification",

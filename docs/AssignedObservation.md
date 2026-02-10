@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **created_at_local** | **datetime** | The date and time when the record was created, displayed without timezone field. | [readonly] 
 **received_at** | **datetime** |  | [readonly] 
 **location** | [**SimplifiedLocation**](SimplifiedLocation.md) |  | 
-**note** | **str** | Note user attached to report. | [optional] 
+**note** | **str** |  | [readonly] 
 **photos** | [**List[SimplePhoto]**](SimplePhoto.md) |  | [readonly] 
 **user** | [**MinimalUser**](MinimalUser.md) |  | [readonly] 
 

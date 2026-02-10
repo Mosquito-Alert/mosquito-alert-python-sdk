@@ -100,6 +100,7 @@ class TestBite(unittest.TestCase):
                             source = '', 
                             level = 0, )
                         ], ),
+                note = '',
                 published = True,
                 counts = mosquito_alert.models.bite_counts.BiteCounts(
                     total = 56, 

@@ -36,13 +36,13 @@ class TestBreedingsitesListError(unittest.TestCase):
         model = BreedingsitesListError()
         if include_optional:
             return BreedingsitesListError(
-                attr = 'order_by',
+                attr = 'site_type',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
             return BreedingsitesListError(
-                attr = 'order_by',
+                attr = 'site_type',
                 code = 'invalid_choice',
                 detail = '',
         )

@@ -37,13 +37,13 @@ class TestBreedingsitesCreateSiteTypeErrorComponent(unittest.TestCase):
         if include_optional:
             return BreedingsitesCreateSiteTypeErrorComponent(
                 attr = 'site_type',
-                code = 'invalid_choice',
+                code = 'null',
                 detail = ''
             )
         else:
             return BreedingsitesCreateSiteTypeErrorComponent(
                 attr = 'site_type',
-                code = 'invalid_choice',
+                code = 'null',
                 detail = '',
         )
         """

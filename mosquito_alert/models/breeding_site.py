@@ -40,11 +40,11 @@ class BreedingSite(BaseModel):
     received_at: datetime
     updated_at: datetime = Field(description="Date and time when the report was last modified")
     location: Location
-    note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
+    note: Optional[StrictStr]
     tags: Optional[List[StrictStr]] = None
     published: StrictBool
     photos: List[SimplePhoto]
-    site_type: StrictStr = Field(description="Breeding site type.")
+    site_type: StrictStr
     has_water: Optional[StrictBool] = Field(default=None, description="Either if the user perceived water in the breeding site.")
     in_public_area: Optional[StrictBool] = Field(default=None, description="Either if the breeding site is found in a public area.")
     has_near_mosquitoes: Optional[StrictBool] = Field(default=None, description="Either if the user perceived mosquitoes near the breeding site (less than 10 meters).")
@@ -96,6 +96,8 @@ class BreedingSite(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
@@ -104,8 +106,10 @@ class BreedingSite(BaseModel):
             "created_at_local",
             "received_at",
             "updated_at",
+            "note",
             "published",
             "photos",
+            "site_type",
         ])
 
         _dict = self.model_dump(

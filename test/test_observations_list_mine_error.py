@@ -36,13 +36,13 @@ class TestObservationsListMineError(unittest.TestCase):
         model = ObservationsListMineError()
         if include_optional:
             return ObservationsListMineError(
-                attr = 'identification_taxon_ids',
+                attr = 'identification_taxon_ids_lookup',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
             return ObservationsListMineError(
-                attr = 'identification_taxon_ids',
+                attr = 'identification_taxon_ids_lookup',
                 code = 'invalid_choice',
                 detail = '',
         )

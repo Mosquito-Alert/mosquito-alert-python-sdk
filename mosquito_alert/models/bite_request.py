@@ -34,7 +34,7 @@ class BiteRequest(BaseModel):
     created_at: datetime
     sent_at: datetime
     location: LocationRequest
-    note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
+    note: Optional[StrictStr] = None
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
     event_environment: Optional[StrictStr] = Field(default=None, description="The environment where the event took place.")
     event_moment: Optional[StrictStr] = Field(default=None, description="The moment of the day when the event took place.")

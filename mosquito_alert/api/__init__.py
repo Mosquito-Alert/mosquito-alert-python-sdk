@@ -3,6 +3,7 @@
 # import apis into api package
 from mosquito_alert.api.auth_api import AuthApi
 from mosquito_alert.api.bites_api import BitesApi
+from mosquito_alert.api.boundaries_api import BoundariesApi
 from mosquito_alert.api.breeding_sites_api import BreedingSitesApi
 from mosquito_alert.api.campaigns_api import CampaignsApi
 from mosquito_alert.api.countries_api import CountriesApi

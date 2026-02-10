@@ -29,7 +29,6 @@ from mosquito_alert.models.breedingsites_create_location_point_longitude_error_c
 from mosquito_alert.models.breedingsites_create_location_point_non_field_errors_error_component import BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent
 from mosquito_alert.models.breedingsites_create_location_source_error_component import BreedingsitesCreateLocationSourceErrorComponent
 from mosquito_alert.models.breedingsites_create_non_field_errors_error_component import BreedingsitesCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.breedingsites_create_note_error_component import BreedingsitesCreateNoteErrorComponent
 from mosquito_alert.models.breedingsites_create_photos_error_component import BreedingsitesCreatePhotosErrorComponent
 from mosquito_alert.models.breedingsites_create_photos_index_error_component import BreedingsitesCreatePhotosINDEXErrorComponent
 from mosquito_alert.models.breedingsites_create_sent_at_error_component import BreedingsitesCreateSentAtErrorComponent
@@ -40,7 +39,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-BREEDINGSITESCREATEERROR_ONE_OF_SCHEMAS = ["BreedingsitesCreateCreatedAtErrorComponent", "BreedingsitesCreateHasLarvaeErrorComponent", "BreedingsitesCreateHasNearMosquitoesErrorComponent", "BreedingsitesCreateHasWaterErrorComponent", "BreedingsitesCreateInPublicAreaErrorComponent", "BreedingsitesCreateLocationNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationPointLatitudeErrorComponent", "BreedingsitesCreateLocationPointLongitudeErrorComponent", "BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationSourceErrorComponent", "BreedingsitesCreateNonFieldErrorsErrorComponent", "BreedingsitesCreateNoteErrorComponent", "BreedingsitesCreatePhotosErrorComponent", "BreedingsitesCreatePhotosINDEXErrorComponent", "BreedingsitesCreateSentAtErrorComponent", "BreedingsitesCreateSiteTypeErrorComponent", "BreedingsitesCreateTagsErrorComponent", "BreedingsitesCreateTagsINDEXErrorComponent"]
+BREEDINGSITESCREATEERROR_ONE_OF_SCHEMAS = ["BreedingsitesCreateCreatedAtErrorComponent", "BreedingsitesCreateHasLarvaeErrorComponent", "BreedingsitesCreateHasNearMosquitoesErrorComponent", "BreedingsitesCreateHasWaterErrorComponent", "BreedingsitesCreateInPublicAreaErrorComponent", "BreedingsitesCreateLocationNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationPointLatitudeErrorComponent", "BreedingsitesCreateLocationPointLongitudeErrorComponent", "BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationSourceErrorComponent", "BreedingsitesCreateNonFieldErrorsErrorComponent", "BreedingsitesCreatePhotosErrorComponent", "BreedingsitesCreatePhotosINDEXErrorComponent", "BreedingsitesCreateSentAtErrorComponent", "BreedingsitesCreateSiteTypeErrorComponent", "BreedingsitesCreateTagsErrorComponent", "BreedingsitesCreateTagsINDEXErrorComponent"]
 
 class BreedingsitesCreateError(BaseModel):
     """
@@ -62,28 +61,26 @@ class BreedingsitesCreateError(BaseModel):
     oneof_schema_7_validator: Optional[BreedingsitesCreateLocationPointLatitudeErrorComponent] = None
     # data type: BreedingsitesCreateLocationPointLongitudeErrorComponent
     oneof_schema_8_validator: Optional[BreedingsitesCreateLocationPointLongitudeErrorComponent] = None
-    # data type: BreedingsitesCreateNoteErrorComponent
-    oneof_schema_9_validator: Optional[BreedingsitesCreateNoteErrorComponent] = None
     # data type: BreedingsitesCreateTagsErrorComponent
-    oneof_schema_10_validator: Optional[BreedingsitesCreateTagsErrorComponent] = None
+    oneof_schema_9_validator: Optional[BreedingsitesCreateTagsErrorComponent] = None
     # data type: BreedingsitesCreateTagsINDEXErrorComponent
-    oneof_schema_11_validator: Optional[BreedingsitesCreateTagsINDEXErrorComponent] = None
+    oneof_schema_10_validator: Optional[BreedingsitesCreateTagsINDEXErrorComponent] = None
     # data type: BreedingsitesCreatePhotosErrorComponent
-    oneof_schema_12_validator: Optional[BreedingsitesCreatePhotosErrorComponent] = None
+    oneof_schema_11_validator: Optional[BreedingsitesCreatePhotosErrorComponent] = None
     # data type: BreedingsitesCreatePhotosINDEXErrorComponent
-    oneof_schema_13_validator: Optional[BreedingsitesCreatePhotosINDEXErrorComponent] = None
+    oneof_schema_12_validator: Optional[BreedingsitesCreatePhotosINDEXErrorComponent] = None
     # data type: BreedingsitesCreateSiteTypeErrorComponent
-    oneof_schema_14_validator: Optional[BreedingsitesCreateSiteTypeErrorComponent] = None
+    oneof_schema_13_validator: Optional[BreedingsitesCreateSiteTypeErrorComponent] = None
     # data type: BreedingsitesCreateHasWaterErrorComponent
-    oneof_schema_15_validator: Optional[BreedingsitesCreateHasWaterErrorComponent] = None
+    oneof_schema_14_validator: Optional[BreedingsitesCreateHasWaterErrorComponent] = None
     # data type: BreedingsitesCreateInPublicAreaErrorComponent
-    oneof_schema_16_validator: Optional[BreedingsitesCreateInPublicAreaErrorComponent] = None
+    oneof_schema_15_validator: Optional[BreedingsitesCreateInPublicAreaErrorComponent] = None
     # data type: BreedingsitesCreateHasNearMosquitoesErrorComponent
-    oneof_schema_17_validator: Optional[BreedingsitesCreateHasNearMosquitoesErrorComponent] = None
+    oneof_schema_16_validator: Optional[BreedingsitesCreateHasNearMosquitoesErrorComponent] = None
     # data type: BreedingsitesCreateHasLarvaeErrorComponent
-    oneof_schema_18_validator: Optional[BreedingsitesCreateHasLarvaeErrorComponent] = None
-    actual_instance: Optional[Union[BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreateNoteErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent]] = None
-    one_of_schemas: Set[str] = { "BreedingsitesCreateCreatedAtErrorComponent", "BreedingsitesCreateHasLarvaeErrorComponent", "BreedingsitesCreateHasNearMosquitoesErrorComponent", "BreedingsitesCreateHasWaterErrorComponent", "BreedingsitesCreateInPublicAreaErrorComponent", "BreedingsitesCreateLocationNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationPointLatitudeErrorComponent", "BreedingsitesCreateLocationPointLongitudeErrorComponent", "BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationSourceErrorComponent", "BreedingsitesCreateNonFieldErrorsErrorComponent", "BreedingsitesCreateNoteErrorComponent", "BreedingsitesCreatePhotosErrorComponent", "BreedingsitesCreatePhotosINDEXErrorComponent", "BreedingsitesCreateSentAtErrorComponent", "BreedingsitesCreateSiteTypeErrorComponent", "BreedingsitesCreateTagsErrorComponent", "BreedingsitesCreateTagsINDEXErrorComponent" }
+    oneof_schema_17_validator: Optional[BreedingsitesCreateHasLarvaeErrorComponent] = None
+    actual_instance: Optional[Union[BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "BreedingsitesCreateCreatedAtErrorComponent", "BreedingsitesCreateHasLarvaeErrorComponent", "BreedingsitesCreateHasNearMosquitoesErrorComponent", "BreedingsitesCreateHasWaterErrorComponent", "BreedingsitesCreateInPublicAreaErrorComponent", "BreedingsitesCreateLocationNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationPointLatitudeErrorComponent", "BreedingsitesCreateLocationPointLongitudeErrorComponent", "BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent", "BreedingsitesCreateLocationSourceErrorComponent", "BreedingsitesCreateNonFieldErrorsErrorComponent", "BreedingsitesCreatePhotosErrorComponent", "BreedingsitesCreatePhotosINDEXErrorComponent", "BreedingsitesCreateSentAtErrorComponent", "BreedingsitesCreateSiteTypeErrorComponent", "BreedingsitesCreateTagsErrorComponent", "BreedingsitesCreateTagsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -149,11 +146,6 @@ class BreedingsitesCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesCreateLocationPointLongitudeErrorComponent`")
         else:
             match += 1
-        # validate data type: BreedingsitesCreateNoteErrorComponent
-        if not isinstance(v, BreedingsitesCreateNoteErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesCreateNoteErrorComponent`")
-        else:
-            match += 1
         # validate data type: BreedingsitesCreateTagsErrorComponent
         if not isinstance(v, BreedingsitesCreateTagsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesCreateTagsErrorComponent`")
@@ -201,10 +193,10 @@ class BreedingsitesCreateError(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreateNoteErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreateNoteErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -267,12 +259,6 @@ class BreedingsitesCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into BreedingsitesCreateNoteErrorComponent
-        try:
-            instance.actual_instance = BreedingsitesCreateNoteErrorComponent.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
         # deserialize data into BreedingsitesCreateTagsErrorComponent
         try:
             instance.actual_instance = BreedingsitesCreateTagsErrorComponent.from_json(json_str)
@@ -330,10 +316,10 @@ class BreedingsitesCreateError(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreateNoteErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreateNoteErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into BreedingsitesCreateError with oneOf schemas: BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -347,7 +333,7 @@ class BreedingsitesCreateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreateNoteErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], BreedingsitesCreateCreatedAtErrorComponent, BreedingsitesCreateHasLarvaeErrorComponent, BreedingsitesCreateHasNearMosquitoesErrorComponent, BreedingsitesCreateHasWaterErrorComponent, BreedingsitesCreateInPublicAreaErrorComponent, BreedingsitesCreateLocationNonFieldErrorsErrorComponent, BreedingsitesCreateLocationPointLatitudeErrorComponent, BreedingsitesCreateLocationPointLongitudeErrorComponent, BreedingsitesCreateLocationPointNonFieldErrorsErrorComponent, BreedingsitesCreateLocationSourceErrorComponent, BreedingsitesCreateNonFieldErrorsErrorComponent, BreedingsitesCreatePhotosErrorComponent, BreedingsitesCreatePhotosINDEXErrorComponent, BreedingsitesCreateSentAtErrorComponent, BreedingsitesCreateSiteTypeErrorComponent, BreedingsitesCreateTagsErrorComponent, BreedingsitesCreateTagsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

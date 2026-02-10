@@ -18,19 +18,23 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from mosquito_alert.models.observations_list_boundary_uuid_error_component import ObservationsListBoundaryUuidErrorComponent
 from mosquito_alert.models.observations_list_country_id_error_component import ObservationsListCountryIdErrorComponent
 from mosquito_alert.models.observations_list_created_at_error_component import ObservationsListCreatedAtErrorComponent
+from mosquito_alert.models.observations_list_geo_precision_error_component import ObservationsListGeoPrecisionErrorComponent
 from mosquito_alert.models.observations_list_identification_taxon_ids_error_component import ObservationsListIdentificationTaxonIdsErrorComponent
+from mosquito_alert.models.observations_list_identification_taxon_ids_lookup_error_component import ObservationsListIdentificationTaxonIdsLookupErrorComponent
 from mosquito_alert.models.observations_list_order_by_error_component import ObservationsListOrderByErrorComponent
 from mosquito_alert.models.observations_list_received_at_error_component import ObservationsListReceivedAtErrorComponent
 from mosquito_alert.models.observations_list_short_id_error_component import ObservationsListShortIdErrorComponent
+from mosquito_alert.models.observations_list_tags_error_component import ObservationsListTagsErrorComponent
 from mosquito_alert.models.observations_list_updated_at_error_component import ObservationsListUpdatedAtErrorComponent
 from mosquito_alert.models.observations_list_user_uuid_error_component import ObservationsListUserUuidErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-OBSERVATIONSLISTERROR_ONE_OF_SCHEMAS = ["ObservationsListCountryIdErrorComponent", "ObservationsListCreatedAtErrorComponent", "ObservationsListIdentificationTaxonIdsErrorComponent", "ObservationsListOrderByErrorComponent", "ObservationsListReceivedAtErrorComponent", "ObservationsListShortIdErrorComponent", "ObservationsListUpdatedAtErrorComponent", "ObservationsListUserUuidErrorComponent"]
+OBSERVATIONSLISTERROR_ONE_OF_SCHEMAS = ["ObservationsListBoundaryUuidErrorComponent", "ObservationsListCountryIdErrorComponent", "ObservationsListCreatedAtErrorComponent", "ObservationsListGeoPrecisionErrorComponent", "ObservationsListIdentificationTaxonIdsErrorComponent", "ObservationsListIdentificationTaxonIdsLookupErrorComponent", "ObservationsListOrderByErrorComponent", "ObservationsListReceivedAtErrorComponent", "ObservationsListShortIdErrorComponent", "ObservationsListTagsErrorComponent", "ObservationsListUpdatedAtErrorComponent", "ObservationsListUserUuidErrorComponent"]
 
 class ObservationsListError(BaseModel):
     """
@@ -50,10 +54,18 @@ class ObservationsListError(BaseModel):
     oneof_schema_6_validator: Optional[ObservationsListUserUuidErrorComponent] = None
     # data type: ObservationsListOrderByErrorComponent
     oneof_schema_7_validator: Optional[ObservationsListOrderByErrorComponent] = None
+    # data type: ObservationsListTagsErrorComponent
+    oneof_schema_8_validator: Optional[ObservationsListTagsErrorComponent] = None
+    # data type: ObservationsListGeoPrecisionErrorComponent
+    oneof_schema_9_validator: Optional[ObservationsListGeoPrecisionErrorComponent] = None
+    # data type: ObservationsListBoundaryUuidErrorComponent
+    oneof_schema_10_validator: Optional[ObservationsListBoundaryUuidErrorComponent] = None
     # data type: ObservationsListIdentificationTaxonIdsErrorComponent
-    oneof_schema_8_validator: Optional[ObservationsListIdentificationTaxonIdsErrorComponent] = None
-    actual_instance: Optional[Union[ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent]] = None
-    one_of_schemas: Set[str] = { "ObservationsListCountryIdErrorComponent", "ObservationsListCreatedAtErrorComponent", "ObservationsListIdentificationTaxonIdsErrorComponent", "ObservationsListOrderByErrorComponent", "ObservationsListReceivedAtErrorComponent", "ObservationsListShortIdErrorComponent", "ObservationsListUpdatedAtErrorComponent", "ObservationsListUserUuidErrorComponent" }
+    oneof_schema_11_validator: Optional[ObservationsListIdentificationTaxonIdsErrorComponent] = None
+    # data type: ObservationsListIdentificationTaxonIdsLookupErrorComponent
+    oneof_schema_12_validator: Optional[ObservationsListIdentificationTaxonIdsLookupErrorComponent] = None
+    actual_instance: Optional[Union[ObservationsListBoundaryUuidErrorComponent, ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListGeoPrecisionErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListIdentificationTaxonIdsLookupErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListTagsErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent]] = None
+    one_of_schemas: Set[str] = { "ObservationsListBoundaryUuidErrorComponent", "ObservationsListCountryIdErrorComponent", "ObservationsListCreatedAtErrorComponent", "ObservationsListGeoPrecisionErrorComponent", "ObservationsListIdentificationTaxonIdsErrorComponent", "ObservationsListIdentificationTaxonIdsLookupErrorComponent", "ObservationsListOrderByErrorComponent", "ObservationsListReceivedAtErrorComponent", "ObservationsListShortIdErrorComponent", "ObservationsListTagsErrorComponent", "ObservationsListUpdatedAtErrorComponent", "ObservationsListUserUuidErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -114,17 +126,37 @@ class ObservationsListError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListOrderByErrorComponent`")
         else:
             match += 1
+        # validate data type: ObservationsListTagsErrorComponent
+        if not isinstance(v, ObservationsListTagsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListTagsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: ObservationsListGeoPrecisionErrorComponent
+        if not isinstance(v, ObservationsListGeoPrecisionErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListGeoPrecisionErrorComponent`")
+        else:
+            match += 1
+        # validate data type: ObservationsListBoundaryUuidErrorComponent
+        if not isinstance(v, ObservationsListBoundaryUuidErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListBoundaryUuidErrorComponent`")
+        else:
+            match += 1
         # validate data type: ObservationsListIdentificationTaxonIdsErrorComponent
         if not isinstance(v, ObservationsListIdentificationTaxonIdsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListIdentificationTaxonIdsErrorComponent`")
         else:
             match += 1
+        # validate data type: ObservationsListIdentificationTaxonIdsLookupErrorComponent
+        if not isinstance(v, ObservationsListIdentificationTaxonIdsLookupErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListIdentificationTaxonIdsLookupErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ObservationsListError with oneOf schemas: ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ObservationsListError with oneOf schemas: ObservationsListBoundaryUuidErrorComponent, ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListGeoPrecisionErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListIdentificationTaxonIdsLookupErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListTagsErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ObservationsListError with oneOf schemas: ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ObservationsListError with oneOf schemas: ObservationsListBoundaryUuidErrorComponent, ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListGeoPrecisionErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListIdentificationTaxonIdsLookupErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListTagsErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -181,19 +213,43 @@ class ObservationsListError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into ObservationsListTagsErrorComponent
+        try:
+            instance.actual_instance = ObservationsListTagsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ObservationsListGeoPrecisionErrorComponent
+        try:
+            instance.actual_instance = ObservationsListGeoPrecisionErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ObservationsListBoundaryUuidErrorComponent
+        try:
+            instance.actual_instance = ObservationsListBoundaryUuidErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
         # deserialize data into ObservationsListIdentificationTaxonIdsErrorComponent
         try:
             instance.actual_instance = ObservationsListIdentificationTaxonIdsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into ObservationsListIdentificationTaxonIdsLookupErrorComponent
+        try:
+            instance.actual_instance = ObservationsListIdentificationTaxonIdsLookupErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ObservationsListError with oneOf schemas: ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ObservationsListError with oneOf schemas: ObservationsListBoundaryUuidErrorComponent, ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListGeoPrecisionErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListIdentificationTaxonIdsLookupErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListTagsErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ObservationsListError with oneOf schemas: ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ObservationsListError with oneOf schemas: ObservationsListBoundaryUuidErrorComponent, ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListGeoPrecisionErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListIdentificationTaxonIdsLookupErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListTagsErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -207,7 +263,7 @@ class ObservationsListError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], ObservationsListBoundaryUuidErrorComponent, ObservationsListCountryIdErrorComponent, ObservationsListCreatedAtErrorComponent, ObservationsListGeoPrecisionErrorComponent, ObservationsListIdentificationTaxonIdsErrorComponent, ObservationsListIdentificationTaxonIdsLookupErrorComponent, ObservationsListOrderByErrorComponent, ObservationsListReceivedAtErrorComponent, ObservationsListShortIdErrorComponent, ObservationsListTagsErrorComponent, ObservationsListUpdatedAtErrorComponent, ObservationsListUserUuidErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

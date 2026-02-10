@@ -38,7 +38,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
     created_at_local: datetime = Field(description="The date and time when the record was created, displayed without timezone field.")
     received_at: datetime
     location: SimplifiedLocation
-    note: Optional[StrictStr] = Field(default=None, description="Note user attached to report.")
+    note: Optional[StrictStr]
     photos: List[SimplePhoto]
     __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "received_at", "location", "note", "photos"]
 
@@ -78,6 +78,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "uuid",
@@ -85,6 +86,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
             "user_uuid",
             "created_at_local",
             "received_at",
+            "note",
             "photos",
         ])
 

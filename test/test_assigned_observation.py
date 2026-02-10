@@ -72,6 +72,7 @@ class TestAssignedObservation(unittest.TestCase):
                     timezone = 'Africa/Abidjan', 
                     display_name = '', 
                     country = null, ),
+                note = '',
                 photos = [
                     mosquito_alert.models.simple_photo.SimplePhoto(
                         uuid = '', 

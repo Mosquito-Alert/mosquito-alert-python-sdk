@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | 
 **sent_at** | **datetime** |  | 
 **location** | [**LocationRequest**](LocationRequest.md) |  | 
-**note** | **str** | Note user attached to report. | [optional] 
+**note** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **event_environment** | **str** | The environment where the event took place. | [optional] 
 **event_moment** | **str** | The moment of the day when the event took place. | [optional] 

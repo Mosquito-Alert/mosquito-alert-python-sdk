@@ -18,19 +18,23 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from mosquito_alert.models.observations_list_mine_boundary_uuid_error_component import ObservationsListMineBoundaryUuidErrorComponent
 from mosquito_alert.models.observations_list_mine_country_id_error_component import ObservationsListMineCountryIdErrorComponent
 from mosquito_alert.models.observations_list_mine_created_at_error_component import ObservationsListMineCreatedAtErrorComponent
+from mosquito_alert.models.observations_list_mine_geo_precision_error_component import ObservationsListMineGeoPrecisionErrorComponent
 from mosquito_alert.models.observations_list_mine_identification_taxon_ids_error_component import ObservationsListMineIdentificationTaxonIdsErrorComponent
+from mosquito_alert.models.observations_list_mine_identification_taxon_ids_lookup_error_component import ObservationsListMineIdentificationTaxonIdsLookupErrorComponent
 from mosquito_alert.models.observations_list_mine_order_by_error_component import ObservationsListMineOrderByErrorComponent
 from mosquito_alert.models.observations_list_mine_received_at_error_component import ObservationsListMineReceivedAtErrorComponent
 from mosquito_alert.models.observations_list_mine_short_id_error_component import ObservationsListMineShortIdErrorComponent
+from mosquito_alert.models.observations_list_mine_tags_error_component import ObservationsListMineTagsErrorComponent
 from mosquito_alert.models.observations_list_mine_updated_at_error_component import ObservationsListMineUpdatedAtErrorComponent
 from mosquito_alert.models.observations_list_mine_user_uuid_error_component import ObservationsListMineUserUuidErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-OBSERVATIONSLISTMINEERROR_ONE_OF_SCHEMAS = ["ObservationsListMineCountryIdErrorComponent", "ObservationsListMineCreatedAtErrorComponent", "ObservationsListMineIdentificationTaxonIdsErrorComponent", "ObservationsListMineOrderByErrorComponent", "ObservationsListMineReceivedAtErrorComponent", "ObservationsListMineShortIdErrorComponent", "ObservationsListMineUpdatedAtErrorComponent", "ObservationsListMineUserUuidErrorComponent"]
+OBSERVATIONSLISTMINEERROR_ONE_OF_SCHEMAS = ["ObservationsListMineBoundaryUuidErrorComponent", "ObservationsListMineCountryIdErrorComponent", "ObservationsListMineCreatedAtErrorComponent", "ObservationsListMineGeoPrecisionErrorComponent", "ObservationsListMineIdentificationTaxonIdsErrorComponent", "ObservationsListMineIdentificationTaxonIdsLookupErrorComponent", "ObservationsListMineOrderByErrorComponent", "ObservationsListMineReceivedAtErrorComponent", "ObservationsListMineShortIdErrorComponent", "ObservationsListMineTagsErrorComponent", "ObservationsListMineUpdatedAtErrorComponent", "ObservationsListMineUserUuidErrorComponent"]
 
 class ObservationsListMineError(BaseModel):
     """
@@ -50,10 +54,18 @@ class ObservationsListMineError(BaseModel):
     oneof_schema_6_validator: Optional[ObservationsListMineUserUuidErrorComponent] = None
     # data type: ObservationsListMineOrderByErrorComponent
     oneof_schema_7_validator: Optional[ObservationsListMineOrderByErrorComponent] = None
+    # data type: ObservationsListMineTagsErrorComponent
+    oneof_schema_8_validator: Optional[ObservationsListMineTagsErrorComponent] = None
+    # data type: ObservationsListMineGeoPrecisionErrorComponent
+    oneof_schema_9_validator: Optional[ObservationsListMineGeoPrecisionErrorComponent] = None
+    # data type: ObservationsListMineBoundaryUuidErrorComponent
+    oneof_schema_10_validator: Optional[ObservationsListMineBoundaryUuidErrorComponent] = None
     # data type: ObservationsListMineIdentificationTaxonIdsErrorComponent
-    oneof_schema_8_validator: Optional[ObservationsListMineIdentificationTaxonIdsErrorComponent] = None
-    actual_instance: Optional[Union[ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent]] = None
-    one_of_schemas: Set[str] = { "ObservationsListMineCountryIdErrorComponent", "ObservationsListMineCreatedAtErrorComponent", "ObservationsListMineIdentificationTaxonIdsErrorComponent", "ObservationsListMineOrderByErrorComponent", "ObservationsListMineReceivedAtErrorComponent", "ObservationsListMineShortIdErrorComponent", "ObservationsListMineUpdatedAtErrorComponent", "ObservationsListMineUserUuidErrorComponent" }
+    oneof_schema_11_validator: Optional[ObservationsListMineIdentificationTaxonIdsErrorComponent] = None
+    # data type: ObservationsListMineIdentificationTaxonIdsLookupErrorComponent
+    oneof_schema_12_validator: Optional[ObservationsListMineIdentificationTaxonIdsLookupErrorComponent] = None
+    actual_instance: Optional[Union[ObservationsListMineBoundaryUuidErrorComponent, ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineGeoPrecisionErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineIdentificationTaxonIdsLookupErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineTagsErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent]] = None
+    one_of_schemas: Set[str] = { "ObservationsListMineBoundaryUuidErrorComponent", "ObservationsListMineCountryIdErrorComponent", "ObservationsListMineCreatedAtErrorComponent", "ObservationsListMineGeoPrecisionErrorComponent", "ObservationsListMineIdentificationTaxonIdsErrorComponent", "ObservationsListMineIdentificationTaxonIdsLookupErrorComponent", "ObservationsListMineOrderByErrorComponent", "ObservationsListMineReceivedAtErrorComponent", "ObservationsListMineShortIdErrorComponent", "ObservationsListMineTagsErrorComponent", "ObservationsListMineUpdatedAtErrorComponent", "ObservationsListMineUserUuidErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -114,17 +126,37 @@ class ObservationsListMineError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListMineOrderByErrorComponent`")
         else:
             match += 1
+        # validate data type: ObservationsListMineTagsErrorComponent
+        if not isinstance(v, ObservationsListMineTagsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListMineTagsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: ObservationsListMineGeoPrecisionErrorComponent
+        if not isinstance(v, ObservationsListMineGeoPrecisionErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListMineGeoPrecisionErrorComponent`")
+        else:
+            match += 1
+        # validate data type: ObservationsListMineBoundaryUuidErrorComponent
+        if not isinstance(v, ObservationsListMineBoundaryUuidErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListMineBoundaryUuidErrorComponent`")
+        else:
+            match += 1
         # validate data type: ObservationsListMineIdentificationTaxonIdsErrorComponent
         if not isinstance(v, ObservationsListMineIdentificationTaxonIdsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListMineIdentificationTaxonIdsErrorComponent`")
         else:
             match += 1
+        # validate data type: ObservationsListMineIdentificationTaxonIdsLookupErrorComponent
+        if not isinstance(v, ObservationsListMineIdentificationTaxonIdsLookupErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ObservationsListMineIdentificationTaxonIdsLookupErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ObservationsListMineError with oneOf schemas: ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ObservationsListMineError with oneOf schemas: ObservationsListMineBoundaryUuidErrorComponent, ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineGeoPrecisionErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineIdentificationTaxonIdsLookupErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineTagsErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ObservationsListMineError with oneOf schemas: ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ObservationsListMineError with oneOf schemas: ObservationsListMineBoundaryUuidErrorComponent, ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineGeoPrecisionErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineIdentificationTaxonIdsLookupErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineTagsErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -181,19 +213,43 @@ class ObservationsListMineError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into ObservationsListMineTagsErrorComponent
+        try:
+            instance.actual_instance = ObservationsListMineTagsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ObservationsListMineGeoPrecisionErrorComponent
+        try:
+            instance.actual_instance = ObservationsListMineGeoPrecisionErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ObservationsListMineBoundaryUuidErrorComponent
+        try:
+            instance.actual_instance = ObservationsListMineBoundaryUuidErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
         # deserialize data into ObservationsListMineIdentificationTaxonIdsErrorComponent
         try:
             instance.actual_instance = ObservationsListMineIdentificationTaxonIdsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into ObservationsListMineIdentificationTaxonIdsLookupErrorComponent
+        try:
+            instance.actual_instance = ObservationsListMineIdentificationTaxonIdsLookupErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ObservationsListMineError with oneOf schemas: ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ObservationsListMineError with oneOf schemas: ObservationsListMineBoundaryUuidErrorComponent, ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineGeoPrecisionErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineIdentificationTaxonIdsLookupErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineTagsErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ObservationsListMineError with oneOf schemas: ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ObservationsListMineError with oneOf schemas: ObservationsListMineBoundaryUuidErrorComponent, ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineGeoPrecisionErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineIdentificationTaxonIdsLookupErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineTagsErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -207,7 +263,7 @@ class ObservationsListMineError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], ObservationsListMineBoundaryUuidErrorComponent, ObservationsListMineCountryIdErrorComponent, ObservationsListMineCreatedAtErrorComponent, ObservationsListMineGeoPrecisionErrorComponent, ObservationsListMineIdentificationTaxonIdsErrorComponent, ObservationsListMineIdentificationTaxonIdsLookupErrorComponent, ObservationsListMineOrderByErrorComponent, ObservationsListMineReceivedAtErrorComponent, ObservationsListMineShortIdErrorComponent, ObservationsListMineTagsErrorComponent, ObservationsListMineUpdatedAtErrorComponent, ObservationsListMineUserUuidErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

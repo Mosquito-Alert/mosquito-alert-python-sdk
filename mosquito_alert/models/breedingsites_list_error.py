@@ -18,18 +18,22 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from mosquito_alert.models.breedingsites_list_boundary_uuid_error_component import BreedingsitesListBoundaryUuidErrorComponent
 from mosquito_alert.models.breedingsites_list_country_id_error_component import BreedingsitesListCountryIdErrorComponent
 from mosquito_alert.models.breedingsites_list_created_at_error_component import BreedingsitesListCreatedAtErrorComponent
+from mosquito_alert.models.breedingsites_list_geo_precision_error_component import BreedingsitesListGeoPrecisionErrorComponent
 from mosquito_alert.models.breedingsites_list_order_by_error_component import BreedingsitesListOrderByErrorComponent
 from mosquito_alert.models.breedingsites_list_received_at_error_component import BreedingsitesListReceivedAtErrorComponent
 from mosquito_alert.models.breedingsites_list_short_id_error_component import BreedingsitesListShortIdErrorComponent
+from mosquito_alert.models.breedingsites_list_site_type_error_component import BreedingsitesListSiteTypeErrorComponent
+from mosquito_alert.models.breedingsites_list_tags_error_component import BreedingsitesListTagsErrorComponent
 from mosquito_alert.models.breedingsites_list_updated_at_error_component import BreedingsitesListUpdatedAtErrorComponent
 from mosquito_alert.models.breedingsites_list_user_uuid_error_component import BreedingsitesListUserUuidErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-BREEDINGSITESLISTERROR_ONE_OF_SCHEMAS = ["BreedingsitesListCountryIdErrorComponent", "BreedingsitesListCreatedAtErrorComponent", "BreedingsitesListOrderByErrorComponent", "BreedingsitesListReceivedAtErrorComponent", "BreedingsitesListShortIdErrorComponent", "BreedingsitesListUpdatedAtErrorComponent", "BreedingsitesListUserUuidErrorComponent"]
+BREEDINGSITESLISTERROR_ONE_OF_SCHEMAS = ["BreedingsitesListBoundaryUuidErrorComponent", "BreedingsitesListCountryIdErrorComponent", "BreedingsitesListCreatedAtErrorComponent", "BreedingsitesListGeoPrecisionErrorComponent", "BreedingsitesListOrderByErrorComponent", "BreedingsitesListReceivedAtErrorComponent", "BreedingsitesListShortIdErrorComponent", "BreedingsitesListSiteTypeErrorComponent", "BreedingsitesListTagsErrorComponent", "BreedingsitesListUpdatedAtErrorComponent", "BreedingsitesListUserUuidErrorComponent"]
 
 class BreedingsitesListError(BaseModel):
     """
@@ -49,8 +53,16 @@ class BreedingsitesListError(BaseModel):
     oneof_schema_6_validator: Optional[BreedingsitesListUserUuidErrorComponent] = None
     # data type: BreedingsitesListOrderByErrorComponent
     oneof_schema_7_validator: Optional[BreedingsitesListOrderByErrorComponent] = None
-    actual_instance: Optional[Union[BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent]] = None
-    one_of_schemas: Set[str] = { "BreedingsitesListCountryIdErrorComponent", "BreedingsitesListCreatedAtErrorComponent", "BreedingsitesListOrderByErrorComponent", "BreedingsitesListReceivedAtErrorComponent", "BreedingsitesListShortIdErrorComponent", "BreedingsitesListUpdatedAtErrorComponent", "BreedingsitesListUserUuidErrorComponent" }
+    # data type: BreedingsitesListTagsErrorComponent
+    oneof_schema_8_validator: Optional[BreedingsitesListTagsErrorComponent] = None
+    # data type: BreedingsitesListGeoPrecisionErrorComponent
+    oneof_schema_9_validator: Optional[BreedingsitesListGeoPrecisionErrorComponent] = None
+    # data type: BreedingsitesListBoundaryUuidErrorComponent
+    oneof_schema_10_validator: Optional[BreedingsitesListBoundaryUuidErrorComponent] = None
+    # data type: BreedingsitesListSiteTypeErrorComponent
+    oneof_schema_11_validator: Optional[BreedingsitesListSiteTypeErrorComponent] = None
+    actual_instance: Optional[Union[BreedingsitesListBoundaryUuidErrorComponent, BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListGeoPrecisionErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListSiteTypeErrorComponent, BreedingsitesListTagsErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent]] = None
+    one_of_schemas: Set[str] = { "BreedingsitesListBoundaryUuidErrorComponent", "BreedingsitesListCountryIdErrorComponent", "BreedingsitesListCreatedAtErrorComponent", "BreedingsitesListGeoPrecisionErrorComponent", "BreedingsitesListOrderByErrorComponent", "BreedingsitesListReceivedAtErrorComponent", "BreedingsitesListShortIdErrorComponent", "BreedingsitesListSiteTypeErrorComponent", "BreedingsitesListTagsErrorComponent", "BreedingsitesListUpdatedAtErrorComponent", "BreedingsitesListUserUuidErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -111,12 +123,32 @@ class BreedingsitesListError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesListOrderByErrorComponent`")
         else:
             match += 1
+        # validate data type: BreedingsitesListTagsErrorComponent
+        if not isinstance(v, BreedingsitesListTagsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesListTagsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BreedingsitesListGeoPrecisionErrorComponent
+        if not isinstance(v, BreedingsitesListGeoPrecisionErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesListGeoPrecisionErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BreedingsitesListBoundaryUuidErrorComponent
+        if not isinstance(v, BreedingsitesListBoundaryUuidErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesListBoundaryUuidErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BreedingsitesListSiteTypeErrorComponent
+        if not isinstance(v, BreedingsitesListSiteTypeErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BreedingsitesListSiteTypeErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in BreedingsitesListError with oneOf schemas: BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in BreedingsitesListError with oneOf schemas: BreedingsitesListBoundaryUuidErrorComponent, BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListGeoPrecisionErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListSiteTypeErrorComponent, BreedingsitesListTagsErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in BreedingsitesListError with oneOf schemas: BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in BreedingsitesListError with oneOf schemas: BreedingsitesListBoundaryUuidErrorComponent, BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListGeoPrecisionErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListSiteTypeErrorComponent, BreedingsitesListTagsErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -173,13 +205,37 @@ class BreedingsitesListError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into BreedingsitesListTagsErrorComponent
+        try:
+            instance.actual_instance = BreedingsitesListTagsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BreedingsitesListGeoPrecisionErrorComponent
+        try:
+            instance.actual_instance = BreedingsitesListGeoPrecisionErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BreedingsitesListBoundaryUuidErrorComponent
+        try:
+            instance.actual_instance = BreedingsitesListBoundaryUuidErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BreedingsitesListSiteTypeErrorComponent
+        try:
+            instance.actual_instance = BreedingsitesListSiteTypeErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into BreedingsitesListError with oneOf schemas: BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into BreedingsitesListError with oneOf schemas: BreedingsitesListBoundaryUuidErrorComponent, BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListGeoPrecisionErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListSiteTypeErrorComponent, BreedingsitesListTagsErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into BreedingsitesListError with oneOf schemas: BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into BreedingsitesListError with oneOf schemas: BreedingsitesListBoundaryUuidErrorComponent, BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListGeoPrecisionErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListSiteTypeErrorComponent, BreedingsitesListTagsErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -193,7 +249,7 @@ class BreedingsitesListError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], BreedingsitesListBoundaryUuidErrorComponent, BreedingsitesListCountryIdErrorComponent, BreedingsitesListCreatedAtErrorComponent, BreedingsitesListGeoPrecisionErrorComponent, BreedingsitesListOrderByErrorComponent, BreedingsitesListReceivedAtErrorComponent, BreedingsitesListShortIdErrorComponent, BreedingsitesListSiteTypeErrorComponent, BreedingsitesListTagsErrorComponent, BreedingsitesListUpdatedAtErrorComponent, BreedingsitesListUserUuidErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -109,6 +109,7 @@ class TestObservation(unittest.TestCase):
                             source = '', 
                             level = 0, )
                         ], ),
+                note = '',
                 published = True,
                 photos = [
                     mosquito_alert.models.simple_photo.SimplePhoto(

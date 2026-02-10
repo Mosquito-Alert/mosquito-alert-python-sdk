@@ -18,12 +18,13 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from datetime import datetime
-from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from uuid import UUID
 from mosquito_alert.models.location_request import LocationRequest
 from mosquito_alert.models.observation import Observation
+from mosquito_alert.models.observation_geo_model import ObservationGeoModel
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
@@ -51,7 +52,7 @@ class ObservationsApi:
         sent_at: datetime,
         location: LocationRequest,
         photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
-        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        note: Optional[StrictStr] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
         event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
@@ -80,7 +81,7 @@ class ObservationsApi:
         :type location: LocationRequest
         :param photos: (required)
         :type photos: List[bytearray]
-        :param note: Note user attached to report.
+        :param note:
         :type note: str
         :param tags:
         :type tags: List[str]
@@ -153,7 +154,7 @@ class ObservationsApi:
         sent_at: datetime,
         location: LocationRequest,
         photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
-        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        note: Optional[StrictStr] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
         event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
@@ -182,7 +183,7 @@ class ObservationsApi:
         :type location: LocationRequest
         :param photos: (required)
         :type photos: List[bytearray]
-        :param note: Note user attached to report.
+        :param note:
         :type note: str
         :param tags:
         :type tags: List[str]
@@ -255,7 +256,7 @@ class ObservationsApi:
         sent_at: datetime,
         location: LocationRequest,
         photos: Annotated[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(min_length=1)],
-        note: Annotated[Optional[StrictStr], Field(description="Note user attached to report.")] = None,
+        note: Optional[StrictStr] = None,
         tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None,
         event_environment: Annotated[Optional[StrictStr], Field(description="The environment where the event took place.")] = None,
         event_moment: Annotated[Optional[StrictStr], Field(description="The moment of the day when the event took place.")] = None,
@@ -284,7 +285,7 @@ class ObservationsApi:
         :type location: LocationRequest
         :param photos: (required)
         :type photos: List[bytearray]
-        :param note: Note user attached to report.
+        :param note:
         :type note: str
         :param tags:
         :type tags: List[str]
@@ -722,20 +723,26 @@ class ObservationsApi:
 
 
     @validate_call
-    def list(
+    def geo_list(
         self,
+        boundary_uuid: Optional[UUID] = None,
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon_ids: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -751,26 +758,36 @@ class ObservationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaginatedObservationList:
-        """list
+    ) -> List[ObservationGeoModel]:
+        """geo_list
 
 
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
         :param country_id:
         :type country_id: int
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
         :param has_photos: Has any photo
         :type has_photos: bool
         :param identification_taxon_ids:
-        :type identification_taxon_ids: List[int]
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
         :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
-        :type page: int
-        :param page_size: Número de resultados a devolver por página.
-        :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
@@ -779,6 +796,8 @@ class ObservationsApi:
         :type search: str
         :param short_id: Short ID
         :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -807,19 +826,25 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_serialize(
+        _param = self._geo_list_serialize(
+            boundary_uuid=boundary_uuid,
             country_id=country_id,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
             has_photos=has_photos,
             identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
             order_by=order_by,
-            page=page,
-            page_size=page_size,
+            point=point,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
             search=search,
             short_id=short_id,
+            tags=tags,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_uuid=user_uuid,
@@ -830,10 +855,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsListValidationError",
+            '400': "ObservationsGeoListValidationError",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '200': "PaginatedObservationList",
+            '200': "List[ObservationGeoModel]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -847,20 +872,26 @@ class ObservationsApi:
 
 
     @validate_call
-    def list_with_http_info(
+    def geo_list_with_http_info(
         self,
+        boundary_uuid: Optional[UUID] = None,
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon_ids: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -876,26 +907,36 @@ class ObservationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaginatedObservationList]:
-        """list
+    ) -> ApiResponse[List[ObservationGeoModel]]:
+        """geo_list
 
 
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
         :param country_id:
         :type country_id: int
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
         :param has_photos: Has any photo
         :type has_photos: bool
         :param identification_taxon_ids:
-        :type identification_taxon_ids: List[int]
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
         :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
-        :type page: int
-        :param page_size: Número de resultados a devolver por página.
-        :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
@@ -904,6 +945,8 @@ class ObservationsApi:
         :type search: str
         :param short_id: Short ID
         :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -932,19 +975,25 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_serialize(
+        _param = self._geo_list_serialize(
+            boundary_uuid=boundary_uuid,
             country_id=country_id,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
             has_photos=has_photos,
             identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
             order_by=order_by,
-            page=page,
-            page_size=page_size,
+            point=point,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
             search=search,
             short_id=short_id,
+            tags=tags,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_uuid=user_uuid,
@@ -955,10 +1004,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsListValidationError",
+            '400': "ObservationsGeoListValidationError",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '200': "PaginatedObservationList",
+            '200': "List[ObservationGeoModel]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -972,20 +1021,26 @@ class ObservationsApi:
 
 
     @validate_call
-    def list_without_preload_content(
+    def geo_list_without_preload_content(
         self,
+        boundary_uuid: Optional[UUID] = None,
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon_ids: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1002,25 +1057,35 @@ class ObservationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """list
+        """geo_list
 
 
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
         :param country_id:
         :type country_id: int
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
         :param has_photos: Has any photo
         :type has_photos: bool
         :param identification_taxon_ids:
-        :type identification_taxon_ids: List[int]
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
         :param order_by: Ordenamiento  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
-        :type page: int
-        :param page_size: Número de resultados a devolver por página.
-        :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
@@ -1029,6 +1094,8 @@ class ObservationsApi:
         :type search: str
         :param short_id: Short ID
         :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -1057,19 +1124,25 @@ class ObservationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_serialize(
+        _param = self._geo_list_serialize(
+            boundary_uuid=boundary_uuid,
             country_id=country_id,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
             has_photos=has_photos,
             identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
             order_by=order_by,
-            page=page,
-            page_size=page_size,
+            point=point,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
             search=search,
             short_id=short_id,
+            tags=tags,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_uuid=user_uuid,
@@ -1080,10 +1153,10 @@ class ObservationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "ObservationsListValidationError",
+            '400': "ObservationsGeoListValidationError",
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '200': "PaginatedObservationList",
+            '200': "List[ObservationGeoModel]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1092,20 +1165,26 @@ class ObservationsApi:
         return response_data.response
 
 
-    def _list_serialize(
+    def _geo_list_serialize(
         self,
+        boundary_uuid,
         country_id,
         created_at_after,
         created_at_before,
+        dist,
+        format,
+        geo_precision,
         has_photos,
         identification_taxon_ids,
+        identification_taxon_ids_lookup,
+        negate_identification_taxon_ids,
         order_by,
-        page,
-        page_size,
+        point,
         received_at_after,
         received_at_before,
         search,
         short_id,
+        tags,
         updated_at_after,
         updated_at_before,
         user_uuid,
@@ -1120,6 +1199,8 @@ class ObservationsApi:
         _collection_formats: Dict[str, str] = {
             'identification_taxon_ids': 'multi',
             'order_by': 'csv',
+            'point': 'csv',
+            'tags': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1133,6 +1214,10 @@ class ObservationsApi:
 
         # process the path parameters
         # process the query parameters
+        if boundary_uuid is not None:
+            
+            _query_params.append(('boundary_uuid', boundary_uuid))
+            
         if country_id is not None:
             
             _query_params.append(('country_id', country_id))
@@ -1163,6 +1248,18 @@ class ObservationsApi:
             else:
                 _query_params.append(('created_at_before', created_at_before))
             
+        if dist is not None:
+            
+            _query_params.append(('dist', dist))
+            
+        if format is not None:
+            
+            _query_params.append(('format', format))
+            
+        if geo_precision is not None:
+            
+            _query_params.append(('geo_precision', geo_precision))
+            
         if has_photos is not None:
             
             _query_params.append(('has_photos', has_photos))
@@ -1171,17 +1268,21 @@ class ObservationsApi:
             
             _query_params.append(('identification_taxon_ids', identification_taxon_ids))
             
+        if identification_taxon_ids_lookup is not None:
+            
+            _query_params.append(('identification_taxon_ids_lookup', identification_taxon_ids_lookup))
+            
+        if negate_identification_taxon_ids is not None:
+            
+            _query_params.append(('negate_identification_taxon_ids', negate_identification_taxon_ids))
+            
         if order_by is not None:
             
             _query_params.append(('order_by', order_by))
             
-        if page is not None:
+        if point is not None:
             
-            _query_params.append(('page', page))
-            
-        if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
+            _query_params.append(('point', point))
             
         if received_at_after is not None:
             if isinstance(received_at_after, datetime):
@@ -1216,6 +1317,10 @@ class ObservationsApi:
         if short_id is not None:
             
             _query_params.append(('short_id', short_id))
+            
+        if tags is not None:
+            
+            _query_params.append(('tags', tags))
             
         if updated_at_after is not None:
             if isinstance(updated_at_after, datetime):
@@ -1256,7 +1361,712 @@ class ObservationsApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/geo+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'tokenAuth', 
+            'cookieAuth', 
+            'jwtAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/observations/geo/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def list(
+        self,
+        boundary_uuid: Optional[UUID] = None,
+        country_id: Optional[StrictInt] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
+        has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
+        received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        user_uuid: Optional[UUID] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PaginatedObservationList:
+        """list
+
+
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
+        :param country_id:
+        :type country_id: int
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
+        :param has_photos: Has any photo
+        :type has_photos: bool
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
+        :param order_by: Ordenamiento  
+        :type order_by: List[str]
+        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :type page: int
+        :param page_size: Número de resultados a devolver por página.
+        :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
+        :param received_at_after: Received at
+        :type received_at_after: datetime
+        :param received_at_before: Received at
+        :type received_at_before: datetime
+        :param search: Un término de búsqueda.
+        :type search: str
+        :param short_id: Short ID
+        :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param user_uuid:
+        :type user_uuid: UUID
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_serialize(
+            boundary_uuid=boundary_uuid,
+            country_id=country_id,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
+            has_photos=has_photos,
+            identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            point=point,
+            received_at_after=received_at_after,
+            received_at_before=received_at_before,
+            search=search,
+            short_id=short_id,
+            tags=tags,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            user_uuid=user_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListValidationError",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '200': "PaginatedObservationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_with_http_info(
+        self,
+        boundary_uuid: Optional[UUID] = None,
+        country_id: Optional[StrictInt] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
+        has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
+        received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        user_uuid: Optional[UUID] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PaginatedObservationList]:
+        """list
+
+
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
+        :param country_id:
+        :type country_id: int
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
+        :param has_photos: Has any photo
+        :type has_photos: bool
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
+        :param order_by: Ordenamiento  
+        :type order_by: List[str]
+        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :type page: int
+        :param page_size: Número de resultados a devolver por página.
+        :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
+        :param received_at_after: Received at
+        :type received_at_after: datetime
+        :param received_at_before: Received at
+        :type received_at_before: datetime
+        :param search: Un término de búsqueda.
+        :type search: str
+        :param short_id: Short ID
+        :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param user_uuid:
+        :type user_uuid: UUID
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_serialize(
+            boundary_uuid=boundary_uuid,
+            country_id=country_id,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
+            has_photos=has_photos,
+            identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            point=point,
+            received_at_after=received_at_after,
+            received_at_before=received_at_before,
+            search=search,
+            short_id=short_id,
+            tags=tags,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            user_uuid=user_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListValidationError",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '200': "PaginatedObservationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_without_preload_content(
+        self,
+        boundary_uuid: Optional[UUID] = None,
+        country_id: Optional[StrictInt] = None,
+        created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
+        has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
+        received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
+        user_uuid: Optional[UUID] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """list
+
+
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
+        :param country_id:
+        :type country_id: int
+        :param created_at_after: Created at
+        :type created_at_after: datetime
+        :param created_at_before: Created at
+        :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
+        :param has_photos: Has any photo
+        :type has_photos: bool
+        :param identification_taxon_ids:
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
+        :param order_by: Ordenamiento  
+        :type order_by: List[str]
+        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :type page: int
+        :param page_size: Número de resultados a devolver por página.
+        :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
+        :param received_at_after: Received at
+        :type received_at_after: datetime
+        :param received_at_before: Received at
+        :type received_at_before: datetime
+        :param search: Un término de búsqueda.
+        :type search: str
+        :param short_id: Short ID
+        :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
+        :param updated_at_after: Update at
+        :type updated_at_after: datetime
+        :param updated_at_before: Update at
+        :type updated_at_before: datetime
+        :param user_uuid:
+        :type user_uuid: UUID
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_serialize(
+            boundary_uuid=boundary_uuid,
+            country_id=country_id,
+            created_at_after=created_at_after,
+            created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
+            has_photos=has_photos,
+            identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
+            order_by=order_by,
+            page=page,
+            page_size=page_size,
+            point=point,
+            received_at_after=received_at_after,
+            received_at_before=received_at_before,
+            search=search,
+            short_id=short_id,
+            tags=tags,
+            updated_at_after=updated_at_after,
+            updated_at_before=updated_at_before,
+            user_uuid=user_uuid,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '400': "ObservationsListValidationError",
+            '401': "ErrorResponse401",
+            '404': "ErrorResponse404",
+            '200': "PaginatedObservationList",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _list_serialize(
+        self,
+        boundary_uuid,
+        country_id,
+        created_at_after,
+        created_at_before,
+        dist,
+        format,
+        geo_precision,
+        has_photos,
+        identification_taxon_ids,
+        identification_taxon_ids_lookup,
+        negate_identification_taxon_ids,
+        order_by,
+        page,
+        page_size,
+        point,
+        received_at_after,
+        received_at_before,
+        search,
+        short_id,
+        tags,
+        updated_at_after,
+        updated_at_before,
+        user_uuid,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'identification_taxon_ids': 'multi',
+            'order_by': 'csv',
+            'point': 'csv',
+            'tags': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if boundary_uuid is not None:
+            
+            _query_params.append(('boundary_uuid', boundary_uuid))
+            
+        if country_id is not None:
+            
+            _query_params.append(('country_id', country_id))
+            
+        if created_at_after is not None:
+            if isinstance(created_at_after, datetime):
+                _query_params.append(
+                    (
+                        'created_at_after',
+                        created_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_after', created_at_after))
+            
+        if created_at_before is not None:
+            if isinstance(created_at_before, datetime):
+                _query_params.append(
+                    (
+                        'created_at_before',
+                        created_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_at_before', created_at_before))
+            
+        if dist is not None:
+            
+            _query_params.append(('dist', dist))
+            
+        if format is not None:
+            
+            _query_params.append(('format', format))
+            
+        if geo_precision is not None:
+            
+            _query_params.append(('geo_precision', geo_precision))
+            
+        if has_photos is not None:
+            
+            _query_params.append(('has_photos', has_photos))
+            
+        if identification_taxon_ids is not None:
+            
+            _query_params.append(('identification_taxon_ids', identification_taxon_ids))
+            
+        if identification_taxon_ids_lookup is not None:
+            
+            _query_params.append(('identification_taxon_ids_lookup', identification_taxon_ids_lookup))
+            
+        if negate_identification_taxon_ids is not None:
+            
+            _query_params.append(('negate_identification_taxon_ids', negate_identification_taxon_ids))
+            
+        if order_by is not None:
+            
+            _query_params.append(('order_by', order_by))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        if point is not None:
+            
+            _query_params.append(('point', point))
+            
+        if received_at_after is not None:
+            if isinstance(received_at_after, datetime):
+                _query_params.append(
+                    (
+                        'received_at_after',
+                        received_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('received_at_after', received_at_after))
+            
+        if received_at_before is not None:
+            if isinstance(received_at_before, datetime):
+                _query_params.append(
+                    (
+                        'received_at_before',
+                        received_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('received_at_before', received_at_before))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
+            
+        if short_id is not None:
+            
+            _query_params.append(('short_id', short_id))
+            
+        if tags is not None:
+            
+            _query_params.append(('tags', tags))
+            
+        if updated_at_after is not None:
+            if isinstance(updated_at_after, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_after',
+                        updated_at_after.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_after', updated_at_after))
+            
+        if updated_at_before is not None:
+            if isinstance(updated_at_before, datetime):
+                _query_params.append(
+                    (
+                        'updated_at_before',
+                        updated_at_before.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('updated_at_before', updated_at_before))
+            
+        if user_uuid is not None:
+            
+            _query_params.append(('user_uuid', user_uuid))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'text/csv'
                 ]
             )
 
@@ -1289,18 +2099,26 @@ class ObservationsApi:
     @validate_call
     def list_mine(
         self,
+        boundary_uuid: Optional[UUID] = None,
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon_ids: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1321,22 +2139,36 @@ class ObservationsApi:
 
         Get Current User's Observations
 
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
         :param country_id:
         :type country_id: int
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
         :param has_photos: Has any photo
         :type has_photos: bool
         :param identification_taxon_ids:
-        :type identification_taxon_ids: List[int]
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
         :param order_by: Ordenamiento  
         :type order_by: List[str]
         :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
         :param page_size: Número de resultados a devolver por página.
         :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
@@ -1345,6 +2177,8 @@ class ObservationsApi:
         :type search: str
         :param short_id: Short ID
         :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -1374,18 +2208,26 @@ class ObservationsApi:
         """ # noqa: E501
 
         _param = self._list_mine_serialize(
+            boundary_uuid=boundary_uuid,
             country_id=country_id,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
             has_photos=has_photos,
             identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            point=point,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
             search=search,
             short_id=short_id,
+            tags=tags,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_uuid=user_uuid,
@@ -1416,18 +2258,26 @@ class ObservationsApi:
     @validate_call
     def list_mine_with_http_info(
         self,
+        boundary_uuid: Optional[UUID] = None,
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon_ids: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1448,22 +2298,36 @@ class ObservationsApi:
 
         Get Current User's Observations
 
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
         :param country_id:
         :type country_id: int
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
         :param has_photos: Has any photo
         :type has_photos: bool
         :param identification_taxon_ids:
-        :type identification_taxon_ids: List[int]
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
         :param order_by: Ordenamiento  
         :type order_by: List[str]
         :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
         :param page_size: Número de resultados a devolver por página.
         :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
@@ -1472,6 +2336,8 @@ class ObservationsApi:
         :type search: str
         :param short_id: Short ID
         :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -1501,18 +2367,26 @@ class ObservationsApi:
         """ # noqa: E501
 
         _param = self._list_mine_serialize(
+            boundary_uuid=boundary_uuid,
             country_id=country_id,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
             has_photos=has_photos,
             identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            point=point,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
             search=search,
             short_id=short_id,
+            tags=tags,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_uuid=user_uuid,
@@ -1543,18 +2417,26 @@ class ObservationsApi:
     @validate_call
     def list_mine_without_preload_content(
         self,
+        boundary_uuid: Optional[UUID] = None,
         country_id: Optional[StrictInt] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
+        dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
+        format: Optional[StrictStr] = None,
+        geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
         has_photos: Annotated[Optional[StrictBool], Field(description="Has any photo")] = None,
-        identification_taxon_ids: Optional[List[StrictInt]] = None,
+        identification_taxon_ids: Optional[List[StrictStr]] = None,
+        identification_taxon_ids_lookup: Optional[StrictStr] = None,
+        negate_identification_taxon_ids: Annotated[Optional[StrictBool], Field(description="Negate identification_taxon_ids filter")] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
         page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1575,22 +2457,36 @@ class ObservationsApi:
 
         Get Current User's Observations
 
+        :param boundary_uuid:
+        :type boundary_uuid: UUID
         :param country_id:
         :type country_id: int
         :param created_at_after: Created at
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
+        :param dist: Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.
+        :type dist: float
+        :param format:
+        :type format: str
+        :param geo_precision: Latitude/Longitude precision
+        :type geo_precision: float
         :param has_photos: Has any photo
         :type has_photos: bool
         :param identification_taxon_ids:
-        :type identification_taxon_ids: List[int]
+        :type identification_taxon_ids: List[str]
+        :param identification_taxon_ids_lookup:
+        :type identification_taxon_ids_lookup: str
+        :param negate_identification_taxon_ids: Negate identification_taxon_ids filter
+        :type negate_identification_taxon_ids: bool
         :param order_by: Ordenamiento  
         :type order_by: List[str]
         :param page: Un número de página dentro del conjunto de resultados paginado.
         :type page: int
         :param page_size: Número de resultados a devolver por página.
         :type page_size: int
+        :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
+        :type point: List[float]
         :param received_at_after: Received at
         :type received_at_after: datetime
         :param received_at_before: Received at
@@ -1599,6 +2495,8 @@ class ObservationsApi:
         :type search: str
         :param short_id: Short ID
         :type short_id: str
+        :param tags: Múltiples valores separados por comas.
+        :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
         :param updated_at_before: Update at
@@ -1628,18 +2526,26 @@ class ObservationsApi:
         """ # noqa: E501
 
         _param = self._list_mine_serialize(
+            boundary_uuid=boundary_uuid,
             country_id=country_id,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
+            dist=dist,
+            format=format,
+            geo_precision=geo_precision,
             has_photos=has_photos,
             identification_taxon_ids=identification_taxon_ids,
+            identification_taxon_ids_lookup=identification_taxon_ids_lookup,
+            negate_identification_taxon_ids=negate_identification_taxon_ids,
             order_by=order_by,
             page=page,
             page_size=page_size,
+            point=point,
             received_at_after=received_at_after,
             received_at_before=received_at_before,
             search=search,
             short_id=short_id,
+            tags=tags,
             updated_at_after=updated_at_after,
             updated_at_before=updated_at_before,
             user_uuid=user_uuid,
@@ -1665,18 +2571,26 @@ class ObservationsApi:
 
     def _list_mine_serialize(
         self,
+        boundary_uuid,
         country_id,
         created_at_after,
         created_at_before,
+        dist,
+        format,
+        geo_precision,
         has_photos,
         identification_taxon_ids,
+        identification_taxon_ids_lookup,
+        negate_identification_taxon_ids,
         order_by,
         page,
         page_size,
+        point,
         received_at_after,
         received_at_before,
         search,
         short_id,
+        tags,
         updated_at_after,
         updated_at_before,
         user_uuid,
@@ -1691,6 +2605,8 @@ class ObservationsApi:
         _collection_formats: Dict[str, str] = {
             'identification_taxon_ids': 'multi',
             'order_by': 'csv',
+            'point': 'csv',
+            'tags': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1704,6 +2620,10 @@ class ObservationsApi:
 
         # process the path parameters
         # process the query parameters
+        if boundary_uuid is not None:
+            
+            _query_params.append(('boundary_uuid', boundary_uuid))
+            
         if country_id is not None:
             
             _query_params.append(('country_id', country_id))
@@ -1734,6 +2654,18 @@ class ObservationsApi:
             else:
                 _query_params.append(('created_at_before', created_at_before))
             
+        if dist is not None:
+            
+            _query_params.append(('dist', dist))
+            
+        if format is not None:
+            
+            _query_params.append(('format', format))
+            
+        if geo_precision is not None:
+            
+            _query_params.append(('geo_precision', geo_precision))
+            
         if has_photos is not None:
             
             _query_params.append(('has_photos', has_photos))
@@ -1741,6 +2673,14 @@ class ObservationsApi:
         if identification_taxon_ids is not None:
             
             _query_params.append(('identification_taxon_ids', identification_taxon_ids))
+            
+        if identification_taxon_ids_lookup is not None:
+            
+            _query_params.append(('identification_taxon_ids_lookup', identification_taxon_ids_lookup))
+            
+        if negate_identification_taxon_ids is not None:
+            
+            _query_params.append(('negate_identification_taxon_ids', negate_identification_taxon_ids))
             
         if order_by is not None:
             
@@ -1753,6 +2693,10 @@ class ObservationsApi:
         if page_size is not None:
             
             _query_params.append(('page_size', page_size))
+            
+        if point is not None:
+            
+            _query_params.append(('point', point))
             
         if received_at_after is not None:
             if isinstance(received_at_after, datetime):
@@ -1787,6 +2731,10 @@ class ObservationsApi:
         if short_id is not None:
             
             _query_params.append(('short_id', short_id))
+            
+        if tags is not None:
+            
+            _query_params.append(('tags', tags))
             
         if updated_at_after is not None:
             if isinstance(updated_at_after, datetime):
@@ -1827,7 +2775,8 @@ class ObservationsApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'text/csv'
                 ]
             )
 

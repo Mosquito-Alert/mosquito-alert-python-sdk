@@ -18,18 +18,21 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from mosquito_alert.models.bites_list_mine_boundary_uuid_error_component import BitesListMineBoundaryUuidErrorComponent
 from mosquito_alert.models.bites_list_mine_country_id_error_component import BitesListMineCountryIdErrorComponent
 from mosquito_alert.models.bites_list_mine_created_at_error_component import BitesListMineCreatedAtErrorComponent
+from mosquito_alert.models.bites_list_mine_geo_precision_error_component import BitesListMineGeoPrecisionErrorComponent
 from mosquito_alert.models.bites_list_mine_order_by_error_component import BitesListMineOrderByErrorComponent
 from mosquito_alert.models.bites_list_mine_received_at_error_component import BitesListMineReceivedAtErrorComponent
 from mosquito_alert.models.bites_list_mine_short_id_error_component import BitesListMineShortIdErrorComponent
+from mosquito_alert.models.bites_list_mine_tags_error_component import BitesListMineTagsErrorComponent
 from mosquito_alert.models.bites_list_mine_updated_at_error_component import BitesListMineUpdatedAtErrorComponent
 from mosquito_alert.models.bites_list_mine_user_uuid_error_component import BitesListMineUserUuidErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-BITESLISTMINEERROR_ONE_OF_SCHEMAS = ["BitesListMineCountryIdErrorComponent", "BitesListMineCreatedAtErrorComponent", "BitesListMineOrderByErrorComponent", "BitesListMineReceivedAtErrorComponent", "BitesListMineShortIdErrorComponent", "BitesListMineUpdatedAtErrorComponent", "BitesListMineUserUuidErrorComponent"]
+BITESLISTMINEERROR_ONE_OF_SCHEMAS = ["BitesListMineBoundaryUuidErrorComponent", "BitesListMineCountryIdErrorComponent", "BitesListMineCreatedAtErrorComponent", "BitesListMineGeoPrecisionErrorComponent", "BitesListMineOrderByErrorComponent", "BitesListMineReceivedAtErrorComponent", "BitesListMineShortIdErrorComponent", "BitesListMineTagsErrorComponent", "BitesListMineUpdatedAtErrorComponent", "BitesListMineUserUuidErrorComponent"]
 
 class BitesListMineError(BaseModel):
     """
@@ -49,8 +52,14 @@ class BitesListMineError(BaseModel):
     oneof_schema_6_validator: Optional[BitesListMineUserUuidErrorComponent] = None
     # data type: BitesListMineOrderByErrorComponent
     oneof_schema_7_validator: Optional[BitesListMineOrderByErrorComponent] = None
-    actual_instance: Optional[Union[BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent]] = None
-    one_of_schemas: Set[str] = { "BitesListMineCountryIdErrorComponent", "BitesListMineCreatedAtErrorComponent", "BitesListMineOrderByErrorComponent", "BitesListMineReceivedAtErrorComponent", "BitesListMineShortIdErrorComponent", "BitesListMineUpdatedAtErrorComponent", "BitesListMineUserUuidErrorComponent" }
+    # data type: BitesListMineTagsErrorComponent
+    oneof_schema_8_validator: Optional[BitesListMineTagsErrorComponent] = None
+    # data type: BitesListMineGeoPrecisionErrorComponent
+    oneof_schema_9_validator: Optional[BitesListMineGeoPrecisionErrorComponent] = None
+    # data type: BitesListMineBoundaryUuidErrorComponent
+    oneof_schema_10_validator: Optional[BitesListMineBoundaryUuidErrorComponent] = None
+    actual_instance: Optional[Union[BitesListMineBoundaryUuidErrorComponent, BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineGeoPrecisionErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineTagsErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent]] = None
+    one_of_schemas: Set[str] = { "BitesListMineBoundaryUuidErrorComponent", "BitesListMineCountryIdErrorComponent", "BitesListMineCreatedAtErrorComponent", "BitesListMineGeoPrecisionErrorComponent", "BitesListMineOrderByErrorComponent", "BitesListMineReceivedAtErrorComponent", "BitesListMineShortIdErrorComponent", "BitesListMineTagsErrorComponent", "BitesListMineUpdatedAtErrorComponent", "BitesListMineUserUuidErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -111,12 +120,27 @@ class BitesListMineError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `BitesListMineOrderByErrorComponent`")
         else:
             match += 1
+        # validate data type: BitesListMineTagsErrorComponent
+        if not isinstance(v, BitesListMineTagsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesListMineTagsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BitesListMineGeoPrecisionErrorComponent
+        if not isinstance(v, BitesListMineGeoPrecisionErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesListMineGeoPrecisionErrorComponent`")
+        else:
+            match += 1
+        # validate data type: BitesListMineBoundaryUuidErrorComponent
+        if not isinstance(v, BitesListMineBoundaryUuidErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `BitesListMineBoundaryUuidErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in BitesListMineError with oneOf schemas: BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in BitesListMineError with oneOf schemas: BitesListMineBoundaryUuidErrorComponent, BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineGeoPrecisionErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineTagsErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in BitesListMineError with oneOf schemas: BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in BitesListMineError with oneOf schemas: BitesListMineBoundaryUuidErrorComponent, BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineGeoPrecisionErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineTagsErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -173,13 +197,31 @@ class BitesListMineError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into BitesListMineTagsErrorComponent
+        try:
+            instance.actual_instance = BitesListMineTagsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BitesListMineGeoPrecisionErrorComponent
+        try:
+            instance.actual_instance = BitesListMineGeoPrecisionErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into BitesListMineBoundaryUuidErrorComponent
+        try:
+            instance.actual_instance = BitesListMineBoundaryUuidErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into BitesListMineError with oneOf schemas: BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into BitesListMineError with oneOf schemas: BitesListMineBoundaryUuidErrorComponent, BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineGeoPrecisionErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineTagsErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into BitesListMineError with oneOf schemas: BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into BitesListMineError with oneOf schemas: BitesListMineBoundaryUuidErrorComponent, BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineGeoPrecisionErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineTagsErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -193,7 +235,7 @@ class BitesListMineError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], BitesListMineBoundaryUuidErrorComponent, BitesListMineCountryIdErrorComponent, BitesListMineCreatedAtErrorComponent, BitesListMineGeoPrecisionErrorComponent, BitesListMineOrderByErrorComponent, BitesListMineReceivedAtErrorComponent, BitesListMineShortIdErrorComponent, BitesListMineTagsErrorComponent, BitesListMineUpdatedAtErrorComponent, BitesListMineUserUuidErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

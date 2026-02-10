@@ -39,6 +39,12 @@ class TestBitesApi(unittest.TestCase):
         """
         pass
 
+    def test_geo_list(self) -> None:
+        """Test case for geo_list
+
+        """
+        pass
+
     def test_list(self) -> None:
         """Test case for list
 
