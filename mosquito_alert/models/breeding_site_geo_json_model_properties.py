@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,10 +29,11 @@ class BreedingSiteGeoJsonModelProperties(BaseModel):
     """
     BreedingSiteGeoJsonModelProperties
     """ # noqa: E501
+    uuid: Optional[UUID] = None
     received_at: Optional[datetime] = None
     site_type: Optional[StrictStr] = None
     has_water: Optional[StrictBool] = Field(default=None, description="Either if the user perceived water in the breeding site.")
-    __properties: ClassVar[List[str]] = ["received_at", "site_type", "has_water"]
+    __properties: ClassVar[List[str]] = ["uuid", "received_at", "site_type", "has_water"]
 
     @field_validator('site_type')
     def site_type_validate_enum(cls, value):
@@ -75,8 +77,10 @@ class BreedingSiteGeoJsonModelProperties(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "uuid",
             "received_at",
             "site_type",
         ])
@@ -103,6 +107,7 @@ class BreedingSiteGeoJsonModelProperties(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "uuid": obj.get("uuid"),
             "received_at": obj.get("received_at"),
             "site_type": obj.get("site_type"),
             "has_water": obj.get("has_water")

@@ -40,11 +40,11 @@ class TestBiteGeoJsonModelList(unittest.TestCase):
                 features = [
                     mosquito_alert.models.bite_geo_json_model.BiteGeoJsonModel(
                         type = 'Feature', 
-                        id = '', 
                         geometry = mosquito_alert.models.bite_geo_json_model_geometry.BiteGeoJsonModel_geometry(
                             type = 'Point', 
                             coordinates = [12.9721,77.5933], ), 
                         properties = mosquito_alert.models.bite_geo_json_model_properties.BiteGeoJsonModel_properties(
+                            uuid = '', 
                             received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
                     ]
             )

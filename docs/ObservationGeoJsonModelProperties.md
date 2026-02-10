@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**uuid** | **UUID** |  | [optional] [readonly] 
 **received_at** | **datetime** |  | [optional] [readonly] 
 **identification_taxon_id** | **int** |  | [optional] [readonly] 
 

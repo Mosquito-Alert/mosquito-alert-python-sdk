@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from uuid import UUID
 from mosquito_alert.models.bite_geo_json_model_geometry import BiteGeoJsonModelGeometry
 from mosquito_alert.models.breeding_site_geo_json_model_properties import BreedingSiteGeoJsonModelProperties
 from typing import Optional, Set
@@ -31,10 +30,9 @@ class BreedingSiteGeoJsonModel(BaseModel):
     BreedingSiteGeoJsonModel
     """ # noqa: E501
     type: Optional[StrictStr] = None
-    id: Optional[UUID] = None
     geometry: Optional[BiteGeoJsonModelGeometry] = None
     properties: Optional[BreedingSiteGeoJsonModelProperties] = None
-    __properties: ClassVar[List[str]] = ["type", "id", "geometry", "properties"]
+    __properties: ClassVar[List[str]] = ["type", "geometry", "properties"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -76,10 +74,8 @@ class BreedingSiteGeoJsonModel(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "id",
         ])
 
         _dict = self.model_dump(
@@ -106,7 +102,6 @@ class BreedingSiteGeoJsonModel(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "id": obj.get("id"),
             "geometry": BiteGeoJsonModelGeometry.from_dict(obj["geometry"]) if obj.get("geometry") is not None else None,
             "properties": BreedingSiteGeoJsonModelProperties.from_dict(obj["properties"]) if obj.get("properties") is not None else None
         })

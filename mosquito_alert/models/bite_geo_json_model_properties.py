@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +29,9 @@ class BiteGeoJsonModelProperties(BaseModel):
     """
     BiteGeoJsonModelProperties
     """ # noqa: E501
+    uuid: Optional[UUID] = None
     received_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["received_at"]
+    __properties: ClassVar[List[str]] = ["uuid", "received_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -62,8 +64,10 @@ class BiteGeoJsonModelProperties(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "uuid",
             "received_at",
         ])
 
@@ -84,6 +88,7 @@ class BiteGeoJsonModelProperties(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "uuid": obj.get("uuid"),
             "received_at": obj.get("received_at")
         })
         return _obj

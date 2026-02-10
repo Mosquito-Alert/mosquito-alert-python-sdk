@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +29,10 @@ class ObservationGeoJsonModelProperties(BaseModel):
     """
     ObservationGeoJsonModelProperties
     """ # noqa: E501
+    uuid: Optional[UUID] = None
     received_at: Optional[datetime] = None
     identification_taxon_id: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["received_at", "identification_taxon_id"]
+    __properties: ClassVar[List[str]] = ["uuid", "received_at", "identification_taxon_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,8 +66,10 @@ class ObservationGeoJsonModelProperties(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "uuid",
             "received_at",
             "identification_taxon_id",
         ])
@@ -92,6 +96,7 @@ class ObservationGeoJsonModelProperties(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "uuid": obj.get("uuid"),
             "received_at": obj.get("received_at"),
             "identification_taxon_id": obj.get("identification_taxon_id")
         })

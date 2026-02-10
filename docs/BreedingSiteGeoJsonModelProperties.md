@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**uuid** | **UUID** |  | [optional] [readonly] 
 **received_at** | **datetime** |  | [optional] [readonly] 
 **site_type** | **str** |  | [optional] [readonly] 
 **has_water** | **bool** | Either if the user perceived water in the breeding site. | [optional] 

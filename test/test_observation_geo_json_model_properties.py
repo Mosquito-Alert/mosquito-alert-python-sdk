@@ -36,6 +36,7 @@ class TestObservationGeoJsonModelProperties(unittest.TestCase):
         model = ObservationGeoJsonModelProperties()
         if include_optional:
             return ObservationGeoJsonModelProperties(
+                uuid = '',
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 identification_taxon_id = 56
             )

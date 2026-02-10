@@ -6,7 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | [optional] 
-**id** | **UUID** |  | [optional] [readonly] 
 **geometry** | [**BiteGeoJsonModelGeometry**](BiteGeoJsonModelGeometry.md) |  | [optional] 
 **properties** | [**BiteGeoJsonModelProperties**](BiteGeoJsonModelProperties.md) |  | [optional] 
 
