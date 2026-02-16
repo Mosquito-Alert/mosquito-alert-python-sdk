@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.annotation_characteristics import AnnotationCharacteristics
+from mosquito_alert.models.species_characteristics import SpeciesCharacteristics
 
-class TestAnnotationCharacteristics(unittest.TestCase):
-    """AnnotationCharacteristics unit test stubs"""
+class TestSpeciesCharacteristics(unittest.TestCase):
+    """SpeciesCharacteristics unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,28 @@ class TestAnnotationCharacteristics(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AnnotationCharacteristics:
-        """Test AnnotationCharacteristics
+    def make_instance(self, include_optional) -> SpeciesCharacteristics:
+        """Test SpeciesCharacteristics
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AnnotationCharacteristics`
+        # uncomment below to create an instance of `SpeciesCharacteristics`
         """
-        model = AnnotationCharacteristics()
+        model = SpeciesCharacteristics()
         if include_optional:
-            return AnnotationCharacteristics(
+            return SpeciesCharacteristics(
                 sex = 'male',
                 is_blood_fed = True,
                 is_gravid = True
             )
         else:
-            return AnnotationCharacteristics(
+            return SpeciesCharacteristics(
+                sex = 'male',
         )
         """
 
-    def testAnnotationCharacteristics(self):
-        """Test AnnotationCharacteristics"""
+    def testSpeciesCharacteristics(self):
+        """Test SpeciesCharacteristics"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

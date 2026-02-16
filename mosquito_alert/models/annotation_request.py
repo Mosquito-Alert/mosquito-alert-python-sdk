@@ -22,10 +22,10 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
-from mosquito_alert.models.annotation_characteristics_request import AnnotationCharacteristicsRequest
-from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
 from mosquito_alert.models.annotation_feedback_request import AnnotationFeedbackRequest
 from mosquito_alert.models.observation_flags_request import ObservationFlagsRequest
+from mosquito_alert.models.species_characteristics_request import SpeciesCharacteristicsRequest
+from mosquito_alert.models.species_classification_request import SpeciesClassificationRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -34,8 +34,8 @@ class AnnotationRequest(BaseModel):
     AnnotationRequest
     """ # noqa: E501
     best_photo_uuid: Optional[UUID] = None
-    classification: Optional[AnnotationClassificationRequest]
-    characteristics: Optional[AnnotationCharacteristicsRequest] = None
+    classification: Optional[SpeciesClassificationRequest]
+    characteristics: Optional[SpeciesCharacteristicsRequest] = None
     feedback: Optional[AnnotationFeedbackRequest] = None
     is_flagged: Optional[StrictBool] = False
     is_decisive: Optional[StrictBool] = False
@@ -99,6 +99,11 @@ class AnnotationRequest(BaseModel):
         if self.classification is None and "classification" in self.model_fields_set:
             _dict['classification'] = None
 
+        # set to None if characteristics (nullable) is None
+        # and model_fields_set contains the field
+        if self.characteristics is None and "characteristics" in self.model_fields_set:
+            _dict['characteristics'] = None
+
         return _dict
 
     @classmethod
@@ -112,8 +117,8 @@ class AnnotationRequest(BaseModel):
 
         _obj = cls.model_validate({
             "best_photo_uuid": obj.get("best_photo_uuid"),
-            "classification": AnnotationClassificationRequest.from_dict(obj["classification"]) if obj.get("classification") is not None else None,
-            "characteristics": AnnotationCharacteristicsRequest.from_dict(obj["characteristics"]) if obj.get("characteristics") is not None else None,
+            "classification": SpeciesClassificationRequest.from_dict(obj["classification"]) if obj.get("classification") is not None else None,
+            "characteristics": SpeciesCharacteristicsRequest.from_dict(obj["characteristics"]) if obj.get("characteristics") is not None else None,
             "feedback": AnnotationFeedbackRequest.from_dict(obj["feedback"]) if obj.get("feedback") is not None else None,
             "is_flagged": obj.get("is_flagged") if obj.get("is_flagged") is not None else False,
             "is_decisive": obj.get("is_decisive") if obj.get("is_decisive") is not None else False,

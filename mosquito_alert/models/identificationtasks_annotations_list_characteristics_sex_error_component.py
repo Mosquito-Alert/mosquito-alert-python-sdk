@@ -18,27 +18,32 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Union
-from mosquito_alert.models.simple_taxon import SimpleTaxon
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AnnotationClassification(BaseModel):
+class IdentificationtasksAnnotationsListCharacteristicsSexErrorComponent(BaseModel):
     """
-    AnnotationClassification
+    IdentificationtasksAnnotationsListCharacteristicsSexErrorComponent
     """ # noqa: E501
-    taxon: SimpleTaxon
-    confidence: Union[StrictFloat, StrictInt]
-    confidence_label: StrictStr
-    is_high_confidence: StrictBool
-    __properties: ClassVar[List[str]] = ["taxon", "confidence", "confidence_label", "is_high_confidence"]
+    attr: StrictStr
+    code: StrictStr
+    detail: StrictStr
+    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
 
-    @field_validator('confidence_label')
-    def confidence_label_validate_enum(cls, value):
+    @field_validator('attr')
+    def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['definitely', 'probably']):
-            raise ValueError("must be one of enum values ('definitely', 'probably')")
+        if value not in set(['characteristics_sex']):
+            raise ValueError("must be one of enum values ('characteristics_sex')")
+        return value
+
+    @field_validator('code')
+    def code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['invalid_choice']):
+            raise ValueError("must be one of enum values ('invalid_choice')")
         return value
 
     model_config = ConfigDict(
@@ -59,7 +64,7 @@ class AnnotationClassification(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AnnotationClassification from a JSON string"""
+        """Create an instance of IdentificationtasksAnnotationsListCharacteristicsSexErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,14 +76,8 @@ class AnnotationClassification(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "taxon",
-            "confidence",
-            "is_high_confidence",
         ])
 
         _dict = self.model_dump(
@@ -86,14 +85,11 @@ class AnnotationClassification(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of taxon
-        if self.taxon:
-            _dict['taxon'] = self.taxon.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AnnotationClassification from a dict"""
+        """Create an instance of IdentificationtasksAnnotationsListCharacteristicsSexErrorComponent from a dict"""
         if obj is None:
             return None
 
@@ -101,10 +97,9 @@ class AnnotationClassification(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "taxon": SimpleTaxon.from_dict(obj["taxon"]) if obj.get("taxon") is not None else None,
-            "confidence": obj.get("confidence"),
-            "confidence_label": obj.get("confidence_label"),
-            "is_high_confidence": obj.get("is_high_confidence")
+            "attr": obj.get("attr"),
+            "code": obj.get("code"),
+            "detail": obj.get("detail")
         })
         return _obj
 

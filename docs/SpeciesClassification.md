@@ -1,4 +1,4 @@
-# AnnotationClassification
+# SpeciesClassification
 
 
 ## Properties
@@ -13,19 +13,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from mosquito_alert.models.annotation_classification import AnnotationClassification
+from mosquito_alert.models.species_classification import SpeciesClassification
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of AnnotationClassification from a JSON string
-annotation_classification_instance = AnnotationClassification.from_json(json)
+# create an instance of SpeciesClassification from a JSON string
+species_classification_instance = SpeciesClassification.from_json(json)
 # print the JSON string representation of the object
-print(AnnotationClassification.to_json())
+print(SpeciesClassification.to_json())
 
 # convert the object into a dict
-annotation_classification_dict = annotation_classification_instance.to_dict()
-# create an instance of AnnotationClassification from a dict
-annotation_classification_from_dict = AnnotationClassification.from_dict(annotation_classification_dict)
+species_classification_dict = species_classification_instance.to_dict()
+# create an instance of SpeciesClassification from a dict
+species_classification_from_dict = SpeciesClassification.from_dict(species_classification_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

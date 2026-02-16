@@ -22,11 +22,12 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
-from mosquito_alert.models.annotation_classification import AnnotationClassification
 from mosquito_alert.models.annotation_feedback import AnnotationFeedback
 from mosquito_alert.models.observation_flags import ObservationFlags
 from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
 from mosquito_alert.models.simple_photo import SimplePhoto
+from mosquito_alert.models.species_characteristics import SpeciesCharacteristics
+from mosquito_alert.models.species_classification import SpeciesClassification
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -38,7 +39,8 @@ class Annotation(BaseModel):
     observation_uuid: UUID
     user: SimpleAnnotatorUser
     best_photo: Optional[SimplePhoto]
-    classification: Optional[AnnotationClassification]
+    classification: Optional[SpeciesClassification]
+    characteristics: Optional[SpeciesCharacteristics] = None
     feedback: Optional[AnnotationFeedback] = None
     type: StrictStr
     is_flagged: StrictBool
@@ -47,7 +49,7 @@ class Annotation(BaseModel):
     tags: Optional[List[StrictStr]] = None
     created_at: datetime
     updated_at: datetime
-    __properties: ClassVar[List[str]] = ["id", "observation_uuid", "user", "best_photo", "classification", "feedback", "type", "is_flagged", "is_decisive", "observation_flags", "tags", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["id", "observation_uuid", "user", "best_photo", "classification", "characteristics", "feedback", "type", "is_flagged", "is_decisive", "observation_flags", "tags", "created_at", "updated_at"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -122,6 +124,9 @@ class Annotation(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of classification
         if self.classification:
             _dict['classification'] = self.classification.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of characteristics
+        if self.characteristics:
+            _dict['characteristics'] = self.characteristics.to_dict()
         # override the default output from pydantic by calling `to_dict()` of feedback
         if self.feedback:
             _dict['feedback'] = self.feedback.to_dict()
@@ -137,6 +142,11 @@ class Annotation(BaseModel):
         # and model_fields_set contains the field
         if self.classification is None and "classification" in self.model_fields_set:
             _dict['classification'] = None
+
+        # set to None if characteristics (nullable) is None
+        # and model_fields_set contains the field
+        if self.characteristics is None and "characteristics" in self.model_fields_set:
+            _dict['characteristics'] = None
 
         return _dict
 
@@ -154,7 +164,8 @@ class Annotation(BaseModel):
             "observation_uuid": obj.get("observation_uuid"),
             "user": SimpleAnnotatorUser.from_dict(obj["user"]) if obj.get("user") is not None else None,
             "best_photo": SimplePhoto.from_dict(obj["best_photo"]) if obj.get("best_photo") is not None else None,
-            "classification": AnnotationClassification.from_dict(obj["classification"]) if obj.get("classification") is not None else None,
+            "classification": SpeciesClassification.from_dict(obj["classification"]) if obj.get("classification") is not None else None,
+            "characteristics": SpeciesCharacteristics.from_dict(obj["characteristics"]) if obj.get("characteristics") is not None else None,
             "feedback": AnnotationFeedback.from_dict(obj["feedback"]) if obj.get("feedback") is not None else None,
             "type": obj.get("type"),
             "is_flagged": obj.get("is_flagged") if obj.get("is_flagged") is not None else False,

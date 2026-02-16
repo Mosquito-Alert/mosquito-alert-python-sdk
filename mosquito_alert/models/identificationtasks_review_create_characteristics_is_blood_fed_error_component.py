@@ -18,24 +18,32 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AnnotationClassificationRequest(BaseModel):
+class IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent(BaseModel):
     """
-    AnnotationClassificationRequest
+    IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent
     """ # noqa: E501
-    taxon_id: StrictInt
-    confidence_label: StrictStr
-    __properties: ClassVar[List[str]] = ["taxon_id", "confidence_label"]
+    attr: StrictStr
+    code: StrictStr
+    detail: StrictStr
+    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
 
-    @field_validator('confidence_label')
-    def confidence_label_validate_enum(cls, value):
+    @field_validator('attr')
+    def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['definitely', 'probably']):
-            raise ValueError("must be one of enum values ('definitely', 'probably')")
+        if value not in set(['characteristics.is_blood_fed']):
+            raise ValueError("must be one of enum values ('characteristics.is_blood_fed')")
+        return value
+
+    @field_validator('code')
+    def code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['invalid']):
+            raise ValueError("must be one of enum values ('invalid')")
         return value
 
     model_config = ConfigDict(
@@ -56,7 +64,7 @@ class AnnotationClassificationRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AnnotationClassificationRequest from a JSON string"""
+        """Create an instance of IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +89,7 @@ class AnnotationClassificationRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AnnotationClassificationRequest from a dict"""
+        """Create an instance of IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent from a dict"""
         if obj is None:
             return None
 
@@ -89,8 +97,9 @@ class AnnotationClassificationRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "taxon_id": obj.get("taxon_id"),
-            "confidence_label": obj.get("confidence_label")
+            "attr": obj.get("attr"),
+            "code": obj.get("code"),
+            "detail": obj.get("detail")
         })
         return _obj
 

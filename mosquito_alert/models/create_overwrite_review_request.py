@@ -22,7 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
-from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
+from mosquito_alert.models.species_characteristics_request import SpeciesCharacteristicsRequest
+from mosquito_alert.models.species_classification_request import SpeciesClassificationRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -34,8 +35,9 @@ class CreateOverwriteReviewRequest(BaseModel):
     public_photo_uuid: UUID
     is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
     public_note: Optional[Annotated[str, Field(min_length=1, strict=True)]]
-    result: Optional[AnnotationClassificationRequest]
-    __properties: ClassVar[List[str]] = ["action", "public_photo_uuid", "is_safe", "public_note", "result"]
+    classification: Optional[SpeciesClassificationRequest]
+    characteristics: Optional[SpeciesCharacteristicsRequest] = None
+    __properties: ClassVar[List[str]] = ["action", "public_photo_uuid", "is_safe", "public_note", "classification", "characteristics"]
 
     @field_validator('action')
     def action_validate_enum(cls, value):
@@ -86,18 +88,26 @@ class CreateOverwriteReviewRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of result
-        if self.result:
-            _dict['result'] = self.result.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of classification
+        if self.classification:
+            _dict['classification'] = self.classification.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of characteristics
+        if self.characteristics:
+            _dict['characteristics'] = self.characteristics.to_dict()
         # set to None if public_note (nullable) is None
         # and model_fields_set contains the field
         if self.public_note is None and "public_note" in self.model_fields_set:
             _dict['public_note'] = None
 
-        # set to None if result (nullable) is None
+        # set to None if classification (nullable) is None
         # and model_fields_set contains the field
-        if self.result is None and "result" in self.model_fields_set:
-            _dict['result'] = None
+        if self.classification is None and "classification" in self.model_fields_set:
+            _dict['classification'] = None
+
+        # set to None if characteristics (nullable) is None
+        # and model_fields_set contains the field
+        if self.characteristics is None and "characteristics" in self.model_fields_set:
+            _dict['characteristics'] = None
 
         return _dict
 
@@ -115,7 +125,8 @@ class CreateOverwriteReviewRequest(BaseModel):
             "public_photo_uuid": obj.get("public_photo_uuid"),
             "is_safe": obj.get("is_safe"),
             "public_note": obj.get("public_note"),
-            "result": AnnotationClassificationRequest.from_dict(obj["result"]) if obj.get("result") is not None else None
+            "classification": SpeciesClassificationRequest.from_dict(obj["classification"]) if obj.get("classification") is not None else None,
+            "characteristics": SpeciesCharacteristicsRequest.from_dict(obj["characteristics"]) if obj.get("characteristics") is not None else None
         })
         return _obj
 

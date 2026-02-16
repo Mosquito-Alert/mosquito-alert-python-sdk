@@ -23,9 +23,9 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent(BaseModel):
+class IdentificationtasksListMineResultCharacteristicsSexErrorComponent(BaseModel):
     """
-    IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent
+    IdentificationtasksListMineResultCharacteristicsSexErrorComponent
     """ # noqa: E501
     attr: StrictStr
     code: StrictStr
@@ -35,15 +35,15 @@ class IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent(BaseMode
     @field_validator('attr')
     def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['result.non_field_errors']):
-            raise ValueError("must be one of enum values ('result.non_field_errors')")
+        if value not in set(['result_characteristics_sex']):
+            raise ValueError("must be one of enum values ('result_characteristics_sex')")
         return value
 
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['invalid', 'required']):
-            raise ValueError("must be one of enum values ('invalid', 'required')")
+        if value not in set(['invalid_choice']):
+            raise ValueError("must be one of enum values ('invalid_choice')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +64,7 @@ class IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent(BaseMode
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent from a JSON string"""
+        """Create an instance of IdentificationtasksListMineResultCharacteristicsSexErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +89,7 @@ class IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent(BaseMode
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent from a dict"""
+        """Create an instance of IdentificationtasksListMineResultCharacteristicsSexErrorComponent from a dict"""
         if obj is None:
             return None
 

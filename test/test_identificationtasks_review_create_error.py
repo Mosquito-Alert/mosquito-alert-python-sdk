@@ -36,14 +36,14 @@ class TestIdentificationtasksReviewCreateError(unittest.TestCase):
         model = IdentificationtasksReviewCreateError()
         if include_optional:
             return IdentificationtasksReviewCreateError(
-                attr = 'result.confidence_label',
-                code = 'invalid_choice',
+                attr = 'characteristics.is_gravid',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return IdentificationtasksReviewCreateError(
-                attr = 'result.confidence_label',
-                code = 'invalid_choice',
+                attr = 'characteristics.is_gravid',
+                code = 'invalid',
                 detail = '',
         )
         """

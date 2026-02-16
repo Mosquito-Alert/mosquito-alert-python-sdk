@@ -37,10 +37,10 @@ class TestAnnotationRequest(unittest.TestCase):
         if include_optional:
             return AnnotationRequest(
                 best_photo_uuid = '',
-                classification = mosquito_alert.models.annotation_classification_request.AnnotationClassificationRequest(
+                classification = mosquito_alert.models.species_classification_request.SpeciesClassificationRequest(
                     taxon_id = 56, 
                     confidence_label = 'definitely', ),
-                characteristics = mosquito_alert.models.annotation_characteristics_request.AnnotationCharacteristicsRequest(
+                characteristics = mosquito_alert.models.species_characteristics_request.SpeciesCharacteristicsRequest(
                     sex = 'male', 
                     is_blood_fed = True, 
                     is_gravid = True, ),
@@ -59,7 +59,7 @@ class TestAnnotationRequest(unittest.TestCase):
             )
         else:
             return AnnotationRequest(
-                classification = mosquito_alert.models.annotation_classification_request.AnnotationClassificationRequest(
+                classification = mosquito_alert.models.species_classification_request.SpeciesClassificationRequest(
                     taxon_id = 56, 
                     confidence_label = 'definitely', ),
         )

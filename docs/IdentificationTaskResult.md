@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **confidence_label** | **str** |  | [readonly] 
 **uncertainty** | **float** |  | [readonly] 
 **agreement** | **float** |  | [readonly] 
+**characteristics** | [**SpeciesCharacteristics**](SpeciesCharacteristics.md) |  | [readonly] 
 
 ## Example
 

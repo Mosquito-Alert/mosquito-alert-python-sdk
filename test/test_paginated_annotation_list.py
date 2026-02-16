@@ -46,6 +46,7 @@ class TestPaginatedAnnotationList(unittest.TestCase):
                         user = null, 
                         best_photo = null, 
                         classification = null, 
+                        characteristics = null, 
                         feedback = mosquito_alert.models.annotation_feedback.AnnotationFeedback(
                             public_note = '', 
                             internal_note = '', 
@@ -73,6 +74,7 @@ class TestPaginatedAnnotationList(unittest.TestCase):
                         user = null, 
                         best_photo = null, 
                         classification = null, 
+                        characteristics = null, 
                         feedback = mosquito_alert.models.annotation_feedback.AnnotationFeedback(
                             public_note = '', 
                             internal_note = '', 

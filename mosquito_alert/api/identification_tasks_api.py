@@ -360,6 +360,9 @@ class IdentificationTasksApi:
     def annotations_list(
         self,
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        characteristics_is_blood_fed: Optional[StrictBool] = None,
+        characteristics_is_gravid: Optional[StrictBool] = None,
+        characteristics_sex: Optional[StrictStr] = None,
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -395,6 +398,12 @@ class IdentificationTasksApi:
 
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
+        :param characteristics_is_blood_fed:
+        :type characteristics_is_blood_fed: bool
+        :param characteristics_is_gravid:
+        :type characteristics_is_gravid: bool
+        :param characteristics_sex:
+        :type characteristics_sex: str
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -453,6 +462,9 @@ class IdentificationTasksApi:
 
         _param = self._annotations_list_serialize(
             observation_uuid=observation_uuid,
+            characteristics_is_blood_fed=characteristics_is_blood_fed,
+            characteristics_is_gravid=characteristics_is_gravid,
+            characteristics_sex=characteristics_sex,
             classification_confidence_label=classification_confidence_label,
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
@@ -498,6 +510,9 @@ class IdentificationTasksApi:
     def annotations_list_with_http_info(
         self,
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        characteristics_is_blood_fed: Optional[StrictBool] = None,
+        characteristics_is_gravid: Optional[StrictBool] = None,
+        characteristics_sex: Optional[StrictStr] = None,
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -533,6 +548,12 @@ class IdentificationTasksApi:
 
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
+        :param characteristics_is_blood_fed:
+        :type characteristics_is_blood_fed: bool
+        :param characteristics_is_gravid:
+        :type characteristics_is_gravid: bool
+        :param characteristics_sex:
+        :type characteristics_sex: str
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -591,6 +612,9 @@ class IdentificationTasksApi:
 
         _param = self._annotations_list_serialize(
             observation_uuid=observation_uuid,
+            characteristics_is_blood_fed=characteristics_is_blood_fed,
+            characteristics_is_gravid=characteristics_is_gravid,
+            characteristics_sex=characteristics_sex,
             classification_confidence_label=classification_confidence_label,
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
@@ -636,6 +660,9 @@ class IdentificationTasksApi:
     def annotations_list_without_preload_content(
         self,
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
+        characteristics_is_blood_fed: Optional[StrictBool] = None,
+        characteristics_is_gravid: Optional[StrictBool] = None,
+        characteristics_sex: Optional[StrictStr] = None,
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -671,6 +698,12 @@ class IdentificationTasksApi:
 
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
+        :param characteristics_is_blood_fed:
+        :type characteristics_is_blood_fed: bool
+        :param characteristics_is_gravid:
+        :type characteristics_is_gravid: bool
+        :param characteristics_sex:
+        :type characteristics_sex: str
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -729,6 +762,9 @@ class IdentificationTasksApi:
 
         _param = self._annotations_list_serialize(
             observation_uuid=observation_uuid,
+            characteristics_is_blood_fed=characteristics_is_blood_fed,
+            characteristics_is_gravid=characteristics_is_gravid,
+            characteristics_sex=characteristics_sex,
             classification_confidence_label=classification_confidence_label,
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
@@ -769,6 +805,9 @@ class IdentificationTasksApi:
     def _annotations_list_serialize(
         self,
         observation_uuid,
+        characteristics_is_blood_fed,
+        characteristics_is_gravid,
+        characteristics_sex,
         classification_confidence_label,
         classification_confidence_max,
         classification_confidence_min,
@@ -813,6 +852,18 @@ class IdentificationTasksApi:
         if observation_uuid is not None:
             _path_params['observation_uuid'] = observation_uuid
         # process the query parameters
+        if characteristics_is_blood_fed is not None:
+            
+            _query_params.append(('characteristics_is_blood_fed', characteristics_is_blood_fed))
+            
+        if characteristics_is_gravid is not None:
+            
+            _query_params.append(('characteristics_is_gravid', characteristics_is_gravid))
+            
+        if characteristics_sex is not None:
+            
+            _query_params.append(('characteristics_sex', characteristics_sex))
+            
         if classification_confidence_label is not None:
             
             _query_params.append(('classification_confidence_label', classification_confidence_label))
@@ -959,6 +1010,9 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_list_mine(
         self,
+        characteristics_is_blood_fed: Optional[StrictBool] = None,
+        characteristics_is_gravid: Optional[StrictBool] = None,
+        characteristics_sex: Optional[StrictStr] = None,
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -993,6 +1047,12 @@ class IdentificationTasksApi:
 
         Get my annotations
 
+        :param characteristics_is_blood_fed:
+        :type characteristics_is_blood_fed: bool
+        :param characteristics_is_gravid:
+        :type characteristics_is_gravid: bool
+        :param characteristics_sex:
+        :type characteristics_sex: str
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -1050,6 +1110,9 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._annotations_list_mine_serialize(
+            characteristics_is_blood_fed=characteristics_is_blood_fed,
+            characteristics_is_gravid=characteristics_is_gravid,
+            characteristics_sex=characteristics_sex,
             classification_confidence_label=classification_confidence_label,
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
@@ -1094,6 +1157,9 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_list_mine_with_http_info(
         self,
+        characteristics_is_blood_fed: Optional[StrictBool] = None,
+        characteristics_is_gravid: Optional[StrictBool] = None,
+        characteristics_sex: Optional[StrictStr] = None,
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -1128,6 +1194,12 @@ class IdentificationTasksApi:
 
         Get my annotations
 
+        :param characteristics_is_blood_fed:
+        :type characteristics_is_blood_fed: bool
+        :param characteristics_is_gravid:
+        :type characteristics_is_gravid: bool
+        :param characteristics_sex:
+        :type characteristics_sex: str
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -1185,6 +1257,9 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._annotations_list_mine_serialize(
+            characteristics_is_blood_fed=characteristics_is_blood_fed,
+            characteristics_is_gravid=characteristics_is_gravid,
+            characteristics_sex=characteristics_sex,
             classification_confidence_label=classification_confidence_label,
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
@@ -1229,6 +1304,9 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_list_mine_without_preload_content(
         self,
+        characteristics_is_blood_fed: Optional[StrictBool] = None,
+        characteristics_is_gravid: Optional[StrictBool] = None,
+        characteristics_sex: Optional[StrictStr] = None,
         classification_confidence_label: Optional[StrictStr] = None,
         classification_confidence_max: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
         classification_confidence_min: Optional[Union[Annotated[float, Field(le=1.0, strict=True, ge=0.0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None,
@@ -1263,6 +1341,12 @@ class IdentificationTasksApi:
 
         Get my annotations
 
+        :param characteristics_is_blood_fed:
+        :type characteristics_is_blood_fed: bool
+        :param characteristics_is_gravid:
+        :type characteristics_is_gravid: bool
+        :param characteristics_sex:
+        :type characteristics_sex: str
         :param classification_confidence_label:
         :type classification_confidence_label: str
         :param classification_confidence_max:
@@ -1320,6 +1404,9 @@ class IdentificationTasksApi:
         """ # noqa: E501
 
         _param = self._annotations_list_mine_serialize(
+            characteristics_is_blood_fed=characteristics_is_blood_fed,
+            characteristics_is_gravid=characteristics_is_gravid,
+            characteristics_sex=characteristics_sex,
             classification_confidence_label=classification_confidence_label,
             classification_confidence_max=classification_confidence_max,
             classification_confidence_min=classification_confidence_min,
@@ -1359,6 +1446,9 @@ class IdentificationTasksApi:
 
     def _annotations_list_mine_serialize(
         self,
+        characteristics_is_blood_fed,
+        characteristics_is_gravid,
+        characteristics_sex,
         classification_confidence_label,
         classification_confidence_max,
         classification_confidence_min,
@@ -1401,6 +1491,18 @@ class IdentificationTasksApi:
 
         # process the path parameters
         # process the query parameters
+        if characteristics_is_blood_fed is not None:
+            
+            _query_params.append(('characteristics_is_blood_fed', characteristics_is_blood_fed))
+            
+        if characteristics_is_gravid is not None:
+            
+            _query_params.append(('characteristics_is_gravid', characteristics_is_gravid))
+            
+        if characteristics_sex is not None:
+            
+            _query_params.append(('characteristics_sex', characteristics_sex))
+            
         if classification_confidence_label is not None:
             
             _query_params.append(('classification_confidence_label', classification_confidence_label))
@@ -2106,6 +2208,9 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_characteristics_is_blood_fed: Optional[StrictBool] = None,
+        result_characteristics_is_gravid: Optional[StrictBool] = None,
+        result_characteristics_sex: Optional[StrictStr] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
         result_source: Optional[List[Optional[StrictStr]]] = None,
@@ -2163,6 +2268,12 @@ class IdentificationTasksApi:
         :type result_agreement_max: float
         :param result_agreement_min:
         :type result_agreement_min: float
+        :param result_characteristics_is_blood_fed:
+        :type result_characteristics_is_blood_fed: bool
+        :param result_characteristics_is_gravid:
+        :type result_characteristics_is_gravid: bool
+        :param result_characteristics_sex:
+        :type result_characteristics_sex: str
         :param result_confidence_max:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
@@ -2223,6 +2334,9 @@ class IdentificationTasksApi:
             page_size=page_size,
             result_agreement_max=result_agreement_max,
             result_agreement_min=result_agreement_min,
+            result_characteristics_is_blood_fed=result_characteristics_is_blood_fed,
+            result_characteristics_is_gravid=result_characteristics_is_gravid,
+            result_characteristics_sex=result_characteristics_sex,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
             result_source=result_source,
@@ -2276,6 +2390,9 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_characteristics_is_blood_fed: Optional[StrictBool] = None,
+        result_characteristics_is_gravid: Optional[StrictBool] = None,
+        result_characteristics_sex: Optional[StrictStr] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
         result_source: Optional[List[Optional[StrictStr]]] = None,
@@ -2333,6 +2450,12 @@ class IdentificationTasksApi:
         :type result_agreement_max: float
         :param result_agreement_min:
         :type result_agreement_min: float
+        :param result_characteristics_is_blood_fed:
+        :type result_characteristics_is_blood_fed: bool
+        :param result_characteristics_is_gravid:
+        :type result_characteristics_is_gravid: bool
+        :param result_characteristics_sex:
+        :type result_characteristics_sex: str
         :param result_confidence_max:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
@@ -2393,6 +2516,9 @@ class IdentificationTasksApi:
             page_size=page_size,
             result_agreement_max=result_agreement_max,
             result_agreement_min=result_agreement_min,
+            result_characteristics_is_blood_fed=result_characteristics_is_blood_fed,
+            result_characteristics_is_gravid=result_characteristics_is_gravid,
+            result_characteristics_sex=result_characteristics_sex,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
             result_source=result_source,
@@ -2446,6 +2572,9 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_characteristics_is_blood_fed: Optional[StrictBool] = None,
+        result_characteristics_is_gravid: Optional[StrictBool] = None,
+        result_characteristics_sex: Optional[StrictStr] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
         result_source: Optional[List[Optional[StrictStr]]] = None,
@@ -2503,6 +2632,12 @@ class IdentificationTasksApi:
         :type result_agreement_max: float
         :param result_agreement_min:
         :type result_agreement_min: float
+        :param result_characteristics_is_blood_fed:
+        :type result_characteristics_is_blood_fed: bool
+        :param result_characteristics_is_gravid:
+        :type result_characteristics_is_gravid: bool
+        :param result_characteristics_sex:
+        :type result_characteristics_sex: str
         :param result_confidence_max:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
@@ -2563,6 +2698,9 @@ class IdentificationTasksApi:
             page_size=page_size,
             result_agreement_max=result_agreement_max,
             result_agreement_min=result_agreement_min,
+            result_characteristics_is_blood_fed=result_characteristics_is_blood_fed,
+            result_characteristics_is_gravid=result_characteristics_is_gravid,
+            result_characteristics_sex=result_characteristics_sex,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
             result_source=result_source,
@@ -2611,6 +2749,9 @@ class IdentificationTasksApi:
         page_size,
         result_agreement_max,
         result_agreement_min,
+        result_characteristics_is_blood_fed,
+        result_characteristics_is_gravid,
+        result_characteristics_sex,
         result_confidence_max,
         result_confidence_min,
         result_source,
@@ -2728,6 +2869,18 @@ class IdentificationTasksApi:
         if result_agreement_min is not None:
             
             _query_params.append(('result_agreement_min', result_agreement_min))
+            
+        if result_characteristics_is_blood_fed is not None:
+            
+            _query_params.append(('result_characteristics_is_blood_fed', result_characteristics_is_blood_fed))
+            
+        if result_characteristics_is_gravid is not None:
+            
+            _query_params.append(('result_characteristics_is_gravid', result_characteristics_is_gravid))
+            
+        if result_characteristics_sex is not None:
+            
+            _query_params.append(('result_characteristics_sex', result_characteristics_sex))
             
         if result_confidence_max is not None:
             
@@ -2848,6 +3001,9 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_characteristics_is_blood_fed: Optional[StrictBool] = None,
+        result_characteristics_is_gravid: Optional[StrictBool] = None,
+        result_characteristics_sex: Optional[StrictStr] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
         result_source: Optional[List[Optional[StrictStr]]] = None,
@@ -2906,6 +3062,12 @@ class IdentificationTasksApi:
         :type result_agreement_max: float
         :param result_agreement_min:
         :type result_agreement_min: float
+        :param result_characteristics_is_blood_fed:
+        :type result_characteristics_is_blood_fed: bool
+        :param result_characteristics_is_gravid:
+        :type result_characteristics_is_gravid: bool
+        :param result_characteristics_sex:
+        :type result_characteristics_sex: str
         :param result_confidence_max:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
@@ -2966,6 +3128,9 @@ class IdentificationTasksApi:
             page_size=page_size,
             result_agreement_max=result_agreement_max,
             result_agreement_min=result_agreement_min,
+            result_characteristics_is_blood_fed=result_characteristics_is_blood_fed,
+            result_characteristics_is_gravid=result_characteristics_is_gravid,
+            result_characteristics_sex=result_characteristics_sex,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
             result_source=result_source,
@@ -3019,6 +3184,9 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_characteristics_is_blood_fed: Optional[StrictBool] = None,
+        result_characteristics_is_gravid: Optional[StrictBool] = None,
+        result_characteristics_sex: Optional[StrictStr] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
         result_source: Optional[List[Optional[StrictStr]]] = None,
@@ -3077,6 +3245,12 @@ class IdentificationTasksApi:
         :type result_agreement_max: float
         :param result_agreement_min:
         :type result_agreement_min: float
+        :param result_characteristics_is_blood_fed:
+        :type result_characteristics_is_blood_fed: bool
+        :param result_characteristics_is_gravid:
+        :type result_characteristics_is_gravid: bool
+        :param result_characteristics_sex:
+        :type result_characteristics_sex: str
         :param result_confidence_max:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
@@ -3137,6 +3311,9 @@ class IdentificationTasksApi:
             page_size=page_size,
             result_agreement_max=result_agreement_max,
             result_agreement_min=result_agreement_min,
+            result_characteristics_is_blood_fed=result_characteristics_is_blood_fed,
+            result_characteristics_is_gravid=result_characteristics_is_gravid,
+            result_characteristics_sex=result_characteristics_sex,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
             result_source=result_source,
@@ -3190,6 +3367,9 @@ class IdentificationTasksApi:
         page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
+        result_characteristics_is_blood_fed: Optional[StrictBool] = None,
+        result_characteristics_is_gravid: Optional[StrictBool] = None,
+        result_characteristics_sex: Optional[StrictStr] = None,
         result_confidence_max: Optional[Annotated[str, Field(strict=True)]] = None,
         result_confidence_min: Optional[Annotated[str, Field(strict=True)]] = None,
         result_source: Optional[List[Optional[StrictStr]]] = None,
@@ -3248,6 +3428,12 @@ class IdentificationTasksApi:
         :type result_agreement_max: float
         :param result_agreement_min:
         :type result_agreement_min: float
+        :param result_characteristics_is_blood_fed:
+        :type result_characteristics_is_blood_fed: bool
+        :param result_characteristics_is_gravid:
+        :type result_characteristics_is_gravid: bool
+        :param result_characteristics_sex:
+        :type result_characteristics_sex: str
         :param result_confidence_max:
         :type result_confidence_max: decimal.Decimal
         :param result_confidence_min:
@@ -3308,6 +3494,9 @@ class IdentificationTasksApi:
             page_size=page_size,
             result_agreement_max=result_agreement_max,
             result_agreement_min=result_agreement_min,
+            result_characteristics_is_blood_fed=result_characteristics_is_blood_fed,
+            result_characteristics_is_gravid=result_characteristics_is_gravid,
+            result_characteristics_sex=result_characteristics_sex,
             result_confidence_max=result_confidence_max,
             result_confidence_min=result_confidence_min,
             result_source=result_source,
@@ -3356,6 +3545,9 @@ class IdentificationTasksApi:
         page_size,
         result_agreement_max,
         result_agreement_min,
+        result_characteristics_is_blood_fed,
+        result_characteristics_is_gravid,
+        result_characteristics_sex,
         result_confidence_max,
         result_confidence_min,
         result_source,
@@ -3473,6 +3665,18 @@ class IdentificationTasksApi:
         if result_agreement_min is not None:
             
             _query_params.append(('result_agreement_min', result_agreement_min))
+            
+        if result_characteristics_is_blood_fed is not None:
+            
+            _query_params.append(('result_characteristics_is_blood_fed', result_characteristics_is_blood_fed))
+            
+        if result_characteristics_is_gravid is not None:
+            
+            _query_params.append(('result_characteristics_is_gravid', result_characteristics_is_gravid))
+            
+        if result_characteristics_sex is not None:
+            
+            _query_params.append(('result_characteristics_sex', result_characteristics_sex))
             
         if result_confidence_max is not None:
             

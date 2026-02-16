@@ -40,16 +40,20 @@ class TestMetaCreateIdentificationTaskReviewRequest(unittest.TestCase):
                 public_photo_uuid = '',
                 is_safe = True,
                 public_note = '0',
-                result = mosquito_alert.models.annotation_classification_request.AnnotationClassificationRequest(
+                classification = mosquito_alert.models.species_classification_request.SpeciesClassificationRequest(
                     taxon_id = 56, 
-                    confidence_label = 'definitely', )
+                    confidence_label = 'definitely', ),
+                characteristics = mosquito_alert.models.species_characteristics_request.SpeciesCharacteristicsRequest(
+                    sex = 'male', 
+                    is_blood_fed = True, 
+                    is_gravid = True, )
             )
         else:
             return MetaCreateIdentificationTaskReviewRequest(
                 public_photo_uuid = '',
                 is_safe = True,
                 public_note = '0',
-                result = mosquito_alert.models.annotation_classification_request.AnnotationClassificationRequest(
+                classification = mosquito_alert.models.species_classification_request.SpeciesClassificationRequest(
                     taxon_id = 56, 
                     confidence_label = 'definitely', ),
         )

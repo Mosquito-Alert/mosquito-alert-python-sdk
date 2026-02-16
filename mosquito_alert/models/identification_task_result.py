@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from mosquito_alert.models.simple_taxon import SimpleTaxon
+from mosquito_alert.models.species_characteristics import SpeciesCharacteristics
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -36,7 +37,8 @@ class IdentificationTaskResult(BaseModel):
     confidence_label: StrictStr
     uncertainty: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     agreement: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
-    __properties: ClassVar[List[str]] = ["source", "taxon", "is_high_confidence", "confidence", "confidence_label", "uncertainty", "agreement"]
+    characteristics: Optional[SpeciesCharacteristics]
+    __properties: ClassVar[List[str]] = ["source", "taxon", "is_high_confidence", "confidence", "confidence_label", "uncertainty", "agreement", "characteristics"]
 
     @field_validator('source')
     def source_validate_enum(cls, value):
@@ -82,6 +84,7 @@ class IdentificationTaskResult(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "source",
@@ -91,6 +94,7 @@ class IdentificationTaskResult(BaseModel):
             "confidence_label",
             "uncertainty",
             "agreement",
+            "characteristics",
         ])
 
         _dict = self.model_dump(
@@ -101,10 +105,18 @@ class IdentificationTaskResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of taxon
         if self.taxon:
             _dict['taxon'] = self.taxon.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of characteristics
+        if self.characteristics:
+            _dict['characteristics'] = self.characteristics.to_dict()
         # set to None if taxon (nullable) is None
         # and model_fields_set contains the field
         if self.taxon is None and "taxon" in self.model_fields_set:
             _dict['taxon'] = None
+
+        # set to None if characteristics (nullable) is None
+        # and model_fields_set contains the field
+        if self.characteristics is None and "characteristics" in self.model_fields_set:
+            _dict['characteristics'] = None
 
         return _dict
 
@@ -124,7 +136,8 @@ class IdentificationTaskResult(BaseModel):
             "confidence": obj.get("confidence"),
             "confidence_label": obj.get("confidence_label"),
             "uncertainty": obj.get("uncertainty"),
-            "agreement": obj.get("agreement")
+            "agreement": obj.get("agreement"),
+            "characteristics": SpeciesCharacteristics.from_dict(obj["characteristics"]) if obj.get("characteristics") is not None else None
         })
         return _obj
 

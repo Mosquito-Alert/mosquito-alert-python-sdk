@@ -23,9 +23,9 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksReviewCreateResultTaxonIdErrorComponent(BaseModel):
+class IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent(BaseModel):
     """
-    IdentificationtasksReviewCreateResultTaxonIdErrorComponent
+    IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent
     """ # noqa: E501
     attr: StrictStr
     code: StrictStr
@@ -35,15 +35,15 @@ class IdentificationtasksReviewCreateResultTaxonIdErrorComponent(BaseModel):
     @field_validator('attr')
     def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['result.taxon_id']):
-            raise ValueError("must be one of enum values ('result.taxon_id')")
+        if value not in set(['classification.non_field_errors']):
+            raise ValueError("must be one of enum values ('classification.non_field_errors')")
         return value
 
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['does_not_exist', 'incorrect_type', 'null', 'required']):
-            raise ValueError("must be one of enum values ('does_not_exist', 'incorrect_type', 'null', 'required')")
+        if value not in set(['invalid', 'required']):
+            raise ValueError("must be one of enum values ('invalid', 'required')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +64,7 @@ class IdentificationtasksReviewCreateResultTaxonIdErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksReviewCreateResultTaxonIdErrorComponent from a JSON string"""
+        """Create an instance of IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +89,7 @@ class IdentificationtasksReviewCreateResultTaxonIdErrorComponent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksReviewCreateResultTaxonIdErrorComponent from a dict"""
+        """Create an instance of IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent from a dict"""
         if obj is None:
             return None
 

@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.annotation_classification_request import AnnotationClassificationRequest
+from mosquito_alert.models.species_characteristics_request import SpeciesCharacteristicsRequest
 
-class TestAnnotationClassificationRequest(unittest.TestCase):
-    """AnnotationClassificationRequest unit test stubs"""
+class TestSpeciesCharacteristicsRequest(unittest.TestCase):
+    """SpeciesCharacteristicsRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,28 @@ class TestAnnotationClassificationRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AnnotationClassificationRequest:
-        """Test AnnotationClassificationRequest
+    def make_instance(self, include_optional) -> SpeciesCharacteristicsRequest:
+        """Test SpeciesCharacteristicsRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AnnotationClassificationRequest`
+        # uncomment below to create an instance of `SpeciesCharacteristicsRequest`
         """
-        model = AnnotationClassificationRequest()
+        model = SpeciesCharacteristicsRequest()
         if include_optional:
-            return AnnotationClassificationRequest(
-                taxon_id = 56,
-                confidence_label = 'definitely'
+            return SpeciesCharacteristicsRequest(
+                sex = 'male',
+                is_blood_fed = True,
+                is_gravid = True
             )
         else:
-            return AnnotationClassificationRequest(
-                taxon_id = 56,
-                confidence_label = 'definitely',
+            return SpeciesCharacteristicsRequest(
+                sex = 'male',
         )
         """
 
-    def testAnnotationClassificationRequest(self):
-        """Test AnnotationClassificationRequest"""
+    def testSpeciesCharacteristicsRequest(self):
+        """Test SpeciesCharacteristicsRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

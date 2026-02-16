@@ -47,7 +47,11 @@ class TestIdentificationTaskResult(unittest.TestCase):
                 confidence = 0,
                 confidence_label = '',
                 uncertainty = 0,
-                agreement = 0
+                agreement = 0,
+                characteristics = mosquito_alert.models.species_characteristics.SpeciesCharacteristics(
+                    sex = 'male', 
+                    is_blood_fed = True, 
+                    is_gravid = True, )
             )
         else:
             return IdentificationTaskResult(
@@ -63,6 +67,10 @@ class TestIdentificationTaskResult(unittest.TestCase):
                 confidence_label = '',
                 uncertainty = 0,
                 agreement = 0,
+                characteristics = mosquito_alert.models.species_characteristics.SpeciesCharacteristics(
+                    sex = 'male', 
+                    is_blood_fed = True, 
+                    is_gravid = True, ),
         )
         """
 

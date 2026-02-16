@@ -47,7 +47,8 @@ class TestIdentification(unittest.TestCase):
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 
-                    agreement = 0, ),
+                    agreement = 0, 
+                    characteristics = null, ),
                 public_note = ''
             )
         else:
@@ -63,7 +64,8 @@ class TestIdentification(unittest.TestCase):
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 
-                    agreement = 0, ),
+                    agreement = 0, 
+                    characteristics = null, ),
                 public_note = '',
         )
         """

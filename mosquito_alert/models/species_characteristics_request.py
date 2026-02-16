@@ -23,21 +23,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AnnotationCharacteristicsRequest(BaseModel):
+class SpeciesCharacteristicsRequest(BaseModel):
     """
-    AnnotationCharacteristicsRequest
+    SpeciesCharacteristicsRequest
     """ # noqa: E501
-    sex: Optional[StrictStr] = None
-    is_blood_fed: Optional[StrictBool] = False
-    is_gravid: Optional[StrictBool] = False
+    sex: StrictStr
+    is_blood_fed: Optional[StrictBool] = None
+    is_gravid: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["sex", "is_blood_fed", "is_gravid"]
 
     @field_validator('sex')
     def sex_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['male', 'female']):
             raise ValueError("must be one of enum values ('male', 'female')")
         return value
@@ -60,7 +57,7 @@ class AnnotationCharacteristicsRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AnnotationCharacteristicsRequest from a JSON string"""
+        """Create an instance of SpeciesCharacteristicsRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,16 +78,21 @@ class AnnotationCharacteristicsRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if sex (nullable) is None
+        # set to None if is_blood_fed (nullable) is None
         # and model_fields_set contains the field
-        if self.sex is None and "sex" in self.model_fields_set:
-            _dict['sex'] = None
+        if self.is_blood_fed is None and "is_blood_fed" in self.model_fields_set:
+            _dict['is_blood_fed'] = None
+
+        # set to None if is_gravid (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_gravid is None and "is_gravid" in self.model_fields_set:
+            _dict['is_gravid'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AnnotationCharacteristicsRequest from a dict"""
+        """Create an instance of SpeciesCharacteristicsRequest from a dict"""
         if obj is None:
             return None
 
@@ -99,8 +101,8 @@ class AnnotationCharacteristicsRequest(BaseModel):
 
         _obj = cls.model_validate({
             "sex": obj.get("sex"),
-            "is_blood_fed": obj.get("is_blood_fed") if obj.get("is_blood_fed") is not None else False,
-            "is_gravid": obj.get("is_gravid") if obj.get("is_gravid") is not None else False
+            "is_blood_fed": obj.get("is_blood_fed"),
+            "is_gravid": obj.get("is_gravid")
         })
         return _obj
 

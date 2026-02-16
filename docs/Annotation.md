@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **observation_uuid** | **UUID** |  | [readonly] 
 **user** | [**SimpleAnnotatorUser**](SimpleAnnotatorUser.md) |  | [readonly] 
 **best_photo** | [**SimplePhoto**](SimplePhoto.md) |  | [readonly] 
-**classification** | [**AnnotationClassification**](AnnotationClassification.md) |  | 
+**classification** | [**SpeciesClassification**](SpeciesClassification.md) |  | 
+**characteristics** | [**SpeciesCharacteristics**](SpeciesCharacteristics.md) |  | [optional] 
 **feedback** | [**AnnotationFeedback**](AnnotationFeedback.md) |  | [optional] 
 **type** | **str** |  | [readonly] 
 **is_flagged** | **bool** |  | [readonly] [default to False]

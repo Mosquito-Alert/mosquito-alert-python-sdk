@@ -19,18 +19,22 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from mosquito_alert.models.identificationtasks_review_create_action_error_component import IdentificationtasksReviewCreateActionErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_characteristics_is_blood_fed_error_component import IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_characteristics_is_gravid_error_component import IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_characteristics_non_field_errors_error_component import IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_characteristics_sex_error_component import IdentificationtasksReviewCreateCharacteristicsSexErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_classification_confidence_label_error_component import IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_classification_non_field_errors_error_component import IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent
+from mosquito_alert.models.identificationtasks_review_create_classification_taxon_id_error_component import IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent
 from mosquito_alert.models.identificationtasks_review_create_is_safe_error_component import IdentificationtasksReviewCreateIsSafeErrorComponent
 from mosquito_alert.models.identificationtasks_review_create_non_field_errors_error_component import IdentificationtasksReviewCreateNonFieldErrorsErrorComponent
 from mosquito_alert.models.identificationtasks_review_create_public_note_error_component import IdentificationtasksReviewCreatePublicNoteErrorComponent
 from mosquito_alert.models.identificationtasks_review_create_public_photo_uuid_error_component import IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent
-from mosquito_alert.models.identificationtasks_review_create_result_confidence_label_error_component import IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent
-from mosquito_alert.models.identificationtasks_review_create_result_non_field_errors_error_component import IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent
-from mosquito_alert.models.identificationtasks_review_create_result_taxon_id_error_component import IdentificationtasksReviewCreateResultTaxonIdErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-IDENTIFICATIONTASKSREVIEWCREATEERROR_ONE_OF_SCHEMAS = ["IdentificationtasksReviewCreateActionErrorComponent", "IdentificationtasksReviewCreateIsSafeErrorComponent", "IdentificationtasksReviewCreateNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreatePublicNoteErrorComponent", "IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent", "IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent", "IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreateResultTaxonIdErrorComponent"]
+IDENTIFICATIONTASKSREVIEWCREATEERROR_ONE_OF_SCHEMAS = ["IdentificationtasksReviewCreateActionErrorComponent", "IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent", "IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent", "IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreateCharacteristicsSexErrorComponent", "IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent", "IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent", "IdentificationtasksReviewCreateIsSafeErrorComponent", "IdentificationtasksReviewCreateNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreatePublicNoteErrorComponent", "IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent"]
 
 class IdentificationtasksReviewCreateError(BaseModel):
     """
@@ -46,14 +50,22 @@ class IdentificationtasksReviewCreateError(BaseModel):
     oneof_schema_4_validator: Optional[IdentificationtasksReviewCreateIsSafeErrorComponent] = None
     # data type: IdentificationtasksReviewCreatePublicNoteErrorComponent
     oneof_schema_5_validator: Optional[IdentificationtasksReviewCreatePublicNoteErrorComponent] = None
-    # data type: IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent
-    oneof_schema_6_validator: Optional[IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent] = None
-    # data type: IdentificationtasksReviewCreateResultTaxonIdErrorComponent
-    oneof_schema_7_validator: Optional[IdentificationtasksReviewCreateResultTaxonIdErrorComponent] = None
-    # data type: IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent
-    oneof_schema_8_validator: Optional[IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent] = None
-    actual_instance: Optional[Union[IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent, IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent, IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateResultTaxonIdErrorComponent]] = None
-    one_of_schemas: Set[str] = { "IdentificationtasksReviewCreateActionErrorComponent", "IdentificationtasksReviewCreateIsSafeErrorComponent", "IdentificationtasksReviewCreateNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreatePublicNoteErrorComponent", "IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent", "IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent", "IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreateResultTaxonIdErrorComponent" }
+    # data type: IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent
+    oneof_schema_6_validator: Optional[IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent] = None
+    # data type: IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent
+    oneof_schema_7_validator: Optional[IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent] = None
+    # data type: IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent
+    oneof_schema_8_validator: Optional[IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent] = None
+    # data type: IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent
+    oneof_schema_9_validator: Optional[IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent] = None
+    # data type: IdentificationtasksReviewCreateCharacteristicsSexErrorComponent
+    oneof_schema_10_validator: Optional[IdentificationtasksReviewCreateCharacteristicsSexErrorComponent] = None
+    # data type: IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent
+    oneof_schema_11_validator: Optional[IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent] = None
+    # data type: IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent
+    oneof_schema_12_validator: Optional[IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent] = None
+    actual_instance: Optional[Union[IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateCharacteristicsSexErrorComponent, IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent]] = None
+    one_of_schemas: Set[str] = { "IdentificationtasksReviewCreateActionErrorComponent", "IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent", "IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent", "IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreateCharacteristicsSexErrorComponent", "IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent", "IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent", "IdentificationtasksReviewCreateIsSafeErrorComponent", "IdentificationtasksReviewCreateNonFieldErrorsErrorComponent", "IdentificationtasksReviewCreatePublicNoteErrorComponent", "IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -104,27 +116,47 @@ class IdentificationtasksReviewCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreatePublicNoteErrorComponent`")
         else:
             match += 1
-        # validate data type: IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent
-        if not isinstance(v, IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent`")
+        # validate data type: IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent
+        if not isinstance(v, IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent`")
         else:
             match += 1
-        # validate data type: IdentificationtasksReviewCreateResultTaxonIdErrorComponent
-        if not isinstance(v, IdentificationtasksReviewCreateResultTaxonIdErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateResultTaxonIdErrorComponent`")
+        # validate data type: IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent
+        if not isinstance(v, IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent`")
         else:
             match += 1
-        # validate data type: IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent
-        if not isinstance(v, IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent`")
+        # validate data type: IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent
+        if not isinstance(v, IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent
+        if not isinstance(v, IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksReviewCreateCharacteristicsSexErrorComponent
+        if not isinstance(v, IdentificationtasksReviewCreateCharacteristicsSexErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateCharacteristicsSexErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent
+        if not isinstance(v, IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent`")
+        else:
+            match += 1
+        # validate data type: IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent
+        if not isinstance(v, IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent, IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent, IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateResultTaxonIdErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateCharacteristicsSexErrorComponent, IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent, IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent, IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateResultTaxonIdErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateCharacteristicsSexErrorComponent, IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -169,31 +201,55 @@ class IdentificationtasksReviewCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent
+        # deserialize data into IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent
         try:
-            instance.actual_instance = IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent.from_json(json_str)
+            instance.actual_instance = IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into IdentificationtasksReviewCreateResultTaxonIdErrorComponent
+        # deserialize data into IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent
         try:
-            instance.actual_instance = IdentificationtasksReviewCreateResultTaxonIdErrorComponent.from_json(json_str)
+            instance.actual_instance = IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent
+        # deserialize data into IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent
         try:
-            instance.actual_instance = IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent.from_json(json_str)
+            instance.actual_instance = IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksReviewCreateCharacteristicsSexErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksReviewCreateCharacteristicsSexErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent
+        try:
+            instance.actual_instance = IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent, IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent, IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateResultTaxonIdErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateCharacteristicsSexErrorComponent, IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent, IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent, IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateResultTaxonIdErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into IdentificationtasksReviewCreateError with oneOf schemas: IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateCharacteristicsSexErrorComponent, IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -207,7 +263,7 @@ class IdentificationtasksReviewCreateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent, IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent, IdentificationtasksReviewCreateResultNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateResultTaxonIdErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], IdentificationtasksReviewCreateActionErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsBloodFedErrorComponent, IdentificationtasksReviewCreateCharacteristicsIsGravidErrorComponent, IdentificationtasksReviewCreateCharacteristicsNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateCharacteristicsSexErrorComponent, IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent, IdentificationtasksReviewCreateClassificationNonFieldErrorsErrorComponent, IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent, IdentificationtasksReviewCreateIsSafeErrorComponent, IdentificationtasksReviewCreateNonFieldErrorsErrorComponent, IdentificationtasksReviewCreatePublicNoteErrorComponent, IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

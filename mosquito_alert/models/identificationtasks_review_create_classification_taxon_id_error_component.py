@@ -18,28 +18,32 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AnnotationCharacteristics(BaseModel):
+class IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent(BaseModel):
     """
-    AnnotationCharacteristics
+    IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent
     """ # noqa: E501
-    sex: Optional[StrictStr] = None
-    is_blood_fed: Optional[StrictBool] = False
-    is_gravid: Optional[StrictBool] = False
-    __properties: ClassVar[List[str]] = ["sex", "is_blood_fed", "is_gravid"]
+    attr: StrictStr
+    code: StrictStr
+    detail: StrictStr
+    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
 
-    @field_validator('sex')
-    def sex_validate_enum(cls, value):
+    @field_validator('attr')
+    def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
+        if value not in set(['classification.taxon_id']):
+            raise ValueError("must be one of enum values ('classification.taxon_id')")
+        return value
 
-        if value not in set(['male', 'female']):
-            raise ValueError("must be one of enum values ('male', 'female')")
+    @field_validator('code')
+    def code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['does_not_exist', 'incorrect_type', 'null', 'required']):
+            raise ValueError("must be one of enum values ('does_not_exist', 'incorrect_type', 'null', 'required')")
         return value
 
     model_config = ConfigDict(
@@ -60,7 +64,7 @@ class AnnotationCharacteristics(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AnnotationCharacteristics from a JSON string"""
+        """Create an instance of IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,16 +85,11 @@ class AnnotationCharacteristics(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if sex (nullable) is None
-        # and model_fields_set contains the field
-        if self.sex is None and "sex" in self.model_fields_set:
-            _dict['sex'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AnnotationCharacteristics from a dict"""
+        """Create an instance of IdentificationtasksReviewCreateClassificationTaxonIdErrorComponent from a dict"""
         if obj is None:
             return None
 
@@ -98,9 +97,9 @@ class AnnotationCharacteristics(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "sex": obj.get("sex"),
-            "is_blood_fed": obj.get("is_blood_fed") if obj.get("is_blood_fed") is not None else False,
-            "is_gravid": obj.get("is_gravid") if obj.get("is_gravid") is not None else False
+            "attr": obj.get("attr"),
+            "code": obj.get("code"),
+            "detail": obj.get("detail")
         })
         return _obj
 

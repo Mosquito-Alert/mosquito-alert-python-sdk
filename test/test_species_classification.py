@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.annotation_classification import AnnotationClassification
+from mosquito_alert.models.species_classification import SpeciesClassification
 
-class TestAnnotationClassification(unittest.TestCase):
-    """AnnotationClassification unit test stubs"""
+class TestSpeciesClassification(unittest.TestCase):
+    """SpeciesClassification unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,16 +26,16 @@ class TestAnnotationClassification(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AnnotationClassification:
-        """Test AnnotationClassification
+    def make_instance(self, include_optional) -> SpeciesClassification:
+        """Test SpeciesClassification
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AnnotationClassification`
+        # uncomment below to create an instance of `SpeciesClassification`
         """
-        model = AnnotationClassification()
+        model = SpeciesClassification()
         if include_optional:
-            return AnnotationClassification(
+            return SpeciesClassification(
                 taxon = mosquito_alert.models.simple_taxon.SimpleTaxon(
                     id = 56, 
                     name = '', 
@@ -47,7 +47,7 @@ class TestAnnotationClassification(unittest.TestCase):
                 is_high_confidence = True
             )
         else:
-            return AnnotationClassification(
+            return SpeciesClassification(
                 taxon = mosquito_alert.models.simple_taxon.SimpleTaxon(
                     id = 56, 
                     name = '', 
@@ -60,8 +60,8 @@ class TestAnnotationClassification(unittest.TestCase):
         )
         """
 
-    def testAnnotationClassification(self):
-        """Test AnnotationClassification"""
+    def testSpeciesClassification(self):
+        """Test SpeciesClassification"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

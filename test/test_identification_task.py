@@ -85,7 +85,8 @@ class TestIdentificationTask(unittest.TestCase):
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 
-                    agreement = 0, ),
+                    agreement = 0, 
+                    characteristics = null, ),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
@@ -140,7 +141,8 @@ class TestIdentificationTask(unittest.TestCase):
                     confidence = 0, 
                     confidence_label = '', 
                     uncertainty = 0, 
-                    agreement = 0, ),
+                    agreement = 0, 
+                    characteristics = null, ),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )

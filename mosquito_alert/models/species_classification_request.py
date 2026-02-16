@@ -18,32 +18,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent(BaseModel):
+class SpeciesClassificationRequest(BaseModel):
     """
-    IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent
+    SpeciesClassificationRequest
     """ # noqa: E501
-    attr: StrictStr
-    code: StrictStr
-    detail: StrictStr
-    __properties: ClassVar[List[str]] = ["attr", "code", "detail"]
+    taxon_id: StrictInt
+    confidence_label: StrictStr
+    __properties: ClassVar[List[str]] = ["taxon_id", "confidence_label"]
 
-    @field_validator('attr')
-    def attr_validate_enum(cls, value):
+    @field_validator('confidence_label')
+    def confidence_label_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['result.confidence_label']):
-            raise ValueError("must be one of enum values ('result.confidence_label')")
-        return value
-
-    @field_validator('code')
-    def code_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['invalid_choice', 'null', 'required']):
-            raise ValueError("must be one of enum values ('invalid_choice', 'null', 'required')")
+        if value not in set(['definitely', 'probably']):
+            raise ValueError("must be one of enum values ('definitely', 'probably')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +56,7 @@ class IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent(BaseMod
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent from a JSON string"""
+        """Create an instance of SpeciesClassificationRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +81,7 @@ class IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent(BaseMod
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent from a dict"""
+        """Create an instance of SpeciesClassificationRequest from a dict"""
         if obj is None:
             return None
 
@@ -97,9 +89,8 @@ class IdentificationtasksReviewCreateResultConfidenceLabelErrorComponent(BaseMod
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "attr": obj.get("attr"),
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
+            "taxon_id": obj.get("taxon_id"),
+            "confidence_label": obj.get("confidence_label")
         })
         return _obj
 

@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list**
-> PaginatedAnnotationList annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list(observation_uuid, characteristics_is_blood_fed=characteristics_is_blood_fed, characteristics_is_gravid=characteristics_is_gravid, characteristics_sex=characteristics_sex, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 ### Example
 
@@ -163,6 +163,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
     observation_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | UUID of the Observation
+    characteristics_is_blood_fed = True # bool |  (optional)
+    characteristics_is_gravid = True # bool |  (optional)
+    characteristics_sex = 'characteristics_sex_example' # str |  (optional)
     classification_confidence_label = 'classification_confidence_label_example' # str |  (optional)
     classification_confidence_max = 3.4 # float |  (optional)
     classification_confidence_min = 3.4 # float |  (optional)
@@ -182,7 +185,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list(observation_uuid, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+        api_response = api_instance.annotations_list(observation_uuid, characteristics_is_blood_fed=characteristics_is_blood_fed, characteristics_is_gravid=characteristics_is_gravid, characteristics_sex=characteristics_sex, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -197,6 +200,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **observation_uuid** | **UUID**| UUID of the Observation | 
+ **characteristics_is_blood_fed** | **bool**|  | [optional] 
+ **characteristics_is_gravid** | **bool**|  | [optional] 
+ **characteristics_sex** | **str**|  | [optional] 
  **classification_confidence_label** | **str**|  | [optional] 
  **classification_confidence_max** | **float**|  | [optional] 
  **classification_confidence_min** | **float**|  | [optional] 
@@ -241,7 +247,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_list_mine**
-> PaginatedAnnotationList annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+> PaginatedAnnotationList annotations_list_mine(characteristics_is_blood_fed=characteristics_is_blood_fed, characteristics_is_gravid=characteristics_is_gravid, characteristics_sex=characteristics_sex, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
 
 Get my annotations
 
@@ -289,6 +295,9 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
+    characteristics_is_blood_fed = True # bool |  (optional)
+    characteristics_is_gravid = True # bool |  (optional)
+    characteristics_sex = 'characteristics_sex_example' # str |  (optional)
     classification_confidence_label = 'classification_confidence_label_example' # str |  (optional)
     classification_confidence_max = 3.4 # float |  (optional)
     classification_confidence_min = 3.4 # float |  (optional)
@@ -308,7 +317,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     user_ids = [56] # List[int] |  (optional)
 
     try:
-        api_response = api_instance.annotations_list_mine(classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
+        api_response = api_instance.annotations_list_mine(characteristics_is_blood_fed=characteristics_is_blood_fed, characteristics_is_gravid=characteristics_is_gravid, characteristics_sex=characteristics_sex, classification_confidence_label=classification_confidence_label, classification_confidence_max=classification_confidence_max, classification_confidence_min=classification_confidence_min, classification_taxon_ids=classification_taxon_ids, created_at_after=created_at_after, created_at_before=created_at_before, is_decisive=is_decisive, is_favourite=is_favourite, is_flagged=is_flagged, order_by=order_by, page=page, page_size=page_size, search=search, type=type, updated_at_after=updated_at_after, updated_at_before=updated_at_before, user_ids=user_ids)
         print("The response of IdentificationTasksApi->annotations_list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -322,6 +331,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **characteristics_is_blood_fed** | **bool**|  | [optional] 
+ **characteristics_is_gravid** | **bool**|  | [optional] 
+ **characteristics_sex** | **str**|  | [optional] 
  **classification_confidence_label** | **str**|  | [optional] 
  **classification_confidence_max** | **float**|  | [optional] 
  **classification_confidence_min** | **float**|  | [optional] 
@@ -547,7 +559,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_characteristics_is_blood_fed=result_characteristics_is_blood_fed, result_characteristics_is_gravid=result_characteristics_is_gravid, result_characteristics_sex=result_characteristics_sex, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 ### Example
 
@@ -608,6 +620,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     page_size = 56 # int | Número de resultados a devolver por página. (optional)
     result_agreement_max = 3.4 # float |  (optional)
     result_agreement_min = 3.4 # float |  (optional)
+    result_characteristics_is_blood_fed = True # bool |  (optional)
+    result_characteristics_is_gravid = True # bool |  (optional)
+    result_characteristics_sex = 'result_characteristics_sex_example' # str |  (optional)
     result_confidence_max = None # decimal.Decimal |  (optional)
     result_confidence_min = None # decimal.Decimal |  (optional)
     result_source = ['result_source_example'] # List[Optional[str]] |  (optional)
@@ -621,7 +636,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_characteristics_is_blood_fed=result_characteristics_is_blood_fed, result_characteristics_is_gravid=result_characteristics_is_gravid, result_characteristics_sex=result_characteristics_sex, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -650,6 +665,9 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
  **result_agreement_max** | **float**|  | [optional] 
  **result_agreement_min** | **float**|  | [optional] 
+ **result_characteristics_is_blood_fed** | **bool**|  | [optional] 
+ **result_characteristics_is_gravid** | **bool**|  | [optional] 
+ **result_characteristics_sex** | **str**|  | [optional] 
  **result_confidence_max** | **decimal.Decimal**|  | [optional] 
  **result_confidence_min** | **decimal.Decimal**|  | [optional] 
  **result_source** | [**List[Optional[str]]**](str.md)|  | [optional] 
@@ -688,7 +706,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_mine**
-> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+> PaginatedIdentificationTaskList list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_characteristics_is_blood_fed=result_characteristics_is_blood_fed, result_characteristics_is_gravid=result_characteristics_is_gravid, result_characteristics_sex=result_characteristics_sex, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
 
 Get identification tasks annotated by me
 
@@ -751,6 +769,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     page_size = 56 # int | Número de resultados a devolver por página. (optional)
     result_agreement_max = 3.4 # float |  (optional)
     result_agreement_min = 3.4 # float |  (optional)
+    result_characteristics_is_blood_fed = True # bool |  (optional)
+    result_characteristics_is_gravid = True # bool |  (optional)
+    result_characteristics_sex = 'result_characteristics_sex_example' # str |  (optional)
     result_confidence_max = None # decimal.Decimal |  (optional)
     result_confidence_min = None # decimal.Decimal |  (optional)
     result_source = ['result_source_example'] # List[Optional[str]] |  (optional)
@@ -764,7 +785,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
 
     try:
-        api_response = api_instance.list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
+        api_response = api_instance.list_mine(annotator_ids=annotator_ids, assignee_ids=assignee_ids, created_at_after=created_at_after, created_at_before=created_at_before, fully_predicted=fully_predicted, is_flagged=is_flagged, is_safe=is_safe, num_annotations_max=num_annotations_max, num_annotations_min=num_annotations_min, observation_country_ids=observation_country_ids, order_by=order_by, page=page, page_size=page_size, result_agreement_max=result_agreement_max, result_agreement_min=result_agreement_min, result_characteristics_is_blood_fed=result_characteristics_is_blood_fed, result_characteristics_is_gravid=result_characteristics_is_gravid, result_characteristics_sex=result_characteristics_sex, result_confidence_max=result_confidence_max, result_confidence_min=result_confidence_min, result_source=result_source, result_taxon_ids=result_taxon_ids, result_uncertainty_max=result_uncertainty_max, result_uncertainty_min=result_uncertainty_min, review_action=review_action, search=search, status=status, updated_at_after=updated_at_after, updated_at_before=updated_at_before)
         print("The response of IdentificationTasksApi->list_mine:\n")
         pprint(api_response)
     except Exception as e:
@@ -793,6 +814,9 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
  **result_agreement_max** | **float**|  | [optional] 
  **result_agreement_min** | **float**|  | [optional] 
+ **result_characteristics_is_blood_fed** | **bool**|  | [optional] 
+ **result_characteristics_is_gravid** | **bool**|  | [optional] 
+ **result_characteristics_sex** | **str**|  | [optional] 
  **result_confidence_max** | **decimal.Decimal**|  | [optional] 
  **result_confidence_min** | **decimal.Decimal**|  | [optional] 
  **result_source** | [**List[Optional[str]]**](str.md)|  | [optional] 

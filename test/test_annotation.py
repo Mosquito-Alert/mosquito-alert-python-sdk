@@ -47,11 +47,15 @@ class TestAnnotation(unittest.TestCase):
                 best_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
-                classification = mosquito_alert.models.annotation_classification.AnnotationClassification(
+                classification = mosquito_alert.models.species_classification.SpeciesClassification(
                     taxon = null, 
                     confidence = 1.337, 
                     confidence_label = 'definitely', 
                     is_high_confidence = True, ),
+                characteristics = mosquito_alert.models.species_characteristics.SpeciesCharacteristics(
+                    sex = 'male', 
+                    is_blood_fed = True, 
+                    is_gravid = True, ),
                 feedback = mosquito_alert.models.annotation_feedback.AnnotationFeedback(
                     public_note = '', 
                     internal_note = '', 
@@ -81,7 +85,7 @@ class TestAnnotation(unittest.TestCase):
                 best_photo = mosquito_alert.models.simple_photo.SimplePhoto(
                     uuid = '', 
                     url = '', ),
-                classification = mosquito_alert.models.annotation_classification.AnnotationClassification(
+                classification = mosquito_alert.models.species_classification.SpeciesClassification(
                     taxon = null, 
                     confidence = 1.337, 
                     confidence_label = 'definitely', 

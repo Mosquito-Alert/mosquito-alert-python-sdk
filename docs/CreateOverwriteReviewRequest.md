@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **public_photo_uuid** | **UUID** |  | 
 **is_safe** | **bool** | Indicates if the content is safe for publication. | 
 **public_note** | **str** |  | 
-**result** | [**AnnotationClassificationRequest**](AnnotationClassificationRequest.md) |  | 
+**classification** | [**SpeciesClassificationRequest**](SpeciesClassificationRequest.md) |  | 
+**characteristics** | [**SpeciesCharacteristicsRequest**](SpeciesCharacteristicsRequest.md) |  | [optional] 
 
 ## Example
 
