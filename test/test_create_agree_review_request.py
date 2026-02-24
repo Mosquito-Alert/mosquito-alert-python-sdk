@@ -40,6 +40,7 @@ class TestCreateAgreeReviewRequest(unittest.TestCase):
             )
         else:
             return CreateAgreeReviewRequest(
+                action = 'agree',
         )
         """
 

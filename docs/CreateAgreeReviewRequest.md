@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str** |  | [optional] [default to 'agree']
+**action** | **str** |  | 
 
 ## Example
 

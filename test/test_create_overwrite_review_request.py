@@ -50,6 +50,7 @@ class TestCreateOverwriteReviewRequest(unittest.TestCase):
             )
         else:
             return CreateOverwriteReviewRequest(
+                action = 'overwrite',
                 public_photo_uuid = '',
                 is_safe = True,
                 public_note = '0',

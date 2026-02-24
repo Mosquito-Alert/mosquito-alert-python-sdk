@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str** |  | [optional] [default to 'overwrite']
+**action** | **str** |  | 
 **public_photo_uuid** | **UUID** |  | 
-**is_safe** | **bool** | Indicates if the content is safe for publication. | 
-**public_note** | **str** |  | 
+**is_safe** | **bool** |  | 
+**public_note** | **str** | Notes to display on public map | 
 **classification** | [**SpeciesClassificationRequest**](SpeciesClassificationRequest.md) |  | 
 **characteristics** | [**SpeciesCharacteristicsRequest**](SpeciesCharacteristicsRequest.md) |  | [optional] 
 

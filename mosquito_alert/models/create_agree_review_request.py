@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,15 +27,12 @@ class CreateAgreeReviewRequest(BaseModel):
     """
     CreateAgreeReviewRequest
     """ # noqa: E501
-    action: Optional[StrictStr] = 'agree'
+    action: StrictStr
     __properties: ClassVar[List[str]] = ["action"]
 
     @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['agree']):
             raise ValueError("must be one of enum values ('agree')")
         return value
@@ -91,7 +88,7 @@ class CreateAgreeReviewRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "action": obj.get("action") if obj.get("action") is not None else 'agree'
+            "action": obj.get("action")
         })
         return _obj
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class ObservationFlags(BaseModel):
     """
     ObservationFlags
     """ # noqa: E501
-    is_favourite: StrictBool
+    is_favourite: Optional[StrictBool] = False
     is_visible: StrictBool
     __properties: ClassVar[List[str]] = ["is_favourite", "is_visible"]
 
@@ -62,10 +62,8 @@ class ObservationFlags(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "is_favourite",
             "is_visible",
         ])
 

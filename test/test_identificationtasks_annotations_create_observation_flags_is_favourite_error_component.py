@@ -37,13 +37,13 @@ class TestIdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorCo
         if include_optional:
             return IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent(
                 attr = 'observation_flags.is_favourite',
-                code = 'null',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorComponent(
                 attr = 'observation_flags.is_favourite',
-                code = 'null',
+                code = 'invalid',
                 detail = '',
         )
         """

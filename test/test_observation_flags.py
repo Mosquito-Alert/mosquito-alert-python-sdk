@@ -41,7 +41,6 @@ class TestObservationFlags(unittest.TestCase):
             )
         else:
             return ObservationFlags(
-                is_favourite = True,
                 is_visible = True,
         )
         """

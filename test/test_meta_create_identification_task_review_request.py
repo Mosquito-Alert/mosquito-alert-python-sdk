@@ -50,6 +50,7 @@ class TestMetaCreateIdentificationTaskReviewRequest(unittest.TestCase):
             )
         else:
             return MetaCreateIdentificationTaskReviewRequest(
+                action = 'overwrite',
                 public_photo_uuid = '',
                 is_safe = True,
                 public_note = '0',

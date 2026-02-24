@@ -31,10 +31,10 @@ class CreateOverwriteReviewRequest(BaseModel):
     """
     CreateOverwriteReviewRequest
     """ # noqa: E501
-    action: Optional[StrictStr] = 'overwrite'
+    action: StrictStr
     public_photo_uuid: UUID
-    is_safe: StrictBool = Field(description="Indicates if the content is safe for publication.")
-    public_note: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    is_safe: StrictBool
+    public_note: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(description="Notes to display on public map")
     classification: Optional[SpeciesClassificationRequest]
     characteristics: Optional[SpeciesCharacteristicsRequest] = None
     __properties: ClassVar[List[str]] = ["action", "public_photo_uuid", "is_safe", "public_note", "classification", "characteristics"]
@@ -42,9 +42,6 @@ class CreateOverwriteReviewRequest(BaseModel):
     @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['overwrite']):
             raise ValueError("must be one of enum values ('overwrite')")
         return value
@@ -121,7 +118,7 @@ class CreateOverwriteReviewRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "action": obj.get("action") if obj.get("action") is not None else 'overwrite',
+            "action": obj.get("action"),
             "public_photo_uuid": obj.get("public_photo_uuid"),
             "is_safe": obj.get("is_safe"),
             "public_note": obj.get("public_note"),

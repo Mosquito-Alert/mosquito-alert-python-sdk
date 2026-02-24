@@ -42,8 +42,8 @@ class IdentificationtasksAnnotationsCreateObservationFlagsIsFavouriteErrorCompon
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['null']):
-            raise ValueError("must be one of enum values ('null')")
+        if value not in set(['invalid', 'null']):
+            raise ValueError("must be one of enum values ('invalid', 'null')")
         return value
 
     model_config = ConfigDict(
