@@ -40,7 +40,7 @@ class TestAnnotationPermission(unittest.TestCase):
                 change = True,
                 view = True,
                 delete = True,
-                mark_as_decisive = True
+                mark_as_executive = True
             )
         else:
             return AnnotationPermission(
@@ -48,7 +48,7 @@ class TestAnnotationPermission(unittest.TestCase):
                 change = True,
                 view = True,
                 delete = True,
-                mark_as_decisive = True,
+                mark_as_executive = True,
         )
         """
 

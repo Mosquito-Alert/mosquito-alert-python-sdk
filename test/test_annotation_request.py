@@ -49,7 +49,7 @@ class TestAnnotationRequest(unittest.TestCase):
                     internal_note = '', 
                     user_note = '', ),
                 is_flagged = True,
-                is_decisive = True,
+                is_executive = True,
                 observation_flags = mosquito_alert.models.observation_flags_request.ObservationFlagsRequest(
                     is_favourite = True, 
                     is_visible = True, ),

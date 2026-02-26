@@ -38,10 +38,10 @@ class AnnotationRequest(BaseModel):
     characteristics: Optional[SpeciesCharacteristicsRequest] = None
     feedback: Optional[AnnotationFeedbackRequest] = None
     is_flagged: Optional[StrictBool] = False
-    is_decisive: Optional[StrictBool] = False
+    is_executive: Optional[StrictBool] = False
     observation_flags: Optional[ObservationFlagsRequest] = None
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
-    __properties: ClassVar[List[str]] = ["best_photo_uuid", "classification", "characteristics", "feedback", "is_flagged", "is_decisive", "observation_flags", "tags"]
+    __properties: ClassVar[List[str]] = ["best_photo_uuid", "classification", "characteristics", "feedback", "is_flagged", "is_executive", "observation_flags", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -121,7 +121,7 @@ class AnnotationRequest(BaseModel):
             "characteristics": SpeciesCharacteristicsRequest.from_dict(obj["characteristics"]) if obj.get("characteristics") is not None else None,
             "feedback": AnnotationFeedbackRequest.from_dict(obj["feedback"]) if obj.get("feedback") is not None else None,
             "is_flagged": obj.get("is_flagged") if obj.get("is_flagged") is not None else False,
-            "is_decisive": obj.get("is_decisive") if obj.get("is_decisive") is not None else False,
+            "is_executive": obj.get("is_executive") if obj.get("is_executive") is not None else False,
             "observation_flags": ObservationFlagsRequest.from_dict(obj["observation_flags"]) if obj.get("observation_flags") is not None else None,
             "tags": obj.get("tags")
         })

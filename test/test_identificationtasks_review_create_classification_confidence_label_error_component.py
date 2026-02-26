@@ -37,13 +37,13 @@ class TestIdentificationtasksReviewCreateClassificationConfidenceLabelErrorCompo
         if include_optional:
             return IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent(
                 attr = 'classification.confidence_label',
-                code = 'invalid_choice',
+                code = 'null',
                 detail = ''
             )
         else:
             return IdentificationtasksReviewCreateClassificationConfidenceLabelErrorComponent(
                 attr = 'classification.confidence_label',
-                code = 'invalid_choice',
+                code = 'null',
                 detail = '',
         )
         """

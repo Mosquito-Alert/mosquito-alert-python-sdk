@@ -53,7 +53,7 @@ class TestPaginatedAnnotationList(unittest.TestCase):
                             user_note = '', ), 
                         type = 'short', 
                         is_flagged = True, 
-                        is_decisive = True, 
+                        decision_level = 'normal', 
                         observation_flags = mosquito_alert.models.observation_flags.ObservationFlags(
                             is_favourite = True, 
                             is_visible = True, ), 
@@ -81,7 +81,7 @@ class TestPaginatedAnnotationList(unittest.TestCase):
                             user_note = '', ), 
                         type = 'short', 
                         is_flagged = True, 
-                        is_decisive = True, 
+                        decision_level = 'normal', 
                         observation_flags = mosquito_alert.models.observation_flags.ObservationFlags(
                             is_favourite = True, 
                             is_visible = True, ), 

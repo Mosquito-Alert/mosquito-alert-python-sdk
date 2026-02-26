@@ -74,10 +74,12 @@ class SpeciesClassification(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "taxon",
             "confidence",
+            "confidence_label",
             "is_high_confidence",
         ])
 

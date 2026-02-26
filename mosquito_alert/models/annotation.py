@@ -44,18 +44,25 @@ class Annotation(BaseModel):
     feedback: Optional[AnnotationFeedback] = None
     type: StrictStr
     is_flagged: StrictBool
-    is_decisive: StrictBool
+    decision_level: StrictStr
     observation_flags: Optional[ObservationFlags] = None
     tags: Optional[List[StrictStr]] = None
     created_at: datetime
     updated_at: datetime
-    __properties: ClassVar[List[str]] = ["id", "observation_uuid", "user", "best_photo", "classification", "characteristics", "feedback", "type", "is_flagged", "is_decisive", "observation_flags", "tags", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["id", "observation_uuid", "user", "best_photo", "classification", "characteristics", "feedback", "type", "is_flagged", "decision_level", "observation_flags", "tags", "created_at", "updated_at"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value not in set(['short', 'long']):
             raise ValueError("must be one of enum values ('short', 'long')")
+        return value
+
+    @field_validator('decision_level')
+    def decision_level_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['normal', 'executive', 'final']):
+            raise ValueError("must be one of enum values ('normal', 'executive', 'final')")
         return value
 
     model_config = ConfigDict(
@@ -105,7 +112,7 @@ class Annotation(BaseModel):
             "best_photo",
             "type",
             "is_flagged",
-            "is_decisive",
+            "decision_level",
             "created_at",
             "updated_at",
         ])
@@ -169,7 +176,7 @@ class Annotation(BaseModel):
             "feedback": AnnotationFeedback.from_dict(obj["feedback"]) if obj.get("feedback") is not None else None,
             "type": obj.get("type"),
             "is_flagged": obj.get("is_flagged") if obj.get("is_flagged") is not None else False,
-            "is_decisive": obj.get("is_decisive") if obj.get("is_decisive") is not None else False,
+            "decision_level": obj.get("decision_level"),
             "observation_flags": ObservationFlags.from_dict(obj["observation_flags"]) if obj.get("observation_flags") is not None else None,
             "tags": obj.get("tags"),
             "created_at": obj.get("created_at"),

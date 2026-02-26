@@ -369,7 +369,7 @@ class IdentificationTasksApi:
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        is_decisive: Optional[StrictBool] = None,
+        decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
@@ -416,8 +416,8 @@ class IdentificationTasksApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param is_decisive:
-        :type is_decisive: bool
+        :param decision_level:
+        :type decision_level: List[str]
         :param is_favourite:
         :type is_favourite: bool
         :param is_flagged:
@@ -471,7 +471,7 @@ class IdentificationTasksApi:
             classification_taxon_ids=classification_taxon_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
-            is_decisive=is_decisive,
+            decision_level=decision_level,
             is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
@@ -519,7 +519,7 @@ class IdentificationTasksApi:
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        is_decisive: Optional[StrictBool] = None,
+        decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
@@ -566,8 +566,8 @@ class IdentificationTasksApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param is_decisive:
-        :type is_decisive: bool
+        :param decision_level:
+        :type decision_level: List[str]
         :param is_favourite:
         :type is_favourite: bool
         :param is_flagged:
@@ -621,7 +621,7 @@ class IdentificationTasksApi:
             classification_taxon_ids=classification_taxon_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
-            is_decisive=is_decisive,
+            decision_level=decision_level,
             is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
@@ -669,7 +669,7 @@ class IdentificationTasksApi:
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        is_decisive: Optional[StrictBool] = None,
+        decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
@@ -716,8 +716,8 @@ class IdentificationTasksApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param is_decisive:
-        :type is_decisive: bool
+        :param decision_level:
+        :type decision_level: List[str]
         :param is_favourite:
         :type is_favourite: bool
         :param is_flagged:
@@ -771,7 +771,7 @@ class IdentificationTasksApi:
             classification_taxon_ids=classification_taxon_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
-            is_decisive=is_decisive,
+            decision_level=decision_level,
             is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
@@ -814,7 +814,7 @@ class IdentificationTasksApi:
         classification_taxon_ids,
         created_at_after,
         created_at_before,
-        is_decisive,
+        decision_level,
         is_favourite,
         is_flagged,
         order_by,
@@ -835,6 +835,7 @@ class IdentificationTasksApi:
 
         _collection_formats: Dict[str, str] = {
             'classification_taxon_ids': 'multi',
+            'decision_level': 'multi',
             'order_by': 'csv',
             'user_ids': 'multi',
         }
@@ -906,9 +907,9 @@ class IdentificationTasksApi:
             else:
                 _query_params.append(('created_at_before', created_at_before))
             
-        if is_decisive is not None:
+        if decision_level is not None:
             
-            _query_params.append(('is_decisive', is_decisive))
+            _query_params.append(('decision_level', decision_level))
             
         if is_favourite is not None:
             
@@ -1019,7 +1020,7 @@ class IdentificationTasksApi:
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        is_decisive: Optional[StrictBool] = None,
+        decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
@@ -1065,8 +1066,8 @@ class IdentificationTasksApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param is_decisive:
-        :type is_decisive: bool
+        :param decision_level:
+        :type decision_level: List[str]
         :param is_favourite:
         :type is_favourite: bool
         :param is_flagged:
@@ -1119,7 +1120,7 @@ class IdentificationTasksApi:
             classification_taxon_ids=classification_taxon_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
-            is_decisive=is_decisive,
+            decision_level=decision_level,
             is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
@@ -1166,7 +1167,7 @@ class IdentificationTasksApi:
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        is_decisive: Optional[StrictBool] = None,
+        decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
@@ -1212,8 +1213,8 @@ class IdentificationTasksApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param is_decisive:
-        :type is_decisive: bool
+        :param decision_level:
+        :type decision_level: List[str]
         :param is_favourite:
         :type is_favourite: bool
         :param is_flagged:
@@ -1266,7 +1267,7 @@ class IdentificationTasksApi:
             classification_taxon_ids=classification_taxon_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
-            is_decisive=is_decisive,
+            decision_level=decision_level,
             is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
@@ -1313,7 +1314,7 @@ class IdentificationTasksApi:
         classification_taxon_ids: Optional[List[StrictInt]] = None,
         created_at_after: Annotated[Optional[datetime], Field(description="Created at")] = None,
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
-        is_decisive: Optional[StrictBool] = None,
+        decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
@@ -1359,8 +1360,8 @@ class IdentificationTasksApi:
         :type created_at_after: datetime
         :param created_at_before: Created at
         :type created_at_before: datetime
-        :param is_decisive:
-        :type is_decisive: bool
+        :param decision_level:
+        :type decision_level: List[str]
         :param is_favourite:
         :type is_favourite: bool
         :param is_flagged:
@@ -1413,7 +1414,7 @@ class IdentificationTasksApi:
             classification_taxon_ids=classification_taxon_ids,
             created_at_after=created_at_after,
             created_at_before=created_at_before,
-            is_decisive=is_decisive,
+            decision_level=decision_level,
             is_favourite=is_favourite,
             is_flagged=is_flagged,
             order_by=order_by,
@@ -1455,7 +1456,7 @@ class IdentificationTasksApi:
         classification_taxon_ids,
         created_at_after,
         created_at_before,
-        is_decisive,
+        decision_level,
         is_favourite,
         is_flagged,
         order_by,
@@ -1476,6 +1477,7 @@ class IdentificationTasksApi:
 
         _collection_formats: Dict[str, str] = {
             'classification_taxon_ids': 'multi',
+            'decision_level': 'multi',
             'order_by': 'csv',
             'user_ids': 'multi',
         }
@@ -1545,9 +1547,9 @@ class IdentificationTasksApi:
             else:
                 _query_params.append(('created_at_before', created_at_before))
             
-        if is_decisive is not None:
+        if decision_level is not None:
             
-            _query_params.append(('is_decisive', is_decisive))
+            _query_params.append(('decision_level', decision_level))
             
         if is_favourite is not None:
             

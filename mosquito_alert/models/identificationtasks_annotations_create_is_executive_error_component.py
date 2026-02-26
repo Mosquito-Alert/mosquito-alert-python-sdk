@@ -23,9 +23,9 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent(BaseModel):
+class IdentificationtasksAnnotationsCreateIsExecutiveErrorComponent(BaseModel):
     """
-    IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent
+    IdentificationtasksAnnotationsCreateIsExecutiveErrorComponent
     """ # noqa: E501
     attr: StrictStr
     code: StrictStr
@@ -35,15 +35,15 @@ class IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent(BaseModel):
     @field_validator('attr')
     def attr_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['is_decisive']):
-            raise ValueError("must be one of enum values ('is_decisive')")
+        if value not in set(['is_executive']):
+            raise ValueError("must be one of enum values ('is_executive')")
         return value
 
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['null']):
-            raise ValueError("must be one of enum values ('null')")
+        if value not in set(['invalid', 'null']):
+            raise ValueError("must be one of enum values ('invalid', 'null')")
         return value
 
     model_config = ConfigDict(
@@ -64,7 +64,7 @@ class IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent from a JSON string"""
+        """Create an instance of IdentificationtasksAnnotationsCreateIsExecutiveErrorComponent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +89,7 @@ class IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IdentificationtasksAnnotationsCreateIsDecisiveErrorComponent from a dict"""
+        """Create an instance of IdentificationtasksAnnotationsCreateIsExecutiveErrorComponent from a dict"""
         if obj is None:
             return None
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **characteristics** | [**SpeciesCharacteristicsRequest**](SpeciesCharacteristicsRequest.md) |  | [optional] 
 **feedback** | [**AnnotationFeedbackRequest**](AnnotationFeedbackRequest.md) |  | [optional] 
 **is_flagged** | **bool** |  | [optional] [default to False]
-**is_decisive** | **bool** |  | [optional] [default to False]
+**is_executive** | **bool** |  | [optional] [default to False]
 **observation_flags** | [**ObservationFlagsRequest**](ObservationFlagsRequest.md) |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 

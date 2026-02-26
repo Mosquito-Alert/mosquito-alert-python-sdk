@@ -41,7 +41,7 @@ class TestPermissions(unittest.TestCase):
                     change = True, 
                     view = True, 
                     delete = True, 
-                    mark_as_decisive = True, ),
+                    mark_as_executive = True, ),
                 identification_task = mosquito_alert.models.identification_task_permission.IdentificationTaskPermission(
                     add = True, 
                     change = True, 
@@ -60,7 +60,7 @@ class TestPermissions(unittest.TestCase):
                     change = True, 
                     view = True, 
                     delete = True, 
-                    mark_as_decisive = True, ),
+                    mark_as_executive = True, ),
                 identification_task = mosquito_alert.models.identification_task_permission.IdentificationTaskPermission(
                     add = True, 
                     change = True, 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **taxon** | [**SimpleTaxon**](SimpleTaxon.md) |  | [readonly] 
 **confidence** | **float** |  | [readonly] 
-**confidence_label** | **str** |  | 
+**confidence_label** | **str** |  | [readonly] 
 **is_high_confidence** | **bool** |  | [readonly] 
 
 ## Example

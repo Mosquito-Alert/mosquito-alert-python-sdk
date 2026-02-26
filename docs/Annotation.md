@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **feedback** | [**AnnotationFeedback**](AnnotationFeedback.md) |  | [optional] 
 **type** | **str** |  | [readonly] 
 **is_flagged** | **bool** |  | [readonly] [default to False]
-**is_decisive** | **bool** |  | [readonly] [default to False]
+**decision_level** | **str** |  | [readonly] 
 **observation_flags** | [**ObservationFlags**](ObservationFlags.md) |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **created_at** | **datetime** |  | [readonly] 

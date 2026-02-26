@@ -62,7 +62,7 @@ class TestAnnotation(unittest.TestCase):
                     user_note = '', ),
                 type = 'short',
                 is_flagged = True,
-                is_decisive = True,
+                decision_level = 'normal',
                 observation_flags = mosquito_alert.models.observation_flags.ObservationFlags(
                     is_favourite = True, 
                     is_visible = True, ),
@@ -92,7 +92,7 @@ class TestAnnotation(unittest.TestCase):
                     is_high_confidence = True, ),
                 type = 'short',
                 is_flagged = True,
-                is_decisive = True,
+                decision_level = 'normal',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
