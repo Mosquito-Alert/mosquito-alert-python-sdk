@@ -45,9 +45,9 @@ class CampaignsApi:
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -68,11 +68,11 @@ class CampaignsApi:
         :type country_id: int
         :param is_active:
         :type is_active: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -131,9 +131,9 @@ class CampaignsApi:
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -154,11 +154,11 @@ class CampaignsApi:
         :type country_id: int
         :param is_active:
         :type is_active: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -217,9 +217,9 @@ class CampaignsApi:
         self,
         country_id: Annotated[Optional[StrictInt], Field(description="Country in which the campaign is taking place")] = None,
         is_active: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -240,11 +240,11 @@ class CampaignsApi:
         :type country_id: int
         :param is_active:
         :type is_active: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -386,7 +386,7 @@ class CampaignsApi:
     @validate_call
     def retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este ow campaigns.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this ow campaigns.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -403,7 +403,7 @@ class CampaignsApi:
         """retrieve
 
 
-        :param id: Un valor de entero único que identifique este ow campaigns. (required)
+        :param id: A unique integer value identifying this ow campaigns. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -455,7 +455,7 @@ class CampaignsApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este ow campaigns.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this ow campaigns.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -472,7 +472,7 @@ class CampaignsApi:
         """retrieve
 
 
-        :param id: Un valor de entero único que identifique este ow campaigns. (required)
+        :param id: A unique integer value identifying this ow campaigns. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -524,7 +524,7 @@ class CampaignsApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este ow campaigns.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this ow campaigns.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -541,7 +541,7 @@ class CampaignsApi:
         """retrieve
 
 
-        :param id: Un valor de entero único que identifique este ow campaigns. (required)
+        :param id: A unique integer value identifying this ow campaigns. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

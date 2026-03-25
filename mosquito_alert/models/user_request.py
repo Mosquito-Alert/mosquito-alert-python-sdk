@@ -36,8 +36,8 @@ class UserRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN']):
-            raise ValueError("must be one of enum values ('es', 'ca', 'eu', 'bn', 'sv', 'en', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN')")
+        if value not in set(['en', 'es', 'ca', 'eu', 'bn', 'sv', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN']):
+            raise ValueError("must be one of enum values ('en', 'es', 'ca', 'eu', 'bn', 'sv', 'de', 'sq', 'el', 'gl', 'hu', 'pt', 'sl', 'it', 'fr', 'bg', 'ro', 'hr', 'mk', 'sr', 'lb', 'nl', 'tr', 'zh-CN')")
         return value
 
     model_config = ConfigDict(

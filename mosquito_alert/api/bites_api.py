@@ -609,13 +609,13 @@ class BitesApi:
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -647,7 +647,7 @@ class BitesApi:
         :type dist: float
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -655,11 +655,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -738,13 +738,13 @@ class BitesApi:
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -776,7 +776,7 @@ class BitesApi:
         :type dist: float
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -784,11 +784,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -867,13 +867,13 @@ class BitesApi:
         created_at_before: Annotated[Optional[datetime], Field(description="Created at")] = None,
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -905,7 +905,7 @@ class BitesApi:
         :type dist: float
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -913,11 +913,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -1194,15 +1194,15 @@ class BitesApi:
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1236,11 +1236,11 @@ class BitesApi:
         :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -1248,11 +1248,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -1335,15 +1335,15 @@ class BitesApi:
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1377,11 +1377,11 @@ class BitesApi:
         :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -1389,11 +1389,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -1476,15 +1476,15 @@ class BitesApi:
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1518,11 +1518,11 @@ class BitesApi:
         :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -1530,11 +1530,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -1829,15 +1829,15 @@ class BitesApi:
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -1872,11 +1872,11 @@ class BitesApi:
         :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -1884,11 +1884,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -1972,15 +1972,15 @@ class BitesApi:
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -2015,11 +2015,11 @@ class BitesApi:
         :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -2027,11 +2027,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime
@@ -2115,15 +2115,15 @@ class BitesApi:
         dist: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Represents **Distance** in **Distance to point** filter. Default value is used only if ***point*** is passed.")] = None,
         format: Optional[StrictStr] = None,
         geo_precision: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude/Longitude precision")] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         point: Annotated[Optional[Annotated[List[Union[StrictFloat, StrictInt]], Field(min_length=2, max_length=2)]], Field(description="Point represented in **x,y** format. Represents **point** in **Distance to point filter**")] = None,
         received_at_after: Annotated[Optional[datetime], Field(description="Received at")] = None,
         received_at_before: Annotated[Optional[datetime], Field(description="Received at")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         short_id: Annotated[Optional[StrictStr], Field(description="Short ID")] = None,
-        tags: Annotated[Optional[List[StrictStr]], Field(description="Múltiples valores separados por comas.")] = None,
+        tags: Annotated[Optional[List[StrictStr]], Field(description="Multiple values may be separated by commas.")] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
         user_uuid: Optional[UUID] = None,
@@ -2158,11 +2158,11 @@ class BitesApi:
         :type format: str
         :param geo_precision: Latitude/Longitude precision
         :type geo_precision: float
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param point: Point represented in **x,y** format. Represents **point** in **Distance to point filter**
         :type point: List[float]
@@ -2170,11 +2170,11 @@ class BitesApi:
         :type received_at_after: datetime
         :param received_at_before: Received at
         :type received_at_before: datetime
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param short_id: Short ID
         :type short_id: str
-        :param tags: Múltiples valores separados por comas.
+        :param tags: Multiple values may be separated by commas.
         :type tags: List[str]
         :param updated_at_after: Update at
         :type updated_at_after: datetime

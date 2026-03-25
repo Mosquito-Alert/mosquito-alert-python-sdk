@@ -175,10 +175,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     decision_level = ['decision_level_example'] # List[str] |  (optional)
     is_favourite = True # bool |  (optional)
     is_flagged = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
+    search = 'search_example' # str | A search term. (optional)
     type = 'type_example' # str |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
@@ -212,10 +212,10 @@ Name | Type | Description  | Notes
  **decision_level** | [**List[str]**](str.md)|  | [optional] 
  **is_favourite** | **bool**|  | [optional] 
  **is_flagged** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **type** | **str**|  | [optional] 
  **updated_at_after** | **datetime**| Updated at | [optional] 
  **updated_at_before** | **datetime**| Updated at | [optional] 
@@ -307,10 +307,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     decision_level = ['decision_level_example'] # List[str] |  (optional)
     is_favourite = True # bool |  (optional)
     is_flagged = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
+    search = 'search_example' # str | A search term. (optional)
     type = 'type_example' # str |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Updated at (optional)
@@ -343,10 +343,10 @@ Name | Type | Description  | Notes
  **decision_level** | [**List[str]**](str.md)|  | [optional] 
  **is_favourite** | **bool**|  | [optional] 
  **is_flagged** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **type** | **str**|  | [optional] 
  **updated_at_after** | **datetime**| Updated at | [optional] 
  **updated_at_before** | **datetime**| Updated at | [optional] 
@@ -424,7 +424,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
-    id = 56 # int | Un valor de entero único que identifique este expert report annotation.
+    id = 56 # int | A unique integer value identifying this expert report annotation.
     observation_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | UUID of the Observation
 
     try:
@@ -442,7 +442,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Un valor de entero único que identifique este expert report annotation. | 
+ **id** | **int**| A unique integer value identifying this expert report annotation. | 
  **observation_uuid** | **UUID**| UUID of the Observation | 
 
 ### Return type
@@ -615,9 +615,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     num_annotations_max = 56 # int |  (optional)
     num_annotations_min = 56 # int |  (optional)
     observation_country_ids = [56] # List[int] |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
     result_agreement_max = 3.4 # float |  (optional)
     result_agreement_min = 3.4 # float |  (optional)
     result_characteristics_is_blood_fed = True # bool |  (optional)
@@ -630,7 +630,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
     review_action = 'review_action_example' # str |  (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     status = ['status_example'] # List[str] |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
@@ -660,9 +660,9 @@ Name | Type | Description  | Notes
  **num_annotations_max** | **int**|  | [optional] 
  **num_annotations_min** | **int**|  | [optional] 
  **observation_country_ids** | [**List[int]**](int.md)|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
  **result_agreement_max** | **float**|  | [optional] 
  **result_agreement_min** | **float**|  | [optional] 
  **result_characteristics_is_blood_fed** | **bool**|  | [optional] 
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
  **review_action** | **str**|  | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **status** | [**List[str]**](str.md)|  | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
@@ -764,9 +764,9 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     num_annotations_max = 56 # int |  (optional)
     num_annotations_min = 56 # int |  (optional)
     observation_country_ids = [56] # List[int] |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
     result_agreement_max = 3.4 # float |  (optional)
     result_agreement_min = 3.4 # float |  (optional)
     result_characteristics_is_blood_fed = True # bool |  (optional)
@@ -779,7 +779,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     result_uncertainty_max = 3.4 # float |  (optional)
     result_uncertainty_min = 3.4 # float |  (optional)
     review_action = 'review_action_example' # str |  (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     status = ['status_example'] # List[str] |  (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
@@ -809,9 +809,9 @@ Name | Type | Description  | Notes
  **num_annotations_max** | **int**|  | [optional] 
  **num_annotations_min** | **int**|  | [optional] 
  **observation_country_ids** | [**List[int]**](int.md)|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
  **result_agreement_max** | **float**|  | [optional] 
  **result_agreement_min** | **float**|  | [optional] 
  **result_characteristics_is_blood_fed** | **bool**|  | [optional] 
@@ -824,7 +824,7 @@ Name | Type | Description  | Notes
  **result_uncertainty_max** | **float**|  | [optional] 
  **result_uncertainty_min** | **float**|  | [optional] 
  **review_action** | **str**|  | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **status** | [**List[str]**](str.md)|  | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
@@ -1085,8 +1085,8 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.IdentificationTasksApi(api_client)
     observation_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | UUID of the Observation
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
         api_response = api_instance.predictions_list(observation_uuid, page=page, page_size=page_size)
@@ -1104,8 +1104,8 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **observation_uuid** | **UUID**| UUID of the Observation | 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 

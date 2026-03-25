@@ -372,10 +372,10 @@ class IdentificationTasksApi:
         decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -422,13 +422,13 @@ class IdentificationTasksApi:
         :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param type:
         :type type: str
@@ -522,10 +522,10 @@ class IdentificationTasksApi:
         decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -572,13 +572,13 @@ class IdentificationTasksApi:
         :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param type:
         :type type: str
@@ -672,10 +672,10 @@ class IdentificationTasksApi:
         decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -722,13 +722,13 @@ class IdentificationTasksApi:
         :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param type:
         :type type: str
@@ -1023,10 +1023,10 @@ class IdentificationTasksApi:
         decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -1072,13 +1072,13 @@ class IdentificationTasksApi:
         :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param type:
         :type type: str
@@ -1170,10 +1170,10 @@ class IdentificationTasksApi:
         decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -1219,13 +1219,13 @@ class IdentificationTasksApi:
         :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param type:
         :type type: str
@@ -1317,10 +1317,10 @@ class IdentificationTasksApi:
         decision_level: Optional[List[StrictStr]] = None,
         is_favourite: Optional[StrictBool] = None,
         is_flagged: Optional[StrictBool] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         type: Optional[StrictStr] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Updated at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Updated at")] = None,
@@ -1366,13 +1366,13 @@ class IdentificationTasksApi:
         :type is_favourite: bool
         :param is_flagged:
         :type is_flagged: bool
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param type:
         :type type: str
@@ -1651,7 +1651,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este expert report annotation.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         _request_timeout: Union[
             None,
@@ -1669,7 +1669,7 @@ class IdentificationTasksApi:
         """annotations_retrieve
 
 
-        :param id: Un valor de entero único que identifique este expert report annotation. (required)
+        :param id: A unique integer value identifying this expert report annotation. (required)
         :type id: int
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
@@ -1724,7 +1724,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_retrieve_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este expert report annotation.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         _request_timeout: Union[
             None,
@@ -1742,7 +1742,7 @@ class IdentificationTasksApi:
         """annotations_retrieve
 
 
-        :param id: Un valor de entero único que identifique este expert report annotation. (required)
+        :param id: A unique integer value identifying this expert report annotation. (required)
         :type id: int
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
@@ -1797,7 +1797,7 @@ class IdentificationTasksApi:
     @validate_call
     def annotations_retrieve_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="Un valor de entero único que identifique este expert report annotation.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this expert report annotation.")],
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
         _request_timeout: Union[
             None,
@@ -1815,7 +1815,7 @@ class IdentificationTasksApi:
         """annotations_retrieve
 
 
-        :param id: Un valor de entero único que identifique este expert report annotation. (required)
+        :param id: A unique integer value identifying this expert report annotation. (required)
         :type id: int
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
@@ -2205,9 +2205,9 @@ class IdentificationTasksApi:
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
         observation_country_ids: Optional[List[StrictInt]] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_characteristics_is_blood_fed: Optional[StrictBool] = None,
@@ -2220,7 +2220,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2260,11 +2260,11 @@ class IdentificationTasksApi:
         :type num_annotations_min: int
         :param observation_country_ids:
         :type observation_country_ids: List[int]
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param result_agreement_max:
         :type result_agreement_max: float
@@ -2290,7 +2290,7 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param status:
         :type status: List[str]
@@ -2387,9 +2387,9 @@ class IdentificationTasksApi:
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
         observation_country_ids: Optional[List[StrictInt]] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_characteristics_is_blood_fed: Optional[StrictBool] = None,
@@ -2402,7 +2402,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2442,11 +2442,11 @@ class IdentificationTasksApi:
         :type num_annotations_min: int
         :param observation_country_ids:
         :type observation_country_ids: List[int]
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param result_agreement_max:
         :type result_agreement_max: float
@@ -2472,7 +2472,7 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param status:
         :type status: List[str]
@@ -2569,9 +2569,9 @@ class IdentificationTasksApi:
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
         observation_country_ids: Optional[List[StrictInt]] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_characteristics_is_blood_fed: Optional[StrictBool] = None,
@@ -2584,7 +2584,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -2624,11 +2624,11 @@ class IdentificationTasksApi:
         :type num_annotations_min: int
         :param observation_country_ids:
         :type observation_country_ids: List[int]
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param result_agreement_max:
         :type result_agreement_max: float
@@ -2654,7 +2654,7 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param status:
         :type status: List[str]
@@ -2998,9 +2998,9 @@ class IdentificationTasksApi:
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
         observation_country_ids: Optional[List[StrictInt]] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_characteristics_is_blood_fed: Optional[StrictBool] = None,
@@ -3013,7 +3013,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -3054,11 +3054,11 @@ class IdentificationTasksApi:
         :type num_annotations_min: int
         :param observation_country_ids:
         :type observation_country_ids: List[int]
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param result_agreement_max:
         :type result_agreement_max: float
@@ -3084,7 +3084,7 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param status:
         :type status: List[str]
@@ -3181,9 +3181,9 @@ class IdentificationTasksApi:
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
         observation_country_ids: Optional[List[StrictInt]] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_characteristics_is_blood_fed: Optional[StrictBool] = None,
@@ -3196,7 +3196,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -3237,11 +3237,11 @@ class IdentificationTasksApi:
         :type num_annotations_min: int
         :param observation_country_ids:
         :type observation_country_ids: List[int]
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param result_agreement_max:
         :type result_agreement_max: float
@@ -3267,7 +3267,7 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param status:
         :type status: List[str]
@@ -3364,9 +3364,9 @@ class IdentificationTasksApi:
         num_annotations_max: Optional[StrictInt] = None,
         num_annotations_min: Optional[StrictInt] = None,
         observation_country_ids: Optional[List[StrictInt]] = None,
-        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordenamiento  ")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        order_by: Annotated[Optional[List[StrictStr]], Field(description="Ordering  ")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         result_agreement_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_agreement_min: Optional[Union[StrictFloat, StrictInt]] = None,
         result_characteristics_is_blood_fed: Optional[StrictBool] = None,
@@ -3379,7 +3379,7 @@ class IdentificationTasksApi:
         result_uncertainty_max: Optional[Union[StrictFloat, StrictInt]] = None,
         result_uncertainty_min: Optional[Union[StrictFloat, StrictInt]] = None,
         review_action: Optional[StrictStr] = None,
-        search: Annotated[Optional[StrictStr], Field(description="Un término de búsqueda.")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
         status: Optional[List[StrictStr]] = None,
         updated_at_after: Annotated[Optional[datetime], Field(description="Update at")] = None,
         updated_at_before: Annotated[Optional[datetime], Field(description="Update at")] = None,
@@ -3420,11 +3420,11 @@ class IdentificationTasksApi:
         :type num_annotations_min: int
         :param observation_country_ids:
         :type observation_country_ids: List[int]
-        :param order_by: Ordenamiento  
+        :param order_by: Ordering  
         :type order_by: List[str]
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param result_agreement_max:
         :type result_agreement_max: float
@@ -3450,7 +3450,7 @@ class IdentificationTasksApi:
         :type result_uncertainty_min: float
         :param review_action:
         :type review_action: str
-        :param search: Un término de búsqueda.
+        :param search: A search term.
         :type search: str
         :param status:
         :type status: List[str]
@@ -4371,8 +4371,8 @@ class IdentificationTasksApi:
     def predictions_list(
         self,
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4391,9 +4391,9 @@ class IdentificationTasksApi:
 
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4448,8 +4448,8 @@ class IdentificationTasksApi:
     def predictions_list_with_http_info(
         self,
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4468,9 +4468,9 @@ class IdentificationTasksApi:
 
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4525,8 +4525,8 @@ class IdentificationTasksApi:
     def predictions_list_without_preload_content(
         self,
         observation_uuid: Annotated[UUID, Field(description="UUID of the Observation")],
-        page: Annotated[Optional[StrictInt], Field(description="Un número de página dentro del conjunto de resultados paginado.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Número de resultados a devolver por página.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4545,9 +4545,9 @@ class IdentificationTasksApi:
 
         :param observation_uuid: UUID of the Observation (required)
         :type observation_uuid: UUID
-        :param page: Un número de página dentro del conjunto de resultados paginado.
+        :param page: A page number within the paginated result set.
         :type page: int
-        :param page_size: Número de resultados a devolver por página.
+        :param page_size: Number of results to return per page.
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

@@ -264,13 +264,13 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     identification_taxon_ids = ['identification_taxon_ids_example'] # List[str] |  (optional)
     identification_taxon_ids_lookup = 'identification_taxon_ids_lookup_example' # str |  (optional)
     negate_identification_taxon_ids = True # bool | Negate identification_taxon_ids filter (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
     point = [[0,10]] # List[float] | Point represented in **x,y** format. Represents **point** in **Distance to point filter** (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
-    tags = ['tags_example'] # List[str] | Múltiples valores separados por comas. (optional)
+    tags = ['tags_example'] # List[str] | Multiple values may be separated by commas. (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
@@ -300,13 +300,13 @@ Name | Type | Description  | Notes
  **identification_taxon_ids** | [**List[str]**](str.md)|  | [optional] 
  **identification_taxon_ids_lookup** | **str**|  | [optional] 
  **negate_identification_taxon_ids** | **bool**| Negate identification_taxon_ids filter | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
  **point** | [**List[float]**](float.md)| Point represented in **x,y** format. Represents **point** in **Distance to point filter** | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
- **tags** | [**List[str]**](str.md)| Múltiples valores separados por comas. | [optional] 
+ **tags** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
  **user_uuid** | **UUID**|  | [optional] 
@@ -393,15 +393,15 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     identification_taxon_ids = ['identification_taxon_ids_example'] # List[str] |  (optional)
     identification_taxon_ids_lookup = 'identification_taxon_ids_lookup_example' # str |  (optional)
     negate_identification_taxon_ids = True # bool | Negate identification_taxon_ids filter (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
     point = [[0,10]] # List[float] | Point represented in **x,y** format. Represents **point** in **Distance to point filter** (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
-    tags = ['tags_example'] # List[str] | Múltiples valores separados por comas. (optional)
+    tags = ['tags_example'] # List[str] | Multiple values may be separated by commas. (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
@@ -432,15 +432,15 @@ Name | Type | Description  | Notes
  **identification_taxon_ids** | [**List[str]**](str.md)|  | [optional] 
  **identification_taxon_ids_lookup** | **str**|  | [optional] 
  **negate_identification_taxon_ids** | **bool**| Negate identification_taxon_ids filter | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
  **point** | [**List[float]**](float.md)| Point represented in **x,y** format. Represents **point** in **Distance to point filter** | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
- **tags** | [**List[str]**](str.md)| Múltiples valores separados por comas. | [optional] 
+ **tags** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
  **user_uuid** | **UUID**|  | [optional] 
@@ -529,15 +529,15 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     identification_taxon_ids = ['identification_taxon_ids_example'] # List[str] |  (optional)
     identification_taxon_ids_lookup = 'identification_taxon_ids_lookup_example' # str |  (optional)
     negate_identification_taxon_ids = True # bool | Negate identification_taxon_ids filter (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
     point = [[0,10]] # List[float] | Point represented in **x,y** format. Represents **point** in **Distance to point filter** (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
-    tags = ['tags_example'] # List[str] | Múltiples valores separados por comas. (optional)
+    tags = ['tags_example'] # List[str] | Multiple values may be separated by commas. (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
@@ -568,15 +568,15 @@ Name | Type | Description  | Notes
  **identification_taxon_ids** | [**List[str]**](str.md)|  | [optional] 
  **identification_taxon_ids_lookup** | **str**|  | [optional] 
  **negate_identification_taxon_ids** | **bool**| Negate identification_taxon_ids filter | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
  **point** | [**List[float]**](float.md)| Point represented in **x,y** format. Represents **point** in **Distance to point filter** | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
- **tags** | [**List[str]**](str.md)| Múltiples valores separados por comas. | [optional] 
+ **tags** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
  **user_uuid** | **UUID**|  | [optional] 

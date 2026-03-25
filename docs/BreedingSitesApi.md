@@ -268,14 +268,14 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     has_near_mosquitoes = True # bool |  (optional)
     has_photos = True # bool | Has any photo (optional)
     has_water = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
     point = [[0,10]] # List[float] | Point represented in **x,y** format. Represents **point** in **Distance to point filter** (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
     site_type = ['site_type_example'] # List[Optional[str]] | Breeding site type.   (optional)
-    tags = ['tags_example'] # List[str] | Múltiples valores separados por comas. (optional)
+    tags = ['tags_example'] # List[str] | Multiple values may be separated by commas. (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
@@ -305,14 +305,14 @@ Name | Type | Description  | Notes
  **has_near_mosquitoes** | **bool**|  | [optional] 
  **has_photos** | **bool**| Has any photo | [optional] 
  **has_water** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
  **point** | [**List[float]**](float.md)| Point represented in **x,y** format. Represents **point** in **Distance to point filter** | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
  **site_type** | [**List[Optional[str]]**](str.md)| Breeding site type.   | [optional] 
- **tags** | [**List[str]**](str.md)| Múltiples valores separados por comas. | [optional] 
+ **tags** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
  **user_uuid** | **UUID**|  | [optional] 
@@ -399,16 +399,16 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     has_near_mosquitoes = True # bool |  (optional)
     has_photos = True # bool | Has any photo (optional)
     has_water = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
     point = [[0,10]] # List[float] | Point represented in **x,y** format. Represents **point** in **Distance to point filter** (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
     site_type = ['site_type_example'] # List[Optional[str]] | Breeding site type.   (optional)
-    tags = ['tags_example'] # List[str] | Múltiples valores separados por comas. (optional)
+    tags = ['tags_example'] # List[str] | Multiple values may be separated by commas. (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
@@ -439,16 +439,16 @@ Name | Type | Description  | Notes
  **has_near_mosquitoes** | **bool**|  | [optional] 
  **has_photos** | **bool**| Has any photo | [optional] 
  **has_water** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
  **point** | [**List[float]**](float.md)| Point represented in **x,y** format. Represents **point** in **Distance to point filter** | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
  **site_type** | [**List[Optional[str]]**](str.md)| Breeding site type.   | [optional] 
- **tags** | [**List[str]**](str.md)| Múltiples valores separados por comas. | [optional] 
+ **tags** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
  **user_uuid** | **UUID**|  | [optional] 
@@ -537,16 +537,16 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     has_near_mosquitoes = True # bool |  (optional)
     has_photos = True # bool | Has any photo (optional)
     has_water = True # bool |  (optional)
-    order_by = ['order_by_example'] # List[str] | Ordenamiento   (optional)
-    page = 56 # int | Un número de página dentro del conjunto de resultados paginado. (optional)
-    page_size = 56 # int | Número de resultados a devolver por página. (optional)
+    order_by = ['order_by_example'] # List[str] | Ordering   (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
     point = [[0,10]] # List[float] | Point represented in **x,y** format. Represents **point** in **Distance to point filter** (optional)
     received_at_after = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
     received_at_before = '2013-10-20T19:20:30+01:00' # datetime | Received at (optional)
-    search = 'search_example' # str | Un término de búsqueda. (optional)
+    search = 'search_example' # str | A search term. (optional)
     short_id = 'short_id_example' # str | Short ID (optional)
     site_type = ['site_type_example'] # List[Optional[str]] | Breeding site type.   (optional)
-    tags = ['tags_example'] # List[str] | Múltiples valores separados por comas. (optional)
+    tags = ['tags_example'] # List[str] | Multiple values may be separated by commas. (optional)
     updated_at_after = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     updated_at_before = '2013-10-20T19:20:30+01:00' # datetime | Update at (optional)
     user_uuid = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |  (optional)
@@ -577,16 +577,16 @@ Name | Type | Description  | Notes
  **has_near_mosquitoes** | **bool**|  | [optional] 
  **has_photos** | **bool**| Has any photo | [optional] 
  **has_water** | **bool**|  | [optional] 
- **order_by** | [**List[str]**](str.md)| Ordenamiento   | [optional] 
- **page** | **int**| Un número de página dentro del conjunto de resultados paginado. | [optional] 
- **page_size** | **int**| Número de resultados a devolver por página. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Ordering   | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
  **point** | [**List[float]**](float.md)| Point represented in **x,y** format. Represents **point** in **Distance to point filter** | [optional] 
  **received_at_after** | **datetime**| Received at | [optional] 
  **received_at_before** | **datetime**| Received at | [optional] 
- **search** | **str**| Un término de búsqueda. | [optional] 
+ **search** | **str**| A search term. | [optional] 
  **short_id** | **str**| Short ID | [optional] 
  **site_type** | [**List[Optional[str]]**](str.md)| Breeding site type.   | [optional] 
- **tags** | [**List[str]**](str.md)| Múltiples valores separados por comas. | [optional] 
+ **tags** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **updated_at_after** | **datetime**| Update at | [optional] 
  **updated_at_before** | **datetime**| Update at | [optional] 
  **user_uuid** | **UUID**|  | [optional] 
