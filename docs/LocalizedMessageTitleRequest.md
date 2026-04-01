@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ca** | **str** | Català | [optional] 
 **de** | **str** | Deutsch | [optional] 
 **el** | **str** | Ελληνικά | [optional] 
-**en** | **str** | English | 
+**en** | **str** | English | [optional] 
 **es** | **str** | Español | [optional] 
 **eu** | **str** | Euskara | [optional] 
 **fr** | **str** | Français | [optional] 

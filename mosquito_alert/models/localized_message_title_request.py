@@ -33,7 +33,7 @@ class LocalizedMessageTitleRequest(BaseModel):
     ca: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="Català")
     de: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="Deutsch")
     el: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="Ελληνικά")
-    en: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="English")
+    en: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="English")
     es: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="Español")
     eu: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="Euskara")
     fr: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="Français")

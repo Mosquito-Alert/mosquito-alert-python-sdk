@@ -63,7 +63,6 @@ class TestLocalizedMessageTitleRequest(unittest.TestCase):
             )
         else:
             return LocalizedMessageTitleRequest(
-                en = '0',
         )
         """
 

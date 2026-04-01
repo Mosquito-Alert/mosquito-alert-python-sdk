@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **annotation** | [**AnnotationPermission**](AnnotationPermission.md) |  | 
 **identification_task** | [**IdentificationTaskPermission**](IdentificationTaskPermission.md) |  | 
 **review** | [**ReviewPermission**](ReviewPermission.md) |  | 
+**message** | [**MessagePermission**](MessagePermission.md) |  | 
 
 ## Example
 

@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"
 
 # Define package exports
 __all__ = [
@@ -28,6 +28,7 @@ __all__ = [
     "DevicesApi",
     "FixesApi",
     "IdentificationTasksApi",
+    "MessagesApi",
     "NotificationsApi",
     "ObservationsApi",
     "PartnersApi",
@@ -222,12 +223,14 @@ __all__ = [
     "CountryPermission",
     "CountryRequest",
     "CreateAgreeReviewRequest",
-    "CreateNotification",
-    "CreateNotificationMessage",
-    "CreateNotificationMessageRequest",
     "CreateOverwriteReviewRequest",
     "CreatePhotoPrediction",
     "CreatePhotoPredictionRequest",
+    "CreateTopicMessage",
+    "CreateTopicMessageContentRequest",
+    "CreateTopicMessageRequest",
+    "CreateUserMessage",
+    "CreateUserMessageRequest",
     "Device",
     "DeviceOs",
     "DeviceOsRequest",
@@ -470,10 +473,35 @@ __all__ = [
     "LocalizedMessageBodyRequest",
     "LocalizedMessageTitle",
     "LocalizedMessageTitleRequest",
+    "LocalizedTopicMessageBodyRequest",
+    "LocalizedTopicMessageTitleRequest",
     "Location",
     "LocationRequest",
+    "Message",
+    "MessageContent",
+    "MessageContentRequest",
+    "MessagePermission",
+    "MessageRecipient",
+    "MessageTopic",
+    "MessagesCreateContentErrorComponent",
+    "MessagesCreateError",
+    "MessagesCreateNonFieldErrorsErrorComponent",
+    "MessagesCreateUserUuidsErrorComponent",
+    "MessagesCreateUserUuidsINDEXErrorComponent",
+    "MessagesCreateValidationError",
+    "MessagesListError",
+    "MessagesListMineSentError",
+    "MessagesListMineSentOrderByErrorComponent",
+    "MessagesListMineSentRecipientUuidsErrorComponent",
+    "MessagesListMineSentValidationError",
+    "MessagesListOrderByErrorComponent",
+    "MessagesListRecipientUuidsErrorComponent",
+    "MessagesListValidationError",
+    "MessagesTopicsSendContentErrorComponent",
+    "MessagesTopicsSendError",
+    "MessagesTopicsSendNonFieldErrorsErrorComponent",
+    "MessagesTopicsSendValidationError",
     "MetaCreateIdentificationTaskReviewRequest",
-    "MetaNotificationRequest",
     "MinimalUser",
     "MobileApp",
     "MobileAppRequest",
@@ -482,65 +510,6 @@ __all__ = [
     "Notification",
     "NotificationMessage",
     "NotificationRequest",
-    "NotificationsCreateError",
-    "NotificationsCreateMessageBodyBgErrorComponent",
-    "NotificationsCreateMessageBodyBnErrorComponent",
-    "NotificationsCreateMessageBodyCaErrorComponent",
-    "NotificationsCreateMessageBodyDeErrorComponent",
-    "NotificationsCreateMessageBodyElErrorComponent",
-    "NotificationsCreateMessageBodyEnErrorComponent",
-    "NotificationsCreateMessageBodyEsErrorComponent",
-    "NotificationsCreateMessageBodyEuErrorComponent",
-    "NotificationsCreateMessageBodyFrErrorComponent",
-    "NotificationsCreateMessageBodyGlErrorComponent",
-    "NotificationsCreateMessageBodyHrErrorComponent",
-    "NotificationsCreateMessageBodyHuErrorComponent",
-    "NotificationsCreateMessageBodyItErrorComponent",
-    "NotificationsCreateMessageBodyLbErrorComponent",
-    "NotificationsCreateMessageBodyMkErrorComponent",
-    "NotificationsCreateMessageBodyNlErrorComponent",
-    "NotificationsCreateMessageBodyNonFieldErrorsErrorComponent",
-    "NotificationsCreateMessageBodyPtErrorComponent",
-    "NotificationsCreateMessageBodyRoErrorComponent",
-    "NotificationsCreateMessageBodySlErrorComponent",
-    "NotificationsCreateMessageBodySqErrorComponent",
-    "NotificationsCreateMessageBodySrErrorComponent",
-    "NotificationsCreateMessageBodySvErrorComponent",
-    "NotificationsCreateMessageBodyTrErrorComponent",
-    "NotificationsCreateMessageBodyZhCNErrorComponent",
-    "NotificationsCreateMessageNonFieldErrorsErrorComponent",
-    "NotificationsCreateMessageTitleBgErrorComponent",
-    "NotificationsCreateMessageTitleBnErrorComponent",
-    "NotificationsCreateMessageTitleCaErrorComponent",
-    "NotificationsCreateMessageTitleDeErrorComponent",
-    "NotificationsCreateMessageTitleElErrorComponent",
-    "NotificationsCreateMessageTitleEnErrorComponent",
-    "NotificationsCreateMessageTitleEsErrorComponent",
-    "NotificationsCreateMessageTitleEuErrorComponent",
-    "NotificationsCreateMessageTitleFrErrorComponent",
-    "NotificationsCreateMessageTitleGlErrorComponent",
-    "NotificationsCreateMessageTitleHrErrorComponent",
-    "NotificationsCreateMessageTitleHuErrorComponent",
-    "NotificationsCreateMessageTitleItErrorComponent",
-    "NotificationsCreateMessageTitleLbErrorComponent",
-    "NotificationsCreateMessageTitleMkErrorComponent",
-    "NotificationsCreateMessageTitleNlErrorComponent",
-    "NotificationsCreateMessageTitleNonFieldErrorsErrorComponent",
-    "NotificationsCreateMessageTitlePtErrorComponent",
-    "NotificationsCreateMessageTitleRoErrorComponent",
-    "NotificationsCreateMessageTitleSlErrorComponent",
-    "NotificationsCreateMessageTitleSqErrorComponent",
-    "NotificationsCreateMessageTitleSrErrorComponent",
-    "NotificationsCreateMessageTitleSvErrorComponent",
-    "NotificationsCreateMessageTitleTrErrorComponent",
-    "NotificationsCreateMessageTitleZhCNErrorComponent",
-    "NotificationsCreateNonFieldErrorsErrorComponent",
-    "NotificationsCreateReceiverTypeErrorComponent",
-    "NotificationsCreateTopicCodesErrorComponent",
-    "NotificationsCreateTopicCodesINDEXErrorComponent",
-    "NotificationsCreateUserUuidsErrorComponent",
-    "NotificationsCreateUserUuidsINDEXErrorComponent",
-    "NotificationsCreateValidationError",
     "NotificationsListMineOrderByErrorComponent",
     "NotificationsListMineValidationError",
     "NotificationsListOrderByErrorComponent",
@@ -629,11 +598,14 @@ __all__ = [
     "PaginatedCampaignList",
     "PaginatedCountryList",
     "PaginatedIdentificationTaskList",
+    "PaginatedMessageList",
+    "PaginatedMessageTopicList",
     "PaginatedNotificationList",
     "PaginatedObservationList",
     "PaginatedPartnerList",
     "PaginatedPhotoPredictionList",
     "PaginatedTaxonList",
+    "PaginatedUserList",
     "Partner",
     "PartnerPoint",
     "PasswordChangeRequest",
@@ -700,6 +672,7 @@ __all__ = [
     "SimplePhoto",
     "SimpleTaxon",
     "SimpleTaxonRequest",
+    "SimpleUser",
     "SimplifiedLocation",
     "SimplifiedObservationWithPhotos",
     "SpeciesCharacteristics",
@@ -715,10 +688,8 @@ __all__ = [
     "TokenRefresh",
     "TokenRefreshRequest",
     "TokenVerifyRequest",
-    "TopicNotificationCreateRequest",
     "User",
     "UserAssignment",
-    "UserNotificationCreateRequest",
     "UserPermission",
     "UserRequest",
     "UserScore",
@@ -742,6 +713,7 @@ from mosquito_alert.api.countries_api import CountriesApi as CountriesApi
 from mosquito_alert.api.devices_api import DevicesApi as DevicesApi
 from mosquito_alert.api.fixes_api import FixesApi as FixesApi
 from mosquito_alert.api.identification_tasks_api import IdentificationTasksApi as IdentificationTasksApi
+from mosquito_alert.api.messages_api import MessagesApi as MessagesApi
 from mosquito_alert.api.notifications_api import NotificationsApi as NotificationsApi
 from mosquito_alert.api.observations_api import ObservationsApi as ObservationsApi
 from mosquito_alert.api.partners_api import PartnersApi as PartnersApi
@@ -940,12 +912,14 @@ from mosquito_alert.models.country import Country as Country
 from mosquito_alert.models.country_permission import CountryPermission as CountryPermission
 from mosquito_alert.models.country_request import CountryRequest as CountryRequest
 from mosquito_alert.models.create_agree_review_request import CreateAgreeReviewRequest as CreateAgreeReviewRequest
-from mosquito_alert.models.create_notification import CreateNotification as CreateNotification
-from mosquito_alert.models.create_notification_message import CreateNotificationMessage as CreateNotificationMessage
-from mosquito_alert.models.create_notification_message_request import CreateNotificationMessageRequest as CreateNotificationMessageRequest
 from mosquito_alert.models.create_overwrite_review_request import CreateOverwriteReviewRequest as CreateOverwriteReviewRequest
 from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction as CreatePhotoPrediction
 from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest as CreatePhotoPredictionRequest
+from mosquito_alert.models.create_topic_message import CreateTopicMessage as CreateTopicMessage
+from mosquito_alert.models.create_topic_message_content_request import CreateTopicMessageContentRequest as CreateTopicMessageContentRequest
+from mosquito_alert.models.create_topic_message_request import CreateTopicMessageRequest as CreateTopicMessageRequest
+from mosquito_alert.models.create_user_message import CreateUserMessage as CreateUserMessage
+from mosquito_alert.models.create_user_message_request import CreateUserMessageRequest as CreateUserMessageRequest
 from mosquito_alert.models.device import Device as Device
 from mosquito_alert.models.device_os import DeviceOs as DeviceOs
 from mosquito_alert.models.device_os_request import DeviceOsRequest as DeviceOsRequest
@@ -1188,10 +1162,35 @@ from mosquito_alert.models.localized_message_body import LocalizedMessageBody as
 from mosquito_alert.models.localized_message_body_request import LocalizedMessageBodyRequest as LocalizedMessageBodyRequest
 from mosquito_alert.models.localized_message_title import LocalizedMessageTitle as LocalizedMessageTitle
 from mosquito_alert.models.localized_message_title_request import LocalizedMessageTitleRequest as LocalizedMessageTitleRequest
+from mosquito_alert.models.localized_topic_message_body_request import LocalizedTopicMessageBodyRequest as LocalizedTopicMessageBodyRequest
+from mosquito_alert.models.localized_topic_message_title_request import LocalizedTopicMessageTitleRequest as LocalizedTopicMessageTitleRequest
 from mosquito_alert.models.location import Location as Location
 from mosquito_alert.models.location_request import LocationRequest as LocationRequest
+from mosquito_alert.models.message import Message as Message
+from mosquito_alert.models.message_content import MessageContent as MessageContent
+from mosquito_alert.models.message_content_request import MessageContentRequest as MessageContentRequest
+from mosquito_alert.models.message_permission import MessagePermission as MessagePermission
+from mosquito_alert.models.message_recipient import MessageRecipient as MessageRecipient
+from mosquito_alert.models.message_topic import MessageTopic as MessageTopic
+from mosquito_alert.models.messages_create_content_error_component import MessagesCreateContentErrorComponent as MessagesCreateContentErrorComponent
+from mosquito_alert.models.messages_create_error import MessagesCreateError as MessagesCreateError
+from mosquito_alert.models.messages_create_non_field_errors_error_component import MessagesCreateNonFieldErrorsErrorComponent as MessagesCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.messages_create_user_uuids_error_component import MessagesCreateUserUuidsErrorComponent as MessagesCreateUserUuidsErrorComponent
+from mosquito_alert.models.messages_create_user_uuids_index_error_component import MessagesCreateUserUuidsINDEXErrorComponent as MessagesCreateUserUuidsINDEXErrorComponent
+from mosquito_alert.models.messages_create_validation_error import MessagesCreateValidationError as MessagesCreateValidationError
+from mosquito_alert.models.messages_list_error import MessagesListError as MessagesListError
+from mosquito_alert.models.messages_list_mine_sent_error import MessagesListMineSentError as MessagesListMineSentError
+from mosquito_alert.models.messages_list_mine_sent_order_by_error_component import MessagesListMineSentOrderByErrorComponent as MessagesListMineSentOrderByErrorComponent
+from mosquito_alert.models.messages_list_mine_sent_recipient_uuids_error_component import MessagesListMineSentRecipientUuidsErrorComponent as MessagesListMineSentRecipientUuidsErrorComponent
+from mosquito_alert.models.messages_list_mine_sent_validation_error import MessagesListMineSentValidationError as MessagesListMineSentValidationError
+from mosquito_alert.models.messages_list_order_by_error_component import MessagesListOrderByErrorComponent as MessagesListOrderByErrorComponent
+from mosquito_alert.models.messages_list_recipient_uuids_error_component import MessagesListRecipientUuidsErrorComponent as MessagesListRecipientUuidsErrorComponent
+from mosquito_alert.models.messages_list_validation_error import MessagesListValidationError as MessagesListValidationError
+from mosquito_alert.models.messages_topics_send_content_error_component import MessagesTopicsSendContentErrorComponent as MessagesTopicsSendContentErrorComponent
+from mosquito_alert.models.messages_topics_send_error import MessagesTopicsSendError as MessagesTopicsSendError
+from mosquito_alert.models.messages_topics_send_non_field_errors_error_component import MessagesTopicsSendNonFieldErrorsErrorComponent as MessagesTopicsSendNonFieldErrorsErrorComponent
+from mosquito_alert.models.messages_topics_send_validation_error import MessagesTopicsSendValidationError as MessagesTopicsSendValidationError
 from mosquito_alert.models.meta_create_identification_task_review_request import MetaCreateIdentificationTaskReviewRequest as MetaCreateIdentificationTaskReviewRequest
-from mosquito_alert.models.meta_notification_request import MetaNotificationRequest as MetaNotificationRequest
 from mosquito_alert.models.minimal_user import MinimalUser as MinimalUser
 from mosquito_alert.models.mobile_app import MobileApp as MobileApp
 from mosquito_alert.models.mobile_app_request import MobileAppRequest as MobileAppRequest
@@ -1200,65 +1199,6 @@ from mosquito_alert.models.mosquito_appearance_request import MosquitoAppearance
 from mosquito_alert.models.notification import Notification as Notification
 from mosquito_alert.models.notification_message import NotificationMessage as NotificationMessage
 from mosquito_alert.models.notification_request import NotificationRequest as NotificationRequest
-from mosquito_alert.models.notifications_create_error import NotificationsCreateError as NotificationsCreateError
-from mosquito_alert.models.notifications_create_message_body_bg_error_component import NotificationsCreateMessageBodyBgErrorComponent as NotificationsCreateMessageBodyBgErrorComponent
-from mosquito_alert.models.notifications_create_message_body_bn_error_component import NotificationsCreateMessageBodyBnErrorComponent as NotificationsCreateMessageBodyBnErrorComponent
-from mosquito_alert.models.notifications_create_message_body_ca_error_component import NotificationsCreateMessageBodyCaErrorComponent as NotificationsCreateMessageBodyCaErrorComponent
-from mosquito_alert.models.notifications_create_message_body_de_error_component import NotificationsCreateMessageBodyDeErrorComponent as NotificationsCreateMessageBodyDeErrorComponent
-from mosquito_alert.models.notifications_create_message_body_el_error_component import NotificationsCreateMessageBodyElErrorComponent as NotificationsCreateMessageBodyElErrorComponent
-from mosquito_alert.models.notifications_create_message_body_en_error_component import NotificationsCreateMessageBodyEnErrorComponent as NotificationsCreateMessageBodyEnErrorComponent
-from mosquito_alert.models.notifications_create_message_body_es_error_component import NotificationsCreateMessageBodyEsErrorComponent as NotificationsCreateMessageBodyEsErrorComponent
-from mosquito_alert.models.notifications_create_message_body_eu_error_component import NotificationsCreateMessageBodyEuErrorComponent as NotificationsCreateMessageBodyEuErrorComponent
-from mosquito_alert.models.notifications_create_message_body_fr_error_component import NotificationsCreateMessageBodyFrErrorComponent as NotificationsCreateMessageBodyFrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_gl_error_component import NotificationsCreateMessageBodyGlErrorComponent as NotificationsCreateMessageBodyGlErrorComponent
-from mosquito_alert.models.notifications_create_message_body_hr_error_component import NotificationsCreateMessageBodyHrErrorComponent as NotificationsCreateMessageBodyHrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_hu_error_component import NotificationsCreateMessageBodyHuErrorComponent as NotificationsCreateMessageBodyHuErrorComponent
-from mosquito_alert.models.notifications_create_message_body_it_error_component import NotificationsCreateMessageBodyItErrorComponent as NotificationsCreateMessageBodyItErrorComponent
-from mosquito_alert.models.notifications_create_message_body_lb_error_component import NotificationsCreateMessageBodyLbErrorComponent as NotificationsCreateMessageBodyLbErrorComponent
-from mosquito_alert.models.notifications_create_message_body_mk_error_component import NotificationsCreateMessageBodyMkErrorComponent as NotificationsCreateMessageBodyMkErrorComponent
-from mosquito_alert.models.notifications_create_message_body_nl_error_component import NotificationsCreateMessageBodyNlErrorComponent as NotificationsCreateMessageBodyNlErrorComponent
-from mosquito_alert.models.notifications_create_message_body_non_field_errors_error_component import NotificationsCreateMessageBodyNonFieldErrorsErrorComponent as NotificationsCreateMessageBodyNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_message_body_pt_error_component import NotificationsCreateMessageBodyPtErrorComponent as NotificationsCreateMessageBodyPtErrorComponent
-from mosquito_alert.models.notifications_create_message_body_ro_error_component import NotificationsCreateMessageBodyRoErrorComponent as NotificationsCreateMessageBodyRoErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sl_error_component import NotificationsCreateMessageBodySlErrorComponent as NotificationsCreateMessageBodySlErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sq_error_component import NotificationsCreateMessageBodySqErrorComponent as NotificationsCreateMessageBodySqErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sr_error_component import NotificationsCreateMessageBodySrErrorComponent as NotificationsCreateMessageBodySrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_sv_error_component import NotificationsCreateMessageBodySvErrorComponent as NotificationsCreateMessageBodySvErrorComponent
-from mosquito_alert.models.notifications_create_message_body_tr_error_component import NotificationsCreateMessageBodyTrErrorComponent as NotificationsCreateMessageBodyTrErrorComponent
-from mosquito_alert.models.notifications_create_message_body_zh_cn_error_component import NotificationsCreateMessageBodyZhCNErrorComponent as NotificationsCreateMessageBodyZhCNErrorComponent
-from mosquito_alert.models.notifications_create_message_non_field_errors_error_component import NotificationsCreateMessageNonFieldErrorsErrorComponent as NotificationsCreateMessageNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_message_title_bg_error_component import NotificationsCreateMessageTitleBgErrorComponent as NotificationsCreateMessageTitleBgErrorComponent
-from mosquito_alert.models.notifications_create_message_title_bn_error_component import NotificationsCreateMessageTitleBnErrorComponent as NotificationsCreateMessageTitleBnErrorComponent
-from mosquito_alert.models.notifications_create_message_title_ca_error_component import NotificationsCreateMessageTitleCaErrorComponent as NotificationsCreateMessageTitleCaErrorComponent
-from mosquito_alert.models.notifications_create_message_title_de_error_component import NotificationsCreateMessageTitleDeErrorComponent as NotificationsCreateMessageTitleDeErrorComponent
-from mosquito_alert.models.notifications_create_message_title_el_error_component import NotificationsCreateMessageTitleElErrorComponent as NotificationsCreateMessageTitleElErrorComponent
-from mosquito_alert.models.notifications_create_message_title_en_error_component import NotificationsCreateMessageTitleEnErrorComponent as NotificationsCreateMessageTitleEnErrorComponent
-from mosquito_alert.models.notifications_create_message_title_es_error_component import NotificationsCreateMessageTitleEsErrorComponent as NotificationsCreateMessageTitleEsErrorComponent
-from mosquito_alert.models.notifications_create_message_title_eu_error_component import NotificationsCreateMessageTitleEuErrorComponent as NotificationsCreateMessageTitleEuErrorComponent
-from mosquito_alert.models.notifications_create_message_title_fr_error_component import NotificationsCreateMessageTitleFrErrorComponent as NotificationsCreateMessageTitleFrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_gl_error_component import NotificationsCreateMessageTitleGlErrorComponent as NotificationsCreateMessageTitleGlErrorComponent
-from mosquito_alert.models.notifications_create_message_title_hr_error_component import NotificationsCreateMessageTitleHrErrorComponent as NotificationsCreateMessageTitleHrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_hu_error_component import NotificationsCreateMessageTitleHuErrorComponent as NotificationsCreateMessageTitleHuErrorComponent
-from mosquito_alert.models.notifications_create_message_title_it_error_component import NotificationsCreateMessageTitleItErrorComponent as NotificationsCreateMessageTitleItErrorComponent
-from mosquito_alert.models.notifications_create_message_title_lb_error_component import NotificationsCreateMessageTitleLbErrorComponent as NotificationsCreateMessageTitleLbErrorComponent
-from mosquito_alert.models.notifications_create_message_title_mk_error_component import NotificationsCreateMessageTitleMkErrorComponent as NotificationsCreateMessageTitleMkErrorComponent
-from mosquito_alert.models.notifications_create_message_title_nl_error_component import NotificationsCreateMessageTitleNlErrorComponent as NotificationsCreateMessageTitleNlErrorComponent
-from mosquito_alert.models.notifications_create_message_title_non_field_errors_error_component import NotificationsCreateMessageTitleNonFieldErrorsErrorComponent as NotificationsCreateMessageTitleNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_message_title_pt_error_component import NotificationsCreateMessageTitlePtErrorComponent as NotificationsCreateMessageTitlePtErrorComponent
-from mosquito_alert.models.notifications_create_message_title_ro_error_component import NotificationsCreateMessageTitleRoErrorComponent as NotificationsCreateMessageTitleRoErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sl_error_component import NotificationsCreateMessageTitleSlErrorComponent as NotificationsCreateMessageTitleSlErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sq_error_component import NotificationsCreateMessageTitleSqErrorComponent as NotificationsCreateMessageTitleSqErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sr_error_component import NotificationsCreateMessageTitleSrErrorComponent as NotificationsCreateMessageTitleSrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_sv_error_component import NotificationsCreateMessageTitleSvErrorComponent as NotificationsCreateMessageTitleSvErrorComponent
-from mosquito_alert.models.notifications_create_message_title_tr_error_component import NotificationsCreateMessageTitleTrErrorComponent as NotificationsCreateMessageTitleTrErrorComponent
-from mosquito_alert.models.notifications_create_message_title_zh_cn_error_component import NotificationsCreateMessageTitleZhCNErrorComponent as NotificationsCreateMessageTitleZhCNErrorComponent
-from mosquito_alert.models.notifications_create_non_field_errors_error_component import NotificationsCreateNonFieldErrorsErrorComponent as NotificationsCreateNonFieldErrorsErrorComponent
-from mosquito_alert.models.notifications_create_receiver_type_error_component import NotificationsCreateReceiverTypeErrorComponent as NotificationsCreateReceiverTypeErrorComponent
-from mosquito_alert.models.notifications_create_topic_codes_error_component import NotificationsCreateTopicCodesErrorComponent as NotificationsCreateTopicCodesErrorComponent
-from mosquito_alert.models.notifications_create_topic_codes_index_error_component import NotificationsCreateTopicCodesINDEXErrorComponent as NotificationsCreateTopicCodesINDEXErrorComponent
-from mosquito_alert.models.notifications_create_user_uuids_error_component import NotificationsCreateUserUuidsErrorComponent as NotificationsCreateUserUuidsErrorComponent
-from mosquito_alert.models.notifications_create_user_uuids_index_error_component import NotificationsCreateUserUuidsINDEXErrorComponent as NotificationsCreateUserUuidsINDEXErrorComponent
-from mosquito_alert.models.notifications_create_validation_error import NotificationsCreateValidationError as NotificationsCreateValidationError
 from mosquito_alert.models.notifications_list_mine_order_by_error_component import NotificationsListMineOrderByErrorComponent as NotificationsListMineOrderByErrorComponent
 from mosquito_alert.models.notifications_list_mine_validation_error import NotificationsListMineValidationError as NotificationsListMineValidationError
 from mosquito_alert.models.notifications_list_order_by_error_component import NotificationsListOrderByErrorComponent as NotificationsListOrderByErrorComponent
@@ -1347,11 +1287,14 @@ from mosquito_alert.models.paginated_breeding_site_list import PaginatedBreeding
 from mosquito_alert.models.paginated_campaign_list import PaginatedCampaignList as PaginatedCampaignList
 from mosquito_alert.models.paginated_country_list import PaginatedCountryList as PaginatedCountryList
 from mosquito_alert.models.paginated_identification_task_list import PaginatedIdentificationTaskList as PaginatedIdentificationTaskList
+from mosquito_alert.models.paginated_message_list import PaginatedMessageList as PaginatedMessageList
+from mosquito_alert.models.paginated_message_topic_list import PaginatedMessageTopicList as PaginatedMessageTopicList
 from mosquito_alert.models.paginated_notification_list import PaginatedNotificationList as PaginatedNotificationList
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList as PaginatedObservationList
 from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList as PaginatedPartnerList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList as PaginatedPhotoPredictionList
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList as PaginatedTaxonList
+from mosquito_alert.models.paginated_user_list import PaginatedUserList as PaginatedUserList
 from mosquito_alert.models.partner import Partner as Partner
 from mosquito_alert.models.partner_point import PartnerPoint as PartnerPoint
 from mosquito_alert.models.password_change_request import PasswordChangeRequest as PasswordChangeRequest
@@ -1418,6 +1361,7 @@ from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser as S
 from mosquito_alert.models.simple_photo import SimplePhoto as SimplePhoto
 from mosquito_alert.models.simple_taxon import SimpleTaxon as SimpleTaxon
 from mosquito_alert.models.simple_taxon_request import SimpleTaxonRequest as SimpleTaxonRequest
+from mosquito_alert.models.simple_user import SimpleUser as SimpleUser
 from mosquito_alert.models.simplified_location import SimplifiedLocation as SimplifiedLocation
 from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos as SimplifiedObservationWithPhotos
 from mosquito_alert.models.species_characteristics import SpeciesCharacteristics as SpeciesCharacteristics
@@ -1433,10 +1377,8 @@ from mosquito_alert.models.temporary_boundary_request import TemporaryBoundaryRe
 from mosquito_alert.models.token_refresh import TokenRefresh as TokenRefresh
 from mosquito_alert.models.token_refresh_request import TokenRefreshRequest as TokenRefreshRequest
 from mosquito_alert.models.token_verify_request import TokenVerifyRequest as TokenVerifyRequest
-from mosquito_alert.models.topic_notification_create_request import TopicNotificationCreateRequest as TopicNotificationCreateRequest
 from mosquito_alert.models.user import User as User
 from mosquito_alert.models.user_assignment import UserAssignment as UserAssignment
-from mosquito_alert.models.user_notification_create_request import UserNotificationCreateRequest as UserNotificationCreateRequest
 from mosquito_alert.models.user_permission import UserPermission as UserPermission
 from mosquito_alert.models.user_request import UserRequest as UserRequest
 from mosquito_alert.models.user_score import UserScore as UserScore

@@ -63,7 +63,6 @@ class TestLocalizedMessageBodyRequest(unittest.TestCase):
             )
         else:
             return LocalizedMessageBodyRequest(
-                en = '<body><p><strong>Welcome!</strong>this is a text in html.</p></body>',
         )
         """
 

@@ -32,7 +32,7 @@ class LocalizedMessageBody(BaseModel):
     ca: Optional[StrictStr] = Field(default=None, description="Català")
     de: Optional[StrictStr] = Field(default=None, description="Deutsch")
     el: Optional[StrictStr] = Field(default=None, description="Ελληνικά")
-    en: StrictStr = Field(description="English")
+    en: Optional[StrictStr] = Field(default=None, description="English")
     es: Optional[StrictStr] = Field(default=None, description="Español")
     eu: Optional[StrictStr] = Field(default=None, description="Euskara")
     fr: Optional[StrictStr] = Field(default=None, description="Français")
