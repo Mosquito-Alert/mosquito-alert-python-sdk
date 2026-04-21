@@ -36,14 +36,14 @@ class TestMessagesTopicsSendError(unittest.TestCase):
         model = MessagesTopicsSendError()
         if include_optional:
             return MessagesTopicsSendError(
-                attr = 'content',
-                code = 'null',
+                attr = 'content.body.zh-cn',
+                code = 'blank',
                 detail = ''
             )
         else:
             return MessagesTopicsSendError(
-                attr = 'content',
-                code = 'null',
+                attr = 'content.body.zh-cn',
+                code = 'blank',
                 detail = '',
         )
         """

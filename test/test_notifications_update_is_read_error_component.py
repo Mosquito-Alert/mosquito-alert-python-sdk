@@ -37,13 +37,13 @@ class TestNotificationsUpdateIsReadErrorComponent(unittest.TestCase):
         if include_optional:
             return NotificationsUpdateIsReadErrorComponent(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return NotificationsUpdateIsReadErrorComponent(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = '',
         )
         """

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **sender_user** | [**SimpleUser**](SimpleUser.md) |  | [readonly] 
-**content** | [**MessageContent**](MessageContent.md) | The content of the message for the topic | [readonly] 
+**content** | [**CreateTopicMessageContent**](CreateTopicMessageContent.md) | The content of the message for the topic | 
 **created_at** | **datetime** |  | [readonly] 
 
 ## Example

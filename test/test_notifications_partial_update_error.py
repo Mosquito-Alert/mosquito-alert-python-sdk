@@ -37,13 +37,13 @@ class TestNotificationsPartialUpdateError(unittest.TestCase):
         if include_optional:
             return NotificationsPartialUpdateError(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return NotificationsPartialUpdateError(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = '',
         )
         """

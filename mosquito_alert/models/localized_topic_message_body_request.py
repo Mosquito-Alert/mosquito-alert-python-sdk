@@ -35,7 +35,7 @@ class LocalizedTopicMessageBodyRequest(BaseModel):
     el: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Ελληνικά")
     en: Annotated[str, Field(min_length=1, strict=True)] = Field(description="English")
     es: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Español")
-    eu: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Euskara")
+    eu: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Basque")
     fr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Français")
     gl: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Galego")
     hr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Hrvatski")
@@ -51,8 +51,8 @@ class LocalizedTopicMessageBodyRequest(BaseModel):
     sr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Српски")
     sv: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Svenska")
     tr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Türkçe")
-    zh_cn: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="中文（中国）", alias="zh-CN")
-    __properties: ClassVar[List[str]] = ["bg", "bn", "ca", "de", "el", "en", "es", "eu", "fr", "gl", "hr", "hu", "it", "lb", "mk", "nl", "pt", "ro", "sl", "sq", "sr", "sv", "tr", "zh-CN"]
+    zh_cn: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="简体中文", alias="zh-cn")
+    __properties: ClassVar[List[str]] = ["bg", "bn", "ca", "de", "el", "en", "es", "eu", "fr", "gl", "hr", "hu", "it", "lb", "mk", "nl", "pt", "ro", "sl", "sq", "sr", "sv", "tr", "zh-cn"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,6 +93,121 @@ class LocalizedTopicMessageBodyRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if bg (nullable) is None
+        # and model_fields_set contains the field
+        if self.bg is None and "bg" in self.model_fields_set:
+            _dict['bg'] = None
+
+        # set to None if bn (nullable) is None
+        # and model_fields_set contains the field
+        if self.bn is None and "bn" in self.model_fields_set:
+            _dict['bn'] = None
+
+        # set to None if ca (nullable) is None
+        # and model_fields_set contains the field
+        if self.ca is None and "ca" in self.model_fields_set:
+            _dict['ca'] = None
+
+        # set to None if de (nullable) is None
+        # and model_fields_set contains the field
+        if self.de is None and "de" in self.model_fields_set:
+            _dict['de'] = None
+
+        # set to None if el (nullable) is None
+        # and model_fields_set contains the field
+        if self.el is None and "el" in self.model_fields_set:
+            _dict['el'] = None
+
+        # set to None if es (nullable) is None
+        # and model_fields_set contains the field
+        if self.es is None and "es" in self.model_fields_set:
+            _dict['es'] = None
+
+        # set to None if eu (nullable) is None
+        # and model_fields_set contains the field
+        if self.eu is None and "eu" in self.model_fields_set:
+            _dict['eu'] = None
+
+        # set to None if fr (nullable) is None
+        # and model_fields_set contains the field
+        if self.fr is None and "fr" in self.model_fields_set:
+            _dict['fr'] = None
+
+        # set to None if gl (nullable) is None
+        # and model_fields_set contains the field
+        if self.gl is None and "gl" in self.model_fields_set:
+            _dict['gl'] = None
+
+        # set to None if hr (nullable) is None
+        # and model_fields_set contains the field
+        if self.hr is None and "hr" in self.model_fields_set:
+            _dict['hr'] = None
+
+        # set to None if hu (nullable) is None
+        # and model_fields_set contains the field
+        if self.hu is None and "hu" in self.model_fields_set:
+            _dict['hu'] = None
+
+        # set to None if it (nullable) is None
+        # and model_fields_set contains the field
+        if self.it is None and "it" in self.model_fields_set:
+            _dict['it'] = None
+
+        # set to None if lb (nullable) is None
+        # and model_fields_set contains the field
+        if self.lb is None and "lb" in self.model_fields_set:
+            _dict['lb'] = None
+
+        # set to None if mk (nullable) is None
+        # and model_fields_set contains the field
+        if self.mk is None and "mk" in self.model_fields_set:
+            _dict['mk'] = None
+
+        # set to None if nl (nullable) is None
+        # and model_fields_set contains the field
+        if self.nl is None and "nl" in self.model_fields_set:
+            _dict['nl'] = None
+
+        # set to None if pt (nullable) is None
+        # and model_fields_set contains the field
+        if self.pt is None and "pt" in self.model_fields_set:
+            _dict['pt'] = None
+
+        # set to None if ro (nullable) is None
+        # and model_fields_set contains the field
+        if self.ro is None and "ro" in self.model_fields_set:
+            _dict['ro'] = None
+
+        # set to None if sl (nullable) is None
+        # and model_fields_set contains the field
+        if self.sl is None and "sl" in self.model_fields_set:
+            _dict['sl'] = None
+
+        # set to None if sq (nullable) is None
+        # and model_fields_set contains the field
+        if self.sq is None and "sq" in self.model_fields_set:
+            _dict['sq'] = None
+
+        # set to None if sr (nullable) is None
+        # and model_fields_set contains the field
+        if self.sr is None and "sr" in self.model_fields_set:
+            _dict['sr'] = None
+
+        # set to None if sv (nullable) is None
+        # and model_fields_set contains the field
+        if self.sv is None and "sv" in self.model_fields_set:
+            _dict['sv'] = None
+
+        # set to None if tr (nullable) is None
+        # and model_fields_set contains the field
+        if self.tr is None and "tr" in self.model_fields_set:
+            _dict['tr'] = None
+
+        # set to None if zh_cn (nullable) is None
+        # and model_fields_set contains the field
+        if self.zh_cn is None and "zh_cn" in self.model_fields_set:
+            _dict['zh-cn'] = None
+
         return _dict
 
     @classmethod
@@ -128,7 +243,7 @@ class LocalizedTopicMessageBodyRequest(BaseModel):
             "sr": obj.get("sr"),
             "sv": obj.get("sv"),
             "tr": obj.get("tr"),
-            "zh-CN": obj.get("zh-CN")
+            "zh-cn": obj.get("zh-cn")
         })
         return _obj
 

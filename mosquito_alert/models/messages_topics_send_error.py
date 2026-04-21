@@ -18,13 +18,63 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from mosquito_alert.models.messages_topics_send_content_error_component import MessagesTopicsSendContentErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_bg_error_component import MessagesTopicsSendContentBodyBgErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_bn_error_component import MessagesTopicsSendContentBodyBnErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_ca_error_component import MessagesTopicsSendContentBodyCaErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_de_error_component import MessagesTopicsSendContentBodyDeErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_el_error_component import MessagesTopicsSendContentBodyElErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_en_error_component import MessagesTopicsSendContentBodyEnErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_es_error_component import MessagesTopicsSendContentBodyEsErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_eu_error_component import MessagesTopicsSendContentBodyEuErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_fr_error_component import MessagesTopicsSendContentBodyFrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_gl_error_component import MessagesTopicsSendContentBodyGlErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_hr_error_component import MessagesTopicsSendContentBodyHrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_hu_error_component import MessagesTopicsSendContentBodyHuErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_it_error_component import MessagesTopicsSendContentBodyItErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_lb_error_component import MessagesTopicsSendContentBodyLbErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_mk_error_component import MessagesTopicsSendContentBodyMkErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_nl_error_component import MessagesTopicsSendContentBodyNlErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_non_field_errors_error_component import MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_pt_error_component import MessagesTopicsSendContentBodyPtErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_ro_error_component import MessagesTopicsSendContentBodyRoErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_sl_error_component import MessagesTopicsSendContentBodySlErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_sq_error_component import MessagesTopicsSendContentBodySqErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_sr_error_component import MessagesTopicsSendContentBodySrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_sv_error_component import MessagesTopicsSendContentBodySvErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_tr_error_component import MessagesTopicsSendContentBodyTrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_body_zh_cn_error_component import MessagesTopicsSendContentBodyZhCnErrorComponent
+from mosquito_alert.models.messages_topics_send_content_non_field_errors_error_component import MessagesTopicsSendContentNonFieldErrorsErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_bg_error_component import MessagesTopicsSendContentTitleBgErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_bn_error_component import MessagesTopicsSendContentTitleBnErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_ca_error_component import MessagesTopicsSendContentTitleCaErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_de_error_component import MessagesTopicsSendContentTitleDeErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_el_error_component import MessagesTopicsSendContentTitleElErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_en_error_component import MessagesTopicsSendContentTitleEnErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_es_error_component import MessagesTopicsSendContentTitleEsErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_eu_error_component import MessagesTopicsSendContentTitleEuErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_fr_error_component import MessagesTopicsSendContentTitleFrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_gl_error_component import MessagesTopicsSendContentTitleGlErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_hr_error_component import MessagesTopicsSendContentTitleHrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_hu_error_component import MessagesTopicsSendContentTitleHuErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_it_error_component import MessagesTopicsSendContentTitleItErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_lb_error_component import MessagesTopicsSendContentTitleLbErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_mk_error_component import MessagesTopicsSendContentTitleMkErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_nl_error_component import MessagesTopicsSendContentTitleNlErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_non_field_errors_error_component import MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_pt_error_component import MessagesTopicsSendContentTitlePtErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_ro_error_component import MessagesTopicsSendContentTitleRoErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_sl_error_component import MessagesTopicsSendContentTitleSlErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_sq_error_component import MessagesTopicsSendContentTitleSqErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_sr_error_component import MessagesTopicsSendContentTitleSrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_sv_error_component import MessagesTopicsSendContentTitleSvErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_tr_error_component import MessagesTopicsSendContentTitleTrErrorComponent
+from mosquito_alert.models.messages_topics_send_content_title_zh_cn_error_component import MessagesTopicsSendContentTitleZhCnErrorComponent
 from mosquito_alert.models.messages_topics_send_non_field_errors_error_component import MessagesTopicsSendNonFieldErrorsErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-MESSAGESTOPICSSENDERROR_ONE_OF_SCHEMAS = ["MessagesTopicsSendContentErrorComponent", "MessagesTopicsSendNonFieldErrorsErrorComponent"]
+MESSAGESTOPICSSENDERROR_ONE_OF_SCHEMAS = ["MessagesTopicsSendContentBodyBgErrorComponent", "MessagesTopicsSendContentBodyBnErrorComponent", "MessagesTopicsSendContentBodyCaErrorComponent", "MessagesTopicsSendContentBodyDeErrorComponent", "MessagesTopicsSendContentBodyElErrorComponent", "MessagesTopicsSendContentBodyEnErrorComponent", "MessagesTopicsSendContentBodyEsErrorComponent", "MessagesTopicsSendContentBodyEuErrorComponent", "MessagesTopicsSendContentBodyFrErrorComponent", "MessagesTopicsSendContentBodyGlErrorComponent", "MessagesTopicsSendContentBodyHrErrorComponent", "MessagesTopicsSendContentBodyHuErrorComponent", "MessagesTopicsSendContentBodyItErrorComponent", "MessagesTopicsSendContentBodyLbErrorComponent", "MessagesTopicsSendContentBodyMkErrorComponent", "MessagesTopicsSendContentBodyNlErrorComponent", "MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent", "MessagesTopicsSendContentBodyPtErrorComponent", "MessagesTopicsSendContentBodyRoErrorComponent", "MessagesTopicsSendContentBodySlErrorComponent", "MessagesTopicsSendContentBodySqErrorComponent", "MessagesTopicsSendContentBodySrErrorComponent", "MessagesTopicsSendContentBodySvErrorComponent", "MessagesTopicsSendContentBodyTrErrorComponent", "MessagesTopicsSendContentBodyZhCnErrorComponent", "MessagesTopicsSendContentNonFieldErrorsErrorComponent", "MessagesTopicsSendContentTitleBgErrorComponent", "MessagesTopicsSendContentTitleBnErrorComponent", "MessagesTopicsSendContentTitleCaErrorComponent", "MessagesTopicsSendContentTitleDeErrorComponent", "MessagesTopicsSendContentTitleElErrorComponent", "MessagesTopicsSendContentTitleEnErrorComponent", "MessagesTopicsSendContentTitleEsErrorComponent", "MessagesTopicsSendContentTitleEuErrorComponent", "MessagesTopicsSendContentTitleFrErrorComponent", "MessagesTopicsSendContentTitleGlErrorComponent", "MessagesTopicsSendContentTitleHrErrorComponent", "MessagesTopicsSendContentTitleHuErrorComponent", "MessagesTopicsSendContentTitleItErrorComponent", "MessagesTopicsSendContentTitleLbErrorComponent", "MessagesTopicsSendContentTitleMkErrorComponent", "MessagesTopicsSendContentTitleNlErrorComponent", "MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent", "MessagesTopicsSendContentTitlePtErrorComponent", "MessagesTopicsSendContentTitleRoErrorComponent", "MessagesTopicsSendContentTitleSlErrorComponent", "MessagesTopicsSendContentTitleSqErrorComponent", "MessagesTopicsSendContentTitleSrErrorComponent", "MessagesTopicsSendContentTitleSvErrorComponent", "MessagesTopicsSendContentTitleTrErrorComponent", "MessagesTopicsSendContentTitleZhCnErrorComponent", "MessagesTopicsSendNonFieldErrorsErrorComponent"]
 
 class MessagesTopicsSendError(BaseModel):
     """
@@ -32,10 +82,110 @@ class MessagesTopicsSendError(BaseModel):
     """
     # data type: MessagesTopicsSendNonFieldErrorsErrorComponent
     oneof_schema_1_validator: Optional[MessagesTopicsSendNonFieldErrorsErrorComponent] = None
-    # data type: MessagesTopicsSendContentErrorComponent
-    oneof_schema_2_validator: Optional[MessagesTopicsSendContentErrorComponent] = None
-    actual_instance: Optional[Union[MessagesTopicsSendContentErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent]] = None
-    one_of_schemas: Set[str] = { "MessagesTopicsSendContentErrorComponent", "MessagesTopicsSendNonFieldErrorsErrorComponent" }
+    # data type: MessagesTopicsSendContentNonFieldErrorsErrorComponent
+    oneof_schema_2_validator: Optional[MessagesTopicsSendContentNonFieldErrorsErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent
+    oneof_schema_3_validator: Optional[MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleBgErrorComponent
+    oneof_schema_4_validator: Optional[MessagesTopicsSendContentTitleBgErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleBnErrorComponent
+    oneof_schema_5_validator: Optional[MessagesTopicsSendContentTitleBnErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleCaErrorComponent
+    oneof_schema_6_validator: Optional[MessagesTopicsSendContentTitleCaErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleDeErrorComponent
+    oneof_schema_7_validator: Optional[MessagesTopicsSendContentTitleDeErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleElErrorComponent
+    oneof_schema_8_validator: Optional[MessagesTopicsSendContentTitleElErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleEnErrorComponent
+    oneof_schema_9_validator: Optional[MessagesTopicsSendContentTitleEnErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleEsErrorComponent
+    oneof_schema_10_validator: Optional[MessagesTopicsSendContentTitleEsErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleEuErrorComponent
+    oneof_schema_11_validator: Optional[MessagesTopicsSendContentTitleEuErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleFrErrorComponent
+    oneof_schema_12_validator: Optional[MessagesTopicsSendContentTitleFrErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleGlErrorComponent
+    oneof_schema_13_validator: Optional[MessagesTopicsSendContentTitleGlErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleHrErrorComponent
+    oneof_schema_14_validator: Optional[MessagesTopicsSendContentTitleHrErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleHuErrorComponent
+    oneof_schema_15_validator: Optional[MessagesTopicsSendContentTitleHuErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleItErrorComponent
+    oneof_schema_16_validator: Optional[MessagesTopicsSendContentTitleItErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleLbErrorComponent
+    oneof_schema_17_validator: Optional[MessagesTopicsSendContentTitleLbErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleMkErrorComponent
+    oneof_schema_18_validator: Optional[MessagesTopicsSendContentTitleMkErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleNlErrorComponent
+    oneof_schema_19_validator: Optional[MessagesTopicsSendContentTitleNlErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitlePtErrorComponent
+    oneof_schema_20_validator: Optional[MessagesTopicsSendContentTitlePtErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleRoErrorComponent
+    oneof_schema_21_validator: Optional[MessagesTopicsSendContentTitleRoErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleSlErrorComponent
+    oneof_schema_22_validator: Optional[MessagesTopicsSendContentTitleSlErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleSqErrorComponent
+    oneof_schema_23_validator: Optional[MessagesTopicsSendContentTitleSqErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleSrErrorComponent
+    oneof_schema_24_validator: Optional[MessagesTopicsSendContentTitleSrErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleSvErrorComponent
+    oneof_schema_25_validator: Optional[MessagesTopicsSendContentTitleSvErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleTrErrorComponent
+    oneof_schema_26_validator: Optional[MessagesTopicsSendContentTitleTrErrorComponent] = None
+    # data type: MessagesTopicsSendContentTitleZhCnErrorComponent
+    oneof_schema_27_validator: Optional[MessagesTopicsSendContentTitleZhCnErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent
+    oneof_schema_28_validator: Optional[MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyBgErrorComponent
+    oneof_schema_29_validator: Optional[MessagesTopicsSendContentBodyBgErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyBnErrorComponent
+    oneof_schema_30_validator: Optional[MessagesTopicsSendContentBodyBnErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyCaErrorComponent
+    oneof_schema_31_validator: Optional[MessagesTopicsSendContentBodyCaErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyDeErrorComponent
+    oneof_schema_32_validator: Optional[MessagesTopicsSendContentBodyDeErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyElErrorComponent
+    oneof_schema_33_validator: Optional[MessagesTopicsSendContentBodyElErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyEnErrorComponent
+    oneof_schema_34_validator: Optional[MessagesTopicsSendContentBodyEnErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyEsErrorComponent
+    oneof_schema_35_validator: Optional[MessagesTopicsSendContentBodyEsErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyEuErrorComponent
+    oneof_schema_36_validator: Optional[MessagesTopicsSendContentBodyEuErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyFrErrorComponent
+    oneof_schema_37_validator: Optional[MessagesTopicsSendContentBodyFrErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyGlErrorComponent
+    oneof_schema_38_validator: Optional[MessagesTopicsSendContentBodyGlErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyHrErrorComponent
+    oneof_schema_39_validator: Optional[MessagesTopicsSendContentBodyHrErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyHuErrorComponent
+    oneof_schema_40_validator: Optional[MessagesTopicsSendContentBodyHuErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyItErrorComponent
+    oneof_schema_41_validator: Optional[MessagesTopicsSendContentBodyItErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyLbErrorComponent
+    oneof_schema_42_validator: Optional[MessagesTopicsSendContentBodyLbErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyMkErrorComponent
+    oneof_schema_43_validator: Optional[MessagesTopicsSendContentBodyMkErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyNlErrorComponent
+    oneof_schema_44_validator: Optional[MessagesTopicsSendContentBodyNlErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyPtErrorComponent
+    oneof_schema_45_validator: Optional[MessagesTopicsSendContentBodyPtErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyRoErrorComponent
+    oneof_schema_46_validator: Optional[MessagesTopicsSendContentBodyRoErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodySlErrorComponent
+    oneof_schema_47_validator: Optional[MessagesTopicsSendContentBodySlErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodySqErrorComponent
+    oneof_schema_48_validator: Optional[MessagesTopicsSendContentBodySqErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodySrErrorComponent
+    oneof_schema_49_validator: Optional[MessagesTopicsSendContentBodySrErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodySvErrorComponent
+    oneof_schema_50_validator: Optional[MessagesTopicsSendContentBodySvErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyTrErrorComponent
+    oneof_schema_51_validator: Optional[MessagesTopicsSendContentBodyTrErrorComponent] = None
+    # data type: MessagesTopicsSendContentBodyZhCnErrorComponent
+    oneof_schema_52_validator: Optional[MessagesTopicsSendContentBodyZhCnErrorComponent] = None
+    actual_instance: Optional[Union[MessagesTopicsSendContentBodyBgErrorComponent, MessagesTopicsSendContentBodyBnErrorComponent, MessagesTopicsSendContentBodyCaErrorComponent, MessagesTopicsSendContentBodyDeErrorComponent, MessagesTopicsSendContentBodyElErrorComponent, MessagesTopicsSendContentBodyEnErrorComponent, MessagesTopicsSendContentBodyEsErrorComponent, MessagesTopicsSendContentBodyEuErrorComponent, MessagesTopicsSendContentBodyFrErrorComponent, MessagesTopicsSendContentBodyGlErrorComponent, MessagesTopicsSendContentBodyHrErrorComponent, MessagesTopicsSendContentBodyHuErrorComponent, MessagesTopicsSendContentBodyItErrorComponent, MessagesTopicsSendContentBodyLbErrorComponent, MessagesTopicsSendContentBodyMkErrorComponent, MessagesTopicsSendContentBodyNlErrorComponent, MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent, MessagesTopicsSendContentBodyPtErrorComponent, MessagesTopicsSendContentBodyRoErrorComponent, MessagesTopicsSendContentBodySlErrorComponent, MessagesTopicsSendContentBodySqErrorComponent, MessagesTopicsSendContentBodySrErrorComponent, MessagesTopicsSendContentBodySvErrorComponent, MessagesTopicsSendContentBodyTrErrorComponent, MessagesTopicsSendContentBodyZhCnErrorComponent, MessagesTopicsSendContentNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitleBgErrorComponent, MessagesTopicsSendContentTitleBnErrorComponent, MessagesTopicsSendContentTitleCaErrorComponent, MessagesTopicsSendContentTitleDeErrorComponent, MessagesTopicsSendContentTitleElErrorComponent, MessagesTopicsSendContentTitleEnErrorComponent, MessagesTopicsSendContentTitleEsErrorComponent, MessagesTopicsSendContentTitleEuErrorComponent, MessagesTopicsSendContentTitleFrErrorComponent, MessagesTopicsSendContentTitleGlErrorComponent, MessagesTopicsSendContentTitleHrErrorComponent, MessagesTopicsSendContentTitleHuErrorComponent, MessagesTopicsSendContentTitleItErrorComponent, MessagesTopicsSendContentTitleLbErrorComponent, MessagesTopicsSendContentTitleMkErrorComponent, MessagesTopicsSendContentTitleNlErrorComponent, MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitlePtErrorComponent, MessagesTopicsSendContentTitleRoErrorComponent, MessagesTopicsSendContentTitleSlErrorComponent, MessagesTopicsSendContentTitleSqErrorComponent, MessagesTopicsSendContentTitleSrErrorComponent, MessagesTopicsSendContentTitleSvErrorComponent, MessagesTopicsSendContentTitleTrErrorComponent, MessagesTopicsSendContentTitleZhCnErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent]] = None
+    one_of_schemas: Set[str] = { "MessagesTopicsSendContentBodyBgErrorComponent", "MessagesTopicsSendContentBodyBnErrorComponent", "MessagesTopicsSendContentBodyCaErrorComponent", "MessagesTopicsSendContentBodyDeErrorComponent", "MessagesTopicsSendContentBodyElErrorComponent", "MessagesTopicsSendContentBodyEnErrorComponent", "MessagesTopicsSendContentBodyEsErrorComponent", "MessagesTopicsSendContentBodyEuErrorComponent", "MessagesTopicsSendContentBodyFrErrorComponent", "MessagesTopicsSendContentBodyGlErrorComponent", "MessagesTopicsSendContentBodyHrErrorComponent", "MessagesTopicsSendContentBodyHuErrorComponent", "MessagesTopicsSendContentBodyItErrorComponent", "MessagesTopicsSendContentBodyLbErrorComponent", "MessagesTopicsSendContentBodyMkErrorComponent", "MessagesTopicsSendContentBodyNlErrorComponent", "MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent", "MessagesTopicsSendContentBodyPtErrorComponent", "MessagesTopicsSendContentBodyRoErrorComponent", "MessagesTopicsSendContentBodySlErrorComponent", "MessagesTopicsSendContentBodySqErrorComponent", "MessagesTopicsSendContentBodySrErrorComponent", "MessagesTopicsSendContentBodySvErrorComponent", "MessagesTopicsSendContentBodyTrErrorComponent", "MessagesTopicsSendContentBodyZhCnErrorComponent", "MessagesTopicsSendContentNonFieldErrorsErrorComponent", "MessagesTopicsSendContentTitleBgErrorComponent", "MessagesTopicsSendContentTitleBnErrorComponent", "MessagesTopicsSendContentTitleCaErrorComponent", "MessagesTopicsSendContentTitleDeErrorComponent", "MessagesTopicsSendContentTitleElErrorComponent", "MessagesTopicsSendContentTitleEnErrorComponent", "MessagesTopicsSendContentTitleEsErrorComponent", "MessagesTopicsSendContentTitleEuErrorComponent", "MessagesTopicsSendContentTitleFrErrorComponent", "MessagesTopicsSendContentTitleGlErrorComponent", "MessagesTopicsSendContentTitleHrErrorComponent", "MessagesTopicsSendContentTitleHuErrorComponent", "MessagesTopicsSendContentTitleItErrorComponent", "MessagesTopicsSendContentTitleLbErrorComponent", "MessagesTopicsSendContentTitleMkErrorComponent", "MessagesTopicsSendContentTitleNlErrorComponent", "MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent", "MessagesTopicsSendContentTitlePtErrorComponent", "MessagesTopicsSendContentTitleRoErrorComponent", "MessagesTopicsSendContentTitleSlErrorComponent", "MessagesTopicsSendContentTitleSqErrorComponent", "MessagesTopicsSendContentTitleSrErrorComponent", "MessagesTopicsSendContentTitleSvErrorComponent", "MessagesTopicsSendContentTitleTrErrorComponent", "MessagesTopicsSendContentTitleZhCnErrorComponent", "MessagesTopicsSendNonFieldErrorsErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -66,17 +216,267 @@ class MessagesTopicsSendError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendNonFieldErrorsErrorComponent`")
         else:
             match += 1
-        # validate data type: MessagesTopicsSendContentErrorComponent
-        if not isinstance(v, MessagesTopicsSendContentErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentErrorComponent`")
+        # validate data type: MessagesTopicsSendContentNonFieldErrorsErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleBgErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleBgErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleBgErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleBnErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleBnErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleBnErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleCaErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleCaErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleCaErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleDeErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleDeErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleDeErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleElErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleElErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleElErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleEnErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleEnErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleEnErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleEsErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleEsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleEsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleEuErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleEuErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleEuErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleFrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleFrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleFrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleGlErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleGlErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleGlErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleHrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleHrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleHrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleHuErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleHuErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleHuErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleItErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleItErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleItErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleLbErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleLbErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleLbErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleMkErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleMkErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleMkErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleNlErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleNlErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleNlErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitlePtErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitlePtErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitlePtErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleRoErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleRoErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleRoErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleSlErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleSlErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleSlErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleSqErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleSqErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleSqErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleSrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleSrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleSrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleSvErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleSvErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleSvErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleTrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleTrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleTrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentTitleZhCnErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentTitleZhCnErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentTitleZhCnErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyBgErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyBgErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyBgErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyBnErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyBnErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyBnErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyCaErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyCaErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyCaErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyDeErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyDeErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyDeErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyElErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyElErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyElErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyEnErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyEnErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyEnErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyEsErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyEsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyEsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyEuErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyEuErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyEuErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyFrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyFrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyFrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyGlErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyGlErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyGlErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyHrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyHrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyHrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyHuErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyHuErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyHuErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyItErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyItErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyItErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyLbErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyLbErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyLbErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyMkErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyMkErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyMkErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyNlErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyNlErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyNlErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyPtErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyPtErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyPtErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyRoErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyRoErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyRoErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodySlErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodySlErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodySlErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodySqErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodySqErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodySqErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodySrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodySrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodySrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodySvErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodySvErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodySvErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyTrErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyTrErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyTrErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesTopicsSendContentBodyZhCnErrorComponent
+        if not isinstance(v, MessagesTopicsSendContentBodyZhCnErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesTopicsSendContentBodyZhCnErrorComponent`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentBodyBgErrorComponent, MessagesTopicsSendContentBodyBnErrorComponent, MessagesTopicsSendContentBodyCaErrorComponent, MessagesTopicsSendContentBodyDeErrorComponent, MessagesTopicsSendContentBodyElErrorComponent, MessagesTopicsSendContentBodyEnErrorComponent, MessagesTopicsSendContentBodyEsErrorComponent, MessagesTopicsSendContentBodyEuErrorComponent, MessagesTopicsSendContentBodyFrErrorComponent, MessagesTopicsSendContentBodyGlErrorComponent, MessagesTopicsSendContentBodyHrErrorComponent, MessagesTopicsSendContentBodyHuErrorComponent, MessagesTopicsSendContentBodyItErrorComponent, MessagesTopicsSendContentBodyLbErrorComponent, MessagesTopicsSendContentBodyMkErrorComponent, MessagesTopicsSendContentBodyNlErrorComponent, MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent, MessagesTopicsSendContentBodyPtErrorComponent, MessagesTopicsSendContentBodyRoErrorComponent, MessagesTopicsSendContentBodySlErrorComponent, MessagesTopicsSendContentBodySqErrorComponent, MessagesTopicsSendContentBodySrErrorComponent, MessagesTopicsSendContentBodySvErrorComponent, MessagesTopicsSendContentBodyTrErrorComponent, MessagesTopicsSendContentBodyZhCnErrorComponent, MessagesTopicsSendContentNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitleBgErrorComponent, MessagesTopicsSendContentTitleBnErrorComponent, MessagesTopicsSendContentTitleCaErrorComponent, MessagesTopicsSendContentTitleDeErrorComponent, MessagesTopicsSendContentTitleElErrorComponent, MessagesTopicsSendContentTitleEnErrorComponent, MessagesTopicsSendContentTitleEsErrorComponent, MessagesTopicsSendContentTitleEuErrorComponent, MessagesTopicsSendContentTitleFrErrorComponent, MessagesTopicsSendContentTitleGlErrorComponent, MessagesTopicsSendContentTitleHrErrorComponent, MessagesTopicsSendContentTitleHuErrorComponent, MessagesTopicsSendContentTitleItErrorComponent, MessagesTopicsSendContentTitleLbErrorComponent, MessagesTopicsSendContentTitleMkErrorComponent, MessagesTopicsSendContentTitleNlErrorComponent, MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitlePtErrorComponent, MessagesTopicsSendContentTitleRoErrorComponent, MessagesTopicsSendContentTitleSlErrorComponent, MessagesTopicsSendContentTitleSqErrorComponent, MessagesTopicsSendContentTitleSrErrorComponent, MessagesTopicsSendContentTitleSvErrorComponent, MessagesTopicsSendContentTitleTrErrorComponent, MessagesTopicsSendContentTitleZhCnErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentBodyBgErrorComponent, MessagesTopicsSendContentBodyBnErrorComponent, MessagesTopicsSendContentBodyCaErrorComponent, MessagesTopicsSendContentBodyDeErrorComponent, MessagesTopicsSendContentBodyElErrorComponent, MessagesTopicsSendContentBodyEnErrorComponent, MessagesTopicsSendContentBodyEsErrorComponent, MessagesTopicsSendContentBodyEuErrorComponent, MessagesTopicsSendContentBodyFrErrorComponent, MessagesTopicsSendContentBodyGlErrorComponent, MessagesTopicsSendContentBodyHrErrorComponent, MessagesTopicsSendContentBodyHuErrorComponent, MessagesTopicsSendContentBodyItErrorComponent, MessagesTopicsSendContentBodyLbErrorComponent, MessagesTopicsSendContentBodyMkErrorComponent, MessagesTopicsSendContentBodyNlErrorComponent, MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent, MessagesTopicsSendContentBodyPtErrorComponent, MessagesTopicsSendContentBodyRoErrorComponent, MessagesTopicsSendContentBodySlErrorComponent, MessagesTopicsSendContentBodySqErrorComponent, MessagesTopicsSendContentBodySrErrorComponent, MessagesTopicsSendContentBodySvErrorComponent, MessagesTopicsSendContentBodyTrErrorComponent, MessagesTopicsSendContentBodyZhCnErrorComponent, MessagesTopicsSendContentNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitleBgErrorComponent, MessagesTopicsSendContentTitleBnErrorComponent, MessagesTopicsSendContentTitleCaErrorComponent, MessagesTopicsSendContentTitleDeErrorComponent, MessagesTopicsSendContentTitleElErrorComponent, MessagesTopicsSendContentTitleEnErrorComponent, MessagesTopicsSendContentTitleEsErrorComponent, MessagesTopicsSendContentTitleEuErrorComponent, MessagesTopicsSendContentTitleFrErrorComponent, MessagesTopicsSendContentTitleGlErrorComponent, MessagesTopicsSendContentTitleHrErrorComponent, MessagesTopicsSendContentTitleHuErrorComponent, MessagesTopicsSendContentTitleItErrorComponent, MessagesTopicsSendContentTitleLbErrorComponent, MessagesTopicsSendContentTitleMkErrorComponent, MessagesTopicsSendContentTitleNlErrorComponent, MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitlePtErrorComponent, MessagesTopicsSendContentTitleRoErrorComponent, MessagesTopicsSendContentTitleSlErrorComponent, MessagesTopicsSendContentTitleSqErrorComponent, MessagesTopicsSendContentTitleSrErrorComponent, MessagesTopicsSendContentTitleSvErrorComponent, MessagesTopicsSendContentTitleTrErrorComponent, MessagesTopicsSendContentTitleZhCnErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -97,19 +497,319 @@ class MessagesTopicsSendError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into MessagesTopicsSendContentErrorComponent
+        # deserialize data into MessagesTopicsSendContentNonFieldErrorsErrorComponent
         try:
-            instance.actual_instance = MessagesTopicsSendContentErrorComponent.from_json(json_str)
+            instance.actual_instance = MessagesTopicsSendContentNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleBgErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleBgErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleBnErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleBnErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleCaErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleCaErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleDeErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleDeErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleElErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleElErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleEnErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleEnErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleEsErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleEsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleEuErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleEuErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleFrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleFrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleGlErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleGlErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleHrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleHrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleHuErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleHuErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleItErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleItErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleLbErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleLbErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleMkErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleMkErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleNlErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleNlErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitlePtErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitlePtErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleRoErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleRoErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleSlErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleSlErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleSqErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleSqErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleSrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleSrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleSvErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleSvErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleTrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleTrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentTitleZhCnErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentTitleZhCnErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyBgErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyBgErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyBnErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyBnErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyCaErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyCaErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyDeErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyDeErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyElErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyElErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyEnErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyEnErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyEsErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyEsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyEuErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyEuErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyFrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyFrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyGlErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyGlErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyHrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyHrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyHuErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyHuErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyItErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyItErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyLbErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyLbErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyMkErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyMkErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyNlErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyNlErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyPtErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyPtErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyRoErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyRoErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodySlErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodySlErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodySqErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodySqErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodySrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodySrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodySvErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodySvErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyTrErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyTrErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesTopicsSendContentBodyZhCnErrorComponent
+        try:
+            instance.actual_instance = MessagesTopicsSendContentBodyZhCnErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentBodyBgErrorComponent, MessagesTopicsSendContentBodyBnErrorComponent, MessagesTopicsSendContentBodyCaErrorComponent, MessagesTopicsSendContentBodyDeErrorComponent, MessagesTopicsSendContentBodyElErrorComponent, MessagesTopicsSendContentBodyEnErrorComponent, MessagesTopicsSendContentBodyEsErrorComponent, MessagesTopicsSendContentBodyEuErrorComponent, MessagesTopicsSendContentBodyFrErrorComponent, MessagesTopicsSendContentBodyGlErrorComponent, MessagesTopicsSendContentBodyHrErrorComponent, MessagesTopicsSendContentBodyHuErrorComponent, MessagesTopicsSendContentBodyItErrorComponent, MessagesTopicsSendContentBodyLbErrorComponent, MessagesTopicsSendContentBodyMkErrorComponent, MessagesTopicsSendContentBodyNlErrorComponent, MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent, MessagesTopicsSendContentBodyPtErrorComponent, MessagesTopicsSendContentBodyRoErrorComponent, MessagesTopicsSendContentBodySlErrorComponent, MessagesTopicsSendContentBodySqErrorComponent, MessagesTopicsSendContentBodySrErrorComponent, MessagesTopicsSendContentBodySvErrorComponent, MessagesTopicsSendContentBodyTrErrorComponent, MessagesTopicsSendContentBodyZhCnErrorComponent, MessagesTopicsSendContentNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitleBgErrorComponent, MessagesTopicsSendContentTitleBnErrorComponent, MessagesTopicsSendContentTitleCaErrorComponent, MessagesTopicsSendContentTitleDeErrorComponent, MessagesTopicsSendContentTitleElErrorComponent, MessagesTopicsSendContentTitleEnErrorComponent, MessagesTopicsSendContentTitleEsErrorComponent, MessagesTopicsSendContentTitleEuErrorComponent, MessagesTopicsSendContentTitleFrErrorComponent, MessagesTopicsSendContentTitleGlErrorComponent, MessagesTopicsSendContentTitleHrErrorComponent, MessagesTopicsSendContentTitleHuErrorComponent, MessagesTopicsSendContentTitleItErrorComponent, MessagesTopicsSendContentTitleLbErrorComponent, MessagesTopicsSendContentTitleMkErrorComponent, MessagesTopicsSendContentTitleNlErrorComponent, MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitlePtErrorComponent, MessagesTopicsSendContentTitleRoErrorComponent, MessagesTopicsSendContentTitleSlErrorComponent, MessagesTopicsSendContentTitleSqErrorComponent, MessagesTopicsSendContentTitleSrErrorComponent, MessagesTopicsSendContentTitleSvErrorComponent, MessagesTopicsSendContentTitleTrErrorComponent, MessagesTopicsSendContentTitleZhCnErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into MessagesTopicsSendError with oneOf schemas: MessagesTopicsSendContentBodyBgErrorComponent, MessagesTopicsSendContentBodyBnErrorComponent, MessagesTopicsSendContentBodyCaErrorComponent, MessagesTopicsSendContentBodyDeErrorComponent, MessagesTopicsSendContentBodyElErrorComponent, MessagesTopicsSendContentBodyEnErrorComponent, MessagesTopicsSendContentBodyEsErrorComponent, MessagesTopicsSendContentBodyEuErrorComponent, MessagesTopicsSendContentBodyFrErrorComponent, MessagesTopicsSendContentBodyGlErrorComponent, MessagesTopicsSendContentBodyHrErrorComponent, MessagesTopicsSendContentBodyHuErrorComponent, MessagesTopicsSendContentBodyItErrorComponent, MessagesTopicsSendContentBodyLbErrorComponent, MessagesTopicsSendContentBodyMkErrorComponent, MessagesTopicsSendContentBodyNlErrorComponent, MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent, MessagesTopicsSendContentBodyPtErrorComponent, MessagesTopicsSendContentBodyRoErrorComponent, MessagesTopicsSendContentBodySlErrorComponent, MessagesTopicsSendContentBodySqErrorComponent, MessagesTopicsSendContentBodySrErrorComponent, MessagesTopicsSendContentBodySvErrorComponent, MessagesTopicsSendContentBodyTrErrorComponent, MessagesTopicsSendContentBodyZhCnErrorComponent, MessagesTopicsSendContentNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitleBgErrorComponent, MessagesTopicsSendContentTitleBnErrorComponent, MessagesTopicsSendContentTitleCaErrorComponent, MessagesTopicsSendContentTitleDeErrorComponent, MessagesTopicsSendContentTitleElErrorComponent, MessagesTopicsSendContentTitleEnErrorComponent, MessagesTopicsSendContentTitleEsErrorComponent, MessagesTopicsSendContentTitleEuErrorComponent, MessagesTopicsSendContentTitleFrErrorComponent, MessagesTopicsSendContentTitleGlErrorComponent, MessagesTopicsSendContentTitleHrErrorComponent, MessagesTopicsSendContentTitleHuErrorComponent, MessagesTopicsSendContentTitleItErrorComponent, MessagesTopicsSendContentTitleLbErrorComponent, MessagesTopicsSendContentTitleMkErrorComponent, MessagesTopicsSendContentTitleNlErrorComponent, MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitlePtErrorComponent, MessagesTopicsSendContentTitleRoErrorComponent, MessagesTopicsSendContentTitleSlErrorComponent, MessagesTopicsSendContentTitleSqErrorComponent, MessagesTopicsSendContentTitleSrErrorComponent, MessagesTopicsSendContentTitleSvErrorComponent, MessagesTopicsSendContentTitleTrErrorComponent, MessagesTopicsSendContentTitleZhCnErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -123,7 +823,7 @@ class MessagesTopicsSendError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesTopicsSendContentErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesTopicsSendContentBodyBgErrorComponent, MessagesTopicsSendContentBodyBnErrorComponent, MessagesTopicsSendContentBodyCaErrorComponent, MessagesTopicsSendContentBodyDeErrorComponent, MessagesTopicsSendContentBodyElErrorComponent, MessagesTopicsSendContentBodyEnErrorComponent, MessagesTopicsSendContentBodyEsErrorComponent, MessagesTopicsSendContentBodyEuErrorComponent, MessagesTopicsSendContentBodyFrErrorComponent, MessagesTopicsSendContentBodyGlErrorComponent, MessagesTopicsSendContentBodyHrErrorComponent, MessagesTopicsSendContentBodyHuErrorComponent, MessagesTopicsSendContentBodyItErrorComponent, MessagesTopicsSendContentBodyLbErrorComponent, MessagesTopicsSendContentBodyMkErrorComponent, MessagesTopicsSendContentBodyNlErrorComponent, MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent, MessagesTopicsSendContentBodyPtErrorComponent, MessagesTopicsSendContentBodyRoErrorComponent, MessagesTopicsSendContentBodySlErrorComponent, MessagesTopicsSendContentBodySqErrorComponent, MessagesTopicsSendContentBodySrErrorComponent, MessagesTopicsSendContentBodySvErrorComponent, MessagesTopicsSendContentBodyTrErrorComponent, MessagesTopicsSendContentBodyZhCnErrorComponent, MessagesTopicsSendContentNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitleBgErrorComponent, MessagesTopicsSendContentTitleBnErrorComponent, MessagesTopicsSendContentTitleCaErrorComponent, MessagesTopicsSendContentTitleDeErrorComponent, MessagesTopicsSendContentTitleElErrorComponent, MessagesTopicsSendContentTitleEnErrorComponent, MessagesTopicsSendContentTitleEsErrorComponent, MessagesTopicsSendContentTitleEuErrorComponent, MessagesTopicsSendContentTitleFrErrorComponent, MessagesTopicsSendContentTitleGlErrorComponent, MessagesTopicsSendContentTitleHrErrorComponent, MessagesTopicsSendContentTitleHuErrorComponent, MessagesTopicsSendContentTitleItErrorComponent, MessagesTopicsSendContentTitleLbErrorComponent, MessagesTopicsSendContentTitleMkErrorComponent, MessagesTopicsSendContentTitleNlErrorComponent, MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent, MessagesTopicsSendContentTitlePtErrorComponent, MessagesTopicsSendContentTitleRoErrorComponent, MessagesTopicsSendContentTitleSlErrorComponent, MessagesTopicsSendContentTitleSqErrorComponent, MessagesTopicsSendContentTitleSrErrorComponent, MessagesTopicsSendContentTitleSvErrorComponent, MessagesTopicsSendContentTitleTrErrorComponent, MessagesTopicsSendContentTitleZhCnErrorComponent, MessagesTopicsSendNonFieldErrorsErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

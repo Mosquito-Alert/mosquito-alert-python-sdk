@@ -43,7 +43,7 @@ class TestCreateTopicMessage(unittest.TestCase):
                     first_name = '', 
                     last_name = '', 
                     full_name = '', ),
-                content = mosquito_alert.models.message_content.MessageContent(
+                content = mosquito_alert.models.create_topic_message_content.CreateTopicMessageContent(
                     title = null, 
                     body = null, ),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
@@ -57,7 +57,7 @@ class TestCreateTopicMessage(unittest.TestCase):
                     first_name = '', 
                     last_name = '', 
                     full_name = '', ),
-                content = mosquito_alert.models.message_content.MessageContent(
+                content = mosquito_alert.models.create_topic_message_content.CreateTopicMessageContent(
                     title = null, 
                     body = null, ),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),

@@ -27,12 +27,6 @@ class TestNotificationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_list(self) -> None:
-        """Test case for list
-
-        """
-        pass
-
     def test_list_mine(self) -> None:
         """Test case for list_mine
 

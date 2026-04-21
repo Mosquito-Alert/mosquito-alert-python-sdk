@@ -37,13 +37,13 @@ class TestNotificationsUpdateError(unittest.TestCase):
         if include_optional:
             return NotificationsUpdateError(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return NotificationsUpdateError(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = '',
         )
         """

@@ -21,7 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.message_content import MessageContent
+from mosquito_alert.models.create_topic_message_content import CreateTopicMessageContent
 from mosquito_alert.models.simple_user import SimpleUser
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +32,7 @@ class CreateTopicMessage(BaseModel):
     """ # noqa: E501
     id: StrictInt
     sender_user: SimpleUser
-    content: MessageContent = Field(description="The content of the message for the topic")
+    content: CreateTopicMessageContent = Field(description="The content of the message for the topic")
     created_at: datetime
     __properties: ClassVar[List[str]] = ["id", "sender_user", "content", "created_at"]
 
@@ -69,12 +69,10 @@ class CreateTopicMessage(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
             "sender_user",
-            "content",
             "created_at",
         ])
 
@@ -103,7 +101,7 @@ class CreateTopicMessage(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "sender_user": SimpleUser.from_dict(obj["sender_user"]) if obj.get("sender_user") is not None else None,
-            "content": MessageContent.from_dict(obj["content"]) if obj.get("content") is not None else None,
+            "content": CreateTopicMessageContent.from_dict(obj["content"]) if obj.get("content") is not None else None,
             "created_at": obj.get("created_at")
         })
         return _obj

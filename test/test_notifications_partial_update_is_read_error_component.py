@@ -37,13 +37,13 @@ class TestNotificationsPartialUpdateIsReadErrorComponent(unittest.TestCase):
         if include_optional:
             return NotificationsPartialUpdateIsReadErrorComponent(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = ''
             )
         else:
             return NotificationsPartialUpdateIsReadErrorComponent(
                 attr = 'is_read',
-                code = 'null',
+                code = 'invalid',
                 detail = '',
         )
         """

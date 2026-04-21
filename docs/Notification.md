@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **message** | [**NotificationMessage**](NotificationMessage.md) |  | [readonly] 
-**is_read** | **bool** |  | [readonly] 
+**is_read** | **bool** |  | 
 **created_at** | **datetime** |  | [readonly] 
 
 ## Example
