@@ -63,7 +63,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     created_at = '2013-10-20T19:20:30+01:00' # datetime | 
     sent_at = '2013-10-20T19:20:30+01:00' # datetime | 
     location = mosquito_alert.LocationRequest() # LocationRequest | 
-    photos = None # List[bytearray] | 
+    photos = None # List[bytes] | 
     site_type = 'site_type_example' # str | 
     note = 'note_example' # str |  (optional)
     tags = ['tags_example'] # List[str] |  (optional)
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
  **created_at** | **datetime**|  | 
  **sent_at** | **datetime**|  | 
  **location** | [**LocationRequest**](LocationRequest.md)|  | 
- **photos** | **List[bytearray]**|  | 
+ **photos** | **List[bytes]**|  | 
  **site_type** | **str**|  | 
  **note** | **str**|  | [optional] 
  **tags** | [**List[str]**](str.md)|  | [optional] 

@@ -1,6 +1,6 @@
 [project]
 name = "mosquito_alert"
-version = "0.4.0"
+version = "0.4.1"
 description = "Mosquito Alert API"
 authors = [
   {name = "Developers",email = "it@mosquitoalert.com"},
@@ -13,7 +13,7 @@ requires-python = ">=3.9"
 dependencies = [
   "urllib3 (>=2.1.0,<3.0.0)",
   "python-dateutil (>=2.8.2)",
-  "pydantic (>=2)",
+  "pydantic (>=2.11)",
   "typing-extensions (>=4.7.1)",
 ]
 

@@ -79,7 +79,7 @@ class ObservationsApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[bytearray]
+        :type photos: List[bytes]
         :param note:
         :type note: str
         :param tags:
@@ -181,7 +181,7 @@ class ObservationsApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[bytearray]
+        :type photos: List[bytes]
         :param note:
         :type note: str
         :param tags:
@@ -283,7 +283,7 @@ class ObservationsApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[bytearray]
+        :type photos: List[bytes]
         :param note:
         :type note: str
         :param tags:

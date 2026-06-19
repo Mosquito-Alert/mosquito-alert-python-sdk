@@ -26,6 +26,7 @@ from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simplified_location import SimplifiedLocation
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class SimplifiedObservationWithPhotos(BaseModel):
     """
@@ -43,7 +44,8 @@ class SimplifiedObservationWithPhotos(BaseModel):
     __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "received_at", "location", "note", "photos"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -55,8 +57,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

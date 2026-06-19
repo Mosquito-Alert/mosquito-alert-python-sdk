@@ -22,39 +22,41 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class LocalizedMessageBody(BaseModel):
     """
     A custom serializer field that supports localization for a dynamic field name. Allows calling with arguments such as 'title', 'message', max_length, help_text, etc.
     """ # noqa: E501
-    bg: Optional[StrictStr] = Field(default=None, description="Български")
-    bn: Optional[StrictStr] = Field(default=None, description="বাংলা")
-    ca: Optional[StrictStr] = Field(default=None, description="Català")
-    de: Optional[StrictStr] = Field(default=None, description="Deutsch")
-    el: Optional[StrictStr] = Field(default=None, description="Ελληνικά")
-    en: Optional[StrictStr] = Field(default=None, description="English")
-    es: Optional[StrictStr] = Field(default=None, description="Español")
-    eu: Optional[StrictStr] = Field(default=None, description="Basque")
-    fr: Optional[StrictStr] = Field(default=None, description="Français")
-    gl: Optional[StrictStr] = Field(default=None, description="Galego")
-    hr: Optional[StrictStr] = Field(default=None, description="Hrvatski")
-    hu: Optional[StrictStr] = Field(default=None, description="Magyar")
-    it: Optional[StrictStr] = Field(default=None, description="Italiano")
-    lb: Optional[StrictStr] = Field(default=None, description="Lëtzebuergesch")
-    mk: Optional[StrictStr] = Field(default=None, description="Македонски")
-    nl: Optional[StrictStr] = Field(default=None, description="Nederlands")
-    pt: Optional[StrictStr] = Field(default=None, description="Português")
-    ro: Optional[StrictStr] = Field(default=None, description="Română")
-    sl: Optional[StrictStr] = Field(default=None, description="Slovenščina")
-    sq: Optional[StrictStr] = Field(default=None, description="Shqip")
-    sr: Optional[StrictStr] = Field(default=None, description="Српски")
-    sv: Optional[StrictStr] = Field(default=None, description="Svenska")
-    tr: Optional[StrictStr] = Field(default=None, description="Türkçe")
-    zh_cn: Optional[StrictStr] = Field(default=None, description="简体中文", alias="zh-cn")
+    bg: Optional[StrictStr] = Field(default=None, description="Български", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    bn: Optional[StrictStr] = Field(default=None, description="বাংলা", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    ca: Optional[StrictStr] = Field(default=None, description="Català", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    de: Optional[StrictStr] = Field(default=None, description="Deutsch", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    el: Optional[StrictStr] = Field(default=None, description="Ελληνικά", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    en: Optional[StrictStr] = Field(default=None, description="English", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    es: Optional[StrictStr] = Field(default=None, description="Español", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    eu: Optional[StrictStr] = Field(default=None, description="Basque", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    fr: Optional[StrictStr] = Field(default=None, description="Français", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    gl: Optional[StrictStr] = Field(default=None, description="Galego", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    hr: Optional[StrictStr] = Field(default=None, description="Hrvatski", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    hu: Optional[StrictStr] = Field(default=None, description="Magyar", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    it: Optional[StrictStr] = Field(default=None, description="Italiano", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    lb: Optional[StrictStr] = Field(default=None, description="Lëtzebuergesch", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    mk: Optional[StrictStr] = Field(default=None, description="Македонски", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    nl: Optional[StrictStr] = Field(default=None, description="Nederlands", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    pt: Optional[StrictStr] = Field(default=None, description="Português", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    ro: Optional[StrictStr] = Field(default=None, description="Română", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sl: Optional[StrictStr] = Field(default=None, description="Slovenščina", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sq: Optional[StrictStr] = Field(default=None, description="Shqip", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sr: Optional[StrictStr] = Field(default=None, description="Српски", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sv: Optional[StrictStr] = Field(default=None, description="Svenska", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    tr: Optional[StrictStr] = Field(default=None, description="Türkçe", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    zh_cn: Optional[StrictStr] = Field(default=None, description="简体中文", alias="zh-cn", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
     __properties: ClassVar[List[str]] = ["bg", "bn", "ca", "de", "el", "en", "es", "eu", "fr", "gl", "hr", "hu", "it", "lb", "mk", "nl", "pt", "ro", "sl", "sq", "sr", "sv", "tr", "zh-cn"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -66,8 +68,7 @@ class LocalizedMessageBody(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

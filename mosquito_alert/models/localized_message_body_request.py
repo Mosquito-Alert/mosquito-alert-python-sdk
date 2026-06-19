@@ -23,39 +23,41 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class LocalizedMessageBodyRequest(BaseModel):
     """
     A custom serializer field that supports localization for a dynamic field name. Allows calling with arguments such as 'title', 'message', max_length, help_text, etc.
     """ # noqa: E501
-    bg: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Български")
-    bn: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="বাংলা")
-    ca: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Català")
-    de: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Deutsch")
-    el: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Ελληνικά")
-    en: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="English")
-    es: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Español")
-    eu: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Basque")
-    fr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Français")
-    gl: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Galego")
-    hr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Hrvatski")
-    hu: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Magyar")
-    it: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Italiano")
-    lb: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Lëtzebuergesch")
-    mk: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Македонски")
-    nl: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Nederlands")
-    pt: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Português")
-    ro: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Română")
-    sl: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Slovenščina")
-    sq: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Shqip")
-    sr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Српски")
-    sv: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Svenska")
-    tr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Türkçe")
-    zh_cn: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="简体中文", alias="zh-cn")
+    bg: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Български", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    bn: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="বাংলা", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    ca: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Català", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    de: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Deutsch", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    el: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Ελληνικά", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    en: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="English", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    es: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Español", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    eu: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Basque", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    fr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Français", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    gl: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Galego", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    hr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Hrvatski", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    hu: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Magyar", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    it: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Italiano", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    lb: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Lëtzebuergesch", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    mk: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Македонски", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    nl: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Nederlands", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    pt: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Português", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    ro: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Română", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sl: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Slovenščina", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sq: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Shqip", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Српски", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    sv: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Svenska", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    tr: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Türkçe", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
+    zh_cn: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="简体中文", alias="zh-cn", json_schema_extra={"examples": ["<body><p><strong>Welcome!</strong>this is a text in html.</p></body>"]})
     __properties: ClassVar[List[str]] = ["bg", "bn", "ca", "de", "el", "en", "es", "eu", "fr", "gl", "hr", "hu", "it", "lb", "mk", "nl", "pt", "ro", "sl", "sq", "sr", "sv", "tr", "zh-cn"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -67,8 +69,7 @@ class LocalizedMessageBodyRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

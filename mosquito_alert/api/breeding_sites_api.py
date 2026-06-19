@@ -81,7 +81,7 @@ class BreedingSitesApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[bytearray]
+        :type photos: List[bytes]
         :param site_type: (required)
         :type site_type: str
         :param note:
@@ -191,7 +191,7 @@ class BreedingSitesApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[bytearray]
+        :type photos: List[bytes]
         :param site_type: (required)
         :type site_type: str
         :param note:
@@ -301,7 +301,7 @@ class BreedingSitesApi:
         :param location: (required)
         :type location: LocationRequest
         :param photos: (required)
-        :type photos: List[bytearray]
+        :type photos: List[bytes]
         :param site_type: (required)
         :type site_type: str
         :param note:
