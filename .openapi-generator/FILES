@@ -183,7 +183,6 @@ docs/CampaignsListOrderByErrorComponent.md
 docs/CampaignsListValidationError.md
 docs/CountriesApi.md
 docs/Country.md
-docs/CountryPermission.md
 docs/CountryRequest.md
 docs/CreateAgreeReviewRequest.md
 docs/CreateOverwriteReviewRequest.md
@@ -263,11 +262,11 @@ docs/FixesCreatePointNonFieldErrorsErrorComponent.md
 docs/FixesCreatePowerErrorComponent.md
 docs/FixesCreateSentAtErrorComponent.md
 docs/FixesCreateValidationError.md
-docs/GeneralPermission.md
 docs/GuestRegistration.md
 docs/GuestRegistrationRequest.md
 docs/Identification.md
 docs/IdentificationTask.md
+docs/IdentificationTaskCapabilities.md
 docs/IdentificationTaskPermission.md
 docs/IdentificationTaskResult.md
 docs/IdentificationTaskReview.md
@@ -676,6 +675,8 @@ docs/PaginatedPartnerList.md
 docs/PaginatedPhotoPredictionList.md
 docs/PaginatedTaxonList.md
 docs/PaginatedUserList.md
+docs/PaginatedWorkspaceCollaborationGroupList.md
+docs/PaginatedWorkspaceList.md
 docs/Partner.md
 docs/PartnerPoint.md
 docs/PartnersApi.md
@@ -747,6 +748,7 @@ docs/SimplePhoto.md
 docs/SimpleTaxon.md
 docs/SimpleTaxonRequest.md
 docs/SimpleUser.md
+docs/SimpleWorkspace.md
 docs/SimplifiedLocation.md
 docs/SimplifiedObservationWithPhotos.md
 docs/SpeciesCharacteristics.md
@@ -765,7 +767,6 @@ docs/TokenRefreshRequest.md
 docs/TokenVerifyRequest.md
 docs/User.md
 docs/UserAssignment.md
-docs/UserPermission.md
 docs/UserRequest.md
 docs/UserScore.md
 docs/UsersApi.md
@@ -777,6 +778,10 @@ docs/UsersUpdateError.md
 docs/UsersUpdateLocaleErrorComponent.md
 docs/UsersUpdateNonFieldErrorsErrorComponent.md
 docs/UsersUpdateValidationError.md
+docs/Workspace.md
+docs/WorkspaceCollaborationGroup.md
+docs/WorkspaceMembership.md
+docs/WorkspacesApi.md
 git_push.sh
 mosquito_alert/__init__.py
 mosquito_alert/api/__init__.py
@@ -798,6 +803,7 @@ mosquito_alert/api/photos_api.py
 mosquito_alert/api/ping_api.py
 mosquito_alert/api/taxa_api.py
 mosquito_alert/api/users_api.py
+mosquito_alert/api/workspaces_api.py
 mosquito_alert/api_client.py
 mosquito_alert/api_response.py
 mosquito_alert/configuration.py
@@ -977,7 +983,6 @@ mosquito_alert/models/campaigns_list_error.py
 mosquito_alert/models/campaigns_list_order_by_error_component.py
 mosquito_alert/models/campaigns_list_validation_error.py
 mosquito_alert/models/country.py
-mosquito_alert/models/country_permission.py
 mosquito_alert/models/country_request.py
 mosquito_alert/models/create_agree_review_request.py
 mosquito_alert/models/create_overwrite_review_request.py
@@ -1055,11 +1060,11 @@ mosquito_alert/models/fixes_create_point_non_field_errors_error_component.py
 mosquito_alert/models/fixes_create_power_error_component.py
 mosquito_alert/models/fixes_create_sent_at_error_component.py
 mosquito_alert/models/fixes_create_validation_error.py
-mosquito_alert/models/general_permission.py
 mosquito_alert/models/guest_registration.py
 mosquito_alert/models/guest_registration_request.py
 mosquito_alert/models/identification.py
 mosquito_alert/models/identification_task.py
+mosquito_alert/models/identification_task_capabilities.py
 mosquito_alert/models/identification_task_permission.py
 mosquito_alert/models/identification_task_result.py
 mosquito_alert/models/identification_task_review.py
@@ -1464,6 +1469,8 @@ mosquito_alert/models/paginated_partner_list.py
 mosquito_alert/models/paginated_photo_prediction_list.py
 mosquito_alert/models/paginated_taxon_list.py
 mosquito_alert/models/paginated_user_list.py
+mosquito_alert/models/paginated_workspace_collaboration_group_list.py
+mosquito_alert/models/paginated_workspace_list.py
 mosquito_alert/models/partner.py
 mosquito_alert/models/partner_point.py
 mosquito_alert/models/password_change_request.py
@@ -1531,6 +1538,7 @@ mosquito_alert/models/simple_photo.py
 mosquito_alert/models/simple_taxon.py
 mosquito_alert/models/simple_taxon_request.py
 mosquito_alert/models/simple_user.py
+mosquito_alert/models/simple_workspace.py
 mosquito_alert/models/simplified_location.py
 mosquito_alert/models/simplified_observation_with_photos.py
 mosquito_alert/models/species_characteristics.py
@@ -1548,7 +1556,6 @@ mosquito_alert/models/token_refresh_request.py
 mosquito_alert/models/token_verify_request.py
 mosquito_alert/models/user.py
 mosquito_alert/models/user_assignment.py
-mosquito_alert/models/user_permission.py
 mosquito_alert/models/user_request.py
 mosquito_alert/models/user_score.py
 mosquito_alert/models/users_partial_update_error.py
@@ -1559,6 +1566,9 @@ mosquito_alert/models/users_update_error.py
 mosquito_alert/models/users_update_locale_error_component.py
 mosquito_alert/models/users_update_non_field_errors_error_component.py
 mosquito_alert/models/users_update_validation_error.py
+mosquito_alert/models/workspace.py
+mosquito_alert/models/workspace_collaboration_group.py
+mosquito_alert/models/workspace_membership.py
 mosquito_alert/py.typed
 mosquito_alert/rest.py
 pyproject.toml
@@ -1747,7 +1757,6 @@ test/test_campaigns_list_order_by_error_component.py
 test/test_campaigns_list_validation_error.py
 test/test_countries_api.py
 test/test_country.py
-test/test_country_permission.py
 test/test_country_request.py
 test/test_create_agree_review_request.py
 test/test_create_overwrite_review_request.py
@@ -1827,11 +1836,11 @@ test/test_fixes_create_point_non_field_errors_error_component.py
 test/test_fixes_create_power_error_component.py
 test/test_fixes_create_sent_at_error_component.py
 test/test_fixes_create_validation_error.py
-test/test_general_permission.py
 test/test_guest_registration.py
 test/test_guest_registration_request.py
 test/test_identification.py
 test/test_identification_task.py
+test/test_identification_task_capabilities.py
 test/test_identification_task_permission.py
 test/test_identification_task_result.py
 test/test_identification_task_review.py
@@ -2240,6 +2249,8 @@ test/test_paginated_partner_list.py
 test/test_paginated_photo_prediction_list.py
 test/test_paginated_taxon_list.py
 test/test_paginated_user_list.py
+test/test_paginated_workspace_collaboration_group_list.py
+test/test_paginated_workspace_list.py
 test/test_partner.py
 test/test_partner_point.py
 test/test_partners_api.py
@@ -2311,6 +2322,7 @@ test/test_simple_photo.py
 test/test_simple_taxon.py
 test/test_simple_taxon_request.py
 test/test_simple_user.py
+test/test_simple_workspace.py
 test/test_simplified_location.py
 test/test_simplified_observation_with_photos.py
 test/test_species_characteristics.py
@@ -2329,7 +2341,6 @@ test/test_token_refresh_request.py
 test/test_token_verify_request.py
 test/test_user.py
 test/test_user_assignment.py
-test/test_user_permission.py
 test/test_user_request.py
 test/test_user_score.py
 test/test_users_api.py
@@ -2341,4 +2352,8 @@ test/test_users_update_error.py
 test/test_users_update_locale_error_component.py
 test/test_users_update_non_field_errors_error_component.py
 test/test_users_update_validation_error.py
+test/test_workspace.py
+test/test_workspace_collaboration_group.py
+test/test_workspace_membership.py
+test/test_workspaces_api.py
 tox.ini

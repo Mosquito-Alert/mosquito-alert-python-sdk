@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from mosquito_alert.models.user_permission import UserPermission
+from mosquito_alert.models.permissions import Permissions
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -51,7 +51,7 @@ class PermissionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserPermission:
+    ) -> Permissions:
         """retrieve_mine
 
         Get Current User's Permissions
@@ -88,7 +88,7 @@ class PermissionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '200': "UserPermission",
+            '200': "Permissions",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -116,7 +116,7 @@ class PermissionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserPermission]:
+    ) -> ApiResponse[Permissions]:
         """retrieve_mine
 
         Get Current User's Permissions
@@ -153,7 +153,7 @@ class PermissionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '200': "UserPermission",
+            '200': "Permissions",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -218,7 +218,7 @@ class PermissionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "ErrorResponse401",
             '404': "ErrorResponse404",
-            '200': "UserPermission",
+            '200': "Permissions",
         }
         response_data = self.api_client.call_api(
             *_param,

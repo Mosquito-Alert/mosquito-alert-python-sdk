@@ -57,6 +57,12 @@ class TestIdentificationTasksApi(unittest.TestCase):
         """
         pass
 
+    def test_capabilities_retrieve(self) -> None:
+        """Test case for capabilities_retrieve
+
+        """
+        pass
+
     def test_list(self) -> None:
         """Test case for list
 

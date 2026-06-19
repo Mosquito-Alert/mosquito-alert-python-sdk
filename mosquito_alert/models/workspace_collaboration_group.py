@@ -18,20 +18,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.country_permission import CountryPermission
-from mosquito_alert.models.general_permission import GeneralPermission
+from typing_extensions import Annotated
+from mosquito_alert.models.simple_user import SimpleUser
+from mosquito_alert.models.simple_workspace import SimpleWorkspace
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UserPermission(BaseModel):
+class WorkspaceCollaborationGroup(BaseModel):
     """
-    UserPermission
+    WorkspaceCollaborationGroup
     """ # noqa: E501
-    general: GeneralPermission
-    countries: List[CountryPermission]
-    __properties: ClassVar[List[str]] = ["general", "countries"]
+    id: StrictInt
+    name: Annotated[str, Field(strict=True, max_length=255)]
+    workspaces: List[SimpleWorkspace]
+    reviewers: List[SimpleUser]
+    created_at: datetime
+    updated_at: datetime
+    __properties: ClassVar[List[str]] = ["id", "name", "workspaces", "reviewers", "created_at", "updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +57,7 @@ class UserPermission(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserPermission from a JSON string"""
+        """Create an instance of WorkspaceCollaborationGroup from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -65,10 +71,16 @@ class UserPermission(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "general",
-            "countries",
+            "id",
+            "workspaces",
+            "reviewers",
+            "created_at",
+            "updated_at",
         ])
 
         _dict = self.model_dump(
@@ -76,21 +88,25 @@ class UserPermission(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of general
-        if self.general:
-            _dict['general'] = self.general.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in countries (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in workspaces (list)
         _items = []
-        if self.countries:
-            for _item_countries in self.countries:
-                if _item_countries:
-                    _items.append(_item_countries.to_dict())
-            _dict['countries'] = _items
+        if self.workspaces:
+            for _item_workspaces in self.workspaces:
+                if _item_workspaces:
+                    _items.append(_item_workspaces.to_dict())
+            _dict['workspaces'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in reviewers (list)
+        _items = []
+        if self.reviewers:
+            for _item_reviewers in self.reviewers:
+                if _item_reviewers:
+                    _items.append(_item_reviewers.to_dict())
+            _dict['reviewers'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserPermission from a dict"""
+        """Create an instance of WorkspaceCollaborationGroup from a dict"""
         if obj is None:
             return None
 
@@ -98,8 +114,12 @@ class UserPermission(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "general": GeneralPermission.from_dict(obj["general"]) if obj.get("general") is not None else None,
-            "countries": [CountryPermission.from_dict(_item) for _item in obj["countries"]] if obj.get("countries") is not None else None
+            "id": obj.get("id"),
+            "name": obj.get("name"),
+            "workspaces": [SimpleWorkspace.from_dict(_item) for _item in obj["workspaces"]] if obj.get("workspaces") is not None else None,
+            "reviewers": [SimpleUser.from_dict(_item) for _item in obj["reviewers"]] if obj.get("reviewers") is not None else None,
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at")
         })
         return _obj
 

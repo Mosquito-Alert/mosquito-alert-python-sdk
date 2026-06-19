@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.annotation_permission import AnnotationPermission
+from mosquito_alert.models.simple_workspace import SimpleWorkspace
 
-class TestAnnotationPermission(unittest.TestCase):
-    """AnnotationPermission unit test stubs"""
+class TestSimpleWorkspace(unittest.TestCase):
+    """SimpleWorkspace unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,32 +26,35 @@ class TestAnnotationPermission(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AnnotationPermission:
-        """Test AnnotationPermission
+    def make_instance(self, include_optional) -> SimpleWorkspace:
+        """Test SimpleWorkspace
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AnnotationPermission`
+        # uncomment below to create an instance of `SimpleWorkspace`
         """
-        model = AnnotationPermission()
+        model = SimpleWorkspace()
         if include_optional:
-            return AnnotationPermission(
-                add = True,
-                change = True,
-                view = True,
-                delete = True
+            return SimpleWorkspace(
+                id = 56,
+                name = '',
+                country = mosquito_alert.models.country.Country(
+                    id = 56, 
+                    name_en = '', 
+                    iso3_code = '', )
             )
         else:
-            return AnnotationPermission(
-                add = True,
-                change = True,
-                view = True,
-                delete = True,
+            return SimpleWorkspace(
+                id = 56,
+                country = mosquito_alert.models.country.Country(
+                    id = 56, 
+                    name_en = '', 
+                    iso3_code = '', ),
         )
         """
 
-    def testAnnotationPermission(self):
-        """Test AnnotationPermission"""
+    def testSimpleWorkspace(self):
+        """Test SimpleWorkspace"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

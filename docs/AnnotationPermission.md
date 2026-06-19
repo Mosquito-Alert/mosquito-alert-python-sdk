@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **change** | **bool** |  | 
 **view** | **bool** |  | 
 **delete** | **bool** |  | 
-**mark_as_executive** | **bool** |  | 
 
 ## Example
 

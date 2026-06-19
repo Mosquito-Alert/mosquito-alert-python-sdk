@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **retrieve_mine**
-> UserPermission retrieve_mine()
+> Permissions retrieve_mine()
 
 Get Current User's Permissions
 
@@ -20,7 +20,7 @@ Get Current User's Permissions
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.user_permission import UserPermission
+from mosquito_alert.models.permissions import Permissions
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -73,7 +73,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserPermission**](UserPermission.md)
+[**Permissions**](Permissions.md)
 
 ### Authorization
 

@@ -23,15 +23,14 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AnnotationPermission(BaseModel):
+class IdentificationTaskCapabilities(BaseModel):
     """
-    AnnotationPermission
+    IdentificationTaskCapabilities
     """ # noqa: E501
-    add: StrictBool
-    change: StrictBool
-    view: StrictBool
-    delete: StrictBool
-    __properties: ClassVar[List[str]] = ["add", "change", "view", "delete"]
+    review: StrictBool
+    annotate: StrictBool
+    annotate_executive: StrictBool
+    __properties: ClassVar[List[str]] = ["review", "annotate", "annotate_executive"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class AnnotationPermission(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AnnotationPermission from a JSON string"""
+        """Create an instance of IdentificationTaskCapabilities from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -63,8 +62,14 @@ class AnnotationPermission(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "review",
+            "annotate",
+            "annotate_executive",
         ])
 
         _dict = self.model_dump(
@@ -76,7 +81,7 @@ class AnnotationPermission(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AnnotationPermission from a dict"""
+        """Create an instance of IdentificationTaskCapabilities from a dict"""
         if obj is None:
             return None
 
@@ -84,10 +89,9 @@ class AnnotationPermission(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "add": obj.get("add"),
-            "change": obj.get("change"),
-            "view": obj.get("view"),
-            "delete": obj.get("delete")
+            "review": obj.get("review"),
+            "annotate": obj.get("annotate"),
+            "annotate_executive": obj.get("annotate_executive")
         })
         return _obj
 

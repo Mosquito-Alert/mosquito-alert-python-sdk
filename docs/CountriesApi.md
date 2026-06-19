@@ -147,7 +147,7 @@ configuration = mosquito_alert.Configuration(
 with mosquito_alert.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mosquito_alert.CountriesApi(api_client)
-    id = 56 # int | A unique integer value identifying this europe country.
+    id = 56 # int | A unique integer value identifying this country.
 
     try:
         api_response = api_instance.retrieve(id)
@@ -164,7 +164,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this europe country. | 
+ **id** | **int**| A unique integer value identifying this country. | 
 
 ### Return type
 

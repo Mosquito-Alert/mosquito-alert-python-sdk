@@ -15,10 +15,10 @@
 
 import unittest
 
-from mosquito_alert.models.annotation_permission import AnnotationPermission
+from mosquito_alert.models.identification_task_capabilities import IdentificationTaskCapabilities
 
-class TestAnnotationPermission(unittest.TestCase):
-    """AnnotationPermission unit test stubs"""
+class TestIdentificationTaskCapabilities(unittest.TestCase):
+    """IdentificationTaskCapabilities unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,32 +26,30 @@ class TestAnnotationPermission(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AnnotationPermission:
-        """Test AnnotationPermission
+    def make_instance(self, include_optional) -> IdentificationTaskCapabilities:
+        """Test IdentificationTaskCapabilities
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AnnotationPermission`
+        # uncomment below to create an instance of `IdentificationTaskCapabilities`
         """
-        model = AnnotationPermission()
+        model = IdentificationTaskCapabilities()
         if include_optional:
-            return AnnotationPermission(
-                add = True,
-                change = True,
-                view = True,
-                delete = True
+            return IdentificationTaskCapabilities(
+                review = True,
+                annotate = True,
+                annotate_executive = True
             )
         else:
-            return AnnotationPermission(
-                add = True,
-                change = True,
-                view = True,
-                delete = True,
+            return IdentificationTaskCapabilities(
+                review = True,
+                annotate = True,
+                annotate_executive = True,
         )
         """
 
-    def testAnnotationPermission(self):
-        """Test AnnotationPermission"""
+    def testIdentificationTaskCapabilities(self):
+        """Test IdentificationTaskCapabilities"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

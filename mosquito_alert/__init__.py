@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.3.1"
+__version__ = "0.4.0"
 
 # Define package exports
 __all__ = [
@@ -37,6 +37,7 @@ __all__ = [
     "PingApi",
     "TaxaApi",
     "UsersApi",
+    "WorkspacesApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -220,7 +221,6 @@ __all__ = [
     "CampaignsListOrderByErrorComponent",
     "CampaignsListValidationError",
     "Country",
-    "CountryPermission",
     "CountryRequest",
     "CreateAgreeReviewRequest",
     "CreateOverwriteReviewRequest",
@@ -298,11 +298,11 @@ __all__ = [
     "FixesCreatePowerErrorComponent",
     "FixesCreateSentAtErrorComponent",
     "FixesCreateValidationError",
-    "GeneralPermission",
     "GuestRegistration",
     "GuestRegistrationRequest",
     "Identification",
     "IdentificationTask",
+    "IdentificationTaskCapabilities",
     "IdentificationTaskPermission",
     "IdentificationTaskResult",
     "IdentificationTaskReview",
@@ -707,6 +707,8 @@ __all__ = [
     "PaginatedPhotoPredictionList",
     "PaginatedTaxonList",
     "PaginatedUserList",
+    "PaginatedWorkspaceCollaborationGroupList",
+    "PaginatedWorkspaceList",
     "Partner",
     "PartnerPoint",
     "PasswordChangeRequest",
@@ -774,6 +776,7 @@ __all__ = [
     "SimpleTaxon",
     "SimpleTaxonRequest",
     "SimpleUser",
+    "SimpleWorkspace",
     "SimplifiedLocation",
     "SimplifiedObservationWithPhotos",
     "SpeciesCharacteristics",
@@ -791,7 +794,6 @@ __all__ = [
     "TokenVerifyRequest",
     "User",
     "UserAssignment",
-    "UserPermission",
     "UserRequest",
     "UserScore",
     "UsersPartialUpdateError",
@@ -802,6 +804,9 @@ __all__ = [
     "UsersUpdateLocaleErrorComponent",
     "UsersUpdateNonFieldErrorsErrorComponent",
     "UsersUpdateValidationError",
+    "Workspace",
+    "WorkspaceCollaborationGroup",
+    "WorkspaceMembership",
 ]
 
 # import apis into sdk package
@@ -823,6 +828,7 @@ from mosquito_alert.api.photos_api import PhotosApi as PhotosApi
 from mosquito_alert.api.ping_api import PingApi as PingApi
 from mosquito_alert.api.taxa_api import TaxaApi as TaxaApi
 from mosquito_alert.api.users_api import UsersApi as UsersApi
+from mosquito_alert.api.workspaces_api import WorkspacesApi as WorkspacesApi
 
 # import ApiClient
 from mosquito_alert.api_response import ApiResponse as ApiResponse
@@ -1010,7 +1016,6 @@ from mosquito_alert.models.campaigns_list_error import CampaignsListError as Cam
 from mosquito_alert.models.campaigns_list_order_by_error_component import CampaignsListOrderByErrorComponent as CampaignsListOrderByErrorComponent
 from mosquito_alert.models.campaigns_list_validation_error import CampaignsListValidationError as CampaignsListValidationError
 from mosquito_alert.models.country import Country as Country
-from mosquito_alert.models.country_permission import CountryPermission as CountryPermission
 from mosquito_alert.models.country_request import CountryRequest as CountryRequest
 from mosquito_alert.models.create_agree_review_request import CreateAgreeReviewRequest as CreateAgreeReviewRequest
 from mosquito_alert.models.create_overwrite_review_request import CreateOverwriteReviewRequest as CreateOverwriteReviewRequest
@@ -1088,11 +1093,11 @@ from mosquito_alert.models.fixes_create_point_non_field_errors_error_component i
 from mosquito_alert.models.fixes_create_power_error_component import FixesCreatePowerErrorComponent as FixesCreatePowerErrorComponent
 from mosquito_alert.models.fixes_create_sent_at_error_component import FixesCreateSentAtErrorComponent as FixesCreateSentAtErrorComponent
 from mosquito_alert.models.fixes_create_validation_error import FixesCreateValidationError as FixesCreateValidationError
-from mosquito_alert.models.general_permission import GeneralPermission as GeneralPermission
 from mosquito_alert.models.guest_registration import GuestRegistration as GuestRegistration
 from mosquito_alert.models.guest_registration_request import GuestRegistrationRequest as GuestRegistrationRequest
 from mosquito_alert.models.identification import Identification as Identification
 from mosquito_alert.models.identification_task import IdentificationTask as IdentificationTask
+from mosquito_alert.models.identification_task_capabilities import IdentificationTaskCapabilities as IdentificationTaskCapabilities
 from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission as IdentificationTaskPermission
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult as IdentificationTaskResult
 from mosquito_alert.models.identification_task_review import IdentificationTaskReview as IdentificationTaskReview
@@ -1497,6 +1502,8 @@ from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList as
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList as PaginatedPhotoPredictionList
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList as PaginatedTaxonList
 from mosquito_alert.models.paginated_user_list import PaginatedUserList as PaginatedUserList
+from mosquito_alert.models.paginated_workspace_collaboration_group_list import PaginatedWorkspaceCollaborationGroupList as PaginatedWorkspaceCollaborationGroupList
+from mosquito_alert.models.paginated_workspace_list import PaginatedWorkspaceList as PaginatedWorkspaceList
 from mosquito_alert.models.partner import Partner as Partner
 from mosquito_alert.models.partner_point import PartnerPoint as PartnerPoint
 from mosquito_alert.models.password_change_request import PasswordChangeRequest as PasswordChangeRequest
@@ -1564,6 +1571,7 @@ from mosquito_alert.models.simple_photo import SimplePhoto as SimplePhoto
 from mosquito_alert.models.simple_taxon import SimpleTaxon as SimpleTaxon
 from mosquito_alert.models.simple_taxon_request import SimpleTaxonRequest as SimpleTaxonRequest
 from mosquito_alert.models.simple_user import SimpleUser as SimpleUser
+from mosquito_alert.models.simple_workspace import SimpleWorkspace as SimpleWorkspace
 from mosquito_alert.models.simplified_location import SimplifiedLocation as SimplifiedLocation
 from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos as SimplifiedObservationWithPhotos
 from mosquito_alert.models.species_characteristics import SpeciesCharacteristics as SpeciesCharacteristics
@@ -1581,7 +1589,6 @@ from mosquito_alert.models.token_refresh_request import TokenRefreshRequest as T
 from mosquito_alert.models.token_verify_request import TokenVerifyRequest as TokenVerifyRequest
 from mosquito_alert.models.user import User as User
 from mosquito_alert.models.user_assignment import UserAssignment as UserAssignment
-from mosquito_alert.models.user_permission import UserPermission as UserPermission
 from mosquito_alert.models.user_request import UserRequest as UserRequest
 from mosquito_alert.models.user_score import UserScore as UserScore
 from mosquito_alert.models.users_partial_update_error import UsersPartialUpdateError as UsersPartialUpdateError
@@ -1592,4 +1599,7 @@ from mosquito_alert.models.users_update_error import UsersUpdateError as UsersUp
 from mosquito_alert.models.users_update_locale_error_component import UsersUpdateLocaleErrorComponent as UsersUpdateLocaleErrorComponent
 from mosquito_alert.models.users_update_non_field_errors_error_component import UsersUpdateNonFieldErrorsErrorComponent as UsersUpdateNonFieldErrorsErrorComponent
 from mosquito_alert.models.users_update_validation_error import UsersUpdateValidationError as UsersUpdateValidationError
+from mosquito_alert.models.workspace import Workspace as Workspace
+from mosquito_alert.models.workspace_collaboration_group import WorkspaceCollaborationGroup as WorkspaceCollaborationGroup
+from mosquito_alert.models.workspace_membership import WorkspaceMembership as WorkspaceMembership
 

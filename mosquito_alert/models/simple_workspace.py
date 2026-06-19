@@ -18,28 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from mosquito_alert.models.country import Country
-from mosquito_alert.models.permissions import Permissions
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CountryPermission(BaseModel):
+class SimpleWorkspace(BaseModel):
     """
-    CountryPermission
+    SimpleWorkspace
     """ # noqa: E501
-    role: StrictStr
-    permissions: Permissions
-    country: Country
-    __properties: ClassVar[List[str]] = ["role", "permissions", "country"]
-
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['base', 'annotator', 'supervisor', 'reviewer', 'admin']):
-            raise ValueError("must be one of enum values ('base', 'annotator', 'supervisor', 'reviewer', 'admin')")
-        return value
+    id: StrictInt
+    name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    country: Optional[Country]
+    __properties: ClassVar[List[str]] = ["id", "name", "country"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +52,7 @@ class CountryPermission(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CountryPermission from a JSON string"""
+        """Create an instance of SimpleWorkspace from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,11 +66,9 @@ class CountryPermission(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "role",
-            "permissions",
+            "id",
             "country",
         ])
 
@@ -86,17 +77,24 @@ class CountryPermission(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of permissions
-        if self.permissions:
-            _dict['permissions'] = self.permissions.to_dict()
         # override the default output from pydantic by calling `to_dict()` of country
         if self.country:
             _dict['country'] = self.country.to_dict()
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
+        # set to None if country (nullable) is None
+        # and model_fields_set contains the field
+        if self.country is None and "country" in self.model_fields_set:
+            _dict['country'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CountryPermission from a dict"""
+        """Create an instance of SimpleWorkspace from a dict"""
         if obj is None:
             return None
 
@@ -104,8 +102,8 @@ class CountryPermission(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "role": obj.get("role"),
-            "permissions": Permissions.from_dict(obj["permissions"]) if obj.get("permissions") is not None else None,
+            "id": obj.get("id"),
+            "name": obj.get("name"),
             "country": Country.from_dict(obj["country"]) if obj.get("country") is not None else None
         })
         return _obj

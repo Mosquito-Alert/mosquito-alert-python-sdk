@@ -18,26 +18,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
-from mosquito_alert.models.permissions import Permissions
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from mosquito_alert.models.simple_user import SimpleUser
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GeneralPermission(BaseModel):
+class WorkspaceMembership(BaseModel):
     """
-    GeneralPermission
+    WorkspaceMembership
     """ # noqa: E501
-    role: StrictStr
-    permissions: Permissions
-    is_staff: StrictBool
-    __properties: ClassVar[List[str]] = ["role", "permissions", "is_staff"]
+    user: SimpleUser
+    role: Optional[StrictStr] = None
+    created_at: datetime
+    __properties: ClassVar[List[str]] = ["user", "role", "created_at"]
 
     @field_validator('role')
     def role_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['base', 'annotator', 'supervisor', 'reviewer', 'admin']):
-            raise ValueError("must be one of enum values ('base', 'annotator', 'supervisor', 'reviewer', 'admin')")
+        if value is None:
+            return value
+
+        if value not in set(['member', 'annotator', 'supervisor']):
+            raise ValueError("must be one of enum values ('member', 'annotator', 'supervisor')")
         return value
 
     model_config = ConfigDict(
@@ -58,7 +62,7 @@ class GeneralPermission(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GeneralPermission from a JSON string"""
+        """Create an instance of WorkspaceMembership from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,8 +78,8 @@ class GeneralPermission(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "role",
-            "permissions",
+            "user",
+            "created_at",
         ])
 
         _dict = self.model_dump(
@@ -83,14 +87,14 @@ class GeneralPermission(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of permissions
-        if self.permissions:
-            _dict['permissions'] = self.permissions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of user
+        if self.user:
+            _dict['user'] = self.user.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GeneralPermission from a dict"""
+        """Create an instance of WorkspaceMembership from a dict"""
         if obj is None:
             return None
 
@@ -98,9 +102,9 @@ class GeneralPermission(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "user": SimpleUser.from_dict(obj["user"]) if obj.get("user") is not None else None,
             "role": obj.get("role"),
-            "permissions": Permissions.from_dict(obj["permissions"]) if obj.get("permissions") is not None else None,
-            "is_staff": obj.get("is_staff")
+            "created_at": obj.get("created_at")
         })
         return _obj
 

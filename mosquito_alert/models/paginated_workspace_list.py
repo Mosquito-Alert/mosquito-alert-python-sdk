@@ -18,20 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from mosquito_alert.models.workspace import Workspace
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AnnotationPermission(BaseModel):
+class PaginatedWorkspaceList(BaseModel):
     """
-    AnnotationPermission
+    PaginatedWorkspaceList
     """ # noqa: E501
-    add: StrictBool
-    change: StrictBool
-    view: StrictBool
-    delete: StrictBool
-    __properties: ClassVar[List[str]] = ["add", "change", "view", "delete"]
+    count: StrictInt
+    next: Optional[StrictStr] = None
+    previous: Optional[StrictStr] = None
+    results: List[Workspace]
+    __properties: ClassVar[List[str]] = ["count", "next", "previous", "results"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +52,7 @@ class AnnotationPermission(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AnnotationPermission from a JSON string"""
+        """Create an instance of PaginatedWorkspaceList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,11 +73,28 @@ class AnnotationPermission(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        _items = []
+        if self.results:
+            for _item_results in self.results:
+                if _item_results:
+                    _items.append(_item_results.to_dict())
+            _dict['results'] = _items
+        # set to None if next (nullable) is None
+        # and model_fields_set contains the field
+        if self.next is None and "next" in self.model_fields_set:
+            _dict['next'] = None
+
+        # set to None if previous (nullable) is None
+        # and model_fields_set contains the field
+        if self.previous is None and "previous" in self.model_fields_set:
+            _dict['previous'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AnnotationPermission from a dict"""
+        """Create an instance of PaginatedWorkspaceList from a dict"""
         if obj is None:
             return None
 
@@ -84,10 +102,10 @@ class AnnotationPermission(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "add": obj.get("add"),
-            "change": obj.get("change"),
-            "view": obj.get("view"),
-            "delete": obj.get("delete")
+            "count": obj.get("count"),
+            "next": obj.get("next"),
+            "previous": obj.get("previous"),
+            "results": [Workspace.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
         })
         return _obj
 

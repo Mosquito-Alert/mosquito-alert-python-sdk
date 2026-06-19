@@ -188,7 +188,6 @@ from mosquito_alert.models.campaigns_list_error import CampaignsListError
 from mosquito_alert.models.campaigns_list_order_by_error_component import CampaignsListOrderByErrorComponent
 from mosquito_alert.models.campaigns_list_validation_error import CampaignsListValidationError
 from mosquito_alert.models.country import Country
-from mosquito_alert.models.country_permission import CountryPermission
 from mosquito_alert.models.country_request import CountryRequest
 from mosquito_alert.models.create_agree_review_request import CreateAgreeReviewRequest
 from mosquito_alert.models.create_overwrite_review_request import CreateOverwriteReviewRequest
@@ -266,11 +265,11 @@ from mosquito_alert.models.fixes_create_point_non_field_errors_error_component i
 from mosquito_alert.models.fixes_create_power_error_component import FixesCreatePowerErrorComponent
 from mosquito_alert.models.fixes_create_sent_at_error_component import FixesCreateSentAtErrorComponent
 from mosquito_alert.models.fixes_create_validation_error import FixesCreateValidationError
-from mosquito_alert.models.general_permission import GeneralPermission
 from mosquito_alert.models.guest_registration import GuestRegistration
 from mosquito_alert.models.guest_registration_request import GuestRegistrationRequest
 from mosquito_alert.models.identification import Identification
 from mosquito_alert.models.identification_task import IdentificationTask
+from mosquito_alert.models.identification_task_capabilities import IdentificationTaskCapabilities
 from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission
 from mosquito_alert.models.identification_task_result import IdentificationTaskResult
 from mosquito_alert.models.identification_task_review import IdentificationTaskReview
@@ -675,6 +674,8 @@ from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList
 from mosquito_alert.models.paginated_user_list import PaginatedUserList
+from mosquito_alert.models.paginated_workspace_collaboration_group_list import PaginatedWorkspaceCollaborationGroupList
+from mosquito_alert.models.paginated_workspace_list import PaginatedWorkspaceList
 from mosquito_alert.models.partner import Partner
 from mosquito_alert.models.partner_point import PartnerPoint
 from mosquito_alert.models.password_change_request import PasswordChangeRequest
@@ -742,6 +743,7 @@ from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simple_taxon import SimpleTaxon
 from mosquito_alert.models.simple_taxon_request import SimpleTaxonRequest
 from mosquito_alert.models.simple_user import SimpleUser
+from mosquito_alert.models.simple_workspace import SimpleWorkspace
 from mosquito_alert.models.simplified_location import SimplifiedLocation
 from mosquito_alert.models.simplified_observation_with_photos import SimplifiedObservationWithPhotos
 from mosquito_alert.models.species_characteristics import SpeciesCharacteristics
@@ -759,7 +761,6 @@ from mosquito_alert.models.token_refresh_request import TokenRefreshRequest
 from mosquito_alert.models.token_verify_request import TokenVerifyRequest
 from mosquito_alert.models.user import User
 from mosquito_alert.models.user_assignment import UserAssignment
-from mosquito_alert.models.user_permission import UserPermission
 from mosquito_alert.models.user_request import UserRequest
 from mosquito_alert.models.user_score import UserScore
 from mosquito_alert.models.users_partial_update_error import UsersPartialUpdateError
@@ -770,4 +771,7 @@ from mosquito_alert.models.users_update_error import UsersUpdateError
 from mosquito_alert.models.users_update_locale_error_component import UsersUpdateLocaleErrorComponent
 from mosquito_alert.models.users_update_non_field_errors_error_component import UsersUpdateNonFieldErrorsErrorComponent
 from mosquito_alert.models.users_update_validation_error import UsersUpdateValidationError
+from mosquito_alert.models.workspace import Workspace
+from mosquito_alert.models.workspace_collaboration_group import WorkspaceCollaborationGroup
+from mosquito_alert.models.workspace_membership import WorkspaceMembership
 

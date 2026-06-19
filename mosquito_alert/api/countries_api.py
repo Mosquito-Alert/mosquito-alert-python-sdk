@@ -331,7 +331,7 @@ class CountriesApi:
     @validate_call
     def retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this country.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -348,7 +348,7 @@ class CountriesApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this europe country. (required)
+        :param id: A unique integer value identifying this country. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -400,7 +400,7 @@ class CountriesApi:
     @validate_call
     def retrieve_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this country.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -417,7 +417,7 @@ class CountriesApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this europe country. (required)
+        :param id: A unique integer value identifying this country. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -469,7 +469,7 @@ class CountriesApi:
     @validate_call
     def retrieve_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this europe country.")],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this country.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -486,7 +486,7 @@ class CountriesApi:
         """retrieve
 
 
-        :param id: A unique integer value identifying this europe country. (required)
+        :param id: A unique integer value identifying this country. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
