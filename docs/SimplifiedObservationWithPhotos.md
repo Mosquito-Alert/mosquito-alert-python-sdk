@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **UUID** |  | [readonly] 
 **short_id** | **str** |  | [readonly] 
-**user_uuid** | **UUID** |  | [readonly] 
+**user** | [**MinimalUser**](MinimalUser.md) |  | [readonly] 
 **created_at** | **datetime** |  | 
 **created_at_local** | **datetime** | The date and time when the record was created, displayed without timezone field. | [readonly] 
 **received_at** | **datetime** |  | [readonly] 

@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.4.1"
+__version__ = "0.4.2"
 
 # Define package exports
 __all__ = [
@@ -56,7 +56,6 @@ __all__ = [
     "AnnotationRequest",
     "AppUserTokenObtainPair",
     "AppUserTokenObtainPairRequest",
-    "AssignedObservation",
     "Assignment",
     "AuthChangePasswordError",
     "AuthChangePasswordNonFieldErrorsErrorComponent",
@@ -851,7 +850,6 @@ from mosquito_alert.models.annotation_permission import AnnotationPermission as 
 from mosquito_alert.models.annotation_request import AnnotationRequest as AnnotationRequest
 from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair as AppUserTokenObtainPair
 from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest as AppUserTokenObtainPairRequest
-from mosquito_alert.models.assigned_observation import AssignedObservation as AssignedObservation
 from mosquito_alert.models.assignment import Assignment as Assignment
 from mosquito_alert.models.auth_change_password_error import AuthChangePasswordError as AuthChangePasswordError
 from mosquito_alert.models.auth_change_password_non_field_errors_error_component import AuthChangePasswordNonFieldErrorsErrorComponent as AuthChangePasswordNonFieldErrorsErrorComponent

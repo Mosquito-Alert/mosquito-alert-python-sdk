@@ -22,6 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
+from mosquito_alert.models.minimal_user import MinimalUser
 from mosquito_alert.models.simple_photo import SimplePhoto
 from mosquito_alert.models.simplified_location import SimplifiedLocation
 from typing import Optional, Set
@@ -34,14 +35,14 @@ class SimplifiedObservationWithPhotos(BaseModel):
     """ # noqa: E501
     uuid: UUID
     short_id: StrictStr
-    user_uuid: UUID
+    user: MinimalUser
     created_at: datetime
     created_at_local: datetime = Field(description="The date and time when the record was created, displayed without timezone field.")
     received_at: datetime
     location: SimplifiedLocation
     note: Optional[StrictStr]
     photos: List[SimplePhoto]
-    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user_uuid", "created_at", "created_at_local", "received_at", "location", "note", "photos"]
+    __properties: ClassVar[List[str]] = ["uuid", "short_id", "user", "created_at", "created_at_local", "received_at", "location", "note", "photos"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -84,7 +85,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
         excluded_fields: Set[str] = set([
             "uuid",
             "short_id",
-            "user_uuid",
+            "user",
             "created_at_local",
             "received_at",
             "note",
@@ -96,6 +97,9 @@ class SimplifiedObservationWithPhotos(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of user
+        if self.user:
+            _dict['user'] = self.user.to_dict()
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
@@ -125,7 +129,7 @@ class SimplifiedObservationWithPhotos(BaseModel):
         _obj = cls.model_validate({
             "uuid": obj.get("uuid"),
             "short_id": obj.get("short_id"),
-            "user_uuid": obj.get("user_uuid"),
+            "user": MinimalUser.from_dict(obj["user"]) if obj.get("user") is not None else None,
             "created_at": obj.get("created_at"),
             "created_at_local": obj.get("created_at_local"),
             "received_at": obj.get("received_at"),

@@ -12,7 +12,6 @@ docs/AnnotationPermission.md
 docs/AnnotationRequest.md
 docs/AppUserTokenObtainPair.md
 docs/AppUserTokenObtainPairRequest.md
-docs/AssignedObservation.md
 docs/Assignment.md
 docs/AuthApi.md
 docs/AuthChangePasswordError.md
@@ -818,7 +817,6 @@ mosquito_alert/models/annotation_permission.py
 mosquito_alert/models/annotation_request.py
 mosquito_alert/models/app_user_token_obtain_pair.py
 mosquito_alert/models/app_user_token_obtain_pair_request.py
-mosquito_alert/models/assigned_observation.py
 mosquito_alert/models/assignment.py
 mosquito_alert/models/auth_change_password_error.py
 mosquito_alert/models/auth_change_password_non_field_errors_error_component.py
@@ -1586,7 +1584,6 @@ test/test_annotation_permission.py
 test/test_annotation_request.py
 test/test_app_user_token_obtain_pair.py
 test/test_app_user_token_obtain_pair_request.py
-test/test_assigned_observation.py
 test/test_assignment.py
 test/test_auth_api.py
 test/test_auth_change_password_error.py

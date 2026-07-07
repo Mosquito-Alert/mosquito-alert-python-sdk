@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**observation** | [**AssignedObservation**](AssignedObservation.md) |  | [readonly] 
+**observation** | [**SimplifiedObservationWithPhotos**](SimplifiedObservationWithPhotos.md) |  | [readonly] 
 **annotation_type** | **str** |  | [readonly] 
 
 ## Example

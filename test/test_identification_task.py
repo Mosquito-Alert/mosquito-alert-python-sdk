@@ -39,7 +39,7 @@ class TestIdentificationTask(unittest.TestCase):
                 observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
                     uuid = '', 
                     short_id = '', 
-                    user_uuid = '', 
+                    user = null, 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -95,7 +95,7 @@ class TestIdentificationTask(unittest.TestCase):
                 observation = mosquito_alert.models.simplified_observation_with_photos.SimplifiedObservationWithPhotos(
                     uuid = '', 
                     short_id = '', 
-                    user_uuid = '', 
+                    user = null, 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_at_local = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
