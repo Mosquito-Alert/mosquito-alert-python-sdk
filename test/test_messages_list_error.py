@@ -36,13 +36,13 @@ class TestMessagesListError(unittest.TestCase):
         model = MessagesListError()
         if include_optional:
             return MessagesListError(
-                attr = 'recipient_uuids',
+                attr = 'target',
                 code = 'invalid_choice',
                 detail = ''
             )
         else:
             return MessagesListError(
-                attr = 'recipient_uuids',
+                attr = 'target',
                 code = 'invalid_choice',
                 detail = '',
         )

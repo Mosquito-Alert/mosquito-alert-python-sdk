@@ -19,15 +19,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
-from mosquito_alert.models.create_topic_message import CreateTopicMessage
-from mosquito_alert.models.create_topic_message_request import CreateTopicMessageRequest
-from mosquito_alert.models.create_user_message import CreateUserMessage
-from mosquito_alert.models.create_user_message_request import CreateUserMessageRequest
 from mosquito_alert.models.message import Message
-from mosquito_alert.models.message_recipient import MessageRecipient
-from mosquito_alert.models.message_topic import MessageTopic
-from mosquito_alert.models.paginated_message_list import PaginatedMessageList
-from mosquito_alert.models.paginated_message_topic_list import PaginatedMessageTopicList
+from mosquito_alert.models.message_recipient_stats import MessageRecipientStats
+from mosquito_alert.models.message_targeting import MessageTargeting
+from mosquito_alert.models.meta_create_message_request import MetaCreateMessageRequest
+from mosquito_alert.models.paginated_message_list_list import PaginatedMessageListList
+from mosquito_alert.models.paginated_message_recipient_list import PaginatedMessageRecipientList
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
 from mosquito_alert.api_response import ApiResponse
@@ -50,7 +47,7 @@ class MessagesApi:
     @validate_call
     def create(
         self,
-        create_user_message_request: CreateUserMessageRequest,
+        meta_create_message_request: Optional[MetaCreateMessageRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,12 +60,12 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateUserMessage:
+    ) -> Message:
         """create
 
 
-        :param create_user_message_request: (required)
-        :type create_user_message_request: CreateUserMessageRequest
+        :param meta_create_message_request:
+        :type meta_create_message_request: MetaCreateMessageRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,7 +89,7 @@ class MessagesApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            create_user_message_request=create_user_message_request,
+            meta_create_message_request=meta_create_message_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -104,7 +101,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '201': "CreateUserMessage",
+            '201': "Message",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -120,7 +117,7 @@ class MessagesApi:
     @validate_call
     def create_with_http_info(
         self,
-        create_user_message_request: CreateUserMessageRequest,
+        meta_create_message_request: Optional[MetaCreateMessageRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,12 +130,12 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateUserMessage]:
+    ) -> ApiResponse[Message]:
         """create
 
 
-        :param create_user_message_request: (required)
-        :type create_user_message_request: CreateUserMessageRequest
+        :param meta_create_message_request:
+        :type meta_create_message_request: MetaCreateMessageRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -162,7 +159,7 @@ class MessagesApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            create_user_message_request=create_user_message_request,
+            meta_create_message_request=meta_create_message_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -174,7 +171,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '201': "CreateUserMessage",
+            '201': "Message",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -190,7 +187,7 @@ class MessagesApi:
     @validate_call
     def create_without_preload_content(
         self,
-        create_user_message_request: CreateUserMessageRequest,
+        meta_create_message_request: Optional[MetaCreateMessageRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -207,8 +204,8 @@ class MessagesApi:
         """create
 
 
-        :param create_user_message_request: (required)
-        :type create_user_message_request: CreateUserMessageRequest
+        :param meta_create_message_request:
+        :type meta_create_message_request: MetaCreateMessageRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -232,7 +229,7 @@ class MessagesApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            create_user_message_request=create_user_message_request,
+            meta_create_message_request=meta_create_message_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -244,7 +241,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '201': "CreateUserMessage",
+            '201': "Message",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -255,7 +252,7 @@ class MessagesApi:
 
     def _create_serialize(
         self,
-        create_user_message_request,
+        meta_create_message_request,
         _request_auth,
         _content_type,
         _headers,
@@ -281,8 +278,8 @@ class MessagesApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if create_user_message_request is not None:
-            _body_params = create_user_message_request
+        if meta_create_message_request is not None:
+            _body_params = meta_create_message_request
 
 
         # set the HTTP header `Accept`
@@ -341,6 +338,7 @@ class MessagesApi:
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         recipient_uuids: Annotated[Optional[List[StrictStr]], Field(description="UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).")] = None,
+        target: Annotated[Optional[StrictStr], Field(description="Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -353,9 +351,10 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaginatedMessageList:
+    ) -> PaginatedMessageListList:
         """list
 
+        Get all messages sent by the current user. The content of the message is truncated to 100 words and the body is returned as plain text, without images or HTML tags. To retrieve the full content of a message, use the GET /messages/{id}/ endpoint.
 
         :param order_by: Ordering  
         :type order_by: List[str]
@@ -365,6 +364,8 @@ class MessagesApi:
         :type page_size: int
         :param recipient_uuids: UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).
         :type recipient_uuids: List[str]
+        :param target: Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  
+        :type target: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -392,6 +393,7 @@ class MessagesApi:
             page=page,
             page_size=page_size,
             recipient_uuids=recipient_uuids,
+            target=target,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -403,7 +405,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageList",
+            '200': "PaginatedMessageListList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -423,6 +425,7 @@ class MessagesApi:
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         recipient_uuids: Annotated[Optional[List[StrictStr]], Field(description="UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).")] = None,
+        target: Annotated[Optional[StrictStr], Field(description="Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -435,9 +438,10 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaginatedMessageList]:
+    ) -> ApiResponse[PaginatedMessageListList]:
         """list
 
+        Get all messages sent by the current user. The content of the message is truncated to 100 words and the body is returned as plain text, without images or HTML tags. To retrieve the full content of a message, use the GET /messages/{id}/ endpoint.
 
         :param order_by: Ordering  
         :type order_by: List[str]
@@ -447,6 +451,8 @@ class MessagesApi:
         :type page_size: int
         :param recipient_uuids: UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).
         :type recipient_uuids: List[str]
+        :param target: Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  
+        :type target: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -474,6 +480,7 @@ class MessagesApi:
             page=page,
             page_size=page_size,
             recipient_uuids=recipient_uuids,
+            target=target,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -485,7 +492,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageList",
+            '200': "PaginatedMessageListList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -505,6 +512,7 @@ class MessagesApi:
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         recipient_uuids: Annotated[Optional[List[StrictStr]], Field(description="UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).")] = None,
+        target: Annotated[Optional[StrictStr], Field(description="Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -520,6 +528,7 @@ class MessagesApi:
     ) -> RESTResponseType:
         """list
 
+        Get all messages sent by the current user. The content of the message is truncated to 100 words and the body is returned as plain text, without images or HTML tags. To retrieve the full content of a message, use the GET /messages/{id}/ endpoint.
 
         :param order_by: Ordering  
         :type order_by: List[str]
@@ -529,6 +538,8 @@ class MessagesApi:
         :type page_size: int
         :param recipient_uuids: UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).
         :type recipient_uuids: List[str]
+        :param target: Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  
+        :type target: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -556,6 +567,7 @@ class MessagesApi:
             page=page,
             page_size=page_size,
             recipient_uuids=recipient_uuids,
+            target=target,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -567,7 +579,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageList",
+            '200': "PaginatedMessageListList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -582,6 +594,7 @@ class MessagesApi:
         page,
         page_size,
         recipient_uuids,
+        target,
         _request_auth,
         _content_type,
         _headers,
@@ -621,6 +634,10 @@ class MessagesApi:
         if recipient_uuids is not None:
             
             _query_params.append(('recipient_uuids', recipient_uuids))
+            
+        if target is not None:
+            
+            _query_params.append(('target', target))
             
         # process the header parameters
         # process the form parameters
@@ -668,6 +685,7 @@ class MessagesApi:
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         recipient_uuids: Annotated[Optional[List[StrictStr]], Field(description="UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).")] = None,
+        target: Annotated[Optional[StrictStr], Field(description="Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -680,7 +698,7 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaginatedMessageList:
+    ) -> PaginatedMessageListList:
         """list_mine_sent
 
         Get current user's sent messages
@@ -693,6 +711,8 @@ class MessagesApi:
         :type page_size: int
         :param recipient_uuids: UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).
         :type recipient_uuids: List[str]
+        :param target: Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  
+        :type target: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -720,6 +740,7 @@ class MessagesApi:
             page=page,
             page_size=page_size,
             recipient_uuids=recipient_uuids,
+            target=target,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -731,7 +752,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageList",
+            '200': "PaginatedMessageListList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -751,6 +772,7 @@ class MessagesApi:
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         recipient_uuids: Annotated[Optional[List[StrictStr]], Field(description="UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).")] = None,
+        target: Annotated[Optional[StrictStr], Field(description="Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -763,7 +785,7 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaginatedMessageList]:
+    ) -> ApiResponse[PaginatedMessageListList]:
         """list_mine_sent
 
         Get current user's sent messages
@@ -776,6 +798,8 @@ class MessagesApi:
         :type page_size: int
         :param recipient_uuids: UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).
         :type recipient_uuids: List[str]
+        :param target: Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  
+        :type target: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -803,6 +827,7 @@ class MessagesApi:
             page=page,
             page_size=page_size,
             recipient_uuids=recipient_uuids,
+            target=target,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -814,7 +839,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageList",
+            '200': "PaginatedMessageListList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -834,6 +859,7 @@ class MessagesApi:
         page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         recipient_uuids: Annotated[Optional[List[StrictStr]], Field(description="UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).")] = None,
+        target: Annotated[Optional[StrictStr], Field(description="Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -859,6 +885,8 @@ class MessagesApi:
         :type page_size: int
         :param recipient_uuids: UUID randomly generated on phone to identify each unique user. Must be exactly 36 characters (32 hex digits plus 4 hyphens).
         :type recipient_uuids: List[str]
+        :param target: Filter messages by target audience. Use 'users' to filter messages sent to specific users, and 'audience' to filter messages sent to a broader audience.  
+        :type target: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -886,6 +914,7 @@ class MessagesApi:
             page=page,
             page_size=page_size,
             recipient_uuids=recipient_uuids,
+            target=target,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -897,7 +926,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageList",
+            '200': "PaginatedMessageListList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -912,6 +941,7 @@ class MessagesApi:
         page,
         page_size,
         recipient_uuids,
+        target,
         _request_auth,
         _content_type,
         _headers,
@@ -951,6 +981,10 @@ class MessagesApi:
         if recipient_uuids is not None:
             
             _query_params.append(('recipient_uuids', recipient_uuids))
+            
+        if target is not None:
+            
+            _query_params.append(('target', target))
             
         # process the header parameters
         # process the form parameters
@@ -995,6 +1029,8 @@ class MessagesApi:
     def recipients_list(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1007,12 +1043,16 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[MessageRecipient]:
+    ) -> PaginatedMessageRecipientList:
         """recipients_list
 
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1037,6 +1077,8 @@ class MessagesApi:
 
         _param = self._recipients_list_serialize(
             id=id,
+            page=page,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1047,7 +1089,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "List[MessageRecipient]",
+            '200': "PaginatedMessageRecipientList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1064,6 +1106,8 @@ class MessagesApi:
     def recipients_list_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1076,12 +1120,16 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[MessageRecipient]]:
+    ) -> ApiResponse[PaginatedMessageRecipientList]:
         """recipients_list
 
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1106,6 +1154,8 @@ class MessagesApi:
 
         _param = self._recipients_list_serialize(
             id=id,
+            page=page,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1116,7 +1166,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "List[MessageRecipient]",
+            '200': "PaginatedMessageRecipientList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1133,6 +1183,8 @@ class MessagesApi:
     def recipients_list_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1151,6 +1203,10 @@ class MessagesApi:
 
         :param id: A unique integer value identifying this notification. (required)
         :type id: int
+        :param page: A page number within the paginated result set.
+        :type page: int
+        :param page_size: Number of results to return per page.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1175,6 +1231,8 @@ class MessagesApi:
 
         _param = self._recipients_list_serialize(
             id=id,
+            page=page,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1185,7 +1243,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "List[MessageRecipient]",
+            '200': "PaginatedMessageRecipientList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1195,6 +1253,285 @@ class MessagesApi:
 
 
     def _recipients_list_serialize(
+        self,
+        id,
+        page,
+        page_size,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if page_size is not None:
+            
+            _query_params.append(('page_size', page_size))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'tokenAuth', 
+            'cookieAuth', 
+            'jwtAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/messages/{id}/recipients/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def recipients_stats_retrieve(
+        self,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MessageRecipientStats:
+        """recipients_stats_retrieve
+
+
+        :param id: A unique integer value identifying this notification. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._recipients_stats_retrieve_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "MessageRecipientStats",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def recipients_stats_retrieve_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MessageRecipientStats]:
+        """recipients_stats_retrieve
+
+
+        :param id: A unique integer value identifying this notification. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._recipients_stats_retrieve_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "MessageRecipientStats",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def recipients_stats_retrieve_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """recipients_stats_retrieve
+
+
+        :param id: A unique integer value identifying this notification. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._recipients_stats_retrieve_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': "ErrorResponse401",
+            '403': "ErrorResponse403",
+            '404': "ErrorResponse404",
+            '200': "MessageRecipientStats",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _recipients_stats_retrieve_serialize(
         self,
         id,
         _request_auth,
@@ -1244,7 +1581,7 @@ class MessagesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/messages/{id}/recipients/',
+            resource_path='/messages/{id}/recipients/stats/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1530,11 +1867,9 @@ class MessagesApi:
 
 
     @validate_call
-    def topics_list(
+    def targeting_retrieve(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1547,16 +1882,12 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaginatedMessageTopicList:
-        """topics_list
+    ) -> MessageTargeting:
+        """targeting_retrieve
 
 
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
-        :param search: A search term.
-        :type search: str
+        :param id: A unique integer value identifying this notification. (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1579,10 +1910,8 @@ class MessagesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._topics_list_serialize(
-            page=page,
-            page_size=page_size,
-            search=search,
+        _param = self._targeting_retrieve_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1593,7 +1922,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageTopicList",
+            '200': "MessageTargeting",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1607,11 +1936,9 @@ class MessagesApi:
 
 
     @validate_call
-    def topics_list_with_http_info(
+    def targeting_retrieve_with_http_info(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1624,16 +1951,12 @@ class MessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaginatedMessageTopicList]:
-        """topics_list
+    ) -> ApiResponse[MessageTargeting]:
+        """targeting_retrieve
 
 
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
-        :param search: A search term.
-        :type search: str
+        :param id: A unique integer value identifying this notification. (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1656,10 +1979,8 @@ class MessagesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._topics_list_serialize(
-            page=page,
-            page_size=page_size,
-            search=search,
+        _param = self._targeting_retrieve_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1670,7 +1991,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageTopicList",
+            '200': "MessageTargeting",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1684,11 +2005,9 @@ class MessagesApi:
 
 
     @validate_call
-    def topics_list_without_preload_content(
+    def targeting_retrieve_without_preload_content(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
-        search: Annotated[Optional[StrictStr], Field(description="A search term.")] = None,
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this notification.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1702,15 +2021,11 @@ class MessagesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """topics_list
+        """targeting_retrieve
 
 
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
-        :param search: A search term.
-        :type search: str
+        :param id: A unique integer value identifying this notification. (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1733,10 +2048,8 @@ class MessagesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._topics_list_serialize(
-            page=page,
-            page_size=page_size,
-            search=search,
+        _param = self._targeting_retrieve_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1747,7 +2060,7 @@ class MessagesApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedMessageTopicList",
+            '200': "MessageTargeting",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1756,11 +2069,9 @@ class MessagesApi:
         return response_data.response
 
 
-    def _topics_list_serialize(
+    def _targeting_retrieve_serialize(
         self,
-        page,
-        page_size,
-        search,
+        id,
         _request_auth,
         _content_type,
         _headers,
@@ -1782,287 +2093,8 @@ class MessagesApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        # process the query parameters
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
-        if search is not None:
-            
-            _query_params.append(('search', search))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'tokenAuth', 
-            'cookieAuth', 
-            'jwtAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/messages/topics/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def topics_retrieve(
-        self,
-        code: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> MessageTopic:
-        """topics_retrieve
-
-
-        :param code: (required)
-        :type code: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._topics_retrieve_serialize(
-            code=code,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "MessageTopic",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def topics_retrieve_with_http_info(
-        self,
-        code: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[MessageTopic]:
-        """topics_retrieve
-
-
-        :param code: (required)
-        :type code: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._topics_retrieve_serialize(
-            code=code,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "MessageTopic",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def topics_retrieve_without_preload_content(
-        self,
-        code: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """topics_retrieve
-
-
-        :param code: (required)
-        :type code: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._topics_retrieve_serialize(
-            code=code,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "MessageTopic",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _topics_retrieve_serialize(
-        self,
-        code,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if code is not None:
-            _path_params['code'] = code
+        if id is not None:
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2087,312 +2119,7 @@ class MessagesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/messages/topics/{code}/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def topics_send(
-        self,
-        code: StrictStr,
-        create_topic_message_request: CreateTopicMessageRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTopicMessage:
-        """topics_send
-
-        Send a message to a specific topic
-
-        :param code: (required)
-        :type code: str
-        :param create_topic_message_request: (required)
-        :type create_topic_message_request: CreateTopicMessageRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._topics_send_serialize(
-            code=code,
-            create_topic_message_request=create_topic_message_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "MessagesTopicsSendValidationError",
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "CreateTopicMessage",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def topics_send_with_http_info(
-        self,
-        code: StrictStr,
-        create_topic_message_request: CreateTopicMessageRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTopicMessage]:
-        """topics_send
-
-        Send a message to a specific topic
-
-        :param code: (required)
-        :type code: str
-        :param create_topic_message_request: (required)
-        :type create_topic_message_request: CreateTopicMessageRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._topics_send_serialize(
-            code=code,
-            create_topic_message_request=create_topic_message_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "MessagesTopicsSendValidationError",
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "CreateTopicMessage",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def topics_send_without_preload_content(
-        self,
-        code: StrictStr,
-        create_topic_message_request: CreateTopicMessageRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """topics_send
-
-        Send a message to a specific topic
-
-        :param code: (required)
-        :type code: str
-        :param create_topic_message_request: (required)
-        :type create_topic_message_request: CreateTopicMessageRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._topics_send_serialize(
-            code=code,
-            create_topic_message_request=create_topic_message_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '400': "MessagesTopicsSendValidationError",
-            '401': "ErrorResponse401",
-            '403': "ErrorResponse403",
-            '404': "ErrorResponse404",
-            '200': "CreateTopicMessage",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _topics_send_serialize(
-        self,
-        code,
-        create_topic_message_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if code is not None:
-            _path_params['code'] = code
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if create_topic_message_request is not None:
-            _body_params = create_topic_message_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'tokenAuth', 
-            'cookieAuth', 
-            'jwtAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/messages/topics/{code}/send/',
+            resource_path='/messages/{id}/targeting/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

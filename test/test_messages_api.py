@@ -51,26 +51,20 @@ class TestMessagesApi(unittest.TestCase):
         """
         pass
 
+    def test_recipients_stats_retrieve(self) -> None:
+        """Test case for recipients_stats_retrieve
+
+        """
+        pass
+
     def test_retrieve(self) -> None:
         """Test case for retrieve
 
         """
         pass
 
-    def test_topics_list(self) -> None:
-        """Test case for topics_list
-
-        """
-        pass
-
-    def test_topics_retrieve(self) -> None:
-        """Test case for topics_retrieve
-
-        """
-        pass
-
-    def test_topics_send(self) -> None:
-        """Test case for topics_send
+    def test_targeting_retrieve(self) -> None:
+        """Test case for targeting_retrieve
 
         """
         pass

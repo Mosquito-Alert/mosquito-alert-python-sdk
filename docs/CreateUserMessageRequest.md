@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_uuids** | **List[UUID]** |  | 
 **content** | [**MessageContentRequest**](MessageContentRequest.md) | The content of the message | 
+**target** | **str** |  | 
+**user_uuids** | **List[UUID]** |  | 
 
 ## Example
 

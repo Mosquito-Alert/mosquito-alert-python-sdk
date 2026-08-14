@@ -20,11 +20,12 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, f
 from typing import Any, List, Optional
 from mosquito_alert.models.messages_list_mine_sent_order_by_error_component import MessagesListMineSentOrderByErrorComponent
 from mosquito_alert.models.messages_list_mine_sent_recipient_uuids_error_component import MessagesListMineSentRecipientUuidsErrorComponent
+from mosquito_alert.models.messages_list_mine_sent_target_error_component import MessagesListMineSentTargetErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-MESSAGESLISTMINESENTERROR_ONE_OF_SCHEMAS = ["MessagesListMineSentOrderByErrorComponent", "MessagesListMineSentRecipientUuidsErrorComponent"]
+MESSAGESLISTMINESENTERROR_ONE_OF_SCHEMAS = ["MessagesListMineSentOrderByErrorComponent", "MessagesListMineSentRecipientUuidsErrorComponent", "MessagesListMineSentTargetErrorComponent"]
 
 class MessagesListMineSentError(BaseModel):
     """
@@ -34,8 +35,10 @@ class MessagesListMineSentError(BaseModel):
     oneof_schema_1_validator: Optional[MessagesListMineSentOrderByErrorComponent] = None
     # data type: MessagesListMineSentRecipientUuidsErrorComponent
     oneof_schema_2_validator: Optional[MessagesListMineSentRecipientUuidsErrorComponent] = None
-    actual_instance: Optional[Union[MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent]] = None
-    one_of_schemas: Set[str] = { "MessagesListMineSentOrderByErrorComponent", "MessagesListMineSentRecipientUuidsErrorComponent" }
+    # data type: MessagesListMineSentTargetErrorComponent
+    oneof_schema_3_validator: Optional[MessagesListMineSentTargetErrorComponent] = None
+    actual_instance: Optional[Union[MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent, MessagesListMineSentTargetErrorComponent]] = None
+    one_of_schemas: Set[str] = { "MessagesListMineSentOrderByErrorComponent", "MessagesListMineSentRecipientUuidsErrorComponent", "MessagesListMineSentTargetErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -71,12 +74,17 @@ class MessagesListMineSentError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesListMineSentRecipientUuidsErrorComponent`")
         else:
             match += 1
+        # validate data type: MessagesListMineSentTargetErrorComponent
+        if not isinstance(v, MessagesListMineSentTargetErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesListMineSentTargetErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent, MessagesListMineSentTargetErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent, MessagesListMineSentTargetErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -103,13 +111,19 @@ class MessagesListMineSentError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into MessagesListMineSentTargetErrorComponent
+        try:
+            instance.actual_instance = MessagesListMineSentTargetErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent, MessagesListMineSentTargetErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into MessagesListMineSentError with oneOf schemas: MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent, MessagesListMineSentTargetErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -123,7 +137,7 @@ class MessagesListMineSentError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesListMineSentOrderByErrorComponent, MessagesListMineSentRecipientUuidsErrorComponent, MessagesListMineSentTargetErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

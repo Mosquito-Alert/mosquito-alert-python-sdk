@@ -18,6 +18,11 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from mosquito_alert.models.messages_create_audience_in_area_error_component import MessagesCreateAudienceInAreaErrorComponent
+from mosquito_alert.models.messages_create_audience_last_login_after_error_component import MessagesCreateAudienceLastLoginAfterErrorComponent
+from mosquito_alert.models.messages_create_audience_last_login_before_error_component import MessagesCreateAudienceLastLoginBeforeErrorComponent
+from mosquito_alert.models.messages_create_audience_locale_error_component import MessagesCreateAudienceLocaleErrorComponent
+from mosquito_alert.models.messages_create_audience_non_field_errors_error_component import MessagesCreateAudienceNonFieldErrorsErrorComponent
 from mosquito_alert.models.messages_create_content_body_bg_error_component import MessagesCreateContentBodyBgErrorComponent
 from mosquito_alert.models.messages_create_content_body_bn_error_component import MessagesCreateContentBodyBnErrorComponent
 from mosquito_alert.models.messages_create_content_body_ca_error_component import MessagesCreateContentBodyCaErrorComponent
@@ -70,13 +75,14 @@ from mosquito_alert.models.messages_create_content_title_sv_error_component impo
 from mosquito_alert.models.messages_create_content_title_tr_error_component import MessagesCreateContentTitleTrErrorComponent
 from mosquito_alert.models.messages_create_content_title_zh_cn_error_component import MessagesCreateContentTitleZhCnErrorComponent
 from mosquito_alert.models.messages_create_non_field_errors_error_component import MessagesCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.messages_create_target_error_component import MessagesCreateTargetErrorComponent
 from mosquito_alert.models.messages_create_user_uuids_error_component import MessagesCreateUserUuidsErrorComponent
 from mosquito_alert.models.messages_create_user_uuids_index_error_component import MessagesCreateUserUuidsINDEXErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-MESSAGESCREATEERROR_ONE_OF_SCHEMAS = ["MessagesCreateContentBodyBgErrorComponent", "MessagesCreateContentBodyBnErrorComponent", "MessagesCreateContentBodyCaErrorComponent", "MessagesCreateContentBodyDeErrorComponent", "MessagesCreateContentBodyElErrorComponent", "MessagesCreateContentBodyEnErrorComponent", "MessagesCreateContentBodyEsErrorComponent", "MessagesCreateContentBodyEuErrorComponent", "MessagesCreateContentBodyFrErrorComponent", "MessagesCreateContentBodyGlErrorComponent", "MessagesCreateContentBodyHrErrorComponent", "MessagesCreateContentBodyHuErrorComponent", "MessagesCreateContentBodyItErrorComponent", "MessagesCreateContentBodyLbErrorComponent", "MessagesCreateContentBodyMkErrorComponent", "MessagesCreateContentBodyNlErrorComponent", "MessagesCreateContentBodyNonFieldErrorsErrorComponent", "MessagesCreateContentBodyPtErrorComponent", "MessagesCreateContentBodyRoErrorComponent", "MessagesCreateContentBodySlErrorComponent", "MessagesCreateContentBodySqErrorComponent", "MessagesCreateContentBodySrErrorComponent", "MessagesCreateContentBodySvErrorComponent", "MessagesCreateContentBodyTrErrorComponent", "MessagesCreateContentBodyZhCnErrorComponent", "MessagesCreateContentNonFieldErrorsErrorComponent", "MessagesCreateContentTitleBgErrorComponent", "MessagesCreateContentTitleBnErrorComponent", "MessagesCreateContentTitleCaErrorComponent", "MessagesCreateContentTitleDeErrorComponent", "MessagesCreateContentTitleElErrorComponent", "MessagesCreateContentTitleEnErrorComponent", "MessagesCreateContentTitleEsErrorComponent", "MessagesCreateContentTitleEuErrorComponent", "MessagesCreateContentTitleFrErrorComponent", "MessagesCreateContentTitleGlErrorComponent", "MessagesCreateContentTitleHrErrorComponent", "MessagesCreateContentTitleHuErrorComponent", "MessagesCreateContentTitleItErrorComponent", "MessagesCreateContentTitleLbErrorComponent", "MessagesCreateContentTitleMkErrorComponent", "MessagesCreateContentTitleNlErrorComponent", "MessagesCreateContentTitleNonFieldErrorsErrorComponent", "MessagesCreateContentTitlePtErrorComponent", "MessagesCreateContentTitleRoErrorComponent", "MessagesCreateContentTitleSlErrorComponent", "MessagesCreateContentTitleSqErrorComponent", "MessagesCreateContentTitleSrErrorComponent", "MessagesCreateContentTitleSvErrorComponent", "MessagesCreateContentTitleTrErrorComponent", "MessagesCreateContentTitleZhCnErrorComponent", "MessagesCreateNonFieldErrorsErrorComponent", "MessagesCreateUserUuidsErrorComponent", "MessagesCreateUserUuidsINDEXErrorComponent"]
+MESSAGESCREATEERROR_ONE_OF_SCHEMAS = ["MessagesCreateAudienceInAreaErrorComponent", "MessagesCreateAudienceLastLoginAfterErrorComponent", "MessagesCreateAudienceLastLoginBeforeErrorComponent", "MessagesCreateAudienceLocaleErrorComponent", "MessagesCreateAudienceNonFieldErrorsErrorComponent", "MessagesCreateContentBodyBgErrorComponent", "MessagesCreateContentBodyBnErrorComponent", "MessagesCreateContentBodyCaErrorComponent", "MessagesCreateContentBodyDeErrorComponent", "MessagesCreateContentBodyElErrorComponent", "MessagesCreateContentBodyEnErrorComponent", "MessagesCreateContentBodyEsErrorComponent", "MessagesCreateContentBodyEuErrorComponent", "MessagesCreateContentBodyFrErrorComponent", "MessagesCreateContentBodyGlErrorComponent", "MessagesCreateContentBodyHrErrorComponent", "MessagesCreateContentBodyHuErrorComponent", "MessagesCreateContentBodyItErrorComponent", "MessagesCreateContentBodyLbErrorComponent", "MessagesCreateContentBodyMkErrorComponent", "MessagesCreateContentBodyNlErrorComponent", "MessagesCreateContentBodyNonFieldErrorsErrorComponent", "MessagesCreateContentBodyPtErrorComponent", "MessagesCreateContentBodyRoErrorComponent", "MessagesCreateContentBodySlErrorComponent", "MessagesCreateContentBodySqErrorComponent", "MessagesCreateContentBodySrErrorComponent", "MessagesCreateContentBodySvErrorComponent", "MessagesCreateContentBodyTrErrorComponent", "MessagesCreateContentBodyZhCnErrorComponent", "MessagesCreateContentNonFieldErrorsErrorComponent", "MessagesCreateContentTitleBgErrorComponent", "MessagesCreateContentTitleBnErrorComponent", "MessagesCreateContentTitleCaErrorComponent", "MessagesCreateContentTitleDeErrorComponent", "MessagesCreateContentTitleElErrorComponent", "MessagesCreateContentTitleEnErrorComponent", "MessagesCreateContentTitleEsErrorComponent", "MessagesCreateContentTitleEuErrorComponent", "MessagesCreateContentTitleFrErrorComponent", "MessagesCreateContentTitleGlErrorComponent", "MessagesCreateContentTitleHrErrorComponent", "MessagesCreateContentTitleHuErrorComponent", "MessagesCreateContentTitleItErrorComponent", "MessagesCreateContentTitleLbErrorComponent", "MessagesCreateContentTitleMkErrorComponent", "MessagesCreateContentTitleNlErrorComponent", "MessagesCreateContentTitleNonFieldErrorsErrorComponent", "MessagesCreateContentTitlePtErrorComponent", "MessagesCreateContentTitleRoErrorComponent", "MessagesCreateContentTitleSlErrorComponent", "MessagesCreateContentTitleSqErrorComponent", "MessagesCreateContentTitleSrErrorComponent", "MessagesCreateContentTitleSvErrorComponent", "MessagesCreateContentTitleTrErrorComponent", "MessagesCreateContentTitleZhCnErrorComponent", "MessagesCreateNonFieldErrorsErrorComponent", "MessagesCreateTargetErrorComponent", "MessagesCreateUserUuidsErrorComponent", "MessagesCreateUserUuidsINDEXErrorComponent"]
 
 class MessagesCreateError(BaseModel):
     """
@@ -84,114 +90,126 @@ class MessagesCreateError(BaseModel):
     """
     # data type: MessagesCreateNonFieldErrorsErrorComponent
     oneof_schema_1_validator: Optional[MessagesCreateNonFieldErrorsErrorComponent] = None
-    # data type: MessagesCreateUserUuidsErrorComponent
-    oneof_schema_2_validator: Optional[MessagesCreateUserUuidsErrorComponent] = None
-    # data type: MessagesCreateUserUuidsINDEXErrorComponent
-    oneof_schema_3_validator: Optional[MessagesCreateUserUuidsINDEXErrorComponent] = None
     # data type: MessagesCreateContentNonFieldErrorsErrorComponent
-    oneof_schema_4_validator: Optional[MessagesCreateContentNonFieldErrorsErrorComponent] = None
+    oneof_schema_2_validator: Optional[MessagesCreateContentNonFieldErrorsErrorComponent] = None
     # data type: MessagesCreateContentTitleNonFieldErrorsErrorComponent
-    oneof_schema_5_validator: Optional[MessagesCreateContentTitleNonFieldErrorsErrorComponent] = None
+    oneof_schema_3_validator: Optional[MessagesCreateContentTitleNonFieldErrorsErrorComponent] = None
     # data type: MessagesCreateContentTitleBgErrorComponent
-    oneof_schema_6_validator: Optional[MessagesCreateContentTitleBgErrorComponent] = None
+    oneof_schema_4_validator: Optional[MessagesCreateContentTitleBgErrorComponent] = None
     # data type: MessagesCreateContentTitleBnErrorComponent
-    oneof_schema_7_validator: Optional[MessagesCreateContentTitleBnErrorComponent] = None
+    oneof_schema_5_validator: Optional[MessagesCreateContentTitleBnErrorComponent] = None
     # data type: MessagesCreateContentTitleCaErrorComponent
-    oneof_schema_8_validator: Optional[MessagesCreateContentTitleCaErrorComponent] = None
+    oneof_schema_6_validator: Optional[MessagesCreateContentTitleCaErrorComponent] = None
     # data type: MessagesCreateContentTitleDeErrorComponent
-    oneof_schema_9_validator: Optional[MessagesCreateContentTitleDeErrorComponent] = None
+    oneof_schema_7_validator: Optional[MessagesCreateContentTitleDeErrorComponent] = None
     # data type: MessagesCreateContentTitleElErrorComponent
-    oneof_schema_10_validator: Optional[MessagesCreateContentTitleElErrorComponent] = None
+    oneof_schema_8_validator: Optional[MessagesCreateContentTitleElErrorComponent] = None
     # data type: MessagesCreateContentTitleEnErrorComponent
-    oneof_schema_11_validator: Optional[MessagesCreateContentTitleEnErrorComponent] = None
+    oneof_schema_9_validator: Optional[MessagesCreateContentTitleEnErrorComponent] = None
     # data type: MessagesCreateContentTitleEsErrorComponent
-    oneof_schema_12_validator: Optional[MessagesCreateContentTitleEsErrorComponent] = None
+    oneof_schema_10_validator: Optional[MessagesCreateContentTitleEsErrorComponent] = None
     # data type: MessagesCreateContentTitleEuErrorComponent
-    oneof_schema_13_validator: Optional[MessagesCreateContentTitleEuErrorComponent] = None
+    oneof_schema_11_validator: Optional[MessagesCreateContentTitleEuErrorComponent] = None
     # data type: MessagesCreateContentTitleFrErrorComponent
-    oneof_schema_14_validator: Optional[MessagesCreateContentTitleFrErrorComponent] = None
+    oneof_schema_12_validator: Optional[MessagesCreateContentTitleFrErrorComponent] = None
     # data type: MessagesCreateContentTitleGlErrorComponent
-    oneof_schema_15_validator: Optional[MessagesCreateContentTitleGlErrorComponent] = None
+    oneof_schema_13_validator: Optional[MessagesCreateContentTitleGlErrorComponent] = None
     # data type: MessagesCreateContentTitleHrErrorComponent
-    oneof_schema_16_validator: Optional[MessagesCreateContentTitleHrErrorComponent] = None
+    oneof_schema_14_validator: Optional[MessagesCreateContentTitleHrErrorComponent] = None
     # data type: MessagesCreateContentTitleHuErrorComponent
-    oneof_schema_17_validator: Optional[MessagesCreateContentTitleHuErrorComponent] = None
+    oneof_schema_15_validator: Optional[MessagesCreateContentTitleHuErrorComponent] = None
     # data type: MessagesCreateContentTitleItErrorComponent
-    oneof_schema_18_validator: Optional[MessagesCreateContentTitleItErrorComponent] = None
+    oneof_schema_16_validator: Optional[MessagesCreateContentTitleItErrorComponent] = None
     # data type: MessagesCreateContentTitleLbErrorComponent
-    oneof_schema_19_validator: Optional[MessagesCreateContentTitleLbErrorComponent] = None
+    oneof_schema_17_validator: Optional[MessagesCreateContentTitleLbErrorComponent] = None
     # data type: MessagesCreateContentTitleMkErrorComponent
-    oneof_schema_20_validator: Optional[MessagesCreateContentTitleMkErrorComponent] = None
+    oneof_schema_18_validator: Optional[MessagesCreateContentTitleMkErrorComponent] = None
     # data type: MessagesCreateContentTitleNlErrorComponent
-    oneof_schema_21_validator: Optional[MessagesCreateContentTitleNlErrorComponent] = None
+    oneof_schema_19_validator: Optional[MessagesCreateContentTitleNlErrorComponent] = None
     # data type: MessagesCreateContentTitlePtErrorComponent
-    oneof_schema_22_validator: Optional[MessagesCreateContentTitlePtErrorComponent] = None
+    oneof_schema_20_validator: Optional[MessagesCreateContentTitlePtErrorComponent] = None
     # data type: MessagesCreateContentTitleRoErrorComponent
-    oneof_schema_23_validator: Optional[MessagesCreateContentTitleRoErrorComponent] = None
+    oneof_schema_21_validator: Optional[MessagesCreateContentTitleRoErrorComponent] = None
     # data type: MessagesCreateContentTitleSlErrorComponent
-    oneof_schema_24_validator: Optional[MessagesCreateContentTitleSlErrorComponent] = None
+    oneof_schema_22_validator: Optional[MessagesCreateContentTitleSlErrorComponent] = None
     # data type: MessagesCreateContentTitleSqErrorComponent
-    oneof_schema_25_validator: Optional[MessagesCreateContentTitleSqErrorComponent] = None
+    oneof_schema_23_validator: Optional[MessagesCreateContentTitleSqErrorComponent] = None
     # data type: MessagesCreateContentTitleSrErrorComponent
-    oneof_schema_26_validator: Optional[MessagesCreateContentTitleSrErrorComponent] = None
+    oneof_schema_24_validator: Optional[MessagesCreateContentTitleSrErrorComponent] = None
     # data type: MessagesCreateContentTitleSvErrorComponent
-    oneof_schema_27_validator: Optional[MessagesCreateContentTitleSvErrorComponent] = None
+    oneof_schema_25_validator: Optional[MessagesCreateContentTitleSvErrorComponent] = None
     # data type: MessagesCreateContentTitleTrErrorComponent
-    oneof_schema_28_validator: Optional[MessagesCreateContentTitleTrErrorComponent] = None
+    oneof_schema_26_validator: Optional[MessagesCreateContentTitleTrErrorComponent] = None
     # data type: MessagesCreateContentTitleZhCnErrorComponent
-    oneof_schema_29_validator: Optional[MessagesCreateContentTitleZhCnErrorComponent] = None
+    oneof_schema_27_validator: Optional[MessagesCreateContentTitleZhCnErrorComponent] = None
     # data type: MessagesCreateContentBodyNonFieldErrorsErrorComponent
-    oneof_schema_30_validator: Optional[MessagesCreateContentBodyNonFieldErrorsErrorComponent] = None
+    oneof_schema_28_validator: Optional[MessagesCreateContentBodyNonFieldErrorsErrorComponent] = None
     # data type: MessagesCreateContentBodyBgErrorComponent
-    oneof_schema_31_validator: Optional[MessagesCreateContentBodyBgErrorComponent] = None
+    oneof_schema_29_validator: Optional[MessagesCreateContentBodyBgErrorComponent] = None
     # data type: MessagesCreateContentBodyBnErrorComponent
-    oneof_schema_32_validator: Optional[MessagesCreateContentBodyBnErrorComponent] = None
+    oneof_schema_30_validator: Optional[MessagesCreateContentBodyBnErrorComponent] = None
     # data type: MessagesCreateContentBodyCaErrorComponent
-    oneof_schema_33_validator: Optional[MessagesCreateContentBodyCaErrorComponent] = None
+    oneof_schema_31_validator: Optional[MessagesCreateContentBodyCaErrorComponent] = None
     # data type: MessagesCreateContentBodyDeErrorComponent
-    oneof_schema_34_validator: Optional[MessagesCreateContentBodyDeErrorComponent] = None
+    oneof_schema_32_validator: Optional[MessagesCreateContentBodyDeErrorComponent] = None
     # data type: MessagesCreateContentBodyElErrorComponent
-    oneof_schema_35_validator: Optional[MessagesCreateContentBodyElErrorComponent] = None
+    oneof_schema_33_validator: Optional[MessagesCreateContentBodyElErrorComponent] = None
     # data type: MessagesCreateContentBodyEnErrorComponent
-    oneof_schema_36_validator: Optional[MessagesCreateContentBodyEnErrorComponent] = None
+    oneof_schema_34_validator: Optional[MessagesCreateContentBodyEnErrorComponent] = None
     # data type: MessagesCreateContentBodyEsErrorComponent
-    oneof_schema_37_validator: Optional[MessagesCreateContentBodyEsErrorComponent] = None
+    oneof_schema_35_validator: Optional[MessagesCreateContentBodyEsErrorComponent] = None
     # data type: MessagesCreateContentBodyEuErrorComponent
-    oneof_schema_38_validator: Optional[MessagesCreateContentBodyEuErrorComponent] = None
+    oneof_schema_36_validator: Optional[MessagesCreateContentBodyEuErrorComponent] = None
     # data type: MessagesCreateContentBodyFrErrorComponent
-    oneof_schema_39_validator: Optional[MessagesCreateContentBodyFrErrorComponent] = None
+    oneof_schema_37_validator: Optional[MessagesCreateContentBodyFrErrorComponent] = None
     # data type: MessagesCreateContentBodyGlErrorComponent
-    oneof_schema_40_validator: Optional[MessagesCreateContentBodyGlErrorComponent] = None
+    oneof_schema_38_validator: Optional[MessagesCreateContentBodyGlErrorComponent] = None
     # data type: MessagesCreateContentBodyHrErrorComponent
-    oneof_schema_41_validator: Optional[MessagesCreateContentBodyHrErrorComponent] = None
+    oneof_schema_39_validator: Optional[MessagesCreateContentBodyHrErrorComponent] = None
     # data type: MessagesCreateContentBodyHuErrorComponent
-    oneof_schema_42_validator: Optional[MessagesCreateContentBodyHuErrorComponent] = None
+    oneof_schema_40_validator: Optional[MessagesCreateContentBodyHuErrorComponent] = None
     # data type: MessagesCreateContentBodyItErrorComponent
-    oneof_schema_43_validator: Optional[MessagesCreateContentBodyItErrorComponent] = None
+    oneof_schema_41_validator: Optional[MessagesCreateContentBodyItErrorComponent] = None
     # data type: MessagesCreateContentBodyLbErrorComponent
-    oneof_schema_44_validator: Optional[MessagesCreateContentBodyLbErrorComponent] = None
+    oneof_schema_42_validator: Optional[MessagesCreateContentBodyLbErrorComponent] = None
     # data type: MessagesCreateContentBodyMkErrorComponent
-    oneof_schema_45_validator: Optional[MessagesCreateContentBodyMkErrorComponent] = None
+    oneof_schema_43_validator: Optional[MessagesCreateContentBodyMkErrorComponent] = None
     # data type: MessagesCreateContentBodyNlErrorComponent
-    oneof_schema_46_validator: Optional[MessagesCreateContentBodyNlErrorComponent] = None
+    oneof_schema_44_validator: Optional[MessagesCreateContentBodyNlErrorComponent] = None
     # data type: MessagesCreateContentBodyPtErrorComponent
-    oneof_schema_47_validator: Optional[MessagesCreateContentBodyPtErrorComponent] = None
+    oneof_schema_45_validator: Optional[MessagesCreateContentBodyPtErrorComponent] = None
     # data type: MessagesCreateContentBodyRoErrorComponent
-    oneof_schema_48_validator: Optional[MessagesCreateContentBodyRoErrorComponent] = None
+    oneof_schema_46_validator: Optional[MessagesCreateContentBodyRoErrorComponent] = None
     # data type: MessagesCreateContentBodySlErrorComponent
-    oneof_schema_49_validator: Optional[MessagesCreateContentBodySlErrorComponent] = None
+    oneof_schema_47_validator: Optional[MessagesCreateContentBodySlErrorComponent] = None
     # data type: MessagesCreateContentBodySqErrorComponent
-    oneof_schema_50_validator: Optional[MessagesCreateContentBodySqErrorComponent] = None
+    oneof_schema_48_validator: Optional[MessagesCreateContentBodySqErrorComponent] = None
     # data type: MessagesCreateContentBodySrErrorComponent
-    oneof_schema_51_validator: Optional[MessagesCreateContentBodySrErrorComponent] = None
+    oneof_schema_49_validator: Optional[MessagesCreateContentBodySrErrorComponent] = None
     # data type: MessagesCreateContentBodySvErrorComponent
-    oneof_schema_52_validator: Optional[MessagesCreateContentBodySvErrorComponent] = None
+    oneof_schema_50_validator: Optional[MessagesCreateContentBodySvErrorComponent] = None
     # data type: MessagesCreateContentBodyTrErrorComponent
-    oneof_schema_53_validator: Optional[MessagesCreateContentBodyTrErrorComponent] = None
+    oneof_schema_51_validator: Optional[MessagesCreateContentBodyTrErrorComponent] = None
     # data type: MessagesCreateContentBodyZhCnErrorComponent
-    oneof_schema_54_validator: Optional[MessagesCreateContentBodyZhCnErrorComponent] = None
-    actual_instance: Optional[Union[MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent]] = None
-    one_of_schemas: Set[str] = { "MessagesCreateContentBodyBgErrorComponent", "MessagesCreateContentBodyBnErrorComponent", "MessagesCreateContentBodyCaErrorComponent", "MessagesCreateContentBodyDeErrorComponent", "MessagesCreateContentBodyElErrorComponent", "MessagesCreateContentBodyEnErrorComponent", "MessagesCreateContentBodyEsErrorComponent", "MessagesCreateContentBodyEuErrorComponent", "MessagesCreateContentBodyFrErrorComponent", "MessagesCreateContentBodyGlErrorComponent", "MessagesCreateContentBodyHrErrorComponent", "MessagesCreateContentBodyHuErrorComponent", "MessagesCreateContentBodyItErrorComponent", "MessagesCreateContentBodyLbErrorComponent", "MessagesCreateContentBodyMkErrorComponent", "MessagesCreateContentBodyNlErrorComponent", "MessagesCreateContentBodyNonFieldErrorsErrorComponent", "MessagesCreateContentBodyPtErrorComponent", "MessagesCreateContentBodyRoErrorComponent", "MessagesCreateContentBodySlErrorComponent", "MessagesCreateContentBodySqErrorComponent", "MessagesCreateContentBodySrErrorComponent", "MessagesCreateContentBodySvErrorComponent", "MessagesCreateContentBodyTrErrorComponent", "MessagesCreateContentBodyZhCnErrorComponent", "MessagesCreateContentNonFieldErrorsErrorComponent", "MessagesCreateContentTitleBgErrorComponent", "MessagesCreateContentTitleBnErrorComponent", "MessagesCreateContentTitleCaErrorComponent", "MessagesCreateContentTitleDeErrorComponent", "MessagesCreateContentTitleElErrorComponent", "MessagesCreateContentTitleEnErrorComponent", "MessagesCreateContentTitleEsErrorComponent", "MessagesCreateContentTitleEuErrorComponent", "MessagesCreateContentTitleFrErrorComponent", "MessagesCreateContentTitleGlErrorComponent", "MessagesCreateContentTitleHrErrorComponent", "MessagesCreateContentTitleHuErrorComponent", "MessagesCreateContentTitleItErrorComponent", "MessagesCreateContentTitleLbErrorComponent", "MessagesCreateContentTitleMkErrorComponent", "MessagesCreateContentTitleNlErrorComponent", "MessagesCreateContentTitleNonFieldErrorsErrorComponent", "MessagesCreateContentTitlePtErrorComponent", "MessagesCreateContentTitleRoErrorComponent", "MessagesCreateContentTitleSlErrorComponent", "MessagesCreateContentTitleSqErrorComponent", "MessagesCreateContentTitleSrErrorComponent", "MessagesCreateContentTitleSvErrorComponent", "MessagesCreateContentTitleTrErrorComponent", "MessagesCreateContentTitleZhCnErrorComponent", "MessagesCreateNonFieldErrorsErrorComponent", "MessagesCreateUserUuidsErrorComponent", "MessagesCreateUserUuidsINDEXErrorComponent" }
+    oneof_schema_52_validator: Optional[MessagesCreateContentBodyZhCnErrorComponent] = None
+    # data type: MessagesCreateTargetErrorComponent
+    oneof_schema_53_validator: Optional[MessagesCreateTargetErrorComponent] = None
+    # data type: MessagesCreateUserUuidsErrorComponent
+    oneof_schema_54_validator: Optional[MessagesCreateUserUuidsErrorComponent] = None
+    # data type: MessagesCreateUserUuidsINDEXErrorComponent
+    oneof_schema_55_validator: Optional[MessagesCreateUserUuidsINDEXErrorComponent] = None
+    # data type: MessagesCreateAudienceNonFieldErrorsErrorComponent
+    oneof_schema_56_validator: Optional[MessagesCreateAudienceNonFieldErrorsErrorComponent] = None
+    # data type: MessagesCreateAudienceLastLoginBeforeErrorComponent
+    oneof_schema_57_validator: Optional[MessagesCreateAudienceLastLoginBeforeErrorComponent] = None
+    # data type: MessagesCreateAudienceLastLoginAfterErrorComponent
+    oneof_schema_58_validator: Optional[MessagesCreateAudienceLastLoginAfterErrorComponent] = None
+    # data type: MessagesCreateAudienceInAreaErrorComponent
+    oneof_schema_59_validator: Optional[MessagesCreateAudienceInAreaErrorComponent] = None
+    # data type: MessagesCreateAudienceLocaleErrorComponent
+    oneof_schema_60_validator: Optional[MessagesCreateAudienceLocaleErrorComponent] = None
+    actual_instance: Optional[Union[MessagesCreateAudienceInAreaErrorComponent, MessagesCreateAudienceLastLoginAfterErrorComponent, MessagesCreateAudienceLastLoginBeforeErrorComponent, MessagesCreateAudienceLocaleErrorComponent, MessagesCreateAudienceNonFieldErrorsErrorComponent, MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateTargetErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "MessagesCreateAudienceInAreaErrorComponent", "MessagesCreateAudienceLastLoginAfterErrorComponent", "MessagesCreateAudienceLastLoginBeforeErrorComponent", "MessagesCreateAudienceLocaleErrorComponent", "MessagesCreateAudienceNonFieldErrorsErrorComponent", "MessagesCreateContentBodyBgErrorComponent", "MessagesCreateContentBodyBnErrorComponent", "MessagesCreateContentBodyCaErrorComponent", "MessagesCreateContentBodyDeErrorComponent", "MessagesCreateContentBodyElErrorComponent", "MessagesCreateContentBodyEnErrorComponent", "MessagesCreateContentBodyEsErrorComponent", "MessagesCreateContentBodyEuErrorComponent", "MessagesCreateContentBodyFrErrorComponent", "MessagesCreateContentBodyGlErrorComponent", "MessagesCreateContentBodyHrErrorComponent", "MessagesCreateContentBodyHuErrorComponent", "MessagesCreateContentBodyItErrorComponent", "MessagesCreateContentBodyLbErrorComponent", "MessagesCreateContentBodyMkErrorComponent", "MessagesCreateContentBodyNlErrorComponent", "MessagesCreateContentBodyNonFieldErrorsErrorComponent", "MessagesCreateContentBodyPtErrorComponent", "MessagesCreateContentBodyRoErrorComponent", "MessagesCreateContentBodySlErrorComponent", "MessagesCreateContentBodySqErrorComponent", "MessagesCreateContentBodySrErrorComponent", "MessagesCreateContentBodySvErrorComponent", "MessagesCreateContentBodyTrErrorComponent", "MessagesCreateContentBodyZhCnErrorComponent", "MessagesCreateContentNonFieldErrorsErrorComponent", "MessagesCreateContentTitleBgErrorComponent", "MessagesCreateContentTitleBnErrorComponent", "MessagesCreateContentTitleCaErrorComponent", "MessagesCreateContentTitleDeErrorComponent", "MessagesCreateContentTitleElErrorComponent", "MessagesCreateContentTitleEnErrorComponent", "MessagesCreateContentTitleEsErrorComponent", "MessagesCreateContentTitleEuErrorComponent", "MessagesCreateContentTitleFrErrorComponent", "MessagesCreateContentTitleGlErrorComponent", "MessagesCreateContentTitleHrErrorComponent", "MessagesCreateContentTitleHuErrorComponent", "MessagesCreateContentTitleItErrorComponent", "MessagesCreateContentTitleLbErrorComponent", "MessagesCreateContentTitleMkErrorComponent", "MessagesCreateContentTitleNlErrorComponent", "MessagesCreateContentTitleNonFieldErrorsErrorComponent", "MessagesCreateContentTitlePtErrorComponent", "MessagesCreateContentTitleRoErrorComponent", "MessagesCreateContentTitleSlErrorComponent", "MessagesCreateContentTitleSqErrorComponent", "MessagesCreateContentTitleSrErrorComponent", "MessagesCreateContentTitleSvErrorComponent", "MessagesCreateContentTitleTrErrorComponent", "MessagesCreateContentTitleZhCnErrorComponent", "MessagesCreateNonFieldErrorsErrorComponent", "MessagesCreateTargetErrorComponent", "MessagesCreateUserUuidsErrorComponent", "MessagesCreateUserUuidsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -220,16 +238,6 @@ class MessagesCreateError(BaseModel):
         # validate data type: MessagesCreateNonFieldErrorsErrorComponent
         if not isinstance(v, MessagesCreateNonFieldErrorsErrorComponent):
             error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateNonFieldErrorsErrorComponent`")
-        else:
-            match += 1
-        # validate data type: MessagesCreateUserUuidsErrorComponent
-        if not isinstance(v, MessagesCreateUserUuidsErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateUserUuidsErrorComponent`")
-        else:
-            match += 1
-        # validate data type: MessagesCreateUserUuidsINDEXErrorComponent
-        if not isinstance(v, MessagesCreateUserUuidsINDEXErrorComponent):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateUserUuidsINDEXErrorComponent`")
         else:
             match += 1
         # validate data type: MessagesCreateContentNonFieldErrorsErrorComponent
@@ -487,12 +495,52 @@ class MessagesCreateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateContentBodyZhCnErrorComponent`")
         else:
             match += 1
+        # validate data type: MessagesCreateTargetErrorComponent
+        if not isinstance(v, MessagesCreateTargetErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateTargetErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesCreateUserUuidsErrorComponent
+        if not isinstance(v, MessagesCreateUserUuidsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateUserUuidsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesCreateUserUuidsINDEXErrorComponent
+        if not isinstance(v, MessagesCreateUserUuidsINDEXErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateUserUuidsINDEXErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesCreateAudienceNonFieldErrorsErrorComponent
+        if not isinstance(v, MessagesCreateAudienceNonFieldErrorsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateAudienceNonFieldErrorsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesCreateAudienceLastLoginBeforeErrorComponent
+        if not isinstance(v, MessagesCreateAudienceLastLoginBeforeErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateAudienceLastLoginBeforeErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesCreateAudienceLastLoginAfterErrorComponent
+        if not isinstance(v, MessagesCreateAudienceLastLoginAfterErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateAudienceLastLoginAfterErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesCreateAudienceInAreaErrorComponent
+        if not isinstance(v, MessagesCreateAudienceInAreaErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateAudienceInAreaErrorComponent`")
+        else:
+            match += 1
+        # validate data type: MessagesCreateAudienceLocaleErrorComponent
+        if not isinstance(v, MessagesCreateAudienceLocaleErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesCreateAudienceLocaleErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesCreateError with oneOf schemas: MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesCreateError with oneOf schemas: MessagesCreateAudienceInAreaErrorComponent, MessagesCreateAudienceLastLoginAfterErrorComponent, MessagesCreateAudienceLastLoginBeforeErrorComponent, MessagesCreateAudienceLocaleErrorComponent, MessagesCreateAudienceNonFieldErrorsErrorComponent, MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateTargetErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in MessagesCreateError with oneOf schemas: MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in MessagesCreateError with oneOf schemas: MessagesCreateAudienceInAreaErrorComponent, MessagesCreateAudienceLastLoginAfterErrorComponent, MessagesCreateAudienceLastLoginBeforeErrorComponent, MessagesCreateAudienceLocaleErrorComponent, MessagesCreateAudienceNonFieldErrorsErrorComponent, MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateTargetErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -510,18 +558,6 @@ class MessagesCreateError(BaseModel):
         # deserialize data into MessagesCreateNonFieldErrorsErrorComponent
         try:
             instance.actual_instance = MessagesCreateNonFieldErrorsErrorComponent.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # deserialize data into MessagesCreateUserUuidsErrorComponent
-        try:
-            instance.actual_instance = MessagesCreateUserUuidsErrorComponent.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # deserialize data into MessagesCreateUserUuidsINDEXErrorComponent
-        try:
-            instance.actual_instance = MessagesCreateUserUuidsINDEXErrorComponent.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -831,13 +867,61 @@ class MessagesCreateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into MessagesCreateTargetErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateTargetErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesCreateUserUuidsErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateUserUuidsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesCreateUserUuidsINDEXErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateUserUuidsINDEXErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesCreateAudienceNonFieldErrorsErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateAudienceNonFieldErrorsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesCreateAudienceLastLoginBeforeErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateAudienceLastLoginBeforeErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesCreateAudienceLastLoginAfterErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateAudienceLastLoginAfterErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesCreateAudienceInAreaErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateAudienceInAreaErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into MessagesCreateAudienceLocaleErrorComponent
+        try:
+            instance.actual_instance = MessagesCreateAudienceLocaleErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesCreateError with oneOf schemas: MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesCreateError with oneOf schemas: MessagesCreateAudienceInAreaErrorComponent, MessagesCreateAudienceLastLoginAfterErrorComponent, MessagesCreateAudienceLastLoginBeforeErrorComponent, MessagesCreateAudienceLocaleErrorComponent, MessagesCreateAudienceNonFieldErrorsErrorComponent, MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateTargetErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into MessagesCreateError with oneOf schemas: MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into MessagesCreateError with oneOf schemas: MessagesCreateAudienceInAreaErrorComponent, MessagesCreateAudienceLastLoginAfterErrorComponent, MessagesCreateAudienceLastLoginBeforeErrorComponent, MessagesCreateAudienceLocaleErrorComponent, MessagesCreateAudienceNonFieldErrorsErrorComponent, MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateTargetErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -851,7 +935,7 @@ class MessagesCreateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesCreateAudienceInAreaErrorComponent, MessagesCreateAudienceLastLoginAfterErrorComponent, MessagesCreateAudienceLastLoginBeforeErrorComponent, MessagesCreateAudienceLocaleErrorComponent, MessagesCreateAudienceNonFieldErrorsErrorComponent, MessagesCreateContentBodyBgErrorComponent, MessagesCreateContentBodyBnErrorComponent, MessagesCreateContentBodyCaErrorComponent, MessagesCreateContentBodyDeErrorComponent, MessagesCreateContentBodyElErrorComponent, MessagesCreateContentBodyEnErrorComponent, MessagesCreateContentBodyEsErrorComponent, MessagesCreateContentBodyEuErrorComponent, MessagesCreateContentBodyFrErrorComponent, MessagesCreateContentBodyGlErrorComponent, MessagesCreateContentBodyHrErrorComponent, MessagesCreateContentBodyHuErrorComponent, MessagesCreateContentBodyItErrorComponent, MessagesCreateContentBodyLbErrorComponent, MessagesCreateContentBodyMkErrorComponent, MessagesCreateContentBodyNlErrorComponent, MessagesCreateContentBodyNonFieldErrorsErrorComponent, MessagesCreateContentBodyPtErrorComponent, MessagesCreateContentBodyRoErrorComponent, MessagesCreateContentBodySlErrorComponent, MessagesCreateContentBodySqErrorComponent, MessagesCreateContentBodySrErrorComponent, MessagesCreateContentBodySvErrorComponent, MessagesCreateContentBodyTrErrorComponent, MessagesCreateContentBodyZhCnErrorComponent, MessagesCreateContentNonFieldErrorsErrorComponent, MessagesCreateContentTitleBgErrorComponent, MessagesCreateContentTitleBnErrorComponent, MessagesCreateContentTitleCaErrorComponent, MessagesCreateContentTitleDeErrorComponent, MessagesCreateContentTitleElErrorComponent, MessagesCreateContentTitleEnErrorComponent, MessagesCreateContentTitleEsErrorComponent, MessagesCreateContentTitleEuErrorComponent, MessagesCreateContentTitleFrErrorComponent, MessagesCreateContentTitleGlErrorComponent, MessagesCreateContentTitleHrErrorComponent, MessagesCreateContentTitleHuErrorComponent, MessagesCreateContentTitleItErrorComponent, MessagesCreateContentTitleLbErrorComponent, MessagesCreateContentTitleMkErrorComponent, MessagesCreateContentTitleNlErrorComponent, MessagesCreateContentTitleNonFieldErrorsErrorComponent, MessagesCreateContentTitlePtErrorComponent, MessagesCreateContentTitleRoErrorComponent, MessagesCreateContentTitleSlErrorComponent, MessagesCreateContentTitleSqErrorComponent, MessagesCreateContentTitleSrErrorComponent, MessagesCreateContentTitleSvErrorComponent, MessagesCreateContentTitleTrErrorComponent, MessagesCreateContentTitleZhCnErrorComponent, MessagesCreateNonFieldErrorsErrorComponent, MessagesCreateTargetErrorComponent, MessagesCreateUserUuidsErrorComponent, MessagesCreateUserUuidsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

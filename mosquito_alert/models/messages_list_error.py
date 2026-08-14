@@ -20,11 +20,12 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, f
 from typing import Any, List, Optional
 from mosquito_alert.models.messages_list_order_by_error_component import MessagesListOrderByErrorComponent
 from mosquito_alert.models.messages_list_recipient_uuids_error_component import MessagesListRecipientUuidsErrorComponent
+from mosquito_alert.models.messages_list_target_error_component import MessagesListTargetErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-MESSAGESLISTERROR_ONE_OF_SCHEMAS = ["MessagesListOrderByErrorComponent", "MessagesListRecipientUuidsErrorComponent"]
+MESSAGESLISTERROR_ONE_OF_SCHEMAS = ["MessagesListOrderByErrorComponent", "MessagesListRecipientUuidsErrorComponent", "MessagesListTargetErrorComponent"]
 
 class MessagesListError(BaseModel):
     """
@@ -34,8 +35,10 @@ class MessagesListError(BaseModel):
     oneof_schema_1_validator: Optional[MessagesListOrderByErrorComponent] = None
     # data type: MessagesListRecipientUuidsErrorComponent
     oneof_schema_2_validator: Optional[MessagesListRecipientUuidsErrorComponent] = None
-    actual_instance: Optional[Union[MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent]] = None
-    one_of_schemas: Set[str] = { "MessagesListOrderByErrorComponent", "MessagesListRecipientUuidsErrorComponent" }
+    # data type: MessagesListTargetErrorComponent
+    oneof_schema_3_validator: Optional[MessagesListTargetErrorComponent] = None
+    actual_instance: Optional[Union[MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent, MessagesListTargetErrorComponent]] = None
+    one_of_schemas: Set[str] = { "MessagesListOrderByErrorComponent", "MessagesListRecipientUuidsErrorComponent", "MessagesListTargetErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -71,12 +74,17 @@ class MessagesListError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesListRecipientUuidsErrorComponent`")
         else:
             match += 1
+        # validate data type: MessagesListTargetErrorComponent
+        if not isinstance(v, MessagesListTargetErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MessagesListTargetErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent, MessagesListTargetErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent, MessagesListTargetErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -103,13 +111,19 @@ class MessagesListError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into MessagesListTargetErrorComponent
+        try:
+            instance.actual_instance = MessagesListTargetErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent, MessagesListTargetErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into MessagesListError with oneOf schemas: MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent, MessagesListTargetErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -123,7 +137,7 @@ class MessagesListError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], MessagesListOrderByErrorComponent, MessagesListRecipientUuidsErrorComponent, MessagesListTargetErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from uuid import UUID
@@ -31,9 +31,17 @@ class CreateUserMessageRequest(BaseModel):
     """
     CreateUserMessageRequest
     """ # noqa: E501
-    user_uuids: Annotated[List[UUID], Field(min_length=1)]
     content: MessageContentRequest = Field(description="The content of the message")
-    __properties: ClassVar[List[str]] = ["user_uuids", "content"]
+    target: StrictStr
+    user_uuids: Annotated[List[UUID], Field(min_length=1)]
+    __properties: ClassVar[List[str]] = ["content", "target", "user_uuids"]
+
+    @field_validator('target')
+    def target_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['users']):
+            raise ValueError("must be one of enum values ('users')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,8 +97,9 @@ class CreateUserMessageRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "user_uuids": obj.get("user_uuids"),
-            "content": MessageContentRequest.from_dict(obj["content"]) if obj.get("content") is not None else None
+            "content": MessageContentRequest.from_dict(obj["content"]) if obj.get("content") is not None else None,
+            "target": obj.get("target"),
+            "user_uuids": obj.get("user_uuids")
         })
         return _obj
 

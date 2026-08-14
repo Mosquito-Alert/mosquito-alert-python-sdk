@@ -27,6 +27,12 @@ class TestUsersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_audience_filter(self) -> None:
+        """Test case for audience_filter
+
+        """
+        pass
+
     def test_list(self) -> None:
         """Test case for list
 

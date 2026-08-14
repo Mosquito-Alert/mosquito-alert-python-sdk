@@ -36,21 +36,23 @@ class TestCreateUserMessageRequest(unittest.TestCase):
         model = CreateUserMessageRequest()
         if include_optional:
             return CreateUserMessageRequest(
-                user_uuids = [
-                    ''
-                    ],
-                content = mosquito_alert.models.message_content_request.MessageContentRequest(
-                    title = null, 
-                    body = null, )
-            )
-        else:
-            return CreateUserMessageRequest(
-                user_uuids = [
-                    ''
-                    ],
                 content = mosquito_alert.models.message_content_request.MessageContentRequest(
                     title = null, 
                     body = null, ),
+                target = 'users',
+                user_uuids = [
+                    ''
+                    ]
+            )
+        else:
+            return CreateUserMessageRequest(
+                content = mosquito_alert.models.message_content_request.MessageContentRequest(
+                    title = null, 
+                    body = null, ),
+                target = 'users',
+                user_uuids = [
+                    ''
+                    ],
         )
         """
 

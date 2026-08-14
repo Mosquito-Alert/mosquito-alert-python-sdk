@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.4.2"
+__version__ = "0.4.7"
 
 # Define package exports
 __all__ = [
@@ -57,6 +57,8 @@ __all__ = [
     "AppUserTokenObtainPair",
     "AppUserTokenObtainPairRequest",
     "Assignment",
+    "AudienceFilter",
+    "AudienceFilterRequest",
     "AuthChangePasswordError",
     "AuthChangePasswordNonFieldErrorsErrorComponent",
     "AuthChangePasswordPasswordErrorComponent",
@@ -222,14 +224,11 @@ __all__ = [
     "Country",
     "CountryRequest",
     "CreateAgreeReviewRequest",
+    "CreateAudienceMessageContentRequest",
+    "CreateAudienceMessageRequest",
     "CreateOverwriteReviewRequest",
     "CreatePhotoPrediction",
     "CreatePhotoPredictionRequest",
-    "CreateTopicMessage",
-    "CreateTopicMessageContent",
-    "CreateTopicMessageContentRequest",
-    "CreateTopicMessageRequest",
-    "CreateUserMessage",
     "CreateUserMessageRequest",
     "Device",
     "DeviceOs",
@@ -469,22 +468,29 @@ __all__ = [
     "IdentificationtasksReviewCreatePublicNoteErrorComponent",
     "IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent",
     "IdentificationtasksReviewCreateValidationError",
+    "LocalizedAudienceMessageBodyRequest",
+    "LocalizedAudienceMessageTitleRequest",
     "LocalizedMessageBody",
+    "LocalizedMessageBodyPreview",
     "LocalizedMessageBodyRequest",
     "LocalizedMessageTitle",
     "LocalizedMessageTitleRequest",
-    "LocalizedTopicMessageBody",
-    "LocalizedTopicMessageBodyRequest",
-    "LocalizedTopicMessageTitle",
-    "LocalizedTopicMessageTitleRequest",
     "Location",
     "LocationRequest",
     "Message",
     "MessageContent",
     "MessageContentRequest",
+    "MessageList",
+    "MessageListContent",
     "MessagePermission",
     "MessageRecipient",
-    "MessageTopic",
+    "MessageRecipientStats",
+    "MessageTargeting",
+    "MessagesCreateAudienceInAreaErrorComponent",
+    "MessagesCreateAudienceLastLoginAfterErrorComponent",
+    "MessagesCreateAudienceLastLoginBeforeErrorComponent",
+    "MessagesCreateAudienceLocaleErrorComponent",
+    "MessagesCreateAudienceNonFieldErrorsErrorComponent",
     "MessagesCreateContentBodyBgErrorComponent",
     "MessagesCreateContentBodyBnErrorComponent",
     "MessagesCreateContentBodyCaErrorComponent",
@@ -538,6 +544,7 @@ __all__ = [
     "MessagesCreateContentTitleZhCnErrorComponent",
     "MessagesCreateError",
     "MessagesCreateNonFieldErrorsErrorComponent",
+    "MessagesCreateTargetErrorComponent",
     "MessagesCreateUserUuidsErrorComponent",
     "MessagesCreateUserUuidsINDEXErrorComponent",
     "MessagesCreateValidationError",
@@ -545,65 +552,14 @@ __all__ = [
     "MessagesListMineSentError",
     "MessagesListMineSentOrderByErrorComponent",
     "MessagesListMineSentRecipientUuidsErrorComponent",
+    "MessagesListMineSentTargetErrorComponent",
     "MessagesListMineSentValidationError",
     "MessagesListOrderByErrorComponent",
     "MessagesListRecipientUuidsErrorComponent",
+    "MessagesListTargetErrorComponent",
     "MessagesListValidationError",
-    "MessagesTopicsSendContentBodyBgErrorComponent",
-    "MessagesTopicsSendContentBodyBnErrorComponent",
-    "MessagesTopicsSendContentBodyCaErrorComponent",
-    "MessagesTopicsSendContentBodyDeErrorComponent",
-    "MessagesTopicsSendContentBodyElErrorComponent",
-    "MessagesTopicsSendContentBodyEnErrorComponent",
-    "MessagesTopicsSendContentBodyEsErrorComponent",
-    "MessagesTopicsSendContentBodyEuErrorComponent",
-    "MessagesTopicsSendContentBodyFrErrorComponent",
-    "MessagesTopicsSendContentBodyGlErrorComponent",
-    "MessagesTopicsSendContentBodyHrErrorComponent",
-    "MessagesTopicsSendContentBodyHuErrorComponent",
-    "MessagesTopicsSendContentBodyItErrorComponent",
-    "MessagesTopicsSendContentBodyLbErrorComponent",
-    "MessagesTopicsSendContentBodyMkErrorComponent",
-    "MessagesTopicsSendContentBodyNlErrorComponent",
-    "MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent",
-    "MessagesTopicsSendContentBodyPtErrorComponent",
-    "MessagesTopicsSendContentBodyRoErrorComponent",
-    "MessagesTopicsSendContentBodySlErrorComponent",
-    "MessagesTopicsSendContentBodySqErrorComponent",
-    "MessagesTopicsSendContentBodySrErrorComponent",
-    "MessagesTopicsSendContentBodySvErrorComponent",
-    "MessagesTopicsSendContentBodyTrErrorComponent",
-    "MessagesTopicsSendContentBodyZhCnErrorComponent",
-    "MessagesTopicsSendContentNonFieldErrorsErrorComponent",
-    "MessagesTopicsSendContentTitleBgErrorComponent",
-    "MessagesTopicsSendContentTitleBnErrorComponent",
-    "MessagesTopicsSendContentTitleCaErrorComponent",
-    "MessagesTopicsSendContentTitleDeErrorComponent",
-    "MessagesTopicsSendContentTitleElErrorComponent",
-    "MessagesTopicsSendContentTitleEnErrorComponent",
-    "MessagesTopicsSendContentTitleEsErrorComponent",
-    "MessagesTopicsSendContentTitleEuErrorComponent",
-    "MessagesTopicsSendContentTitleFrErrorComponent",
-    "MessagesTopicsSendContentTitleGlErrorComponent",
-    "MessagesTopicsSendContentTitleHrErrorComponent",
-    "MessagesTopicsSendContentTitleHuErrorComponent",
-    "MessagesTopicsSendContentTitleItErrorComponent",
-    "MessagesTopicsSendContentTitleLbErrorComponent",
-    "MessagesTopicsSendContentTitleMkErrorComponent",
-    "MessagesTopicsSendContentTitleNlErrorComponent",
-    "MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent",
-    "MessagesTopicsSendContentTitlePtErrorComponent",
-    "MessagesTopicsSendContentTitleRoErrorComponent",
-    "MessagesTopicsSendContentTitleSlErrorComponent",
-    "MessagesTopicsSendContentTitleSqErrorComponent",
-    "MessagesTopicsSendContentTitleSrErrorComponent",
-    "MessagesTopicsSendContentTitleSvErrorComponent",
-    "MessagesTopicsSendContentTitleTrErrorComponent",
-    "MessagesTopicsSendContentTitleZhCnErrorComponent",
-    "MessagesTopicsSendError",
-    "MessagesTopicsSendNonFieldErrorsErrorComponent",
-    "MessagesTopicsSendValidationError",
     "MetaCreateIdentificationTaskReviewRequest",
+    "MetaCreateMessageRequest",
     "MinimalUser",
     "MobileApp",
     "MobileAppRequest",
@@ -698,8 +654,8 @@ __all__ = [
     "PaginatedCampaignList",
     "PaginatedCountryList",
     "PaginatedIdentificationTaskList",
-    "PaginatedMessageList",
-    "PaginatedMessageTopicList",
+    "PaginatedMessageListList",
+    "PaginatedMessageRecipientList",
     "PaginatedNotificationList",
     "PaginatedObservationList",
     "PaginatedPartnerList",
@@ -795,6 +751,13 @@ __all__ = [
     "UserAssignment",
     "UserRequest",
     "UserScore",
+    "UsersAudienceFilterError",
+    "UsersAudienceFilterInAreaErrorComponent",
+    "UsersAudienceFilterLastLoginAfterErrorComponent",
+    "UsersAudienceFilterLastLoginBeforeErrorComponent",
+    "UsersAudienceFilterLocaleErrorComponent",
+    "UsersAudienceFilterNonFieldErrorsErrorComponent",
+    "UsersAudienceFilterValidationError",
     "UsersPartialUpdateError",
     "UsersPartialUpdateLocaleErrorComponent",
     "UsersPartialUpdateNonFieldErrorsErrorComponent",
@@ -851,6 +814,8 @@ from mosquito_alert.models.annotation_request import AnnotationRequest as Annota
 from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair as AppUserTokenObtainPair
 from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest as AppUserTokenObtainPairRequest
 from mosquito_alert.models.assignment import Assignment as Assignment
+from mosquito_alert.models.audience_filter import AudienceFilter as AudienceFilter
+from mosquito_alert.models.audience_filter_request import AudienceFilterRequest as AudienceFilterRequest
 from mosquito_alert.models.auth_change_password_error import AuthChangePasswordError as AuthChangePasswordError
 from mosquito_alert.models.auth_change_password_non_field_errors_error_component import AuthChangePasswordNonFieldErrorsErrorComponent as AuthChangePasswordNonFieldErrorsErrorComponent
 from mosquito_alert.models.auth_change_password_password_error_component import AuthChangePasswordPasswordErrorComponent as AuthChangePasswordPasswordErrorComponent
@@ -1016,14 +981,11 @@ from mosquito_alert.models.campaigns_list_validation_error import CampaignsListV
 from mosquito_alert.models.country import Country as Country
 from mosquito_alert.models.country_request import CountryRequest as CountryRequest
 from mosquito_alert.models.create_agree_review_request import CreateAgreeReviewRequest as CreateAgreeReviewRequest
+from mosquito_alert.models.create_audience_message_content_request import CreateAudienceMessageContentRequest as CreateAudienceMessageContentRequest
+from mosquito_alert.models.create_audience_message_request import CreateAudienceMessageRequest as CreateAudienceMessageRequest
 from mosquito_alert.models.create_overwrite_review_request import CreateOverwriteReviewRequest as CreateOverwriteReviewRequest
 from mosquito_alert.models.create_photo_prediction import CreatePhotoPrediction as CreatePhotoPrediction
 from mosquito_alert.models.create_photo_prediction_request import CreatePhotoPredictionRequest as CreatePhotoPredictionRequest
-from mosquito_alert.models.create_topic_message import CreateTopicMessage as CreateTopicMessage
-from mosquito_alert.models.create_topic_message_content import CreateTopicMessageContent as CreateTopicMessageContent
-from mosquito_alert.models.create_topic_message_content_request import CreateTopicMessageContentRequest as CreateTopicMessageContentRequest
-from mosquito_alert.models.create_topic_message_request import CreateTopicMessageRequest as CreateTopicMessageRequest
-from mosquito_alert.models.create_user_message import CreateUserMessage as CreateUserMessage
 from mosquito_alert.models.create_user_message_request import CreateUserMessageRequest as CreateUserMessageRequest
 from mosquito_alert.models.device import Device as Device
 from mosquito_alert.models.device_os import DeviceOs as DeviceOs
@@ -1263,22 +1225,29 @@ from mosquito_alert.models.identificationtasks_review_create_non_field_errors_er
 from mosquito_alert.models.identificationtasks_review_create_public_note_error_component import IdentificationtasksReviewCreatePublicNoteErrorComponent as IdentificationtasksReviewCreatePublicNoteErrorComponent
 from mosquito_alert.models.identificationtasks_review_create_public_photo_uuid_error_component import IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent as IdentificationtasksReviewCreatePublicPhotoUuidErrorComponent
 from mosquito_alert.models.identificationtasks_review_create_validation_error import IdentificationtasksReviewCreateValidationError as IdentificationtasksReviewCreateValidationError
+from mosquito_alert.models.localized_audience_message_body_request import LocalizedAudienceMessageBodyRequest as LocalizedAudienceMessageBodyRequest
+from mosquito_alert.models.localized_audience_message_title_request import LocalizedAudienceMessageTitleRequest as LocalizedAudienceMessageTitleRequest
 from mosquito_alert.models.localized_message_body import LocalizedMessageBody as LocalizedMessageBody
+from mosquito_alert.models.localized_message_body_preview import LocalizedMessageBodyPreview as LocalizedMessageBodyPreview
 from mosquito_alert.models.localized_message_body_request import LocalizedMessageBodyRequest as LocalizedMessageBodyRequest
 from mosquito_alert.models.localized_message_title import LocalizedMessageTitle as LocalizedMessageTitle
 from mosquito_alert.models.localized_message_title_request import LocalizedMessageTitleRequest as LocalizedMessageTitleRequest
-from mosquito_alert.models.localized_topic_message_body import LocalizedTopicMessageBody as LocalizedTopicMessageBody
-from mosquito_alert.models.localized_topic_message_body_request import LocalizedTopicMessageBodyRequest as LocalizedTopicMessageBodyRequest
-from mosquito_alert.models.localized_topic_message_title import LocalizedTopicMessageTitle as LocalizedTopicMessageTitle
-from mosquito_alert.models.localized_topic_message_title_request import LocalizedTopicMessageTitleRequest as LocalizedTopicMessageTitleRequest
 from mosquito_alert.models.location import Location as Location
 from mosquito_alert.models.location_request import LocationRequest as LocationRequest
 from mosquito_alert.models.message import Message as Message
 from mosquito_alert.models.message_content import MessageContent as MessageContent
 from mosquito_alert.models.message_content_request import MessageContentRequest as MessageContentRequest
+from mosquito_alert.models.message_list import MessageList as MessageList
+from mosquito_alert.models.message_list_content import MessageListContent as MessageListContent
 from mosquito_alert.models.message_permission import MessagePermission as MessagePermission
 from mosquito_alert.models.message_recipient import MessageRecipient as MessageRecipient
-from mosquito_alert.models.message_topic import MessageTopic as MessageTopic
+from mosquito_alert.models.message_recipient_stats import MessageRecipientStats as MessageRecipientStats
+from mosquito_alert.models.message_targeting import MessageTargeting as MessageTargeting
+from mosquito_alert.models.messages_create_audience_in_area_error_component import MessagesCreateAudienceInAreaErrorComponent as MessagesCreateAudienceInAreaErrorComponent
+from mosquito_alert.models.messages_create_audience_last_login_after_error_component import MessagesCreateAudienceLastLoginAfterErrorComponent as MessagesCreateAudienceLastLoginAfterErrorComponent
+from mosquito_alert.models.messages_create_audience_last_login_before_error_component import MessagesCreateAudienceLastLoginBeforeErrorComponent as MessagesCreateAudienceLastLoginBeforeErrorComponent
+from mosquito_alert.models.messages_create_audience_locale_error_component import MessagesCreateAudienceLocaleErrorComponent as MessagesCreateAudienceLocaleErrorComponent
+from mosquito_alert.models.messages_create_audience_non_field_errors_error_component import MessagesCreateAudienceNonFieldErrorsErrorComponent as MessagesCreateAudienceNonFieldErrorsErrorComponent
 from mosquito_alert.models.messages_create_content_body_bg_error_component import MessagesCreateContentBodyBgErrorComponent as MessagesCreateContentBodyBgErrorComponent
 from mosquito_alert.models.messages_create_content_body_bn_error_component import MessagesCreateContentBodyBnErrorComponent as MessagesCreateContentBodyBnErrorComponent
 from mosquito_alert.models.messages_create_content_body_ca_error_component import MessagesCreateContentBodyCaErrorComponent as MessagesCreateContentBodyCaErrorComponent
@@ -1332,6 +1301,7 @@ from mosquito_alert.models.messages_create_content_title_tr_error_component impo
 from mosquito_alert.models.messages_create_content_title_zh_cn_error_component import MessagesCreateContentTitleZhCnErrorComponent as MessagesCreateContentTitleZhCnErrorComponent
 from mosquito_alert.models.messages_create_error import MessagesCreateError as MessagesCreateError
 from mosquito_alert.models.messages_create_non_field_errors_error_component import MessagesCreateNonFieldErrorsErrorComponent as MessagesCreateNonFieldErrorsErrorComponent
+from mosquito_alert.models.messages_create_target_error_component import MessagesCreateTargetErrorComponent as MessagesCreateTargetErrorComponent
 from mosquito_alert.models.messages_create_user_uuids_error_component import MessagesCreateUserUuidsErrorComponent as MessagesCreateUserUuidsErrorComponent
 from mosquito_alert.models.messages_create_user_uuids_index_error_component import MessagesCreateUserUuidsINDEXErrorComponent as MessagesCreateUserUuidsINDEXErrorComponent
 from mosquito_alert.models.messages_create_validation_error import MessagesCreateValidationError as MessagesCreateValidationError
@@ -1339,65 +1309,14 @@ from mosquito_alert.models.messages_list_error import MessagesListError as Messa
 from mosquito_alert.models.messages_list_mine_sent_error import MessagesListMineSentError as MessagesListMineSentError
 from mosquito_alert.models.messages_list_mine_sent_order_by_error_component import MessagesListMineSentOrderByErrorComponent as MessagesListMineSentOrderByErrorComponent
 from mosquito_alert.models.messages_list_mine_sent_recipient_uuids_error_component import MessagesListMineSentRecipientUuidsErrorComponent as MessagesListMineSentRecipientUuidsErrorComponent
+from mosquito_alert.models.messages_list_mine_sent_target_error_component import MessagesListMineSentTargetErrorComponent as MessagesListMineSentTargetErrorComponent
 from mosquito_alert.models.messages_list_mine_sent_validation_error import MessagesListMineSentValidationError as MessagesListMineSentValidationError
 from mosquito_alert.models.messages_list_order_by_error_component import MessagesListOrderByErrorComponent as MessagesListOrderByErrorComponent
 from mosquito_alert.models.messages_list_recipient_uuids_error_component import MessagesListRecipientUuidsErrorComponent as MessagesListRecipientUuidsErrorComponent
+from mosquito_alert.models.messages_list_target_error_component import MessagesListTargetErrorComponent as MessagesListTargetErrorComponent
 from mosquito_alert.models.messages_list_validation_error import MessagesListValidationError as MessagesListValidationError
-from mosquito_alert.models.messages_topics_send_content_body_bg_error_component import MessagesTopicsSendContentBodyBgErrorComponent as MessagesTopicsSendContentBodyBgErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_bn_error_component import MessagesTopicsSendContentBodyBnErrorComponent as MessagesTopicsSendContentBodyBnErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_ca_error_component import MessagesTopicsSendContentBodyCaErrorComponent as MessagesTopicsSendContentBodyCaErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_de_error_component import MessagesTopicsSendContentBodyDeErrorComponent as MessagesTopicsSendContentBodyDeErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_el_error_component import MessagesTopicsSendContentBodyElErrorComponent as MessagesTopicsSendContentBodyElErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_en_error_component import MessagesTopicsSendContentBodyEnErrorComponent as MessagesTopicsSendContentBodyEnErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_es_error_component import MessagesTopicsSendContentBodyEsErrorComponent as MessagesTopicsSendContentBodyEsErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_eu_error_component import MessagesTopicsSendContentBodyEuErrorComponent as MessagesTopicsSendContentBodyEuErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_fr_error_component import MessagesTopicsSendContentBodyFrErrorComponent as MessagesTopicsSendContentBodyFrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_gl_error_component import MessagesTopicsSendContentBodyGlErrorComponent as MessagesTopicsSendContentBodyGlErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_hr_error_component import MessagesTopicsSendContentBodyHrErrorComponent as MessagesTopicsSendContentBodyHrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_hu_error_component import MessagesTopicsSendContentBodyHuErrorComponent as MessagesTopicsSendContentBodyHuErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_it_error_component import MessagesTopicsSendContentBodyItErrorComponent as MessagesTopicsSendContentBodyItErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_lb_error_component import MessagesTopicsSendContentBodyLbErrorComponent as MessagesTopicsSendContentBodyLbErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_mk_error_component import MessagesTopicsSendContentBodyMkErrorComponent as MessagesTopicsSendContentBodyMkErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_nl_error_component import MessagesTopicsSendContentBodyNlErrorComponent as MessagesTopicsSendContentBodyNlErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_non_field_errors_error_component import MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent as MessagesTopicsSendContentBodyNonFieldErrorsErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_pt_error_component import MessagesTopicsSendContentBodyPtErrorComponent as MessagesTopicsSendContentBodyPtErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_ro_error_component import MessagesTopicsSendContentBodyRoErrorComponent as MessagesTopicsSendContentBodyRoErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_sl_error_component import MessagesTopicsSendContentBodySlErrorComponent as MessagesTopicsSendContentBodySlErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_sq_error_component import MessagesTopicsSendContentBodySqErrorComponent as MessagesTopicsSendContentBodySqErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_sr_error_component import MessagesTopicsSendContentBodySrErrorComponent as MessagesTopicsSendContentBodySrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_sv_error_component import MessagesTopicsSendContentBodySvErrorComponent as MessagesTopicsSendContentBodySvErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_tr_error_component import MessagesTopicsSendContentBodyTrErrorComponent as MessagesTopicsSendContentBodyTrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_body_zh_cn_error_component import MessagesTopicsSendContentBodyZhCnErrorComponent as MessagesTopicsSendContentBodyZhCnErrorComponent
-from mosquito_alert.models.messages_topics_send_content_non_field_errors_error_component import MessagesTopicsSendContentNonFieldErrorsErrorComponent as MessagesTopicsSendContentNonFieldErrorsErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_bg_error_component import MessagesTopicsSendContentTitleBgErrorComponent as MessagesTopicsSendContentTitleBgErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_bn_error_component import MessagesTopicsSendContentTitleBnErrorComponent as MessagesTopicsSendContentTitleBnErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_ca_error_component import MessagesTopicsSendContentTitleCaErrorComponent as MessagesTopicsSendContentTitleCaErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_de_error_component import MessagesTopicsSendContentTitleDeErrorComponent as MessagesTopicsSendContentTitleDeErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_el_error_component import MessagesTopicsSendContentTitleElErrorComponent as MessagesTopicsSendContentTitleElErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_en_error_component import MessagesTopicsSendContentTitleEnErrorComponent as MessagesTopicsSendContentTitleEnErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_es_error_component import MessagesTopicsSendContentTitleEsErrorComponent as MessagesTopicsSendContentTitleEsErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_eu_error_component import MessagesTopicsSendContentTitleEuErrorComponent as MessagesTopicsSendContentTitleEuErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_fr_error_component import MessagesTopicsSendContentTitleFrErrorComponent as MessagesTopicsSendContentTitleFrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_gl_error_component import MessagesTopicsSendContentTitleGlErrorComponent as MessagesTopicsSendContentTitleGlErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_hr_error_component import MessagesTopicsSendContentTitleHrErrorComponent as MessagesTopicsSendContentTitleHrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_hu_error_component import MessagesTopicsSendContentTitleHuErrorComponent as MessagesTopicsSendContentTitleHuErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_it_error_component import MessagesTopicsSendContentTitleItErrorComponent as MessagesTopicsSendContentTitleItErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_lb_error_component import MessagesTopicsSendContentTitleLbErrorComponent as MessagesTopicsSendContentTitleLbErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_mk_error_component import MessagesTopicsSendContentTitleMkErrorComponent as MessagesTopicsSendContentTitleMkErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_nl_error_component import MessagesTopicsSendContentTitleNlErrorComponent as MessagesTopicsSendContentTitleNlErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_non_field_errors_error_component import MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent as MessagesTopicsSendContentTitleNonFieldErrorsErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_pt_error_component import MessagesTopicsSendContentTitlePtErrorComponent as MessagesTopicsSendContentTitlePtErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_ro_error_component import MessagesTopicsSendContentTitleRoErrorComponent as MessagesTopicsSendContentTitleRoErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_sl_error_component import MessagesTopicsSendContentTitleSlErrorComponent as MessagesTopicsSendContentTitleSlErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_sq_error_component import MessagesTopicsSendContentTitleSqErrorComponent as MessagesTopicsSendContentTitleSqErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_sr_error_component import MessagesTopicsSendContentTitleSrErrorComponent as MessagesTopicsSendContentTitleSrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_sv_error_component import MessagesTopicsSendContentTitleSvErrorComponent as MessagesTopicsSendContentTitleSvErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_tr_error_component import MessagesTopicsSendContentTitleTrErrorComponent as MessagesTopicsSendContentTitleTrErrorComponent
-from mosquito_alert.models.messages_topics_send_content_title_zh_cn_error_component import MessagesTopicsSendContentTitleZhCnErrorComponent as MessagesTopicsSendContentTitleZhCnErrorComponent
-from mosquito_alert.models.messages_topics_send_error import MessagesTopicsSendError as MessagesTopicsSendError
-from mosquito_alert.models.messages_topics_send_non_field_errors_error_component import MessagesTopicsSendNonFieldErrorsErrorComponent as MessagesTopicsSendNonFieldErrorsErrorComponent
-from mosquito_alert.models.messages_topics_send_validation_error import MessagesTopicsSendValidationError as MessagesTopicsSendValidationError
 from mosquito_alert.models.meta_create_identification_task_review_request import MetaCreateIdentificationTaskReviewRequest as MetaCreateIdentificationTaskReviewRequest
+from mosquito_alert.models.meta_create_message_request import MetaCreateMessageRequest as MetaCreateMessageRequest
 from mosquito_alert.models.minimal_user import MinimalUser as MinimalUser
 from mosquito_alert.models.mobile_app import MobileApp as MobileApp
 from mosquito_alert.models.mobile_app_request import MobileAppRequest as MobileAppRequest
@@ -1492,8 +1411,8 @@ from mosquito_alert.models.paginated_breeding_site_list import PaginatedBreeding
 from mosquito_alert.models.paginated_campaign_list import PaginatedCampaignList as PaginatedCampaignList
 from mosquito_alert.models.paginated_country_list import PaginatedCountryList as PaginatedCountryList
 from mosquito_alert.models.paginated_identification_task_list import PaginatedIdentificationTaskList as PaginatedIdentificationTaskList
-from mosquito_alert.models.paginated_message_list import PaginatedMessageList as PaginatedMessageList
-from mosquito_alert.models.paginated_message_topic_list import PaginatedMessageTopicList as PaginatedMessageTopicList
+from mosquito_alert.models.paginated_message_list_list import PaginatedMessageListList as PaginatedMessageListList
+from mosquito_alert.models.paginated_message_recipient_list import PaginatedMessageRecipientList as PaginatedMessageRecipientList
 from mosquito_alert.models.paginated_notification_list import PaginatedNotificationList as PaginatedNotificationList
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList as PaginatedObservationList
 from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList as PaginatedPartnerList
@@ -1589,6 +1508,13 @@ from mosquito_alert.models.user import User as User
 from mosquito_alert.models.user_assignment import UserAssignment as UserAssignment
 from mosquito_alert.models.user_request import UserRequest as UserRequest
 from mosquito_alert.models.user_score import UserScore as UserScore
+from mosquito_alert.models.users_audience_filter_error import UsersAudienceFilterError as UsersAudienceFilterError
+from mosquito_alert.models.users_audience_filter_in_area_error_component import UsersAudienceFilterInAreaErrorComponent as UsersAudienceFilterInAreaErrorComponent
+from mosquito_alert.models.users_audience_filter_last_login_after_error_component import UsersAudienceFilterLastLoginAfterErrorComponent as UsersAudienceFilterLastLoginAfterErrorComponent
+from mosquito_alert.models.users_audience_filter_last_login_before_error_component import UsersAudienceFilterLastLoginBeforeErrorComponent as UsersAudienceFilterLastLoginBeforeErrorComponent
+from mosquito_alert.models.users_audience_filter_locale_error_component import UsersAudienceFilterLocaleErrorComponent as UsersAudienceFilterLocaleErrorComponent
+from mosquito_alert.models.users_audience_filter_non_field_errors_error_component import UsersAudienceFilterNonFieldErrorsErrorComponent as UsersAudienceFilterNonFieldErrorsErrorComponent
+from mosquito_alert.models.users_audience_filter_validation_error import UsersAudienceFilterValidationError as UsersAudienceFilterValidationError
 from mosquito_alert.models.users_partial_update_error import UsersPartialUpdateError as UsersPartialUpdateError
 from mosquito_alert.models.users_partial_update_locale_error_component import UsersPartialUpdateLocaleErrorComponent as UsersPartialUpdateLocaleErrorComponent
 from mosquito_alert.models.users_partial_update_non_field_errors_error_component import UsersPartialUpdateNonFieldErrorsErrorComponent as UsersPartialUpdateNonFieldErrorsErrorComponent

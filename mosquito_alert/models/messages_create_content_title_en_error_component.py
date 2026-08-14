@@ -43,8 +43,8 @@ class MessagesCreateContentTitleEnErrorComponent(BaseModel):
     @field_validator('code')
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['blank', 'invalid', 'max_length', 'null_characters_not_allowed', 'surrogate_characters_not_allowed']):
-            raise ValueError("must be one of enum values ('blank', 'invalid', 'max_length', 'null_characters_not_allowed', 'surrogate_characters_not_allowed')")
+        if value not in set(['blank', 'invalid', 'max_length', 'null', 'null_characters_not_allowed', 'required', 'surrogate_characters_not_allowed']):
+            raise ValueError("must be one of enum values ('blank', 'invalid', 'max_length', 'null', 'null_characters_not_allowed', 'required', 'surrogate_characters_not_allowed')")
         return value
 
     model_config = ConfigDict(
