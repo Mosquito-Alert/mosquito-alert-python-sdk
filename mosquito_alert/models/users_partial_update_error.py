@@ -20,11 +20,13 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, f
 from typing import Any, List, Optional
 from mosquito_alert.models.users_partial_update_locale_error_component import UsersPartialUpdateLocaleErrorComponent
 from mosquito_alert.models.users_partial_update_non_field_errors_error_component import UsersPartialUpdateNonFieldErrorsErrorComponent
+from mosquito_alert.models.users_partial_update_notification_topics_error_component import UsersPartialUpdateNotificationTopicsErrorComponent
+from mosquito_alert.models.users_partial_update_notification_topics_index_error_component import UsersPartialUpdateNotificationTopicsINDEXErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-USERSPARTIALUPDATEERROR_ONE_OF_SCHEMAS = ["UsersPartialUpdateLocaleErrorComponent", "UsersPartialUpdateNonFieldErrorsErrorComponent"]
+USERSPARTIALUPDATEERROR_ONE_OF_SCHEMAS = ["UsersPartialUpdateLocaleErrorComponent", "UsersPartialUpdateNonFieldErrorsErrorComponent", "UsersPartialUpdateNotificationTopicsErrorComponent", "UsersPartialUpdateNotificationTopicsINDEXErrorComponent"]
 
 class UsersPartialUpdateError(BaseModel):
     """
@@ -34,8 +36,12 @@ class UsersPartialUpdateError(BaseModel):
     oneof_schema_1_validator: Optional[UsersPartialUpdateNonFieldErrorsErrorComponent] = None
     # data type: UsersPartialUpdateLocaleErrorComponent
     oneof_schema_2_validator: Optional[UsersPartialUpdateLocaleErrorComponent] = None
-    actual_instance: Optional[Union[UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent]] = None
-    one_of_schemas: Set[str] = { "UsersPartialUpdateLocaleErrorComponent", "UsersPartialUpdateNonFieldErrorsErrorComponent" }
+    # data type: UsersPartialUpdateNotificationTopicsErrorComponent
+    oneof_schema_3_validator: Optional[UsersPartialUpdateNotificationTopicsErrorComponent] = None
+    # data type: UsersPartialUpdateNotificationTopicsINDEXErrorComponent
+    oneof_schema_4_validator: Optional[UsersPartialUpdateNotificationTopicsINDEXErrorComponent] = None
+    actual_instance: Optional[Union[UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent, UsersPartialUpdateNotificationTopicsErrorComponent, UsersPartialUpdateNotificationTopicsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "UsersPartialUpdateLocaleErrorComponent", "UsersPartialUpdateNonFieldErrorsErrorComponent", "UsersPartialUpdateNotificationTopicsErrorComponent", "UsersPartialUpdateNotificationTopicsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -71,12 +77,22 @@ class UsersPartialUpdateError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `UsersPartialUpdateLocaleErrorComponent`")
         else:
             match += 1
+        # validate data type: UsersPartialUpdateNotificationTopicsErrorComponent
+        if not isinstance(v, UsersPartialUpdateNotificationTopicsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `UsersPartialUpdateNotificationTopicsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: UsersPartialUpdateNotificationTopicsINDEXErrorComponent
+        if not isinstance(v, UsersPartialUpdateNotificationTopicsINDEXErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `UsersPartialUpdateNotificationTopicsINDEXErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent, UsersPartialUpdateNotificationTopicsErrorComponent, UsersPartialUpdateNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent, UsersPartialUpdateNotificationTopicsErrorComponent, UsersPartialUpdateNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -103,13 +119,25 @@ class UsersPartialUpdateError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into UsersPartialUpdateNotificationTopicsErrorComponent
+        try:
+            instance.actual_instance = UsersPartialUpdateNotificationTopicsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into UsersPartialUpdateNotificationTopicsINDEXErrorComponent
+        try:
+            instance.actual_instance = UsersPartialUpdateNotificationTopicsINDEXErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent, UsersPartialUpdateNotificationTopicsErrorComponent, UsersPartialUpdateNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into UsersPartialUpdateError with oneOf schemas: UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent, UsersPartialUpdateNotificationTopicsErrorComponent, UsersPartialUpdateNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -123,7 +151,7 @@ class UsersPartialUpdateError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], UsersPartialUpdateLocaleErrorComponent, UsersPartialUpdateNonFieldErrorsErrorComponent, UsersPartialUpdateNotificationTopicsErrorComponent, UsersPartialUpdateNotificationTopicsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -23,11 +23,13 @@ from mosquito_alert.models.users_audience_filter_last_login_after_error_componen
 from mosquito_alert.models.users_audience_filter_last_login_before_error_component import UsersAudienceFilterLastLoginBeforeErrorComponent
 from mosquito_alert.models.users_audience_filter_locale_error_component import UsersAudienceFilterLocaleErrorComponent
 from mosquito_alert.models.users_audience_filter_non_field_errors_error_component import UsersAudienceFilterNonFieldErrorsErrorComponent
+from mosquito_alert.models.users_audience_filter_notification_topics_error_component import UsersAudienceFilterNotificationTopicsErrorComponent
+from mosquito_alert.models.users_audience_filter_notification_topics_index_error_component import UsersAudienceFilterNotificationTopicsINDEXErrorComponent
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-USERSAUDIENCEFILTERERROR_ONE_OF_SCHEMAS = ["UsersAudienceFilterInAreaErrorComponent", "UsersAudienceFilterLastLoginAfterErrorComponent", "UsersAudienceFilterLastLoginBeforeErrorComponent", "UsersAudienceFilterLocaleErrorComponent", "UsersAudienceFilterNonFieldErrorsErrorComponent"]
+USERSAUDIENCEFILTERERROR_ONE_OF_SCHEMAS = ["UsersAudienceFilterInAreaErrorComponent", "UsersAudienceFilterLastLoginAfterErrorComponent", "UsersAudienceFilterLastLoginBeforeErrorComponent", "UsersAudienceFilterLocaleErrorComponent", "UsersAudienceFilterNonFieldErrorsErrorComponent", "UsersAudienceFilterNotificationTopicsErrorComponent", "UsersAudienceFilterNotificationTopicsINDEXErrorComponent"]
 
 class UsersAudienceFilterError(BaseModel):
     """
@@ -43,8 +45,12 @@ class UsersAudienceFilterError(BaseModel):
     oneof_schema_4_validator: Optional[UsersAudienceFilterInAreaErrorComponent] = None
     # data type: UsersAudienceFilterLocaleErrorComponent
     oneof_schema_5_validator: Optional[UsersAudienceFilterLocaleErrorComponent] = None
-    actual_instance: Optional[Union[UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent]] = None
-    one_of_schemas: Set[str] = { "UsersAudienceFilterInAreaErrorComponent", "UsersAudienceFilterLastLoginAfterErrorComponent", "UsersAudienceFilterLastLoginBeforeErrorComponent", "UsersAudienceFilterLocaleErrorComponent", "UsersAudienceFilterNonFieldErrorsErrorComponent" }
+    # data type: UsersAudienceFilterNotificationTopicsErrorComponent
+    oneof_schema_6_validator: Optional[UsersAudienceFilterNotificationTopicsErrorComponent] = None
+    # data type: UsersAudienceFilterNotificationTopicsINDEXErrorComponent
+    oneof_schema_7_validator: Optional[UsersAudienceFilterNotificationTopicsINDEXErrorComponent] = None
+    actual_instance: Optional[Union[UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent, UsersAudienceFilterNotificationTopicsErrorComponent, UsersAudienceFilterNotificationTopicsINDEXErrorComponent]] = None
+    one_of_schemas: Set[str] = { "UsersAudienceFilterInAreaErrorComponent", "UsersAudienceFilterLastLoginAfterErrorComponent", "UsersAudienceFilterLastLoginBeforeErrorComponent", "UsersAudienceFilterLocaleErrorComponent", "UsersAudienceFilterNonFieldErrorsErrorComponent", "UsersAudienceFilterNotificationTopicsErrorComponent", "UsersAudienceFilterNotificationTopicsINDEXErrorComponent" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -95,12 +101,22 @@ class UsersAudienceFilterError(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `UsersAudienceFilterLocaleErrorComponent`")
         else:
             match += 1
+        # validate data type: UsersAudienceFilterNotificationTopicsErrorComponent
+        if not isinstance(v, UsersAudienceFilterNotificationTopicsErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `UsersAudienceFilterNotificationTopicsErrorComponent`")
+        else:
+            match += 1
+        # validate data type: UsersAudienceFilterNotificationTopicsINDEXErrorComponent
+        if not isinstance(v, UsersAudienceFilterNotificationTopicsINDEXErrorComponent):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `UsersAudienceFilterNotificationTopicsINDEXErrorComponent`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent, UsersAudienceFilterNotificationTopicsErrorComponent, UsersAudienceFilterNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent, UsersAudienceFilterNotificationTopicsErrorComponent, UsersAudienceFilterNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -145,13 +161,25 @@ class UsersAudienceFilterError(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into UsersAudienceFilterNotificationTopicsErrorComponent
+        try:
+            instance.actual_instance = UsersAudienceFilterNotificationTopicsErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into UsersAudienceFilterNotificationTopicsINDEXErrorComponent
+        try:
+            instance.actual_instance = UsersAudienceFilterNotificationTopicsINDEXErrorComponent.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent, UsersAudienceFilterNotificationTopicsErrorComponent, UsersAudienceFilterNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into UsersAudienceFilterError with oneOf schemas: UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent, UsersAudienceFilterNotificationTopicsErrorComponent, UsersAudienceFilterNotificationTopicsINDEXErrorComponent. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -165,7 +193,7 @@ class UsersAudienceFilterError(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], UsersAudienceFilterInAreaErrorComponent, UsersAudienceFilterLastLoginAfterErrorComponent, UsersAudienceFilterLastLoginBeforeErrorComponent, UsersAudienceFilterLocaleErrorComponent, UsersAudienceFilterNonFieldErrorsErrorComponent, UsersAudienceFilterNotificationTopicsErrorComponent, UsersAudienceFilterNotificationTopicsINDEXErrorComponent]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

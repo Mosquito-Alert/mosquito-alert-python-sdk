@@ -36,14 +36,14 @@ class TestUsersAudienceFilterError(unittest.TestCase):
         model = UsersAudienceFilterError()
         if include_optional:
             return UsersAudienceFilterError(
-                attr = 'locale',
-                code = 'invalid_choice',
+                attr = 'notification_topics.INDEX',
+                code = 'blank',
                 detail = ''
             )
         else:
             return UsersAudienceFilterError(
-                attr = 'locale',
-                code = 'invalid_choice',
+                attr = 'notification_topics.INDEX',
+                code = 'blank',
                 detail = '',
         )
         """

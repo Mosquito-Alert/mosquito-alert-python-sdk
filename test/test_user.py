@@ -47,7 +47,10 @@ class TestUser(unittest.TestCase):
                 is_guest = True,
                 score = mosquito_alert.models.user_score.UserScore(
                     value = 0, 
-                    updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
+                notification_topics = [
+                    ''
+                    ]
             )
         else:
             return User(

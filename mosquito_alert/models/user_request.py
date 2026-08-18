@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +30,8 @@ class UserRequest(BaseModel):
     UserRequest
     """ # noqa: E501
     locale: Optional[StrictStr] = Field(default='en', description="The locale code representing the language preference selected by the user for displaying the interface text. Enter the locale following the BCP 47 standard in 'language' or 'language-region' format (e.g., 'en' for English, 'en-US' for English (United States), 'fr' for French). The language is a two-letter ISO 639-1 code, and the region is an optional two-letter ISO 3166-1 alpha-2 code.")
-    __properties: ClassVar[List[str]] = ["locale"]
+    notification_topics: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = None
+    __properties: ClassVar[List[str]] = ["locale", "notification_topics"]
 
     @field_validator('locale')
     def locale_validate_enum(cls, value):
@@ -92,7 +94,8 @@ class UserRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "locale": obj.get("locale") if obj.get("locale") is not None else 'en'
+            "locale": obj.get("locale") if obj.get("locale") is not None else 'en',
+            "notification_topics": obj.get("notification_topics")
         })
         return _obj
 

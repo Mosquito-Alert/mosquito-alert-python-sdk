@@ -36,7 +36,10 @@ class TestUserRequest(unittest.TestCase):
         model = UserRequest()
         if include_optional:
             return UserRequest(
-                locale = 'en'
+                locale = 'en',
+                notification_topics = [
+                    '0'
+                    ]
             )
         else:
             return UserRequest(

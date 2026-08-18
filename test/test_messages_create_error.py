@@ -36,14 +36,14 @@ class TestMessagesCreateError(unittest.TestCase):
         model = MessagesCreateError()
         if include_optional:
             return MessagesCreateError(
-                attr = 'audience.locale',
-                code = 'invalid_choice',
+                attr = 'audience.notification_topics.INDEX',
+                code = 'blank',
                 detail = ''
             )
         else:
             return MessagesCreateError(
-                attr = 'audience.locale',
-                code = 'invalid_choice',
+                attr = 'audience.notification_topics.INDEX',
+                code = 'blank',
                 detail = '',
         )
         """

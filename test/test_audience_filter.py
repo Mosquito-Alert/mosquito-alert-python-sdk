@@ -39,7 +39,10 @@ class TestAudienceFilter(unittest.TestCase):
                 last_login_before = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 last_login_after = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 in_area = None,
-                locale = 'en'
+                locale = 'en',
+                notification_topics = [
+                    ''
+                    ]
             )
         else:
             return AudienceFilter(

@@ -41,7 +41,8 @@ class User(BaseModel):
     language_iso: StrictStr = Field(description="ISO 639-1 code")
     is_guest: StrictBool
     score: UserScore
-    __properties: ClassVar[List[str]] = ["uuid", "username", "first_name", "last_name", "full_name", "registration_time", "locale", "language_iso", "is_guest", "score"]
+    notification_topics: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["uuid", "username", "first_name", "last_name", "full_name", "registration_time", "locale", "language_iso", "is_guest", "score", "notification_topics"]
 
     @field_validator('locale')
     def locale_validate_enum(cls, value):
@@ -134,7 +135,8 @@ class User(BaseModel):
             "locale": obj.get("locale") if obj.get("locale") is not None else 'en',
             "language_iso": obj.get("language_iso") if obj.get("language_iso") is not None else 'en',
             "is_guest": obj.get("is_guest"),
-            "score": UserScore.from_dict(obj["score"]) if obj.get("score") is not None else None
+            "score": UserScore.from_dict(obj["score"]) if obj.get("score") is not None else None,
+            "notification_topics": obj.get("notification_topics")
         })
         return _obj
 

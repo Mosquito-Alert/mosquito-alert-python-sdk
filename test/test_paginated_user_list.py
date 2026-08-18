@@ -50,7 +50,10 @@ class TestPaginatedUserList(unittest.TestCase):
                         locale = 'en', 
                         language_iso = 'en', 
                         is_guest = True, 
-                        score = null, )
+                        score = null, 
+                        notification_topics = [
+                            ''
+                            ], )
                     ]
             )
         else:
@@ -67,7 +70,10 @@ class TestPaginatedUserList(unittest.TestCase):
                         locale = 'en', 
                         language_iso = 'en', 
                         is_guest = True, 
-                        score = null, )
+                        score = null, 
+                        notification_topics = [
+                            ''
+                            ], )
                     ],
         )
         """

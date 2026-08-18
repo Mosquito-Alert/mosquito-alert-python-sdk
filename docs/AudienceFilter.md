@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **last_login_after** | **datetime** |  | [optional] 
 **in_area** | **object** | Filter users whose last known location is within the specified area. The area should be provided as a GeoJSON geometry object. | [optional] 
 **locale** | **str** |  | [optional] 
+**notification_topics** | **List[str]** | Filter users subscribed to any of the provided notification topics. | [optional] 
 
 ## Example
 

@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -33,7 +34,8 @@ class AudienceFilterRequest(BaseModel):
     last_login_after: Optional[datetime] = None
     in_area: Optional[Any] = Field(default=None, description="Filter users whose last known location is within the specified area. The area should be provided as a GeoJSON geometry object.")
     locale: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["last_login_before", "last_login_after", "in_area", "locale"]
+    notification_topics: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = Field(default=None, description="Filter users subscribed to any of the provided notification topics.")
+    __properties: ClassVar[List[str]] = ["last_login_before", "last_login_after", "in_area", "locale", "notification_topics"]
 
     @field_validator('locale')
     def locale_validate_enum(cls, value):
@@ -104,7 +106,8 @@ class AudienceFilterRequest(BaseModel):
             "last_login_before": obj.get("last_login_before"),
             "last_login_after": obj.get("last_login_after"),
             "in_area": obj.get("in_area"),
-            "locale": obj.get("locale")
+            "locale": obj.get("locale"),
+            "notification_topics": obj.get("notification_topics")
         })
         return _obj
 

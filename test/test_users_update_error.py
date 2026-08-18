@@ -36,14 +36,14 @@ class TestUsersUpdateError(unittest.TestCase):
         model = UsersUpdateError()
         if include_optional:
             return UsersUpdateError(
-                attr = 'locale',
-                code = 'invalid_choice',
+                attr = 'notification_topics.INDEX',
+                code = 'blank',
                 detail = ''
             )
         else:
             return UsersUpdateError(
-                attr = 'locale',
-                code = 'invalid_choice',
+                attr = 'notification_topics.INDEX',
+                code = 'blank',
                 detail = '',
         )
         """
