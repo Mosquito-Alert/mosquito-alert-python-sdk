@@ -23,6 +23,7 @@ from mosquito_alert.models.annotation_permission import AnnotationPermission
 from mosquito_alert.models.annotation_request import AnnotationRequest
 from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair
 from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest
+from mosquito_alert.models.area_meta import AreaMeta
 from mosquito_alert.models.assignment import Assignment
 from mosquito_alert.models.audience_filter import AudienceFilter
 from mosquito_alert.models.audience_filter_request import AudienceFilterRequest
@@ -629,6 +630,7 @@ from mosquito_alert.models.paginated_notification_list import PaginatedNotificat
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList
 from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList
+from mosquito_alert.models.paginated_report_stats_response_list import PaginatedReportStatsResponseList
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList
 from mosquito_alert.models.paginated_user_list import PaginatedUserList
 from mosquito_alert.models.paginated_workspace_collaboration_group_list import PaginatedWorkspaceCollaborationGroupList
@@ -694,6 +696,9 @@ from mosquito_alert.models.point import Point
 from mosquito_alert.models.point_request import PointRequest
 from mosquito_alert.models.prediction_score import PredictionScore
 from mosquito_alert.models.prediction_score_request import PredictionScoreRequest
+from mosquito_alert.models.report_stats_meta import ReportStatsMeta
+from mosquito_alert.models.report_stats_response import ReportStatsResponse
+from mosquito_alert.models.report_stats_row import ReportStatsRow
 from mosquito_alert.models.review_permission import ReviewPermission
 from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser
 from mosquito_alert.models.simple_photo import SimplePhoto
@@ -707,6 +712,7 @@ from mosquito_alert.models.species_characteristics import SpeciesCharacteristics
 from mosquito_alert.models.species_characteristics_request import SpeciesCharacteristicsRequest
 from mosquito_alert.models.species_classification import SpeciesClassification
 from mosquito_alert.models.species_classification_request import SpeciesClassificationRequest
+from mosquito_alert.models.statistics_permission import StatisticsPermission
 from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent
 from mosquito_alert.models.taxa_list_validation_error import TaxaListValidationError
 from mosquito_alert.models.taxon import Taxon

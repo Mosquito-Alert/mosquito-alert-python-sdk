@@ -17,6 +17,7 @@ from mosquito_alert.api.partners_api import PartnersApi
 from mosquito_alert.api.permissions_api import PermissionsApi
 from mosquito_alert.api.photos_api import PhotosApi
 from mosquito_alert.api.ping_api import PingApi
+from mosquito_alert.api.stats_api import StatsApi
 from mosquito_alert.api.taxa_api import TaxaApi
 from mosquito_alert.api.users_api import UsersApi
 from mosquito_alert.api.workspaces_api import WorkspacesApi

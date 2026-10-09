@@ -12,6 +12,7 @@ docs/AnnotationPermission.md
 docs/AnnotationRequest.md
 docs/AppUserTokenObtainPair.md
 docs/AppUserTokenObtainPairRequest.md
+docs/AreaMeta.md
 docs/Assignment.md
 docs/AudienceFilter.md
 docs/AudienceFilterRequest.md
@@ -630,6 +631,7 @@ docs/PaginatedNotificationList.md
 docs/PaginatedObservationList.md
 docs/PaginatedPartnerList.md
 docs/PaginatedPhotoPredictionList.md
+docs/PaginatedReportStatsResponseList.md
 docs/PaginatedTaxonList.md
 docs/PaginatedUserList.md
 docs/PaginatedWorkspaceCollaborationGroupList.md
@@ -699,6 +701,9 @@ docs/Point.md
 docs/PointRequest.md
 docs/PredictionScore.md
 docs/PredictionScoreRequest.md
+docs/ReportStatsMeta.md
+docs/ReportStatsResponse.md
+docs/ReportStatsRow.md
 docs/ReviewPermission.md
 docs/SimpleAnnotatorUser.md
 docs/SimplePhoto.md
@@ -712,6 +717,8 @@ docs/SpeciesCharacteristics.md
 docs/SpeciesCharacteristicsRequest.md
 docs/SpeciesClassification.md
 docs/SpeciesClassificationRequest.md
+docs/StatisticsPermission.md
+docs/StatsApi.md
 docs/TaxaApi.md
 docs/TaxaListRankErrorComponent.md
 docs/TaxaListValidationError.md
@@ -771,6 +778,7 @@ mosquito_alert/api/partners_api.py
 mosquito_alert/api/permissions_api.py
 mosquito_alert/api/photos_api.py
 mosquito_alert/api/ping_api.py
+mosquito_alert/api/stats_api.py
 mosquito_alert/api/taxa_api.py
 mosquito_alert/api/users_api.py
 mosquito_alert/api/workspaces_api.py
@@ -788,6 +796,7 @@ mosquito_alert/models/annotation_permission.py
 mosquito_alert/models/annotation_request.py
 mosquito_alert/models/app_user_token_obtain_pair.py
 mosquito_alert/models/app_user_token_obtain_pair_request.py
+mosquito_alert/models/area_meta.py
 mosquito_alert/models/assignment.py
 mosquito_alert/models/audience_filter.py
 mosquito_alert/models/audience_filter_request.py
@@ -1394,6 +1403,7 @@ mosquito_alert/models/paginated_notification_list.py
 mosquito_alert/models/paginated_observation_list.py
 mosquito_alert/models/paginated_partner_list.py
 mosquito_alert/models/paginated_photo_prediction_list.py
+mosquito_alert/models/paginated_report_stats_response_list.py
 mosquito_alert/models/paginated_taxon_list.py
 mosquito_alert/models/paginated_user_list.py
 mosquito_alert/models/paginated_workspace_collaboration_group_list.py
@@ -1459,6 +1469,9 @@ mosquito_alert/models/point.py
 mosquito_alert/models/point_request.py
 mosquito_alert/models/prediction_score.py
 mosquito_alert/models/prediction_score_request.py
+mosquito_alert/models/report_stats_meta.py
+mosquito_alert/models/report_stats_response.py
+mosquito_alert/models/report_stats_row.py
 mosquito_alert/models/review_permission.py
 mosquito_alert/models/simple_annotator_user.py
 mosquito_alert/models/simple_photo.py
@@ -1472,6 +1485,7 @@ mosquito_alert/models/species_characteristics.py
 mosquito_alert/models/species_characteristics_request.py
 mosquito_alert/models/species_classification.py
 mosquito_alert/models/species_classification_request.py
+mosquito_alert/models/statistics_permission.py
 mosquito_alert/models/taxa_list_rank_error_component.py
 mosquito_alert/models/taxa_list_validation_error.py
 mosquito_alert/models/taxon.py
@@ -1526,6 +1540,7 @@ test/test_annotation_permission.py
 test/test_annotation_request.py
 test/test_app_user_token_obtain_pair.py
 test/test_app_user_token_obtain_pair_request.py
+test/test_area_meta.py
 test/test_assignment.py
 test/test_audience_filter.py
 test/test_audience_filter_request.py
@@ -2144,6 +2159,7 @@ test/test_paginated_notification_list.py
 test/test_paginated_observation_list.py
 test/test_paginated_partner_list.py
 test/test_paginated_photo_prediction_list.py
+test/test_paginated_report_stats_response_list.py
 test/test_paginated_taxon_list.py
 test/test_paginated_user_list.py
 test/test_paginated_workspace_collaboration_group_list.py
@@ -2213,6 +2229,9 @@ test/test_point.py
 test/test_point_request.py
 test/test_prediction_score.py
 test/test_prediction_score_request.py
+test/test_report_stats_meta.py
+test/test_report_stats_response.py
+test/test_report_stats_row.py
 test/test_review_permission.py
 test/test_simple_annotator_user.py
 test/test_simple_photo.py
@@ -2226,6 +2245,8 @@ test/test_species_characteristics.py
 test/test_species_characteristics_request.py
 test/test_species_classification.py
 test/test_species_classification_request.py
+test/test_statistics_permission.py
+test/test_stats_api.py
 test/test_taxa_api.py
 test/test_taxa_list_rank_error_component.py
 test/test_taxa_list_validation_error.py

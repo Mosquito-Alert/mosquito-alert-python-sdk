@@ -35,6 +35,7 @@ __all__ = [
     "PermissionsApi",
     "PhotosApi",
     "PingApi",
+    "StatsApi",
     "TaxaApi",
     "UsersApi",
     "WorkspacesApi",
@@ -56,6 +57,7 @@ __all__ = [
     "AnnotationRequest",
     "AppUserTokenObtainPair",
     "AppUserTokenObtainPairRequest",
+    "AreaMeta",
     "Assignment",
     "AudienceFilter",
     "AudienceFilterRequest",
@@ -662,6 +664,7 @@ __all__ = [
     "PaginatedObservationList",
     "PaginatedPartnerList",
     "PaginatedPhotoPredictionList",
+    "PaginatedReportStatsResponseList",
     "PaginatedTaxonList",
     "PaginatedUserList",
     "PaginatedWorkspaceCollaborationGroupList",
@@ -727,6 +730,9 @@ __all__ = [
     "PointRequest",
     "PredictionScore",
     "PredictionScoreRequest",
+    "ReportStatsMeta",
+    "ReportStatsResponse",
+    "ReportStatsRow",
     "ReviewPermission",
     "SimpleAnnotatorUser",
     "SimplePhoto",
@@ -740,6 +746,7 @@ __all__ = [
     "SpeciesCharacteristicsRequest",
     "SpeciesClassification",
     "SpeciesClassificationRequest",
+    "StatisticsPermission",
     "TaxaListRankErrorComponent",
     "TaxaListValidationError",
     "Taxon",
@@ -796,6 +803,7 @@ from mosquito_alert.api.partners_api import PartnersApi as PartnersApi
 from mosquito_alert.api.permissions_api import PermissionsApi as PermissionsApi
 from mosquito_alert.api.photos_api import PhotosApi as PhotosApi
 from mosquito_alert.api.ping_api import PingApi as PingApi
+from mosquito_alert.api.stats_api import StatsApi as StatsApi
 from mosquito_alert.api.taxa_api import TaxaApi as TaxaApi
 from mosquito_alert.api.users_api import UsersApi as UsersApi
 from mosquito_alert.api.workspaces_api import WorkspacesApi as WorkspacesApi
@@ -821,6 +829,7 @@ from mosquito_alert.models.annotation_permission import AnnotationPermission as 
 from mosquito_alert.models.annotation_request import AnnotationRequest as AnnotationRequest
 from mosquito_alert.models.app_user_token_obtain_pair import AppUserTokenObtainPair as AppUserTokenObtainPair
 from mosquito_alert.models.app_user_token_obtain_pair_request import AppUserTokenObtainPairRequest as AppUserTokenObtainPairRequest
+from mosquito_alert.models.area_meta import AreaMeta as AreaMeta
 from mosquito_alert.models.assignment import Assignment as Assignment
 from mosquito_alert.models.audience_filter import AudienceFilter as AudienceFilter
 from mosquito_alert.models.audience_filter_request import AudienceFilterRequest as AudienceFilterRequest
@@ -1427,6 +1436,7 @@ from mosquito_alert.models.paginated_notification_list import PaginatedNotificat
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList as PaginatedObservationList
 from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList as PaginatedPartnerList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList as PaginatedPhotoPredictionList
+from mosquito_alert.models.paginated_report_stats_response_list import PaginatedReportStatsResponseList as PaginatedReportStatsResponseList
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList as PaginatedTaxonList
 from mosquito_alert.models.paginated_user_list import PaginatedUserList as PaginatedUserList
 from mosquito_alert.models.paginated_workspace_collaboration_group_list import PaginatedWorkspaceCollaborationGroupList as PaginatedWorkspaceCollaborationGroupList
@@ -1492,6 +1502,9 @@ from mosquito_alert.models.point import Point as Point
 from mosquito_alert.models.point_request import PointRequest as PointRequest
 from mosquito_alert.models.prediction_score import PredictionScore as PredictionScore
 from mosquito_alert.models.prediction_score_request import PredictionScoreRequest as PredictionScoreRequest
+from mosquito_alert.models.report_stats_meta import ReportStatsMeta as ReportStatsMeta
+from mosquito_alert.models.report_stats_response import ReportStatsResponse as ReportStatsResponse
+from mosquito_alert.models.report_stats_row import ReportStatsRow as ReportStatsRow
 from mosquito_alert.models.review_permission import ReviewPermission as ReviewPermission
 from mosquito_alert.models.simple_annotator_user import SimpleAnnotatorUser as SimpleAnnotatorUser
 from mosquito_alert.models.simple_photo import SimplePhoto as SimplePhoto
@@ -1505,6 +1518,7 @@ from mosquito_alert.models.species_characteristics import SpeciesCharacteristics
 from mosquito_alert.models.species_characteristics_request import SpeciesCharacteristicsRequest as SpeciesCharacteristicsRequest
 from mosquito_alert.models.species_classification import SpeciesClassification as SpeciesClassification
 from mosquito_alert.models.species_classification_request import SpeciesClassificationRequest as SpeciesClassificationRequest
+from mosquito_alert.models.statistics_permission import StatisticsPermission as StatisticsPermission
 from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent as TaxaListRankErrorComponent
 from mosquito_alert.models.taxa_list_validation_error import TaxaListValidationError as TaxaListValidationError
 from mosquito_alert.models.taxon import Taxon as Taxon

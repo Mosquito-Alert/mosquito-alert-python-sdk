@@ -55,6 +55,11 @@ class TestPermissions(unittest.TestCase):
                     add = True, 
                     change = True, 
                     view = True, 
+                    delete = True, ),
+                statistics = mosquito_alert.models.statistics_permission.StatisticsPermission(
+                    add = True, 
+                    change = True, 
+                    view = True, 
                     delete = True, )
             )
         else:
@@ -75,6 +80,11 @@ class TestPermissions(unittest.TestCase):
                     view = True, 
                     delete = True, ),
                 message = mosquito_alert.models.message_permission.MessagePermission(
+                    add = True, 
+                    change = True, 
+                    view = True, 
+                    delete = True, ),
+                statistics = mosquito_alert.models.statistics_permission.StatisticsPermission(
                     add = True, 
                     change = True, 
                     view = True, 

@@ -24,6 +24,7 @@ from mosquito_alert.models.annotation_permission import AnnotationPermission
 from mosquito_alert.models.identification_task_permission import IdentificationTaskPermission
 from mosquito_alert.models.message_permission import MessagePermission
 from mosquito_alert.models.review_permission import ReviewPermission
+from mosquito_alert.models.statistics_permission import StatisticsPermission
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -36,7 +37,8 @@ class Permissions(BaseModel):
     identification_task: IdentificationTaskPermission
     review: ReviewPermission
     message: MessagePermission
-    __properties: ClassVar[List[str]] = ["annotation", "identification_task", "review", "message"]
+    statistics: StatisticsPermission
+    __properties: ClassVar[List[str]] = ["annotation", "identification_task", "review", "message", "statistics"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,6 +91,9 @@ class Permissions(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of message
         if self.message:
             _dict['message'] = self.message.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of statistics
+        if self.statistics:
+            _dict['statistics'] = self.statistics.to_dict()
         return _dict
 
     @classmethod
@@ -104,7 +109,8 @@ class Permissions(BaseModel):
             "annotation": AnnotationPermission.from_dict(obj["annotation"]) if obj.get("annotation") is not None else None,
             "identification_task": IdentificationTaskPermission.from_dict(obj["identification_task"]) if obj.get("identification_task") is not None else None,
             "review": ReviewPermission.from_dict(obj["review"]) if obj.get("review") is not None else None,
-            "message": MessagePermission.from_dict(obj["message"]) if obj.get("message") is not None else None
+            "message": MessagePermission.from_dict(obj["message"]) if obj.get("message") is not None else None,
+            "statistics": StatisticsPermission.from_dict(obj["statistics"]) if obj.get("statistics") is not None else None
         })
         return _obj
 
