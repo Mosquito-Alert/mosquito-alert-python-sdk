@@ -113,8 +113,7 @@ class Location(BaseModel):
         _items = []
         if self.adm_boundaries:
             for _item_adm_boundaries in self.adm_boundaries:
-                if _item_adm_boundaries:
-                    _items.append(_item_adm_boundaries.to_dict())
+                _items.append(_item_adm_boundaries.to_dict() if _item_adm_boundaries is not None else None)
             _dict['adm_boundaries'] = _items
         # set to None if timezone (nullable) is None
         # and model_fields_set contains the field

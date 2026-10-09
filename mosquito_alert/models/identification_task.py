@@ -129,8 +129,7 @@ class IdentificationTask(BaseModel):
         _items = []
         if self.assignments:
             for _item_assignments in self.assignments:
-                if _item_assignments:
-                    _items.append(_item_assignments.to_dict())
+                _items.append(_item_assignments.to_dict() if _item_assignments is not None else None)
             _dict['assignments'] = _items
         # override the default output from pydantic by calling `to_dict()` of review
         if self.review:

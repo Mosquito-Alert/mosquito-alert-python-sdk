@@ -125,8 +125,7 @@ class BreedingSite(BaseModel):
         _items = []
         if self.photos:
             for _item_photos in self.photos:
-                if _item_photos:
-                    _items.append(_item_photos.to_dict())
+                _items.append(_item_photos.to_dict() if _item_photos is not None else None)
             _dict['photos'] = _items
         # set to None if note (nullable) is None
         # and model_fields_set contains the field

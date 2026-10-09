@@ -95,8 +95,7 @@ class Workspace(BaseModel):
         _items = []
         if self.memberships:
             for _item_memberships in self.memberships:
-                if _item_memberships:
-                    _items.append(_item_memberships.to_dict())
+                _items.append(_item_memberships.to_dict() if _item_memberships is not None else None)
             _dict['memberships'] = _items
         # set to None if name (nullable) is None
         # and model_fields_set contains the field

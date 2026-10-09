@@ -86,8 +86,7 @@ class BiteGeoJsonModelList(BaseModel):
         _items = []
         if self.features:
             for _item_features in self.features:
-                if _item_features:
-                    _items.append(_item_features.to_dict())
+                _items.append(_item_features.to_dict() if _item_features is not None else None)
             _dict['features'] = _items
         return _dict
 
