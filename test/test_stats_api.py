@@ -27,6 +27,12 @@ class TestStatsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_areas_list(self) -> None:
+        """Test case for areas_list
+
+        """
+        pass
+
     def test_list(self) -> None:
         """Test case for list
 

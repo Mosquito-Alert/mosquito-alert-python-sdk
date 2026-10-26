@@ -713,6 +713,7 @@ from mosquito_alert.models.species_characteristics_request import SpeciesCharact
 from mosquito_alert.models.species_classification import SpeciesClassification
 from mosquito_alert.models.species_classification_request import SpeciesClassificationRequest
 from mosquito_alert.models.statistics_permission import StatisticsPermission
+from mosquito_alert.models.stats_area import StatsArea
 from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent
 from mosquito_alert.models.taxa_list_validation_error import TaxaListValidationError
 from mosquito_alert.models.taxon import Taxon

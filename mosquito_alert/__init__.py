@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.4.9"
+__version__ = "0.4.10"
 
 # Define package exports
 __all__ = [
@@ -747,6 +747,7 @@ __all__ = [
     "SpeciesClassification",
     "SpeciesClassificationRequest",
     "StatisticsPermission",
+    "StatsArea",
     "TaxaListRankErrorComponent",
     "TaxaListValidationError",
     "Taxon",
@@ -1519,6 +1520,7 @@ from mosquito_alert.models.species_characteristics_request import SpeciesCharact
 from mosquito_alert.models.species_classification import SpeciesClassification as SpeciesClassification
 from mosquito_alert.models.species_classification_request import SpeciesClassificationRequest as SpeciesClassificationRequest
 from mosquito_alert.models.statistics_permission import StatisticsPermission as StatisticsPermission
+from mosquito_alert.models.stats_area import StatsArea as StatsArea
 from mosquito_alert.models.taxa_list_rank_error_component import TaxaListRankErrorComponent as TaxaListRankErrorComponent
 from mosquito_alert.models.taxa_list_validation_error import TaxaListValidationError as TaxaListValidationError
 from mosquito_alert.models.taxon import Taxon as Taxon

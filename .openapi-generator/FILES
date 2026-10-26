@@ -719,6 +719,7 @@ docs/SpeciesClassification.md
 docs/SpeciesClassificationRequest.md
 docs/StatisticsPermission.md
 docs/StatsApi.md
+docs/StatsArea.md
 docs/TaxaApi.md
 docs/TaxaListRankErrorComponent.md
 docs/TaxaListValidationError.md
@@ -1486,6 +1487,7 @@ mosquito_alert/models/species_characteristics_request.py
 mosquito_alert/models/species_classification.py
 mosquito_alert/models/species_classification_request.py
 mosquito_alert/models/statistics_permission.py
+mosquito_alert/models/stats_area.py
 mosquito_alert/models/taxa_list_rank_error_component.py
 mosquito_alert/models/taxa_list_validation_error.py
 mosquito_alert/models/taxon.py
@@ -2247,6 +2249,7 @@ test/test_species_classification.py
 test/test_species_classification_request.py
 test/test_statistics_permission.py
 test/test_stats_api.py
+test/test_stats_area.py
 test/test_taxa_api.py
 test/test_taxa_list_rank_error_component.py
 test/test_taxa_list_validation_error.py
