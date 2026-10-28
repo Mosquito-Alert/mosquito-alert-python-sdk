@@ -33,8 +33,8 @@ class TestStatsApi(unittest.TestCase):
         """
         pass
 
-    def test_list(self) -> None:
-        """Test case for list
+    def test_reports_list(self) -> None:
+        """Test case for reports_list
 
         """
         pass

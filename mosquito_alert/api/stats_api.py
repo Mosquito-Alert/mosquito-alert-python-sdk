@@ -58,7 +58,7 @@ class StatsApi:
     ) -> List[StatsArea]:
         """areas_list
 
-        Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=`.
+        Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=` .
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -124,7 +124,7 @@ class StatsApi:
     ) -> ApiResponse[List[StatsArea]]:
         """areas_list
 
-        Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=`.
+        Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=` .
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -190,7 +190,7 @@ class StatsApi:
     ) -> RESTResponseType:
         """areas_list
 
-        Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=`.
+        Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=` .
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -298,7 +298,7 @@ class StatsApi:
 
 
     @validate_call
-    def list(
+    def reports_list(
         self,
         area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".")] = None,
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
@@ -321,7 +321,7 @@ class StatsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[ReportStatsResponse]:
-        """list
+        """reports_list
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
@@ -363,7 +363,7 @@ class StatsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_serialize(
+        _param = self._reports_list_serialize(
             area=area,
             cumulative=cumulative,
             date_from=date_from,
@@ -396,7 +396,7 @@ class StatsApi:
 
 
     @validate_call
-    def list_with_http_info(
+    def reports_list_with_http_info(
         self,
         area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".")] = None,
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
@@ -419,7 +419,7 @@ class StatsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[ReportStatsResponse]]:
-        """list
+        """reports_list
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
@@ -461,7 +461,7 @@ class StatsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_serialize(
+        _param = self._reports_list_serialize(
             area=area,
             cumulative=cumulative,
             date_from=date_from,
@@ -494,7 +494,7 @@ class StatsApi:
 
 
     @validate_call
-    def list_without_preload_content(
+    def reports_list_without_preload_content(
         self,
         area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".")] = None,
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
@@ -517,7 +517,7 @@ class StatsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """list
+        """reports_list
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
@@ -559,7 +559,7 @@ class StatsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_serialize(
+        _param = self._reports_list_serialize(
             area=area,
             cumulative=cumulative,
             date_from=date_from,
@@ -587,7 +587,7 @@ class StatsApi:
         return response_data.response
 
 
-    def _list_serialize(
+    def _reports_list_serialize(
         self,
         area,
         cumulative,
@@ -676,7 +676,7 @@ class StatsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/stats/',
+            resource_path='/stats/reports/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

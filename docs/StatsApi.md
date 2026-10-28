@@ -5,13 +5,13 @@ All URIs are relative to *https://api.mosquitoalert.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**areas_list**](StatsApi.md#areas_list) | **GET** /stats/areas/ | 
-[**list**](StatsApi.md#list) | **GET** /stats/ | 
+[**reports_list**](StatsApi.md#reports_list) | **GET** /stats/reports/ | 
 
 
 # **areas_list**
 > List[StatsArea] areas_list()
 
-Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=`.
+Tree of areas (and their subdivisions) the current user can request statistics for. Each node's `key` is the value to send as `?area=` .
 
 ### Example
 
@@ -96,8 +96,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list**
-> List[ReportStatsResponse] list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
+# **reports_list**
+> List[ReportStatsResponse] reports_list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
 
 Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
@@ -155,11 +155,11 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     type = ['type_example'] # List[str] | Comma-separated subset of: bite, adult, site. (optional)
 
     try:
-        api_response = api_instance.list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
-        print("The response of StatsApi->list:\n")
+        api_response = api_instance.reports_list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
+        print("The response of StatsApi->reports_list:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling StatsApi->list: %s\n" % e)
+        print("Exception when calling StatsApi->reports_list: %s\n" % e)
 ```
 
 
