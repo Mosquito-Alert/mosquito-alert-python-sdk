@@ -97,7 +97,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedReportStatsResponseList list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, page=page, page_size=page_size, type=type)
+> List[ReportStatsResponse] list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
 
 Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
@@ -109,7 +109,7 @@ Aggregated report counts (for displaying data tables or charts, for example). Th
 
 ```python
 import mosquito_alert
-from mosquito_alert.models.paginated_report_stats_response_list import PaginatedReportStatsResponseList
+from mosquito_alert.models.report_stats_response import ReportStatsResponse
 from mosquito_alert.rest import ApiException
 from pprint import pprint
 
@@ -152,12 +152,10 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     group_by = ['group_by_example'] # List[str] | Comma-separated subset of: date, type, region. (optional)
     interval = 'interval_example' # str | The interval at which to aggregate data when grouping by date. Defaults to week. (optional)
     level = 56 # int | The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2. (optional)
-    page = 56 # int | A page number within the paginated result set. (optional)
-    page_size = 56 # int | Number of results to return per page. (optional)
     type = ['type_example'] # List[str] | Comma-separated subset of: bite, adult, site. (optional)
 
     try:
-        api_response = api_instance.list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, page=page, page_size=page_size, type=type)
+        api_response = api_instance.list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
         print("The response of StatsApi->list:\n")
         pprint(api_response)
     except Exception as e:
@@ -178,13 +176,11 @@ Name | Type | Description  | Notes
  **group_by** | [**List[str]**](str.md)| Comma-separated subset of: date, type, region. | [optional] 
  **interval** | **str**| The interval at which to aggregate data when grouping by date. Defaults to week. | [optional] 
  **level** | **int**| The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2. | [optional] 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
  **type** | [**List[str]**](str.md)| Comma-separated subset of: bite, adult, site. | [optional] 
 
 ### Return type
 
-[**PaginatedReportStatsResponseList**](PaginatedReportStatsResponseList.md)
+[**List[ReportStatsResponse]**](ReportStatsResponse.md)
 
 ### Authorization
 

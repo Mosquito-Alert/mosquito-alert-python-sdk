@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.4.10"
+__version__ = "0.4.11"
 
 # Define package exports
 __all__ = [
@@ -664,7 +664,6 @@ __all__ = [
     "PaginatedObservationList",
     "PaginatedPartnerList",
     "PaginatedPhotoPredictionList",
-    "PaginatedReportStatsResponseList",
     "PaginatedTaxonList",
     "PaginatedUserList",
     "PaginatedWorkspaceCollaborationGroupList",
@@ -1437,7 +1436,6 @@ from mosquito_alert.models.paginated_notification_list import PaginatedNotificat
 from mosquito_alert.models.paginated_observation_list import PaginatedObservationList as PaginatedObservationList
 from mosquito_alert.models.paginated_partner_list import PaginatedPartnerList as PaginatedPartnerList
 from mosquito_alert.models.paginated_photo_prediction_list import PaginatedPhotoPredictionList as PaginatedPhotoPredictionList
-from mosquito_alert.models.paginated_report_stats_response_list import PaginatedReportStatsResponseList as PaginatedReportStatsResponseList
 from mosquito_alert.models.paginated_taxon_list import PaginatedTaxonList as PaginatedTaxonList
 from mosquito_alert.models.paginated_user_list import PaginatedUserList as PaginatedUserList
 from mosquito_alert.models.paginated_workspace_collaboration_group_list import PaginatedWorkspaceCollaborationGroupList as PaginatedWorkspaceCollaborationGroupList

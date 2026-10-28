@@ -631,7 +631,6 @@ docs/PaginatedNotificationList.md
 docs/PaginatedObservationList.md
 docs/PaginatedPartnerList.md
 docs/PaginatedPhotoPredictionList.md
-docs/PaginatedReportStatsResponseList.md
 docs/PaginatedTaxonList.md
 docs/PaginatedUserList.md
 docs/PaginatedWorkspaceCollaborationGroupList.md
@@ -1404,7 +1403,6 @@ mosquito_alert/models/paginated_notification_list.py
 mosquito_alert/models/paginated_observation_list.py
 mosquito_alert/models/paginated_partner_list.py
 mosquito_alert/models/paginated_photo_prediction_list.py
-mosquito_alert/models/paginated_report_stats_response_list.py
 mosquito_alert/models/paginated_taxon_list.py
 mosquito_alert/models/paginated_user_list.py
 mosquito_alert/models/paginated_workspace_collaboration_group_list.py
@@ -2161,7 +2159,6 @@ test/test_paginated_notification_list.py
 test/test_paginated_observation_list.py
 test/test_paginated_partner_list.py
 test/test_paginated_photo_prediction_list.py
-test/test_paginated_report_stats_response_list.py
 test/test_paginated_taxon_list.py
 test/test_paginated_user_list.py
 test/test_paginated_workspace_collaboration_group_list.py

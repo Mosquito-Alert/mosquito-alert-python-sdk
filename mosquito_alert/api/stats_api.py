@@ -19,7 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
-from mosquito_alert.models.paginated_report_stats_response_list import PaginatedReportStatsResponseList
+from mosquito_alert.models.report_stats_response import ReportStatsResponse
 from mosquito_alert.models.stats_area import StatsArea
 
 from mosquito_alert.api_client import ApiClient, RequestSerialized
@@ -307,8 +307,6 @@ class StatsApi:
         group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
         _request_timeout: Union[
             None,
@@ -322,7 +320,7 @@ class StatsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaginatedReportStatsResponseList:
+    ) -> List[ReportStatsResponse]:
         """list
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
@@ -341,10 +339,6 @@ class StatsApi:
         :type interval: str
         :param level: The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.
         :type level: int
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
         :param type: Comma-separated subset of: bite, adult, site.
         :type type: List[str]
         :param _request_timeout: timeout setting for this request. If one
@@ -377,8 +371,6 @@ class StatsApi:
             group_by=group_by,
             interval=interval,
             level=level,
-            page=page,
-            page_size=page_size,
             type=type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -390,7 +382,7 @@ class StatsApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedReportStatsResponseList",
+            '200': "List[ReportStatsResponse]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -413,8 +405,6 @@ class StatsApi:
         group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
         _request_timeout: Union[
             None,
@@ -428,7 +418,7 @@ class StatsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaginatedReportStatsResponseList]:
+    ) -> ApiResponse[List[ReportStatsResponse]]:
         """list
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
@@ -447,10 +437,6 @@ class StatsApi:
         :type interval: str
         :param level: The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.
         :type level: int
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
         :param type: Comma-separated subset of: bite, adult, site.
         :type type: List[str]
         :param _request_timeout: timeout setting for this request. If one
@@ -483,8 +469,6 @@ class StatsApi:
             group_by=group_by,
             interval=interval,
             level=level,
-            page=page,
-            page_size=page_size,
             type=type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -496,7 +480,7 @@ class StatsApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedReportStatsResponseList",
+            '200': "List[ReportStatsResponse]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -519,8 +503,6 @@ class StatsApi:
         group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
         _request_timeout: Union[
             None,
@@ -553,10 +535,6 @@ class StatsApi:
         :type interval: str
         :param level: The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.
         :type level: int
-        :param page: A page number within the paginated result set.
-        :type page: int
-        :param page_size: Number of results to return per page.
-        :type page_size: int
         :param type: Comma-separated subset of: bite, adult, site.
         :type type: List[str]
         :param _request_timeout: timeout setting for this request. If one
@@ -589,8 +567,6 @@ class StatsApi:
             group_by=group_by,
             interval=interval,
             level=level,
-            page=page,
-            page_size=page_size,
             type=type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -602,7 +578,7 @@ class StatsApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "PaginatedReportStatsResponseList",
+            '200': "List[ReportStatsResponse]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -620,8 +596,6 @@ class StatsApi:
         group_by,
         interval,
         level,
-        page,
-        page_size,
         type,
         _request_auth,
         _content_type,
@@ -674,14 +648,6 @@ class StatsApi:
         if level is not None:
             
             _query_params.append(('level', level))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
             
         if type is not None:
             
