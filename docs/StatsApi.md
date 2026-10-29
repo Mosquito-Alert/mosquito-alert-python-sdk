@@ -97,7 +97,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reports_list**
-> List[ReportStatsResponse] reports_list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
+> ReportStatsResponse reports_list(area=area, cumulative=cumulative, date_from=date_from, date_to=date_to, group_by=group_by, interval=interval, level=level, type=type)
 
 Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ReportStatsResponse]**](ReportStatsResponse.md)
+[**ReportStatsResponse**](ReportStatsResponse.md)
 
 ### Authorization
 

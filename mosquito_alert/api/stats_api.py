@@ -320,7 +320,7 @@ class StatsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ReportStatsResponse]:
+    ) -> ReportStatsResponse:
         """reports_list
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
@@ -382,7 +382,7 @@ class StatsApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "List[ReportStatsResponse]",
+            '200': "ReportStatsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -418,7 +418,7 @@ class StatsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ReportStatsResponse]]:
+    ) -> ApiResponse[ReportStatsResponse]:
         """reports_list
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
@@ -480,7 +480,7 @@ class StatsApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "List[ReportStatsResponse]",
+            '200': "ReportStatsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -578,7 +578,7 @@ class StatsApi:
             '401': "ErrorResponse401",
             '403': "ErrorResponse403",
             '404': "ErrorResponse404",
-            '200': "List[ReportStatsResponse]",
+            '200': "ReportStatsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
