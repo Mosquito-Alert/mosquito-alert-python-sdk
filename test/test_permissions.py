@@ -60,8 +60,7 @@ class TestPermissions(unittest.TestCase):
                     add = True, 
                     change = True, 
                     view = True, 
-                    delete = True, 
-                    view_world = True, )
+                    delete = True, )
             )
         else:
             return Permissions(
@@ -89,8 +88,7 @@ class TestPermissions(unittest.TestCase):
                     add = True, 
                     change = True, 
                     view = True, 
-                    delete = True, 
-                    view_world = True, ),
+                    delete = True, ),
         )
         """
 

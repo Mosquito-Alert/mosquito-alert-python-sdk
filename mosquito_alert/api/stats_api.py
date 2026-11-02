@@ -300,11 +300,11 @@ class StatsApi:
     @validate_call
     def reports_list(
         self,
-        area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".")] = None,
+        area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\". If omitted, the request applies to the whole world.")] = None,
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
         date_from: Optional[StrictStr] = None,
         date_to: Optional[StrictStr] = None,
-        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region, country.")] = None,
+        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
@@ -325,7 +325,7 @@ class StatsApi:
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
-        :param area: \"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".
+        :param area: \"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\". If omitted, the request applies to the whole world.
         :type area: str
         :param cumulative: Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.
         :type cumulative: bool
@@ -333,7 +333,7 @@ class StatsApi:
         :type date_from: str
         :param date_to:
         :type date_to: str
-        :param group_by: Comma-separated subset of: date, type, region, country.
+        :param group_by: Comma-separated subset of: date, type, region.
         :type group_by: List[str]
         :param interval: The interval at which to aggregate data when grouping by date. Defaults to week.
         :type interval: str
@@ -398,11 +398,11 @@ class StatsApi:
     @validate_call
     def reports_list_with_http_info(
         self,
-        area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".")] = None,
+        area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\". If omitted, the request applies to the whole world.")] = None,
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
         date_from: Optional[StrictStr] = None,
         date_to: Optional[StrictStr] = None,
-        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region, country.")] = None,
+        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
@@ -423,7 +423,7 @@ class StatsApi:
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
-        :param area: \"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".
+        :param area: \"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\". If omitted, the request applies to the whole world.
         :type area: str
         :param cumulative: Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.
         :type cumulative: bool
@@ -431,7 +431,7 @@ class StatsApi:
         :type date_from: str
         :param date_to:
         :type date_to: str
-        :param group_by: Comma-separated subset of: date, type, region, country.
+        :param group_by: Comma-separated subset of: date, type, region.
         :type group_by: List[str]
         :param interval: The interval at which to aggregate data when grouping by date. Defaults to week.
         :type interval: str
@@ -496,11 +496,11 @@ class StatsApi:
     @validate_call
     def reports_list_without_preload_content(
         self,
-        area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".")] = None,
+        area: Annotated[Optional[StrictStr], Field(description="\"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\". If omitted, the request applies to the whole world.")] = None,
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
         date_from: Optional[StrictStr] = None,
         date_to: Optional[StrictStr] = None,
-        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region, country.")] = None,
+        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
@@ -521,7 +521,7 @@ class StatsApi:
 
         Aggregated report counts (for displaying data tables or charts, for example). The keys present on each row of `data` depend on `group_by` (always includes `count`, plus `date` if grouped by date, `region_id`/`region_code`/`region_name` if grouped by region, and `type` if grouped by type).
 
-        :param area: \"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\".
+        :param area: \"\\<level\\>:\\<id\\>\", e.g. \"country:ES\" or \"nuts2:34\". If omitted, the request applies to the whole world.
         :type area: str
         :param cumulative: Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.
         :type cumulative: bool
@@ -529,7 +529,7 @@ class StatsApi:
         :type date_from: str
         :param date_to:
         :type date_to: str
-        :param group_by: Comma-separated subset of: date, type, region, country.
+        :param group_by: Comma-separated subset of: date, type, region.
         :type group_by: List[str]
         :param interval: The interval at which to aggregate data when grouping by date. Defaults to week.
         :type interval: str

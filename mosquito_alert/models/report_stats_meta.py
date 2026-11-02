@@ -40,8 +40,8 @@ class ReportStatsMeta(BaseModel):
     def group_by_validate_enum(cls, value):
         """Validates the enum"""
         for i in value:
-            if i not in set(['date', 'type', 'region', 'country']):
-                raise ValueError("each list item must be one of ('date', 'type', 'region', 'country')")
+            if i not in set(['date', 'type', 'region']):
+                raise ValueError("each list item must be one of ('date', 'type', 'region')")
         return value
 
     @field_validator('interval')

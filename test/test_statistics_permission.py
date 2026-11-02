@@ -39,8 +39,7 @@ class TestStatisticsPermission(unittest.TestCase):
                 add = True,
                 change = True,
                 view = True,
-                delete = True,
-                view_world = True
+                delete = True
             )
         else:
             return StatisticsPermission(
@@ -48,7 +47,6 @@ class TestStatisticsPermission(unittest.TestCase):
                 change = True,
                 view = True,
                 delete = True,
-                view_world = True,
         )
         """
 
