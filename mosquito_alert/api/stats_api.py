@@ -304,7 +304,7 @@ class StatsApi:
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
         date_from: Optional[StrictStr] = None,
         date_to: Optional[StrictStr] = None,
-        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
+        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region, country.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
@@ -333,7 +333,7 @@ class StatsApi:
         :type date_from: str
         :param date_to:
         :type date_to: str
-        :param group_by: Comma-separated subset of: date, type, region.
+        :param group_by: Comma-separated subset of: date, type, region, country.
         :type group_by: List[str]
         :param interval: The interval at which to aggregate data when grouping by date. Defaults to week.
         :type interval: str
@@ -402,7 +402,7 @@ class StatsApi:
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
         date_from: Optional[StrictStr] = None,
         date_to: Optional[StrictStr] = None,
-        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
+        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region, country.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
@@ -431,7 +431,7 @@ class StatsApi:
         :type date_from: str
         :param date_to:
         :type date_to: str
-        :param group_by: Comma-separated subset of: date, type, region.
+        :param group_by: Comma-separated subset of: date, type, region, country.
         :type group_by: List[str]
         :param interval: The interval at which to aggregate data when grouping by date. Defaults to week.
         :type interval: str
@@ -500,7 +500,7 @@ class StatsApi:
         cumulative: Annotated[Optional[StrictBool], Field(description="Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False.")] = None,
         date_from: Optional[StrictStr] = None,
         date_to: Optional[StrictStr] = None,
-        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region.")] = None,
+        group_by: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: date, type, region, country.")] = None,
         interval: Annotated[Optional[StrictStr], Field(description="The interval at which to aggregate data when grouping by date. Defaults to week.")] = None,
         level: Annotated[Optional[StrictInt], Field(description="The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2.")] = None,
         type: Annotated[Optional[List[StrictStr]], Field(description="Comma-separated subset of: bite, adult, site.")] = None,
@@ -529,7 +529,7 @@ class StatsApi:
         :type date_from: str
         :param date_to:
         :type date_to: str
-        :param group_by: Comma-separated subset of: date, type, region.
+        :param group_by: Comma-separated subset of: date, type, region, country.
         :type group_by: List[str]
         :param interval: The interval at which to aggregate data when grouping by date. Defaults to week.
         :type interval: str

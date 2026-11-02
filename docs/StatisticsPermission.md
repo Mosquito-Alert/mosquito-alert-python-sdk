@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **change** | **bool** |  | 
 **view** | **bool** |  | 
 **delete** | **bool** |  | 
+**view_world** | **bool** |  | [readonly] 
 
 ## Example
 

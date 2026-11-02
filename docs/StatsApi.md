@@ -149,7 +149,7 @@ with mosquito_alert.ApiClient(configuration) as api_client:
     cumulative = True # bool | Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False. (optional)
     date_from = 'date_from_example' # str |  (optional)
     date_to = 'date_to_example' # str |  (optional)
-    group_by = ['group_by_example'] # List[str] | Comma-separated subset of: date, type, region. (optional)
+    group_by = ['group_by_example'] # List[str] | Comma-separated subset of: date, type, region, country. (optional)
     interval = 'interval_example' # str | The interval at which to aggregate data when grouping by date. Defaults to week. (optional)
     level = 56 # int | The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2. (optional)
     type = ['type_example'] # List[str] | Comma-separated subset of: bite, adult, site. (optional)
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
  **cumulative** | **bool**| Whether to return cumulative counts over time. It only applies when grouping by date. Defaults to False. | [optional] 
  **date_from** | **str**|  | [optional] 
  **date_to** | **str**|  | [optional] 
- **group_by** | [**List[str]**](str.md)| Comma-separated subset of: date, type, region. | [optional] 
+ **group_by** | [**List[str]**](str.md)| Comma-separated subset of: date, type, region, country. | [optional] 
  **interval** | **str**| The interval at which to aggregate data when grouping by date. Defaults to week. | [optional] 
  **level** | **int**| The NUTS level to aggregate by when grouping by region. Defaults to NUTS 2. | [optional] 
  **type** | [**List[str]**](str.md)| Comma-separated subset of: bite, adult, site. | [optional] 

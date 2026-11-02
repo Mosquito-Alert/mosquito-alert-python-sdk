@@ -32,7 +32,8 @@ class StatisticsPermission(BaseModel):
     change: StrictBool
     view: StrictBool
     delete: StrictBool
-    __properties: ClassVar[List[str]] = ["add", "change", "view", "delete"]
+    view_world: StrictBool
+    __properties: ClassVar[List[str]] = ["add", "change", "view", "delete", "view_world"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -64,8 +65,10 @@ class StatisticsPermission(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "view_world",
         ])
 
         _dict = self.model_dump(
@@ -88,7 +91,8 @@ class StatisticsPermission(BaseModel):
             "add": obj.get("add"),
             "change": obj.get("change"),
             "view": obj.get("view"),
-            "delete": obj.get("delete")
+            "delete": obj.get("delete"),
+            "view_world": obj.get("view_world")
         })
         return _obj
 
